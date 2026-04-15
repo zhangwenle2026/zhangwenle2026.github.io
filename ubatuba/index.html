@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="version" content="ubatuba-v1.1">
+<meta name="version" content="ubatuba-v1.2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Ubatuba · 乌巴图巴 — Where the Atlantic Forest Meets the Sea</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -31,13 +31,11 @@ img{display:block;max-width:100%}
 a{color:var(--lp-blue);text-decoration:none}
 
 /* ===== ISLAND HOME BUTTON ===== */
-.island-home{position:fixed;top:20px;left:24px;z-index:2000;display:flex;align-items:center;gap:5px;padding:0;background:none;border:none;color:rgba(255,255,255,.75);font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;letter-spacing:.3px;text-decoration:none;transition:all .35s ease;cursor:pointer;text-shadow:0 1px 8px rgba(0,0,0,.4)}
-.island-home:hover{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.6);transform:translateY(-1px)}
-.island-home .island-icon{font-size:14px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.3))}
+.island-home{position:fixed;top:16px;left:16px;z-index:2000;display:flex;align-items:center;gap:6px;padding:8px 16px 8px 12px;background:rgba(0,45,91,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:24px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;text-decoration:none;transition:all .3s ease;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.island-home:hover{background:rgba(0,45,91,.85);transform:scale(1.04);box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.island-home .island-icon{font-size:16px;line-height:1}
 .island-home .island-label{line-height:1}
-.island-home .island-arrow{font-size:11px;opacity:.5;margin-left:2px;transition:opacity .3s}
-.island-home:hover .island-arrow{opacity:.8}
-@media(max-width:768px){.island-home{top:14px;left:16px;font-size:13px}}
+@media(max-width:768px){.island-home{top:12px;left:12px;padding:6px 12px 6px 10px;font-size:12px}}
 
 /* ===== TYPOGRAPHY - LP MAGAZINE ===== */
 .t-display{font-family:'Playfair Display',serif;font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text-dark)}
@@ -61,7 +59,7 @@ a{color:var(--lp-blue);text-decoration:none}
 
 .sp-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:env(safe-area-inset-top) 28px env(safe-area-inset-bottom)}
 
-.sp-topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 0 0;padding-left:100px}
+.sp-topbar{display:flex;justify-content:flex-end;align-items:center;padding:24px 0 0;padding-left:100px}
 .sp-badge{font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15)}
 .sp-lang{display:flex;gap:2px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:3px;border:1px solid rgba(255,255,255,.15)}
 .sp-lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
@@ -257,7 +255,7 @@ a{color:var(--lp-blue);text-decoration:none}
 
 <!-- ===== ISLAND HOME LINK ===== -->
 <a class="island-home" href="https://zhangwenle2026.github.io/" title="Back to Island">
-  <span class="island-icon">🏝️</span><span class="island-label">Island</span><span class="island-arrow">←</span>
+  <span class="island-icon">🏝️</span><span class="island-label">Island</span>
 </a>
 
 <!-- ===== SPLASH / COVER ===== -->
@@ -270,44 +268,21 @@ a{color:var(--lp-blue);text-decoration:none}
   <div class="sp-overlay"></div>
   <div class="sp-content">
     <div class="sp-topbar">
-      <div class="sp-badge">Litoral Norte · São Paulo</div>
+      <!-- badge removed -->
       <div class="sp-lang">
         <button class="sp-lang-btn active" onclick="setBilingual('zh-en')">中·EN</button>
         <button class="sp-lang-btn" onclick="setBilingual('zh-pt')">中·PT</button>
       </div>
     </div>
     <div class="sp-hero">
-      <div class="sp-eyebrow">South America · Brazil</div>
+      <!-- eyebrow removed -->
       <div class="sp-title">Ubatuba</div>
       <div class="sp-subtitle" data-i18n="sp_subtitle">大西洋雨林与大海相遇的地方，100+ 个海滩，一座冲浪天堂。</div>
       <div class="sp-dots" id="sp-dots">
         <div class="sp-dot active"></div><div class="sp-dot"></div><div class="sp-dot"></div>
       </div>
     </div>
-    <div class="sp-choose" data-i18n="sp_choose">— 选择你的旅程 —</div>
-    <div class="sp-plans">
-      <div class="sp-plan" onclick="enterPlan(2)">
-        <div class="sp-plan-days" data-i18n="sp_2d_days">2天</div>
-        <div class="sp-plan-label">SURF & SUN</div>
-        <div class="sp-plan-desc" data-i18n="sp_2d_desc">海滩+生态，周末精华</div>
-        <div class="sp-plan-tag" data-i18n="sp_2d_tag">首次来 Ubatuba</div>
-      </div>
-      <div class="sp-plan" onclick="enterPlan(3)">
-        <div class="sp-plan-days" data-i18n="sp_3d_days">3天</div>
-        <div class="sp-plan-label">NATURE IMMERSION</div>
-        <div class="sp-plan-desc" data-i18n="sp_3d_desc">海滩+雨林+海龟，深度体验</div>
-        <div class="sp-plan-tag" data-i18n="sp_3d_tag">最受欢迎</div>
-      </div>
-      <div class="sp-plan" onclick="enterPlan(4)">
-        <div class="sp-plan-days" data-i18n="sp_4d_days">4天</div>
-        <div class="sp-plan-label">FULL DISCOVERY</div>
-        <div class="sp-plan-desc" data-i18n="sp_4d_desc">冲浪·瀑布·海岛·雨林全收</div>
-        <div class="sp-plan-tag" data-i18n="sp_4d_tag">探险玩家</div>
-      </div>
-    </div>
-    <div class="sp-scroll-hint">
-      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
+    <!-- plans & scroll hint removed — journey plans now inside Ch3 -->
   </div>
 </div>
 
@@ -550,7 +525,7 @@ a{color:var(--lp-blue);text-decoration:none}
 <!-- CHAPTER 3: YOUR JOURNEY         -->
 <!-- =============================== -->
 <div class="bleed" id="ch-journey">
-  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Ubatuba coastline">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg" alt="Ubatuba coastline">
   <div class="bleed-overlay"></div>
   <div class="bleed-caption">
     <div class="bleed-chapter" data-i18n="ch3_label">Chapter 03</div>

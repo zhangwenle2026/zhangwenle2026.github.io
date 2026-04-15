@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="version" content="island-v4.2">
+<meta name="version" content="island-v4.3">
 <title>Island — Travel Magazine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -31,10 +31,10 @@ body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-
 .bg-slide::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,
-    rgba(0,0,0,0.15) 0%,
-    rgba(0,0,0,0.08) 30%,
-    rgba(0,0,0,0.25) 60%,
-    rgba(0,0,0,0.65) 100%
+    rgba(0,0,0,0.3) 0%,
+    rgba(0,0,0,0.2) 30%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.7) 100%
   );
 }
 /* Ken Burns: each slide gets a unique animation */
@@ -91,7 +91,7 @@ body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-
   font-family:'Playfair Display',serif;font-weight:900;
   font-size:clamp(64px,14vw,140px);line-height:0.88;
   letter-spacing:-3px;color:#fff;
-  text-shadow:0 4px 60px rgba(0,0,0,.4);
+  text-shadow:0 4px 60px rgba(0,0,0,.6),0 2px 8px rgba(0,0,0,.4);
   margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards;
 }
 .hero-credit{

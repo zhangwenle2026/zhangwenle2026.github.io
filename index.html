@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="version" content="island-v1.3">
+<meta name="version" content="island-v2.0">
 <title>Island — Travel Magazine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   position:absolute;inset:0;
   background:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_b2caf5d9-b224-411a-a6eb-f8ab905f12bc.jpg') center/cover no-repeat;
   animation:kenBurns 25s ease-in-out infinite alternate;
-  filter:brightness(0.55);
+  filter:brightness(0.78);
 }
 @keyframes kenBurns{
   0%{transform:scale(1) translate(0,0)}
@@ -35,7 +35,7 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 }
 .hero-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);
+  background:linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.18) 40%,rgba(0,0,0,0.55) 100%);
 }
 .hero-content{
   position:relative;z-index:2;text-align:center;
@@ -50,27 +50,31 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   font-family:'Playfair Display',serif;font-weight:900;
   font-size:clamp(60px,12vw,120px);line-height:0.9;
   letter-spacing:-2px;color:#fff;
+  text-shadow:0 2px 40px rgba(0,0,0,.3);
   margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards;
 }
 .hero-subtitle{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,0.8);
+  font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,0.85);
   max-width:500px;margin:0 auto 40px;
+  text-shadow:0 1px 16px rgba(0,0,0,.3);
   opacity:0;animation:fadeUp .8s .7s forwards;
 }
 .hero-scroll{
-  opacity:0;animation:fadeUp .8s .9s forwards;
+  opacity:0;animation:fadeUp .8s .9s forwards;cursor:pointer;
 }
 .hero-scroll span{
-  display:block;width:24px;height:40px;border:2px solid rgba(255,255,255,0.5);
-  border-radius:12px;margin:0 auto;position:relative;
+  display:block;width:26px;height:44px;border:2px solid rgba(255,255,255,0.5);
+  border-radius:13px;margin:0 auto;position:relative;
+  transition:border-color .3s;
 }
+.hero-scroll:hover span{border-color:rgba(255,255,255,0.9)}
 .hero-scroll span::after{
   content:'';display:block;width:4px;height:8px;border-radius:2px;
-  background:rgba(255,255,255,0.7);position:absolute;left:50%;top:6px;
+  background:rgba(255,255,255,0.8);position:absolute;left:50%;top:7px;
   transform:translateX(-50%);animation:scrollDot 1.8s infinite;
 }
-@keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:0.3;transform:translateX(-50%) translateY(14px)}}
+@keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:0.3;transform:translateX(-50%) translateY(16px)}}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 .hero-eyebrow,.hero-title,.hero-subtitle,.hero-scroll{transform:translateY(20px)}
 
@@ -101,31 +105,41 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 .cards-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
   gap:40px;max-width:1100px;margin:0 auto;
+  perspective:1200px;
 }
 .mag-card{
   position:relative;border-radius:16px;overflow:hidden;
   aspect-ratio:3/4;cursor:pointer;
   box-shadow:0 20px 60px rgba(0,0,0,0.12);
-  transition:transform .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;
+  will-change:transform;
 }
 .mag-card:hover{
-  transform:translateY(-8px) scale(1.01);
-  box-shadow:0 32px 80px rgba(0,0,0,0.18);
+  transform:translateY(-12px) scale(1.015);
+  box-shadow:0 36px 80px rgba(0,0,0,0.2);
 }
 .mag-card-img{
-  position:absolute;inset:0;
+  position:absolute;inset:-8px;
   background-size:cover;background-position:center;
-  transition:transform 6s ease-out;
+  transition:transform 8s cubic-bezier(.25,.46,.45,.94);
 }
 .mag-card:hover .mag-card-img{
-  transform:scale(1.06);
+  transform:scale(1.08);
 }
 .mag-card-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.75) 100%);
+  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,0.72) 100%);
+  transition:background .5s;
+}
+.mag-card:hover .mag-card-overlay{
+  background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,0.78) 100%);
 }
 .mag-card-content{
   position:absolute;bottom:0;left:0;right:0;padding:32px;z-index:2;
+  transition:transform .5s cubic-bezier(.25,.46,.45,.94);
+}
+.mag-card:hover .mag-card-content{
+  transform:translateY(-4px);
 }
 .mag-card-issue{
   font-family:'Inter',sans-serif;font-weight:600;font-size:11px;
@@ -139,7 +153,7 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 }
 .mag-card-tagline{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5;
+  font-size:14px;color:rgba(255,255,255,0.78);line-height:1.5;
   margin-bottom:16px;
 }
 .mag-card-btn{
@@ -147,26 +161,27 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
   letter-spacing:1px;text-transform:uppercase;
   color:#fff;text-decoration:none;
-  padding:10px 20px;border:1.5px solid rgba(255,255,255,0.4);
-  border-radius:24px;transition:all .3s;
+  padding:10px 20px;border:1.5px solid rgba(255,255,255,0.35);
+  border-radius:24px;transition:all .35s;
+  backdrop-filter:blur(4px);background:rgba(255,255,255,0.06);
 }
 .mag-card-btn:hover{
-  background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.7);
 }
-.mag-card-btn svg{width:14px;height:14px;transition:transform .3s}
-.mag-card:hover .mag-card-btn svg{transform:translateX(3px)}
+.mag-card-btn svg{width:14px;height:14px;transition:transform .35s}
+.mag-card:hover .mag-card-btn svg{transform:translateX(4px)}
 
-/* ===== COMING SOON CARD ===== */
-.mag-card.coming-soon{opacity:0.7;cursor:default}
-.mag-card.coming-soon:hover{transform:none;box-shadow:0 20px 60px rgba(0,0,0,0.12)}
-.mag-card.coming-soon .mag-card-img{filter:grayscale(0.4)}
-.coming-badge{
-  display:inline-block;font-family:'Inter',sans-serif;font-weight:600;
-  font-size:10px;letter-spacing:2px;text-transform:uppercase;
-  color:var(--cream);background:rgba(255,255,255,0.15);
-  border:1px solid rgba(255,255,255,0.25);
-  padding:6px 14px;border-radius:20px;backdrop-filter:blur(4px);
+/* ===== SCROLL REVEAL (staggered) ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);
 }
+.reveal.visible{
+  opacity:1;transform:translateY(0);
+}
+.reveal.delay-1{transition-delay:.15s}
+.reveal.delay-2{transition-delay:.3s}
 
 /* ===== FOOTER ===== */
 .island-footer{
@@ -187,10 +202,6 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   color:rgba(255,255,255,0.2);
 }
 
-/* ===== SCROLL ANIMATIONS ===== */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
 /* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   .cards-grid{grid-template-columns:1fr;gap:28px;padding:0 4px}
@@ -207,19 +218,18 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 <body>
 
 <!-- ===== HERO COVER ===== -->
-<section class="hero">
+<section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-
     <h1 class="hero-title">Island</h1>
     <p class="hero-subtitle">Journeys worth taking. Stories worth telling.</p>
-    <div class="hero-scroll"><span></span></div>
+    <div class="hero-scroll" id="scrollCue" role="button" aria-label="Scroll to destinations"><span></span></div>
   </div>
 </section>
 
 <!-- ===== ISSUES GRID ===== -->
-<section class="issues">
+<section class="issues" id="issues">
   <div class="issues-header reveal">
     <p class="issues-eyebrow">Latest Issues</p>
     <h2 class="issues-title">Pick Your Destination</h2>
@@ -228,7 +238,7 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 
   <div class="cards-grid">
     <!-- Ubatuba -->
-    <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal" style="text-decoration:none">
+    <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal delay-1" style="text-decoration:none">
       <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg');background-position:center 40%"></div>
       <div class="mag-card-overlay"></div>
       <div class="mag-card-content">
@@ -243,7 +253,7 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
     </a>
 
     <!-- Paraty -->
-    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal" style="text-decoration:none">
+    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal delay-2" style="text-decoration:none">
       <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_abd4ef9b-942f-4c9f-bbb3-1f6bd6cbd939.jpg');background-position:center 30%"></div>
       <div class="mag-card-overlay"></div>
       <div class="mag-card-content">
@@ -267,13 +277,50 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 </footer>
 
 <script>
-// Scroll reveal
+/* === Scroll Reveal with Stagger === */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      obs.unobserve(e.target);
+    }
   });
-}, { threshold: 0.15 });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* === Hero Scroll Cue → Smooth Scroll to Issues === */
+document.getElementById('scrollCue').addEventListener('click', () => {
+  document.getElementById('issues').scrollIntoView({ behavior: 'smooth' });
+});
+
+/* === Card Tilt (subtle parallax on hover) === */
+document.querySelectorAll('.mag-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    card.style.transform = `translateY(-12px) scale(1.015) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+/* === Parallax: Hero bg moves on scroll === */
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      const bg = document.querySelector('.hero-bg');
+      if (bg && y < window.innerHeight) {
+        bg.style.transform = `scale(${1 + y * 0.0001}) translateY(${y * 0.3}px)`;
+      }
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
 </script>
 </body>
 </html>

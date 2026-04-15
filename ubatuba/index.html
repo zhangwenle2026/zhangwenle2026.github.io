@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="version" content="ubatuba-v1.1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Ubatuba · 乌巴图巴 — Where the Atlantic Forest Meets the Sea</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== LP MAGAZINE RESET & VARS ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lp-blue:#004F9F;
+  --lp-blue-dark:#002D5B;
+  --terra:#C4622D;
+  --terra-light:#E8956A;
+  --cream:#FDFBF7;
+  --warm-gray:#6B6560;
+  --text-dark:#1A1A1A;
+  --text-body:#3D3835;
+  --gold:#D4A853;
+  --forest:#1B7A4A;
+  --forest-dark:#0D5C33;
+  --chapter-gap:0;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px;background:var(--cream)}
+body{font-family:'Inter',sans-serif;color:var(--text-body);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--lp-blue);text-decoration:none}
+
+/* ===== ISLAND HOME BUTTON ===== */
+.island-home{position:fixed;top:16px;left:16px;z-index:2000;display:flex;align-items:center;gap:6px;padding:8px 16px 8px 12px;background:rgba(0,45,91,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:24px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;text-decoration:none;transition:all .3s ease;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.18)}
+.island-home:hover{background:rgba(0,45,91,.85);transform:scale(1.04);box-shadow:0 4px 20px rgba(0,0,0,.25)}
+.island-home .island-icon{font-size:16px;line-height:1}
+.island-home .island-label{line-height:1}
+@media(max-width:768px){.island-home{top:12px;left:12px;padding:6px 12px 6px 10px;font-size:12px}}
+
+/* ===== TYPOGRAPHY - LP MAGAZINE ===== */
+.t-display{font-family:'Playfair Display',serif;font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text-dark)}
+.t-heading{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;color:var(--text-dark)}
+.t-subhead{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra)}
+.t-body{font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.85;color:var(--text-body)}
+.t-caption{font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);letter-spacing:0.5px}
+.t-quote{font-family:'Libre Baskerville',serif;font-style:italic;font-size:22px;line-height:1.6;color:var(--lp-blue-dark)}
+
+/* ===== SPLASH / COVER ===== */
+#splash{position:fixed;inset:0;z-index:1000;background:#000;display:flex;flex-direction:column;transition:opacity .8s ease,visibility .8s ease}
+#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+
+.sp-carousel{position:absolute;inset:0;overflow:hidden}
+.sp-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.sp-slide.active{opacity:1}
+.sp-slide img{width:100%;height:100%;object-fit:cover;image-rendering:auto;animation:sp-ken 20s ease-in-out infinite alternate}
+@keyframes sp-ken{0%{transform:scale(1.02) translate(0,0)}100%{transform:scale(1.06) translate(-0.5%,-0.5%)}}
+
+.sp-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.8) 100%);z-index:1}
+
+.sp-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:env(safe-area-inset-top) 28px env(safe-area-inset-bottom)}
+
+.sp-topbar{display:flex;justify-content:space-between;align-items:center;padding:24px 0 0}
+.sp-badge{font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15)}
+.sp-lang{display:flex;gap:2px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:3px;border:1px solid rgba(255,255,255,.15)}
+.sp-lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.sp-lang-btn.active{background:var(--forest);color:#fff}
+
+.sp-hero{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:20px}
+.sp-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.sp-title{font-family:'Playfair Display',serif;font-size:clamp(48px,11vw,76px);font-weight:900;color:#fff;line-height:.95;margin-bottom:14px}
+.sp-subtitle{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.75);line-height:1.6;max-width:420px}
+
+.sp-dots{display:flex;gap:8px;margin-top:16px}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}
+.sp-dot.active{width:18px;border-radius:3px;background:#fff}
+
+.sp-choose{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:center;margin:20px 0 12px}
+.sp-plans{display:flex;gap:10px;padding:0 0 28px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.sp-plans::-webkit-scrollbar{display:none}
+.sp-plan{flex:1 1 0;min-width:0;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 14px;cursor:pointer;transition:all .3s;text-align:center}
+.sp-plan:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.sp-plan-days{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff}
+.sp-plan-label{font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:2px}
+.sp-plan-desc{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.4}
+.sp-plan-tag{display:inline-block;font-size:9px;font-weight:600;padding:3px 8px;border-radius:10px;background:var(--forest);color:#fff;margin-top:8px}
+
+.sp-scroll-hint{text-align:center;padding:8px 0 16px;animation:sp-bounce 2s ease-in-out infinite}
+.sp-scroll-hint svg{width:20px;height:20px;stroke:rgba(255,255,255,.4);stroke-width:2;fill:none}
+@keyframes sp-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ===== MAIN APP ===== */
+#app{display:none}
+#app.show{display:block}
+
+/* ===== CHAPTER BLEED IMAGE ===== */
+.bleed{width:100%;height:65vh;min-height:400px;position:relative;overflow:hidden}
+.bleed img{width:100%;height:100%;object-fit:cover;animation:ken-slow 25s ease-in-out infinite alternate}
+@keyframes ken-slow{0%{transform:scale(1)}100%{transform:scale(1.04) translate(-0.3%,-0.3%)}}
+.bleed-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%)}
+.bleed-caption{position:absolute;bottom:28px;left:28px;right:28px;z-index:2}
+.bleed-chapter{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.bleed-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;line-height:1.1}
+.bleed-sub{font-family:'Libre Baskerville',serif;font-size:14px;color:rgba(255,255,255,.7);margin-top:8px}
+
+/* ===== CONTENT SECTIONS ===== */
+.section{max-width:780px;margin:0 auto;padding:48px 24px}
+.section-wide{max-width:1080px;margin:0 auto;padding:48px 24px}
+
+.ch-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);font-weight:900;color:var(--text-dark);line-height:1.1;margin-bottom:20px}
+.ch-intro{font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.85;color:var(--text-body);margin-bottom:32px}
+
+.drop-cap::first-letter{font-family:'Playfair Display',serif;float:left;font-size:68px;font-weight:900;line-height:0.8;padding:4px 10px 0 0;color:var(--forest)}
+
+.pull-quote{border-left:3px solid var(--forest);padding:16px 0 16px 24px;margin:36px 0;background:linear-gradient(90deg,rgba(27,122,74,.04),transparent)}
+.pull-quote p{font-family:'Libre Baskerville',serif;font-style:italic;font-size:20px;line-height:1.6;color:var(--lp-blue-dark)}
+.pull-quote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;font-weight:600;color:var(--warm-gray);margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+
+.fig{margin:36px 0}
+.fig img{width:100%;border-radius:2px}
+.fig figcaption{font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);margin-top:8px;letter-spacing:0.3px}
+
+/* ===== STORY PAIRS ===== */
+.story-pair{display:flex;gap:24px;margin:36px 0;align-items:flex-start}
+.story-pair.reverse{flex-direction:row-reverse}
+.story-img{flex:0 0 45%;border-radius:4px;overflow:hidden}
+.story-img img{width:100%;height:auto;object-fit:cover}
+.story-text{flex:1;font-family:'Libre Baskerville',serif;font-size:15px;line-height:1.85;color:var(--text-body)}
+
+/* ===== MUST-SEE GRID ===== */
+.mustsee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.mustsee-card{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;transition:transform .3s}
+.mustsee-card:hover{transform:scale(1.02)}
+.mustsee-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mustsee-card:hover img{transform:scale(1.05)}
+.mustsee-card .mc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75) 100%)}
+.mustsee-card .mc-info{position:absolute;bottom:14px;left:14px;right:14px}
+.mustsee-card .mc-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.mustsee-card .mc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;margin-top:4px;line-height:1.2}
+.mustsee-card .mc-tag{font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
+
+/* ===== SPOT DETAIL ===== */
+.spot{padding:48px 24px;max-width:780px;margin:0 auto;border-bottom:1px solid rgba(0,0,0,.06)}
+.spot:last-child{border-bottom:none}
+.spot-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:20px}
+.spot-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--forest);line-height:1;flex-shrink:0}
+.spot-meta h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);line-height:1.2}
+.spot-meta .spot-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--forest);margin-top:4px}
+.spot-body{font-family:'Libre Baskerville',serif;font-size:16px;line-height:1.85;color:var(--text-body);margin-bottom:20px}
+.spot-info{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.spot-info-item{display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);background:rgba(27,122,74,.04);padding:6px 12px;border-radius:8px}
+.spot-info-item svg{width:14px;height:14px;stroke:var(--forest);stroke-width:2;fill:none}
+
+/* ===== JOURNEY / PLAN PAGES ===== */
+.plan-cover{width:100%;height:75vh;min-height:500px;position:relative;overflow:hidden}
+.plan-cover img{width:100%;height:100%;object-fit:cover}
+.plan-cover .pc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.7) 100%)}
+.plan-cover .pc-info{position:absolute;bottom:40px;left:28px;right:28px}
+.plan-cover .pc-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.plan-cover .pc-title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:900;color:#fff;line-height:1.05;margin-top:8px}
+.plan-cover .pc-sub{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.7);margin-top:10px}
+
+.timeline{max-width:680px;margin:0 auto;padding:40px 24px}
+.tl-day{margin-bottom:36px}
+.tl-day-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--forest);display:inline-block}
+.tl-item{display:flex;gap:16px;margin-bottom:20px}
+.tl-time{flex-shrink:0;width:56px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--forest);padding-top:2px}
+.tl-content{flex:1;padding-bottom:16px;border-bottom:1px solid rgba(0,0,0,.05)}
+.tl-item:last-child .tl-content{border-bottom:none}
+.tl-content h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark)}
+.tl-content p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);margin-top:4px;line-height:1.6}
+.tl-tip{display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:11px;color:var(--forest);font-weight:600;margin-top:6px;background:rgba(27,122,74,.06);padding:3px 8px;border-radius:6px}
+
+/* ===== TIPS / TRAVELER NOTES ===== */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.tip-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.tip-card-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--forest),var(--forest-dark));display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.tip-card-icon svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none}
+.tip-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px}
+.tip-card p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);line-height:1.6}
+
+/* ===== PACKING LIST ===== */
+.pack-list{columns:2;gap:24px;margin:24px 0}
+.pack-item{display:flex;align-items:center;gap:8px;padding:6px 0;break-inside:avoid;font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);cursor:pointer}
+.pack-item input[type=checkbox]{accent-color:var(--forest);width:16px;height:16px}
+
+/* ===== ENDING ===== */
+.ending{text-align:center;padding:64px 24px;background:var(--forest-dark)}
+.ending .t-display{color:#fff;font-size:clamp(28px,5vw,42px);margin-bottom:16px}
+.ending p{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto}
+
+/* ===== LANG SWITCH (in-app) ===== */
+.lang-switch{position:fixed;top:12px;right:12px;z-index:200;display:flex;gap:2px;background:rgba(13,92,51,.6);backdrop-filter:blur(8px);border-radius:16px;padding:3px}
+.lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--forest);color:#fff}
+
+/* ===== PAGE NUMBER ===== */
+.page-num{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--warm-gray);text-align:center;padding:8px 0;text-transform:uppercase}
+
+/* ===== BACK TO TOP ===== */
+.back-top{position:fixed;bottom:20px;right:20px;z-index:100;width:40px;height:40px;border-radius:50%;background:var(--forest);color:#fff;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(27,122,74,.3);transition:transform .2s}
+.back-top:hover{transform:scale(1.1)}
+.back-top.show{display:flex}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s var(--ease-out-expo)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== NAV BAR ===== */
+.nav-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(253,251,247,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(0,0,0,.06);display:none;padding:6px 0 env(safe-area-inset-bottom)}
+#app.show ~ .nav-bar,.nav-bar.show{display:block}
+.nav-inner{display:flex;justify-content:space-around;max-width:500px;margin:0 auto}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;cursor:pointer;transition:color .2s;color:var(--warm-gray);border:none;background:none;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.5px}
+.nav-item.active{color:var(--forest)}
+.nav-item svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+
+/* ===== MOBILE ===== */
+@media(max-width:640px){
+  .mustsee-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .pack-list{columns:1}
+  .bleed{height:50vh;min-height:300px}
+  .plan-cover{height:60vh}
+  .section{padding:36px 20px}
+  .sp-plan-days{font-size:28px}
+  .sp-plans{gap:8px}
+  .spot-header{flex-direction:column;gap:8px}
+  .spot-num{font-size:36px}
+  .drop-cap::first-letter{font-size:52px}
+  .story-pair,.story-pair.reverse{flex-direction:column}
+  .story-img{flex:0 0 auto}
+}
+
+/* ===== PLAN TAB SYSTEM ===== */
+.plan-tabs{display:flex;justify-content:center;gap:8px;padding:20px 24px;background:var(--cream);position:sticky;top:0;z-index:50}
+.plan-tab{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:8px 20px;border-radius:20px;border:1.5px solid rgba(27,122,74,.15);background:transparent;color:var(--forest);cursor:pointer;transition:all .2s}
+.plan-tab.active{background:var(--forest);color:#fff;border-color:var(--forest)}
+
+.plan-page{display:none}
+.plan-page.active{display:block}
+
+/* Bilingual secondary text */
+.bi-sub{display:block;font-size:0.82em;opacity:0.55;margin-top:2px;font-style:italic;font-family:'Inter',sans-serif;font-weight:400}
+.pull-quote .bi-sub{font-size:0.78em;opacity:0.5}
+.bleed-title .bi-sub,.bleed-sub .bi-sub,.sp-title .bi-sub,.sp-subtitle .bi-sub,.pc-title .bi-sub{color:rgba(255,255,255,.5);font-style:normal}
+.sp-plan-desc .bi-sub,.sp-plan-tag .bi-sub,.mc-name .bi-sub,.mc-tag .bi-sub{font-size:0.8em}
+.spot-body .bi-sub,.ch-intro .bi-sub,.t-body .bi-sub,.story-text .bi-sub{font-size:0.85em;line-height:1.7;margin-top:6px}
+.ending .bi-sub{color:rgba(255,255,255,.4)}
+
+/* Hide nav on splash */
+#splash:not(.hide) ~ .nav-bar{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- ===== ISLAND HOME LINK ===== -->
+<a class="island-home" href="https://zhangwenle2026.github.io/" title="Back to Island">
+  <span class="island-icon">🏝️</span><span class="island-label">Island</span>
+</a>
+
+<!-- ===== SPLASH / COVER ===== -->
+<div id="splash">
+  <div class="sp-carousel" id="sp-carousel">
+    <div class="sp-slide active"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Ubatuba coastline"></div>
+    <div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Serra do Mar"></div>
+    <div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_de367403-de1b-40a1-8e97-369262b8f073.jpg" alt="Praia da Fazenda"></div>
+  </div>
+  <div class="sp-overlay"></div>
+  <div class="sp-content">
+    <div class="sp-topbar">
+      <div class="sp-badge">Litoral Norte · São Paulo</div>
+      <div class="sp-lang">
+        <button class="sp-lang-btn active" onclick="setBilingual('zh-en')">中·EN</button>
+        <button class="sp-lang-btn" onclick="setBilingual('zh-pt')">中·PT</button>
+      </div>
+    </div>
+    <div class="sp-hero">
+      <div class="sp-eyebrow">South America · Brazil</div>
+      <div class="sp-title">Ubatuba</div>
+      <div class="sp-subtitle" data-i18n="sp_subtitle">大西洋雨林与大海相遇的地方，100+ 个海滩，一座冲浪天堂。</div>
+      <div class="sp-dots" id="sp-dots">
+        <div class="sp-dot active"></div><div class="sp-dot"></div><div class="sp-dot"></div>
+      </div>
+    </div>
+    <div class="sp-choose" data-i18n="sp_choose">— 选择你的旅程 —</div>
+    <div class="sp-plans">
+      <div class="sp-plan" onclick="enterPlan(2)">
+        <div class="sp-plan-days" data-i18n="sp_2d_days">2天</div>
+        <div class="sp-plan-label">SURF & SUN</div>
+        <div class="sp-plan-desc" data-i18n="sp_2d_desc">海滩+生态，周末精华</div>
+        <div class="sp-plan-tag" data-i18n="sp_2d_tag">首次来 Ubatuba</div>
+      </div>
+      <div class="sp-plan" onclick="enterPlan(3)">
+        <div class="sp-plan-days" data-i18n="sp_3d_days">3天</div>
+        <div class="sp-plan-label">NATURE IMMERSION</div>
+        <div class="sp-plan-desc" data-i18n="sp_3d_desc">海滩+雨林+海龟，深度体验</div>
+        <div class="sp-plan-tag" data-i18n="sp_3d_tag">最受欢迎</div>
+      </div>
+      <div class="sp-plan" onclick="enterPlan(4)">
+        <div class="sp-plan-days" data-i18n="sp_4d_days">4天</div>
+        <div class="sp-plan-label">FULL DISCOVERY</div>
+        <div class="sp-plan-desc" data-i18n="sp_4d_desc">冲浪·瀑布·海岛·雨林全收</div>
+        <div class="sp-plan-tag" data-i18n="sp_4d_tag">探险玩家</div>
+      </div>
+    </div>
+    <div class="sp-scroll-hint">
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="app">
+
+<!-- In-app lang switch -->
+<div class="lang-switch">
+  <button class="lang-btn active" onclick="setBilingual('zh-en')">中·EN</button>
+  <button class="lang-btn" onclick="setBilingual('zh-pt')">中·PT</button>
+</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 1: CITY STORY           -->
+<!-- =============================== -->
+<div class="bleed" id="ch-story">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7ca21e36-e708-4e20-8b9d-2df5c61d5c1e.jpg" alt="Historical Ubatuba">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch1_label">Chapter 01</div>
+    <div class="bleed-title" data-i18n="ch1_title">城市的故事</div>
+    <div class="bleed-sub" data-i18n="ch1_sub">从图皮独木舟到冲浪天堂</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="ch-intro drop-cap fade-in" data-i18n="ch1_p1">
+    如果说 Paraty 是殖民时代的琥珀，那 Ubatuba 就是大西洋雨林的翡翠。这座拥有 100+ 个海滩的城市，是圣保罗人心中的"冲浪圣地"和"生态天堂"。它的名字来自图皮语"uba'tuba"——意为"很多独木舟的地方"，暗示着原住民与海洋的千年纽带。
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p data-i18n="ch1_quote">"Ubatuba 是巴西少数几个你能在同一天早上冲浪、中午徒步雨林、下午和海龟一起游泳的地方。"</p>
+  </div>
+
+  <div class="story-pair fade-in">
+    <div class="story-img"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7ca21e36-e708-4e20-8b9d-2df5c61d5c1e.jpg" alt="Historical Ubatuba"></div>
+    <div class="story-text" data-i18n="ch1_history">
+      <strong>四个世纪的记忆</strong><br><br>1637年，葡萄牙殖民者在此建立定居点，但早在数千年前，图皮南巴人就已在这片海湾捕鱼、造船。Ubatuba 在殖民时代曾扮演过重要角色——1563年，葡萄牙传教士若泽·德·安谢塔在这里与图皮南巴部落签订了著名的"伊佩罗伊和平协议"，这是巴西历史上最早的和平条约之一。<br><br>19世纪，Ubatuba 曾是圣保罗州最重要的港口之一，蓝山咖啡从这里装船运往欧洲。随着桑托斯港崛起，Ubatuba 回归宁静——也因此保留了大片原始大西洋雨林。今天，Ubatuba 85% 的土地被 Serra do Mar 州立公园覆盖，它是联合国教科文组织大西洋雨林生物圈保护区的核心地带。
+    </div>
+  </div>
+
+  <div class="story-pair reverse fade-in">
+    <div class="story-img"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Serra do Mar"></div>
+    <div class="story-text" data-i18n="ch1_nature">
+      <strong>山海之间的生态奇迹</strong><br><br>Serra do Mar 的山脊从海平面直冲至 1200 米，创造出地球上最壮观的生态梯度之一。雨林中隐藏着 450+ 种鸟类、美洲豹和金狮面猴；海面下同样精彩——Ilha Anchieta 拥有圣保罗州最清澈的水域，能见度常达 15 米。<br><br>每年 9-3 月，海龟在 Itamambuca 和 Almada 海滩产卵，Projeto TAMAR 海龟保护站就在这里守护了 40 多年。Ubatuba 还是巴西大西洋雨林研究的重要基地——Núcleo Picinguaba 是整个 Serra do Mar 公园中唯一延伸到海岸线的区域。
+    </div>
+  </div>
+
+  <div class="pull-quote fade-in">
+    <p data-i18n="ch1_quote2">"图皮语中，'uba'tuba' 意为很多独木舟的地方——四百年后，独木舟变成了冲浪板，但海湾依然是这座城市的灵魂。"</p>
+  </div>
+</div>
+
+<div class="page-num">— 02 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 2: SIX MUST-SEES        -->
+<!-- =============================== -->
+<div class="bleed" id="ch-spots">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_de367403-de1b-40a1-8e97-369262b8f073.jpg" alt="Praia da Fazenda">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch2_label">Chapter 02</div>
+    <div class="bleed-title" data-i18n="ch2_title">六大必去</div>
+    <div class="bleed-sub" data-i18n="ch2_sub">从冲浪海滩到雨林瀑布，Ubatuba 的六张名片</div>
+  </div>
+</div>
+
+<div class="section-wide">
+  <div class="mustsee-grid fade-in">
+    <div class="mustsee-card" onclick="scrollToSpot(1)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Itamambuca">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">01</div>
+        <div class="mc-name" data-i18n="spot1_name">Praia de Itamambuca</div>
+        <div class="mc-tag" data-i18n="spot1_tag">冲浪 · 日落</div>
+      </div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(2)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Ilha Anchieta">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">02</div>
+        <div class="mc-name" data-i18n="spot2_name">Ilha Anchieta</div>
+        <div class="mc-tag" data-i18n="spot2_tag">浮潜 · 历史</div>
+      </div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(3)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_de367403-de1b-40a1-8e97-369262b8f073.jpg" alt="Praia da Fazenda">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">03</div>
+        <div class="mc-name" data-i18n="spot3_name">Praia da Fazenda</div>
+        <div class="mc-tag" data-i18n="spot3_tag">雨林 · 原始</div>
+      </div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(4)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7ca21e36-e708-4e20-8b9d-2df5c61d5c1e.jpg" alt="Cachoeira do Prumirim">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">04</div>
+        <div class="mc-name" data-i18n="spot4_name">Cachoeira do Prumirim</div>
+        <div class="mc-tag" data-i18n="spot4_tag">瀑布 · 天然泳池</div>
+      </div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(5)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Projeto TAMAR">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">05</div>
+        <div class="mc-name" data-i18n="spot5_name">Projeto TAMAR</div>
+        <div class="mc-tag" data-i18n="spot5_tag">海龟 · 保育</div>
+      </div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(6)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Trilha da Praia Brava">
+      <div class="mc-overlay"></div>
+      <div class="mc-info">
+        <div class="mc-num">06</div>
+        <div class="mc-name" data-i18n="spot6_name">Trilha da Praia Brava</div>
+        <div class="mc-tag" data-i18n="spot6_tag">徒步 · 秘境海滩</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Spot Details -->
+<div id="spot-1" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">01</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot1_title">Praia de Itamambuca 伊塔曼布卡海滩</h3>
+      <div class="spot-tag" data-i18n="spot1_tag2">巴西冲浪锦标赛举办地 · 圣保罗北海岸之星</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot1_body">
+    Itamambuca 是 Ubatuba 的头号明星——这里每年举办巴西冲浪锦标赛（Circuito Brasileiro de Surf），吸引全国顶尖选手。宽阔的沙滩两侧被大西洋雨林的山丘环抱，河流在沙滩尽头汇入大海，形成了一个天然的冲浪场。浪高 1-2 米，对中级冲浪者非常友好；初学者可以在河口处的平缓区域练习。日落时分，整个海湾被染成粉紫色——这是摄影师的天堂。海滩旁有几家波西米亚风格的 hostel 和餐厅，氛围自由而悠然。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot1_addr">Ubatuba 北部，市中心以北 20km</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot1_time">建议半天至一天</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot1_price">冲浪板租赁 R$50/天（约 ¥65）</span></div>
+  </div>
+</div>
+
+<div id="spot-2" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">02</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot2_title">Ilha Anchieta 安谢塔岛</h3>
+      <div class="spot-tag" data-i18n="spot2_tag2">浮潜天堂 · 历史监狱遗址 · 州立公园</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot2_body">
+    安谢塔岛是圣保罗州最清澈的水域——能见度常达 15 米，水下世界色彩斑斓。这座岛屿拥有一段戏剧性的历史：1902-1952 年间它是巴西最臭名昭著的监狱之一，1952年爆发了震惊全国的囚犯暴动。如今监狱遗迹被改建为博物馆，与周围的热带天堂形成超现实的对比。乘船约 30 分钟即达，岛上有 Praia do Presídio（浮潜最佳）和 Praia do Sul（最清幽）等多个海滩。带上浮潜面镜——海龟、热带鱼和珊瑚就在你脚下。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot2_addr">Enseada 码头出发，快艇30min</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot2_time">建议一整天</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot2_price">船票+入岛 R$120/人（约 ¥160）</span></div>
+  </div>
+</div>
+
+<div id="spot-3" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">03</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot3_title">Praia da Fazenda 法森达海滩</h3>
+      <div class="spot-tag" data-i18n="spot3_tag2">原始雨林海滩 · Núcleo Picinguaba</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot3_body">
+    这是 Ubatuba 最原始的海滩之一——位于 Serra do Mar 公园的 Núcleo Picinguaba 核心区内，大西洋雨林几乎直接延伸到沙滩上。没有小贩、没有音响、没有遮阳伞，只有猴子在树上跳跃和海浪的声音。一条平缓的步道穿过红树林和河口，适合观鸟爱好者（这里记录了 300+ 种鸟类）。溪水清冷，汇入温暖的海水——你可以在同一片沙滩上体验冷热交替的天然 SPA。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot3_addr">Núcleo Picinguaba，Ubatuba 北端</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot3_time">建议半天</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot3_price">免费（公园无需门票）</span></div>
+  </div>
+</div>
+
+<div id="spot-4" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">04</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot4_title">Cachoeira do Prumirim 普鲁米林瀑布</h3>
+      <div class="spot-tag" data-i18n="spot4_tag2">天然滑梯 · 雨林深处 · 家庭友好</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot4_body">
+    Prumirim 瀑布是 Ubatuba 最受欢迎的瀑布——溪水在光滑的花岗岩上形成了多级天然滑梯，冲入碧绿的水潭中。周围被密密的大西洋雨林包围，阳光透过树冠洒下斑驳的光影。你可以坐在岩石上顺水滑下（天然 tobogã！），也可以在水潭中游泳放松。从停车场步行约 20 分钟到达，路况轻松，适合全家出行。旺季周末会比较热闹，建议工作日或早晨前往。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot4_addr">Rio-Santos 公路 km 47，Ubatuba 北部</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot4_time">1-2 小时</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot4_price">R$15 停车费（约 ¥20）</span></div>
+  </div>
+</div>
+
+<div id="spot-5" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">05</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot5_title">Projeto TAMAR 海龟保护站</h3>
+      <div class="spot-tag" data-i18n="spot5_tag2">海龟保育 · 科普教育 · 亲子必去</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot5_body">
+    Projeto TAMAR 是巴西最成功的海洋保育项目之一——从1980年至今，已在巴西海岸线保护了超过 4000 万只海龟幼崽。Ubatuba 基地位于 Itaguá 海滩旁，你可以近距离观察绿海龟、玳瑁和蠵龟在康复水池中游泳。每年 9-3 月的产卵季，工作人员会在夜间巡逻海滩，保护龟蛋不被天敌或偷猎者破坏。互动式展馆用生动的方式讲解海龟的生命周期和面临的威胁。这不只是一个景点——它是一堂关于生命和希望的课。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot5_addr">Rua Antonio Athanásio 273, Itaguá</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot5_time">1-1.5 小时</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot5_price">R$30/人（约 ¥40）</span></div>
+  </div>
+</div>
+
+<div id="spot-6" class="spot fade-in">
+  <div class="spot-header">
+    <div class="spot-num">06</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot6_title">Trilha da Praia Brava 勇敢海滩步道</h3>
+      <div class="spot-tag" data-i18n="spot6_tag2">徒步 · 秘境海滩 · 中等难度</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot6_body">
+    Praia Brava（"勇敢海滩"）名副其实——你需要徒步约 2 小时穿越大西洋雨林才能到达这片隐秘的沙滩。步道从 Praia do Félix 出发，沿途经过密林、溪流和观景台，全程被鸟鸣和猴子的叫声包围。到达后，你会发现一片几乎无人的金色沙滩，海浪强劲（不适合游泳但很壮观），崖壁上长满了凤梨科植物。带够水和零食——这里没有任何商业设施。这是 Ubatuba 留给勇者的礼物。
+  </div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot6_addr">起点：Praia do Félix，Ubatuba 南部</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot6_time">往返 3-4 小时</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot6_price">免费</span></div>
+  </div>
+</div>
+
+<div class="page-num">— 04 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 3: YOUR JOURNEY         -->
+<!-- =============================== -->
+<div class="bleed" id="ch-journey">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Ubatuba coastline">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch3_label">Chapter 03</div>
+    <div class="bleed-title" data-i18n="ch3_title">你的行程</div>
+    <div class="bleed-sub" data-i18n="ch3_sub">2天、3天或4天，量身定制</div>
+  </div>
+</div>
+
+<div class="plan-tabs">
+  <button class="plan-tab active" onclick="switchPlan(2)" data-i18n="tab_2d">2天精华</button>
+  <button class="plan-tab" onclick="switchPlan(3)" data-i18n="tab_3d">3天经典</button>
+  <button class="plan-tab" onclick="switchPlan(4)" data-i18n="tab_4d">4天深度</button>
+</div>
+
+<!-- 2-Day Plan -->
+<div class="plan-page active" id="plan-2">
+  <div class="plan-cover">
+    <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg" alt="Ubatuba beach">
+    <div class="pc-overlay"></div>
+    <div class="pc-info">
+      <div class="pc-eyebrow">2-DAY ITINERARY</div>
+      <div class="pc-title" data-i18n="p2_title">Surf & Sun</div>
+      <div class="pc-sub" data-i18n="p2_sub">海滩与生态的精华浓缩</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p2_d1">Day 1 · 海滩与海龟</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p2_d1_1t">抵达 Ubatuba</h4><p data-i18n="p2_d1_1d">从圣保罗出发，走 Rio-Santos 公路（SP-055），约 3.5 小时车程。沿途经过 São Sebastião 的壮丽海岸线。</p><div class="tl-tip" data-i18n="p2_d1_1tip">💡 建议走海岸公路而非 Tamoios（SP-099），风景更美</div></div></div>
+      <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><h4 data-i18n="p2_d1_2t">Praia de Itamambuca 冲浪</h4><p data-i18n="p2_d1_2d">在 Ubatuba 最著名的冲浪海滩消磨下午。租一块冲浪板（R$50/天），或者在沙滩上看冲浪高手表演。海滩旁的小餐厅有新鲜 açaí bowl。</p></div></div>
+      <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p2_d1_3t">Projeto TAMAR 海龟保护站</h4><p data-i18n="p2_d1_3d">参观海龟保护站，近距离观察绿海龟和玳瑁。互动展馆寓教于乐，特别适合带孩子。</p></div></div>
+      <div class="tl-item"><div class="tl-time">19:30</div><div class="tl-content"><h4 data-i18n="p2_d1_4t">市中心海鲜晚餐</h4><p data-i18n="p2_d1_4d">推荐 Peixe com Banana（创意海鲜）或 Refúgio do Corsário（海边烤鱼）。必点：moqueca caiçara（本地风味鱼汤）。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p2_d2">Day 2 · 瀑布与秘境</div>
+      <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-content"><h4 data-i18n="p2_d2_1t">Cachoeira do Prumirim</h4><p data-i18n="p2_d2_1d">清晨去瀑布最清幽。在天然滑梯上滑行，在碧绿水潭中游泳。带好毛巾和换洗衣物。</p></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p2_d2_2t">Praia da Fazenda</h4><p data-i18n="p2_d2_2d">驱车前往 Núcleo Picinguaba，在这片原始雨林海滩放空。在溪水和海水交汇处享受天然 SPA。</p></div></div>
+      <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-content"><h4 data-i18n="p2_d2_3t">返程或续住</h4><p data-i18n="p2_d2_3d">沿 Rio-Santos 公路返回圣保罗（约 3.5 小时），或继续南下 70km 到 Paraty 开启下一段旅程。</p><div class="tl-tip" data-i18n="p2_d2_3tip">💡 Ubatuba + Paraty 是圣保罗周边最完美的 road trip 组合</div></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3-Day Plan -->
+<div class="plan-page" id="plan-3">
+  <div class="plan-cover">
+    <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Serra do Mar">
+    <div class="pc-overlay"></div>
+    <div class="pc-info">
+      <div class="pc-eyebrow">3-DAY ITINERARY</div>
+      <div class="pc-title" data-i18n="p3_title">Nature Immersion</div>
+      <div class="pc-sub" data-i18n="p3_sub">海滩·海岛·雨林，从容深度</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p3_d1">Day 1 · 抵达与冲浪</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p3_d1_1t">公路旅程</h4><p data-i18n="p3_d1_1d">圣保罗出发，走 Rio-Santos 海岸公路。中途在 São Sebastião 休息午餐。下午抵达 Ubatuba。</p></div></div>
+      <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p3_d1_2t">Itamambuca 冲浪午后</h4><p data-i18n="p3_d1_2d">入住后直奔冲浪海滩。租板学浪，或在沙滩酒吧喝椰子水看高手。</p></div></div>
+      <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-content"><h4 data-i18n="p3_d1_3t">日落 + 晚餐</h4><p data-i18n="p3_d1_3d">Itamambuca 的日落是 Ubatuba 最美的。晚餐推荐附近的 Pizzaria Mosaico 或回市中心吃海鲜。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p3_d2">Day 2 · 海岛探险</div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p3_d2_1t">Ilha Anchieta 一日游</h4><p data-i18n="p3_d2_1d">从 Enseada 码头出发乘快艇，30 分钟到达安谢塔岛。在 Praia do Presídio 浮潜看海龟和热带鱼，参观废弃监狱博物馆。</p><div class="tl-tip" data-i18n="p3_d2_1tip">💡 带浮潜面镜——海龟就在你脚下</div></div></div>
+      <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p3_d2_2t">岛上午餐 + 探索</h4><p data-i18n="p3_d2_2d">自带午餐野餐，下午徒步到 Praia do Sul（更清幽的海滩），在清澈的水中游泳。</p></div></div>
+      <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><h4 data-i18n="p3_d2_3t">返回 + TAMAR</h4><p data-i18n="p3_d2_3d">返回 Ubatuba 后，傍晚参观 Projeto TAMAR 海龟保护站。晚餐在 Itaguá 海滨。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p3_d3">Day 3 · 雨林与瀑布</div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p3_d3_1t">Cachoeira do Prumirim</h4><p data-i18n="p3_d3_1d">趁早上人少去天然滑梯瀑布。在碧绿水潭中游泳，享受雨林清凉。</p></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p3_d3_2t">Praia da Fazenda</h4><p data-i18n="p3_d3_2d">北上到 Núcleo Picinguaba，在原始雨林海滩放空。走一段红树林步道，观鸟。</p></div></div>
+      <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p3_d3_3t">午餐 + 返程</h4><p data-i18n="p3_d3_3d">在 Ubatuba 最后一顿午餐后启程。带上冲浪板上的盐味记忆回家。</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 4-Day Plan -->
+<div class="plan-page" id="plan-4">
+  <div class="plan-cover">
+    <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_de367403-de1b-40a1-8e97-369262b8f073.jpg" alt="Rainforest beach">
+    <div class="pc-overlay"></div>
+    <div class="pc-info">
+      <div class="pc-eyebrow">4-DAY ITINERARY</div>
+      <div class="pc-title" data-i18n="p4_title">Full Discovery</div>
+      <div class="pc-sub" data-i18n="p4_sub">冲浪·瀑布·海岛·雨林，不留遗憾</div>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p4_d1">Day 1 · 抵达与冲浪</div>
+      <div class="tl-item"><div class="tl-time">全天</div><div class="tl-content"><h4 data-i18n="p4_d1_1t">同3日行程 Day 1</h4><p data-i18n="p4_d1_1d">驾车抵达，Itamambuca 冲浪午后，日落晚餐。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p4_d2">Day 2 · 安谢塔岛</div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p4_d2_1t">Ilha Anchieta 全日</h4><p data-i18n="p4_d2_1d">快艇到安谢塔岛。浮潜、参观监狱博物馆、徒步到 Praia do Sul。自带午餐野餐。</p></div></div>
+      <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><h4 data-i18n="p4_d2_2t">TAMAR + Itaguá 海滨</h4><p data-i18n="p4_d2_2d">返回后参观海龟保护站，沿 Itaguá 海滨散步。在海边餐厅享用日落晚餐。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p4_d3">Day 3 · 徒步与秘境</div>
+      <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-content"><h4 data-i18n="p4_d3_1t">Trilha da Praia Brava</h4><p data-i18n="p4_d3_1d">早起从 Praia do Félix 出发徒步到勇敢海滩。穿越雨林，听猴子和鸟鸣。带够水和零食。</p></div></div>
+      <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p4_d3_2t">午餐 + Praia do Félix</h4><p data-i18n="p4_d3_2d">徒步返回后在 Félix 海滩的小餐厅午餐，下午在这片宁静海滩放松。</p></div></div>
+      <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><h4 data-i18n="p4_d3_3t">Cachoeira do Prumirim</h4><p data-i18n="p4_d3_3d">下午去瀑布洗去徒步的汗水。在天然滑梯上滑行，在冰凉的水潭中恢复元气。</p></div></div>
+    </div>
+    <div class="tl-day">
+      <div class="tl-day-title" data-i18n="p4_d4">Day 4 · 雨林与告别</div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p4_d4_1t">Praia da Fazenda</h4><p data-i18n="p4_d4_1d">最后一个上午留给最原始的海滩。在 Núcleo Picinguaba 走红树林步道，观鸟，享受宁静。</p></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p4_d4_2t">Praia do Lázaro 午前</h4><p data-i18n="p4_d4_2d">在这片平静的家庭海滩最后一次下水。椰子水和炸鱼——简单而完美。</p></div></div>
+      <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><h4 data-i18n="p4_d4_3t">告别午餐 + 返程</h4><p data-i18n="p4_d4_3d">在市中心吃最后一顿 moqueca，然后带着海盐和阳光的记忆回到圣保罗。或继续南下 70km 到 Paraty！</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page-num">— 06 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 4: TRAVELER'S NOTES     -->
+<!-- =============================== -->
+<div class="bleed" id="ch-tips">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c866b151-02d0-4ce4-9ffe-de5f17911075.jpg" alt="Serra do Mar trails">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch4_label">Chapter 04</div>
+    <div class="bleed-title" data-i18n="ch4_title">旅行者攻略</div>
+    <div class="bleed-sub" data-i18n="ch4_sub">交通·住宿·季节·装备</div>
+  </div>
+</div>
+
+<div class="section-wide">
+  <div class="tips-grid fade-in">
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4H8z"/></svg></div>
+      <h4 data-i18n="tip1_title">交通：圣保罗出发</h4>
+      <p data-i18n="tip1_desc">自驾走 Rio-Santos 公路（SP-055）约 3.5 小时，海岸公路风景绝美。大巴从 Rodoviária Tietê 出发约 4 小时，R$70。雨季注意山路滑坡（SP-099 Tamoios 常封路）。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <h4 data-i18n="tip2_title">住宿推荐</h4>
+      <p data-i18n="tip2_desc">💎 奢华：Itamambuca Eco Resort（R$800+）｜🏡 中档：Pousada Picinguaba（R$400）｜🎒 背包：Hostel Trópico de Ubatuba（R$70/床位）</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h4 data-i18n="tip3_title">最佳季节</h4>
+      <p data-i18n="tip3_desc">4-6月和8-10月最佳（少雨、人少）。12-2月旺季价格翻倍。9-3月海龟产卵季——想看海龟要这时候来。冬季（6-8月）水温较低但浪最好。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg></div>
+      <h4 data-i18n="tip4_title">出行必知</h4>
+      <p data-i18n="tip4_desc">市区有 4G 信号，但偏远海滩（Fazenda、Bonete）可能无信号。现金+信用卡都备好——小摊贩可能只收现金。防晒必须——巴西紫外线极强。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <h4 data-i18n="tip5_title">安全提示</h4>
+      <p data-i18n="tip5_desc">Ubatuba 总体安全。海滩注意浪况（Itamambuca 和 Brava 浪大）。雨季（11-3月）注意山路落石。不要在无标识区域游泳。贵重物品不留车内。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg></div>
+      <h4 data-i18n="tip6_title">打包清单</h4>
+      <p data-i18n="tip6_desc">必带：防水手机袋、水陆两用鞋、防晒SPF50+、驱蚊液、浮潜面镜、轻薄雨衣。选带：冲浪板（也可租）、吊床、GoPro。</p>
+    </div>
+  </div>
+
+  <div class="fade-in" style="margin-top:32px;background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 16px rgba(0,0,0,.05)">
+    <div class="t-subhead" data-i18n="pack_label">PACKING LIST</div>
+    <h3 class="t-heading" style="margin:8px 0 16px" data-i18n="pack_title">行前清单</h3>
+    <div class="pack-list">
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk1">☀️ 防晒霜 SPF50+</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk2">👟 水陆两用鞋</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk3">📱 防水手机袋</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk4">🩱 泳衣（随时下水）</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk5">🌧️ 轻薄雨衣</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk6">🦟 驱蚊液</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk7">🤿 浮潜面镜</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk8">🏄 冲浪蜡（或租板）</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk9">💳 现金+信用卡</span></label>
+      <label class="pack-item"><input type="checkbox"><span data-i18n="pk10">📷 GoPro/防水相机</span></label>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ENDING ===== -->
+<div class="ending" id="sec-ending">
+  <div class="t-display" data-i18n="ending_title">Até logo, Ubatuba.</div>
+  <p data-i18n="ending_sub">下次海浪涌来的时候，希望你正站在冲浪板上。</p>
+</div>
+
+<div style="height:60px"></div>
+</div><!-- end #app -->
+
+<!-- ===== NAV BAR ===== -->
+<nav class="nav-bar" id="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-item active" onclick="navTo('ch-story')"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="nav_story">故事</span></button>
+    <button class="nav-item" onclick="navTo('ch-spots')"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="nav_spots">景点</span></button>
+    <button class="nav-item" onclick="navTo('ch-journey')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span data-i18n="nav_journey">行程</span></button>
+    <button class="nav-item" onclick="navTo('ch-tips')"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span data-i18n="nav_tips">攻略</span></button>
+  </div>
+</nav>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ===== I18N =====
+const I18N = {
+  zh: {
+    sp_subtitle:'大西洋雨林与大海相遇的地方，100+ 个海滩，一座冲浪天堂。',
+    sp_choose:'— 选择你的旅程 —',
+    sp_2d_days:'2天',sp_2d_desc:'海滩+生态，周末精华',sp_2d_tag:'首次来 Ubatuba',
+    sp_3d_days:'3天',sp_3d_desc:'海滩+雨林+海龟，深度体验',sp_3d_tag:'最受欢迎',
+    sp_4d_days:'4天',sp_4d_desc:'冲浪·瀑布·海岛·雨林全收',sp_4d_tag:'探险玩家',
+    ch1_label:'Chapter 01',ch1_title:'城市的故事',ch1_sub:'从图皮独木舟到冲浪天堂',
+    ch1_p1:'如果说 Paraty 是殖民时代的琥珀，那 Ubatuba 就是大西洋雨林的翡翠。这座拥有 100+ 个海滩的城市，是圣保罗人心中的"冲浪圣地"和"生态天堂"。它的名字来自图皮语"uba\'tuba"——意为"很多独木舟的地方"，暗示着原住民与海洋的千年纽带。',
+    ch1_quote:'"Ubatuba 是巴西少数几个你能在同一天早上冲浪、中午徒步雨林、下午和海龟一起游泳的地方。"',
+    ch1_history:'<strong>四个世纪的记忆</strong><br><br>1637年，葡萄牙殖民者在此建立定居点，但早在数千年前，图皮南巴人就已在这片海湾捕鱼、造船。Ubatuba 在殖民时代曾扮演过重要角色——1563年，葡萄牙传教士若泽·德·安谢塔在这里与图皮南巴部落签订了著名的"伊佩罗伊和平协议"，这是巴西历史上最早的和平条约之一。<br><br>19世纪，Ubatuba 曾是圣保罗州最重要的港口之一，蓝山咖啡从这里装船运往欧洲。随着桑托斯港崛起，Ubatuba 回归宁静——也因此保留了大片原始大西洋雨林。今天，Ubatuba 85% 的土地被 Serra do Mar 州立公园覆盖，它是联合国教科文组织大西洋雨林生物圈保护区的核心地带。',
+    ch1_nature:'<strong>山海之间的生态奇迹</strong><br><br>Serra do Mar 的山脊从海平面直冲至 1200 米，创造出地球上最壮观的生态梯度之一。雨林中隐藏着 450+ 种鸟类、美洲豹和金狮面猴；海面下同样精彩——Ilha Anchieta 拥有圣保罗州最清澈的水域，能见度常达 15 米。<br><br>每年 9-3 月，海龟在 Itamambuca 和 Almada 海滩产卵，Projeto TAMAR 海龟保护站就在这里守护了 40 多年。Ubatuba 还是巴西大西洋雨林研究的重要基地——Núcleo Picinguaba 是整个 Serra do Mar 公园中唯一延伸到海岸线的区域。',
+    ch1_quote2:'"图皮语中，\'uba\'tuba\' 意为很多独木舟的地方——四百年后，独木舟变成了冲浪板，但海湾依然是这座城市的灵魂。"',
+    ch2_label:'Chapter 02',ch2_title:'六大必去',ch2_sub:'从冲浪海滩到雨林瀑布，Ubatuba 的六张名片',
+    spot1_name:'Praia de Itamambuca',spot1_tag:'冲浪 · 日落',
+    spot2_name:'Ilha Anchieta',spot2_tag:'浮潜 · 历史',
+    spot3_name:'Praia da Fazenda',spot3_tag:'雨林 · 原始',
+    spot4_name:'Cachoeira do Prumirim',spot4_tag:'瀑布 · 天然泳池',
+    spot5_name:'Projeto TAMAR',spot5_tag:'海龟 · 保育',
+    spot6_name:'Trilha da Praia Brava',spot6_tag:'徒步 · 秘境海滩',
+    spot1_title:'Praia de Itamambuca 伊塔曼布卡海滩',spot1_tag2:'巴西冲浪锦标赛举办地 · 圣保罗北海岸之星',
+    spot1_body:'Itamambuca 是 Ubatuba 的头号明星——这里每年举办巴西冲浪锦标赛（Circuito Brasileiro de Surf），吸引全国顶尖选手。宽阔的沙滩两侧被大西洋雨林的山丘环抱，河流在沙滩尽头汇入大海，形成了一个天然的冲浪场。浪高 1-2 米，对中级冲浪者非常友好；初学者可以在河口处的平缓区域练习。日落时分，整个海湾被染成粉紫色——这是摄影师的天堂。',
+    spot1_addr:'Ubatuba 北部，市中心以北 20km',spot1_time:'建议半天至一天',spot1_price:'冲浪板租赁 R$50/天（约 ¥65）',
+    spot2_title:'Ilha Anchieta 安谢塔岛',spot2_tag2:'浮潜天堂 · 历史监狱遗址 · 州立公园',
+    spot2_body:'安谢塔岛是圣保罗州最清澈的水域——能见度常达 15 米，水下世界色彩斑斓。这座岛屿拥有一段戏剧性的历史：1902-1952 年间它是巴西最臭名昭著的监狱之一，1952年爆发了震惊全国的囚犯暴动。如今监狱遗迹被改建为博物馆，与周围的热带天堂形成超现实的对比。',
+    spot2_addr:'Enseada 码头出发，快艇30min',spot2_time:'建议一整天',spot2_price:'船票+入岛 R$120/人（约 ¥160）',
+    spot3_title:'Praia da Fazenda 法森达海滩',spot3_tag2:'原始雨林海滩 · Núcleo Picinguaba',
+    spot3_body:'这是 Ubatuba 最原始的海滩之一——位于 Serra do Mar 公园的 Núcleo Picinguaba 核心区内，大西洋雨林几乎直接延伸到沙滩上。没有小贩、没有音响、没有遮阳伞，只有猴子在树上跳跃和海浪的声音。',
+    spot3_addr:'Núcleo Picinguaba，Ubatuba 北端',spot3_time:'建议半天',spot3_price:'免费（公园无需门票）',
+    spot4_title:'Cachoeira do Prumirim 普鲁米林瀑布',spot4_tag2:'天然滑梯 · 雨林深处 · 家庭友好',
+    spot4_body:'Prumirim 瀑布是 Ubatuba 最受欢迎的瀑布——溪水在光滑的花岗岩上形成了多级天然滑梯，冲入碧绿的水潭中。你可以坐在岩石上顺水滑下，也可以在水潭中游泳放松。',
+    spot4_addr:'Rio-Santos 公路 km 47，Ubatuba 北部',spot4_time:'1-2 小时',spot4_price:'R$15 停车费（约 ¥20）',
+    spot5_title:'Projeto TAMAR 海龟保护站',spot5_tag2:'海龟保育 · 科普教育 · 亲子必去',
+    spot5_body:'Projeto TAMAR 是巴西最成功的海洋保育项目之一——从1980年至今，已在巴西海岸线保护了超过 4000 万只海龟幼崽。Ubatuba 基地位于 Itaguá 海滩旁，你可以近距离观察绿海龟、玳瑁和蠵龟。',
+    spot5_addr:'Rua Antonio Athanásio 273, Itaguá',spot5_time:'1-1.5 小时',spot5_price:'R$30/人（约 ¥40）',
+    spot6_title:'Trilha da Praia Brava 勇敢海滩步道',spot6_tag2:'徒步 · 秘境海滩 · 中等难度',
+    spot6_body:'Praia Brava（"勇敢海滩"）名副其实——你需要徒步约 2 小时穿越大西洋雨林才能到达这片隐秘的沙滩。步道从 Praia do Félix 出发，沿途经过密林、溪流和观景台。',
+    spot6_addr:'起点：Praia do Félix，Ubatuba 南部',spot6_time:'往返 3-4 小时',spot6_price:'免费',
+    ch3_label:'Chapter 03',ch3_title:'你的行程',ch3_sub:'2天、3天或4天，量身定制',
+    tab_2d:'2天精华',tab_3d:'3天经典',tab_4d:'4天深度',
+    ch4_label:'Chapter 04',ch4_title:'旅行者攻略',ch4_sub:'交通·住宿·季节·装备',
+    tip1_title:'交通：圣保罗出发',tip1_desc:'自驾走 Rio-Santos 公路（SP-055）约 3.5 小时，海岸公路风景绝美。大巴从 Rodoviária Tietê 出发约 4 小时，R$70。雨季注意山路滑坡。',
+    tip2_title:'住宿推荐',tip2_desc:'💎 奢华：Itamambuca Eco Resort（R$800+）｜🏡 中档：Pousada Picinguaba（R$400）｜🎒 背包：Hostel Trópico de Ubatuba（R$70/床位）',
+    tip3_title:'最佳季节',tip3_desc:'4-6月和8-10月最佳。12-2月旺季价格翻倍。9-3月海龟产卵季。冬季（6-8月）浪最好。',
+    tip4_title:'出行必知',tip4_desc:'市区有 4G 信号，偏远海滩可能无信号。现金+信用卡都备好。防晒必须——巴西紫外线极强。',
+    tip5_title:'安全提示',tip5_desc:'Ubatuba 总体安全。海滩注意浪况。雨季注意山路落石。不要在无标识区域游泳。贵重物品不留车内。',
+    tip6_title:'打包清单',tip6_desc:'必带：防水手机袋、水陆两用鞋、防晒SPF50+、驱蚊液、浮潜面镜、轻薄雨衣。选带：冲浪板、吊床、GoPro。',
+    pack_label:'PACKING LIST',pack_title:'行前清单',
+    nav_story:'故事',nav_spots:'景点',nav_journey:'行程',nav_tips:'攻略',
+    ending_title:'Até logo, Ubatuba.',ending_sub:'下次海浪涌来的时候，希望你正站在冲浪板上。'
+  },
+  en: {
+    sp_subtitle:'Where the Atlantic Forest meets the sea — 100+ beaches, one surf paradise.',
+    sp_choose:'— Choose Your Journey —',
+    sp_2d_days:'2 Days',sp_2d_desc:'Beach + eco, weekend highlights',sp_2d_tag:'First time in Ubatuba',
+    sp_3d_days:'3 Days',sp_3d_desc:'Beach + rainforest + turtles',sp_3d_tag:'Most Popular',
+    sp_4d_days:'4 Days',sp_4d_desc:'Surf, waterfalls, islands, jungle — all in',sp_4d_tag:'Adventure Seeker',
+    ch1_label:'Chapter 01',ch1_title:'The City\'s Story',ch1_sub:'From Tupi Canoes to Surf Paradise',
+    ch1_p1:'If Paraty is colonial amber, then Ubatuba is the emerald of the Atlantic Rainforest. With 100+ beaches, this city is São Paulo\'s beloved "surf capital" and "eco-paradise." Its name comes from Tupi — "uba\'tuba" meaning "place of many canoes" — hinting at millennia of indigenous connection to the sea.',
+    ch1_quote:'"Ubatuba is one of the few places in Brazil where you can surf in the morning, hike through rainforest at noon, and swim with sea turtles in the afternoon."',
+    ch1_history:'<strong>Four Centuries of Memory</strong><br><br>Portuguese settlers established a settlement here in 1637, but the Tupinambá people had been fishing and building canoes in this bay for thousands of years. Ubatuba played a significant role in colonial history — in 1563, Portuguese missionary José de Anchieta signed the famous "Peace of Iperoig" with the Tupinambá here, one of the earliest peace treaties in Brazilian history.<br><br>In the 19th century, Ubatuba was one of São Paulo state\'s most important ports — Blue Mountain coffee was shipped from here to Europe. As Santos port rose, Ubatuba returned to quietude — and thus preserved vast tracts of pristine Atlantic Rainforest. Today, 85% of Ubatuba\'s land is covered by Serra do Mar State Park, a core zone of the UNESCO Atlantic Forest Biosphere Reserve.',
+    ch1_nature:'<strong>Ecological Marvel Between Mountain & Sea</strong><br><br>Serra do Mar\'s ridges rise from sea level to 1,200 meters, creating one of Earth\'s most spectacular ecological gradients. The forest hides 450+ bird species, jaguars, and golden lion tamarins; beneath the waves, Ilha Anchieta boasts the clearest waters in São Paulo state with visibility often reaching 15 meters.<br><br>From September to March, sea turtles nest on Itamambuca and Almada beaches — Projeto TAMAR has been guarding them here for over 40 years. Ubatuba is also an important base for Atlantic Forest research — Núcleo Picinguaba is the only section of the entire Serra do Mar park that extends to the coastline.',
+    ch1_quote2:'"In Tupi, \'uba\'tuba\' means place of many canoes — four centuries later, canoes became surfboards, but the bay remains the city\'s soul."',
+    ch2_label:'Chapter 02',ch2_title:'Six Must-Sees',ch2_sub:'From surf breaks to rainforest waterfalls — Ubatuba\'s six calling cards',
+    spot1_name:'Praia de Itamambuca',spot1_tag:'Surf · Sunset',
+    spot2_name:'Ilha Anchieta',spot2_tag:'Snorkel · History',
+    spot3_name:'Praia da Fazenda',spot3_tag:'Rainforest · Pristine',
+    spot4_name:'Cachoeira do Prumirim',spot4_tag:'Waterfall · Natural Pool',
+    spot5_name:'Projeto TAMAR',spot5_tag:'Sea Turtles · Conservation',
+    spot6_name:'Trilha da Praia Brava',spot6_tag:'Hiking · Secret Beach',
+    spot1_title:'Praia de Itamambuca',spot1_tag2:'Brazilian Surf Championship Venue · North Coast Star',
+    spot1_body:'Itamambuca is Ubatuba\'s star attraction — home to the annual Circuito Brasileiro de Surf. The wide beach is embraced by rainforest hills, with a river meeting the sea at one end forming a natural surf break. Waves of 1-2m are perfect for intermediate surfers; beginners can practice in the calm river mouth.',
+    spot1_addr:'Northern Ubatuba, 20km from center',spot1_time:'Half to full day',spot1_price:'Board rental R$50/day (~$10)',
+    spot2_title:'Ilha Anchieta',spot2_tag2:'Snorkel Paradise · Historic Prison · State Park',
+    spot2_body:'Anchieta Island has the clearest waters in São Paulo state — visibility often reaches 15 meters. The island has a dramatic history: from 1902-1952 it was one of Brazil\'s most notorious prisons. Today the ruins are a museum, creating a surreal contrast with the tropical paradise around it.',
+    spot2_addr:'Speedboat from Enseada pier, 30min',spot2_time:'Full day recommended',spot2_price:'Boat+entry R$120/person (~$24)',
+    spot3_title:'Praia da Fazenda',spot3_tag2:'Pristine Rainforest Beach · Núcleo Picinguaba',
+    spot3_body:'One of Ubatuba\'s most pristine beaches — inside Núcleo Picinguaba, where the Atlantic Forest extends almost to the sand. No vendors, no speakers, no umbrellas — just monkeys in the trees and the sound of waves.',
+    spot3_addr:'Núcleo Picinguaba, northern tip of Ubatuba',spot3_time:'Half day',spot3_price:'Free (no park entrance fee)',
+    spot4_title:'Cachoeira do Prumirim',spot4_tag2:'Natural Slide · Deep Rainforest · Family Friendly',
+    spot4_body:'Ubatuba\'s most popular waterfall — water cascades over smooth granite forming multiple natural slides into emerald pools. Sit down and slide, or swim in the cool pools surrounded by dense Atlantic Forest.',
+    spot4_addr:'Rio-Santos highway km 47, northern Ubatuba',spot4_time:'1-2 hours',spot4_price:'R$15 parking (~$3)',
+    spot5_title:'Projeto TAMAR',spot5_tag2:'Sea Turtle Conservation · Education · Must for Families',
+    spot5_body:'Projeto TAMAR is one of Brazil\'s most successful marine conservation projects — protecting over 40 million turtle hatchlings since 1980. At the Ubatuba base, see green turtles, hawksbills, and loggerheads up close in rehabilitation pools.',
+    spot5_addr:'Rua Antonio Athanásio 273, Itaguá',spot5_time:'1-1.5 hours',spot5_price:'R$30/person (~$6)',
+    spot6_title:'Trilha da Praia Brava',spot6_tag2:'Hiking · Secret Beach · Moderate',
+    spot6_body:'"Brave Beach" lives up to its name — a 2-hour rainforest hike to reach this hidden golden strand. The trail from Praia do Félix passes through dense forest, streams, and viewpoints accompanied by birdsong and monkey calls.',
+    spot6_addr:'Trailhead: Praia do Félix, southern Ubatuba',spot6_time:'3-4 hours round trip',spot6_price:'Free',
+    ch3_label:'Chapter 03',ch3_title:'Your Journey',ch3_sub:'2, 3, or 4 days — tailored for you',
+    tab_2d:'2-Day Essential',tab_3d:'3-Day Classic',tab_4d:'4-Day Deep',
+    ch4_label:'Chapter 04',ch4_title:"Traveler's Guide",ch4_sub:'Transport · Stay · Season · Gear',
+    tip1_title:'Getting There from SP',tip1_desc:'Drive SP-055 (Rio-Santos) ~3.5h, stunning coastal road. Bus from Rodoviária Tietê ~4h, R$70. Watch for landslides on SP-099 in rainy season.',
+    tip2_title:'Where to Stay',tip2_desc:'💎 Luxury: Itamambuca Eco Resort (R$800+) | 🏡 Mid: Pousada Picinguaba (R$400) | 🎒 Budget: Hostel Trópico (R$70/bed)',
+    tip3_title:'Best Season',tip3_desc:'Apr-Jun & Aug-Oct ideal. Dec-Feb peak, prices double. Sep-Mar turtle nesting season. Winter (Jun-Aug) has best surf.',
+    tip4_title:'Good to Know',tip4_desc:'4G in town; remote beaches may have no signal. Bring both cash & cards. Sunscreen is essential — Brazilian UV is intense.',
+    tip5_title:'Safety Tips',tip5_desc:'Ubatuba is generally safe. Watch wave conditions at Itamambuca & Brava. Rainy season: landslide risk on mountain roads.',
+    tip6_title:'Packing List',tip6_desc:'Must: waterproof pouch, water shoes, SPF50+, bug spray, snorkel mask, rain jacket. Optional: surfboard, hammock, GoPro.',
+    pack_label:'PACKING LIST',pack_title:'Pre-Trip Checklist',
+    nav_story:'Story',nav_spots:'Spots',nav_journey:'Journey',nav_tips:'Tips',
+    ending_title:'Até logo, Ubatuba.',ending_sub:'Next time the waves roll in, may you be standing on a surfboard.'
+  },
+  pt: {
+    sp_subtitle:'Onde a Mata Atlântica encontra o mar — 100+ praias, um paraíso do surfe.',
+    sp_choose:'— Escolha sua jornada —',
+    sp_2d_days:'2 Dias',sp_2d_desc:'Praia + eco, essencial do fim de semana',sp_2d_tag:'Primeira vez em Ubatuba',
+    sp_3d_days:'3 Dias',sp_3d_desc:'Praia + mata + tartarugas',sp_3d_tag:'Mais Popular',
+    sp_4d_days:'4 Dias',sp_4d_desc:'Surfe, cachoeiras, ilhas, selva — tudo',sp_4d_tag:'Aventureiro',
+    ch1_label:'Capítulo 01',ch1_title:'A História da Cidade',ch1_sub:'Das Canoas Tupis ao Paraíso do Surfe',
+    ch1_p1:'Se Paraty é o âmbar colonial, Ubatuba é a esmeralda da Mata Atlântica. Com mais de 100 praias, esta cidade é a "capital do surfe" e o "paraíso ecológico" dos paulistas. Seu nome vem do tupi — "uba\'tuba" significa "lugar de muitas canoas" — revelando milênios de conexão indígena com o mar.',
+    ch1_quote:'"Ubatuba é um dos poucos lugares no Brasil onde você pode surfar de manhã, fazer trilha na mata ao meio-dia e nadar com tartarugas à tarde."',
+    ch1_history:'<strong>Quatro Séculos de Memória</strong><br><br>Colonizadores portugueses fundaram um assentamento aqui em 1637, mas os Tupinambás já pescavam e construíam canoas nesta baía há milhares de anos. Ubatuba teve papel significativo na história colonial — em 1563, o missionário José de Anchieta assinou aqui a famosa "Paz de Iperoig" com os Tupinambás, um dos primeiros tratados de paz da história brasileira.<br><br>No século XIX, Ubatuba foi um dos portos mais importantes de São Paulo — café Blue Mountain era embarcado daqui para a Europa. Com a ascensão de Santos, Ubatuba voltou à quietude — e assim preservou vastas áreas de Mata Atlântica intocada. Hoje, 85% do território é coberto pelo Parque Estadual da Serra do Mar, zona núcleo da Reserva da Biosfera da UNESCO.',
+    ch1_nature:'<strong>Maravilha Ecológica Entre Montanha e Mar</strong><br><br>As cristas da Serra do Mar sobem do nível do mar até 1.200 metros, criando um dos gradientes ecológicos mais espetaculares da Terra. A mata abriga 450+ espécies de aves, onças-pintadas e micos-leões-dourados; sob a superfície, a Ilha Anchieta tem as águas mais cristalinas de São Paulo, com visibilidade de até 15 metros.<br><br>De setembro a março, tartarugas marinhas desovam nas praias de Itamambuca e Almada — o Projeto TAMAR as protege aqui há mais de 40 anos. Ubatuba é também base importante de pesquisa da Mata Atlântica — o Núcleo Picinguaba é o único trecho do parque da Serra do Mar que se estende até o litoral.',
+    ch1_quote2:'"Em tupi, \'uba\'tuba\' significa lugar de muitas canoas — quatro séculos depois, as canoas viraram pranchas de surfe, mas a baía continua sendo a alma da cidade."',
+    ch2_label:'Capítulo 02',ch2_title:'Seis Imperdíveis',ch2_sub:'Do surfe às cachoeiras na mata — seis cartões-postais de Ubatuba',
+    spot1_name:'Praia de Itamambuca',spot1_tag:'Surfe · Pôr do Sol',
+    spot2_name:'Ilha Anchieta',spot2_tag:'Snorkel · História',
+    spot3_name:'Praia da Fazenda',spot3_tag:'Mata · Preservada',
+    spot4_name:'Cachoeira do Prumirim',spot4_tag:'Cachoeira · Piscina Natural',
+    spot5_name:'Projeto TAMAR',spot5_tag:'Tartarugas · Conservação',
+    spot6_name:'Trilha da Praia Brava',spot6_tag:'Trilha · Praia Secreta',
+    spot1_title:'Praia de Itamambuca',spot1_tag2:'Sede do Campeonato Brasileiro de Surfe',
+    spot1_body:'Itamambuca é a estrela de Ubatuba — sede anual do Circuito Brasileiro de Surf. A praia ampla é abraçada por morros de Mata Atlântica, com um rio encontrando o mar formando um pico natural de surfe.',
+    spot1_addr:'Norte de Ubatuba, 20km do centro',spot1_time:'Meio dia a dia inteiro',spot1_price:'Aluguel de prancha R$50/dia',
+    spot2_title:'Ilha Anchieta',spot2_tag2:'Paraíso do Snorkel · Presídio Histórico · Parque Estadual',
+    spot2_body:'A Ilha Anchieta tem as águas mais cristalinas de São Paulo — visibilidade de até 15 metros. A ilha tem história dramática: de 1902 a 1952 foi uma das prisões mais famosas do Brasil. Hoje as ruínas são museu.',
+    spot2_addr:'Lancha do pier da Enseada, 30min',spot2_time:'Dia inteiro recomendado',spot2_price:'Barco+entrada R$120/pessoa',
+    spot3_title:'Praia da Fazenda',spot3_tag2:'Praia Preservada · Núcleo Picinguaba',
+    spot3_body:'Uma das praias mais preservadas de Ubatuba — dentro do Núcleo Picinguaba, onde a Mata Atlântica chega quase à areia. Sem vendedores, sem som, sem guarda-sol — só macacos nas árvores e o som das ondas.',
+    spot3_addr:'Núcleo Picinguaba, extremo norte de Ubatuba',spot3_time:'Meio dia',spot3_price:'Gratuito (sem taxa de entrada)',
+    spot4_title:'Cachoeira do Prumirim',spot4_tag2:'Tobogã Natural · Mata Densa · Para Toda Família',
+    spot4_body:'A cachoeira mais popular de Ubatuba — água desliza sobre granito liso formando tobogãs naturais em piscinas esmeralda. Sente e deslize, ou nade nas piscinas frescas cercadas de Mata Atlântica.',
+    spot4_addr:'Rio-Santos km 47, norte de Ubatuba',spot4_time:'1-2 horas',spot4_price:'R$15 estacionamento',
+    spot5_title:'Projeto TAMAR',spot5_tag2:'Conservação de Tartarugas · Educação · Programa em Família',
+    spot5_body:'O Projeto TAMAR é um dos projetos de conservação marinha mais bem-sucedidos do Brasil — protegendo mais de 40 milhões de filhotes desde 1980. Na base de Ubatuba, veja tartarugas-verdes, de-pente e cabeçudas de perto.',
+    spot5_addr:'Rua Antonio Athanásio 273, Itaguá',spot5_time:'1-1,5 horas',spot5_price:'R$30/pessoa',
+    spot6_title:'Trilha da Praia Brava',spot6_tag2:'Trilha · Praia Secreta · Moderada',
+    spot6_body:'"Praia Brava" faz jus ao nome — 2 horas de trilha pela Mata Atlântica até esta faixa de areia escondida. A trilha parte da Praia do Félix, passando por mata densa, riachos e mirantes.',
+    spot6_addr:'Início: Praia do Félix, sul de Ubatuba',spot6_time:'3-4 horas ida e volta',spot6_price:'Gratuito',
+    ch3_label:'Capítulo 03',ch3_title:'Sua Jornada',ch3_sub:'2, 3 ou 4 dias — sob medida',
+    tab_2d:'2 Dias Essencial',tab_3d:'3 Dias Clássico',tab_4d:'4 Dias Profundo',
+    ch4_label:'Capítulo 04',ch4_title:'Guia do Viajante',ch4_sub:'Transporte · Hospedagem · Temporada · Equipamento',
+    tip1_title:'Como Chegar de SP',tip1_desc:'Carro pela SP-055 (Rio-Santos) ~3,5h, estrada linda. Ônibus da Rodoviária Tietê ~4h, R$70. Cuidado com deslizamentos na SP-099 em época de chuva.',
+    tip2_title:'Onde Ficar',tip2_desc:'💎 Luxo: Itamambuca Eco Resort (R$800+) | 🏡 Médio: Pousada Picinguaba (R$400) | 🎒 Econômico: Hostel Trópico (R$70/cama)',
+    tip3_title:'Melhor Época',tip3_desc:'Abr-Jun e Ago-Out ideal. Dez-Fev alta temporada, preços dobram. Set-Mar temporada de desova das tartarugas. Inverno (Jun-Ago) melhores ondas.',
+    tip4_title:'Bom Saber',tip4_desc:'4G na cidade; praias remotas podem não ter sinal. Leve dinheiro e cartão. Protetor solar é obrigatório — UV brasileiro é intenso.',
+    tip5_title:'Segurança',tip5_desc:'Ubatuba é segura no geral. Cuidado com ondas em Itamambuca e Brava. Época de chuva: risco de deslizamento nas estradas serranas.',
+    tip6_title:'Lista de Malas',tip6_desc:'Essencial: capinha à prova d\'água, tênis anfíbio, protetor FPS50+, repelente, máscara de snorkel, capa de chuva. Opcional: prancha, rede, GoPro.',
+    pack_label:'LISTA DE MALAS',pack_title:'Checklist Pré-Viagem',
+    nav_story:'História',nav_spots:'Pontos',nav_journey:'Roteiro',nav_tips:'Dicas',
+    ending_title:'Até logo, Ubatuba.',ending_sub:'Na próxima onda, que você esteja de pé na prancha.'
+  }
+};
+
+let curMode = 'zh-en';
+function setBilingual(mode) {
+  curMode = mode;
+  const secondary = mode === 'zh-pt' ? 'pt' : 'en';
+  const zhDict = I18N.zh;
+  const secDict = I18N[secondary] || I18N.en;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const zhText = zhDict[key] || '';
+    const secText = secDict[key] || '';
+    if (!zhText) return;
+
+    const isShort = el.closest('.nav-item,.sp-plan-tag,.mc-tag,.spot-info-item,.sp-plan-label,.sp-badge,.page-num,.sp-dot,.pack-item,.tl-tip');
+    const isDays = key.includes('_days');
+
+    if (isShort) {
+      el.textContent = zhText;
+    } else if (isDays) {
+      el.innerHTML = zhText + ' <span class="bi-sub" style="display:inline;opacity:.5;font-size:.7em">' + secText + '</span>';
+    } else {
+      el.innerHTML = zhText + '<span class="bi-sub">' + secText + '</span>';
+    }
+  });
+
+  document.querySelectorAll('.lang-btn,.sp-lang-btn').forEach(b => {
+    const label = mode === 'zh-pt' ? '中·PT' : '中·EN';
+    b.classList.toggle('active', b.textContent.trim() === label);
+  });
+}
+
+function setLang(lang) {
+  if (lang === 'pt') setBilingual('zh-pt');
+  else setBilingual('zh-en');
+}
+
+setBilingual('zh-en');
+
+// ===== SPLASH CAROUSEL =====
+let spIdx = 0, spTimer;
+function spGo(i) {
+  const slides = document.querySelectorAll('.sp-slide');
+  const dots = document.querySelectorAll('.sp-dot');
+  slides.forEach((s, j) => s.classList.toggle('active', j === i));
+  dots.forEach((d, j) => d.classList.toggle('active', j === i));
+  spIdx = i;
+}
+function spAuto() { spTimer = setInterval(() => { const n = document.querySelectorAll('.sp-slide').length; spGo((spIdx + 1) % n); }, 5000); }
+spAuto();
+
+// ===== ENTER FROM SPLASH =====
+function enterPlan(days) {
+  clearInterval(spTimer);
+  document.getElementById('splash').classList.add('hide');
+  document.getElementById('app').classList.add('show');
+  document.getElementById('nav-bar').classList.add('show');
+  setTimeout(() => { switchPlan(days); }, 300);
+}
+
+// ===== PLAN TABS =====
+function switchPlan(days) {
+  document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.plan-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.plan-tab').forEach(t => {
+    if (t.textContent.includes(days)) t.classList.add('active');
+  });
+  const page = document.getElementById('plan-' + days);
+  if (page) page.classList.add('active');
+  const ch = document.getElementById('ch-journey');
+  if (ch) ch.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== SCROLL TO SPOT =====
+function scrollToSpot(n) {
+  const el = document.getElementById('spot-' + n);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== NAV =====
+function navTo(id) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== BACK TO TOP =====
+window.addEventListener('scroll', () => {
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 600);
+});
+
+// ===== SPLASH SCROLL TO ENTER =====
+let splashScrolled = false;
+window.addEventListener('wheel', (e) => {
+  if (splashScrolled) return;
+  const splash = document.getElementById('splash');
+  if (!splash.classList.contains('hide') && e.deltaY > 30) {
+    splashScrolled = true;
+    clearInterval(spTimer);
+    splash.classList.add('hide');
+    document.getElementById('app').classList.add('show');
+    document.getElementById('nav-bar').classList.add('show');
+  }
+}, { passive: true });
+
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchend', (e) => {
+  if (splashScrolled) return;
+  const splash = document.getElementById('splash');
+  if (!splash.classList.contains('hide') && touchStartY - e.changedTouches[0].clientY > 50) {
+    splashScrolled = true;
+    clearInterval(spTimer);
+    splash.classList.add('hide');
+    document.getElementById('app').classList.add('show');
+    document.getElementById('nav-bar').classList.add('show');
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>

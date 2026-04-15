@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="version" content="island-v2.0">
+<meta name="version" content="island-v3.0">
 <title>Island — Travel Magazine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -41,24 +41,17 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   position:relative;z-index:2;text-align:center;
   padding:0 24px;
 }
-.hero-eyebrow{
-  font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
-  letter-spacing:5px;text-transform:uppercase;color:var(--gold);
-  margin-bottom:24px;opacity:0;animation:fadeUp .8s .3s forwards;
-}
 .hero-title{
   font-family:'Playfair Display',serif;font-weight:900;
   font-size:clamp(60px,12vw,120px);line-height:0.9;
   letter-spacing:-2px;color:#fff;
   text-shadow:0 2px 40px rgba(0,0,0,.3);
-  margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards;
+  margin-bottom:20px;opacity:0;animation:fadeUp .8s .5s forwards;
 }
-.hero-subtitle{
-  font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,0.85);
-  max-width:500px;margin:0 auto 40px;
-  text-shadow:0 1px 16px rgba(0,0,0,.3);
-  opacity:0;animation:fadeUp .8s .7s forwards;
+.hero-credit{
+  font-family:'Inter',sans-serif;font-weight:300;font-size:12px;
+  letter-spacing:2px;color:rgba(255,255,255,0.45);
+  margin-bottom:40px;opacity:0;animation:fadeUp .8s .7s forwards;
 }
 .hero-scroll{
   opacity:0;animation:fadeUp .8s .9s forwards;cursor:pointer;
@@ -76,142 +69,162 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 }
 @keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:0.3;transform:translateX(-50%) translateY(16px)}}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-.hero-eyebrow,.hero-title,.hero-subtitle,.hero-scroll{transform:translateY(20px)}
+.hero-title,.hero-credit,.hero-scroll{transform:translateY(20px)}
 
 /* ===== SECTION: ISSUES ===== */
 .issues{
-  position:relative;padding:100px 24px 120px;
+  position:relative;padding:80px 24px 100px;
   background:var(--cream);color:var(--ink);
 }
 .issues-header{
-  text-align:center;max-width:700px;margin:0 auto 72px;
+  text-align:center;max-width:700px;margin:0 auto 56px;
 }
 .issues-eyebrow{
-  font-family:'Inter',sans-serif;font-weight:600;font-size:12px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:11px;
   letter-spacing:4px;text-transform:uppercase;color:var(--terra);
-  margin-bottom:16px;
+  margin-bottom:12px;
 }
 .issues-title{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(32px,5vw,48px);color:var(--ink);
-  margin-bottom:16px;letter-spacing:-1px;
+  font-size:clamp(28px,4.5vw,42px);color:var(--ink);
+  margin-bottom:12px;letter-spacing:-1px;
 }
 .issues-subtitle{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:16px;color:var(--warm-gray);line-height:1.6;
+  font-size:14px;color:var(--warm-gray);line-height:1.6;
 }
 
-/* ===== MAGAZINE CARDS ===== */
-.cards-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:40px;max-width:1100px;margin:0 auto;
+/* ===== MAGAZINE SHELF (compact cards) ===== */
+.shelf{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:32px;max-width:1100px;margin:0 auto;
   perspective:1200px;
 }
 .mag-card{
-  position:relative;border-radius:16px;overflow:hidden;
-  aspect-ratio:3/4;cursor:pointer;
-  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+  position:relative;border-radius:12px;overflow:hidden;
+  width:220px;aspect-ratio:3/4;cursor:pointer;flex-shrink:0;
+  box-shadow:0 12px 40px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.08);
   transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;
   will-change:transform;
 }
 .mag-card:hover{
-  transform:translateY(-12px) scale(1.015);
-  box-shadow:0 36px 80px rgba(0,0,0,0.2);
+  transform:translateY(-16px) scale(1.04);
+  box-shadow:0 28px 60px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.1);
 }
 .mag-card-img{
-  position:absolute;inset:-8px;
+  position:absolute;inset:-6px;
   background-size:cover;background-position:center;
-  transition:transform 8s cubic-bezier(.25,.46,.45,.94);
+  transition:transform 6s cubic-bezier(.25,.46,.45,.94);
 }
 .mag-card:hover .mag-card-img{
   transform:scale(1.08);
 }
 .mag-card-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,0.72) 100%);
-  transition:background .5s;
+  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.7) 100%);
+  transition:background .4s;
 }
 .mag-card:hover .mag-card-overlay{
-  background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,0.78) 100%);
+  background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,0.78) 100%);
 }
 .mag-card-content{
-  position:absolute;bottom:0;left:0;right:0;padding:32px;z-index:2;
+  position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;
   transition:transform .5s cubic-bezier(.25,.46,.45,.94);
 }
 .mag-card:hover .mag-card-content{
-  transform:translateY(-4px);
+  transform:translateY(-3px);
 }
 .mag-card-issue{
-  font-family:'Inter',sans-serif;font-weight:600;font-size:11px;
-  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
-  margin-bottom:10px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:9px;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:6px;
 }
 .mag-card-name{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:36px;color:#fff;line-height:1.1;margin-bottom:8px;
-  letter-spacing:-0.5px;
+  font-size:24px;color:#fff;line-height:1.1;margin-bottom:4px;
+  letter-spacing:-0.3px;
 }
 .mag-card-tagline{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:14px;color:rgba(255,255,255,0.78);line-height:1.5;
-  margin-bottom:16px;
+  font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;
+  margin-bottom:10px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .mag-card-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:10px;
   letter-spacing:1px;text-transform:uppercase;
   color:#fff;text-decoration:none;
-  padding:10px 20px;border:1.5px solid rgba(255,255,255,0.35);
-  border-radius:24px;transition:all .35s;
+  padding:7px 14px;border:1.5px solid rgba(255,255,255,0.3);
+  border-radius:20px;transition:all .35s;
   backdrop-filter:blur(4px);background:rgba(255,255,255,0.06);
 }
 .mag-card-btn:hover{
   background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.7);
 }
-.mag-card-btn svg{width:14px;height:14px;transition:transform .35s}
-.mag-card:hover .mag-card-btn svg{transform:translateX(4px)}
+.mag-card-btn svg{width:12px;height:12px;transition:transform .35s}
+.mag-card:hover .mag-card-btn svg{transform:translateX(3px)}
 
-/* ===== SCROLL REVEAL (staggered) ===== */
+/* ===== COMING SOON placeholder ===== */
+.mag-card.placeholder{
+  border:2px dashed rgba(0,0,0,0.1);background:rgba(0,0,0,0.02);
+  cursor:default;box-shadow:none;
+  display:flex;align-items:center;justify-content:center;
+}
+.mag-card.placeholder:hover{
+  transform:none;box-shadow:none;
+}
+.placeholder-inner{
+  text-align:center;padding:20px;
+}
+.placeholder-icon{font-size:32px;margin-bottom:12px;opacity:0.3}
+.placeholder-text{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(0,0,0,0.25);
+}
+
+/* ===== SCROLL REVEAL ===== */
 .reveal{
-  opacity:0;
-  transform:translateY(50px);
-  transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);
+  opacity:0;transform:translateY(40px);
+  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
 }
-.reveal.visible{
-  opacity:1;transform:translateY(0);
-}
-.reveal.delay-1{transition-delay:.15s}
-.reveal.delay-2{transition-delay:.3s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}
+.reveal.d2{transition-delay:.2s}
+.reveal.d3{transition-delay:.3s}
+.reveal.d4{transition-delay:.4s}
 
 /* ===== FOOTER ===== */
 .island-footer{
-  padding:60px 24px;text-align:center;
+  padding:48px 24px;text-align:center;
   background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);
 }
 .footer-logo{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:28px;color:#fff;letter-spacing:-1px;margin-bottom:8px;
+  font-size:24px;color:#fff;letter-spacing:-1px;margin-bottom:6px;
 }
 .footer-tagline{
-  font-family:'Inter',sans-serif;font-size:12px;
+  font-family:'Inter',sans-serif;font-size:11px;
   letter-spacing:3px;text-transform:uppercase;
-  color:rgba(255,255,255,0.35);margin-bottom:24px;
+  color:rgba(255,255,255,0.3);margin-bottom:20px;
 }
 .footer-copy{
   font-family:'Inter',sans-serif;font-size:11px;
-  color:rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.18);
 }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:600px){
-  .cards-grid{grid-template-columns:1fr;gap:28px;padding:0 4px}
-  .mag-card{aspect-ratio:4/5}
-  .mag-card-name{font-size:28px}
-  .mag-card-content{padding:24px}
-  .issues{padding:72px 16px 80px}
+@media(max-width:520px){
+  .shelf{gap:20px}
+  .mag-card{width:160px}
+  .mag-card-name{font-size:20px}
+  .mag-card-tagline{font-size:10px}
+  .mag-card-content{padding:14px}
+  .issues{padding:60px 16px 72px}
 }
-@media(min-width:601px) and (max-width:900px){
-  .cards-grid{grid-template-columns:1fr 1fr;gap:28px}
+@media(min-width:521px) and (max-width:768px){
+  .mag-card{width:190px}
 }
 </style>
 </head>
@@ -223,49 +236,65 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">Island</h1>
-    <p class="hero-subtitle">Journeys worth taking. Stories worth telling.</p>
+    <p class="hero-credit">© Eric Zhangwenle</p>
     <div class="hero-scroll" id="scrollCue" role="button" aria-label="Scroll to destinations"><span></span></div>
   </div>
 </section>
 
-<!-- ===== ISSUES GRID ===== -->
+<!-- ===== MAGAZINE SHELF ===== -->
 <section class="issues" id="issues">
   <div class="issues-header reveal">
     <p class="issues-eyebrow">Latest Issues</p>
     <h2 class="issues-title">Pick Your Destination</h2>
-    <p class="issues-subtitle">Each issue is a deep dive into one place — its history, culture, landscapes, and the journey that awaits you.</p>
+    <p class="issues-subtitle">Each issue is a deep dive into one place — its history, culture, and the journey that awaits.</p>
   </div>
 
-  <div class="cards-grid">
+  <div class="shelf">
     <!-- Ubatuba -->
-    <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal delay-1" style="text-decoration:none">
+    <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal d1" style="text-decoration:none">
       <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg');background-position:center 40%"></div>
       <div class="mag-card-overlay"></div>
       <div class="mag-card-content">
-        <p class="mag-card-issue">Issue 02 · April 2026</p>
+        <p class="mag-card-issue">Issue 02</p>
         <h3 class="mag-card-name">Ubatuba</h3>
-        <p class="mag-card-tagline">Where the Atlantic Forest meets the sea — surf, rainforest trails, and 70+ hidden beaches.</p>
+        <p class="mag-card-tagline">Where the Atlantic Forest meets the sea — surf, trails, and 70+ hidden beaches.</p>
         <span class="mag-card-btn">
-          Read Issue
+          Read
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
     </a>
 
     <!-- Paraty -->
-    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal delay-2" style="text-decoration:none">
+    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal d2" style="text-decoration:none">
       <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_abd4ef9b-942f-4c9f-bbb3-1f6bd6cbd939.jpg');background-position:center 30%"></div>
       <div class="mag-card-overlay"></div>
       <div class="mag-card-content">
-        <p class="mag-card-issue">Issue 01 · April 2026</p>
+        <p class="mag-card-issue">Issue 01</p>
         <h3 class="mag-card-name">Paraty</h3>
-        <p class="mag-card-tagline">Colonial gold, emerald waters, and cobblestone dreams on Brazil's Costa Verde.</p>
+        <p class="mag-card-tagline">Colonial gold, emerald waters, and cobblestone dreams on the Costa Verde.</p>
         <span class="mag-card-btn">
-          Read Issue
+          Read
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </span>
       </div>
     </a>
+
+    <!-- Coming Soon placeholder -->
+    <div class="mag-card placeholder reveal d3">
+      <div class="placeholder-inner">
+        <div class="placeholder-icon">🏝️</div>
+        <div class="placeholder-text">Next Issue<br>Coming Soon</div>
+      </div>
+    </div>
+
+    <!-- Coming Soon placeholder 2 -->
+    <div class="mag-card placeholder reveal d4">
+      <div class="placeholder-inner">
+        <div class="placeholder-icon">✈️</div>
+        <div class="placeholder-text">More<br>Destinations</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -273,40 +302,35 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 <footer class="island-footer">
   <div class="footer-logo">Island</div>
   <div class="footer-tagline">Travel Magazine</div>
-  <div class="footer-copy">© 2026 Island. Made with ✨ by Zhangwenle</div>
+  <div class="footer-copy">© 2026 Eric Zhangwenle</div>
 </footer>
 
 <script>
 /* === Scroll Reveal with Stagger === */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* === Hero Scroll Cue → Smooth Scroll to Issues === */
+/* === Hero Scroll Cue → Smooth Scroll === */
 document.getElementById('scrollCue').addEventListener('click', () => {
   document.getElementById('issues').scrollIntoView({ behavior: 'smooth' });
 });
 
-/* === Card Tilt (subtle parallax on hover) === */
-document.querySelectorAll('.mag-card').forEach(card => {
+/* === Card Tilt (subtle 3D on hover) === */
+document.querySelectorAll('.mag-card:not(.placeholder)').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-12px) scale(1.015) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
+    card.style.transform = `translateY(-16px) scale(1.04) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
   });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
+  card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-/* === Parallax: Hero bg moves on scroll === */
+/* === Parallax: Hero bg on scroll === */
 let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) {

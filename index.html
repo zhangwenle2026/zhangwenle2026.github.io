@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="version" content="island-v1.0">
+<title>Island — Travel Magazine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FDFBF7;--ink:#1a1a1a;--ink-light:#4a4a4a;
+  --lp-blue:#004F9F;--terra:#C4622D;--gold:#D4A853;
+  --warm-gray:#6B6560;--sand:#f5f0e8;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);overflow-x:hidden}
+
+/* ===== HERO / COVER ===== */
+.hero{
+  position:relative;width:100%;height:100vh;min-height:600px;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_85d610b0-6297-4765-b34b-f99380ced1d8.jpg') center/cover no-repeat;
+  animation:kenBurns 25s ease-in-out infinite alternate;
+  filter:brightness(0.55);
+}
+@keyframes kenBurns{
+  0%{transform:scale(1) translate(0,0)}
+  100%{transform:scale(1.08) translate(-1%,-1%)}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.4) 50%,rgba(0,0,0,0.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;text-align:center;
+  padding:0 24px;
+}
+.hero-eyebrow{
+  font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
+  letter-spacing:5px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:24px;opacity:0;animation:fadeUp .8s .3s forwards;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(60px,12vw,120px);line-height:0.9;
+  letter-spacing:-2px;color:#fff;
+  margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards;
+}
+.hero-subtitle{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:clamp(16px,2.5vw,22px);color:rgba(255,255,255,0.8);
+  max-width:500px;margin:0 auto 40px;
+  opacity:0;animation:fadeUp .8s .7s forwards;
+}
+.hero-scroll{
+  opacity:0;animation:fadeUp .8s .9s forwards;
+}
+.hero-scroll span{
+  display:block;width:24px;height:40px;border:2px solid rgba(255,255,255,0.5);
+  border-radius:12px;margin:0 auto;position:relative;
+}
+.hero-scroll span::after{
+  content:'';display:block;width:4px;height:8px;border-radius:2px;
+  background:rgba(255,255,255,0.7);position:absolute;left:50%;top:6px;
+  transform:translateX(-50%);animation:scrollDot 1.8s infinite;
+}
+@keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:0.3;transform:translateX(-50%) translateY(14px)}}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.hero-eyebrow,.hero-title,.hero-subtitle,.hero-scroll{transform:translateY(20px)}
+
+/* ===== SECTION: ISSUES ===== */
+.issues{
+  position:relative;padding:100px 24px 120px;
+  background:var(--cream);color:var(--ink);
+}
+.issues-header{
+  text-align:center;max-width:700px;margin:0 auto 72px;
+}
+.issues-eyebrow{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:12px;
+  letter-spacing:4px;text-transform:uppercase;color:var(--terra);
+  margin-bottom:16px;
+}
+.issues-title{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:clamp(32px,5vw,48px);color:var(--ink);
+  margin-bottom:16px;letter-spacing:-1px;
+}
+.issues-subtitle{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:16px;color:var(--warm-gray);line-height:1.6;
+}
+
+/* ===== MAGAZINE CARDS ===== */
+.cards-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:40px;max-width:1100px;margin:0 auto;
+}
+.mag-card{
+  position:relative;border-radius:16px;overflow:hidden;
+  aspect-ratio:3/4;cursor:pointer;
+  box-shadow:0 20px 60px rgba(0,0,0,0.12);
+  transition:transform .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s;
+}
+.mag-card:hover{
+  transform:translateY(-8px) scale(1.01);
+  box-shadow:0 32px 80px rgba(0,0,0,0.18);
+}
+.mag-card-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transition:transform 6s ease-out;
+}
+.mag-card:hover .mag-card-img{
+  transform:scale(1.06);
+}
+.mag-card-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.75) 100%);
+}
+.mag-card-content{
+  position:absolute;bottom:0;left:0;right:0;padding:32px;z-index:2;
+}
+.mag-card-issue{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:11px;
+  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px;
+}
+.mag-card-name{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:36px;color:#fff;line-height:1.1;margin-bottom:8px;
+  letter-spacing:-0.5px;
+}
+.mag-card-tagline{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:14px;color:rgba(255,255,255,0.75);line-height:1.5;
+  margin-bottom:16px;
+}
+.mag-card-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:13px;
+  letter-spacing:1px;text-transform:uppercase;
+  color:#fff;text-decoration:none;
+  padding:10px 20px;border:1.5px solid rgba(255,255,255,0.4);
+  border-radius:24px;transition:all .3s;
+}
+.mag-card-btn:hover{
+  background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.7);
+}
+.mag-card-btn svg{width:14px;height:14px;transition:transform .3s}
+.mag-card:hover .mag-card-btn svg{transform:translateX(3px)}
+
+/* ===== COMING SOON CARD ===== */
+.mag-card.coming-soon{opacity:0.7;cursor:default}
+.mag-card.coming-soon:hover{transform:none;box-shadow:0 20px 60px rgba(0,0,0,0.12)}
+.mag-card.coming-soon .mag-card-img{filter:grayscale(0.4)}
+.coming-badge{
+  display:inline-block;font-family:'Inter',sans-serif;font-weight:600;
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--cream);background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.25);
+  padding:6px 14px;border-radius:20px;backdrop-filter:blur(4px);
+}
+
+/* ===== FOOTER ===== */
+.island-footer{
+  padding:60px 24px;text-align:center;
+  background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;font-weight:900;
+  font-size:28px;color:#fff;letter-spacing:-1px;margin-bottom:8px;
+}
+.footer-tagline{
+  font-family:'Inter',sans-serif;font-size:12px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.35);margin-bottom:24px;
+}
+.footer-copy{
+  font-family:'Inter',sans-serif;font-size:11px;
+  color:rgba(255,255,255,0.2);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr;gap:28px;padding:0 4px}
+  .mag-card{aspect-ratio:4/5}
+  .mag-card-name{font-size:28px}
+  .mag-card-content{padding:24px}
+  .issues{padding:72px 16px 80px}
+}
+@media(min-width:601px) and (max-width:900px){
+  .cards-grid{grid-template-columns:1fr 1fr;gap:28px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO COVER ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">A Travel Magazine Collection</p>
+    <h1 class="hero-title">Island</h1>
+    <p class="hero-subtitle">Journeys worth taking. Stories worth telling.</p>
+    <div class="hero-scroll"><span></span></div>
+  </div>
+</section>
+
+<!-- ===== ISSUES GRID ===== -->
+<section class="issues">
+  <div class="issues-header reveal">
+    <p class="issues-eyebrow">Latest Issues</p>
+    <h2 class="issues-title">Pick Your Destination</h2>
+    <p class="issues-subtitle">Each issue is a deep dive into one place — its history, culture, landscapes, and the journey that awaits you.</p>
+  </div>
+
+  <div class="cards-grid">
+    <!-- Paraty -->
+    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal" style="text-decoration:none">
+      <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_a51a2928-8377-406b-9d31-7cb11b80266a.jpg')"></div>
+      <div class="mag-card-overlay"></div>
+      <div class="mag-card-content">
+        <p class="mag-card-issue">Issue 01 · April 2026</p>
+        <h3 class="mag-card-name">Paraty</h3>
+        <p class="mag-card-tagline">Colonial gold, emerald waters, and cobblestone dreams on Brazil's Costa Verde.</p>
+        <span class="mag-card-btn">
+          Read Issue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
+
+    <!-- Ubatuba — Coming Soon -->
+    <div class="mag-card coming-soon reveal">
+      <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_26bea2a6-aa85-402c-9832-854054dc20b7.jpg')"></div>
+      <div class="mag-card-overlay"></div>
+      <div class="mag-card-content">
+        <p class="mag-card-issue">Issue 02 · Coming Soon</p>
+        <h3 class="mag-card-name">Ubatuba</h3>
+        <p class="mag-card-tagline">Where the Atlantic Forest meets the sea — surf, rainforest trails, and 70+ hidden beaches.</p>
+        <span class="coming-badge">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="island-footer">
+  <div class="footer-logo">Island</div>
+  <div class="footer-tagline">Travel Magazine</div>
+  <div class="footer-copy">© 2026 Island. Made with ✨ by LingLing.</div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

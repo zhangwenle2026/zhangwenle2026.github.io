@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="version" content="lp-v9.2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Florianópolis · Lonely Planet Style Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== LP MAGAZINE RESET & VARS ===== */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --lp-blue:#004F9F;
+  --lp-blue-dark:#002D5B;
+  --ocean-accent:#C4622D;
+  --terra-light:#E8956A;
+  --cream:#FDFBF7;
+  --warm-gray:#6B6560;
+  --text-dark:#1A1A1A;
+  --text-body:#3D3835;
+  --gold:#D4A853;
+  --chapter-gap:0;
+  --ease-out-expo:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px;background:var(--cream)}
+body{font-family:'Inter',sans-serif;color:var(--text-body);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:var(--lp-blue);text-decoration:none}
+
+/* ===== ISLAND HOME BUTTON ===== */
+.island-home{position:fixed;top:20px;left:20px;z-index:2000;display:flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .4s cubic-bezier(.25,.46,.45,.94);cursor:pointer}
+.island-home:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3);transform:translateX(-2px)}
+.island-home svg{width:14px;height:14px;stroke:currentColor;transition:transform .4s}
+.island-home:hover svg{transform:translateX(-3px)}
+@media(max-width:768px){.island-home{top:14px;left:14px;padding:8px 14px;font-size:10px;gap:6px}}
+
+/* ===== TYPOGRAPHY - LP MAGAZINE ===== */
+.t-display{font-family:'Playfair Display',serif;font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text-dark)}
+.t-heading{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;color:var(--text-dark)}
+.t-subhead{font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra)}
+.t-body{font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.85;color:var(--text-body)}
+.t-caption{font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);letter-spacing:0.5px}
+.t-quote{font-family:'Libre Baskerville',serif;font-style:italic;font-size:22px;line-height:1.6;color:var(--lp-blue-dark)}
+
+/* ===== SPLASH / COVER ===== */
+#splash{position:fixed;inset:0;z-index:1000;background:#000;display:flex;flex-direction:column;transition:opacity .8s ease,visibility .8s ease}
+#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+
+.sp-carousel{position:absolute;inset:0;overflow:hidden}
+.sp-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.sp-slide.active{opacity:1}
+.sp-slide img{width:100%;height:100%;object-fit:cover;image-rendering:auto;animation:sp-ken 20s ease-in-out infinite alternate}
+@keyframes sp-ken{0%{transform:scale(1.02) translate(0,0)}100%{transform:scale(1.06) translate(-0.5%,-0.5%)}}
+
+.sp-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.8) 100%);z-index:1}
+
+.sp-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:env(safe-area-inset-top) 28px env(safe-area-inset-bottom)}
+
+.sp-topbar{display:flex;justify-content:flex-end;align-items:center;padding:24px 0 0}
+.sp-badge{font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,.15)}
+.sp-lang{display:flex;gap:2px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:3px;border:1px solid rgba(255,255,255,.15)}
+.sp-lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.sp-lang-btn.active{background:var(--terra);color:#fff}
+
+.sp-hero{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:20px}
+.sp-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.sp-title{font-family:'Playfair Display',serif;font-size:clamp(52px,12vw,84px);font-weight:900;color:#fff;line-height:.95;margin-bottom:14px}
+.sp-subtitle{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.75);line-height:1.6;max-width:420px}
+
+.sp-dots{display:flex;gap:8px;margin-top:16px}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}
+.sp-dot.active{width:18px;border-radius:3px;background:#fff}
+
+.sp-choose{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);text-align:center;margin:20px 0 12px}
+.sp-plans{display:flex;gap:10px;padding:0 0 28px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.sp-plans::-webkit-scrollbar{display:none}
+.sp-plan{flex:1 1 0;min-width:0;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 14px;cursor:pointer;transition:all .3s;text-align:center}
+.sp-plan:hover{background:rgba(255,255,255,.15);transform:translateY(-2px)}
+.sp-plan-days{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:#fff}
+.sp-plan-label{font-family:'Inter',sans-serif;font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:2px}
+.sp-plan-desc{font-family:'Inter',sans-serif;font-size:11px;color:rgba(255,255,255,.6);margin-top:6px;line-height:1.4}
+.sp-plan-tag{display:inline-block;font-size:9px;font-weight:600;padding:3px 8px;border-radius:10px;background:var(--terra);color:#fff;margin-top:8px}
+
+.sp-scroll-hint{text-align:center;padding:8px 0 16px;animation:sp-bounce 2s ease-in-out infinite}
+.sp-scroll-hint svg{width:20px;height:20px;stroke:rgba(255,255,255,.4);stroke-width:2;fill:none}
+@keyframes sp-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ===== MAIN APP ===== */
+#app{display:none}
+#app.show{display:block}
+
+/* ===== CHAPTER BLEED IMAGE ===== */
+.bleed{width:100%;height:65vh;min-height:400px;position:relative;overflow:hidden}
+.bleed img{width:100%;height:100%;object-fit:cover;animation:ken-slow 25s ease-in-out infinite alternate}
+@keyframes ken-slow{0%{transform:scale(1)}100%{transform:scale(1.04) translate(-0.3%,-0.3%)}}
+.bleed-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%)}
+.bleed-caption{position:absolute;bottom:28px;left:28px;right:28px;z-index:2}
+.bleed-chapter{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.bleed-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;line-height:1.1}
+.bleed-sub{font-family:'Libre Baskerville',serif;font-size:14px;color:rgba(255,255,255,.7);margin-top:8px}
+
+/* ===== CONTENT SECTIONS ===== */
+.section{max-width:780px;margin:0 auto;padding:48px 24px}
+.section-wide{max-width:1080px;margin:0 auto;padding:48px 24px}
+
+/* Chapter heading inside content */
+.ch-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);font-weight:900;color:var(--text-dark);line-height:1.1;margin-bottom:20px}
+.ch-intro{font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.85;color:var(--text-body);margin-bottom:32px}
+
+/* Drop cap */
+.drop-cap::first-letter{font-family:'Playfair Display',serif;float:left;font-size:68px;font-weight:900;line-height:0.8;padding:4px 10px 0 0;color:var(--lp-blue)}
+
+/* Pull quote */
+.pull-quote{border-left:3px solid var(--terra);padding:16px 0 16px 24px;margin:36px 0;background:linear-gradient(90deg,rgba(196,98,45,.04),transparent)}
+.pull-quote p{font-family:'Libre Baskerville',serif;font-style:italic;font-size:20px;line-height:1.6;color:var(--lp-blue-dark)}
+.pull-quote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;font-weight:600;color:var(--warm-gray);margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+
+/* Inline image with caption */
+.fig{margin:36px 0}
+.fig img{width:100%;border-radius:2px}
+.fig figcaption{font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);margin-top:8px;letter-spacing:0.3px}
+
+/* ===== MUST-SEE GRID ===== */
+.mustsee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.mustsee-card{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;transition:transform .3s}
+.mustsee-card:hover{transform:scale(1.02)}
+.mustsee-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mustsee-card:hover img{transform:scale(1.05)}
+.mustsee-card .mc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75) 100%)}
+.mustsee-card .mc-info{position:absolute;bottom:14px;left:14px;right:14px}
+.mustsee-card .mc-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.mustsee-card .mc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;margin-top:4px;line-height:1.2}
+.mustsee-card .mc-tag{font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
+
+/* ===== SPOT DETAIL ===== */
+.spot{padding:48px 24px;max-width:780px;margin:0 auto;border-bottom:1px solid rgba(0,0,0,.06)}
+.spot:last-child{border-bottom:none}
+.spot-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:20px}
+.spot-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--terra);line-height:1;flex-shrink:0}
+.spot-meta h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);line-height:1.2}
+.spot-meta .spot-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-top:4px}
+.spot-body{font-family:'Libre Baskerville',serif;font-size:16px;line-height:1.85;color:var(--text-body);margin-bottom:20px}
+.spot-info{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.spot-info-item{display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);background:rgba(14,139,110,.04);padding:6px 12px;border-radius:8px}
+.spot-info-item svg{width:14px;height:14px;stroke:var(--ocean);stroke-width:2;fill:none}
+
+/* ===== FOOD SECTION ===== */
+
+
+/* ===== JOURNEY / PLAN PAGES ===== */
+.plan-cover{width:100%;height:75vh;min-height:500px;position:relative;overflow:hidden}
+.plan-cover img{width:100%;height:100%;object-fit:cover}
+.plan-cover .pc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.7) 100%)}
+.plan-cover .pc-info{position:absolute;bottom:40px;left:28px;right:28px}
+.plan-cover .pc-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.plan-cover .pc-title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:900;color:#fff;line-height:1.05;margin-top:8px}
+.plan-cover .pc-sub{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.7);margin-top:10px}
+
+/* Timeline */
+.timeline{max-width:680px;margin:0 auto;padding:40px 24px}
+.tl-day{margin-bottom:36px}
+.tl-day-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--terra);display:inline-block}
+.tl-item{display:flex;gap:16px;margin-bottom:20px}
+.tl-time{flex-shrink:0;width:56px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--ocean);padding-top:2px}
+.tl-content{flex:1;padding-bottom:16px;border-bottom:1px solid rgba(0,0,0,.05)}
+.tl-item:last-child .tl-content{border-bottom:none}
+.tl-content h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark)}
+.tl-content p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);margin-top:4px;line-height:1.6}
+.tl-tip{display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:11px;color:var(--terra);font-weight:600;margin-top:6px;background:rgba(196,98,45,.06);padding:3px 8px;border-radius:6px}
+
+/* ===== TIPS / TRAVELER NOTES ===== */
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.tip-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.tip-card-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--ocean),var(--ocean-dark));display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.tip-card-icon svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none}
+.tip-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px}
+.tip-card p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);line-height:1.6}
+
+/* ===== PACKING LIST ===== */
+.pack-list{columns:2;gap:24px;margin:24px 0}
+.pack-item{display:flex;align-items:center;gap:8px;padding:6px 0;break-inside:avoid;font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);cursor:pointer}
+.pack-item input[type=checkbox]{accent-color:var(--terra);width:16px;height:16px}
+
+/* ===== ENDING ===== */
+.ending{text-align:center;padding:64px 24px;background:var(--lp-blue-dark)}
+.ending .t-display{color:#fff;font-size:clamp(28px,5vw,42px);margin-bottom:16px}
+.ending p{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto}
+
+/* ===== LANG SWITCH (in-app) ===== */
+.lang-switch{position:fixed;top:12px;right:12px;z-index:200;display:flex;gap:2px;background:rgba(7,107,83,.6);backdrop-filter:blur(8px);border-radius:16px;padding:3px}
+.lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--terra);color:#fff}
+
+/* ===== PAGE NUMBER ===== */
+.page-num{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--warm-gray);text-align:center;padding:8px 0;text-transform:uppercase}
+
+/* ===== BACK TO TOP ===== */
+.back-top{position:fixed;bottom:20px;right:20px;z-index:100;width:40px;height:40px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(14,139,110,.3);transition:transform .2s}
+.back-top:hover{transform:scale(1.1)}
+.back-top.show{display:flex}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s var(--ease-out-expo)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* ===== NAV BAR ===== */
+.nav-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(253,251,247,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(0,0,0,.06);display:none;padding:6px 0 env(safe-area-inset-bottom)}
+#app.show ~ .nav-bar,.nav-bar.show{display:block}
+.nav-inner{display:flex;justify-content:space-around;max-width:500px;margin:0 auto}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;cursor:pointer;transition:color .2s;color:var(--warm-gray);border:none;background:none;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.5px}
+.nav-item.active{color:var(--ocean)}
+.nav-item svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+
+/* ===== MOBILE ===== */
+@media(max-width:640px){
+  .mustsee-grid{grid-template-columns:1fr}
+
+  .tips-grid{grid-template-columns:1fr}
+  .pack-list{columns:1}
+  .bleed{height:50vh;min-height:300px}
+  .plan-cover{height:60vh}
+  .section{padding:36px 20px}
+  .sp-plan-days{font-size:28px}
+  .sp-plans{gap:8px}
+  .spot-header{flex-direction:column;gap:8px}
+  .spot-num{font-size:36px}
+  .drop-cap::first-letter{font-size:52px}
+}
+
+/* ===== PLAN TAB SYSTEM ===== */
+.plan-tabs{display:flex;justify-content:center;gap:8px;padding:20px 24px;background:var(--cream);position:sticky;top:0;z-index:50}
+.plan-tab{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:8px 20px;border-radius:20px;border:1.5px solid rgba(14,139,110,.15);background:transparent;color:var(--ocean);cursor:pointer;transition:all .2s}
+.plan-tab.active{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+
+.plan-page{display:none}
+.plan-page.active{display:block}
+
+/* Bilingual secondary text */
+.bi-sub{display:block;font-size:0.82em;opacity:0.55;margin-top:2px;font-style:italic;font-family:'Inter',sans-serif;font-weight:400}
+/* In pull-quotes, sub is slightly bigger */
+.pull-quote .bi-sub{font-size:0.78em;opacity:0.5}
+/* In bleed captions, sub is white-ish */
+.bleed-title .bi-sub,.bleed-sub .bi-sub,.sp-title .bi-sub,.sp-subtitle .bi-sub,.pc-title .bi-sub{color:rgba(255,255,255,.5);font-style:normal}
+/* In small elements, sub even smaller */
+.sp-plan-desc .bi-sub,.sp-plan-tag .bi-sub,.mc-name .bi-sub,.mc-tag .bi-sub{font-size:0.8em}
+.spot-body .bi-sub,.ch-intro .bi-sub,.t-body .bi-sub{font-size:0.85em;line-height:1.7;margin-top:6px}
+/* Ending bilingual */
+.ending .bi-sub{color:rgba(255,255,255,.4)}
+
+/* Hide nav on splash */
+#splash:not(.hide) ~ .nav-bar{display:none!important}
+
+/* ===== MUSIC CONTROL ===== */
+
+</style>
+</head>
+<body>
+
+<!-- ===== ISLAND HOME LINK ===== -->
+<a class="island-home" href="https://zhangwenle2026.github.io/" title="Back to Island">
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M19 12H5M5 12l6-6M5 12l6 6"/></svg>Island
+</a>
+
+<!-- ===== SPLASH / COVER ===== -->
+<div id="splash">
+  <div class="sp-carousel" id="sp-carousel">
+    <div class="sp-slide active"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_86338bc8-7dda-437e-9579-a03e927f33e4.jpg" alt="Dunas da Joaquina"></div>
+    <div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_3ba13062-21fc-4fc9-b413-a2cb3152ecf1.jpg" alt="Ponte Hercílio Luz at night"></div>
+    <div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_604f6773-e4c0-4695-921c-db8b3776ffe5.jpg" alt="Lagoinha do Leste"></div>
+
+  </div>
+  <div class="sp-overlay"></div>
+  <div class="sp-content">
+    <div class="sp-topbar">
+      <!-- badge removed -->
+      <div class="sp-lang">
+        <button class="sp-lang-btn active" onclick="setBilingual('zh-en')">中·EN</button>
+        <button class="sp-lang-btn" onclick="setBilingual('zh-pt')">中·PT</button>
+      </div>
+    </div>
+    <div class="sp-hero">
+      <!-- eyebrow removed -->
+      <div class="sp-title">Florianópolis</div>
+      <div class="sp-subtitle" data-i18n="sp_subtitle">魔幻之岛，42座海滩，一座悬在大西洋与泻湖之间的城市。</div>
+      <div class="sp-dots" id="sp-dots">
+        <div class="sp-dot active"></div><div class="sp-dot"></div><div class="sp-dot"></div>
+      </div>
+    </div>
+    <!-- plans & scroll hint removed — journey plans now inside Ch3 -->
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="app">
+
+<!-- Lang switch (in-app) -->
+<div class="lang-switch">
+  <button class="lang-btn active" onclick="setBilingual('zh-en')">中·EN</button>
+  <button class="lang-btn" onclick="setBilingual('zh-pt')">中·PT</button>
+</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 1: THE CITY             -->
+<!-- =============================== -->
+<div class="bleed" id="ch-city">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_6a2c2653-efd0-409c-8d87-073b264939d6.jpg" alt="Lagoa da Conceição panorama">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch1_label">Chapter 01</div>
+    <div class="bleed-title" data-i18n="ch1_title">42座海滩的魔幻之岛</div>
+    <div class="bleed-sub" data-i18n="ch1_sub">Florianópolis · 从亚速尔渔村到南美冲浪圣地</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="ch-intro drop-cap fade-in" data-i18n="ch1_p1">Florianópolis 坐落在巴西南部的圣卡塔琳娜岛上——一座被42座海滩环绕的大西洋岛屿。当地人叫它「Floripa」。十八世纪，来自葡属亚速尔群岛的渔民漂洋过海定居于此，带来了制作生蚝的手艺、蕾丝编织的传统，以及色彩斑斓的殖民建筑。三百年过去，Floripa 已从一个安静的渔村蜕变为巴西最宜居的城市之一——但它的灵魂依然属于大海。</div>
+
+  <div class="pull-quote fade-in">
+    <p data-i18n="ch1_quote1">"一座岛，42座海滩，每一片沙滩都有自己的性格。"</p>
+    <cite>— UNESCO, 2019</cite>
+  </div>
+
+  <figure class="fig fade-in">
+    <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_3ba13062-21fc-4fc9-b413-a2cb3152ecf1.jpg" alt="Ponte Hercílio Luz daytime">
+    <figcaption data-i18n="ch1_fig1">Ponte Hercílio Luz — 连接大陆与岛屿的地标悬索桥 · Florianópolis</figcaption>
+  </figure>
+
+  <div class="t-body fade-in" data-i18n="ch1_p2" style="margin-top:28px">岛的东海岸面朝开阔的大西洋，Joaquina 和 Mole 海滩以世界级的浪点闻名。岛的中心是 Lagoa da Conceição——巨大泻湖，湖畔酒吧从日落营业到凌晨。北岸是 Santo Antônio de Lisboa 渔村，每年生产巴西70%的牡蛎。南岛藏着 Lagoinha do Leste——只能徒步抵达的秘境海滩。</div>
+
+  <div class="t-body fade-in" data-i18n="ch1_p3" style="margin-top:20px">Floripa 的魔力在于多面性：上午在 Joaquina 滑沙，中午到 Santo Antônio 吃牡蛎配白葡萄酒，下午在 Lagoa 学风帆冲浪，晚上去 Hercílio Luz 桥下散步。这座城市不是一个目的地——它是42个。</div>
+
+  <div class="pull-quote fade-in">
+    <p data-i18n="ch1_quote2">"Floripa 不是一个目的地，它是42个。"</p>
+  </div>
+</div>
+
+<div class="page-num">— 02 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 2: SIX MUST-SEES        -->
+<!-- =============================== -->
+<div class="bleed" id="ch-spots">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_86338bc8-7dda-437e-9579-a03e927f33e4.jpg" alt="Florianópolis beaches">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch2_label">Chapter 02</div>
+    <div class="bleed-title" data-i18n="ch2_title">六大必去</div>
+    <div class="bleed-sub" data-i18n="ch2_sub">从冲浪沙丘到灯火大桥，Floripa 的六张名片</div>
+  </div>
+</div>
+
+<div class="section-wide">
+  <div class="mustsee-grid fade-in">
+    <div class="mustsee-card" onclick="scrollToSpot(1)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_86338bc8-7dda-437e-9579-a03e927f33e4.jpg" alt="Praia da Joaquina">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">01</div><div class="mc-name" data-i18n="spot1_name">Praia da Joaquina 冲浪圣地</div><div class="mc-tag" data-i18n="spot1_tag">冲浪 · 沙丘</div></div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(2)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_6a2c2653-efd0-409c-8d87-073b264939d6.jpg" alt="Lagoa da Conceição">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">02</div><div class="mc-name" data-i18n="spot2_name">Lagoa da Conceição 概念湖</div><div class="mc-tag" data-i18n="spot2_tag">泻湖 · 夜生活</div></div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(3)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_604f6773-e4c0-4695-921c-db8b3776ffe5.jpg" alt="Lagoinha do Leste">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">03</div><div class="mc-name" data-i18n="spot3_name">Lagoinha do Leste 秘境海滩</div><div class="mc-tag" data-i18n="spot3_tag">徒步 · 荒野</div></div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(4)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_4ef2338f-17fc-4593-bf03-43bcc5ba1172.jpg" alt="Santo Antônio de Lisboa">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">04</div><div class="mc-name" data-i18n="spot4_name">Santo Antônio de Lisboa 生蚝村</div><div class="mc-tag" data-i18n="spot4_tag">美食 · 日落</div></div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(5)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_ff56ab30-ac64-4768-98b5-bd4c21294490.jpg" alt="Praia de Campeche">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">05</div><div class="mc-name" data-i18n="spot5_name">Praia de Campeche 白沙滩</div><div class="mc-tag" data-i18n="spot5_tag">海滩 · 岩画</div></div>
+    </div>
+    <div class="mustsee-card" onclick="scrollToSpot(6)">
+      <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_3ba13062-21fc-4fc9-b413-a2cb3152ecf1.jpg" alt="Ponte Hercílio Luz">
+      <div class="mc-overlay"></div>
+      <div class="mc-info"><div class="mc-num">06</div><div class="mc-name" data-i18n="spot6_name">Ponte Hercílio Luz 灯桥</div><div class="mc-tag" data-i18n="spot6_tag">地标 · 夜景</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Spot details -->
+<div id="spot-details">
+<div class="spot fade-in" id="spot-1">
+  <div class="spot-header">
+    <div class="spot-num">01</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot1_title">Praia da Joaquina 冲浪圣地</h3>
+      <div class="spot-tag" data-i18n="spot1_tag2">世界级浪点 · 金色沙丘</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot1_body">Joaquina 是 Floripa 东海岸最传奇的海滩——举办过多届世界冲浪锦标赛，浪高常年1.5-3米。海滩背后是壮阔的金色沙丘，可以租木板 sandboard 滑沙。日落时站在沙丘顶端，整个 Lagoa da Conceição 在余晖中闪烁。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot1_addr">岛东海岸，距市中心约15km</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot1_time">建议半天（冲浪+滑沙+日落）</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot1_price">Sandboard 租赁 R$20（约 ¥25）</span></div>
+  </div>
+</div>
+
+<div class="spot fade-in" id="spot-2">
+  <div class="spot-header">
+    <div class="spot-num">02</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot2_title">Lagoa da Conceição 概念湖</h3>
+      <div class="spot-tag" data-i18n="spot2_tag2">泻湖风帆冲浪 · 环湖酒吧街</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot2_body">Floripa 的心脏——被绿色山丘和沙丘环绕的巨大泻湖。巴西风帆冲浪重要基地。Centrinho da Lagoa 是夜生活中心，数十家酒吧从日落到凌晨灯火不灭。湖东端穿过沙丘10分钟到 Joaquina，另一端连着 Barra da Lagoa 渔村。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot2_addr">岛中心，距市中心约12km</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot2_time">建议一天（湖+酒吧+渔村）</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot2_price">风帆冲浪课 R$120/h（约 ¥150）</span></div>
+  </div>
+</div>
+
+<div class="spot fade-in" id="spot-3">
+  <div class="spot-header">
+    <div class="spot-num">03</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot3_title">Lagoinha do Leste 秘境海滩</h3>
+      <div class="spot-tag" data-i18n="spot3_tag2">原始荒野 · 徒步2小时</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot3_body">Floripa 保存最完好的秘密——没有道路可达的原始海滩。从 Pântano do Sul 出发，徒步约2小时，翻过山脊看到新月形金色沙滩被原始森林环抱。没有电、没有信号、没有商业——只有海浪、鸟鸣和风声。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot3_addr">从 Pântano do Sul 徒步2h，或从 Matadeiro 徒步1h</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot3_time">建议全天（含往返徒步）</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot3_price">免费（自带水和食物）</span></div>
+  </div>
+</div>
+
+<div class="spot fade-in" id="spot-4">
+  <div class="spot-header">
+    <div class="spot-num">04</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot4_title">Santo Antônio de Lisboa 生蚝村</h3>
+      <div class="spot-tag" data-i18n="spot4_tag2">亚速尔殖民小镇 · 牡蛎之都</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot4_body">Floripa 最有葡萄牙味道的角落。十八世纪亚速尔渔村面朝大陆，拥有最美日落。Florianópolis 生产巴西约70%的牡蛎，Santo Antônio 是养殖中心。海边餐厅点一打生蚝配冰白葡萄酒看日落——最治愈的时刻。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot4_addr">岛西北海岸，距市中心约8km</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot4_time">建议下午+日落晚餐</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot4_price">一打生蚝 R$40（约 ¥50）</span></div>
+  </div>
+</div>
+
+<div class="spot fade-in" id="spot-5">
+  <div class="spot-header">
+    <div class="spot-num">05</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot5_title">Praia de Campeche 白沙滩</h3>
+      <div class="spot-tag" data-i18n="spot5_tag2">清澈海水 · Campeche 岛岩画</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot5_body">Floripa 南部最受本地人喜爱的海滩——细白沙滩绵延数公里，海水加勒比般蓝绿。对面 Ilha do Campeche 保存数百幅史前岩画（IPHAN 国家考古遗产）。夏季可乘渔船登岛浮潜。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot5_addr">岛南部，距市中心约20km</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot5_time">建议半天（海滩）/ 全天（含登岛）</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot5_price">登岛渔船 R$120/人（约 ¥150）</span></div>
+  </div>
+</div>
+
+<div class="spot fade-in" id="spot-6">
+  <div class="spot-header">
+    <div class="spot-num">06</div>
+    <div class="spot-meta">
+      <h3 data-i18n="spot6_title">Ponte Hercílio Luz 灯桥</h3>
+      <div class="spot-tag" data-i18n="spot6_tag2">巴西最长悬索桥 · 城市地标</div>
+    </div>
+  </div>
+  <div class="spot-body" data-i18n="spot6_body">建于1926年，巴西最长悬索桥。横跨500米海峡，连接圣卡塔琳娜岛和大陆。2019年重新开放步行。夜晚金色灯光照亮整座大桥，钢索弧线倒映海面碎成万千光点。最佳观景点：Parque da Luz 或 Mirante。</div>
+  <div class="spot-info">
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot6_addr">市中心，连接岛屿与大陆</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot6_time">步行约20分钟横跨，建议傍晚前往</span></div>
+    <div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot6_price">免费</span></div>
+  </div>
+</div>
+</div>
+
+<div class="page-num">— 04 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 3: YOUR JOURNEY         -->
+<!-- =============================== -->
+<div class="bleed" id="ch-journey">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_f1573502-c4a7-4ace-9753-7730487fd327.jpg" alt="Florianópolis coastline">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch3_label">Chapter 03</div>
+    <div class="bleed-title" data-i18n="ch3_title">你的行程</div>
+    <div class="bleed-sub" data-i18n="ch3_sub">2天、3天或5天，量身定制</div>
+  </div>
+</div>
+
+<div class="plan-tabs">
+  <button class="plan-tab active" onclick="switchPlan(2)" data-i18n="tab_2d">2天精华</button>
+  <button class="plan-tab" onclick="switchPlan(3)" data-i18n="tab_3d">3天经典</button>
+  <button class="plan-tab" onclick="switchPlan(5)" data-i18n="tab_5d">5天深度</button>
+</div>
+
+<!-- 2-Day Plan -->
+<div class="plan-page active" id="plan-2">
+  <div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_86338bc8-7dda-437e-9579-a03e927f33e4.jpg" alt="Joaquina"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">2-DAY PLAN</div><div class="pc-title" data-i18n="p2_title">Beach Weekend</div><div class="pc-sub" data-i18n="p2_sub">Joaquina+Lagoa+Campeche 经典海滩线</div></div></div>
+  <div class="timeline">
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p2_d1">Day 1 · 东海岸冲浪</div>
+      <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><h4 data-i18n="p2_d1_1t">抵达 Florianópolis</h4><p data-i18n="p2_d1_1d">从圣保罗飞约1.5小时。租车自驾最佳。</p><div class="tl-tip" data-i18n="p2_d1_1tip">💡 岛上 Uber 方便，但自驾更自由</div></div></div>
+      <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p2_d1_2t">Joaquina 冲浪+滑沙</h4><p data-i18n="p2_d1_2d">东海岸 Joaquina 海滩。冲浪或看冲浪，在金色沙丘 sandboard 滑沙。</p></div></div>
+      <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p2_d1_3t">Lagoa da Conceição 日落</h4><p data-i18n="p2_d1_3d">穿过沙丘步行10分钟到 Lagoa 湖畔，Centrinho 酒吧街湖景餐厅晚餐。</p></div></div>
+      <div class="tl-item"><div class="tl-time">21:00</div><div class="tl-content"><h4 data-i18n="p2_d1_4t">环湖夜生活</h4><p data-i18n="p2_d1_4d">Lagoa 酒吧9点开始热闹。推荐 John Bull 或 Black Swan。</p></div></div>
+    </div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p2_d2">Day 2 · 南岛海滩</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p2_d2_1t">Campeche 海滩</h4><p data-i18n="p2_d2_1d">白沙清澈海水。条件允许乘渔船登 Ilha do Campeche。</p><div class="tl-tip" data-i18n="p2_d2_1tip">💡 登岛需趁早，下午2点后可能停航</div></div></div>
+      <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p2_d2_2t">Hercílio Luz 大桥日落</h4><p data-i18n="p2_d2_2d">步行上大桥看日落。海风和山脉剪影是最壮观的记忆。</p></div></div>
+      <div class="tl-item"><div class="tl-time">19:00</div><div class="tl-content"><h4 data-i18n="p2_d2_3t">返程</h4><p data-i18n="p2_d2_3d">搭晚班飞机或多住一晚继续探索。</p></div></div>
+    </div>
+  </div>
+</div>
+<div class="plan-page" id="plan-3">
+  <div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_604f6773-e4c0-4695-921c-db8b3776ffe5.jpg" alt="Lagoinha"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">3-DAY PLAN</div><div class="pc-title" data-i18n="p3_title">Island Explorer</div><div class="pc-sub" data-i18n="p3_sub">海滩+秘境+渔村</div></div></div>
+  <div class="timeline">
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p3_d1">Day 1 · 同2日 Day 1</div>
+      <div class="tl-item"><div class="tl-time">全天</div><div class="tl-content"><h4 data-i18n="p3_d1_1t">Joaquina + Lagoa</h4><p data-i18n="p3_d1_1d">冲浪、滑沙、泻湖日落、环湖夜生活。</p></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p3_d2">Day 2 · 秘境徒步</div>
+      <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-content"><h4 data-i18n="p3_d2_1t">Lagoinha do Leste 徒步</h4><p data-i18n="p3_d2_1d">Pântano do Sul 出发，徒步2小时到秘境海滩。返程走 Matadeiro 步道。</p></div></div>
+      <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p3_d2_2t">Santo Antônio 日落</h4><p data-i18n="p3_d2_2d">岛西北渔村，殖民小巷漫步，海边生蚝配白葡萄酒看日落。</p><div class="tl-tip" data-i18n="p3_d2_2tip">💡 推荐 Ostradamus 或 Rosso</div></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p3_d3">Day 3 · Campeche + 大桥</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p3_d3_1t">Campeche+登岛</h4><p data-i18n="p3_d3_1d">Campeche 海滩，条件允许登 Ilha do Campeche 看岩画浮潜。</p></div></div>
+      <div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><h4 data-i18n="p3_d3_2t">Mercado Público 午餐</h4><p data-i18n="p3_d3_2d">1899年新古典建筑，最地道 Floripa 海鲜。</p></div></div>
+      <div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><h4 data-i18n="p3_d3_3t">Hercílio Luz + 返程</h4><p data-i18n="p3_d3_3d">步行走完大桥，Parque da Luz 拍最后一张照片。</p></div></div></div>
+  </div>
+</div>
+<div class="plan-page" id="plan-5">
+  <div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_d18e8446-d24e-46bc-b761-7f3551ff86c7.jpg" alt="Bridge"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">5-DAY PLAN</div><div class="pc-title" data-i18n="p5_title">Full Island</div><div class="pc-sub" data-i18n="p5_sub">全岛深度：东海岸·南岛·西岸·登岛</div></div></div>
+  <div class="timeline">
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p5_d1">Day 1 · 东海岸</div>
+      <div class="tl-item"><div class="tl-time">全天</div><div class="tl-content"><h4 data-i18n="p5_d1_1t">同3日 Day 1</h4><p data-i18n="p5_d1_1d">Joaquina 冲浪滑沙 + Lagoa 日落 + 夜生活。</p></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p5_d2">Day 2 · 北岸探索</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p5_d2_1t">Santinho 海滩</h4><p data-i18n="p5_d2_1d">北岸美滩，岩石上有 guarani 岩刻。海浪适中。</p></div></div>
+      <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p5_d2_2t">Moçambique 海滩</h4><p data-i18n="p5_d2_2d">Floripa 最长海滩（14km），大部分无人区。</p></div></div>
+      <div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p5_d2_3t">Santo Antônio 生蚝晚餐</h4><p data-i18n="p5_d2_3d">殖民小镇生蚝大餐+无敌日落。</p></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p5_d3">Day 3 · 秘境之旅</div>
+      <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-content"><h4 data-i18n="p5_d3_1t">Lagoinha 全日徒步</h4><p data-i18n="p5_d3_1d">Pântano do Sul → Lagoinha → Matadeiro。</p></div></div>
+      <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-content"><h4 data-i18n="p5_d3_2t">Ribeirão da Ilha 晚餐</h4><p data-i18n="p5_d3_2d">岛南亚速尔渔村，比 Santo Antônio 更安静。</p></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p5_d4">Day 4 · Campeche 岛</div>
+      <div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p5_d4_1t">Ilha do Campeche</h4><p data-i18n="p5_d4_1d">渔船登岛看4000年岩画，自然泳池浮潜。</p></div></div>
+      <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-content"><h4 data-i18n="p5_d4_2t">Barra da Lagoa 渔村</h4><p data-i18n="p5_d4_2d">看渔船归港，运河步道走到天然泳池。</p></div></div></div>
+    <div class="tl-day"><div class="tl-day-title" data-i18n="p5_d5">Day 5 · 城市+返程</div>
+      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p5_d5_1t">Mercado Público</h4><p data-i18n="p5_d5_1d">海鲜 empada 和 açaí bowl。</p></div></div>
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p5_d5_2t">Hercílio Luz 漫步</h4><p data-i18n="p5_d5_2d">步行横跨大桥，拍 Floripa 全景。</p></div></div>
+      <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p5_d5_3t">告别</h4><p data-i18n="p5_d5_3d">带着42座海滩的记忆返程。Até logo, Floripa！</p></div></div></div>
+  </div>
+</div>
+<div class="page-num">— 06 —</div>
+
+<!-- =============================== -->
+<!-- CHAPTER 4: TRAVELER'S NOTES     -->
+<!-- =============================== -->
+<div class="bleed" id="ch-tips">
+  <img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5e6f580f-01ba-4077-993b-125a2f9bfb11.jpg" alt="Florianópolis village">
+  <div class="bleed-overlay"></div>
+  <div class="bleed-caption">
+    <div class="bleed-chapter" data-i18n="ch4_label">Chapter 04</div>
+    <div class="bleed-title" data-i18n="ch4_title">旅行者手记</div>
+    <div class="bleed-sub" data-i18n="ch4_sub">交通·美食·安全·行李</div>
+  </div>
+</div>
+
+<div class="section-wide">
+  <div class="tips-grid fade-in">
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="23 7 16 12 16 7"/></svg></div>
+      <h4 data-i18n="tip1_title">交通：如何到达</h4>
+      <p data-i18n="tip1_desc">圣保罗飞约1.5小时（GOL/Azul/LATAM，R$300-600）。岛上强烈建议租车（R$100/天），或用 Uber。公交也能到大多数海滩但耗时。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg></div>
+      <h4 data-i18n="tip2_title">美食推荐</h4>
+      <p data-i18n="tip2_desc">🦪 生蚝：Ostradamus（Santo Antônio）｜🐟 海鲜：Bar do Arante（Pântano do Sul）｜🍕 Lagoa 的 Pizzaria DAU ｜🍨 açaí bowl + cupuaçu suco</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h4 data-i18n="tip3_title">最佳季节</h4>
+      <p data-i18n="tip3_desc">12-3月夏季最热闹但拥挤。4-5月和9-11月最舒适：水温仍宜下水，游客少，价格低。冬季（6-8月）仍可冲浪但水温偏凉。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg></div>
+      <h4 data-i18n="tip4_title">住宿推荐</h4>
+      <p data-i18n="tip4_desc">💎 奢华：Ponta dos Ganchos（R$2000+）｜🏡 中档：Il Campanario（R$500）｜🏄 Lagoa 青旅（R$60/床位）。住 Lagoa 区域最方便。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <h4 data-i18n="tip5_title">安全提示</h4>
+      <p data-i18n="tip5_desc">Floripa 是巴西最安全城市之一。海滩注意暗流。防晒必须——南巴西紫外线同样很强。Lagoinha 徒步带够水。</p>
+    </div>
+    <div class="tip-card">
+      <div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+      <h4 data-i18n="tip6_title">打包清单</h4>
+      <p data-i18n="tip6_desc">必带：防晒SPF50+、冲浪衣、水陆鞋、防风外套（Lagoa 风大）、驱蚊液。选带：浮潜面镜。Sandboard 不需自带。</p>
+    </div>
+  </div>
+</div>
+
+<div class="page-num">— 08 —</div>
+
+<!-- ===== PACKING CHECKLIST ===== -->
+<div class="section fade-in">
+  <div class="ch-eyebrow" data-i18n="pack_label">PACKING LIST</div>
+  <div class="ch-title" data-i18n="pack_title">行前清单</div>
+  <div class="pack-list">
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk1">🧴 SPF 50+ 防晒霜</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk2">🏄 冲浪衣/防磨衣</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk3">👟 水陆两用鞋</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk4">🩱 泳衣（多带几套）</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk5">🧥 防风外套</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk6">📱 防水手机袋</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk7">🤿 浮潜面镜</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk8">🦟 驱蚊液</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk9">💳 现金+信用卡</label>
+    <label class="pack-item"><input type="checkbox"><span data-i18n="pk10">📷 GoPro/运动相机</label>
+  </div>
+</div>
+
+<!-- ===== ENDING ===== -->
+<div class="ending" id="sec-ending">
+  <div class="t-display" data-i18n="ending_title">Até logo, Floripa.</div>
+  <p data-i18n="ending_sub">42座海滩中，总有一片在等你回来。</p>
+</div>
+
+<div style="height:60px"></div>
+</div><!-- end #app -->
+
+<!-- ===== NAV BAR ===== -->
+<nav class="nav-bar" id="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-item active" onclick="navTo('ch-city')"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="nav_city">城市</span></button>
+    <button class="nav-item" onclick="navTo('ch-spots')"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="nav_spots">景点</span></button>
+    <button class="nav-item" onclick="navTo('ch-journey')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span data-i18n="nav_journey">行程</span></button>
+    <button class="nav-item" onclick="navTo('ch-tips')"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span data-i18n="nav_tips">攻略</span></button>
+  </div>
+</nav>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+// ===== I18N =====
+const I18N = {
+  zh: {
+    sp_subtitle:'魔幻之岛，42座海滩，一座悬在大西洋与泻湖之间的城市。',
+    sp_choose:'— 选择你的旅程 —',
+    sp_2d_days:'2天',sp_2d_desc:'Joaquina+Lagoa+Campeche 经典海滩线',sp_2d_tag:'首次来 Floripa',
+    sp_3d_days:'3天',sp_3d_desc:'+Lagoinha 徒步+Santo Antônio 深度',sp_3d_tag:'最受欢迎',
+    sp_5d_days:'5天',sp_5d_desc:'全岛深度：东海岸+南岛+Campeche岛登岛',sp_5d_tag:'深度玩家',
+    ch1_label:'Chapter 01',ch1_title:'42座海滩的魔幻之岛',ch1_sub:'Florianópolis · 从亚速尔渔村到南美冲浪圣地',
+    ch1_p1:'Florianópolis 坐落在巴西南部的圣卡塔琳娜岛上——一座被42座海滩环绕的大西洋岛屿。当地人叫它「Floripa」。十八世纪，来自葡属亚速尔群岛的渔民漂洋过海定居于此，带来了制作生蚝的手艺、蕾丝编织的传统，以及色彩斑斓的殖民建筑。三百年过去，Floripa 已从一个安静的渔村蜕变为巴西最宜居的城市之一——但它的灵魂依然属于大海。',
+    ch1_quote1:'"一座岛，42座海滩，每一片沙滩都有自己的性格。"',
+    ch1_fig1:'Ponte Hercílio Luz — 连接大陆与岛屿的地标悬索桥 · Florianópolis',
+    ch1_p2:'岛的东海岸面朝开阔的大西洋，Joaquina 和 Mole 海滩以世界级的浪点闻名。岛的中心是 Lagoa da Conceição——巨大泻湖，湖畔酒吧从日落营业到凌晨。北岸是 Santo Antônio de Lisboa 渔村，每年生产巴西70%的牡蛎。南岛藏着 Lagoinha do Leste——只能徒步抵达的秘境海滩。',
+    ch1_p3:'Floripa 的魔力在于多面性：上午在 Joaquina 滑沙，中午到 Santo Antônio 吃牡蛎配白葡萄酒，下午在 Lagoa 学风帆冲浪，晚上去 Hercílio Luz 桥下散步。这座城市不是一个目的地——它是42个。',
+    ch1_quote2:'"Floripa 不是一个目的地，它是42个。"',
+    ch2_label:'Chapter 02',ch2_title:'六大必去',ch2_sub:'从冲浪沙丘到灯火大桥，Floripa 的六张名片',
+    spot1_name:'Praia da Joaquina 冲浪圣地',spot1_tag:'冲浪 · 沙丘',
+    spot2_name:'Lagoa da Conceição 概念湖',spot2_tag:'泻湖 · 夜生活',
+    spot3_name:'Lagoinha do Leste 秘境海滩',spot3_tag:'徒步 · 荒野',
+    spot4_name:'Santo Antônio de Lisboa 生蚝村',spot4_tag:'美食 · 日落',
+    spot5_name:'Praia de Campeche 白沙滩',spot5_tag:'海滩 · 岩画',
+    spot6_name:'Ponte Hercílio Luz 灯桥',spot6_tag:'地标 · 夜景',
+    spot1_title:'Praia da Joaquina 冲浪圣地',spot1_tag2:'世界级浪点 · 金色沙丘',
+    spot1_body:'Joaquina 是 Floripa 东海岸最传奇的海滩——举办过多届世界冲浪锦标赛，浪高常年1.5-3米。海滩背后是壮阔的金色沙丘，可以租木板 sandboard 滑沙。日落时站在沙丘顶端，整个 Lagoa da Conceição 在余晖中闪烁。',
+    spot1_addr:'岛东海岸，距市中心约15km',spot1_time:'建议半天（冲浪+滑沙+日落）',spot1_price:'Sandboard 租赁 R$20（约 ¥25）',
+    spot2_title:'Lagoa da Conceição 概念湖',spot2_tag2:'泻湖风帆冲浪 · 环湖酒吧街',
+    spot2_body:'Floripa 的心脏——被绿色山丘和沙丘环绕的巨大泻湖。巴西风帆冲浪重要基地。Centrinho da Lagoa 是夜生活中心，数十家酒吧从日落到凌晨灯火不灭。湖的另一端连着 Barra da Lagoa 渔村。',
+    spot2_addr:'岛中心，距市中心约12km',spot2_time:'建议一天（湖+酒吧+渔村）',spot2_price:'风帆冲浪课 R$120/h（约 ¥150）',
+    spot3_title:'Lagoinha do Leste 秘境海滩',spot3_tag2:'原始荒野 · 徒步2小时',
+    spot3_body:'Floripa 保存最完好的秘密——没有道路可达的原始海滩。从 Pântano do Sul 徒步约2小时，翻过山脊看到新月形金色沙滩被原始森林环抱。没有电、没有手机信号、没有商业设施——只有海浪、鸟鸣和风声。',
+    spot3_addr:'从 Pântano do Sul 徒步2h，或从 Matadeiro 徒步1h',spot3_time:'建议全天（含往返徒步）',spot3_price:'免费（自带水和食物）',
+    spot4_title:'Santo Antônio de Lisboa 生蚝村',spot4_tag2:'亚速尔殖民小镇 · 牡蛎之都',
+    spot4_body:'Floripa 最有葡萄牙味道的角落。十八世纪亚速尔渔村坐落在岛西海岸，面朝大陆，拥有最美日落。Florianópolis 生产巴西约70%的牡蛎，Santo Antônio 是养殖中心。海边餐厅点一打生蚝配冰白葡萄酒看日落——最治愈的时刻。',
+    spot4_addr:'岛西北海岸，距市中心约8km',spot4_time:'建议下午+日落晚餐',spot4_price:'一打生蚝 R$40（约 ¥50）',
+    spot5_title:'Praia de Campeche 白沙滩',spot5_tag2:'清澈海水 · Campeche 岛岩画',
+    spot5_body:'Floripa 南部最受本地人喜爱的海滩——细白沙滩绵延数公里，海水加勒比般蓝绿。对面 Ilha do Campeche 保存数百幅史前岩画（IPHAN 国家考古遗产）。夏季可乘渔船登岛浮潜。',
+    spot5_addr:'岛南部，距市中心约20km',spot5_time:'建议半天（海滩）/ 全天（含登岛）',spot5_price:'登岛渔船 R$120/人（约 ¥150）',
+    spot6_title:'Ponte Hercílio Luz 灯桥',spot6_tag2:'巴西最长悬索桥 · 城市地标',
+    spot6_body:'建于1926年，巴西最长悬索桥。横跨500米海峡，连接圣卡塔琳娜岛和大陆。2019年重新开放步行。夜晚金色灯光照亮整座大桥，钢索弧线倒映海面碎成万千光点。观景点：Parque da Luz 或 Mirante。',
+    spot6_addr:'市中心，连接岛屿与大陆',spot6_time:'步行约20分钟横跨，建议傍晚前往',spot6_price:'免费',
+    ch3_label:'Chapter 03',ch3_title:'你的行程',ch3_sub:'2天、3天或5天，量身定制',
+    tab_2d:'2天精华',tab_3d:'3天经典',tab_5d:'5天深度',
+    ch4_label:'Chapter 04',ch4_title:'旅行者手记',ch4_sub:'交通·美食·安全·行李',
+    tip1_title:'交通：如何到达',tip1_desc:'圣保罗飞约1.5小时（GOL/Azul/LATAM，R$300-600）。岛上强烈建议租车（R$100/天），或用 Uber。公交也能到大多数海滩但耗时。',
+    tip2_title:'美食推荐',tip2_desc:'🦪 生蚝：Ostradamus（Santo Antônio）｜🐟 海鲜：Bar do Arante（Pântano do Sul）｜🍕 Lagoa 的 Pizzaria DAU ｜🍨 açaí bowl + cupuaçu suco',
+    tip3_title:'最佳季节',tip3_desc:'12-3月夏季最热闹但拥挤。4-5月和9-11月最舒适：水温仍宜下水，游客少，价格低。冬季（6-8月）仍可冲浪但水温偏凉。',
+    tip4_title:'住宿推荐',tip4_desc:'💎 奢华：Ponta dos Ganchos（R$2000+）｜🏡 中档：Il Campanario（R$500）｜🏄 Lagoa 青旅（R$60/床位）。住 Lagoa 区域最方便。',
+    tip5_title:'安全提示',tip5_desc:'Floripa 是巴西最安全城市之一。海滩注意暗流。防晒必须。Lagoinha 徒步带够水。',
+    tip6_title:'打包清单',tip6_desc:'必带：防晒SPF50+、冲浪衣、水陆鞋、防风外套（Lagoa 风大）、驱蚊液。选带：浮潜面镜。Sandboard 不需自带。',
+    pack_label:'PACKING LIST',pack_title:'行前清单',
+    pk1:'🧴 SPF 50+ 防晒霜',pk2:'🏄 冲浪衣/防磨衣',pk3:'👟 水陆两用鞋',pk4:'🩱 泳衣（多带几套）',pk5:'🧥 防风外套',pk6:'📱 防水手机袋',pk7:'🤿 浮潜面镜',pk8:'🦟 驱蚊液',pk9:'💳 现金+信用卡',pk10:'📷 GoPro/运动相机',
+    nav_city:'城市',nav_spots:'景点',nav_journey:'行程',nav_tips:'攻略',
+    ending_title:'Até logo, Floripa.',ending_sub:'42座海滩中，总有一片在等你回来。'
+  },
+  en: {
+    sp_subtitle:'A magical island of 42 beaches, suspended between the Atlantic and the lagoon.',
+    sp_choose:'— Choose Your Journey —',
+    sp_2d_days:'2 Days',sp_2d_desc:'Joaquina+Lagoa+Campeche classic beach run',sp_2d_tag:'First time in Floripa',
+    sp_3d_days:'3 Days',sp_3d_desc:'+Lagoinha hike + Santo Antônio depth',sp_3d_tag:'Most Popular',
+    sp_5d_days:'5 Days',sp_5d_desc:'Full island: east coast + south + Campeche island',sp_5d_tag:'Deep Explorer',
+    ch1_label:'Chapter 01',ch1_title:'The Magical Island of 42 Beaches',ch1_sub:'Florianópolis · From Azorean fishing village to surf mecca',
+    ch1_p1:'Florianópolis sits on Santa Catarina island in southern Brazil — ringed by 42 beaches. Locals call it "Floripa." In the 18th century, Azorean fishermen settled here, bringing oyster farming, lace-making, and colorful colonial architecture. Three centuries on, Floripa has become one of Brazil\'s most livable cities — but its soul still belongs to the sea.',
+    ch1_quote1:'"One island, 42 beaches — each strip of sand has its own personality."',
+    ch1_fig1:'Ponte Hercílio Luz — the iconic suspension bridge connecting mainland to island · Florianópolis',
+    ch1_p2:'The east coast faces the open Atlantic, where Joaquina and Mole beaches have world-class surf. At the island\'s heart lies Lagoa da Conceição — a vast lagoon ringed by dunes, with lakeside bars buzzing sunset to dawn. The north shore\'s Santo Antônio de Lisboa produces 70% of Brazil\'s oysters. The south hides Lagoinha do Leste — a pristine beach only reachable on foot.',
+    ch1_p3:'Floripa\'s magic is its versatility: sandboard the Joaquina dunes in the morning, eat fresh oysters in Santo Antônio at noon, windsurf on Lagoa in the afternoon, and stroll under the illuminated Hercílio Luz bridge at night. This city isn\'t one destination — it\'s 42.',
+    ch1_quote2:'"Floripa isn\'t one destination — it\'s 42."',
+    ch2_label:'Chapter 02',ch2_title:'Six Must-Sees',ch2_sub:'From surf dunes to the illuminated bridge — Floripa\'s six calling cards',
+    spot1_name:'Praia da Joaquina',spot1_tag:'Surf · Dunes',
+    spot2_name:'Lagoa da Conceição',spot2_tag:'Lagoon · Nightlife',
+    spot3_name:'Lagoinha do Leste',spot3_tag:'Hiking · Wild',
+    spot4_name:'Santo Antônio de Lisboa',spot4_tag:'Food · Sunset',
+    spot5_name:'Praia de Campeche',spot5_tag:'Beach · Rock Art',
+    spot6_name:'Ponte Hercílio Luz',spot6_tag:'Landmark · Night',
+    spot1_title:'Praia da Joaquina',spot1_tag2:'World-Class Surf · Golden Dunes',
+    spot1_body:'Joaquina is Floripa\'s most legendary east-coast beach — host to multiple world surfing championships, with consistent 1.5-3m waves. Behind the beach rise spectacular golden dunes where you can rent a sandboard and slide. At sunset, the view from the dune top over Lagoa da Conceição is unforgettable.',
+    spot1_addr:'East coast, ~15km from city center',spot1_time:'Half day (surf + sandboard + sunset)',spot1_price:'Sandboard rental R$20 (~$4)',
+    spot2_title:'Lagoa da Conceição',spot2_tag2:'Lagoon Windsurfing · Bar Street',
+    spot2_body:'Floripa\'s beating heart — a vast lagoon ringed by green hills and dunes. Key windsurfing and kitesurfing base. Centrinho da Lagoa is nightlife central with dozens of bars running sunset to dawn. Cross the dunes east to reach Joaquina; head to Barra da Lagoa for fresh-caught fish.',
+    spot2_addr:'Island center, ~12km from city',spot2_time:'Full day (lake + bars + fishing village)',spot2_price:'Windsurfing lesson R$120/h (~$24)',
+    spot3_title:'Lagoinha do Leste',spot3_tag2:'Pristine Wilderness · 2-Hour Hike',
+    spot3_body:'Floripa\'s best-kept secret — a beach with no road access. Hike ~2 hours from Pântano do Sul through Atlantic Forest, crest the ridge, and behold a crescent of golden sand embraced by forest and reef. No electricity, no signal, no commerce — just waves, birdsong, and wind.',
+    spot3_addr:'2h hike from Pântano do Sul, or 1h from Matadeiro',spot3_time:'Full day (including hike)',spot3_price:'Free (bring water & food)',
+    spot4_title:'Santo Antônio de Lisboa',spot4_tag2:'Azorean Colonial Village · Oyster Capital',
+    spot4_body:'Floripa\'s most Portuguese corner. An 18th-century Azorean village on the west coast facing the mainland, with the island\'s best sunset views. Florianópolis produces ~70% of Brazil\'s oysters and Santo Antônio is the farming hub. Order a dozen fresh with chilled white wine as the sun sets — pure healing.',
+    spot4_addr:'Northwest coast, ~8km from center',spot4_time:'Afternoon + sunset dinner',spot4_price:'Dozen oysters R$40 (~$8)',
+    spot5_title:'Praia de Campeche',spot5_tag2:'Crystal Water · Campeche Island Rock Art',
+    spot5_body:'Floripa\'s favorite south-side beach — kilometers of fine white sand with Caribbean-blue water. Opposite lies Ilha do Campeche with hundreds of prehistoric rock carvings (IPHAN national heritage). In summer, take a fishing boat to snorkel the island\'s natural pools.',
+    spot5_addr:'South island, ~20km from center',spot5_time:'Half day (beach) / full day (+ island)',spot5_price:'Island boat R$120/person (~$24)',
+    spot6_title:'Ponte Hercílio Luz',spot6_tag2:'Brazil\'s Longest Suspension Bridge · City Icon',
+    spot6_body:'Built in 1926, Brazil\'s longest suspension bridge spans 500m connecting island to mainland. Reopened for pedestrians in 2019 after a 20-year restoration. At night, golden lights illuminate the entire structure, the cables arcing against the sky, reflections shattering into a thousand points on the calm water below.',
+    spot6_addr:'City center, connecting island to mainland',spot6_time:'20min walk across, go at dusk',spot6_price:'Free',
+    ch3_label:'Chapter 03',ch3_title:'Your Journey',ch3_sub:'2, 3, or 5 days — tailored for you',
+    tab_2d:'2-Day Essential',tab_3d:'3-Day Classic',tab_5d:'5-Day Deep',
+    ch4_label:'Chapter 04',ch4_title:'Traveler\'s Notes',ch4_sub:'Transport · Food · Safety · Gear',
+    tip1_title:'Getting There',tip1_desc:'Fly from São Paulo ~1.5h (GOL/Azul/LATAM, R$300-600). Strongly recommend renting a car on the island (R$100/day), or use Uber.',
+    tip2_title:'Food Guide',tip2_desc:'🦪 Oysters: Ostradamus (Santo Antônio) | 🐟 Seafood: Bar do Arante (Pântano do Sul) | 🍕 Pizzaria DAU (Lagoa) | 🍨 açaí bowl + cupuaçu suco',
+    tip3_title:'Best Season',tip3_desc:'Dec-Mar is peak (busy + pricey). Apr-May & Sep-Nov ideal: warm water, fewer tourists, lower prices. Winter (Jun-Aug) ok for surfing but cool water.',
+    tip4_title:'Where to Stay',tip4_desc:'💎 Luxury: Ponta dos Ganchos (R$2000+) | 🏡 Mid: Il Campanario (R$500) | 🏄 Budget: Lagoa hostels (R$60/bed). Lagoa area is most convenient.',
+    tip5_title:'Safety',tip5_desc:'Floripa is one of Brazil\'s safest cities. Watch for rip currents. Sunscreen essential. Bring enough water for the Lagoinha hike.',
+    tip6_title:'Packing',tip6_desc:'Must: SPF50+, rashguard, water shoes, windbreaker (Lagoa is windy), bug spray. Optional: snorkel mask. No need to bring a sandboard.',
+    pack_label:'PACKING LIST',pack_title:'Pre-Trip Checklist',
+    pk1:'🧴 SPF 50+ sunscreen',pk2:'🏄 Rashguard',pk3:'👟 Water shoes',pk4:'🩱 Swimwear (bring several)',pk5:'🧥 Windbreaker',pk6:'📱 Waterproof phone pouch',pk7:'🤿 Snorkel mask',pk8:'🦟 Bug spray',pk9:'💳 Cash + cards',pk10:'📷 GoPro / action camera',
+    nav_city:'City',nav_spots:'Spots',nav_journey:'Journey',nav_tips:'Tips',
+    ending_title:'Até logo, Floripa.',ending_sub:'Among 42 beaches, one is always waiting for your return.'
+  },
+  pt: {
+    sp_subtitle:'Uma ilha mágica de 42 praias, suspensa entre o Atlântico e a lagoa.',
+    sp_choose:'— Escolha sua jornada —',
+    sp_2d_days:'2 Dias',sp_2d_desc:'Joaquina+Lagoa+Campeche roteiro clássico',sp_2d_tag:'Primeira vez em Floripa',
+    sp_3d_days:'3 Dias',sp_3d_desc:'+Trilha Lagoinha + Santo Antônio',sp_3d_tag:'Mais Popular',
+    sp_5d_days:'5 Dias',sp_5d_desc:'Ilha toda: leste + sul + Ilha do Campeche',sp_5d_tag:'Explorador Profundo',
+    ch1_label:'Capítulo 01',ch1_title:'A Ilha Mágica de 42 Praias',ch1_sub:'Florianópolis · De vila açoriana a meca do surfe',
+    ch1_p1:'Florianópolis fica na ilha de Santa Catarina, no sul do Brasil — cercada por 42 praias. Os locais a chamam de "Floripa". No século XVIII, pescadores açorianos cruzaram o oceano e trouxeram o cultivo de ostras, a renda de bilro e a arquitetura colonial colorida. Três séculos depois, Floripa se tornou uma das cidades mais habitáveis do Brasil — mas sua alma ainda pertence ao mar.',
+    ch1_quote1:'"Uma ilha, 42 praias — cada faixa de areia tem sua personalidade."',
+    ch1_fig1:'Ponte Hercílio Luz — a icônica ponte pênsil que conecta ilha e continente · Florianópolis',
+    ch1_p2:'A costa leste enfrenta o Atlântico aberto, com as praias da Joaquina e Mole famosas pelo surfe classe mundial. No coração da ilha está a Lagoa da Conceição — uma lagoa cercada por dunas, com bares à beira d\'água que funcionam do pôr do sol ao amanhecer. No norte, Santo Antônio de Lisboa produz 70% das ostras do Brasil. O sul esconde a Lagoinha do Leste — praia acessível apenas por trilha.',
+    ch1_p3:'A magia de Floripa é sua versatilidade: sandboard nas dunas da Joaquina de manhã, ostras frescas em Santo Antônio ao meio-dia, windsurf na Lagoa à tarde, e caminhada sob a iluminada Ponte Hercílio Luz à noite. Esta cidade não é um destino — são 42.',
+    ch1_quote2:'"Floripa não é um destino — são 42."',
+    ch2_label:'Capítulo 02',ch2_title:'Seis Imperdíveis',ch2_sub:'Das dunas de surfe à ponte iluminada — seis cartões-postais de Floripa',
+    spot1_name:'Praia da Joaquina',spot1_tag:'Surfe · Dunas',
+    spot2_name:'Lagoa da Conceição',spot2_tag:'Lagoa · Vida Noturna',
+    spot3_name:'Lagoinha do Leste',spot3_tag:'Trilha · Selvagem',
+    spot4_name:'Santo Antônio de Lisboa',spot4_tag:'Gastronomia · Pôr do Sol',
+    spot5_name:'Praia do Campeche',spot5_tag:'Praia · Arte Rupestre',
+    spot6_name:'Ponte Hercílio Luz',spot6_tag:'Marco · Noturno',
+    spot1_title:'Praia da Joaquina',spot1_tag2:'Ondas Classe Mundial · Dunas Douradas',
+    spot1_body:'A Joaquina é a praia mais lendária da costa leste — sede de vários campeonatos mundiais de surfe, com ondas constantes de 1,5 a 3 metros. Atrás da praia erguem-se dunas douradas espetaculares onde você pode alugar um sandboard. No pôr do sol, a vista do topo sobre a Lagoa da Conceição é inesquecível.',
+    spot1_addr:'Costa leste, ~15km do centro',spot1_time:'Meio dia (surfe + sandboard + pôr do sol)',spot1_price:'Sandboard R$20',
+    spot2_title:'Lagoa da Conceição',spot2_tag2:'Windsurf na Lagoa · Rua dos Bares',
+    spot2_body:'O coração de Floripa — uma vasta lagoa cercada por morros e dunas. Base importante de windsurf e kitesurf. O Centrinho da Lagoa é o centro da vida noturna, com dezenas de bares do pôr do sol ao amanhecer. Cruze as dunas para a Joaquina ou vá até a Barra da Lagoa para peixe fresco.',
+    spot2_addr:'Centro da ilha, ~12km',spot2_time:'Dia inteiro (lagoa + bares + vila)',spot2_price:'Aula de windsurf R$120/h',
+    spot3_title:'Lagoinha do Leste',spot3_tag2:'Natureza Intocada · Trilha de 2 Horas',
+    spot3_body:'O segredo mais bem guardado de Floripa — uma praia sem acesso por estrada. Caminhe ~2h do Pântano do Sul pela Mata Atlântica, cruze a crista e descubra uma meia-lua de areia dourada abraçada pela floresta. Sem eletricidade, sem sinal, sem comércio — apenas ondas, pássaros e vento.',
+    spot3_addr:'2h de trilha do Pântano do Sul, ou 1h do Matadeiro',spot3_time:'Dia inteiro (incluindo trilha)',spot3_price:'Grátis (leve água e comida)',
+    spot4_title:'Santo Antônio de Lisboa',spot4_tag2:'Vila Colonial Açoriana · Capital da Ostra',
+    spot4_body:'O canto mais português de Floripa. Vila açoriana do século XVIII na costa oeste, com o melhor pôr do sol da ilha. Florianópolis produz ~70% das ostras do Brasil e Santo Antônio é o centro. Peça uma dúzia de ostras frescas com vinho branco gelado ao pôr do sol — pura cura.',
+    spot4_addr:'Costa noroeste, ~8km do centro',spot4_time:'Tarde + jantar ao pôr do sol',spot4_price:'Dúzia de ostras R$40',
+    spot5_title:'Praia do Campeche',spot5_tag2:'Água Cristalina · Inscrições Rupestres',
+    spot5_body:'A praia favorita do sul — quilômetros de areia branca fina com água azul-esverdeada caribenha. Em frente fica a Ilha do Campeche com centenas de inscrições rupestres pré-históricas (patrimônio IPHAN). No verão, pegue um barco para mergulho nas piscinas naturais da ilha.',
+    spot5_addr:'Sul da ilha, ~20km do centro',spot5_time:'Meio dia (praia) / dia inteiro (+ ilha)',spot5_price:'Barco R$120/pessoa',
+    spot6_title:'Ponte Hercílio Luz',spot6_tag2:'Maior Ponte Pênsil do Brasil · Ícone da Cidade',
+    spot6_body:'Construída em 1926, a maior ponte pênsil do Brasil com 500m conecta ilha e continente. Reaberta para pedestres em 2019 após 20 anos de restauro. À noite, luzes douradas iluminam toda a estrutura, os cabos desenhando arcos no céu, reflexos se quebrando em mil pontos na água calma.',
+    spot6_addr:'Centro, conecta ilha ao continente',spot6_time:'20min a pé, vá ao entardecer',spot6_price:'Grátis',
+    ch3_label:'Capítulo 03',ch3_title:'Seu Roteiro',ch3_sub:'2, 3 ou 5 dias — sob medida',
+    tab_2d:'2 Dias Essencial',tab_3d:'3 Dias Clássico',tab_5d:'5 Dias Profundo',
+    ch4_label:'Capítulo 04',ch4_title:'Notas do Viajante',ch4_sub:'Transporte · Comida · Segurança · Bagagem',
+    tip1_title:'Como Chegar',tip1_desc:'Voo de São Paulo ~1,5h (GOL/Azul/LATAM, R$300-600). Alugue carro na ilha (R$100/dia) ou use Uber.',
+    tip2_title:'Gastronomia',tip2_desc:'🦪 Ostras: Ostradamus (Santo Antônio) | 🐟 Frutos do mar: Bar do Arante | 🍕 Pizzaria DAU (Lagoa) | 🍨 açaí + cupuaçu',
+    tip3_title:'Melhor Época',tip3_desc:'Dez-Mar alta temporada (lotado). Abr-Mai e Set-Nov ideal: água boa, menos turistas, preços menores. Inverno (Jun-Ago) ok para surfe.',
+    tip4_title:'Hospedagem',tip4_desc:'💎 Luxo: Ponta dos Ganchos (R$2000+) | 🏡 Médio: Il Campanario (R$500) | 🏄 Hostel na Lagoa (R$60/cama). Região da Lagoa é mais prática.',
+    tip5_title:'Segurança',tip5_desc:'Floripa é uma das cidades mais seguras do Brasil. Atenção com correntes. Protetor solar obrigatório. Leve água para a trilha da Lagoinha.',
+    tip6_title:'O Que Levar',tip6_desc:'Essencial: protetor FPS50+, lycra, tênis anfíbio, corta-vento, repelente. Opcional: máscara de snorkel. Sandboard não precisa levar.',
+    pack_label:'LISTA DE MALAS',pack_title:'Checklist Pré-Viagem',
+    pk1:'🧴 Protetor FPS 50+',pk2:'🏄 Lycra / rashguard',pk3:'👟 Tênis anfíbio',pk4:'🩱 Maiô (leve vários)',pk5:'🧥 Corta-vento',pk6:'📱 Capinha à prova d\'água',pk7:'🤿 Máscara de snorkel',pk8:'🦟 Repelente',pk9:'💳 Dinheiro + cartão',pk10:'📷 GoPro / câmera de ação',
+    nav_city:'Cidade',nav_spots:'Pontos',nav_journey:'Roteiro',nav_tips:'Dicas',
+    ending_title:'Até logo, Floripa.',ending_sub:'Entre 42 praias, uma sempre espera você voltar.'
+  }
+};
+
+
+let curMode = 'zh-en';
+function setBilingual(mode) {
+  curMode = mode;
+  const secondary = mode === 'zh-pt' ? 'pt' : 'en';
+  const zhDict = I18N.zh;
+  const secDict = I18N[secondary] || I18N.en;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const zhText = zhDict[key] || '';
+    const secText = secDict[key] || '';
+    if (!zhText) return;
+
+    // Skip very short items (nav labels, tags) — just show zh
+    const isShort = el.closest('.nav-item,.sp-plan-tag,.mc-tag,.spot-info-item,.sp-plan-label,.sp-badge,.page-num,.sp-dot,.pack-item,.tl-tip');
+    // For plan days, show both inline
+    const isDays = key.includes('_days');
+
+    if (isShort) {
+      el.textContent = zhText;
+    } else if (isDays) {
+      el.innerHTML = zhText + ' <span class="bi-sub" style="display:inline;opacity:.5;font-size:.7em">' + secText + '</span>';
+    } else {
+      el.innerHTML = zhText + '<span class="bi-sub">' + secText + '</span>';
+    }
+  });
+
+  document.querySelectorAll('.lang-btn,.sp-lang-btn').forEach(b => {
+    const label = mode === 'zh-pt' ? '中·PT' : '中·EN';
+    b.classList.toggle('active', b.textContent.trim() === label);
+  });
+}
+
+// For backward compat
+function setLang(lang) {
+  if (lang === 'pt') setBilingual('zh-pt');
+  else setBilingual('zh-en');
+}
+
+// Init bilingual
+setBilingual('zh-en');
+
+// ===== SPLASH CAROUSEL =====
+let spIdx = 0, spTimer;
+function spGo(i) {
+  const slides = document.querySelectorAll('.sp-slide');
+  const dots = document.querySelectorAll('.sp-dot');
+  slides.forEach((s, j) => s.classList.toggle('active', j === i));
+  dots.forEach((d, j) => d.classList.toggle('active', j === i));
+  spIdx = i;
+}
+function spAuto() { spTimer = setInterval(() => { const n = document.querySelectorAll('.sp-slide').length; spGo((spIdx + 1) % n); }, 5000); }
+spAuto();
+
+// ===== ENTER FROM SPLASH =====
+function enterPlan(days) {
+  clearInterval(spTimer);
+  document.getElementById('splash').classList.add('hide');
+  document.getElementById('app').classList.add('show');
+  document.getElementById('nav-bar').classList.add('show');
+  setTimeout(() => { switchPlan(days); }, 300);
+}
+
+// ===== PLAN TABS =====
+function switchPlan(days) {
+  document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.plan-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.plan-tab').forEach(t => {
+    if (t.textContent.includes(days)) t.classList.add('active');
+  });
+  const page = document.getElementById('plan-' + days);
+  if (page) page.classList.add('active');
+  // Scroll to journey chapter
+  const ch = document.getElementById('ch-journey');
+  if (ch) ch.scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== SCROLL TO SPOT =====
+function scrollToSpot(n) {
+  const el = document.getElementById('spot-' + n);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ===== NAV =====
+function navTo(id) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ===== BACK TO TOP =====
+window.addEventListener('scroll', () => {
+  document.getElementById('backTop').classList.toggle('show', window.scrollY > 600);
+});
+
+// ===== SPLASH SCROLL TO ENTER =====
+// Allow scrolling down on splash to also enter (shows app with city chapter)
+let splashScrolled = false;
+window.addEventListener('wheel', (e) => {
+  if (splashScrolled) return;
+  const splash = document.getElementById('splash');
+  if (!splash.classList.contains('hide') && e.deltaY > 30) {
+    splashScrolled = true;
+    clearInterval(spTimer);
+    splash.classList.add('hide');
+    document.getElementById('app').classList.add('show');
+    document.getElementById('nav-bar').classList.add('show');
+  }
+}, { passive: true });
+
+// Touch scroll on mobile
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+window.addEventListener('touchend', (e) => {
+  if (splashScrolled) return;
+  const splash = document.getElementById('splash');
+  if (!splash.classList.contains('hide') && touchStartY - e.changedTouches[0].clientY > 50) {
+    splashScrolled = true;
+    clearInterval(spTimer);
+    splash.classList.add('hide');
+    document.getElementById('app').classList.add('show');
+    document.getElementById('nav-bar').classList.add('show');
+  }
+}, { passive: true });
+</script>
+
+
+
+
+</body>
+</html>

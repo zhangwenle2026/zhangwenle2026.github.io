@@ -31,11 +31,13 @@ img{display:block;max-width:100%}
 a{color:var(--lp-blue);text-decoration:none}
 
 /* ===== ISLAND HOME BUTTON ===== */
-.island-home{position:fixed;top:16px;left:16px;z-index:2000;display:flex;align-items:center;gap:6px;padding:8px 16px 8px 12px;background:rgba(0,45,91,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.15);border-radius:24px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.5px;text-decoration:none;transition:all .3s ease;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,.18)}
-.island-home:hover{background:rgba(0,45,91,.85);transform:scale(1.04);box-shadow:0 4px 20px rgba(0,0,0,.25)}
-.island-home .island-icon{font-size:16px;line-height:1}
+.island-home{position:fixed;top:20px;left:24px;z-index:2000;display:flex;align-items:center;gap:5px;padding:0;background:none;border:none;color:rgba(255,255,255,.75);font-family:'Playfair Display',serif;font-size:15px;font-weight:700;font-style:italic;letter-spacing:.3px;text-decoration:none;transition:all .35s ease;cursor:pointer;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.island-home:hover{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.6);transform:translateY(-1px)}
+.island-home .island-icon{font-size:14px;line-height:1;filter:drop-shadow(0 1px 3px rgba(0,0,0,.3))}
 .island-home .island-label{line-height:1}
-@media(max-width:768px){.island-home{top:12px;left:12px;padding:6px 12px 6px 10px;font-size:12px}}
+.island-home .island-arrow{font-size:11px;opacity:.5;margin-left:2px;transition:opacity .3s}
+.island-home:hover .island-arrow{opacity:.8}
+@media(max-width:768px){.island-home{top:14px;left:16px;font-size:13px}}
 
 /* ===== TYPOGRAPHY - LP MAGAZINE ===== */
 .t-display{font-family:'Playfair Display',serif;font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text-dark)}
@@ -255,7 +257,7 @@ a{color:var(--lp-blue);text-decoration:none}
 
 <!-- ===== ISLAND HOME LINK ===== -->
 <a class="island-home" href="https://zhangwenle2026.github.io/" title="Back to Island">
-  <span class="island-icon">🏝️</span><span class="island-label">Island</span>
+  <span class="island-icon">🏝️</span><span class="island-label">Island</span><span class="island-arrow">←</span>
 </a>
 
 <!-- ===== SPLASH / COVER ===== -->

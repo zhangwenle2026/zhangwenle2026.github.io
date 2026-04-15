@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="version" content="island-v4.0">
+<meta name="version" content="island-v4.1">
 <title>Island — Travel Magazine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -126,11 +126,11 @@ body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-
 .issues::before{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg,
-    rgba(0,0,0,0.5) 0%,
-    rgba(0,0,0,0.65) 50%,
-    rgba(0,0,0,0.8) 100%
+    rgba(0,0,0,0.35) 0%,
+    rgba(0,0,0,0.45) 50%,
+    rgba(0,0,0,0.6) 100%
   );
-  backdrop-filter:blur(2px);
+  backdrop-filter:blur(6px);
 }
 .issues-header{
   position:relative;z-index:2;
@@ -216,7 +216,9 @@ body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-
 
 /* ===== COMING SOON ===== */
 .mag-card.placeholder{
-  border:2px dashed rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);
+  border:2px dashed rgba(255,255,255,0.15);
+  background:rgba(255,255,255,0.04);
+  backdrop-filter:blur(8px);
   cursor:default;box-shadow:none;
   display:flex;align-items:center;justify-content:center;
 }
@@ -244,9 +246,9 @@ body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-
 .island-footer{
   position:relative;z-index:1;
   padding:48px 24px;text-align:center;
-  background:rgba(0,0,0,0.85);
+  background:rgba(0,0,0,0.7);
   border-top:1px solid rgba(255,255,255,0.06);
-  backdrop-filter:blur(4px);
+  backdrop-filter:blur(12px);
 }
 .footer-logo{
   font-family:'Playfair Display',serif;font-weight:900;

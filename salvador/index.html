@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="version" content="salvador-v1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Salvador &middot; 非洲灵魂，巴伊亚节奏</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}
+:root{--lp-blue:#004F9F;--lp-blue-dark:#002D5B;--terra:#C4622D;--terra-light:#E8956A;--cream:#FDFBF7;--warm-gray:#6B6560;--text-dark:#1A1A1A;--text-body:#3D3835;--gold:#D4A853;--chapter-gap:0;--ease-out-expo:cubic-bezier(.16,1,.3,1);--bahia:#8B1A1A;--bahia-dark:#5C0E0E;--bahia-light:#C44D4D;--bahia-gold:#D4A853}
+html{scroll-behavior:smooth;font-size:16px;background:var(--cream)}
+body{font-family:'Inter',sans-serif;color:var(--text-body);line-height:1.7;background:var(--cream);overflow-x:hidden}
+img{display:block;max-width:100%}a{color:var(--lp-blue);text-decoration:none}
+.island-home{position:fixed;top:20px;left:20px;z-index:2000;display:flex;align-items:center;gap:8px;padding:10px 18px;background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:8px;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .4s cubic-bezier(.25,.46,.45,.94);cursor:pointer}
+.island-home:hover{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.3);transform:translateX(-2px)}
+.island-home svg{width:14px;height:14px;stroke:currentColor;transition:transform .4s}
+.island-home:hover svg{transform:translateX(-3px)}
+@media(max-width:768px){.island-home{top:14px;left:14px;padding:8px 14px;font-size:10px;gap:6px}}
+.t-display{font-family:'Playfair Display',serif;font-weight:900;line-height:1.05;letter-spacing:-0.02em;color:var(--text-dark)}
+.t-body{font-family:'Libre Baskerville',serif;font-size:17px;line-height:1.85;color:var(--text-body)}
+#splash{position:fixed;inset:0;z-index:1000;background:#000;display:flex;flex-direction:column;transition:opacity .8s ease,visibility .8s ease}
+#splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.sp-carousel{position:absolute;inset:0;overflow:hidden}
+.sp-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease}
+.sp-slide.active{opacity:1}
+.sp-slide img{width:100%;height:100%;object-fit:cover;image-rendering:auto;animation:sp-ken 20s ease-in-out infinite alternate}
+@keyframes sp-ken{0%{transform:scale(1.02) translate(0,0)}100%{transform:scale(1.06) translate(-0.5%,-0.5%)}}
+.sp-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.1) 30%,rgba(0,0,0,.5) 70%,rgba(0,0,0,.8) 100%);z-index:1}
+.sp-content{position:relative;z-index:2;display:flex;flex-direction:column;height:100%;padding:env(safe-area-inset-top) 28px env(safe-area-inset-bottom)}
+.sp-topbar{display:flex;justify-content:flex-end;align-items:center;padding:24px 0 0}
+.sp-lang{display:flex;gap:2px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:16px;padding:3px;border:1px solid rgba(255,255,255,.15)}
+.sp-lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.sp-lang-btn.active{background:var(--bahia);color:#fff}
+.sp-hero{flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:20px}
+.sp-title{font-family:'Playfair Display',serif;font-size:clamp(52px,12vw,84px);font-weight:900;color:#fff;line-height:.95;margin-bottom:14px}
+.sp-subtitle{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.75);line-height:1.6;max-width:420px}
+.sp-dots{display:flex;gap:8px;margin-top:16px}
+.sp-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}
+.sp-dot.active{width:18px;border-radius:3px;background:#fff}
+#app{display:none}#app.show{display:block}
+.bleed{width:100%;height:65vh;min-height:400px;position:relative;overflow:hidden}
+.bleed img{width:100%;height:100%;object-fit:cover;animation:ken-slow 25s ease-in-out infinite alternate}
+@keyframes ken-slow{0%{transform:scale(1)}100%{transform:scale(1.04) translate(-0.3%,-0.3%)}}
+.bleed-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.65) 100%)}
+.bleed-caption{position:absolute;bottom:28px;left:28px;right:28px;z-index:2}
+.bleed-chapter{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.bleed-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,48px);font-weight:900;color:#fff;line-height:1.1}
+.bleed-sub{font-family:'Libre Baskerville',serif;font-size:14px;color:rgba(255,255,255,.7);margin-top:8px}
+.section{max-width:780px;margin:0 auto;padding:48px 24px}
+.section-wide{max-width:1080px;margin:0 auto;padding:48px 24px}
+.ch-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--bahia);margin-bottom:8px}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,40px);font-weight:900;color:var(--text-dark);line-height:1.1;margin-bottom:20px}
+.drop-cap::first-letter{font-family:'Playfair Display',serif;float:left;font-size:68px;font-weight:900;line-height:0.8;padding:4px 10px 0 0;color:var(--lp-blue)}
+.pull-quote{border-left:3px solid var(--bahia);padding:16px 0 16px 24px;margin:36px 0;background:linear-gradient(90deg,rgba(139,26,26,.04),transparent)}
+.pull-quote p{font-family:'Libre Baskerville',serif;font-style:italic;font-size:20px;line-height:1.6;color:var(--lp-blue-dark)}
+.pull-quote cite{display:block;font-family:'Inter',sans-serif;font-style:normal;font-size:11px;font-weight:600;color:var(--warm-gray);margin-top:8px;letter-spacing:1px;text-transform:uppercase}
+.fig{margin:36px 0}.fig img{width:100%;border-radius:2px}
+.fig figcaption{font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);margin-top:8px;letter-spacing:0.3px}
+.mustsee-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.mustsee-card{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;transition:transform .3s}
+.mustsee-card:hover{transform:scale(1.02)}
+.mustsee-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mustsee-card:hover img{transform:scale(1.05)}
+.mustsee-card .mc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.75) 100%)}
+.mustsee-card .mc-info{position:absolute;bottom:14px;left:14px;right:14px}
+.mustsee-card .mc-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.mustsee-card .mc-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:#fff;margin-top:4px;line-height:1.2}
+.mustsee-card .mc-tag{font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px}
+.spot{padding:48px 24px;max-width:780px;margin:0 auto;border-bottom:1px solid rgba(0,0,0,.06)}
+.spot:last-child{border-bottom:none}
+.spot-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:20px}
+.spot-num{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:var(--bahia);line-height:1;flex-shrink:0}
+.spot-meta h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text-dark);line-height:1.2}
+.spot-meta .spot-tag{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--bahia);margin-top:4px}
+.spot-body{font-family:'Libre Baskerville',serif;font-size:16px;line-height:1.85;color:var(--text-body);margin-bottom:20px}
+.spot-info{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.spot-info-item{display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:12px;color:var(--warm-gray);background:rgba(0,79,159,.04);padding:6px 12px;border-radius:8px}
+.spot-info-item svg{width:14px;height:14px;stroke:var(--lp-blue);stroke-width:2;fill:none}
+.plan-cover{width:100%;height:75vh;min-height:500px;position:relative;overflow:hidden}
+.plan-cover img{width:100%;height:100%;object-fit:cover}
+.plan-cover .pc-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,.7) 100%)}
+.plan-cover .pc-info{position:absolute;bottom:40px;left:28px;right:28px}
+.plan-cover .pc-eyebrow{font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold)}
+.plan-cover .pc-title{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,52px);font-weight:900;color:#fff;line-height:1.05;margin-top:8px}
+.plan-cover .pc-sub{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.7);margin-top:10px}
+.timeline{max-width:680px;margin:0 auto;padding:40px 24px}
+.tl-day{margin-bottom:36px}
+.tl-day-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text-dark);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--bahia);display:inline-block}
+.tl-item{display:flex;gap:16px;margin-bottom:20px}
+.tl-time{flex-shrink:0;width:56px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--lp-blue);padding-top:2px}
+.tl-content{flex:1;padding-bottom:16px;border-bottom:1px solid rgba(0,0,0,.05)}
+.tl-item:last-child .tl-content{border-bottom:none}
+.tl-content h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark)}
+.tl-content p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);margin-top:4px;line-height:1.6}
+.tl-tip{display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:11px;color:var(--bahia);font-weight:600;margin-top:6px;background:rgba(139,26,26,.06);padding:3px 8px;border-radius:6px}
+.tips-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:32px 0}
+.tip-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.tip-card-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--bahia),var(--bahia-dark));display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.tip-card-icon svg{width:18px;height:18px;stroke:#fff;stroke-width:2;fill:none}
+.tip-card h4{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:6px}
+.tip-card p{font-family:'Inter',sans-serif;font-size:13px;color:var(--warm-gray);line-height:1.6}
+.pack-list{columns:2;gap:24px;margin:24px 0}
+.pack-item{display:flex;align-items:center;gap:8px;padding:6px 0;break-inside:avoid;font-family:'Inter',sans-serif;font-size:14px;color:var(--text-body);cursor:pointer}
+.pack-item input[type=checkbox]{accent-color:var(--bahia);width:16px;height:16px}
+.ending{text-align:center;padding:64px 24px;background:var(--lp-blue-dark)}
+.ending .t-display{color:#fff;font-size:clamp(28px,5vw,42px);margin-bottom:16px}
+.ending p{font-family:'Libre Baskerville',serif;font-size:15px;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto}
+.lang-switch{position:fixed;top:12px;right:12px;z-index:200;display:flex;gap:2px;background:rgba(0,45,91,.6);backdrop-filter:blur(8px);border-radius:16px;padding:3px}
+.lang-btn{border:none;background:transparent;color:rgba(255,255,255,.7);font-size:11px;font-weight:600;padding:4px 10px;border-radius:14px;cursor:pointer;transition:all .2s}
+.lang-btn.active{background:var(--bahia);color:#fff}
+.page-num{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;color:var(--warm-gray);text-align:center;padding:8px 0;text-transform:uppercase}
+.back-top{position:fixed;bottom:20px;right:20px;z-index:100;width:40px;height:40px;border-radius:50%;background:var(--bahia);color:#fff;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(139,26,26,.3);transition:transform .2s}
+.back-top:hover{transform:scale(1.1)}.back-top.show{display:flex}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s var(--ease-out-expo)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.nav-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:rgba(253,251,247,.92);backdrop-filter:blur(12px);border-top:1px solid rgba(0,0,0,.06);display:none;padding:6px 0 env(safe-area-inset-bottom)}
+#app.show ~ .nav-bar,.nav-bar.show{display:block}
+.nav-inner{display:flex;justify-content:space-around;max-width:500px;margin:0 auto}
+.nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 12px;cursor:pointer;transition:color .2s;color:var(--warm-gray);border:none;background:none;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.5px}
+.nav-item.active{color:var(--lp-blue)}
+.nav-item svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;fill:none}
+@media(max-width:640px){.mustsee-grid{grid-template-columns:1fr}.tips-grid{grid-template-columns:1fr}.pack-list{columns:1}.bleed{height:50vh;min-height:300px}.plan-cover{height:60vh}.section{padding:36px 20px}.spot-header{flex-direction:column;gap:8px}.spot-num{font-size:36px}.drop-cap::first-letter{font-size:52px}}
+.plan-tabs{display:flex;justify-content:center;gap:8px;padding:20px 24px;background:var(--cream);position:sticky;top:0;z-index:50}
+.plan-tab{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;padding:8px 20px;border-radius:20px;border:1.5px solid rgba(0,79,159,.15);background:transparent;color:var(--lp-blue);cursor:pointer;transition:all .2s}
+.plan-tab.active{background:var(--lp-blue);color:#fff;border-color:var(--lp-blue)}
+.plan-page{display:none}.plan-page.active{display:block}
+.bi-sub{display:block;font-size:0.82em;opacity:0.55;margin-top:2px;font-style:italic;font-family:'Inter',sans-serif;font-weight:400}
+.pull-quote .bi-sub{font-size:0.78em;opacity:0.5}
+.bleed-title .bi-sub,.bleed-sub .bi-sub,.sp-title .bi-sub,.sp-subtitle .bi-sub,.pc-title .bi-sub{color:rgba(255,255,255,.5);font-style:normal}
+.mc-name .bi-sub,.mc-tag .bi-sub{font-size:0.8em}
+.spot-body .bi-sub,.ch-intro .bi-sub,.t-body .bi-sub{font-size:0.85em;line-height:1.7;margin-top:6px}
+.ending .bi-sub{color:rgba(255,255,255,.4)}
+#splash:not(.hide) ~ .nav-bar{display:none!important}</style>
+</head>
+<body>
+<a class="island-home" href="https://zhangwenle2026.github.io/" title="Back to Island"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M19 12H5M5 12l6-6M5 12l6 6"/></svg>Island</a>
+<div id="splash">
+<div class="sp-carousel" id="sp-carousel">
+<div class="sp-slide active"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7490ba95-d8c3-434e-9ef5-740c892c0d06.jpg" alt="Pelourinho"></div>
+<div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_88bae1a6-4bfd-4afd-a445-1a93e2d47e40.jpg" alt="Elevador Lacerda"></div>
+<div class="sp-slide"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_41796acd-2f2e-4b93-8f55-7ca856dc63c7.jpg" alt="Farol da Barra"></div>
+</div>
+<div class="sp-overlay"></div>
+<div class="sp-content">
+<div class="sp-topbar"><div class="sp-lang">
+<button class="sp-lang-btn active" onclick="setBilingual('zh-en')">中&middot;EN</button>
+<button class="sp-lang-btn" onclick="setBilingual('zh-pt')">中&middot;PT</button>
+</div></div>
+<div class="sp-hero">
+<div class="sp-title">Salvador</div>
+<div class="sp-subtitle" data-i18n="sp_subtitle">非洲灵魂，巴伊亚节奏。巴西第一座首都，众神之湾的鼓声从未停歇。</div>
+<div class="sp-dots" id="sp-dots"><div class="sp-dot active"></div><div class="sp-dot"></div><div class="sp-dot"></div></div>
+</div></div></div>
+<div id="app">
+<div class="lang-switch"><button class="lang-btn active" onclick="setBilingual('zh-en')">中&middot;EN</button><button class="lang-btn" onclick="setBilingual('zh-pt')">中&middot;PT</button></div>
+<div class="bleed" id="ch-city"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_c06a2b6c-ae27-46b8-b97c-02c900204144.jpg" alt="Pelourinho"><div class="bleed-overlay"></div>
+<div class="bleed-caption"><div class="bleed-chapter" data-i18n="ch1_label">Chapter 01</div>
+<div class="bleed-title" data-i18n="ch1_title">众神之湾的第一座城</div>
+<div class="bleed-sub" data-i18n="ch1_sub">Salvador &middot; 从殖民首都到非洲文化圣地</div></div></div>
+<div class="section">
+<div class="ch-intro drop-cap fade-in" data-i18n="ch1_p1">1549年，葡萄牙人在「众神之湾」的悬崖上建起了巴西的第一座首都。他们给这座城市取了个宏大的名字：众神之湾的神圣救世主。这是美洲最古老的殖民城市之一，也是大西洋两岸奴隶贸易的核心枢纽。</div>
+<div class="pull-quote fade-in"><p data-i18n="ch1_quote1">"Salvador 不是巴西的非洲——Salvador 是非洲的巴西。"</p><cite>— Jorge Amado</cite></div>
+<figure class="fig fade-in"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_88bae1a6-4bfd-4afd-a445-1a93e2d47e40.jpg" alt="Elevador Lacerda"><figcaption data-i18n="ch1_fig1">拉塞尔达电梯与众神之湾全景 · Salvador, Bahia</figcaption></figure>
+<div class="t-body fade-in" data-i18n="ch1_p2" style="margin-top:28px">在长达三百年的奴隶贸易中，超过一百万非洲人被运送到 Salvador 的港口。他们带来了约鲁巴人的 Candomblé 信仰、Capoeira 武术、Acarajé 美食和非洲鼓的节奏。当奴隶制终结后，这些文化不但没有消失，反而在 Pelourinho 的巷弄中生根发芽，长成了 Salvador 独一无二的灵魂。如今，这座城市 80% 的人口拥有非洲血统——它是非洲以外黑人人口最多的城市。</div>
+<div class="t-body fade-in" data-i18n="ch1_p3" style="margin-top:20px">1985年，联合国教科文组织将 Salvador 的历史中心列入世界遗产。Pelourinho 的彩色殖民建筑被修复，成为 Michael Jackson 拍摄 MV 的取景地。但 Salvador 的魅力不在博物馆里——它在街头 Capoeira 的翻腾中，在 Terreiro 的鼓声和歌声中，在 Baiana 大妈油炸 Acarajé 的滋滋声中。这座城市的灵魂是活的，而且它跳舞。</div>
+<div class="pull-quote fade-in"><p data-i18n="ch1_quote2">"在 Salvador，连石头都有节奏。"</p></div>
+</div><div class="page-num">— 02 —</div>
+<div class="bleed" id="ch-spots"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_0f85a717-3b70-4df0-beac-44d50082a949.jpg" alt="Bonfim ribbons"><div class="bleed-overlay"></div>
+<div class="bleed-caption"><div class="bleed-chapter" data-i18n="ch2_label">Chapter 02</div>
+<div class="bleed-title" data-i18n="ch2_title">六大必去</div>
+<div class="bleed-sub" data-i18n="ch2_sub">从彩色老城到神像湖，Salvador 的六张名片</div></div></div>
+<div class="section-wide"><div class="mustsee-grid fade-in">
+<div class="mustsee-card" onclick="scrollToSpot(1)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7490ba95-d8c3-434e-9ef5-740c892c0d06.jpg" alt="Pelourinho"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">01</div><div class="mc-name" data-i18n="spot1_name">Pelourinho 彩色老城</div><div class="mc-tag" data-i18n="spot1_tag">UNESCO · 世界遗产</div></div></div>
+<div class="mustsee-card" onclick="scrollToSpot(2)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_88bae1a6-4bfd-4afd-a445-1a93e2d47e40.jpg" alt="Lacerda"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">02</div><div class="mc-name" data-i18n="spot2_name">Elevador Lacerda 拉塞尔达电梯</div><div class="mc-tag" data-i18n="spot2_tag">地标 · 全景</div></div></div>
+<div class="mustsee-card" onclick="scrollToSpot(3)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_0f85a717-3b70-4df0-beac-44d50082a949.jpg" alt="Bonfim"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">03</div><div class="mc-name" data-i18n="spot3_name">Igreja do Bonfim 邦芬许愿教堂</div><div class="mc-tag" data-i18n="spot3_tag">信仰 · 许愿丝带</div></div></div>
+<div class="mustsee-card" onclick="scrollToSpot(4)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_41796acd-2f2e-4b93-8f55-7ca856dc63c7.jpg" alt="Barra"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">04</div><div class="mc-name" data-i18n="spot4_name">Farol da Barra 巴哈灯塔海滩</div><div class="mc-tag" data-i18n="spot4_tag">日落 · 灯塔</div></div></div>
+<div class="mustsee-card" onclick="scrollToSpot(5)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_3805e804-03e0-484e-9e20-6a770267c971.jpg" alt="Mercado"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">05</div><div class="mc-name" data-i18n="spot5_name">Mercado Modelo 莫德洛市场</div><div class="mc-tag" data-i18n="spot5_tag">手工艺 · Capoeira</div></div></div>
+<div class="mustsee-card" onclick="scrollToSpot(6)"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_d414c79b-1858-43ee-a558-cb187328c20e.jpg" alt="Tororo"><div class="mc-overlay"></div><div class="mc-info"><div class="mc-num">06</div><div class="mc-name" data-i18n="spot6_name">Dique do Tororó 托罗罗神像湖</div><div class="mc-tag" data-i18n="spot6_tag">Orixá · 信仰</div></div></div>
+</div></div>
+<div id="spot-details">
+<div class="spot fade-in" id="spot-1"><div class="spot-header"><div class="spot-num">01</div><div class="spot-meta"><h3 data-i18n="spot1_title">Pelourinho 彩色老城</h3><div class="spot-tag" data-i18n="spot1_tag2">UNESCO 世界遗产 · 殖民巴洛克建筑群</div></div></div><div class="spot-body" data-i18n="spot1_body">Pelourinho——这个名字在葡语中意为「耻辱柱」，曾是奴隶被公开惩罚的地方。如今，它是 Salvador 最耀眼的街区：彩色的殖民巴洛克建筑沿着陡峭的鹅卵石街道排列，每一栋都涂着明亮的黄、蓝、粉、橙。街角有人打 Capoeira，广场上有人弹吉他唱 MPB，空气中飘着 Acarajé 的香气。Michael Jackson 1996年在这里拍摄了 MV，让全世界看到了这个街区的色彩与力量。夜晚的 Pelourinho 更加迷人——酒吧和餐厅的灯光从百叶窗中洒出，鼓声从 Olodum 乐团的排练厅传来。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot1_addr">Salvador 上城区 (Cidade Alta)，全天开放</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot1_time">建议 3-4 小时漫步</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot1_price">免费</span></div></div></div>
+<div class="spot fade-in" id="spot-2"><div class="spot-header"><div class="spot-num">02</div><div class="spot-meta"><h3 data-i18n="spot2_title">Elevador Lacerda 拉塞尔达电梯</h3><div class="spot-tag" data-i18n="spot2_tag2">城市标志 · 上下城连接</div></div></div><div class="spot-body" data-i18n="spot2_body">Salvador 是一座建在悬崖上的城市——上城是历史中心，下城是港口，两者之间有 72 米的高差。1873年启用的拉塞尔达电梯是连接上下城最快的方式：30秒，R$0.15。这是世界上最繁忙的城市电梯之一，每天运送超过 30,000 人。从电梯顶部望出去，众神之湾一览无余——碧蓝的海水、远处的 Itaparica 岛、港口的帆船。这是 Salvador 明信片上出现频率最高的画面。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot2_addr">Praça Tomé de Sousa, Cidade Alta</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot2_time">30秒电梯 + 观景平台</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot2_price">R$0.15（约 ¥0.2）</span></div></div></div>
+<div class="spot fade-in" id="spot-3"><div class="spot-header"><div class="spot-num">03</div><div class="spot-meta"><h3 data-i18n="spot3_title">Igreja do Bonfim 邦芬许愿教堂</h3><div class="spot-tag" data-i18n="spot3_tag2">巴伊亚最神圣之地 · 许愿丝带</div></div></div><div class="spot-body" data-i18n="spot3_body">在 Salvador，信仰是彩色的。邦芬教堂围栏上系满了成千上万条彩色丝带——每条丝带代表一个愿望，系上三个结，等丝带自然断裂时愿望就会实现。这个传统融合了天主教和非洲 Candomblé 信仰，是巴伊亚文化的象征。每年一月的「Lavagem do Bonfim」是 Salvador 最盛大的节日之一：Baiana 女祭司身着白色传统服装，头顶花篮，从 Comércio 教堂游行 8 公里到邦芬教堂，用圣水和花瓣清洗教堂台阶。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot3_addr">Colina Sagrada do Bonfim, Cidade Baixa</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot3_time">1-2 小时</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot3_price">免费（丝带 R$2/条）</span></div></div></div>
+<div class="spot fade-in" id="spot-4"><div class="spot-header"><div class="spot-num">04</div><div class="spot-meta"><h3 data-i18n="spot4_title">Farol da Barra 巴哈灯塔海滩</h3><div class="spot-tag" data-i18n="spot4_tag2">Salvador 最美日落 · 16世纪堡垒</div></div></div><div class="spot-body" data-i18n="spot4_body">当 Salvador 的太阳沉入大西洋时，整座城市都会涌向 Barra 海滩。16世纪的圣安东尼奥堡垒矗立在岬角尽头，黑白条纹的灯塔在金色夕阳中格外醒目。堡垒内部现在是航海博物馆。海滩上有小贩卖椰子水和烤玉米，当地人在礁石上喝啤酒等日落。当太阳完全沉入海平线的那一刻，周围会爆发出掌声——这是 Salvador 的日落仪式。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot4_addr">Praia do Farol da Barra, Barra</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot4_time">下午来，等日落（约 17:30）</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot4_price">海滩免费；博物馆 R$15</span></div></div></div>
+<div class="spot fade-in" id="spot-5"><div class="spot-header"><div class="spot-num">05</div><div class="spot-meta"><h3 data-i18n="spot5_title">Mercado Modelo 莫德洛市场</h3><div class="spot-tag" data-i18n="spot5_tag2">巴伊亚最大手工艺市场 · Capoeira 表演</div></div></div><div class="spot-body" data-i18n="spot5_body">这座建于1861年的新古典主义建筑曾是海关大楼，如今是 Salvador 最大的手工艺市场。两层楼里有超过 250 个摊位，卖着非洲风格的木雕、彩色珠串、Candomblé 仪式用品和巴伊亚白裙。在市场前的广场上，Capoeira 大师们每天下午都会表演——围成一圈，berimbau 弓琴响起，两个人在圈中翻腾、旋转、对峙。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot5_addr">Praça Visc. de Cayru, Comércio (下城)</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot5_time">2 小时（含 Capoeira 表演）</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot5_price">免费入场</span></div></div></div>
+<div class="spot fade-in" id="spot-6"><div class="spot-header"><div class="spot-num">06</div><div class="spot-meta"><h3 data-i18n="spot6_title">Dique do Tororó 托罗罗神像湖</h3><div class="spot-tag" data-i18n="spot6_tag2">8座非洲 Orixá 神像 · Candomblé 信仰象征</div></div></div><div class="spot-body" data-i18n="spot6_body">在 Salvador 市中心的一个人工湖中，8 座巨大的青铜雕塑矗立在水面上——它们是非洲约鲁巴人的 Orixá 神灵：风暴之神 Iansã、海洋女神 Iemanjá、铁匠之神 Ogum、雷神 Xangô... 每尊雕像高约 4 米，由巴伊亚艺术家 Tati Moreno 创作。这片神像湖是这座城市非洲灵魂最具视觉冲击力的象征——特别是在日落时分，神像的剪影倒映在金色的湖面上。</div><div class="spot-info"><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="spot6_addr">Dique do Tororó, Tororó</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span data-i18n="spot6_time">1 小时</span></div><div class="spot-info-item"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><span data-i18n="spot6_price">免费</span></div></div></div>
+</div>
+<div class="page-num">— 04 —</div>
+<div class="bleed" id="ch-journey"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_41796acd-2f2e-4b93-8f55-7ca856dc63c7.jpg" alt="Farol da Barra"><div class="bleed-overlay"></div><div class="bleed-caption"><div class="bleed-chapter" data-i18n="ch3_label">Chapter 03</div><div class="bleed-title" data-i18n="ch3_title">你的行程</div><div class="bleed-sub" data-i18n="ch3_sub">2天、3天或5天，量身定制</div></div></div><div class="plan-tabs"><button class="plan-tab active" onclick="switchPlan(2)" data-i18n="tab_2d">2天精华</button><button class="plan-tab" onclick="switchPlan(3)" data-i18n="tab_3d">3天经典</button><button class="plan-tab" onclick="switchPlan(5)" data-i18n="tab_5d">5天深度</button></div><div class="plan-page active" id="plan-2"><div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_7490ba95-d8c3-434e-9ef5-740c892c0d06.jpg" alt="Pelourinho"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">2-DAY ITINERARY</div><div class="pc-title" data-i18n="p2_title">经典精华</div><div class="pc-sub" data-i18n="p2_sub">Pelourinho + Lacerda + Barra 日落 + Mercado</div></div></div><div class="timeline"><div class="tl-day"><div class="tl-day-title" data-i18n="p2_d1">Day 1 · 老城与鼓声</div><div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p2_d1_1t">Pelourinho 漫步</h4><p data-i18n="p2_d1_1d">从 Largo do Pelourinho 出发，沿彩色巷道走到 Terreiro de Jesus。看巴洛克教堂、街头 Capoeira、Olodum 鼓声。</p></div></div><div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p2_d1_2t">Acarajé 午餐</h4><p data-i18n="p2_d1_2d">在 Dinha 或 Cira 吃正宗 Acarajé——黑眼豆炸饼夹虾仁、vatapá 和辣椒酱。</p></div></div><div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p2_d1_3t">Elevador Lacerda + Mercado Modelo</h4><p data-i18n="p2_d1_3d">乘电梯下到下城，逛莫德洛市场买手工艺品，看 Capoeira 表演。</p></div></div><div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p2_d1_4t">Barra 灯塔日落</h4><p data-i18n="p2_d1_4d">打车到 Farol da Barra，在堡垒旁的礁石上等日落。和当地人一起为太阳鼓掌。</p></div></div><div class="tl-item"><div class="tl-time">19:30</div><div class="tl-content"><h4 data-i18n="p2_d1_5t">Pelourinho 晚餐</h4><p data-i18n="p2_d1_5d">推荐 Sorriso da Dadá（巴伊亚家常菜）或 Casa de Tereza（创新巴伊亚料理）。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p2_d2">Day 2 · 信仰与海湾</div><div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p2_d2_1t">Igreja do Bonfim 许愿</h4><p data-i18n="p2_d2_1d">打车到邦芬教堂，系彩色丝带许愿。系三个结，等丝带自然断裂愿望成真。</p></div></div><div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p2_d2_2t">Ribeira 半岛冰淇淋</h4><p data-i18n="p2_d2_2d">去 Sorveteria da Ribeira 吃 Salvador 最有名的冰淇淋。</p></div></div><div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p2_d2_3t">Dique do Tororó</h4><p data-i18n="p2_d2_3d">环湖步道看 8 座 Orixá 神像。日落时分光影最美。</p></div></div><div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p2_d2_4t">返程</h4><p data-i18n="p2_d2_4d">Salvador 机场 (SSA) 距市区30分钟车程。</p></div></div></div></div></div><div class="plan-page" id="plan-3"><div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_0f85a717-3b70-4df0-beac-44d50082a949.jpg" alt="Bonfim"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">3-DAY ITINERARY</div><div class="pc-title" data-i18n="p3_title">巴伊亚全景</div><div class="pc-sub" data-i18n="p3_sub">+Bonfim 许愿 + Tororó 神像湖 + Ribeira + Acarajé 美食</div></div></div><div class="timeline"><div class="tl-day"><div class="tl-day-title" data-i18n="p3_d1">Day 1 · 同2日 Day 1</div><div class="tl-item"><div class="tl-time">全天</div><div class="tl-content"><h4 data-i18n="p3_d1_1t">Pelourinho + Lacerda + Mercado + Barra 日落</h4><p data-i18n="p3_d1_1d">老城漫步、Acarajé 午餐、下城市场、灯塔日落——经典第一天。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p3_d2">Day 2 · 信仰与灵魂</div><div class="tl-item"><div class="tl-time">08:30</div><div class="tl-content"><h4 data-i18n="p3_d2_1t">Igreja do Bonfim</h4><p data-i18n="p3_d2_1d">清晨去邦芬教堂，游客少，氛围更神圣。系丝带许愿。</p></div></div><div class="tl-item"><div class="tl-time">11:00</div><div class="tl-content"><h4 data-i18n="p3_d2_2t">Ribeira 半岛</h4><p data-i18n="p3_d2_2d">Ponta de Humaitá 看海湾全景，Sorveteria da Ribeira 冰淇淋。</p></div></div><div class="tl-item"><div class="tl-time">14:00</div><div class="tl-content"><h4 data-i18n="p3_d2_3t">Acarajé 美食之旅</h4><p data-i18n="p3_d2_3d">品尝：Acarajé、Abará、Moqueca、Vatapá、Cocada。每种都有非洲根源。</p></div></div><div class="tl-item"><div class="tl-time">17:00</div><div class="tl-content"><h4 data-i18n="p3_d2_4t">Dique do Tororó 日落</h4><p data-i18n="p3_d2_4d">神像湖日落最美——Orixá 剪影倒映金色湖面。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p3_d3">Day 3 · 海滩与告别</div><div class="tl-item"><div class="tl-time">09:00</div><div class="tl-content"><h4 data-i18n="p3_d3_1t">Praia do Porto da Barra</h4><p data-i18n="p3_d3_1d">Salvador 最平静的海滩，海湾内侧无浪。</p></div></div><div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p3_d3_2t">São Joaquim 集市</h4><p data-i18n="p3_d3_2d">当地人买菜买药材的真实市场。Candomblé 草药摊令人大开眼界。</p></div></div><div class="tl-item"><div class="tl-time">15:00</div><div class="tl-content"><h4 data-i18n="p3_d3_3t">告别午餐 + 返程</h4><p data-i18n="p3_d3_3d">在 Paraíso Tropical 吃 Moqueca 大餐，然后前往机场。</p></div></div></div></div></div><div class="plan-page" id="plan-5"><div class="plan-cover"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_d414c79b-1858-43ee-a558-cb187328c20e.jpg" alt="Tororo"><div class="pc-overlay"></div><div class="pc-info"><div class="pc-eyebrow">5-DAY ITINERARY</div><div class="pc-title" data-i18n="p5_title">深度巴伊亚</div><div class="pc-sub" data-i18n="p5_sub">+Itaparica 岛 + Praia do Forte 海龟 + Cachoeira 小镇 + Capoeira</div></div></div><div class="timeline"><div class="tl-day"><div class="tl-day-title" data-i18n="p5_d12">Day 1-2 · 同3日行程</div><div class="tl-item"><div class="tl-time">全天</div><div class="tl-content"><h4 data-i18n="p5_d12_1t">Salvador 市区深度</h4><p data-i18n="p5_d12_1d">Pelourinho + Lacerda + Mercado + Barra + Bonfim + Tororó + Ribeira + Acarajé。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p5_d3">Day 3 · Itaparica 岛</div><div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p5_d3_1t">渡轮出发</h4><p data-i18n="p5_d3_1d">从 Terminal Marítimo São Joaquim 坐渡轮，40分钟穿越众神之湾。R$7.70/人。</p></div></div><div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><h4 data-i18n="p5_d3_2t">Itaparica 海滩</h4><p data-i18n="p5_d3_2d">租 buggy 环岛，Mar Grande 海滩游泳。比 Salvador 更安静清澈。</p></div></div><div class="tl-item"><div class="tl-time">16:00</div><div class="tl-content"><h4 data-i18n="p5_d3_3t">渡轮返回</h4><p data-i18n="p5_d3_3d">傍晚渡轮返回，船上看众神之湾日落。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p5_d4">Day 4 · 海龟与 Capoeira</div><div class="tl-item"><div class="tl-time">08:00</div><div class="tl-content"><h4 data-i18n="p5_d4_1t">Projeto TAMAR 海龟保护区</h4><p data-i18n="p5_d4_1d">驱车1.5小时到 Praia do Forte，参观巴西最著名的海龟保护项目。</p></div></div><div class="tl-item"><div class="tl-time">12:00</div><div class="tl-content"><h4 data-i18n="p5_d4_2t">Praia do Forte 海滩</h4><p data-i18n="p5_d4_2d">椰树沙滩+天然泳池——退潮时礁石间形成温暖的天然水池。</p></div></div><div class="tl-item"><div class="tl-time">15:00</div><div class="tl-content"><h4 data-i18n="p5_d4_3t">Capoeira 体验课</h4><p data-i18n="p5_d4_3d">回 Salvador，在 Forte da Capoeira 上一节初学者体验课。学 ginga 步法。</p></div></div></div><div class="tl-day"><div class="tl-day-title" data-i18n="p5_d5">Day 5 · Cachoeira 殖民小镇</div><div class="tl-item"><div class="tl-time">07:30</div><div class="tl-content"><h4 data-i18n="p5_d5_1t">驱车前往 Cachoeira</h4><p data-i18n="p5_d5_1d">1.5小时到 Recôncavo 地区——巴西非洲文化最浓厚的小镇之一。</p></div></div><div class="tl-item"><div class="tl-time">10:00</div><div class="tl-content"><h4 data-i18n="p5_d5_2t">Cachoeira 老城</h4><p data-i18n="p5_d5_2d">河畔殖民建筑、Irmandade da Boa Morte 博物馆——巴西最古老的非裔女性互助组织。</p></div></div><div class="tl-item"><div class="tl-time">13:00</div><div class="tl-content"><h4 data-i18n="p5_d5_3t">告别巴伊亚</h4><p data-i18n="p5_d5_3d">返回 Salvador 机场。带走邦芬丝带、dendê 棕榈油和满满的节奏。</p></div></div></div></div></div><div class="page-num">— 06 —</div>
+<div class="bleed" id="ch-tips"><img src="https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_3805e804-03e0-484e-9e20-6a770267c971.jpg" alt="Mercado Modelo"><div class="bleed-overlay"></div><div class="bleed-caption"><div class="bleed-chapter" data-i18n="ch4_label">Chapter 04</div><div class="bleed-title" data-i18n="ch4_title">旅行者手记</div><div class="bleed-sub" data-i18n="ch4_sub">交通·美食·安全·行李</div></div></div><div class="section-wide"><div class="tips-grid fade-in"><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="23 7 16 12 16 7"/></svg></div><h4 data-i18n="tip1_title">交通：如何到达</h4><p data-i18n="tip1_desc">Salvador 机场 (SSA) 有国内直飞（圣保罗 GRU 2.5h）。机场到市区 Uber R$50-70。市内：Uber 最方便；公交 R$4.40；老城步行即可。</p></div><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0h4"/></svg></div><h4 data-i18n="tip2_title">必吃美食</h4><p data-i18n="tip2_desc">Acarajé（黑眼豆炸饼+虾）· Moqueca（椰奶海鲜炖）· Vatapá（虾酱面包糊）· Abará · Cocada（椰子糖）· Caruru。Baiana 大妈的街头摊才最正宗。</p></div><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><h4 data-i18n="tip3_title">最佳季节</h4><p data-i18n="tip3_desc">9-3月旱季最佳。2月狂欢节是全球最大街头派对（6天200万人）。6-8月凉爽多雨但游客少。全年 25-30°C。</p></div><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/></svg></div><h4 data-i18n="tip4_title">安全须知</h4><p data-i18n="tip4_desc">Pelourinho 白天安全，晚上主街道也可以。避免深夜独行偏僻街道、展示贵重首饰。手机放口袋，背包背前面。打车用 Uber/99。</p></div><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4 data-i18n="tip5_title">住宿推荐</h4><p data-i18n="tip5_desc">💎 奢华：Fera Palace Hotel (R$800+) 🏡 中档：Hotel Villa Bahia (R$400) · Casa do Amarelindo (R$350) 🎒 背包：Hostel Galeria 13 (R$80/bed)。推荐住 Pelourinho 或 Barra。</p></div><div class="tip-card"><div class="tip-card-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><h4 data-i18n="tip6_title">打包清单</h4><p data-i18n="tip6_desc">必带：防晒SPF50+、轻薄衣物（全年夏天）、防水手机袋、舒适步行鞋、泳衣。选带：驱蚊液、轻薄雨衣（6-8月）。</p></div></div></div><div class="page-num">— 08 —</div><div class="section fade-in"><div class="ch-eyebrow" data-i18n="pack_label">PACKING LIST</div><div class="ch-title" data-i18n="pack_title">行前清单</div><div class="pack-list"><label class="pack-item"><input type="checkbox"><span data-i18n="pk1">🧴 SPF 50+ 防晒霜</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk2">👟 舒适步行鞋</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk3">📱 防水手机袋</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk4">🩱 泳衣（随时下海）</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk5">🌧️ 轻薄雨衣</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk6">🦟 驱蚊液</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk7">👕 轻薄透气衣物</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk8">🎶 开放的心（准备跳舞）</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk9">💳 现金+信用卡</span></label><label class="pack-item"><input type="checkbox"><span data-i18n="pk10">📷 相机/GoPro</span></label></div></div><div class="ending" id="sec-ending"><div class="t-display" data-i18n="ending_title">Axé, Salvador.</div><p data-i18n="ending_sub">Axé——约鲁巴语的「生命力」。愿你在众神之湾找到自己的节奏。</p></div><div style="height:60px"></div></div>
+<nav class="nav-bar" id="nav-bar"><div class="nav-inner">
+<button class="nav-item active" onclick="navTo('ch-city')"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg><span data-i18n="nav_city">城市</span></button>
+<button class="nav-item" onclick="navTo('ch-spots')"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1118 0z"/><circle cx="12" cy="10" r="3"/></svg><span data-i18n="nav_spots">景点</span></button>
+<button class="nav-item" onclick="navTo('ch-journey')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span data-i18n="nav_journey">行程</span></button>
+<button class="nav-item" onclick="navTo('ch-tips')"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span data-i18n="nav_tips">攻略</span></button>
+</div></nav>
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+const I18N = {
+"zh": {
+"sp_subtitle": "非洲灵魂，巴伊亚节奏。巴西第一座首都，众神之湾的鼓声从未停歇。",
+"ch1_label": "Chapter 01",
+"ch1_title": "众神之湾的第一座城",
+"ch1_sub": "Salvador · 从殖民首都到非洲文化圣地",
+"ch1_p1": "1549年，葡萄牙人在「众神之湾」的悬崖上建起了巴西的第一座首都。这是美洲最古老的殖民城市之一，也是大西洋两岸奴隶贸易的核心枢纽。",
+"ch1_quote1": "\"Salvador 不是巴西的非洲——Salvador 是非洲的巴西。\"",
+"ch1_fig1": "拉塞尔达电梯与众神之湾全景 · Salvador, Bahia",
+"ch1_p2": "在长达三百年的奴隶贸易中，超过一百万非洲人被运送到 Salvador。他们带来了 Candomblé 信仰、Capoeira 武术、Acarajé 美食和非洲鼓的节奏。这座城市 80% 的人口拥有非洲血统——它是非洲以外黑人人口最多的城市。",
+"ch1_p3": "1985年 UNESCO 将历史中心列入世界遗产。Pelourinho 成为 Michael Jackson 拍 MV 的取景地。但 Salvador 的魅力在街头 Capoeira 的翻腾中，在 Baiana 大妈油炸 Acarajé 的滋滋声中。",
+"ch1_quote2": "\"在 Salvador，连石头都有节奏。\"",
+"ch2_label": "Chapter 02",
+"ch2_title": "六大必去",
+"ch2_sub": "从彩色老城到神像湖，Salvador 的六张名片",
+"spot1_name": "Pelourinho 彩色老城",
+"spot1_tag": "UNESCO · 世界遗产",
+"spot2_name": "Elevador Lacerda 拉塞尔达电梯",
+"spot2_tag": "地标 · 全景",
+"spot3_name": "Igreja do Bonfim 邦芬许愿教堂",
+"spot3_tag": "信仰 · 许愿丝带",
+"spot4_name": "Farol da Barra 巴哈灯塔海滩",
+"spot4_tag": "日落 · 灯塔",
+"spot5_name": "Mercado Modelo 莫德洛市场",
+"spot5_tag": "手工艺 · Capoeira",
+"spot6_name": "Dique do Tororó 托罗罗神像湖",
+"spot6_tag": "Orixá · 信仰",
+"spot1_title": "Pelourinho 彩色老城",
+"spot1_tag2": "UNESCO 世界遗产 · 殖民巴洛克建筑群",
+"spot1_body": "彩色殖民巴洛克建筑沿着陡峭鹅卵石街道排列。街角有人打 Capoeira，广场上有人弹吉他。Michael Jackson 1996年在这里拍了 MV。",
+"spot1_addr": "Salvador 上城区 (Cidade Alta)",
+"spot1_time": "建议 3-4 小时",
+"spot1_price": "免费",
+"spot2_title": "Elevador Lacerda 拉塞尔达电梯",
+"spot2_tag2": "城市标志 · 上下城连接",
+"spot2_body": "72米高差，30秒，R$0.15。每天运送 30,000 人。从顶部望出去众神之湾一览无余。",
+"spot2_addr": "Praça Tomé de Sousa",
+"spot2_time": "30秒电梯 + 观景",
+"spot2_price": "R$0.15",
+"spot3_title": "Igreja do Bonfim 邦芬许愿教堂",
+"spot3_tag2": "巴伊亚最神圣之地 · 许愿丝带",
+"spot3_body": "围栏上系满彩色丝带——系三个结，等丝带断裂愿望成真。每年一月 Lavagem do Bonfim 是最盛大的节日。",
+"spot3_addr": "Colina Sagrada do Bonfim",
+"spot3_time": "1-2 小时",
+"spot3_price": "免费（丝带 R$2）",
+"spot4_title": "Farol da Barra 巴哈灯塔海滩",
+"spot4_tag2": "最美日落 · 16世纪堡垒",
+"spot4_body": "日落时整座城市涌向 Barra。太阳沉入海平线时，周围爆发掌声——Salvador 的日落仪式。",
+"spot4_addr": "Praia do Farol da Barra",
+"spot4_time": "下午来等日落",
+"spot4_price": "海滩免费；博物馆 R$15",
+"spot5_title": "Mercado Modelo 莫德洛市场",
+"spot5_tag2": "最大手工艺市场 · Capoeira 表演",
+"spot5_body": "250+ 摊位卖非洲木雕、珠串。广场上每天下午有 Capoeira 表演。",
+"spot5_addr": "Praça Visc. de Cayru",
+"spot5_time": "2 小时",
+"spot5_price": "免费入场",
+"spot6_title": "Dique do Tororó 托罗罗神像湖",
+"spot6_tag2": "8座 Orixá 神像 · Candomblé 象征",
+"spot6_body": "8 座青铜 Orixá 神像矗立湖中。日落时剪影倒映金色湖面——非洲灵魂最震撼的画面。",
+"spot6_addr": "Dique do Tororó",
+"spot6_time": "1 小时",
+"spot6_price": "免费",
+"ch3_label": "Chapter 03",
+"ch3_title": "你的行程",
+"ch3_sub": "2天、3天或5天，量身定制",
+"tab_2d": "2天精华",
+"tab_3d": "3天经典",
+"tab_5d": "5天深度",
+"p2_title": "经典精华",
+"p2_sub": "Pelourinho + Lacerda + Barra 日落 + Mercado",
+"p2_d1": "Day 1 · 老城与鼓声",
+"p2_d1_1t": "Pelourinho 漫步",
+"p2_d1_1d": "彩色巷道+巴洛克教堂+Capoeira。",
+"p2_d1_2t": "Acarajé 午餐",
+"p2_d1_2d": "黑眼豆炸饼夹虾仁。",
+"p2_d1_3t": "Lacerda + Mercado",
+"p2_d1_3d": "乘电梯下城逛市场。",
+"p2_d1_4t": "Barra 灯塔日落",
+"p2_d1_4d": "和当地人一起为太阳鼓掌。",
+"p2_d1_5t": "Pelourinho 晚餐",
+"p2_d1_5d": "巴伊亚美食。",
+"p2_d2": "Day 2 · 信仰与海湾",
+"p2_d2_1t": "Bonfim 许愿",
+"p2_d2_1d": "系丝带许三个愿。",
+"p2_d2_2t": "Ribeira 冰淇淋",
+"p2_d2_2d": "全城最好吃。",
+"p2_d2_3t": "Dique do Tororó",
+"p2_d2_3d": "Orixá 神像。",
+"p2_d2_4t": "返程",
+"p2_d2_4d": "SSA 机场30分钟。",
+"p3_title": "巴伊亚全景",
+"p3_sub": "+Bonfim+Tororó+Ribeira+Acarajé",
+"p3_d1": "Day 1 · 同2日Day1",
+"p3_d1_1t": "经典第一天",
+"p3_d1_1d": "老城+电梯+市场+日落。",
+"p3_d2": "Day 2 · 信仰与灵魂",
+"p3_d2_1t": "Bonfim 教堂",
+"p3_d2_1d": "清晨更神圣。",
+"p3_d2_2t": "Ribeira 半岛",
+"p3_d2_2d": "海湾全景+冰淇淋。",
+"p3_d2_3t": "Acarajé 美食之旅",
+"p3_d2_3d": "品尝巴伊亚精华。",
+"p3_d2_4t": "Tororó 日落",
+"p3_d2_4d": "神像倒映金色湖面。",
+"p3_d3": "Day 3 · 海滩与告别",
+"p3_d3_1t": "Porto da Barra 海滩",
+"p3_d3_1d": "最平静海滩。",
+"p3_d3_2t": "São Joaquim 集市",
+"p3_d3_2d": "当地人的真实市场。",
+"p3_d3_3t": "告别午餐+返程",
+"p3_d3_3d": "Moqueca 大餐。",
+"p5_title": "深度巴伊亚",
+"p5_sub": "+Itaparica+海龟+Cachoeira+Capoeira",
+"p5_d12": "Day 1-2 · 同3日行程",
+"p5_d12_1t": "市区深度",
+"p5_d12_1d": "全部市区景点。",
+"p5_d3": "Day 3 · Itaparica 岛",
+"p5_d3_1t": "渡轮出发",
+"p5_d3_1d": "40分钟穿越众神之湾。",
+"p5_d3_2t": "Itaparica 海滩",
+"p5_d3_2d": "环岛游泳。",
+"p5_d3_3t": "渡轮返回",
+"p5_d3_3d": "船上看日落。",
+"p5_d4": "Day 4 · 海龟与Capoeira",
+"p5_d4_1t": "TAMAR 海龟保护区",
+"p5_d4_1d": "海龟保育项目。",
+"p5_d4_2t": "Praia do Forte",
+"p5_d4_2d": "天然泳池。",
+"p5_d4_3t": "Capoeira 体验课",
+"p5_d4_3d": "学 ginga。",
+"p5_d5": "Day 5 · Cachoeira",
+"p5_d5_1t": "驱车前往",
+"p5_d5_1d": "非洲文化最浓的小镇。",
+"p5_d5_2t": "Cachoeira 老城",
+"p5_d5_2d": "殖民建筑+博物馆。",
+"p5_d5_3t": "告别巴伊亚",
+"p5_d5_3d": "带走丝带和节奏。",
+"ch4_label": "Chapter 04",
+"ch4_title": "旅行者手记",
+"ch4_sub": "交通·美食·安全·行李",
+"tip1_title": "交通",
+"tip1_desc": "SSA 机场直飞。Uber R$50-70到市区。",
+"tip2_title": "必吃美食",
+"tip2_desc": "Acarajé·Moqueca·Vatapá·Cocada。",
+"tip3_title": "最佳季节",
+"tip3_desc": "9-3月旱季。2月狂欢节。",
+"tip4_title": "安全须知",
+"tip4_desc": "Pelourinho 白天安全。用 Uber/99。",
+"tip5_title": "住宿推荐",
+"tip5_desc": "Fera Palace·Villa Bahia·Galeria 13。",
+"tip6_title": "打包清单",
+"tip6_desc": "SPF50+、轻薄衣物、泳衣。",
+"pack_label": "PACKING LIST",
+"pack_title": "行前清单",
+"pk1": "🧴 SPF50+",
+"pk2": "👟 步行鞋",
+"pk3": "📱 防水手机袋",
+"pk4": "🩱 泳衣",
+"pk5": "🌧️ 雨衣",
+"pk6": "🦟 驱蚊液",
+"pk7": "👕 轻薄衣物",
+"pk8": "🎶 开放的心",
+"pk9": "💳 现金+卡",
+"pk10": "📷 相机",
+"nav_city": "城市",
+"nav_spots": "景点",
+"nav_journey": "行程",
+"nav_tips": "攻略",
+"ending_title": "Axé, Salvador.",
+"ending_sub": "Axé——约鲁巴语的「生命力」。愿你在众神之湾找到自己的节奏。"
+},
+"en": {
+"sp_subtitle": "African soul, Bahian rhythm. Brazil's first capital — the drums of the Bay of All Saints never stop.",
+"ch1_label": "Chapter 01",
+"ch1_title": "The First City of All Saints",
+"ch1_sub": "Salvador · From Colonial Capital to African Shrine",
+"ch1_p1": "In 1549, the Portuguese built Brazil's first capital on cliffs above the Bay of All Saints — one of the Americas' oldest colonial cities and a core hub of the transatlantic slave trade.",
+"ch1_quote1": "\"Salvador is not Brazil's Africa — Salvador is Africa's Brazil.\"",
+"ch1_fig1": "Elevador Lacerda and the Bay of All Saints · Salvador, Bahia",
+"ch1_p2": "Over three centuries, a million+ Africans were shipped here. They brought Candomblé, Capoeira, Acarajé, and drum rhythms. After abolition, these cultures rooted in Pelourinho's alleys. Today 80% of the city has African ancestry.",
+"ch1_p3": "UNESCO listed the historic center in 1985. Pelourinho became Michael Jackson's MV set. But Salvador's magic is in street Capoeira, Terreiro drums, and Baiana women frying Acarajé. This city's soul is alive.",
+"ch1_quote2": "\"In Salvador, even the stones have rhythm.\"",
+"ch2_label": "Chapter 02",
+"ch2_title": "Six Must-Sees",
+"ch2_sub": "From colorful old town to Orixá lake",
+"spot1_name": "Pelourinho Historic Center",
+"spot1_tag": "UNESCO · Heritage",
+"spot2_name": "Elevador Lacerda",
+"spot2_tag": "Landmark · Panorama",
+"spot3_name": "Igreja do Bonfim",
+"spot3_tag": "Faith · Ribbons",
+"spot4_name": "Farol da Barra",
+"spot4_tag": "Sunset · Lighthouse",
+"spot5_name": "Mercado Modelo",
+"spot5_tag": "Crafts · Capoeira",
+"spot6_name": "Dique do Tororó",
+"spot6_tag": "Orixá · Faith",
+"spot1_title": "Pelourinho Historic Center",
+"spot1_tag2": "UNESCO World Heritage · Colonial Baroque",
+"spot1_body": "Colorful baroque buildings line steep cobblestone streets. Street Capoeira, MPB guitar, Acarajé aroma. Michael Jackson filmed his 1996 MV here.",
+"spot1_addr": "Cidade Alta, open all day",
+"spot1_time": "Allow 3-4 hours",
+"spot1_price": "Free",
+"spot2_title": "Elevador Lacerda",
+"spot2_tag2": "City Icon · Upper-Lower Link",
+"spot2_body": "72m gap, 30 seconds, R$0.15. Carries 30,000+ daily. Bay of All Saints panorama from the top.",
+"spot2_addr": "Praça Tomé de Sousa",
+"spot2_time": "30-sec ride + view",
+"spot2_price": "R$0.15",
+"spot3_title": "Igreja do Bonfim",
+"spot3_tag2": "Bahia's Holiest · Wish Ribbons",
+"spot3_body": "Colorful ribbons cover the fence — tie 3 knots, wait for it to fall. January's Lavagem do Bonfim is the grandest festival.",
+"spot3_addr": "Colina Sagrada do Bonfim",
+"spot3_time": "1-2 hours",
+"spot3_price": "Free (ribbons R$2)",
+"spot4_title": "Farol da Barra",
+"spot4_tag2": "Best Sunset · 16th-C Fort",
+"spot4_body": "At sunset, the city heads to Barra. When the sun sets, applause erupts — Salvador's sunset ritual.",
+"spot4_addr": "Praia do Farol da Barra",
+"spot4_time": "Afternoon, stay for sunset",
+"spot4_price": "Beach free; museum R$15",
+"spot5_title": "Mercado Modelo",
+"spot5_tag2": "Largest Craft Market · Capoeira",
+"spot5_body": "250+ stalls with African carvings, beads. Daily afternoon Capoeira in the square.",
+"spot5_addr": "Praça Visc. de Cayru",
+"spot5_time": "2 hours",
+"spot5_price": "Free entry",
+"spot6_title": "Dique do Tororó",
+"spot6_tag2": "8 Orixá Statues · Candomblé Symbol",
+"spot6_body": "8 bronze Orixá deities in the lake. At sunset, silhouettes reflect in golden water.",
+"spot6_addr": "Dique do Tororó",
+"spot6_time": "1 hour",
+"spot6_price": "Free",
+"ch3_label": "Chapter 03",
+"ch3_title": "Your Journey",
+"ch3_sub": "2, 3, or 5 days",
+"tab_2d": "2-Day Essential",
+"tab_3d": "3-Day Classic",
+"tab_5d": "5-Day Deep",
+"p2_title": "Classic Highlights",
+"p2_sub": "Pelourinho + Lacerda + Barra + Mercado",
+"p2_d1": "Day 1 · Old Town & Drums",
+"p2_d1_1t": "Pelourinho Walk",
+"p2_d1_1d": "Colorful streets + Capoeira.",
+"p2_d1_2t": "Acarajé Lunch",
+"p2_d1_2d": "Authentic bean fritters.",
+"p2_d1_3t": "Lacerda + Mercado",
+"p2_d1_3d": "Elevator + craft market.",
+"p2_d1_4t": "Barra Sunset",
+"p2_d1_4d": "Applaud the sunset.",
+"p2_d1_5t": "Pelourinho Dinner",
+"p2_d1_5d": "Bahian cuisine.",
+"p2_d2": "Day 2 · Faith & Bay",
+"p2_d2_1t": "Bonfim Wishes",
+"p2_d2_1d": "Tie a ribbon.",
+"p2_d2_2t": "Ribeira Ice Cream",
+"p2_d2_2d": "Best in town.",
+"p2_d2_3t": "Tororó",
+"p2_d2_3d": "Orixá statues.",
+"p2_d2_4t": "Departure",
+"p2_d2_4d": "SSA airport 30min.",
+"p3_title": "Full Bahia",
+"p3_sub": "+Bonfim+Tororó+Ribeira+Acarajé",
+"p3_d1": "Day 1 · Same as 2-Day",
+"p3_d1_1t": "Classic Day 1",
+"p3_d1_1d": "Old town+elevator+market+sunset.",
+"p3_d2": "Day 2 · Faith & Soul",
+"p3_d2_1t": "Bonfim",
+"p3_d2_1d": "Early morning.",
+"p3_d2_2t": "Ribeira",
+"p3_d2_2d": "Bay + ice cream.",
+"p3_d2_3t": "Food Tour",
+"p3_d2_3d": "Bahian highlights.",
+"p3_d2_4t": "Tororó Sunset",
+"p3_d2_4d": "Golden reflections.",
+"p3_d3": "Day 3 · Beach & Bye",
+"p3_d3_1t": "Porto da Barra",
+"p3_d3_1d": "Calm beach.",
+"p3_d3_2t": "São Joaquim Market",
+"p3_d3_2d": "Real local market.",
+"p3_d3_3t": "Farewell",
+"p3_d3_3d": "Moqueca feast.",
+"p5_title": "Deep Bahia",
+"p5_sub": "+Itaparica+Turtles+Cachoeira+Capoeira",
+"p5_d12": "Day 1-2 · Same as 3-Day",
+"p5_d12_1t": "City Deep Dive",
+"p5_d12_1d": "All city spots.",
+"p5_d3": "Day 3 · Itaparica",
+"p5_d3_1t": "Ferry",
+"p5_d3_1d": "40min bay crossing.",
+"p5_d3_2t": "Beaches",
+"p5_d3_2d": "Island swim.",
+"p5_d3_3t": "Return",
+"p5_d3_3d": "Sunset ferry.",
+"p5_d4": "Day 4 · Turtles & Capoeira",
+"p5_d4_1t": "TAMAR",
+"p5_d4_1d": "Sea turtle project.",
+"p5_d4_2t": "Praia do Forte",
+"p5_d4_2d": "Tide pools.",
+"p5_d4_3t": "Capoeira Class",
+"p5_d4_3d": "Learn ginga.",
+"p5_d5": "Day 5 · Cachoeira",
+"p5_d5_1t": "Drive There",
+"p5_d5_1d": "Most African town.",
+"p5_d5_2t": "Old Town",
+"p5_d5_2d": "Colonial + museum.",
+"p5_d5_3t": "Farewell",
+"p5_d5_3d": "Ribbons & rhythms.",
+"ch4_label": "Chapter 04",
+"ch4_title": "Traveler's Notes",
+"ch4_sub": "Transport · Food · Safety · Packing",
+"tip1_title": "Getting There",
+"tip1_desc": "SSA airport. Uber R$50-70 to center.",
+"tip2_title": "Must-Eat",
+"tip2_desc": "Acarajé·Moqueca·Vatapá·Cocada. Street stalls best.",
+"tip3_title": "Best Season",
+"tip3_desc": "Sep-Mar dry. Feb carnival. Year-round 25-30°C.",
+"tip4_title": "Safety",
+"tip4_desc": "Pelourinho safe daytime. Use Uber/99.",
+"tip5_title": "Where to Stay",
+"tip5_desc": "Fera Palace·Villa Bahia·Galeria 13.",
+"tip6_title": "Packing",
+"tip6_desc": "SPF50+, light clothes, phone case, swimsuit.",
+"pack_label": "PACKING LIST",
+"pack_title": "Pre-Trip Checklist",
+"pk1": "🧴 SPF50+",
+"pk2": "👟 Walking shoes",
+"pk3": "📱 Waterproof case",
+"pk4": "🩱 Swimsuit",
+"pk5": "🌧️ Rain jacket",
+"pk6": "🦟 Bug spray",
+"pk7": "👕 Light clothes",
+"pk8": "🎶 Open heart",
+"pk9": "💳 Cash+card",
+"pk10": "📷 Camera",
+"nav_city": "City",
+"nav_spots": "Spots",
+"nav_journey": "Journey",
+"nav_tips": "Tips",
+"ending_title": "Axé, Salvador.",
+"ending_sub": "Axé — Yoruba for \"life force.\" May you find your rhythm in the Bay of All Saints."
+},
+"pt": {
+"sp_subtitle": "Alma africana, ritmo baiano. A primeira capital do Brasil — os tambores da Baía de Todos os Santos nunca param.",
+"ch1_label": "Capítulo 01",
+"ch1_title": "A Primeira Cidade da Baía",
+"ch1_sub": "Salvador · De Capital Colonial a Santuário Africano",
+"ch1_p1": "Em 1549, os portugueses ergueram a primeira capital do Brasil nos penhascos da Baía de Todos os Santos — uma das cidades coloniais mais antigas das Américas.",
+"ch1_quote1": "\"Salvador não é a África do Brasil — Salvador é o Brasil da África.\"",
+"ch1_fig1": "Elevador Lacerda e Baía de Todos os Santos · Salvador, Bahia",
+"ch1_p2": "Em três séculos, mais de um milhão de africanos foram trazidos. Trouxeram Candomblé, Capoeira, Acarajé e ritmos de tambor. Hoje 80% da cidade tem ascendência africana.",
+"ch1_p3": "A UNESCO listou o centro histórico em 1985. Pelourinho virou set de MV do Michael Jackson. Mas a magia de Salvador está na Capoeira de rua, nos tambores dos Terreiros, no acarajé das Baianas.",
+"ch1_quote2": "\"Em Salvador, até as pedras têm ritmo.\"",
+"ch2_label": "Capítulo 02",
+"ch2_title": "Seis Imperdíveis",
+"ch2_sub": "Do centro colorido ao lago dos Orixás",
+"spot1_name": "Pelourinho",
+"spot1_tag": "UNESCO · Patrimônio",
+"spot2_name": "Elevador Lacerda",
+"spot2_tag": "Marco · Panorama",
+"spot3_name": "Igreja do Bonfim",
+"spot3_tag": "Fé · Fitas",
+"spot4_name": "Farol da Barra",
+"spot4_tag": "Pôr do Sol · Farol",
+"spot5_name": "Mercado Modelo",
+"spot5_tag": "Artesanato · Capoeira",
+"spot6_name": "Dique do Tororó",
+"spot6_tag": "Orixá · Fé",
+"spot1_title": "Pelourinho",
+"spot1_tag2": "Patrimônio UNESCO · Barroco Colonial",
+"spot1_body": "Casarões barrocos coloridos em ladeiras de paralelepípedo. Capoeira de rua, MPB, aroma de acarajé. Michael Jackson filmou aqui em 1996.",
+"spot1_addr": "Cidade Alta, aberto o dia todo",
+"spot1_time": "Reserve 3-4 horas",
+"spot1_price": "Gratuito",
+"spot2_title": "Elevador Lacerda",
+"spot2_tag2": "Ícone · Liga Cidade Alta e Baixa",
+"spot2_body": "72m de desnível, 30 seg, R$0,15. Mais de 30 mil pessoas/dia. Vista panorâmica da Baía.",
+"spot2_addr": "Praça Tomé de Sousa",
+"spot2_time": "30 seg + mirante",
+"spot2_price": "R$0,15",
+"spot3_title": "Igreja do Bonfim",
+"spot3_tag2": "Local Mais Sagrado · Fitas",
+"spot3_body": "Milhares de fitas coloridas na grade. Dê 3 nós e espere cair. A Lavagem do Bonfim em janeiro é a maior festa.",
+"spot3_addr": "Colina Sagrada do Bonfim",
+"spot3_time": "1-2 horas",
+"spot3_price": "Gratuito (fitas R$2)",
+"spot4_title": "Farol da Barra",
+"spot4_tag2": "Melhor Pôr do Sol · Forte do Séc. XVI",
+"spot4_body": "No pôr do sol, a cidade vai para a Barra. Quando o sol se põe, aplausos ecoam — o ritual de Salvador.",
+"spot4_addr": "Praia do Farol da Barra",
+"spot4_time": "Chegue à tarde",
+"spot4_price": "Praia grátis; museu R$15",
+"spot5_title": "Mercado Modelo",
+"spot5_tag2": "Maior Mercado de Artesanato · Capoeira",
+"spot5_body": "250+ barracas com entalhes africanos. Capoeira toda tarde na praça.",
+"spot5_addr": "Praça Visc. de Cayru",
+"spot5_time": "2 horas",
+"spot5_price": "Entrada grátis",
+"spot6_title": "Dique do Tororó",
+"spot6_tag2": "8 Estátuas Orixás · Símbolo Candomblé",
+"spot6_body": "8 Orixás de bronze no lago. No pôr do sol, silhuetas refletem na água dourada.",
+"spot6_addr": "Dique do Tororó",
+"spot6_time": "1 hora",
+"spot6_price": "Gratuito",
+"ch3_label": "Capítulo 03",
+"ch3_title": "Seu Roteiro",
+"ch3_sub": "2, 3 ou 5 dias",
+"tab_2d": "2 Dias Essencial",
+"tab_3d": "3 Dias Clássico",
+"tab_5d": "5 Dias Profundo",
+"p2_title": "Destaques Clássicos",
+"p2_sub": "Pelourinho+Lacerda+Barra+Mercado",
+"p2_d1": "Day 1 · Old Town & Drums",
+"p2_d1_1t": "Pelourinho Walk",
+"p2_d1_1d": "Colorful streets + Capoeira.",
+"p2_d1_2t": "Acarajé Lunch",
+"p2_d1_2d": "Authentic bean fritters.",
+"p2_d1_3t": "Lacerda + Mercado",
+"p2_d1_3d": "Elevator + craft market.",
+"p2_d1_4t": "Barra Sunset",
+"p2_d1_4d": "Applaud the sunset.",
+"p2_d1_5t": "Pelourinho Dinner",
+"p2_d1_5d": "Bahian cuisine.",
+"p2_d2": "Day 2 · Faith & Bay",
+"p2_d2_1t": "Bonfim Wishes",
+"p2_d2_1d": "Tie a ribbon.",
+"p2_d2_2t": "Ribeira Ice Cream",
+"p2_d2_2d": "Best in town.",
+"p2_d2_3t": "Tororó",
+"p2_d2_3d": "Orixá statues.",
+"p2_d2_4t": "Departure",
+"p2_d2_4d": "SSA airport 30min.",
+"p3_title": "Full Bahia",
+"p3_sub": "+Bonfim+Tororó+Ribeira+Acarajé",
+"p3_d1": "Day 1 · Same as 2-Day",
+"p3_d1_1t": "Classic Day 1",
+"p3_d1_1d": "Old town+elevator+market+sunset.",
+"p3_d2": "Day 2 · Faith & Soul",
+"p3_d2_1t": "Bonfim",
+"p3_d2_1d": "Early morning.",
+"p3_d2_2t": "Ribeira",
+"p3_d2_2d": "Bay + ice cream.",
+"p3_d2_3t": "Food Tour",
+"p3_d2_3d": "Bahian highlights.",
+"p3_d2_4t": "Tororó Sunset",
+"p3_d2_4d": "Golden reflections.",
+"p3_d3": "Day 3 · Beach & Bye",
+"p3_d3_1t": "Porto da Barra",
+"p3_d3_1d": "Calm beach.",
+"p3_d3_2t": "São Joaquim Market",
+"p3_d3_2d": "Real local market.",
+"p3_d3_3t": "Farewell",
+"p3_d3_3d": "Moqueca feast.",
+"p5_title": "Deep Bahia",
+"p5_sub": "+Itaparica+Turtles+Cachoeira+Capoeira",
+"p5_d12": "Day 1-2 · Same as 3-Day",
+"p5_d12_1t": "City Deep Dive",
+"p5_d12_1d": "All city spots.",
+"p5_d3": "Day 3 · Itaparica",
+"p5_d3_1t": "Ferry",
+"p5_d3_1d": "40min bay crossing.",
+"p5_d3_2t": "Beaches",
+"p5_d3_2d": "Island swim.",
+"p5_d3_3t": "Return",
+"p5_d3_3d": "Sunset ferry.",
+"p5_d4": "Day 4 · Turtles & Capoeira",
+"p5_d4_1t": "TAMAR",
+"p5_d4_1d": "Sea turtle project.",
+"p5_d4_2t": "Praia do Forte",
+"p5_d4_2d": "Tide pools.",
+"p5_d4_3t": "Capoeira Class",
+"p5_d4_3d": "Learn ginga.",
+"p5_d5": "Day 5 · Cachoeira",
+"p5_d5_1t": "Drive There",
+"p5_d5_1d": "Most African town.",
+"p5_d5_2t": "Old Town",
+"p5_d5_2d": "Colonial + museum.",
+"p5_d5_3t": "Farewell",
+"p5_d5_3d": "Ribbons & rhythms.",
+"ch4_label": "Capítulo 04",
+"ch4_title": "Notas do Viajante",
+"ch4_sub": "Transporte·Comida·Segurança·Malas",
+"tip1_title": "Como Chegar",
+"tip1_desc": "Aeroporto SSA. Uber R$50-70 ao centro.",
+"tip2_title": "Gastronomia",
+"tip2_desc": "Acarajé·Moqueca·Vatapá·Cocada. Barracas de Baiana.",
+"tip3_title": "Melhor Época",
+"tip3_desc": "Set-Mar seca. Fev carnaval. 25-30°C o ano todo.",
+"tip4_title": "Segurança",
+"tip4_desc": "Pelourinho seguro de dia. Use Uber/99.",
+"tip5_title": "Hospedagem",
+"tip5_desc": "Fera Palace·Villa Bahia·Galeria 13.",
+"tip6_title": "Lista de Malas",
+"tip6_desc": "Protetor FPS50+, roupas leves, maiô.",
+"pack_label": "LISTA DE MALAS",
+"pack_title": "Checklist Pré-Viagem",
+"pk1": "🧴 FPS50+",
+"pk2": "👟 Tênis confortável",
+"pk3": "📱 Capinha à prova d'água",
+"pk4": "🩱 Maiô",
+"pk5": "🌧️ Capa de chuva",
+"pk6": "🦟 Repelente",
+"pk7": "👕 Roupas leves",
+"pk8": "🎶 Coração aberto",
+"pk9": "💳 Dinheiro+cartão",
+"pk10": "📷 Câmera",
+"nav_city": "Cidade",
+"nav_spots": "Pontos",
+"nav_journey": "Roteiro",
+"nav_tips": "Dicas",
+"ending_title": "Axé, Salvador.",
+"ending_sub": "Axé — energia vital em iorubá. Que você encontre seu ritmo na Baía de Todos os Santos."
+}
+};
+
+let currentMode = 'zh-en';
+
+function setBilingual(mode) {
+  currentMode = mode;
+  const secondary = mode === 'zh-pt' ? 'pt' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const zh = I18N.zh[key] || '';
+    const sec = I18N[secondary][key] || '';
+    if (el.classList.contains('sp-title') || el.classList.contains('bleed-title') || el.classList.contains('pc-title')) {
+      el.innerHTML = zh;
+    } else {
+      el.innerHTML = zh + (sec && sec !== zh ? '<span class="bi-sub">' + sec + '</span>' : '');
+    }
+  });
+  // Update lang buttons
+  document.querySelectorAll('.sp-lang-btn, .lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.includes('EN') && mode === 'zh-en') btn.classList.add('active');
+    if (btn.textContent.includes('PT') && mode === 'zh-pt') btn.classList.add('active');
+  });
+}
+
+// Carousel
+let currentSlide = 0;
+const slides = document.querySelectorAll('.sp-slide');
+const dots = document.querySelectorAll('.sp-dot');
+function showSlide(n) {
+  slides.forEach((s, i) => { s.classList.toggle('active', i === n); });
+  dots.forEach((d, i) => { d.classList.toggle('active', i === n); });
+  currentSlide = n;
+}
+setInterval(() => { showSlide((currentSlide + 1) % slides.length); }, 5000);
+
+// Splash dismiss
+setTimeout(() => {
+  const splash = document.getElementById('splash');
+  splash.classList.add('hide');
+  document.getElementById('app').classList.add('show');
+  document.getElementById('nav-bar').classList.add('show');
+  setTimeout(() => splash.style.display = 'none', 1000);
+}, 4000);
+
+// Splash tap to dismiss
+document.getElementById('splash').addEventListener('click', function() {
+  this.classList.add('hide');
+  document.getElementById('app').classList.add('show');
+  document.getElementById('nav-bar').classList.add('show');
+  setTimeout(() => this.style.display = 'none', 1000);
+});
+
+// Scroll to spot
+function scrollToSpot(n) {
+  const el = document.getElementById('spot-' + n);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// Plan switcher
+function switchPlan(days) {
+  document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.plan-page').forEach(p => p.classList.remove('active'));
+  document.querySelector('.plan-tab[onclick*="' + days + '"]').classList.add('active');
+  document.getElementById('plan-' + days).classList.add('active');
+}
+
+// Nav
+function navTo(id) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Back to top
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('show', window.scrollY > 600);
+});
+
+// Fade-in observer
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); fadeObs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => fadeObs.observe(el));
+
+// Init bilingual
+setBilingual('zh-en');
+</script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="version" content="island-v3.1">
+<meta name="version" content="island-v4.0">
 <title>Island — Travel Magazine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,125 +15,174 @@
   --warm-gray:#6B6560;--sand:#f5f0e8;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#000;color:var(--cream);overflow-x:hidden}
+
+/* ===== FULLSCREEN CAROUSEL BACKGROUND ===== */
+.bg-carousel{
+  position:fixed;inset:0;z-index:0;overflow:hidden;
+}
+.bg-slide{
+  position:absolute;inset:0;opacity:0;
+  background-size:cover;background-position:center;
+  transition:opacity 2s ease-in-out;
+  will-change:opacity,transform;
+}
+.bg-slide.active{opacity:1}
+.bg-slide::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.08) 30%,
+    rgba(0,0,0,0.25) 60%,
+    rgba(0,0,0,0.65) 100%
+  );
+}
+/* Ken Burns: each slide gets a unique animation */
+@keyframes kb1{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.12) translate(-1.5%,-1%)}}
+@keyframes kb2{0%{transform:scale(1.08) translate(-2%,0)}100%{transform:scale(1) translate(1%,-1.5%)}}
+@keyframes kb3{0%{transform:scale(1) translate(1%,1%)}100%{transform:scale(1.1) translate(-1%,0)}}
+@keyframes kb4{0%{transform:scale(1.1) translate(0,-1%)}100%{transform:scale(1.02) translate(1%,1%)}}
+@keyframes kb5{0%{transform:scale(1.02) translate(-1%,0.5%)}100%{transform:scale(1.12) translate(0,-1.5%)}}
+.bg-slide:nth-child(1){animation:kb1 20s ease-in-out infinite alternate}
+.bg-slide:nth-child(2){animation:kb2 22s ease-in-out infinite alternate}
+.bg-slide:nth-child(3){animation:kb3 18s ease-in-out infinite alternate}
+.bg-slide:nth-child(4){animation:kb4 24s ease-in-out infinite alternate}
+.bg-slide:nth-child(5){animation:kb5 21s ease-in-out infinite alternate}
+
+/* Carousel dots (fixed bottom-center of hero) */
+.bg-dots{
+  position:absolute;bottom:120px;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;gap:10px;
+}
+.bg-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(255,255,255,0.35);cursor:pointer;
+  transition:all .4s;border:none;padding:0;
+}
+.bg-dot.active{
+  background:#fff;width:24px;border-radius:4px;
+}
+
+/* ===== CONTENT LAYERS (above background) ===== */
+.content-layer{
+  position:relative;z-index:1;
+}
 
 /* ===== HERO / COVER ===== */
 .hero{
   position:relative;width:100%;height:100vh;min-height:600px;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
-  overflow:hidden;
-}
-.hero-bg{
-  position:absolute;inset:0;
-  background:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_b2caf5d9-b224-411a-a6eb-f8ab905f12bc.jpg') center/cover no-repeat;
-  animation:kenBurns 25s ease-in-out infinite alternate;
-  filter:brightness(0.78);
-}
-@keyframes kenBurns{
-  0%{transform:scale(1) translate(0,0)}
-  100%{transform:scale(1.08) translate(-1%,-1%)}
-}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.18) 40%,rgba(0,0,0,0.55) 100%);
 }
 .hero-content{
   position:relative;z-index:2;text-align:center;
   padding:0 24px;
 }
+.hero-badge{
+  display:inline-block;
+  font-family:'Inter',sans-serif;font-weight:500;font-size:10px;
+  letter-spacing:4px;text-transform:uppercase;
+  color:rgba(255,255,255,0.7);
+  padding:8px 20px;border:1px solid rgba(255,255,255,0.2);
+  border-radius:24px;margin-bottom:32px;
+  backdrop-filter:blur(8px);background:rgba(255,255,255,0.05);
+  opacity:0;animation:fadeUp .8s .3s forwards;
+}
 .hero-title{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(60px,12vw,120px);line-height:0.9;
-  letter-spacing:-2px;color:#fff;
-  text-shadow:0 2px 40px rgba(0,0,0,.3);
-  margin-bottom:20px;opacity:0;animation:fadeUp .8s .5s forwards;
+  font-size:clamp(64px,14vw,140px);line-height:0.88;
+  letter-spacing:-3px;color:#fff;
+  text-shadow:0 4px 60px rgba(0,0,0,.4);
+  margin-bottom:16px;opacity:0;animation:fadeUp .8s .5s forwards;
 }
 .hero-credit{
   font-family:'Inter',sans-serif;font-weight:300;font-size:12px;
-  letter-spacing:2px;color:rgba(255,255,255,0.45);
-  margin-bottom:40px;opacity:0;animation:fadeUp .8s .7s forwards;
+  letter-spacing:2px;color:rgba(255,255,255,0.4);
+  margin-bottom:48px;opacity:0;animation:fadeUp .8s .7s forwards;
 }
 .hero-scroll{
   opacity:0;animation:fadeUp .8s .9s forwards;cursor:pointer;
 }
 .hero-scroll span{
-  display:block;width:26px;height:44px;border:2px solid rgba(255,255,255,0.5);
+  display:block;width:26px;height:44px;border:2px solid rgba(255,255,255,0.4);
   border-radius:13px;margin:0 auto;position:relative;
   transition:border-color .3s;
 }
 .hero-scroll:hover span{border-color:rgba(255,255,255,0.9)}
 .hero-scroll span::after{
   content:'';display:block;width:4px;height:8px;border-radius:2px;
-  background:rgba(255,255,255,0.8);position:absolute;left:50%;top:7px;
+  background:rgba(255,255,255,0.7);position:absolute;left:50%;top:7px;
   transform:translateX(-50%);animation:scrollDot 1.8s infinite;
 }
 @keyframes scrollDot{0%,100%{opacity:1;transform:translateX(-50%) translateY(0)}50%{opacity:0.3;transform:translateX(-50%) translateY(16px)}}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
-.hero-title,.hero-credit,.hero-scroll{transform:translateY(20px)}
+.hero-badge,.hero-title,.hero-credit,.hero-scroll{transform:translateY(20px)}
 
-/* ===== SECTION: ISSUES ===== */
+/* ===== SECTION: ISSUES (transparent bg, float above carousel) ===== */
 .issues{
-  position:relative;padding:80px 24px 100px;
-  background:var(--cream);color:var(--ink);
+  position:relative;
+  padding:100px 24px 120px;
+}
+/* glass-morphism shelf backdrop */
+.issues::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,
+    rgba(0,0,0,0.5) 0%,
+    rgba(0,0,0,0.65) 50%,
+    rgba(0,0,0,0.8) 100%
+  );
+  backdrop-filter:blur(2px);
 }
 .issues-header{
-  text-align:center;max-width:700px;margin:0 auto 56px;
-}
-.issues-eyebrow{
-  font-family:'Inter',sans-serif;font-weight:600;font-size:11px;
-  letter-spacing:4px;text-transform:uppercase;color:var(--terra);
-  margin-bottom:12px;
+  position:relative;z-index:2;
+  text-align:center;max-width:700px;margin:0 auto 60px;
 }
 .issues-title{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:clamp(28px,4.5vw,42px);color:var(--ink);
-  margin-bottom:12px;letter-spacing:-1px;
+  font-size:clamp(28px,4.5vw,42px);color:#fff;
+  margin-bottom:14px;letter-spacing:-1px;
 }
 .issues-subtitle{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:14px;color:var(--warm-gray);line-height:1.6;
+  font-size:14px;color:rgba(255,255,255,0.55);line-height:1.7;
 }
 
-/* ===== MAGAZINE SHELF (compact cards) ===== */
+/* ===== MAGAZINE SHELF ===== */
 .shelf{
+  position:relative;z-index:2;
   display:flex;flex-wrap:wrap;justify-content:center;
-  gap:32px;max-width:1100px;margin:0 auto;
+  gap:36px;max-width:1100px;margin:0 auto;
   perspective:1200px;
 }
 .mag-card{
   position:relative;border-radius:12px;overflow:hidden;
-  width:220px;aspect-ratio:3/4;cursor:pointer;flex-shrink:0;
-  box-shadow:0 12px 40px rgba(0,0,0,0.12),0 2px 8px rgba(0,0,0,0.08);
+  width:240px;aspect-ratio:3/4;cursor:pointer;flex-shrink:0;
+  box-shadow:0 16px 48px rgba(0,0,0,0.35),0 4px 12px rgba(0,0,0,0.2);
   transition:transform .5s cubic-bezier(.25,.46,.45,.94),box-shadow .5s;
   will-change:transform;
 }
 .mag-card:hover{
-  transform:translateY(-16px) scale(1.04);
-  box-shadow:0 28px 60px rgba(0,0,0,0.2),0 4px 12px rgba(0,0,0,0.1);
+  transform:translateY(-18px) scale(1.05);
+  box-shadow:0 32px 70px rgba(0,0,0,0.4),0 6px 16px rgba(0,0,0,0.2);
 }
 .mag-card-img{
-  position:absolute;inset:-6px;
+  position:absolute;inset:-8px;
   background-size:cover;background-position:center;
   transition:transform 6s cubic-bezier(.25,.46,.45,.94);
 }
-.mag-card:hover .mag-card-img{
-  transform:scale(1.08);
-}
+.mag-card:hover .mag-card-img{transform:scale(1.1)}
 .mag-card-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.7) 100%);
+  background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,0.75) 100%);
   transition:background .4s;
 }
 .mag-card:hover .mag-card-overlay{
-  background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,0.78) 100%);
+  background:linear-gradient(180deg,transparent 15%,rgba(0,0,0,0.82) 100%);
 }
 .mag-card-content{
-  position:absolute;bottom:0;left:0;right:0;padding:20px;z-index:2;
+  position:absolute;bottom:0;left:0;right:0;padding:22px;z-index:2;
   transition:transform .5s cubic-bezier(.25,.46,.45,.94);
 }
-.mag-card:hover .mag-card-content{
-  transform:translateY(-3px);
-}
+.mag-card:hover .mag-card-content{transform:translateY(-3px)}
 .mag-card-issue{
   font-family:'Inter',sans-serif;font-weight:600;font-size:9px;
   letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);
@@ -141,13 +190,13 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
 }
 .mag-card-name{
   font-family:'Playfair Display',serif;font-weight:900;
-  font-size:24px;color:#fff;line-height:1.1;margin-bottom:4px;
+  font-size:26px;color:#fff;line-height:1.1;margin-bottom:6px;
   letter-spacing:-0.3px;
 }
 .mag-card-tagline{
   font-family:'Libre Baskerville',serif;font-style:italic;
-  font-size:11px;color:rgba(255,255,255,0.7);line-height:1.4;
-  margin-bottom:10px;
+  font-size:11px;color:rgba(255,255,255,0.7);line-height:1.5;
+  margin-bottom:12px;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 .mag-card-btn{
@@ -155,33 +204,29 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   font-family:'Inter',sans-serif;font-weight:500;font-size:10px;
   letter-spacing:1px;text-transform:uppercase;
   color:#fff;text-decoration:none;
-  padding:7px 14px;border:1.5px solid rgba(255,255,255,0.3);
+  padding:8px 16px;border:1.5px solid rgba(255,255,255,0.3);
   border-radius:20px;transition:all .35s;
   backdrop-filter:blur(4px);background:rgba(255,255,255,0.06);
 }
 .mag-card-btn:hover{
-  background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.7);
 }
 .mag-card-btn svg{width:12px;height:12px;transition:transform .35s}
 .mag-card:hover .mag-card-btn svg{transform:translateX(3px)}
 
-/* ===== COMING SOON placeholder ===== */
+/* ===== COMING SOON ===== */
 .mag-card.placeholder{
-  border:2px dashed rgba(0,0,0,0.1);background:rgba(0,0,0,0.02);
+  border:2px dashed rgba(255,255,255,0.12);background:rgba(255,255,255,0.03);
   cursor:default;box-shadow:none;
   display:flex;align-items:center;justify-content:center;
 }
-.mag-card.placeholder:hover{
-  transform:none;box-shadow:none;
-}
-.placeholder-inner{
-  text-align:center;padding:20px;
-}
-.placeholder-icon{font-size:32px;margin-bottom:12px;opacity:0.3}
+.mag-card.placeholder:hover{transform:none;box-shadow:none}
+.placeholder-inner{text-align:center;padding:20px}
+.placeholder-icon{font-size:32px;margin-bottom:12px;opacity:0.25}
 .placeholder-text{
   font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
   letter-spacing:2px;text-transform:uppercase;
-  color:rgba(0,0,0,0.25);
+  color:rgba(255,255,255,0.2);
 }
 
 /* ===== SCROLL REVEAL ===== */
@@ -190,15 +235,18 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1);
 }
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal.d1{transition-delay:.1s}
-.reveal.d2{transition-delay:.2s}
-.reveal.d3{transition-delay:.3s}
-.reveal.d4{transition-delay:.4s}
+.reveal.d1{transition-delay:.15s}
+.reveal.d2{transition-delay:.3s}
+.reveal.d3{transition-delay:.45s}
+.reveal.d4{transition-delay:.6s}
 
 /* ===== FOOTER ===== */
 .island-footer{
+  position:relative;z-index:1;
   padding:48px 24px;text-align:center;
-  background:var(--ink);border-top:1px solid rgba(255,255,255,0.06);
+  background:rgba(0,0,0,0.85);
+  border-top:1px solid rgba(255,255,255,0.06);
+  backdrop-filter:blur(4px);
 }
 .footer-logo{
   font-family:'Playfair Display',serif;font-weight:900;
@@ -220,124 +268,170 @@ body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--cream);ove
   .mag-card{width:160px}
   .mag-card-name{font-size:20px}
   .mag-card-tagline{font-size:10px}
-  .mag-card-content{padding:14px}
-  .issues{padding:60px 16px 72px}
+  .mag-card-content{padding:16px}
+  .issues{padding:72px 16px 80px}
+  .bg-dots{bottom:100px}
 }
 @media(min-width:521px) and (max-width:768px){
-  .mag-card{width:190px}
+  .mag-card{width:200px}
 }
 </style>
 </head>
 <body>
 
-<!-- ===== HERO COVER ===== -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1 class="hero-title">Island</h1>
-    <p class="hero-credit">© Eric Zhangwenle</p>
-    <div class="hero-scroll" id="scrollCue" role="button" aria-label="Scroll to destinations"><span></span></div>
-  </div>
-</section>
+<!-- ===== FULLSCREEN CAROUSEL BACKGROUND ===== -->
+<div class="bg-carousel" id="bgCarousel">
+  <div class="bg-slide active" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_b2caf5d9-b224-411a-a6eb-f8ab905f12bc.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_abd4ef9b-942f-4c9f-bbb3-1f6bd6cbd939.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg')"></div>
+  <div class="bg-slide" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_33a1617d-d474-4022-a70a-f1b56caceb1e.png')"></div>
+  <div class="bg-slide" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_0ceb6aac-e494-43ca-b518-d961bffc48ac.jpg')"></div>
+</div>
 
-<!-- ===== MAGAZINE SHELF ===== -->
-<section class="issues" id="issues">
-  <div class="issues-header reveal">
-    <h2 class="issues-title">Pick Your Destination</h2>
-    <p class="issues-subtitle">"The world is a book, and those who do not travel read only one page."</p>
-  </div>
+<!-- ===== CONTENT LAYER ===== -->
+<div class="content-layer">
 
-  <div class="shelf">
-    <!-- Ubatuba -->
-    <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal d1" style="text-decoration:none">
-      <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg');background-position:center 40%"></div>
-      <div class="mag-card-overlay"></div>
-      <div class="mag-card-content">
-        <p class="mag-card-issue">Issue 02</p>
-        <h3 class="mag-card-name">Ubatuba</h3>
-        <p class="mag-card-tagline">Where the Atlantic Forest meets the sea — surf, trails, and 70+ hidden beaches.</p>
-        <span class="mag-card-btn">
-          Read
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </div>
-    </a>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Travel Magazine</div>
+      <h1 class="hero-title">Island</h1>
+      <p class="hero-credit">© Eric Zhangwenle</p>
+      <div class="hero-scroll" id="scrollCue" role="button" aria-label="Scroll to destinations"><span></span></div>
+    </div>
+    <div class="bg-dots" id="bgDots"></div>
+  </section>
 
-    <!-- Paraty -->
-    <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal d2" style="text-decoration:none">
-      <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_abd4ef9b-942f-4c9f-bbb3-1f6bd6cbd939.jpg');background-position:center 30%"></div>
-      <div class="mag-card-overlay"></div>
-      <div class="mag-card-content">
-        <p class="mag-card-issue">Issue 01</p>
-        <h3 class="mag-card-name">Paraty</h3>
-        <p class="mag-card-tagline">Colonial gold, emerald waters, and cobblestone dreams on the Costa Verde.</p>
-        <span class="mag-card-btn">
-          Read
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <!-- Coming Soon placeholder -->
-    <div class="mag-card placeholder reveal d3">
-      <div class="placeholder-inner">
-        <div class="placeholder-icon">🏝️</div>
-        <div class="placeholder-text">Next Issue<br>Coming Soon</div>
-      </div>
+  <!-- MAGAZINE SHELF -->
+  <section class="issues" id="issues">
+    <div class="issues-header reveal">
+      <h2 class="issues-title">Pick Your Destination</h2>
+      <p class="issues-subtitle">"The world is a book, and those who do not travel read only one page."</p>
     </div>
 
-    <!-- Coming Soon placeholder 2 -->
-    <div class="mag-card placeholder reveal d4">
-      <div class="placeholder-inner">
-        <div class="placeholder-icon">✈️</div>
-        <div class="placeholder-text">More<br>Destinations</div>
+    <div class="shelf">
+      <!-- Ubatuba -->
+      <a href="https://zhangwenle2026.github.io/ubatuba/" class="mag-card reveal d1" style="text-decoration:none">
+        <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_5944deb0-107f-4804-b1c4-793b4b4acb9d.jpg');background-position:center 40%"></div>
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-content">
+          <p class="mag-card-issue">Issue 02</p>
+          <h3 class="mag-card-name">Ubatuba</h3>
+          <p class="mag-card-tagline">Where the Atlantic Forest meets the sea — surf, trails, and 70+ hidden beaches.</p>
+          <span class="mag-card-btn">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Paraty -->
+      <a href="https://zhangwenle2026.github.io/paraty-trip/" class="mag-card reveal d2" style="text-decoration:none">
+        <div class="mag-card-img" style="background-image:url('https://msstest.sankuai.com/qacoverage-test/oversea/files/image/flowcopilot_abd4ef9b-942f-4c9f-bbb3-1f6bd6cbd939.jpg');background-position:center 30%"></div>
+        <div class="mag-card-overlay"></div>
+        <div class="mag-card-content">
+          <p class="mag-card-issue">Issue 01</p>
+          <h3 class="mag-card-name">Paraty</h3>
+          <p class="mag-card-tagline">Colonial gold, emerald waters, and cobblestone dreams on the Costa Verde.</p>
+          <span class="mag-card-btn">Read <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Coming Soon -->
+      <div class="mag-card placeholder reveal d3">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">🏝️</div>
+          <div class="placeholder-text">Next Issue<br>Coming Soon</div>
+        </div>
+      </div>
+
+      <!-- More -->
+      <div class="mag-card placeholder reveal d4">
+        <div class="placeholder-inner">
+          <div class="placeholder-icon">✈️</div>
+          <div class="placeholder-text">More<br>Destinations</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FOOTER ===== -->
-<footer class="island-footer">
-  <div class="footer-logo">Island</div>
-  <div class="footer-tagline">Travel Magazine</div>
-  <div class="footer-copy">© 2026 Eric Zhangwenle</div>
-</footer>
+  <!-- FOOTER -->
+  <footer class="island-footer">
+    <div class="footer-logo">Island</div>
+    <div class="footer-tagline">Travel Magazine</div>
+    <div class="footer-copy">© 2026 Eric Zhangwenle</div>
+  </footer>
+
+</div><!-- /content-layer -->
 
 <script>
-/* === Scroll Reveal with Stagger === */
+/* === Background Carousel === */
+(function(){
+  const slides = document.querySelectorAll('.bg-slide');
+  const dotsBox = document.getElementById('bgDots');
+  let cur = 0;
+  const N = slides.length;
+  const INTERVAL = 6000;
+
+  // Create dots
+  for(let i = 0; i < N; i++){
+    const d = document.createElement('button');
+    d.className = 'bg-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', () => goTo(i));
+    dotsBox.appendChild(d);
+  }
+  const dots = dotsBox.querySelectorAll('.bg-dot');
+
+  function goTo(idx){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = idx;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+  }
+
+  let timer = setInterval(() => goTo((cur + 1) % N), INTERVAL);
+
+  // Pause on hover (hero area)
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mouseenter', () => clearInterval(timer));
+  hero.addEventListener('mouseleave', () => {
+    clearInterval(timer);
+    timer = setInterval(() => goTo((cur + 1) % N), INTERVAL);
+  });
+})();
+
+/* === Scroll Reveal === */
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* === Hero Scroll Cue → Smooth Scroll === */
+/* === Scroll Cue === */
 document.getElementById('scrollCue').addEventListener('click', () => {
   document.getElementById('issues').scrollIntoView({ behavior: 'smooth' });
 });
 
-/* === Card Tilt (subtle 3D on hover) === */
+/* === Card Tilt (3D on hover) === */
 document.querySelectorAll('.mag-card:not(.placeholder)').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `translateY(-16px) scale(1.04) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
+    card.style.transform = `translateY(-18px) scale(1.05) rotateY(${x*6}deg) rotateX(${-y*6}deg)`;
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
 
-/* === Parallax: Hero bg on scroll === */
+/* === Parallax: slow down bg scroll speed === */
 let ticking = false;
 window.addEventListener('scroll', () => {
-  if (!ticking) {
+  if(!ticking){
     requestAnimationFrame(() => {
       const y = window.scrollY;
-      const bg = document.querySelector('.hero-bg');
-      if (bg && y < window.innerHeight) {
-        bg.style.transform = `scale(${1 + y * 0.0001}) translateY(${y * 0.3}px)`;
+      const carousel = document.getElementById('bgCarousel');
+      if(carousel && y < window.innerHeight * 2){
+        carousel.style.transform = `translateY(${y * 0.25}px)`;
       }
       ticking = false;
     });

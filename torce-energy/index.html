@@ -10,6 +10,7 @@
 
     :root {
       --ink:    #0a0d0b;
+      --brand-yellow: #FFD817;
       --white:  #ffffff;
       --warm:   #fafaf8;
       --sage:   #4A7C59;
@@ -45,7 +46,7 @@
     nav.scrolled {
       background: rgba(10,13,11,0.92);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     .nav-inner {
       max-width: 1200px;
@@ -60,9 +61,9 @@
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
+      color: var(--ink);
     }
-    .nav-brand span { color: var(--gold); }
+    .nav-brand span { color: var(--sage); }
     .nav-links {
       display: flex;
       gap: 32px;
@@ -72,17 +73,17 @@
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: rgba(0,0,0,0.5);
       text-decoration: none;
       transition: color .2s;
     }
-    .nav-links a:hover { color: rgba(255,255,255,0.9); }
+    .nav-links a:hover { color: var(--ink); }
 
     /* ── HERO ── */
     .hero {
       position: relative;
       min-height: 100vh;
-      background: var(--ink);
+      background: var(--brand-yellow);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -92,15 +93,15 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(74,124,89,0.28) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 15% 70%, rgba(201,169,110,0.12) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(0,136,64,0.15) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 15% 70%, rgba(146,208,35,0.1) 0%, transparent 60%);
     }
     .hero-grid-lines {
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
       background-size: 80px 80px;
     }
     .hero-content {
@@ -120,31 +121,31 @@
     .hero-eyebrow-line {
       width: 40px;
       height: 1px;
-      background: var(--gold);
+      background: var(--sage);
     }
     .hero-eyebrow-text {
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--sage);
     }
     .hero-title {
       font-size: clamp(52px, 7vw, 96px);
       font-weight: 900;
       line-height: 1.0;
       letter-spacing: -0.03em;
-      color: var(--white);
+      color: var(--ink);
       margin-bottom: 12px;
     }
     .hero-title em {
       font-style: normal;
-      color: var(--sage-l);
+      color: var(--sage);
     }
     .hero-subtitle {
       font-size: clamp(18px, 2.2vw, 24px);
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(0,0,0,0.5);
       letter-spacing: 0.02em;
       margin-bottom: 56px;
       max-width: 560px;
@@ -153,7 +154,7 @@
       display: flex;
       gap: 64px;
       padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(0,0,0,0.12);
     }
     .hero-stat {}
     .hero-stat-num {
@@ -161,15 +162,15 @@
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1;
-      color: var(--white);
+      color: var(--ink);
     }
-    .hero-stat-num .unit { font-size: 22px; color: var(--sage-l); }
+    .hero-stat-num .unit { font-size: 22px; color: var(--sage); }
     .hero-stat-label {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+      color: rgba(0,0,0,0.4);
       margin-top: 6px;
     }
     .hero-scroll {
@@ -186,13 +187,13 @@
       font-size: 10px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.3);
       writing-mode: vertical-rl;
     }
     .hero-scroll-line {
       width: 1px;
       height: 48px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
       animation: scroll-pulse 2s ease-in-out infinite;
     }
     @keyframes scroll-pulse {
@@ -211,8 +212,8 @@
       margin: 0 auto;
     }
     .section-dark {
-      background: var(--ink);
-      color: var(--white);
+      background: var(--brand-yellow);
+      color: var(--ink);
     }
     .section-mist {
       background: var(--mist);
@@ -249,8 +250,8 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-    .section-dark .sh-div { background: rgba(255,255,255,0.15); }
-    .section-dark .sh-tag { color: rgba(255,255,255,0.4); }
+    .section-dark .sh-div { background: rgba(0,0,0,0.2); }
+    .section-dark .sh-tag { color: rgba(0,0,0,0.5); }
     .sh-title {
       font-size: clamp(30px, 4vw, 52px);
       font-weight: 800;
@@ -258,12 +259,12 @@
       line-height: 1.1;
       color: var(--ink);
     }
-    .section-dark .sh-title { color: var(--white); }
+    .section-dark .sh-title { color: var(--ink); }
     .sh-title em {
       font-style: normal;
       color: var(--sage);
     }
-    .section-dark .sh-title em { color: var(--sage-l); }
+    .section-dark .sh-title em { color: var(--sage); }
     .sh-body {
       font-size: 17px;
       color: var(--muted);
@@ -271,7 +272,7 @@
       max-width: 560px;
       line-height: 1.65;
     }
-    .section-dark .sh-body { color: rgba(255,255,255,0.45); }
+    .section-dark .sh-body { color: rgba(0,0,0,0.55); }
 
     /* ── GRID UTILITIES ── */
     .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -294,7 +295,7 @@
     }
     .card-ink {
       background: #111410;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: var(--radius);
       padding: 32px;
     }
@@ -318,7 +319,7 @@
       color: var(--muted);
       margin-top: 8px;
     }
-    .section-dark .num-label { color: rgba(255,255,255,0.35); }
+    .section-dark .num-label { color: rgba(0,0,0,0.45); }
 
     /* ── STAT INLINE ── */
     .stat-inline {
@@ -340,7 +341,7 @@
       background: var(--border);
       margin: 40px 0;
     }
-    .section-dark .divider { background: rgba(255,255,255,0.08); }
+    .section-dark .divider { background: rgba(0,0,0,0.12); }
 
     /* ── TABLE ── */
     .tbl-wrap {
@@ -349,17 +350,17 @@
       border: 1px solid var(--border);
     }
     table { width: 100%; border-collapse: collapse; }
-    thead tr { background: var(--ink); }
+    thead tr { background: var(--brand-yellow); }
     thead th {
       padding: 14px 20px;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: rgba(0,0,0,0.45);
       text-align: left;
     }
-    thead th:first-child { color: rgba(255,255,255,0.85); }
+    thead th:first-child { color: rgba(0,0,0,0.8); }
     tbody tr { border-bottom: 1px solid var(--border); background: var(--white); }
     tbody tr:last-child { border-bottom: none; }
     tbody tr:hover { background: var(--mist); }
@@ -528,29 +529,29 @@
     .tl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
     .tl-phase {
       padding: 32px 28px;
-      border-right: 1px solid rgba(255,255,255,0.08);
+      border-right: 1px solid rgba(0,0,0,0.12);
     }
     .tl-phase:last-child { border-right: none; }
     .tl-period {
       font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: var(--white);
+      color: var(--ink);
       margin-bottom: 8px;
     }
-    .tl-phase:last-child .tl-period { color: var(--gold); }
+    .tl-phase:last-child .tl-period { color: var(--sage); }
     .tl-stage {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.4);
       margin-bottom: 20px;
     }
     .tl-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .tl-items li {
       font-size: 13px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(0,0,0,0.6);
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -560,13 +561,13 @@
 
     /* ── SECTION 9: FINANCE ── */
     .roi-banner {
-      background: var(--ink);
+      background: var(--brand-yellow);
       border-radius: var(--radius);
       padding: 56px 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(0,0,0,0.08);
       margin-top: 32px;
     }
     .roi-left {}
@@ -582,7 +583,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.4);
       margin-top: 12px;
     }
     .roi-stats {
@@ -593,15 +594,15 @@
       font-size: 48px;
       font-weight: 900;
       letter-spacing: -0.03em;
-      color: var(--white);
+      color: var(--ink);
     }
-    .roi-stat-num.gold { color: var(--gold); }
+    .roi-stat-num.gold { color: var(--sage); }
     .roi-stat-label {
       font-size: 11px;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.4);
       margin-top: 6px;
     }
 
@@ -645,7 +646,7 @@
 
     /* ── CONCLUSION ── */
     .conclusion {
-      background: var(--ink);
+      background: var(--brand-yellow);
       padding: 120px 64px;
       text-align: center;
       position: relative;
@@ -655,20 +656,20 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 50% 60% at 50% 100%, rgba(74,124,89,0.25) 0%, transparent 70%);
+        radial-gradient(ellipse 50% 60% at 50% 100%, rgba(0,136,64,0.12) 0%, transparent 70%);
       pointer-events: none;
     }
     .conclusion-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
     .conclusion-tag {
       display: inline-block;
-      border: 1px solid rgba(201,169,110,0.4);
+      border: 1px solid rgba(0,100,50,0.3);
       border-radius: 99px;
       padding: 6px 20px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--sage);
       margin-bottom: 32px;
     }
     .conclusion-title {
@@ -676,13 +677,13 @@
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.05;
-      color: var(--white);
+      color: var(--ink);
       margin-bottom: 20px;
     }
-    .conclusion-title em { font-style: normal; color: var(--sage-l); }
+    .conclusion-title em { font-style: normal; color: var(--sage); }
     .conclusion-sub {
       font-size: 18px;
-      color: rgba(255,255,255,0.45);
+      color: rgba(0,0,0,0.5);
       line-height: 1.65;
       margin-bottom: 64px;
     }
@@ -694,13 +695,13 @@
       margin-bottom: 72px;
     }
     .cta-step {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.5);
+      border: 1px solid rgba(0,0,0,0.1);
       border-radius: 8px;
       padding: 16px 24px;
       font-size: 14px;
       font-weight: 600;
-      color: rgba(255,255,255,0.8);
+      color: var(--ink);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -711,17 +712,17 @@
       font-size: 11px; font-weight: 800;
       display: flex; align-items: center; justify-content: center;
     }
-    .cta-arrow { font-size: 18px; color: rgba(255,255,255,0.2); }
+    .cta-arrow { font-size: 18px; color: rgba(0,0,0,0.2); }
     .cta-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.08);
       border-radius: var(--radius);
       overflow: hidden;
     }
     .cta-stat {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.35);
       padding: 40px 24px;
     }
     .cta-stat-num {
@@ -730,10 +731,10 @@
       letter-spacing: -0.03em;
       color: var(--sage-l);
     }
-    .cta-stat-num.gold { color: var(--gold); }
+    .cta-stat-num.gold { color: var(--sage); }
     .cta-stat-label {
       font-size: 12px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(0,0,0,0.4);
       margin-top: 6px;
     }
 
@@ -857,10 +858,10 @@
         <div class="big-num sage" style="margin-top:8px;">69.6<span style="font-size:36px;">%</span></div>
         <div style="font-size:13px; color:var(--muted); margin-top:12px; line-height:1.5;">单杯成本 ¥8.5 · 售价 ¥28<br>制作 60–90 秒</div>
       </div>
-      <div class="summary-item" style="background:var(--ink);">
-        <div class="num-label" style="color:rgba(255,255,255,0.35);">12 月全公司</div>
-        <div class="big-num gold" style="margin-top:8px;">¥116<span style="font-size:28px;">万</span></div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:12px; line-height:1.5;">新增净利 / 投入 ¥1.15 万<br>ROI 1,013%</div>
+      <div class="summary-item" style="background:var(--brand-yellow);">
+        <div class="num-label" style="color:rgba(0,0,0,0.4);">12 月全公司</div>
+        <div class="big-num sage" style="margin-top:8px;">¥116<span style="font-size:28px;">万</span></div>
+        <div style="font-size:13px; color:rgba(0,0,0,0.5); margin-top:12px; line-height:1.5;">新增净利 / 投入 ¥1.15 万<br>ROI 1,013%</div>
       </div>
     </div>
 
@@ -911,19 +912,19 @@
     </div>
 
     <div class="g-asym">
-      <div class="card-mist" style="background:var(--ink); color:var(--white); border:1px solid rgba(255,255,255,0.06);">
-        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:16px;">全国市场规模</div>
+      <div class="card-mist" style="background:var(--brand-yellow); color:var(--ink); border:1px solid rgba(0,0,0,0.08);">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,0,0,0.4); margin-bottom:16px;">全国市场规模</div>
         <div style="font-size:112px; font-weight:900; letter-spacing:-0.04em; line-height:1; color:var(--white);">380<span style="font-size:44px; color:var(--sage-l);">亿</span></div>
-        <div style="font-size:15px; color:rgba(255,255,255,0.45); margin-top:16px; line-height:1.6;">2024年健身营养饮料市场规模，年均增速 32%+，<br>预计 2027 年突破 1,000 亿元</div>
+        <div style="font-size:15px; color:rgba(0,0,0,0.5); margin-top:16px; line-height:1.6;">2024年健身营养饮料市场规模，年均增速 32%+，<br>预计 2027 年突破 1,000 亿元</div>
         <div class="divider"></div>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
           <div>
             <div style="font-size:40px; font-weight:900; color:var(--sage-l); letter-spacing:-.03em;">43.1<span style="font-size:20px;">%</span></div>
-            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">厦门健身人群渗透率</div>
+            <div style="font-size:11px; color:rgba(0,0,0,0.4); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">厦门健身人群渗透率</div>
           </div>
           <div>
             <div style="font-size:40px; font-weight:900; color:var(--gold); letter-spacing:-.03em;">32<span style="font-size:20px;">%+</span></div>
-            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">赛道年均增速</div>
+            <div style="font-size:11px; color:rgba(0,0,0,0.4); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">赛道年均增速</div>
           </div>
         </div>
       </div>
@@ -939,7 +940,7 @@
           </div>
         </div>
         <div class="card" style="background:var(--sage); color:#fff; border:none;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">通鲜天然护城河</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,0,0,0.5); margin-bottom:8px;">通鲜天然护城河</div>
           <div style="font-size:17px; font-weight:700; line-height:1.65;">70+ 门店 × 鲜榨心智<br>= 能量饮天然载体</div>
         </div>
       </div>
@@ -1089,15 +1090,15 @@
     </div>
 
     <!-- DIY Banner -->
-    <div style="margin-top:24px; background:var(--ink); border-radius:var(--radius); padding:28px 36px; display:flex; align-items:center; justify-content:space-between; border:1px solid rgba(255,255,255,0.06);">
+    <div style="margin-top:24px; background:var(--brand-yellow); border-radius:var(--radius); padding:28px 36px; display:flex; align-items:center; justify-content:space-between; border:1px solid rgba(0,0,0,0.08);">
       <div>
-        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">DIY 能量升级包</div>
-        <div style="font-size:18px; font-weight:700; color:var(--white);">任意果汁 + 升级包 → 定制能量饮</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.45); margin-top:6px;">乳清 / 胶原 / 肌酸 / L-肉碱 · 5选1</div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--sage); margin-bottom:8px;">DIY 能量升级包</div>
+        <div style="font-size:18px; font-weight:700; color:var(--ink);">任意果汁 + 升级包 → 定制能量饮</div>
+        <div style="font-size:13px; color:rgba(0,0,0,0.5); margin-top:6px;">乳清 / 胶原 / 肌酸 / L-肉碱 · 5选1</div>
       </div>
       <div style="text-align:right;">
         <div style="font-size:52px; font-weight:900; letter-spacing:-.03em; color:var(--gold);">¥8–12</div>
-        <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:4px;">升级包定价 · 客单价→¥48+</div>
+        <div style="font-size:12px; color:rgba(0,0,0,0.4); margin-top:4px;">升级包定价 · 客单价→¥48+</div>
       </div>
     </div>
   </div>
@@ -1142,16 +1143,16 @@
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:20px;">
-        <div class="card" style="background:var(--ink); border:1px solid rgba(255,255,255,0.06);">
-          <div style="font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">单杯能量饮成本结构</div>
-          <div style="font-size:64px; font-weight:900; letter-spacing:-.04em; line-height:1; color:var(--white);">¥8.5</div>
-          <div style="font-size:13px; color:rgba(255,255,255,0.35); margin-top:8px;">= 果汁基底 ¥5 + 蛋白粉 ¥2.5 + 包装 ¥1</div>
+        <div class="card" style="background:var(--brand-yellow); border:1px solid rgba(0,0,0,0.08);">
+          <div style="font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(0,0,0,0.4); margin-bottom:12px;">单杯能量饮成本结构</div>
+          <div style="font-size:64px; font-weight:900; letter-spacing:-.04em; line-height:1; color:var(--ink);">¥8.5</div>
+          <div style="font-size:13px; color:rgba(0,0,0,0.45); margin-top:8px;">= 果汁基底 ¥5 + 蛋白粉 ¥2.5 + 包装 ¥1</div>
           <div class="divider"></div>
           <div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;"><span style="color:rgba(255,255,255,.5);">售价</span><span style="font-weight:700; color:var(--sage-l);">¥28</span></div>
-            <div class="prog-wrap" style="background:rgba(255,255,255,0.1);"><div class="prog-bar" style="width:100%;"></div></div>
-            <div style="display:flex; justify-content:space-between; font-size:13px; margin-top:12px; margin-bottom:6px;"><span style="color:rgba(255,255,255,.5);">成本</span><span style="font-weight:700; color:rgba(255,255,255,0.6);">¥8.5（30.4%）</span></div>
-            <div class="prog-wrap" style="background:rgba(255,255,255,0.1);"><div class="prog-bar" style="width:30.4%; background:rgba(255,255,255,0.25);"></div></div>
+            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;"><span style="color:rgba(0,0,0,.5);">售价</span><span style="font-weight:700; color:var(--sage);">¥28</span></div>
+            <div class="prog-wrap" style="background:rgba(0,0,0,0.1);"><div class="prog-bar" style="width:100%;"></div></div>
+            <div style="display:flex; justify-content:space-between; font-size:13px; margin-top:12px; margin-bottom:6px;"><span style="color:rgba(0,0,0,.5);">成本</span><span style="font-weight:700; color:rgba(0,0,0,0.5);">¥8.5（30.4%）</span></div>
+            <div class="prog-wrap" style="background:rgba(0,0,0,0.1);"><div class="prog-bar" style="width:30.4%; background:rgba(0,0,0,0.2);"></div></div>
           </div>
         </div>
         <div class="card">
@@ -1180,24 +1181,24 @@
     </div>
 
     <div class="g2">
-      <div class="card" style="background:var(--ink); color:var(--white); border:1px solid rgba(255,255,255,0.06);">
-        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:16px;">选址逻辑</div>
+      <div class="card" style="background:var(--brand-yellow); color:var(--ink); border:1px solid rgba(0,0,0,0.08);">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,0,0,0.4); margin-bottom:16px;">选址逻辑</div>
         <div style="font-size:22px; font-weight:800; color:var(--white); margin-bottom:8px;">JFC 品尚中心店</div>
-        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:28px;">观音山写字楼集群 · 高端健身房聚集地</div>
+        <div style="font-size:13px; color:rgba(0,0,0,0.5); margin-bottom:28px;">观音山写字楼集群 · 高端健身房聚集地</div>
         <div style="display:flex; flex-direction:column; gap:14px; font-size:14px;">
-          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(0,0,0,0.65);">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
             周边 3km 内 5家高端健身房（超 8,000 会员）
           </div>
-          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(0,0,0,0.65);">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
             写字楼通勤人群日流量约 12,000 人
           </div>
-          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(0,0,0,0.65);">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
             已有稳定果汁客群，能量饮交叉推广门槛低
           </div>
-          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(0,0,0,0.65);">
             <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0;"></div>
             验证后可直接复制至全线 70+ 门店
           </div>
@@ -1222,9 +1223,9 @@
           </div>
         </div>
         <div class="card" style="background:var(--sage); color:#fff; border:none;">
-          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">试点回本</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(0,0,0,0.5); margin-bottom:8px;">试点回本</div>
           <div style="font-size:64px; font-weight:900; letter-spacing:-.04em; line-height:1; color:#fff;">13<span style="font-size:24px; opacity:.7;">天</span></div>
-          <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-top:8px;">投入 ¥11,500 · 日净利 ¥886</div>
+          <div style="font-size:13px; color:rgba(0,0,0,0.5); margin-top:8px;">投入 ¥11,500 · 日净利 ¥886</div>
         </div>
       </div>
     </div>
@@ -1299,7 +1300,7 @@
       <h2 class="sh-title">7 天上线<br><em>365 天成品牌</em></h2>
     </div>
 
-    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); overflow:hidden;">
+    <div style="border:1px solid rgba(0,0,0,0.1); border-radius:var(--radius); overflow:hidden;">
       <div class="tl-grid">
         <div class="tl-phase">
           <div class="tl-period">D1–7</div>
@@ -1406,7 +1407,7 @@
       <div class="roi-left">
         <div class="roi-label">年度投资回报率</div>
         <div class="roi-num">1,013<span style="font-size:44px;">%</span></div>
-        <div style="font-size:14px; color:rgba(255,255,255,0.35); margin-top:12px;">投入 ¥1.15 万 · 12 个月全公司回报 ¥116.6 万</div>
+        <div style="font-size:14px; color:rgba(0,0,0,0.45); margin-top:12px;">投入 ¥1.15 万 · 12 个月全公司回报 ¥116.6 万</div>
       </div>
       <div class="roi-stats">
         <div>

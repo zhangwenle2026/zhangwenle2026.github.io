@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="version" content="4.1">
+  <title>通鲜果汁 × 能量饮料 商业计划书</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #0a0d0b;
+      --white:  #ffffff;
+      --warm:   #fafaf8;
+      --sage:   #4A7C59;
+      --sage-l: #7CB342;
+      --gold:   #C9A96E;
+      --mist:   #f5f5f3;
+      --border: #e8e6e0;
+      --text:   #333330;
+      --muted:  #888882;
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 48px;
+      background: transparent;
+      transition: background .3s, border-color .3s;
+    }
+    nav.scrolled {
+      background: rgba(10,13,11,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,0.9); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(74,124,89,0.28) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 15% 70%, rgba(201,169,110,0.12) 0%, transparent 60%);
+    }
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 64px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .hero-eyebrow-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-title {
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--sage-l);
+    }
+    .hero-subtitle {
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.02em;
+      margin-bottom: 56px;
+      max-width: 560px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero-stat {}
+    .hero-stat-num {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--white);
+    }
+    .hero-stat-num .unit { font-size: 22px; color: var(--sage-l); }
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-top: 6px;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .hero-scroll-text {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.1); }
+    }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      padding: 96px 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .section-mist {
+      background: var(--mist);
+    }
+    .section-white {
+      background: var(--white);
+    }
+
+    /* ── SECTION HEADER ── */
+    .sh {
+      margin-bottom: 64px;
+    }
+    .sh-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sh-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+    }
+    .sh-div {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+    }
+    .sh-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .section-dark .sh-div { background: rgba(255,255,255,0.15); }
+    .section-dark .sh-tag { color: rgba(255,255,255,0.4); }
+    .sh-title {
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .section-dark .sh-title { color: var(--white); }
+    .sh-title em {
+      font-style: normal;
+      color: var(--sage);
+    }
+    .section-dark .sh-title em { color: var(--sage-l); }
+    .sh-body {
+      font-size: 17px;
+      color: var(--muted);
+      margin-top: 16px;
+      max-width: 560px;
+      line-height: 1.65;
+    }
+    .section-dark .sh-body { color: rgba(255,255,255,0.45); }
+
+    /* ── GRID UTILITIES ── */
+    .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .g3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .g-asym { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; align-items: start; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .card-mist {
+      background: var(--mist);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .card-ink {
+      background: #111410;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+
+    /* ── BIG NUMBER ── */
+    .big-num {
+      font-size: clamp(56px, 8vw, 96px);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .big-num.sage { color: var(--sage); }
+    .big-num.white { color: var(--white); }
+    .big-num.gold { color: var(--gold); }
+    .big-num .sup { font-size: 0.35em; vertical-align: super; letter-spacing: 0; }
+    .num-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .section-dark .num-label { color: rgba(255,255,255,0.35); }
+
+    /* ── STAT INLINE ── */
+    .stat-inline {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .stat-inline .val {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: var(--sage);
+    }
+    .stat-inline .unit { font-size: 14px; color: var(--muted); font-weight: 500; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+    .section-dark .divider { background: rgba(255,255,255,0.08); }
+
+    /* ── TABLE ── */
+    .tbl-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead tr { background: var(--ink); }
+    thead th {
+      padding: 14px 20px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-align: left;
+    }
+    thead th:first-child { color: rgba(255,255,255,0.85); }
+    tbody tr { border-bottom: 1px solid var(--border); background: var(--white); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--mist); }
+    tbody td {
+      padding: 14px 20px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    tbody td:first-child { font-weight: 600; }
+    .td-hi { font-weight: 700; color: var(--sage); }
+    .td-hi-gold { font-weight: 700; color: var(--gold); }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .badge-sage { background: rgba(74,124,89,0.12); color: var(--sage); }
+    .badge-gold { background: rgba(201,169,110,0.15); color: #8a6a30; }
+    .badge-red  { background: #FFF0F4; color: #C62828; }
+    .badge-muted{ background: var(--mist); color: var(--muted); }
+
+    /* ── PROGRESS BAR ── */
+    .prog-wrap {
+      background: var(--mist);
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .prog-bar {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--sage) 0%, var(--sage-l) 100%);
+    }
+    .prog-bar.gold { background: linear-gradient(90deg, #a07030 0%, var(--gold) 100%); }
+
+    /* ── SECTION 1: SUMMARY ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .summary-item {
+      background: var(--white);
+      padding: 40px 32px;
+    }
+
+    /* ── SECTION 3: COMPETITOR ── */
+    .comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .comp-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .comp-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .comp-body { padding: 20px 28px; }
+    .comp-row-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--mist);
+      font-size: 14px;
+      color: var(--text);
+    }
+    .comp-row-item:last-child { border-bottom: none; }
+    .cdot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+    .cdot-sage { background: var(--sage); }
+    .cdot-red  { background: #C62828; }
+
+    /* ── SECTION 4: PRODUCTS ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color .2s;
+    }
+    .product-card:hover { border-color: var(--sage); }
+    .product-series-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .product-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .product-price {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: var(--sage);
+    }
+    .product-price .curr { font-size: 16px; font-weight: 500; color: var(--muted); }
+    .product-desc { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.5; }
+
+    /* ── SECTION 5: ECONOMICS ── */
+    .econ-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+    .econ-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .econ-line:last-of-type { border-bottom: 2px solid var(--ink); }
+    .econ-line.total { border-bottom: none; padding-top: 16px; }
+    .econ-label { font-size: 14px; color: var(--text); }
+    .econ-val { font-size: 18px; font-weight: 700; color: var(--ink); }
+    .econ-line.total .econ-label { font-weight: 700; font-size: 15px; color: var(--ink); }
+    .econ-line.total .econ-val { font-size: 32px; color: var(--sage); }
+
+    /* ── SECTION 7: SOP ── */
+    .sop-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .sop-step {
+      padding: 32px 28px;
+      border-right: 1px solid var(--border);
+      background: var(--white);
+      position: relative;
+    }
+    .sop-step:last-child { border-right: none; }
+    .sop-step-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .sop-time {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--sage);
+    }
+    .sop-unit { font-size: 16px; font-weight: 600; color: var(--sage); opacity: .7; }
+    .sop-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-top: 12px; margin-bottom: 4px; }
+    .sop-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* ── SECTION 8: TIMELINE ── */
+    .tl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .tl-phase {
+      padding: 32px 28px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .tl-phase:last-child { border-right: none; }
+    .tl-period {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .tl-phase:last-child .tl-period { color: var(--gold); }
+    .tl-stage {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 20px;
+    }
+    .tl-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .tl-items li {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.4;
+    }
+    .tl-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--sage-l); flex-shrink: 0; margin-top: 6px; }
+
+    /* ── SECTION 9: FINANCE ── */
+    .roi-banner {
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 56px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-top: 32px;
+    }
+    .roi-left {}
+    .roi-num {
+      font-size: 96px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--sage-l);
+    }
+    .roi-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 12px;
+    }
+    .roi-stats {
+      display: flex;
+      gap: 56px;
+    }
+    .roi-stat-num {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+    .roi-stat-num.gold { color: var(--gold); }
+    .roi-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 6px;
+    }
+
+    /* ── SECTION 10: RISK ── */
+    .risk-list { display: flex; flex-direction: column; gap: 16px; }
+    .risk-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 32px 1fr 2fr auto;
+      gap: 24px;
+      align-items: start;
+    }
+    .risk-n {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+    }
+    .risk-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .risk-detail { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .risk-plan { font-size: 13px; color: var(--text); line-height: 1.5; }
+    .risk-plan strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 4px;
+    }
+    .risk-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; align-self: start;
+    }
+    .risk-mid { background: #FFF8E6; color: #8a5a00; }
+    .risk-low { background: rgba(74,124,89,0.1); color: var(--sage); }
+
+    /* ── CONCLUSION ── */
+    .conclusion {
+      background: var(--ink);
+      padding: 120px 64px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .conclusion-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 60% at 50% 100%, rgba(74,124,89,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .conclusion-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .conclusion-tag {
+      display: inline-block;
+      border: 1px solid rgba(201,169,110,0.4);
+      border-radius: 99px;
+      padding: 6px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+    }
+    .conclusion-title {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .conclusion-title em { font-style: normal; color: var(--sage-l); }
+    .conclusion-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.65;
+      margin-bottom: 64px;
+    }
+    .cta-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 72px;
+    }
+    .cta-step {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 16px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta-step-n {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--sage); color: #fff;
+      font-size: 11px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cta-arrow { font-size: 18px; color: rgba(255,255,255,0.2); }
+    .cta-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .cta-stat {
+      background: rgba(255,255,255,0.03);
+      padding: 40px 24px;
+    }
+    .cta-stat-num {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--sage-l);
+    }
+    .cta-stat-num.gold { color: var(--gold); }
+    .cta-stat-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      margin-top: 6px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060806;
+      padding: 48px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .footer-logo {
+      width: 36px; height: 36px;
+      background: var(--sage);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 900; color: #fff;
+      border: 2px solid rgba(201,169,110,0.5);
+    }
+    .footer-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.06em;
+    }
+    .footer-name span { color: var(--gold); }
+    .footer-right {
+      font-size: 12px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.04em;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <div class="nav-brand">通鲜 <span>ORIGINAL FRESH</span></div>
+    <div class="nav-links">
+      <a href="#summary">摘要</a>
+      <a href="#market">市场</a>
+      <a href="#product">产品</a>
+      <a href="#economics">财务</a>
+      <a href="#timeline">计划</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <div class="hero-eyebrow-text">通鲜果汁 ORIGINAL FRESH · 商业计划书 2025</div>
+    </div>
+    <h1 class="hero-title">
+      果汁基因<br>
+      <em>能量升维</em>
+    </h1>
+    <p class="hero-subtitle">依托 70 + 门店、纯鲜榨心智与零碎片时间，<br>7 天上线高毛利能量饮产品线</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">31<span class="unit">%</span></div>
+        <div class="hero-stat-label">净利润率（升级后）</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">13<span class="unit"> 天</span></div>
+        <div class="hero-stat-label">试点回本周期</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">¥116<span class="unit"> 万</span></div>
+        <div class="hero-stat-label">12 月全公司新增净利</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">¥1.15<span class="unit"> 万</span></div>
+        <div class="hero-stat-label">最小试点启动成本</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <div class="hero-scroll-text">Scroll</div>
+  </div>
+</section>
+
+<!-- SECTION 1: EXECUTIVE SUMMARY -->
+<section class="section section-white" id="summary">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">01</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Executive Summary</span>
+      </div>
+      <h2 class="sh-title">用 <em>¥1.15 万</em><br>撬动 ¥116 万年净利</h2>
+      <p class="sh-body">以通鲜现有门店网络为载体，复用设备与人员，0 增量固定成本，14 天验证能量饮市场可行性。</p>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="num-label">当前客单价</div>
+        <div class="big-num sage" style="margin-top:8px;">¥28</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:12px; line-height:1.5;">日均 120 杯 · 月营收 ¥10.08 万<br>净利率 5.5%</div>
+      </div>
+      <div class="summary-item" style="background:var(--mist);">
+        <div class="num-label">升级后客单价</div>
+        <div class="big-num sage" style="margin-top:8px; color:var(--sage-l);">¥36</div>
+        <div style="font-size:13px; color:var(--muted); margin-top:12px; line-height:1.5;">日均 150 杯 · 月营收 ¥16.2 万<br>净利率 31%</div>
+      </div>
+      <div class="summary-item">
+        <div class="num-label">能量饮毛利率</div>
+        <div class="big-num sage" style="margin-top:8px;">69.6<span style="font-size:36px;">%</span></div>
+        <div style="font-size:13px; color:var(--muted); margin-top:12px; line-height:1.5;">单杯成本 ¥8.5 · 售价 ¥28<br>制作 60–90 秒</div>
+      </div>
+      <div class="summary-item" style="background:var(--ink);">
+        <div class="num-label" style="color:rgba(255,255,255,0.35);">12 月全公司</div>
+        <div class="big-num gold" style="margin-top:8px;">¥116<span style="font-size:28px;">万</span></div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:12px; line-height:1.5;">新增净利 / 投入 ¥1.15 万<br>ROI 1,013%</div>
+      </div>
+    </div>
+
+    <div class="g3" style="margin-top:24px;">
+      <div class="card">
+        <div class="num-label">通鲜三大承诺</div>
+        <div class="divider"></div>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:4px;">
+          <div style="font-size:15px; font-weight:700; color:var(--ink);">🌿 只用鲜果榨</div>
+          <div style="font-size:15px; font-weight:700; color:var(--ink);">🔪 鲜削不隔夜</div>
+          <div style="font-size:15px; font-weight:700; color:var(--ink);">⚗️ 鲜榨不预制</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num-label">能量饮核心优势</div>
+        <div class="divider"></div>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px; font-size:14px; color:var(--text); line-height:1.5;">
+          <div>· 复用现有榨汁基底，无新设备</div>
+          <div>· 标准化小包原料，0 操作误差</div>
+          <div>· 健身房场景天然导流</div>
+          <div>· DIY 升级包客单价拉至 ¥48</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="num-label">执行加速器</div>
+        <div class="divider"></div>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px; font-size:14px; color:var(--text); line-height:1.5;">
+          <div>· D1–3：采购原料 &amp; 小包分装</div>
+          <div>· D4–6：员工培训 SOP</div>
+          <div>· D7：正式上线试售</div>
+          <div>· D13：收回全部投入</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: MARKET -->
+<section class="section section-mist" id="market">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">02</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Market Analysis</span>
+      </div>
+      <h2 class="sh-title"><em>380 亿</em><br>健身营养饮料赛道</h2>
+    </div>
+
+    <div class="g-asym">
+      <div class="card-mist" style="background:var(--ink); color:var(--white); border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:16px;">全国市场规模</div>
+        <div style="font-size:112px; font-weight:900; letter-spacing:-0.04em; line-height:1; color:var(--white);">380<span style="font-size:44px; color:var(--sage-l);">亿</span></div>
+        <div style="font-size:15px; color:rgba(255,255,255,0.45); margin-top:16px; line-height:1.6;">2024年健身营养饮料市场规模，年均增速 32%+，<br>预计 2027 年突破 1,000 亿元</div>
+        <div class="divider"></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+          <div>
+            <div style="font-size:40px; font-weight:900; color:var(--sage-l); letter-spacing:-.03em;">43.1<span style="font-size:20px;">%</span></div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">厦门健身人群渗透率</div>
+          </div>
+          <div>
+            <div style="font-size:40px; font-weight:900; color:var(--gold); letter-spacing:-.03em;">32<span style="font-size:20px;">%+</span></div>
+            <div style="font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:.12em; text-transform:uppercase; margin-top:6px;">赛道年均增速</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="card">
+          <div class="num-label">目标人群画像</div>
+          <div class="divider"></div>
+          <div style="font-size:14px; color:var(--text); line-height:1.8;">
+            <div>👤 25–40岁都市健身白领</div>
+            <div>💳 月均健身消费 ¥800+</div>
+            <div>⏱️ 高频复购（3–5次/周）</div>
+            <div>📍 商场+健身房双触点</div>
+          </div>
+        </div>
+        <div class="card" style="background:var(--sage); color:#fff; border:none;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">通鲜天然护城河</div>
+          <div style="font-size:17px; font-weight:700; line-height:1.65;">70+ 门店 × 鲜榨心智<br>= 能量饮天然载体</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: COMPETITOR -->
+<section class="section section-white" id="competitor">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">03</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Competitor Analysis</span>
+      </div>
+      <h2 class="sh-title">对标 Energy Bar<br><em>找到差异化支点</em></h2>
+    </div>
+
+    <div class="comp-row">
+      <div class="comp-card">
+        <div class="comp-header" style="background:var(--mist);">
+          <span class="badge badge-red">竞品</span>
+          <span style="font-size:17px; font-weight:700; color:var(--ink);">巴西 Energy Bar</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>Whey protein + creatina 标准配方</div>
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>单价 R$30–45，健身房绑定销售</div>
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>Açaí / cupuaçu 巴西本土水果基底</div>
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>DIY 升级包扩充客单价</div>
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>⚠ 无鲜榨基底，粉感重，口感一般</div>
+          <div class="comp-row-item"><div class="cdot cdot-red"></div>⚠ 门店网络分散，复购驱动弱</div>
+        </div>
+      </div>
+      <div class="comp-card">
+        <div class="comp-header" style="background:rgba(74,124,89,0.06);">
+          <span class="badge badge-sage">通鲜优势</span>
+          <span style="font-size:17px; font-weight:700; color:var(--ink);">ORIGINAL FRESH</span>
+        </div>
+        <div class="comp-body">
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ 鲜榨果汁做基底，天然去蛋白腥味</div>
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ 70+ 门店流量，天然用户导流</div>
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ 品牌=鲜果，健康信任背书已建立</div>
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ 设备复用 0 新增固定成本</div>
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ DIY 升级包拉客单至 ¥48</div>
+          <div class="comp-row-item"><div class="cdot cdot-sage"></div>✅ 亲子客群天然向运动健康延伸</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: PRODUCTS -->
+<section class="section section-mist" id="product">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">04</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Product Strategy</span>
+      </div>
+      <h2 class="sh-title">4 大系列<br><em>11 款核心产品</em></h2>
+      <p class="sh-body">全部复用现有榨汁基底，增量原料极简，100% 可在现有门店操作。</p>
+    </div>
+
+    <!-- Series A -->
+    <div style="margin-bottom:32px;">
+      <div class="product-series-label">A 系列 · 超级能量果昔 Super Energy Smoothie</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">活力橙 + 乳清</div>
+          <div class="product-price"><span class="curr">¥</span>28</div>
+          <div class="product-desc">鲜榨橙汁 + 乳清蛋白 20g<br>制作 60s · 毛利 69.6%</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">芒果燃脂杯</div>
+          <div class="product-price"><span class="curr">¥</span>30</div>
+          <div class="product-desc">鲜芒果 + L-肉碱 + 椰子水<br>制作 75s · 毛利 72%</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">草莓胶原饮</div>
+          <div class="product-price"><span class="curr">¥</span>32</div>
+          <div class="product-desc">鲜草莓 + 胶原蛋白肽 5g<br>制作 70s · 毛利 68%</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">绿野能量杯</div>
+          <div class="product-price"><span class="curr">¥</span>28</div>
+          <div class="product-desc">苹果 + 菠菜 + 肌酸 3g<br>制作 90s · 毛利 65%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Series B -->
+    <div style="margin-bottom:32px;">
+      <div class="product-series-label">B 系列 · 燃脂特调 Fat Burner Series</div>
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="product-name">柠檬左旋特调</div>
+          <div class="product-price"><span class="curr">¥</span>26</div>
+          <div class="product-desc">柠檬 + L-肉碱 2000mg<br>制作 45s · 毛利 73%</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">西柚燃脂拿铁</div>
+          <div class="product-price"><span class="curr">¥</span>28</div>
+          <div class="product-desc">西柚 + 咖啡因 100mg<br>制作 60s · 毛利 70%</div>
+        </div>
+        <div class="product-card">
+          <div class="product-name">番茄燃脂汁</div>
+          <div class="product-price"><span class="curr">¥</span>24</div>
+          <div class="product-desc">番茄 + 膳食纤维 5g<br>制作 50s · 毛利 67%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Series C & D -->
+    <div class="g2">
+      <div>
+        <div class="product-series-label">C 系列 · 增肌力量包 Muscle Builder</div>
+        <div class="product-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="product-card">
+            <div class="product-name">香蕉增肌摇</div>
+            <div class="product-price"><span class="curr">¥</span>32</div>
+            <div class="product-desc">香蕉 + 乳清 25g + 燕麦奶<br>毛利 71%</div>
+          </div>
+          <div class="product-card">
+            <div class="product-name">花生酱力量饮</div>
+            <div class="product-price"><span class="curr">¥</span>35</div>
+            <div class="product-desc">花生奶 + 乳清 30g<br>毛利 68%</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="product-series-label">D 系列 · 恢复系 Recovery Series</div>
+        <div class="product-grid" style="grid-template-columns:1fr 1fr;">
+          <div class="product-card">
+            <div class="product-name">樱桃抗氧化饮</div>
+            <div class="product-price"><span class="curr">¥</span>30</div>
+            <div class="product-desc">樱桃 + 维C + 电解质<br>毛利 66%</div>
+          </div>
+          <div class="product-card">
+            <div class="product-name">菠萝姜黄恢复汁</div>
+            <div class="product-price"><span class="curr">¥</span>28</div>
+            <div class="product-desc">菠萝 + 姜黄 + 胶原肽<br>毛利 64%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIY Banner -->
+    <div style="margin-top:24px; background:var(--ink); border-radius:var(--radius); padding:28px 36px; display:flex; align-items:center; justify-content:space-between; border:1px solid rgba(255,255,255,0.06);">
+      <div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">DIY 能量升级包</div>
+        <div style="font-size:18px; font-weight:700; color:var(--white);">任意果汁 + 升级包 → 定制能量饮</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.45); margin-top:6px;">乳清 / 胶原 / 肌酸 / L-肉碱 · 5选1</div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:52px; font-weight:900; letter-spacing:-.03em; color:var(--gold);">¥8–12</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:4px;">升级包定价 · 客单价→¥48+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: ECONOMICS -->
+<section class="section section-white" id="economics">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">05</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Unit Economics</span>
+      </div>
+      <h2 class="sh-title">净利率<br><em>5.5% → 31%</em></h2>
+    </div>
+
+    <div class="econ-grid">
+      <div class="card">
+        <div class="num-label" style="margin-bottom:24px;">单店月度盈利模型对比</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:32px;">
+          <div>
+            <div style="font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:8px;">改造前</div>
+            <div class="econ-line"><span class="econ-label">日均杯数</span><span class="econ-val">120</span></div>
+            <div class="econ-line"><span class="econ-label">客单价</span><span class="econ-val">¥28</span></div>
+            <div class="econ-line"><span class="econ-label">月营收</span><span class="econ-val">¥10.08万</span></div>
+            <div class="econ-line"><span class="econ-label">净利率</span><span class="econ-val">5.5%</span></div>
+            <div class="econ-line total"><span class="econ-label">月净利</span><span class="econ-val" style="color:var(--muted);">¥5,520</span></div>
+          </div>
+          <div>
+            <div style="font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--sage); margin-bottom:8px;">改造后</div>
+            <div class="econ-line"><span class="econ-label">日均杯数</span><span class="econ-val">150</span></div>
+            <div class="econ-line"><span class="econ-label">客单价</span><span class="econ-val">¥36</span></div>
+            <div class="econ-line"><span class="econ-label">月营收</span><span class="econ-val">¥16.2万</span></div>
+            <div class="econ-line"><span class="econ-label">净利率</span><span class="econ-val" style="color:var(--sage);">31%</span></div>
+            <div class="econ-line total"><span class="econ-label">月净利</span><span class="econ-val">¥50,160</span></div>
+          </div>
+        </div>
+        <div style="background:var(--mist); border-radius:8px; padding:16px 20px;">
+          <div style="font-size:13px; color:var(--muted); margin-bottom:6px;">月净利增幅</div>
+          <div style="font-size:36px; font-weight:900; color:var(--sage); letter-spacing:-.025em;">+¥44,640 <span style="font-size:18px; color:var(--sage-l);">+809%</span></div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="card" style="background:var(--ink); border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px;">单杯能量饮成本结构</div>
+          <div style="font-size:64px; font-weight:900; letter-spacing:-.04em; line-height:1; color:var(--white);">¥8.5</div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.35); margin-top:8px;">= 果汁基底 ¥5 + 蛋白粉 ¥2.5 + 包装 ¥1</div>
+          <div class="divider"></div>
+          <div>
+            <div style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;"><span style="color:rgba(255,255,255,.5);">售价</span><span style="font-weight:700; color:var(--sage-l);">¥28</span></div>
+            <div class="prog-wrap" style="background:rgba(255,255,255,0.1);"><div class="prog-bar" style="width:100%;"></div></div>
+            <div style="display:flex; justify-content:space-between; font-size:13px; margin-top:12px; margin-bottom:6px;"><span style="color:rgba(255,255,255,.5);">成本</span><span style="font-weight:700; color:rgba(255,255,255,0.6);">¥8.5（30.4%）</span></div>
+            <div class="prog-wrap" style="background:rgba(255,255,255,0.1);"><div class="prog-bar" style="width:30.4%; background:rgba(255,255,255,0.25);"></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="num-label" style="margin-bottom:16px;">试点启动成本 · 全部一次性</div>
+          <div class="econ-line"><span class="econ-label">原料首批采购</span><span class="econ-val">¥6,000</span></div>
+          <div class="econ-line"><span class="econ-label">小包分装设备</span><span class="econ-val">¥2,000</span></div>
+          <div class="econ-line"><span class="econ-label">标识物料</span><span class="econ-val">¥1,500</span></div>
+          <div class="econ-line"><span class="econ-label">培训成本</span><span class="econ-val">¥2,000</span></div>
+          <div class="econ-line total"><span class="econ-label">合计</span><span class="econ-val">¥11,500</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: PILOT -->
+<section class="section section-mist" id="pilot">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">06</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Pilot Location</span>
+      </div>
+      <h2 class="sh-title">首选试点<br><em>JFC 品尚中心店</em></h2>
+    </div>
+
+    <div class="g2">
+      <div class="card" style="background:var(--ink); color:var(--white); border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:16px;">选址逻辑</div>
+        <div style="font-size:22px; font-weight:800; color:var(--white); margin-bottom:8px;">JFC 品尚中心店</div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:28px;">观音山写字楼集群 · 高端健身房聚集地</div>
+        <div style="display:flex; flex-direction:column; gap:14px; font-size:14px;">
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
+            周边 3km 内 5家高端健身房（超 8,000 会员）
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
+            写字楼通勤人群日流量约 12,000 人
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--sage-l);margin-top:6px;flex-shrink:0;"></div>
+            已有稳定果汁客群，能量饮交叉推广门槛低
+          </div>
+          <div style="display:flex; gap:12px; align-items:flex-start; color:rgba(255,255,255,0.7);">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:6px;flex-shrink:0;"></div>
+            验证后可直接复制至全线 70+ 门店
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div class="card">
+          <div class="num-label" style="margin-bottom:12px;">试点 KPI（30天）</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:4px;"><span>能量饮日均杯数</span><span style="font-weight:700; color:var(--sage);">50杯</span></div>
+              <div class="prog-wrap"><div class="prog-bar" style="width:65%;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:4px;"><span>DIY升级包转化率</span><span style="font-weight:700; color:var(--sage);">15%</span></div>
+              <div class="prog-wrap"><div class="prog-bar" style="width:15%;"></div></div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:14px; margin-bottom:4px;"><span>客单价提升</span><span style="font-weight:700; color:var(--sage);">+¥8</span></div>
+              <div class="prog-wrap"><div class="prog-bar" style="width:80%;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="background:var(--sage); color:#fff; border:none;">
+          <div style="font-size:11px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-bottom:8px;">试点回本</div>
+          <div style="font-size:64px; font-weight:900; letter-spacing:-.04em; line-height:1; color:#fff;">13<span style="font-size:24px; opacity:.7;">天</span></div>
+          <div style="font-size:13px; color:rgba(255,255,255,0.65); margin-top:8px;">投入 ¥11,500 · 日净利 ¥886</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: SOP -->
+<section class="section section-white" id="sop">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">07</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Operations SOP</span>
+      </div>
+      <h2 class="sh-title">单杯制作<br><em>≤ 90 秒</em></h2>
+    </div>
+
+    <div style="border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; margin-bottom:24px;">
+      <div class="sop-grid">
+        <div class="sop-step">
+          <div class="sop-step-label">Step 01</div>
+          <div class="sop-time">10<span class="sop-unit">s</span></div>
+          <div class="sop-name">确认口味 & 倒杯</div>
+          <div class="sop-desc">询问基底口味，取出对应预制鲜果基底</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-step-label">Step 02</div>
+          <div class="sop-time">20<span class="sop-unit">s</span></div>
+          <div class="sop-name">倒入蛋白包</div>
+          <div class="sop-desc">标准化小包直接倒入，0 称量误差</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-step-label">Step 03</div>
+          <div class="sop-time">30<span class="sop-unit">s</span></div>
+          <div class="sop-name">摇匀 / 搅拌</div>
+          <div class="sop-desc">封盖摇匀 15s 或手动搅拌棒充分混合</div>
+        </div>
+        <div class="sop-step">
+          <div class="sop-step-label">Step 04</div>
+          <div class="sop-time">10<span class="sop-unit">s</span></div>
+          <div class="sop-name">装杯 & 出品</div>
+          <div class="sop-desc">贴能量标签，出品。全程 ≤ 90 秒</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card-mist">
+        <div class="num-label" style="margin-bottom:12px;">设备零新增</div>
+        <div style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:8px;">100% 复用现有榨汁设备</div>
+        <div style="font-size:14px; color:var(--muted); line-height:1.65;">榨汁机 / 冰沙机 / 封口机全部复用<br>仅需新增：标准小包粉料 + 能量标签贴纸</div>
+      </div>
+      <div class="card-mist">
+        <div class="num-label" style="margin-bottom:12px;">人员零新增</div>
+        <div style="font-size:15px; font-weight:700; color:var(--ink); margin-bottom:8px;">现有员工 5 天完成培训</div>
+        <div style="font-size:14px; color:var(--muted); line-height:1.65;">D4–6 集中 SOP 培训（含试制 + 品控）<br>考核通过即可上岗，无额外用工成本</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8: TIMELINE -->
+<section class="section section-dark" id="timeline">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">08</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Execution Timeline</span>
+      </div>
+      <h2 class="sh-title">7 天上线<br><em>365 天成品牌</em></h2>
+    </div>
+
+    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); overflow:hidden;">
+      <div class="tl-grid">
+        <div class="tl-phase">
+          <div class="tl-period">D1–7</div>
+          <div class="tl-stage">Phase 1 · 上线</div>
+          <ul class="tl-items">
+            <li><div class="tl-dot"></div>原料采购 & 分装</li>
+            <li><div class="tl-dot"></div>SOP 培训 5 天</li>
+            <li><div class="tl-dot"></div>菜单物料上线</li>
+            <li><div class="tl-dot"></div>JFC 试点正式开售</li>
+          </ul>
+        </div>
+        <div class="tl-phase">
+          <div class="tl-period">D8–30</div>
+          <div class="tl-stage">Phase 2 · 优化</div>
+          <ul class="tl-items">
+            <li><div class="tl-dot"></div>收集口味反馈</li>
+            <li><div class="tl-dot"></div>快速迭代配方</li>
+            <li><div class="tl-dot"></div>评估转化率 & 复购</li>
+            <li><div class="tl-dot"></div>D13 回本节点验证</li>
+          </ul>
+        </div>
+        <div class="tl-phase">
+          <div class="tl-period">D31–90</div>
+          <div class="tl-stage">Phase 3 · 扩张</div>
+          <ul class="tl-items">
+            <li><div class="tl-dot"></div>复制至 3–5 家门店</li>
+            <li><div class="tl-dot"></div>开发健身房渠道合作</li>
+            <li><div class="tl-dot"></div>建立能量饮品类心智</li>
+            <li><div class="tl-dot"></div>月净利突破 ¥20 万</li>
+          </ul>
+        </div>
+        <div class="tl-phase">
+          <div class="tl-period">D91–365</div>
+          <div class="tl-stage">Phase 4 · 品牌化</div>
+          <ul class="tl-items">
+            <li><div class="tl-dot"></div>全线 60+ 门店上线</li>
+            <li><div class="tl-dot"></div>独立子品牌 IP 建立</li>
+            <li><div class="tl-dot"></div>联名健身品牌营销</li>
+            <li><div class="tl-dot" style="background:var(--gold);"></div>年净利增量 ¥116.6 万</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 9: FINANCE -->
+<section class="section section-white" id="finance">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">09</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Financial Projection</span>
+      </div>
+      <h2 class="sh-title">12 个月<br><em>新增净利 ¥116.6 万</em></h2>
+    </div>
+
+    <div class="tbl-wrap" style="margin-bottom:24px;">
+      <table>
+        <thead>
+          <tr>
+            <th>阶段</th>
+            <th>门店数</th>
+            <th>月新增营收</th>
+            <th>月新增净利</th>
+            <th>累计净利</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>第 1 月（试点）</td>
+            <td>1</td>
+            <td>¥6.12 万</td>
+            <td>¥4.44 万</td>
+            <td>¥4.44 万</td>
+          </tr>
+          <tr>
+            <td>第 2–3 月（扩 3 店）</td>
+            <td>4</td>
+            <td>¥24.48 万</td>
+            <td>¥17.76 万/月</td>
+            <td>¥40.0 万</td>
+          </tr>
+          <tr>
+            <td>第 4–6 月（扩至 10 店）</td>
+            <td>10</td>
+            <td>¥61.2 万</td>
+            <td>¥44.4 万/月</td>
+            <td>¥173.2 万</td>
+          </tr>
+          <tr>
+            <td>第 7–12 月（全线 60+ 店）</td>
+            <td>60+</td>
+            <td class="td-hi">¥388.8 万</td>
+            <td class="td-hi">¥116.6 万/年</td>
+            <td class="td-hi-gold">¥116.6 万+</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="roi-banner">
+      <div class="roi-left">
+        <div class="roi-label">年度投资回报率</div>
+        <div class="roi-num">1,013<span style="font-size:44px;">%</span></div>
+        <div style="font-size:14px; color:rgba(255,255,255,0.35); margin-top:12px;">投入 ¥1.15 万 · 12 个月全公司回报 ¥116.6 万</div>
+      </div>
+      <div class="roi-stats">
+        <div>
+          <div class="roi-stat-num">¥116<span style="font-size:24px;">万</span></div>
+          <div class="roi-stat-label">12 月净利增量</div>
+        </div>
+        <div>
+          <div class="roi-stat-num gold">13<span style="font-size:24px;"> 天</span></div>
+          <div class="roi-stat-label">试点回本周期</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 10: RISK -->
+<section class="section section-mist" id="risk">
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">
+        <span class="sh-num">10</span>
+        <span class="sh-div"></span>
+        <span class="sh-tag">Risk Assessment</span>
+      </div>
+      <h2 class="sh-title">5 大风险<br><em>逐项预案覆盖</em></h2>
+    </div>
+
+    <div class="risk-list">
+      <div class="risk-item">
+        <div class="risk-n">01</div>
+        <div>
+          <div class="risk-name">口味接受度</div>
+          <div class="risk-detail">蛋白粉异味影响顾客初次体验，可能出现较高退单率</div>
+        </div>
+        <div class="risk-plan">
+          <strong>应对策略</strong>
+          前 2 周免费小杯试饮，收集口味反馈快速迭代配方；鲜果基底天然掩盖蛋白腥味为核心卖点
+        </div>
+        <div class="risk-badge risk-mid">中等</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-n">02</div>
+        <div>
+          <div class="risk-name">食品合规</div>
+          <div class="risk-detail">功能性声称（增肌/燃脂）可能触碰广告法边界</div>
+        </div>
+        <div class="risk-plan">
+          <strong>应对策略</strong>
+          产品名用水果名称，避免功能性声称；合规策略优先，法务确认后方可宣传
+        </div>
+        <div class="risk-badge risk-mid">中等</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-n">03</div>
+        <div>
+          <div class="risk-name">竞品快速跟进</div>
+          <div class="risk-detail">奶茶、果汁连锁可能快速复制产品线</div>
+        </div>
+        <div class="risk-plan">
+          <strong>应对策略</strong>
+          12 个月内快速铺满 60+ 门店，建立规模护城河；以鲜榨基底差异化构建复制壁垒
+        </div>
+        <div class="risk-badge risk-low">低</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-n">04</div>
+        <div>
+          <div class="risk-name">供应链稳定</div>
+          <div class="risk-detail">优质蛋白粉、胶原蛋白等原料供应商资质参差不齐</div>
+        </div>
+        <div class="risk-plan">
+          <strong>应对策略</strong>
+          与 2–3 家头部供应商签框架协议，建立备选供应商名单，关键原料保持 30 天库存
+        </div>
+        <div class="risk-badge risk-low">低</div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-n">05</div>
+        <div>
+          <div class="risk-name">操作标准化</div>
+          <div class="risk-detail">称量蛋白粉等步骤若不标准，产品一致性差影响品牌形象</div>
+        </div>
+        <div class="risk-plan">
+          <strong>应对策略</strong>
+          所有粉类原料预称装袋（标准化小包），直接倒入即可；SOP 考核通过方可上岗
+        </div>
+        <div class="risk-badge risk-low">低</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: CONCLUSION -->
+<section class="conclusion" id="conclusion">
+  <div class="conclusion-bg"></div>
+  <div class="conclusion-inner">
+    <div class="conclusion-tag">11 · Conclusion</div>
+    <h2 class="conclusion-title">批准即启动<br><em>零风险 · 高回报</em></h2>
+    <p class="conclusion-sub">¥1.15 万的最小投入，7 天即可验证市场，13 天收回成本。<br>这不是一个需要犹豫的决策。</p>
+
+    <div class="cta-flow">
+      <div class="cta-step">
+        <div class="cta-step-n">1</div>
+        <span>今天批准</span>
+      </div>
+      <div class="cta-arrow">›</div>
+      <div class="cta-step">
+        <div class="cta-step-n">2</div>
+        <span>3 天采购原料</span>
+      </div>
+      <div class="cta-arrow">›</div>
+      <div class="cta-step">
+        <div class="cta-step-n">3</div>
+        <span>5 天培训完毕</span>
+      </div>
+      <div class="cta-arrow">›</div>
+      <div class="cta-step">
+        <div class="cta-step-n">4</div>
+        <span>第 7 天正式开售</span>
+      </div>
+    </div>
+
+    <div class="cta-stats">
+      <div class="cta-stat">
+        <div class="cta-stat-num">¥1.15<span style="font-size:24px;">万</span></div>
+        <div class="cta-stat-label">试点启动成本</div>
+      </div>
+      <div class="cta-stat">
+        <div class="cta-stat-num gold">13<span style="font-size:24px;">天</span></div>
+        <div class="cta-stat-label">回本周期</div>
+      </div>
+      <div class="cta-stat">
+        <div class="cta-stat-num">¥116<span style="font-size:24px;">万</span></div>
+        <div class="cta-stat-label">12 月全公司新增净利</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">鲜</div>
+    <div class="footer-name">通鲜果汁 <span>ORIGINAL FRESH</span></div>
+  </div>
+  <div class="footer-right">
+    以时为令，鲜果鲜榨，传递自然能量<br>
+    商业计划书 · 2025
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+
+</body>
+</html>

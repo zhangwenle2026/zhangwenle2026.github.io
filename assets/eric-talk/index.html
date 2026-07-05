@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="app-version" content="20260705-0237">
+<meta name="theme-color" content="#e84040">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Eric Talk">
+<title>Eric Talk · 口语练习</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+/* ===== Duolingo Visual Language Upgrade ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root{
+  --primary:#ff4b4b;
+  --primary-light:#ff7070;
+  --primary-dark:#d63030;
+  --primary-grad:linear-gradient(135deg,#ff4b4b,#ff8c42);
+  --accent:#ff8c42;
+  --accent2:#a259ff;
+  --bg:#fff5f5;
+  --card-bg:#ffffff;
+  --text:#1a1a2e;
+  --text-muted:#9b9bb4;
+  --border:#ffe0e0;
+  --star:#ffb300;
+  --star-bg:#fff8e1;
+  --done:#22c55e;
+  --done-bg:#f0fdf4;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 4px 20px rgba(255,75,75,0.12);
+  --shadow-hover:0 8px 30px rgba(255,75,75,0.22);
+  --shadow-card:0 2px 12px rgba(0,0,0,0.07);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Nunito',-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+.app-header{
+  background:var(--primary-grad);
+  color:white;
+  padding:16px 18px 0;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 16px rgba(255,75,75,0.35);
+}
+.header-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.app-title{
+  font-size:20px;font-weight:900;letter-spacing:0.5px;
+  text-shadow:0 1px 4px rgba(0,0,0,0.15);
+}
+.app-title span{font-weight:400;opacity:0.85;font-size:13px;margin-left:6px}
+.header-actions{display:flex;gap:8px}
+.btn-icon{
+  background:rgba(255,255,255,0.22);
+  border:1.5px solid rgba(255,255,255,0.35);
+  color:white;
+  border-radius:20px;
+  padding:6px 12px;
+  font-size:12px;font-weight:700;
+  cursor:pointer;
+  transition:all 0.2s;
+  backdrop-filter:blur(4px);
+}
+.btn-icon:hover{background:rgba(255,255,255,0.35);transform:translateY(-1px)}
+.btn-icon.active{
+  background:white;
+  color:var(--primary);
+  border-color:white;
+}
+
+/* ===== TABS ===== */
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{
+  flex:1;min-width:88px;
+  padding:10px 8px 12px;
+  background:none;border:none;
+  color:rgba(255,255,255,0.65);
+  font-size:12px;font-weight:700;
+  font-family:'Nunito',sans-serif;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  transition:all 0.2s;white-space:nowrap;text-align:center;
+  letter-spacing:0.2px;
+}
+.tab-btn.active{color:white;border-bottom-color:white;font-weight:900}
+
+/* ===== SEARCH BAR ===== */
+.search-bar{
+  padding:14px 18px;
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+}
+.search-input{
+  width:100%;padding:11px 18px;
+  border:2px solid var(--border);
+  border-radius:50px;
+  font-size:14px;font-weight:600;
+  font-family:'Nunito',sans-serif;
+  outline:none;background:var(--bg);color:var(--text);
+  transition:all 0.25s;
+}
+.search-input:focus{
+  border-color:var(--primary-light);
+  background:white;
+  box-shadow:0 0 0 4px rgba(255,75,75,0.1);
+}
+
+/* ===== SCENE FILTER ===== */
+.scene-filter{
+  padding:12px 18px;
+  display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+}
+.scene-filter::-webkit-scrollbar{display:none}
+.scene-btn{
+  flex-shrink:0;
+  padding:6px 14px;
+  border-radius:50px;
+  border:2px solid var(--border);
+  background:var(--bg);
+  color:var(--text-muted);
+  font-size:12px;font-weight:700;
+  font-family:'Nunito',sans-serif;
+  cursor:pointer;transition:all 0.2s;white-space:nowrap;
+}
+.scene-btn:hover{border-color:var(--primary-light);color:var(--primary)}
+.scene-btn.active{
+  background:var(--primary);border-color:var(--primary);
+  color:white;font-weight:800;
+  box-shadow:0 3px 10px rgba(255,75,75,0.3);
+  transform:translateY(-1px);
+}
+
+/* ===== DASHBOARD ===== */
+.dashboard{
+  padding:14px 18px;
+  background:var(--card-bg);
+  border-bottom:1px solid var(--border);
+  display:flex;gap:14px;align-items:center;
+}
+.dash-stat{display:flex;flex-direction:column;align-items:center;flex:1}
+.dash-num{
+  font-size:24px;font-weight:900;color:var(--primary);
+  line-height:1;
+}
+.dash-label{font-size:10px;font-weight:700;color:var(--text-muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.5px}
+.dash-bar{flex:2;height:12px;background:var(--border);border-radius:6px;overflow:hidden}
+.dash-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  border-radius:6px;transition:width 0.5s cubic-bezier(.22,.68,0,1.2);
+}
+
+/* ===== CARDS ===== */
+.cards-container{padding:14px 18px 90px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.card-wrap{min-width:0;overflow:hidden;box-sizing:border-box}
+
+.flip-card{width:100%;aspect-ratio:1.15/1;perspective:1000px;cursor:pointer}
+.flip-inner{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;
+  transition:transform 0.45s cubic-bezier(.22,.68,0,1.2);
+}
+.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+
+.flip-front,.flip-back{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border-radius:var(--radius);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:12px;
+}
+.flip-front{
+  background:var(--card-bg);
+  border:2px solid var(--border);
+  box-shadow:var(--shadow-card);
+  transition:box-shadow 0.25s,transform 0.25s,border-color 0.25s;
+}
+.flip-front:hover{
+  box-shadow:var(--shadow-hover);
+  transform:translateY(-3px);
+  border-color:var(--primary-light);
+}
+.flip-back{
+  background:var(--primary-grad);
+  color:white;
+  transform:rotateY(180deg);
+  box-shadow:var(--shadow);
+}
+
+.card-cn{
+  font-size:13px;font-weight:700;
+  text-align:center;color:var(--text);line-height:1.45;
+}
+.card-scene-tag{
+  font-size:10px;font-weight:700;
+  color:var(--primary);margin-top:7px;
+  background:rgba(255,75,75,0.08);
+  padding:3px 9px;border-radius:20px;
+  border:1px solid rgba(255,75,75,0.15);
+}
+.card-en{
+  font-size:12px;font-weight:700;
+  text-align:center;line-height:1.55;word-break:break-word;
+}
+.card-hint{font-size:10px;opacity:0.8;margin-top:5px;text-align:center;font-style:italic}
+
+.card-actions{position:absolute;top:8px;right:8px;display:flex;gap:4px;z-index:2}
+.card-action-btn{
+  width:26px;height:26px;border:none;border-radius:50%;
+  cursor:pointer;font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;
+  background:rgba(255,255,255,0.9);
+  opacity:0.55;
+  box-shadow:0 1px 4px rgba(0,0,0,0.1);
+}
+.card-action-btn:hover{opacity:1;transform:scale(1.2)}
+.card-action-btn.tagged-star{
+  background:var(--star-bg);color:var(--star);
+  border:1.5px solid var(--star);opacity:1;
+}
+.card-action-btn.tagged-done{
+  background:var(--done-bg);color:var(--done);
+  border:1.5px solid var(--done);opacity:1;
+}
+.flip-back .card-action-btn{background:rgba(255,255,255,0.25);color:white}
+.flip-back .card-action-btn.tagged-star{background:var(--star);color:white;border:none}
+.flip-back .card-action-btn.tagged-done{background:var(--done);color:white;border:none}
+
+.speak-btn-front{
+  position:absolute;bottom:8px;right:8px;
+  width:28px;height:28px;border:none;border-radius:50%;
+  background:rgba(255,75,75,0.1);
+  color:var(--primary);font-size:14px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s;z-index:2;
+}
+.speak-btn-front:hover{
+  background:var(--primary);color:white;
+  transform:scale(1.15);
+  box-shadow:0 3px 10px rgba(255,75,75,0.35);
+}
+.flip-back .speak-btn-front{background:rgba(255,255,255,0.2);color:white}
+.flip-back .speak-btn-front:hover{background:rgba(255,255,255,0.4)}
+
+/* ===== LISTEN MODE ===== */
+body.listen-mode .flip-front .card-cn{filter:blur(4px);user-select:none}
+body.listen-mode .flip-back .card-en{filter:blur(4px);user-select:none}
+body.listen-mode .flip-card.flipped .card-en{filter:none}
+
+/* ===== TAB PANELS ===== */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ===== TOPICS ===== */
+.topics-list{padding:14px 18px 90px;display:flex;flex-direction:column;gap:16px}
+.topic-card{
+  background:var(--card-bg);
+  border-radius:var(--radius);
+  padding:20px;
+  box-shadow:var(--shadow-card);
+  border:2px solid var(--border);
+  transition:box-shadow 0.25s,transform 0.25s;
+}
+.topic-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.topic-date{
+  font-size:10px;font-weight:800;
+  color:var(--text-muted);margin-bottom:7px;
+  text-transform:uppercase;letter-spacing:0.8px;
+}
+.topic-title{
+  font-size:17px;font-weight:900;
+  color:var(--primary);margin-bottom:10px;line-height:1.4;
+}
+.topic-body{font-size:14px;line-height:1.85;color:var(--text);font-weight:500}
+.topic-actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.topic-btn{
+  padding:9px 20px;border-radius:50px;border:none;
+  cursor:pointer;font-size:13px;font-weight:800;
+  font-family:'Nunito',sans-serif;
+  transition:all 0.2s;
+}
+.topic-btn-speak{
+  background:var(--primary-grad);color:white;
+  box-shadow:0 3px 12px rgba(255,75,75,0.3);
+}
+.topic-btn-speak:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(255,75,75,0.4)}
+.topic-btn-copy{
+  background:var(--bg);color:var(--text);
+  border:2px solid var(--border);
+}
+.topic-btn-copy:hover{border-color:var(--primary-light);color:var(--primary)}
+
+/* ===== EMPTY STATE ===== */
+.empty-state{text-align:center;padding:70px 20px;color:var(--text-muted)}
+.empty-state .empty-icon{font-size:50px;margin-bottom:14px;display:block}
+.empty-state p{font-size:15px;font-weight:600}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;bottom:90px;left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:linear-gradient(135deg,#1a1a2e,#2d2d50);
+  color:white;padding:11px 22px;
+  border-radius:50px;font-size:13px;font-weight:700;
+  opacity:0;transition:all 0.3s cubic-bezier(.22,.68,0,1.2);
+  z-index:999;pointer-events:none;white-space:nowrap;
+  box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse-speak{0%,100%{transform:scale(1)}50%{transform:scale(1.25)}}
+.speaking{animation:pulse-speak 0.55s infinite}
+
+@keyframes card-pop{
+  0%{transform:scale(0.92);opacity:0}
+  70%{transform:scale(1.03)}
+  100%{transform:scale(1);opacity:1}
+}
+.card-pop{animation:card-pop 0.3s ease forwards}
+
+/* ===== DONE STATE INDICATOR ===== */
+.card-wrap.is-done .flip-front{
+  border-color:var(--done);
+  background:var(--done-bg);
+}
+.card-wrap.is-star .flip-front{
+  border-color:var(--star);
+  background:var(--star-bg);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(min-width:600px){
+  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(185px,1fr))}
+  .app-title{font-size:22px}
+}
+@media(min-width:900px){
+  .cards-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="header-top">
+    <div class="app-title">🗣️ Eric Talk <span>· 口语练习</span></div>
+    <div class="header-actions">
+      <button class="btn-icon" id="btnListen" onclick="toggleListenMode()">👂 听力</button>
+      <button class="btn-icon" id="btnStarOnly" onclick="toggleStarFilter()">⭐ 重要</button>
+    </div>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(0)">🌞 日常口语</button>
+    <button class="tab-btn" onclick="switchTab(1)">🌍 生活高频</button>
+    <button class="tab-btn" onclick="switchTab(2)">💼 职场英语</button>
+    <button class="tab-btn" onclick="switchTab(3)">📖 每日话题</button>
+  </div>
+</div>
+
+<div class="tab-panel active" id="panel-0">
+  <div class="search-bar"><input type="search" class="search-input" id="search-0" placeholder="🔍 搜索日常口语..." oninput="filterCards(0)"></div>
+  <div class="scene-filter" id="scene-filter-0"></div>
+  <div class="dashboard">
+    <div class="dash-stat"><div class="dash-num" id="dash-total-0">0</div><div class="dash-label">总计</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-done-0" style="color:var(--done)">0</div><div class="dash-label">已掌握</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-star-0" style="color:var(--star)">0</div><div class="dash-label">重要</div></div>
+    <div class="dash-bar"><div class="dash-bar-fill" id="dash-bar-0" style="width:0%"></div></div>
+  </div>
+  <div class="cards-container"><div class="cards-grid" id="grid-0"></div><div class="empty-state" id="empty-0" style="display:none"><div class="empty-icon">🔍</div><p>没有找到匹配的内容</p></div></div>
+</div>
+
+<div class="tab-panel" id="panel-1">
+  <div class="search-bar"><input type="search" class="search-input" id="search-1" placeholder="🔍 搜索生活高频..." oninput="filterCards(1)"></div>
+  <div class="scene-filter" id="scene-filter-1"></div>
+  <div class="dashboard">
+    <div class="dash-stat"><div class="dash-num" id="dash-total-1">0</div><div class="dash-label">总计</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-done-1" style="color:var(--done)">0</div><div class="dash-label">已掌握</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-star-1" style="color:var(--star)">0</div><div class="dash-label">重要</div></div>
+    <div class="dash-bar"><div class="dash-bar-fill" id="dash-bar-1" style="width:0%"></div></div>
+  </div>
+  <div class="cards-container"><div class="cards-grid" id="grid-1"></div><div class="empty-state" id="empty-1" style="display:none"><div class="empty-icon">🔍</div><p>没有找到匹配的内容</p></div></div>
+</div>
+
+<div class="tab-panel" id="panel-2">
+  <div class="search-bar"><input type="search" class="search-input" id="search-2" placeholder="🔍 搜索职场英语..." oninput="filterCards(2)"></div>
+  <div class="scene-filter" id="scene-filter-2"></div>
+  <div class="dashboard">
+    <div class="dash-stat"><div class="dash-num" id="dash-total-2">0</div><div class="dash-label">总计</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-done-2" style="color:var(--done)">0</div><div class="dash-label">已掌握</div></div>
+    <div class="dash-stat"><div class="dash-num" id="dash-star-2" style="color:var(--star)">0</div><div class="dash-label">重要</div></div>
+    <div class="dash-bar"><div class="dash-bar-fill" id="dash-bar-2" style="width:0%"></div></div>
+  </div>
+  <div class="cards-container"><div class="cards-grid" id="grid-2"></div><div class="empty-state" id="empty-2" style="display:none"><div class="empty-icon">🔍</div><p>没有找到匹配的内容</p></div></div>
+</div>
+
+<div class="tab-panel" id="panel-3">
+  <div class="topics-list" id="topics-list"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// SPEECH ENGINE v3.2
+// ============================================================
+// SPEECH ENGINE v3.2 — full-text utterance with boundary tracking
+// Natural: entire text in one speak() call
+// Seek: cancel + re-speak from target word onward
+// Pause: cancel + remember word position, resume from there
+// ============================================================
+(function(){
+var SE = window.SpeechEngine = {
+  rate: 1.0,
+  loop: false,
+
+  _words: [],
+  _cid: null,
+  _wordIdx: 0,       // current word index (tracked via boundary/timer)
+  _playing: false,
+  _paused: false,
+  _pausedAtIdx: 0,
+  _utt: null,
+  _timerHandle: null,
+
+  speak: function(containerId, startWordIdx) {
+    SE.stop();
+    if (!window.speechSynthesis) return;
+    var el = document.getElementById(containerId + '-text');
+    if (!el) return;
+    var fullText = (el.dataset.fulltext || el.textContent).trim();
+    SE._words = fullText.split(/\s+/);
+    SE._cid = containerId;
+    SE._playing = true;
+    SE._paused = false;
+    startWordIdx = startWordIdx || 0;
+    SE._wordIdx = startWordIdx;
+
+    SE._updateBtn(containerId, true);
+    SE._updateRateBtns(containerId);
+    SE._speakFrom(startWordIdx);
+  },
+
+  _speakFrom: function(fromIdx) {
+    if (!SE._playing) return;
+    window.speechSynthesis.cancel();
+    if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+
+    var textToSpeak = SE._words.slice(fromIdx).join(' ');
+    if (!textToSpeak) {
+      SE._onFinish();
+      return;
+    }
+
+    var utt = new SpeechSynthesisUtterance(textToSpeak);
+    utt.lang = 'en-US';
+    utt.rate = SE.rate;
+    SE._utt = utt;
+    SE._wordIdx = fromIdx;
+
+    // Use boundary event for accurate word tracking
+    var wordsInSegment = SE._words.length - fromIdx;
+    var boundarySupported = false;
+
+    utt.onboundary = function(e) {
+      if (e.name === 'word' && SE._playing && !SE._paused) {
+        boundarySupported = true;
+        // charIndex is relative to textToSpeak
+        // Count words by splitting up to charIndex
+        var spoken = textToSpeak.substring(0, e.charIndex);
+        var wordCount = spoken ? spoken.trim().split(/\s+/).length : 0;
+        SE._wordIdx = fromIdx + wordCount;
+        SE._highlightWord(SE._wordIdx);
+        SE._updateProgress(SE._wordIdx / SE._words.length);
+      }
+    };
+
+    // Fallback timer-based tracking if boundary not supported
+    utt.onstart = function() {
+      if (!boundarySupported) {
+        var estMs = (wordsInSegment / 150) * 60000 / SE.rate;
+        var msPerWord = estMs / wordsInSegment;
+        var startTime = Date.now();
+        SE._timerHandle = setInterval(function() {
+          if (!SE._playing || SE._paused || boundarySupported) {
+            clearInterval(SE._timerHandle); SE._timerHandle = null;
+            return;
+          }
+          var elapsed = Date.now() - startTime;
+          var wi = Math.min(fromIdx + Math.floor(elapsed / msPerWord), SE._words.length - 1);
+          if (wi !== SE._wordIdx) {
+            SE._wordIdx = wi;
+            SE._highlightWord(wi);
+            SE._updateProgress(wi / SE._words.length);
+          }
+        }, 100);
+      }
+    };
+
+    utt.onend = function() {
+      if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+      if (!SE._playing || SE._paused) return;
+      SE._onFinish();
+    };
+
+    utt.onerror = function(e) {
+      if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+      if (e.error === 'canceled' || e.error === 'interrupted') return;
+      if (!SE._playing || SE._paused) return;
+      SE._onFinish();
+    };
+
+    window.speechSynthesis.speak(utt);
+  },
+
+  _onFinish: function() {
+    if (SE.loop && SE._cid) {
+      SE._wordIdx = 0;
+      SE._updateProgress(0);
+      SE._clearHighlight();
+      setTimeout(function() {
+        if (SE._playing && !SE._paused) SE._speakFrom(0);
+      }, 400);
+    } else {
+      SE._playing = false;
+      SE._updateBtn(SE._cid, false);
+      SE._updateProgress(1);
+      SE._clearHighlight();
+      SE._utt = null;
+    }
+  },
+
+  pause: function() {
+    if (!SE._playing || SE._paused) return;
+    SE._paused = true;
+    SE._pausedAtIdx = SE._wordIdx;
+    window.speechSynthesis.cancel();
+    if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+    SE._updatePauseBtn();
+  },
+
+  resume: function() {
+    if (!SE._playing || !SE._paused) return;
+    SE._paused = false;
+    SE._updatePauseBtn();
+    SE._speakFrom(SE._pausedAtIdx);
+  },
+
+  togglePause: function() {
+    if (SE._paused) SE.resume(); else SE.pause();
+  },
+
+  stop: function() {
+    SE._playing = false;
+    SE._paused = false;
+    window.speechSynthesis.cancel();
+    if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+    if (SE._cid) {
+      SE._updateBtn(SE._cid, false);
+      SE._updateProgress(0);
+      SE._clearHighlight();
+    }
+    SE._cid = null;
+    SE._wordIdx = 0;
+    SE._words = [];
+    SE._utt = null;
+  },
+
+  seekTo: function(pct, containerId) {
+    var el = document.getElementById(containerId + '-text');
+    if (!el) return;
+    var allWords = (el.dataset.fulltext || el.textContent).trim().split(/\s+/);
+    var targetIdx = Math.max(0, Math.min(Math.floor(pct * allWords.length), allWords.length - 1));
+
+    if (SE._playing && SE._cid === containerId) {
+      window.speechSynthesis.cancel();
+      if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+      SE._paused = false;
+      SE._wordIdx = targetIdx;
+      SE._speakFrom(targetIdx);
+    } else {
+      SE.speak(containerId, targetIdx);
+    }
+  },
+
+  toggleLoop: function(containerId) {
+    SE.loop = !SE.loop;
+    document.querySelectorAll('.se-loop-btn').forEach(function(btn) {
+      btn.classList.toggle('se-loop-active', SE.loop && btn.id === containerId + '-loop-btn');
+    });
+    if (SE.loop && (!SE._playing || SE._cid !== containerId)) {
+      SE.stop();
+      SE.speak(containerId, 0);
+    }
+  },
+
+  setRate: function(r, containerId) {
+    SE.rate = r;
+    SE._updateRateBtns(containerId);
+    if (SE._playing && SE._cid === containerId && !SE._paused) {
+      // Restart from current word with new rate
+      var curIdx = SE._wordIdx;
+      window.speechSynthesis.cancel();
+      if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+      SE._speakFrom(curIdx);
+    }
+  },
+
+  _togglePlay: function(containerId) {
+    if (SE._playing && SE._cid === containerId) {
+      SE.loop = false;
+      document.querySelectorAll('.se-loop-btn').forEach(function(b){ b.classList.remove('se-loop-active'); });
+      SE.stop();
+    } else {
+      SE.stop();
+      SE.speak(containerId, 0);
+    }
+  },
+
+  // ---- UI ----
+  _highlightWord: function(idx) {
+    if (!SE._cid) return;
+    var container = document.getElementById(SE._cid + '-text');
+    if (!container) return;
+    container.querySelectorAll('.se-word').forEach(function(s, i) {
+      s.classList.toggle('se-word-active', i === idx);
+    });
+  },
+
+  _clearHighlight: function() {
+    if (!SE._cid) return;
+    var container = document.getElementById(SE._cid + '-text');
+    if (!container) return;
+    container.querySelectorAll('.se-word').forEach(function(s){ s.classList.remove('se-word-active'); });
+  },
+
+  _updateProgress: function(pct) {
+    if (!SE._cid) return;
+    var fill = document.getElementById(SE._cid + '-prog-fill');
+    var thumb = document.getElementById(SE._cid + '-prog-thumb');
+    var pct100 = Math.round(Math.min(1, Math.max(0, pct)) * 100);
+    if (fill) fill.style.width = pct100 + '%';
+    if (thumb) thumb.style.left = pct100 + '%';
+  },
+
+  _updateBtn: function(cid, playing) {
+    var btn = document.getElementById(cid + '-play-btn');
+    if (!btn) return;
+    btn.textContent = playing ? '⏹ 停止' : '🔈 朗读';
+    btn.classList.toggle('se-playing', playing);
+    SE._updatePauseBtn();
+  },
+
+  _updatePauseBtn: function() {
+    if (!SE._cid) return;
+    var btn = document.getElementById(SE._cid + '-pause-btn');
+    if (!btn) return;
+    btn.textContent = SE._paused ? '▶' : '⏸';
+    btn.style.display = SE._playing ? 'inline-block' : 'none';
+  },
+
+  _updateRateBtns: function(cid) {
+    if (!cid) return;
+    [0.6, 1.0, 1.3].forEach(function(r) {
+      var btn = document.getElementById(cid + '-rate-' + r.toString().replace('.',''));
+      if (btn) btn.classList.toggle('se-rate-active', SE.rate === r);
+    });
+  },
+
+  // ---- DOM builders ----
+  buildWordSpans: function(text, containerId) {
+    var words = text.trim().split(/\s+/);
+    return '<span id="' + containerId + '-text" class="se-text-wrap" data-fulltext="' + text.replace(/"/g,'&quot;') + '">' +
+      words.map(function(w) {
+        return '<span class="se-word">' + w.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</span>';
+      }).join(' ') + '</span>';
+  },
+
+  buildPlayer: function(containerId) {
+    return '<div class="se-player" id="' + containerId + '-player">' +
+      '<button id="' + containerId + '-play-btn" class="se-play-btn" onclick="SpeechEngine._togglePlay(\'' + containerId + '\')">🔈 朗读</button>' +
+      '<button id="' + containerId + '-pause-btn" class="se-rate-btn" style="display:none;font-size:13px;padding:4px 10px" onclick="SpeechEngine.togglePause()">⏸</button>' +
+      '<button id="' + containerId + '-loop-btn" class="se-loop-btn se-rate-btn" title="循环" onclick="SpeechEngine.toggleLoop(\'' + containerId + '\')">🔁</button>' +
+      '<span class="se-rate-group">' +
+        '<button id="' + containerId + '-rate-06" class="se-rate-btn" onclick="SpeechEngine.setRate(0.6,\'' + containerId + '\')">慢</button>' +
+        '<button id="' + containerId + '-rate-10" class="se-rate-btn se-rate-active" onclick="SpeechEngine.setRate(1.0,\'' + containerId + '\')">正常</button>' +
+        '<button id="' + containerId + '-rate-13" class="se-rate-btn" onclick="SpeechEngine.setRate(1.3,\'' + containerId + '\')">快</button>' +
+      '</span>' +
+      '<div class="se-progress-wrap" id="' + containerId + '-prog">' +
+        '<div class="se-progress-fill" id="' + containerId + '-prog-fill"></div>' +
+        '<div class="se-progress-thumb" id="' + containerId + '-prog-thumb"' +
+        ' onmousedown="SpeechEngine._startDrag(event,\'' + containerId + '\')"' +
+        ' ontouchstart="SpeechEngine._startDrag(event,\'' + containerId + '\')"></div>' +
+      '</div>' +
+    '</div>';
+  },
+
+  _startDrag: function(e, containerId) {
+    e.preventDefault(); e.stopPropagation();
+    var bar = document.getElementById(containerId + '-prog');
+    if (!bar) return;
+
+    var wasPlaying = SE._playing && SE._cid === containerId;
+    if (wasPlaying) {
+      window.speechSynthesis.cancel();
+      if (SE._timerHandle) { clearInterval(SE._timerHandle); SE._timerHandle = null; }
+      SE._paused = true;
+    }
+
+    function getPct(clientX) {
+      var rect = bar.getBoundingClientRect();
+      return Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    }
+
+    function move(ev) {
+      var cx = ev.touches ? ev.touches[0].clientX : ev.clientX;
+      var pct = getPct(cx);
+      var fill = document.getElementById(containerId + '-prog-fill');
+      var thumb = document.getElementById(containerId + '-prog-thumb');
+      if (fill) fill.style.width = Math.round(pct*100) + '%';
+      if (thumb) thumb.style.left = Math.round(pct*100) + '%';
+      var el = document.getElementById(containerId + '-text');
+      if (el) {
+        var ws = (el.dataset.fulltext || el.textContent).trim().split(/\s+/);
+        var wi = Math.min(Math.floor(pct * ws.length), ws.length - 1);
+        el.querySelectorAll('.se-word').forEach(function(s,i){ s.classList.toggle('se-word-active', i === wi); });
+      }
+    }
+
+    function up(ev) {
+      var cx = ev.changedTouches ? ev.changedTouches[0].clientX : ev.clientX;
+      var pct = getPct(cx);
+      SE._paused = false;
+      SE.seekTo(pct, containerId);
+      document.removeEventListener('mousemove', move);
+      document.removeEventListener('mouseup', up);
+      document.removeEventListener('touchmove', move);
+      document.removeEventListener('touchend', up);
+    }
+
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+    document.addEventListener('touchmove', move, {passive:false});
+    document.addEventListener('touchend', up);
+  }
+};
+
+// Styles
+var style = document.createElement('style');
+style.textContent = [
+  '.se-word{display:inline;transition:background 0.15s;border-radius:3px;padding:0 1px}',
+  '.se-word-active{background:#ffe066;color:#1a1a2e;font-weight:700;box-shadow:0 1px 6px rgba(255,200,0,0.3);padding:0 2px;border-radius:4px}',
+  '.se-player{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;padding:8px 10px;background:rgba(0,0,0,0.04);border-radius:10px}',
+  '.se-play-btn{background:linear-gradient(135deg,#ff4b4b,#ff8c42);color:#fff;border:none;border-radius:16px;padding:5px 14px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0}',
+  '.se-play-btn.se-playing{background:linear-gradient(135deg,#555,#333)}',
+  '.se-loop-btn{font-size:14px!important;padding:4px 9px!important;line-height:1}',
+  '.se-loop-active{background:linear-gradient(135deg,#22c55e,#16a34a)!important;color:#fff!important;box-shadow:0 0 8px rgba(34,197,94,0.5)!important}',
+  '.se-rate-group{display:flex;gap:3px;flex-shrink:0}',
+  '.se-rate-btn{background:rgba(0,0,0,0.07);border:none;border-radius:10px;padding:4px 8px;font-size:11px;font-weight:700;color:#555;cursor:pointer;flex-shrink:0}',
+  '.se-rate-btn.se-rate-active{background:linear-gradient(135deg,#ff4b4b,#ff8c42);color:#fff}',
+  '.se-progress-wrap{flex:1;min-width:80px;height:8px;background:rgba(0,0,0,0.1);border-radius:8px;position:relative;touch-action:none}',
+  '.se-progress-fill{height:100%;background:linear-gradient(90deg,#ff4b4b,#ff8c42);border-radius:8px;width:0%;pointer-events:none}',
+  '.se-progress-thumb{position:absolute;top:50%;left:0%;transform:translate(-50%,-50%);width:18px;height:18px;background:#fff;border:2.5px solid #ff4b4b;border-radius:50%;cursor:grab;box-shadow:0 1px 5px rgba(0,0,0,0.25)}',
+  '.se-progress-thumb:active{cursor:grabbing;transform:translate(-50%,-50%) scale(1.25)}',
+  '.se-text-wrap{line-height:2;display:inline}'
+].join('\n');
+document.head.appendChild(style);
+
+})();
+
+
+// ============================================================
+// localStorage helpers - at TOP for hoisting safety
+// ============================================================
+var loadState = function(key) {
+  try { return JSON.parse(localStorage.getItem('eric_talk_v1_' + key) || '{}'); } catch(e) { return {}; }
+};
+var saveState = function(key, val) {
+  try { localStorage.setItem('eric_talk_v1_' + key, JSON.stringify(val)); } catch(e) {}
+};
+
+// ============================================================
+// DATA - 300 phrases across 3 tabs
+// ============================================================
+var DATA = [
+  // ===== TAB 0: DAILY PHRASES (100) =====
+  // 🌅 Morning Greetings (15)
+  {tab:0,scene:'🌅 早晨问候',cn:'早上好！今天感觉怎么样？',en:'Good morning! How are you feeling today?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'昨晚睡得好吗？',en:'Did you sleep well last night?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'今天天气真不错。',en:"It's a beautiful day today."},
+  {tab:0,scene:'🌅 早晨问候',cn:'你吃早饭了吗？',en:'Have you had breakfast yet?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'今天有什么计划吗？',en:'Do you have any plans for today?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'快点，快迟到了！',en:"Hurry up, we're almost late!"},
+  {tab:0,scene:'🌅 早晨问候',cn:'要咖啡还是茶？',en:'Coffee or tea?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'我需要先喝杯咖啡提神。',en:'I need a cup of coffee to wake up.'},
+  {tab:0,scene:'🌅 早晨问候',cn:'昨晚你几点睡的？',en:'What time did you go to bed last night?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'出发了，走吧！',en:"Let's go, time to head out!"},
+  {tab:0,scene:'🌅 早晨问候',cn:'今天是几号？',en:"What's today's date?"},
+  {tab:0,scene:'🌅 早晨问候',cn:'今天的日程安排好了吗？',en:'Is your schedule sorted out for today?'},
+  {tab:0,scene:'🌅 早晨问候',cn:'你今天看起来精神不错。',en:'You look energetic today.'},
+  {tab:0,scene:'🌅 早晨问候',cn:'新的一天，加油！',en:'A brand new day, let\'s do this!'},
+  {tab:0,scene:'🌅 早晨问候',cn:'一起去上班吧。',en:"Let's head to work together."},
+  // 🍽️ Dining Out (15)
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'我想预订一张两人桌。',en:"I'd like to reserve a table for two."},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'今天的特餐是什么？',en:"What's the special today?"},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'能把菜单给我看看吗？',en:'Could I have a look at the menu?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'我准备好点餐了。',en:"I'm ready to order."},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'我对花生过敏，菜里有吗？',en:'I have a peanut allergy. Does this contain any?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'这道菜是什么做的？',en:"What's in this dish?"},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'能分开结账吗？',en:'Could we have separate bills?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'可以打包吗？',en:'Can I get this to go?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'请帮我推荐一道菜。',en:'What do you recommend?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'买单！',en:'Check, please!'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'食物非常美味，谢谢！',en:'The food was delicious, thank you!'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'能给一杯白开水吗？',en:'Could I have a glass of water, please?'},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'我们想坐靠窗的位置。',en:"We'd like a table by the window."},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'这道菜太辣了，能换一道吗？',en:"This dish is too spicy. Could I change it?"},
+  {tab:0,scene:'🍽️ 餐厅点餐',cn:'请再来一份面包。',en:'Could we have some more bread, please?'},
+  // 🛒 Shopping (15)
+  {tab:0,scene:'🛒 购物消费',cn:'这件有其他颜色吗？',en:'Do you have this in other colors?'},
+  {tab:0,scene:'🛒 购物消费',cn:'我可以试穿吗？',en:'Can I try this on?'},
+  {tab:0,scene:'🛒 购物消费',cn:'试衣间在哪里？',en:'Where are the fitting rooms?'},
+  {tab:0,scene:'🛒 购物消费',cn:'这件打折吗？',en:'Is this on sale?'},
+  {tab:0,scene:'🛒 购物消费',cn:'我在找礼物，有什么推荐吗？',en:"I'm looking for a gift. Any suggestions?"},
+  {tab:0,scene:'🛒 购物消费',cn:'可以刷卡吗？',en:'Can I pay by card?'},
+  {tab:0,scene:'🛒 购物消费',cn:'这个有保修吗？',en:'Does this come with a warranty?'},
+  {tab:0,scene:'🛒 购物消费',cn:'如果不合适可以退吗？',en:'Can I return it if it does not fit?'},
+  {tab:0,scene:'🛒 购物消费',cn:'请帮我包装一下。',en:'Could you gift-wrap it for me?'},
+  {tab:0,scene:'🛒 购物消费',cn:'这件多少钱？',en:'How much is this?'},
+  {tab:0,scene:'🛒 购物消费',cn:'我只是随便看看。',en:"I'm just browsing, thanks."},
+  {tab:0,scene:'🛒 购物消费',cn:'有没有大号的？',en:'Do you have a larger size?'},
+  {tab:0,scene:'🛒 购物消费',cn:'我要这个。',en:"I'll take this one."},
+  {tab:0,scene:'🛒 购物消费',cn:'能便宜一点吗？',en:'Can you give me a better price?'},
+  {tab:0,scene:'🛒 购物消费',cn:'有折扣码吗？',en:'Do you have any discount codes?'},
+  // 🚗 Getting Around (15)
+  {tab:0,scene:'🚗 交通出行',cn:'请问去市中心怎么走？',en:'How do I get to the city center?'},
+  {tab:0,scene:'🚗 交通出行',cn:'到最近的地铁站要多远？',en:"How far is it to the nearest subway station?"},
+  {tab:0,scene:'🚗 交通出行',cn:'我可以在这里叫出租车吗？',en:'Can I get a taxi here?'},
+  {tab:0,scene:'🚗 交通出行',cn:'请送我去这个地址。',en:'Please take me to this address.'},
+  {tab:0,scene:'🚗 交通出行',cn:'这条路堵车吗？',en:'Is the traffic bad on this road?'},
+  {tab:0,scene:'🚗 交通出行',cn:'下一班公共汽车几点来？',en:"When's the next bus?"},
+  {tab:0,scene:'🚗 交通出行',cn:'我需要换乘吗？',en:'Do I need to transfer?'},
+  {tab:0,scene:'🚗 交通出行',cn:'买一张到机场的票。',en:'One ticket to the airport, please.'},
+  {tab:0,scene:'🚗 交通出行',cn:'这是终点站吗？',en:'Is this the last stop?'},
+  {tab:0,scene:'🚗 交通出行',cn:'我在哪里应该下车？',en:'Where should I get off?'},
+  {tab:0,scene:'🚗 交通出行',cn:'这里可以停车吗？',en:'Can I park here?'},
+  {tab:0,scene:'🚗 交通出行',cn:'我迷路了，能帮我吗？',en:"I'm lost. Could you help me?"},
+  {tab:0,scene:'🚗 交通出行',cn:'用地图看离这里多远。',en:"Let me check the map to see how far it is."},
+  {tab:0,scene:'🚗 交通出行',cn:'我们走路去还是打车？',en:'Should we walk or take a cab?'},
+  {tab:0,scene:'🚗 交通出行',cn:'大约需要多长时间到？',en:'How long will it take to get there?'},
+  // 🏠 Home & Everyday Life (20)
+  {tab:0,scene:'🏠 日常生活',cn:'帮我把垃圾带出去。',en:'Could you take out the trash?'},
+  {tab:0,scene:'🏠 日常生活',cn:'洗衣机用完了吗？',en:'Is the washing machine free?'},
+  {tab:0,scene:'🏠 日常生活',cn:'今晚我来做饭。',en:"I'll cook dinner tonight."},
+  {tab:0,scene:'🏠 日常生活',cn:'遥控器在哪里？',en:"Where's the remote control?"},
+  {tab:0,scene:'🏠 日常生活',cn:'空调温度调高一点好吗？',en:'Can you turn the AC up a bit?'},
+  {tab:0,scene:'🏠 日常生活',cn:'灯开着太费电了。',en:'Leaving the lights on wastes electricity.'},
+  {tab:0,scene:'🏠 日常生活',cn:'冰箱里还有什么食材？',en:"What's left in the fridge?"},
+  {tab:0,scene:'🏠 日常生活',cn:'需要去超市买东西。',en:'We need to go grocery shopping.'},
+  {tab:0,scene:'🏠 日常生活',cn:'手机充电了吗？',en:'Have you charged your phone?'},
+  {tab:0,scene:'🏠 日常生活',cn:'网速好慢，重启一下路由器？',en:"The internet is really slow. Shall we restart the router?"},
+  {tab:0,scene:'🏠 日常生活',cn:'今晚看什么电影？',en:"What movie shall we watch tonight?"},
+  {tab:0,scene:'🏠 日常生活',cn:'我把钥匙忘在家了。',en:'I left my keys at home.'},
+  {tab:0,scene:'🏠 日常生活',cn:'帮我订一份外卖好吗？',en:'Could you order some takeout for me?'},
+  {tab:0,scene:'🏠 日常生活',cn:'我需要修一下水龙头。',en:'I need to fix the faucet.'},
+  {tab:0,scene:'🏠 日常生活',cn:'这个周末大扫除吧。',en:"Let's do a deep clean this weekend."},
+  {tab:0,scene:'🏠 日常生活',cn:'开窗透透气吧。',en:"Let's open the window for some fresh air."},
+  {tab:0,scene:'🏠 日常生活',cn:'今晚早点睡，明天有早会。',en:"Let's go to bed early tonight. There's a morning meeting tomorrow."},
+  {tab:0,scene:'🏠 日常生活',cn:'宠物喂食了吗？',en:'Have you fed the pet?'},
+  {tab:0,scene:'🏠 日常生活',cn:'快递到了，帮我拿一下。',en:"The package arrived. Could you grab it for me?"},
+  {tab:0,scene:'🏠 日常生活',cn:'这个月的电费比上个月高。',en:"This month's electricity bill is higher than last month's."},
+  // 🎉 Social Events (20)
+  {tab:0,scene:'🎉 社交场合',cn:'认识你真高兴！',en:'Nice to meet you!'},
+  {tab:0,scene:'🎉 社交场合',cn:'好久不见！你最近怎么样？',en:"Long time no see! How have you been?"},
+  {tab:0,scene:'🎉 社交场合',cn:'让我介绍一下我的同事。',en:'Let me introduce my colleague.'},
+  {tab:0,scene:'🎉 社交场合',cn:'这个派对真的很棒！',en:'This party is absolutely great!'},
+  {tab:0,scene:'🎉 社交场合',cn:'你来自哪里？',en:'Where are you from?'},
+  {tab:0,scene:'🎉 社交场合',cn:'你在哪里工作？',en:'Where do you work?'},
+  {tab:0,scene:'🎉 社交场合',cn:'我们保持联系吧！',en:"Let's stay in touch!"},
+  {tab:0,scene:'🎉 社交场合',cn:'我可以加你的微信吗？',en:'Can I add you on WeChat?'},
+  {tab:0,scene:'🎉 社交场合',cn:'你能来参加我的生日派对吗？',en:'Can you come to my birthday party?'},
+  {tab:0,scene:'🎉 社交场合',cn:'祝你生日快乐！',en:'Happy birthday!'},
+  {tab:0,scene:'🎉 社交场合',cn:'恭喜你！',en:'Congratulations!'},
+  {tab:0,scene:'🎉 社交场合',cn:'谢谢你的邀请！',en:'Thank you for the invitation!'},
+  {tab:0,scene:'🎉 社交场合',cn:'我们下次再聚吧。',en:"Let's get together again soon."},
+  {tab:0,scene:'🎉 社交场合',cn:'我有点早走，失陪了。',en:"I have to head out a bit early. I hope you'll excuse me."},
+  {tab:0,scene:'🎉 社交场合',cn:'你喝什么？',en:"What are you drinking?"},
+  {tab:0,scene:'🎉 社交场合',cn:'周末有空吗？',en:'Are you free this weekend?'},
+  {tab:0,scene:'🎉 社交场合',cn:'我来了！抱歉迟到了一点。',en:"I'm here! Sorry I'm a little late."},
+  {tab:0,scene:'🎉 社交场合',cn:'能帮我们合个影吗？',en:'Could you take a photo of us?'},
+  {tab:0,scene:'🎉 社交场合',cn:'这次由我来买单。',en:"It's my treat this time."},
+  {tab:0,scene:'🎉 社交场合',cn:'今晚玩得很开心！',en:'I had such a great time tonight!'},
+
+  // ===== TAB 1: LIFE ESSENTIALS (100) =====
+  // 🏥 Healthcare (18)
+  {tab:1,scene:'🏥 医疗健康',cn:'我想预约看医生。',en:"I'd like to make a doctor's appointment."},
+  {tab:1,scene:'🏥 医疗健康',cn:'我头疼得很厉害。',en:'I have a really bad headache.'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我发烧了。',en:"I have a fever."},
+  {tab:1,scene:'🏥 医疗健康',cn:'这个药一天吃几次？',en:'How many times a day should I take this medicine?'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我对青霉素过敏。',en:'I am allergic to penicillin.'},
+  {tab:1,scene:'🏥 医疗健康',cn:'请问最近的药房在哪？',en:"Where is the nearest pharmacy?"},
+  {tab:1,scene:'🏥 医疗健康',cn:'我需要开一张处方。',en:'I need a prescription.'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我需要做一个体检。',en:'I need a physical check-up.'},
+  {tab:1,scene:'🏥 医疗健康',cn:'这里疼，能帮我检查一下吗？',en:"It hurts here. Can you take a look?"},
+  {tab:1,scene:'🏥 医疗健康',cn:'我最近睡眠不太好。',en:"I haven't been sleeping well lately."},
+  {tab:1,scene:'🏥 医疗健康',cn:'医生说我需要多休息。',en:'The doctor said I need more rest.'},
+  {tab:1,scene:'🏥 医疗健康',cn:'这个药有副作用吗？',en:'Are there any side effects with this medication?'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我需要验血吗？',en:'Do I need a blood test?'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我的保险覆盖这个治疗吗？',en:'Does my insurance cover this treatment?'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我感冒了，喉咙很痛。',en:"I have a cold and my throat is really sore."},
+  {tab:1,scene:'🏥 医疗健康',cn:'我需要打疫苗吗？',en:'Do I need a vaccination?'},
+  {tab:1,scene:'🏥 医疗健康',cn:'请叫救护车！',en:'Please call an ambulance!'},
+  {tab:1,scene:'🏥 医疗健康',cn:'我的孩子发烧了，能今天看诊吗？',en:'My child has a fever. Can we get seen today?'},
+  // 🏦 Banking (15)
+  {tab:1,scene:'🏦 银行金融',cn:'我想开一个银行账户。',en:"I'd like to open a bank account."},
+  {tab:1,scene:'🏦 银行金融',cn:'我想转账五百美元。',en:"I'd like to transfer five hundred dollars."},
+  {tab:1,scene:'🏦 银行金融',cn:'我的信用卡被盗刷了。',en:'My credit card has been used fraudulently.'},
+  {tab:1,scene:'🏦 银行金融',cn:'请问最近的ATM在哪？',en:"Where is the nearest ATM?"},
+  {tab:1,scene:'🏦 银行金融',cn:'我想查一下我的账户余额。',en:"I'd like to check my account balance."},
+  {tab:1,scene:'🏦 银行金融',cn:'我需要挂失我的银行卡。',en:'I need to report my bank card as lost.'},
+  {tab:1,scene:'🏦 银行金融',cn:'这笔转账需要多长时间？',en:'How long will this transfer take?'},
+  {tab:1,scene:'🏦 银行金融',cn:'我想申请一张信用卡。',en:"I'd like to apply for a credit card."},
+  {tab:1,scene:'🏦 银行金融',cn:'汇率是多少？',en:"What's the exchange rate?"},
+  {tab:1,scene:'🏦 银行金融',cn:'我需要换一些外币。',en:'I need to exchange some foreign currency.'},
+  {tab:1,scene:'🏦 银行金融',cn:'能帮我打一份对账单吗？',en:'Could you print a bank statement for me?'},
+  {tab:1,scene:'🏦 银行金融',cn:'手续费是多少？',en:"What's the transaction fee?"},
+  {tab:1,scene:'🏦 银行金融',cn:'我忘记了网银密码。',en:'I forgot my online banking password.'},
+  {tab:1,scene:'🏦 银行金融',cn:'这是我的账户信息。',en:"Here are my account details."},
+  {tab:1,scene:'🏦 银行金融',cn:'这张支票可以存入吗？',en:'Can I deposit this check?'},
+  // 📱 Tech & Digital (18)
+  {tab:1,scene:'📱 科技数字',cn:'我的手机没网了。',en:"My phone has no internet connection."},
+  {tab:1,scene:'📱 科技数字',cn:'我能连接你家的WiFi吗？',en:'Can I connect to your WiFi?'},
+  {tab:1,scene:'📱 科技数字',cn:'WiFi密码是什么？',en:"What's the WiFi password?"},
+  {tab:1,scene:'📱 科技数字',cn:'我的电脑死机了。',en:'My computer crashed.'},
+  {tab:1,scene:'📱 科技数字',cn:'可以帮我修一下这个bug吗？',en:'Can you help me fix this bug?'},
+  {tab:1,scene:'📱 科技数字',cn:'这个APP怎么下载？',en:'How do I download this app?'},
+  {tab:1,scene:'📱 科技数字',cn:'我需要更新一下软件。',en:'I need to update the software.'},
+  {tab:1,scene:'📱 科技数字',cn:'这个文件能发给我吗？',en:'Could you send me this file?'},
+  {tab:1,scene:'📱 科技数字',cn:'充电线借我用一下好吗？',en:'Could I borrow your charger?'},
+  {tab:1,scene:'📱 科技数字',cn:'屏幕共享一下好吗？',en:'Can you share your screen?'},
+  {tab:1,scene:'📱 科技数字',cn:'视频会议的链接是什么？',en:"What's the video call link?"},
+  {tab:1,scene:'📱 科技数字',cn:'我的麦克风好像没声音。',en:"My microphone doesn't seem to be working."},
+  {tab:1,scene:'📱 科技数字',cn:'重启一下试试。',en:'Try restarting it.'},
+  {tab:1,scene:'📱 科技数字',cn:'我需要买一个新的硬盘。',en:'I need to buy a new hard drive.'},
+  {tab:1,scene:'📱 科技数字',cn:'这个文件太大了，发不过去。',en:"This file is too large to send."},
+  {tab:1,scene:'📱 科技数字',cn:'能帮我把这个转成PDF吗？',en:'Could you convert this to a PDF for me?'},
+  {tab:1,scene:'📱 科技数字',cn:'我的系统需要升级了。',en:'My system needs an upgrade.'},
+  {tab:1,scene:'📱 科技数字',cn:'这个密码太简单了，要设复杂一点。',en:"This password is too simple. It should be more complex."},
+  // 🏋️ Sports & Fitness (15)
+  {tab:1,scene:'🏋️ 运动健身',cn:'你平时做什么运动？',en:'What kind of exercise do you usually do?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我每天早上跑步。',en:'I run every morning.'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'你能教我怎么做这个动作吗？',en:'Can you show me how to do this exercise?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我想报名参加健身课。',en:"I'd like to sign up for a fitness class."},
+  {tab:1,scene:'🏋️ 运动健身',cn:'健身房几点开门？',en:'What time does the gym open?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我的腿酸疼，需要拉伸。',en:'My legs are sore. I need to stretch.'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我需要买一双跑鞋。',en:'I need to buy a pair of running shoes.'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'你上个月减了多少斤？',en:'How much weight did you lose last month?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我想增肌，怎么练？',en:'I want to build muscle. How should I train?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'游泳比跑步消耗更多卡路里吗？',en:'Does swimming burn more calories than running?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'我最近每周打两次球。',en:"I've been playing ball twice a week lately."},
+  {tab:1,scene:'🏋️ 运动健身',cn:'运动完记得补充水分。',en:'Remember to hydrate after exercise.'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'有一起打羽毛球的吗？',en:'Anyone up for badminton?'},
+  {tab:1,scene:'🏋️ 运动健身',cn:'健身房的月卡多少钱？',en:"How much is the gym's monthly membership?"},
+  {tab:1,scene:'🏋️ 运动健身',cn:'今天练得真不错！',en:'Great workout today!'},
+  // 👨‍👩‍👧 Family Life (17)
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'你的孩子多大了？',en:'How old is your child?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'孩子放学了，去接一下吧。',en:"School is out. Let's go pick up the kids."},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'今晚陪孩子做作业。',en:"I'll help the kids with their homework tonight."},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'孩子最近成绩怎么样？',en:"How are the kids doing in school lately?"},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'这个周末带孩子去公园吧。',en:"Let's take the kids to the park this weekend."},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'孩子参加了什么兴趣班？',en:'What after-school activities does your child do?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'父母节安排了什么活动吗？',en:'Do you have anything planned for Parents\' Day?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'需要帮孩子报个补习班吗？',en:'Should we sign the kids up for tutoring?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'和家人保持联系很重要。',en:'Staying in touch with family is important.'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'我想多花点时间陪家人。',en:'I want to spend more quality time with my family.'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'今年春节你们回家过吗？',en:'Are you going home for the Spring Festival this year?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'我父母最近身体还好吗？',en:'How are your parents doing lately?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'你有几个兄弟姐妹？',en:'How many brothers and sisters do you have?'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'家人是最重要的支持。',en:'Family is the most important support.'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'我希望孩子能快乐成长。',en:'I hope my children grow up happy.'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'家庭晚餐是我最喜欢的时刻。',en:'Family dinner is my favorite time of day.'},
+  {tab:1,scene:'👨‍👩‍👧 家庭亲子',cn:'孩子越来越有主见了。',en:'The kids are becoming more independent.'},
+  // 🌍 Travel (17)
+  {tab:1,scene:'🌍 旅行住宿',cn:'我想预订一间双人间。',en:"I'd like to book a double room."},
+  {tab:1,scene:'🌍 旅行住宿',cn:'入住时间是几点？',en:"What time is check-in?"},
+  {tab:1,scene:'🌍 旅行住宿',cn:'可以提前入住吗？',en:'Is early check-in possible?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'早餐包含在房费里吗？',en:'Is breakfast included in the room rate?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'房间里的空调坏了。',en:"The air conditioning in my room isn't working."},
+  {tab:1,scene:'🌍 旅行住宿',cn:'能帮我叫一辆出租车去机场吗？',en:'Could you call a taxi to the airport for me?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'我需要一张当地的地图。',en:'I need a local map.'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'这里附近有什么值得去的景点？',en:"What sights are worth visiting near here?"},
+  {tab:1,scene:'🌍 旅行住宿',cn:'护照和签证准备好了吗？',en:'Have you got your passport and visa ready?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'我的行李箱超重了。',en:'My suitcase is overweight.'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'登机口在哪里？',en:"Where's the boarding gate?"},
+  {tab:1,scene:'🌍 旅行住宿',cn:'航班延误了多长时间？',en:'How long is the flight delayed?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'我需要申报这件物品吗？',en:'Do I need to declare this item?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'这是我的行程单。',en:"Here's my itinerary."},
+  {tab:1,scene:'🌍 旅行住宿',cn:'有没有无烟客房？',en:'Do you have non-smoking rooms?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'能帮我把行李存放一下吗？',en:'Could you store my luggage for a while?'},
+  {tab:1,scene:'🌍 旅行住宿',cn:'这次旅行真令人难忘。',en:'This trip has been truly unforgettable.'},
+
+  // ===== TAB 2: WORK ENGLISH (100) =====
+  // 📋 Meetings & Communication (20)
+  {tab:2,scene:'📋 会议沟通',cn:'我们把会议安排在明天上午十点。',en:"Let's schedule the meeting for 10 a.m. tomorrow."},
+  {tab:2,scene:'📋 会议沟通',cn:'能把会议纪要发给大家吗？',en:'Could you send the meeting minutes to everyone?'},
+  {tab:2,scene:'📋 会议沟通',cn:'请注意时间，我们只有三十分钟。',en:"Please be mindful of the time — we only have 30 minutes."},
+  {tab:2,scene:'📋 会议沟通',cn:'我来做一下开场介绍。',en:"Let me give a brief introduction to kick things off."},
+  {tab:2,scene:'📋 会议沟通',cn:'有没有人对此有异议？',en:'Does anyone have any objections?'},
+  {tab:2,scene:'📋 会议沟通',cn:'我们先对齐一下今天的议程。',en:"Let's align on today's agenda first."},
+  {tab:2,scene:'📋 会议沟通',cn:'这个问题我们线下再讨论。',en:"Let's take this offline."},
+  {tab:2,scene:'📋 会议沟通',cn:'能再重复一遍吗？我没听清楚。',en:"Could you repeat that? I didn't catch it."},
+  {tab:2,scene:'📋 会议沟通',cn:'我这边网络不太好，你能再说一遍吗？',en:"My connection isn't great here. Could you say that again?"},
+  {tab:2,scene:'📋 会议沟通',cn:'这个议题我们先停一下，下次再讨论。',en:"Let's park this topic and revisit it next time."},
+  {tab:2,scene:'📋 会议沟通',cn:'我想补充一点。',en:"I'd like to add one more point."},
+  {tab:2,scene:'📋 会议沟通',cn:'请各位发言简洁一点。',en:'Please keep your comments brief.'},
+  {tab:2,scene:'📋 会议沟通',cn:'我们今天的会议到此结束。',en:"That wraps up today's meeting."},
+  {tab:2,scene:'📋 会议沟通',cn:'感谢大家的参与。',en:'Thank you all for joining.'},
+  {tab:2,scene:'📋 会议沟通',cn:'下一步我们怎么做？',en:"What's our next step?"},
+  {tab:2,scene:'📋 会议沟通',cn:'谁来负责跟进这件事？',en:"Who will be responsible for following up on this?"},
+  {tab:2,scene:'📋 会议沟通',cn:'我有一个快速问题想问你。',en:'I have a quick question for you.'},
+  {tab:2,scene:'📋 会议沟通',cn:'我们现在全部在线了。',en:"We're all online now."},
+  {tab:2,scene:'📋 会议沟通',cn:'请静音一下你的麦克风。',en:'Please mute your microphone.'},
+  {tab:2,scene:'📋 会议沟通',cn:'我们需要讨论一个紧急问题。',en:'We need to discuss an urgent matter.'},
+  // 📊 Reporting & Presentations (18)
+  {tab:2,scene:'📊 数据汇报',cn:'根据最新数据显示，我们增长了15%。',en:'According to the latest data, we grew by 15%.'},
+  {tab:2,scene:'📊 数据汇报',cn:'本周订单量比上周增加了20%。',en:'Order volume this week increased by 20% compared to last week.'},
+  {tab:2,scene:'📊 数据汇报',cn:'这张图表展示了过去三个月的趋势。',en:'This chart shows the trend over the past three months.'},
+  {tab:2,scene:'📊 数据汇报',cn:'关键指标已经超过了目标值。',en:'The key metrics have exceeded the target.'},
+  {tab:2,scene:'📊 数据汇报',cn:'我们需要找到数据下滑的根本原因。',en:'We need to identify the root cause of the data decline.'},
+  {tab:2,scene:'📊 数据汇报',cn:'转化率目前是3.2%。',en:'The conversion rate is currently 3.2%.'},
+  {tab:2,scene:'📊 数据汇报',cn:'我来解读一下这个数字的背景。',en:'Let me put this number in context.'},
+  {tab:2,scene:'📊 数据汇报',cn:'本季度GMV达到了历史高位。',en:'GMV reached an all-time high this quarter.'},
+  {tab:2,scene:'📊 数据汇报',cn:'我们分城市看一下数据表现。',en:"Let's look at the data performance by city."},
+  {tab:2,scene:'📊 数据汇报',cn:'同比增长35%，环比增长8%。',en:'Year-on-year growth is 35%, and month-on-month is 8%.'},
+  {tab:2,scene:'📊 数据汇报',cn:'下周我会提交完整的报告。',en:"I'll submit the full report next week."},
+  {tab:2,scene:'📊 数据汇报',cn:'这个数据有没有异常值需要排除？',en:'Are there any outliers in this data that we should exclude?'},
+  {tab:2,scene:'📊 数据汇报',cn:'我们重点看一下高线城市的数据。',en:"Let's focus on the data from higher-tier cities."},
+  {tab:2,scene:'📊 数据汇报',cn:'数据来源是我们的内部系统。',en:'The data source is our internal system.'},
+  {tab:2,scene:'📊 数据汇报',cn:'整体上看，趋势是正向的。',en:'Overall, the trend is positive.'},
+  {tab:2,scene:'📊 数据汇报',cn:'我们来对比一下目标完成情况。',en:"Let's compare the target completion status."},
+  {tab:2,scene:'📊 数据汇报',cn:'有任何问题欢迎提问。',en:'Please feel free to ask any questions.'},
+  {tab:2,scene:'📊 数据汇报',cn:'关键结论是：我们需要加速扩张。',en:'The key takeaway is: we need to accelerate expansion.'},
+  // 🤝 Teamwork (18)
+  {tab:2,scene:'🤝 团队协作',cn:'这件事我们来分工合作。',en:"Let's divide and conquer this."},
+  {tab:2,scene:'🤝 团队协作',cn:'这个任务需要你来主导。',en:'You need to take the lead on this task.'},
+  {tab:2,scene:'🤝 团队协作',cn:'有什么我能帮到你的吗？',en:'Is there anything I can help you with?'},
+  {tab:2,scene:'🤝 团队协作',cn:'你最近工作压力大吗？',en:'Have you been under a lot of pressure at work lately?'},
+  {tab:2,scene:'🤝 团队协作',cn:'我们的目标是一致的。',en:'We are aligned on our goals.'},
+  {tab:2,scene:'🤝 团队协作',cn:'请在截止日期前完成。',en:'Please complete this before the deadline.'},
+  {tab:2,scene:'🤝 团队协作',cn:'这个问题需要跨部门协作。',en:'This issue requires cross-department collaboration.'},
+  {tab:2,scene:'🤝 团队协作',cn:'我们需要更好地对齐优先级。',en:'We need to better align on priorities.'},
+  {tab:2,scene:'🤝 团队协作',cn:'你的意见对团队很有价值。',en:'Your input is very valuable to the team.'},
+  {tab:2,scene:'🤝 团队协作',cn:'团队协作是我们成功的关键。',en:'Teamwork is the key to our success.'},
+  {tab:2,scene:'🤝 团队协作',cn:'我们要建立更好的沟通机制。',en:'We need to build better communication processes.'},
+  {tab:2,scene:'🤝 团队协作',cn:'这件事你可以找我帮忙。',en:'Feel free to come to me for help on this.'},
+  {tab:2,scene:'🤝 团队协作',cn:'你的进展怎么样了？',en:"How's your progress coming along?"},
+  {tab:2,scene:'🤝 团队协作',cn:'我们需要整个团队一起努力。',en:'We need the whole team to push together.'},
+  {tab:2,scene:'🤝 团队协作',cn:'我来协调各方的资源。',en:"I'll coordinate resources from all sides."},
+  {tab:2,scene:'🤝 团队协作',cn:'这个任务优先级最高。',en:'This task has the highest priority.'},
+  {tab:2,scene:'🤝 团队协作',cn:'有任何阻碍请及时告诉我。',en:'Please let me know right away if anything is blocking you.'},
+  {tab:2,scene:'🤝 团队协作',cn:'感谢大家的配合和努力！',en:"Thank you all for your cooperation and hard work!"},
+  // 📧 Emails & Messages (15)
+  {tab:2,scene:'📧 邮件消息',cn:'请查收我刚发的邮件。',en:'Please check the email I just sent you.'},
+  {tab:2,scene:'📧 邮件消息',cn:'我已将您添加为抄送。',en:"I've added you to the CC."},
+  {tab:2,scene:'📧 邮件消息',cn:'请尽快回复这封邮件。',en:'Please reply to this email as soon as possible.'},
+  {tab:2,scene:'📧 邮件消息',cn:'邮件附件里有详细资料。',en:'The attachment has the detailed information.'},
+  {tab:2,scene:'📧 邮件消息',cn:'请确认收到后给我回复一下。',en:'Please confirm receipt with a quick reply.'},
+  {tab:2,scene:'📧 邮件消息',cn:'我今天上午会发出这份提案。',en:"I'll send out this proposal this morning."},
+  {tab:2,scene:'📧 邮件消息',cn:'关于这件事，请参考以下要点。',en:'Regarding this matter, please refer to the following key points.'},
+  {tab:2,scene:'📧 邮件消息',cn:'如有任何问题，请随时联系我。',en:'If you have any questions, please feel free to reach out.'},
+  {tab:2,scene:'📧 邮件消息',cn:'感谢您的及时回复。',en:'Thank you for your prompt response.'},
+  {tab:2,scene:'📧 邮件消息',cn:'根据您的要求，我在附件里附上了文件。',en:'As requested, I have attached the document.'},
+  {tab:2,scene:'📧 邮件消息',cn:'请在今天下班前确认。',en:'Please confirm before the end of business today.'},
+  {tab:2,scene:'📧 邮件消息',cn:'我会跟进并在明天上午更新你。',en:"I'll follow up and update you tomorrow morning."},
+  {tab:2,scene:'📧 邮件消息',cn:'请转告相关团队。',en:'Please forward this to the relevant teams.'},
+  {tab:2,scene:'📧 邮件消息',cn:'我在消息里@了你，请查收。',en:"I've mentioned you in the message. Please check."},
+  {tab:2,scene:'📧 邮件消息',cn:'此邮件仅供参考，不作为正式文件。',en:'This email is for reference only and is not an official document.'},
+  // 💡 Problem Solving (15)
+  {tab:2,scene:'💡 问题解决',cn:'我们来分析一下根本原因。',en:"Let's analyze the root cause."},
+  {tab:2,scene:'💡 问题解决',cn:'我们有几个方案可以选择。',en:'We have a few options to consider.'},
+  {tab:2,scene:'💡 问题解决',cn:'这个问题有多紧急？',en:'How urgent is this issue?'},
+  {tab:2,scene:'💡 问题解决',cn:'我建议我们先做一个快速修复。',en:'I suggest we start with a quick fix.'},
+  {tab:2,scene:'💡 问题解决',cn:'这个方案的风险是什么？',en:"What's the risk of this approach?"},
+  {tab:2,scene:'💡 问题解决',cn:'我们来评估一下利弊。',en:"Let's weigh the pros and cons."},
+  {tab:2,scene:'💡 问题解决',cn:'先解决最紧迫的问题。',en:'Let\'s address the most pressing issue first.'},
+  {tab:2,scene:'💡 问题解决',cn:'需要升级反馈给上级吗？',en:'Should we escalate this to management?'},
+  {tab:2,scene:'💡 问题解决',cn:'这个问题下周能解决吗？',en:'Can we resolve this issue by next week?'},
+  {tab:2,scene:'💡 问题解决',cn:'谁来负责执行这个方案？',en:"Who will be responsible for executing this plan?"},
+  {tab:2,scene:'💡 问题解决',cn:'我们从数据里找一下线索。',en:"Let's look for clues in the data."},
+  {tab:2,scene:'💡 问题解决',cn:'这个解决方案可以长期使用吗？',en:'Is this solution sustainable long-term?'},
+  {tab:2,scene:'💡 问题解决',cn:'我们需要一个B计划。',en:'We need a Plan B.'},
+  {tab:2,scene:'💡 问题解决',cn:'问题已经解决了，感谢大家的配合。',en:"The issue has been resolved. Thanks everyone for your cooperation."},
+  {tab:2,scene:'💡 问题解决',cn:'我会在解决后给大家发更新。',en:"I'll send everyone an update once it's resolved."},
+  // 🌟 Performance & Feedback (14)
+  {tab:2,scene:'🌟 绩效反馈',cn:'你这个季度的表现非常出色。',en:'Your performance this quarter has been outstanding.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'我对你的工作质量很满意。',en:"I'm very satisfied with the quality of your work."},
+  {tab:2,scene:'🌟 绩效反馈',cn:'我希望你在沟通上能更主动一些。',en:'I hope you can be more proactive in your communication.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'你的执行力非常强，继续保持。',en:'Your execution is very strong. Keep it up.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'我们来谈谈你的职业发展方向。',en:"Let's talk about your career development direction."},
+  {tab:2,scene:'🌟 绩效反馈',cn:'你在哪些方面还需要提升？',en:'What areas do you still need to improve in?'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'你达到了本季度的所有目标。',en:'You met all your goals for this quarter.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'这次的项目你做得很好。',en:'You did a great job on this project.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'请继续保持高标准。',en:'Please continue to maintain high standards.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'有什么我可以支持你的吗？',en:'Is there anything I can do to support you?'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'你的领导力在团队中有目共睹。',en:'Your leadership is recognized by the whole team.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'这次评估结果非常积极。',en:'The results of this evaluation are very positive.'},
+  {tab:2,scene:'🌟 绩效反馈',cn:'我期待看到你下个季度的进步。',en:"I look forward to seeing your progress next quarter."},
+  {tab:2,scene:'🌟 绩效反馈',cn:'感谢你为团队所做的贡献。',en:'Thank you for your contributions to the team.'}
+];
+
+// Topics data
+var TOPICS = [
+  {
+    date: 'March 30, 2026',
+    title: 'How I Used My AI Assistant in Week One',
+    body: 'This week, I started working with my AI assistant, LingLing. In just five days, she helped me automate my daily business reports, organize merchant data, and even create English learning tools for my team. I used to spend over an hour every morning reviewing numbers. Now it takes ten minutes. The key was learning to give clear instructions and trust the process. My advice: start simple. Ask your AI to do one thing well, then add more. It changed how I work completely. I believe every manager should try this.'
+  },
+  {
+    date: 'June 15, 2026',
+    title: 'BDM Selection — Topic 1: Leonardo Francisco',
+    cn: 'Leonardo非常优秀，也很全面。他具备较强的业务能力和综合素质。但是考虑到他刚刚回到东北部地区发展，我认为他可能更适合在东北部地区担任BDM。我会和Paulo进一步沟通，了解他是否希望Leonardo加入他的团队。',
+    body: 'Leonardo is a very strong and well-rounded candidate. He has solid business skills and a broad range of capabilities. However, since he recently returned to the Northeast region, I believe he may be a better fit for a BDM role there. I will discuss with Paulo whether he would like Leonardo to join his team.'
+  },
+  {
+    date: 'June 15, 2026',
+    title: 'BDM Selection — Topic 2: Cristiane da Silva',
+    cn: 'Cristiane拥有非常好的客户关系和卓越的业绩表现。她获得过很多荣誉，是一位杰出的业绩贡献者，同时也是客户关系维护方面的优秀代表。不过，我认为她在数据分析方面还有提升空间。同时，她没有很好地总结和沉淀自己的成功方法。因此，我担心未来作为BDM，她对BD团队的辅导和培养能力可能会相对较弱。',
+    body: 'Cristiane has excellent client relationships and outstanding performance. She has received many awards and recognitions. She is a strong contributor to business results and an excellent relationship builder. However, I believe she still has room to improve in data analysis. In addition, she has not clearly demonstrated a structured methodology that can be transferred to others. Therefore, I am concerned that her ability to coach and develop BDs may be relatively limited in the future.'
+  },
+  {
+    date: 'June 15, 2026',
+    title: 'BDM Selection — Topic 3: Fernando Oliveira',
+    cn: 'Fernando拥有Ifood的工作经验和背景，这使他非常适合面对激烈的市场竞争。他展现出了很强的业务能力和激情。不过，我认为他在管理方面的思考还不够充分。同时，他也没有很好地展示个人成绩和成果。因此，我认为他还有一些方面需要进一步提升。',
+    body: 'Fernando brings valuable experience from Ifood, which makes him well prepared for a highly competitive market. He has strong business capabilities and great passion. However, I believe he has demonstrated less management thinking compared with other candidates. In addition, he did not clearly showcase his personal achievements and impact. I believe there is still room for further development before stepping into a BDM role.'
+  },
+  {
+    date: 'June 15, 2026',
+    title: 'BDM Selection — Topic 4: Lucas Ferreira',
+    cn: '在四位候选人中，Lucas展现出了最强的可复制方法论。他将"Found KP"从个人验证成功推广到团队规模化执行，这是四个人中最接近BDM思维方式的表现。同时，他的数据质量也是四位候选人中最高的，分析逻辑清晰，执行路径明确。不过，他的展示更多聚焦于个人表现，缺少团队建设、市场洞察以及跨团队协作等方面的视角。',
+    body: 'Among the four candidates, Lucas demonstrated the strongest replicable methodology. He scaled the "Found KP" approach from personal validation to team-wide execution, which is the closest demonstration of BDM thinking among all four candidates. He also showed exceptional data quality, with clear analysis and a strong execution framework. However, his presentation was more focused on individual performance. I would like to see more perspectives on team development, market strategy, and cross-functional collaboration.'
+  },
+  {
+    date: 'June 15, 2026',
+    title: 'BDM Selection — Overall Recommendation',
+    cn: '如果从BDM的角度进行评估，我认为Lucas目前是最接近目标画像的候选人。他展现出了较强的方法论、规模化思维以及数据驱动能力。Leonardo是一位非常全面且成熟的候选人，但需要结合区域需求进一步考虑。Cristiane在客户关系和业绩方面表现突出，但需要进一步提升数据分析和团队辅导能力。Fernando拥有很强的竞争意识和业务能力，但还需要加强管理思维和成果展示。总体来看，四位候选人都有成为优秀BDM的潜力。',
+    body: 'From a BDM perspective, I believe Lucas is currently the closest match to the profile we are looking for. His methodology, scalability, and data-driven mindset clearly stand out. Leonardo is a very mature and well-rounded candidate, but his next opportunity may depend on regional needs. Cristiane stands out in client relationship management and performance, but she would benefit from stronger data analysis and coaching capabilities. Fernando brings strong competitive experience and business skills, but he still needs to further develop his management perspective and demonstrate greater impact. Overall, all four candidates have strong potential to become successful BDMs in the future.'
+  },
+  {
+    date: 'July 5, 2026',
+    title: 'All Hands Speech — §1 First Half Review',
+    cn: '回顾上半年，在团队方面，我们为SMB培养和晋升了很多BD、BDM和CM，也为SMB X团队输送了很多优秀人才。在业务方面，我们都市圈区域实现卓越的业绩增长，其中桑托斯日均订单量也打破了记录。同时，我们也成功防守了来自99的独家，我们创造了很多打破99独家的成功案例，感谢你们卓越的表现！',
+    body: 'Looking back at the first half of the year, we achieved many great things. For our team, we developed and promoted many BDs, BDMs and CMs for SMB, and also sent many excellent talents to the SMB X team. In business, our Metropolitan region achieved outstanding growth. Santos also reached a new record for daily orders. At the same time, we successfully defended against 99\'s exclusives. We created many successful cases of breaking 99\'s exclusives. Thank you for your outstanding performance!'
+  },
+  {
+    date: 'July 5, 2026',
+    title: 'All Hands Speech — §2 Santos X Story',
+    cn: '在这里，我想特别说一说关于Santos X团队的故事。Santos X团队正在面临最艰难的挑战，在Caio和Jay的带领下，Santos X团队已经累计签约了很多破独的大商家。\n\n（互动：Caio，你在哪里？）\n\n上周，我陪访了一个桑托斯巴西菜品类的头部商家，竞争对手提供了非常高价格的方案争夺，Caio和Victor非常的专业和耐心，我们坚持让KP理解Keeta的价值、以及让KP信任我们，最终，经过6个小时的战斗，我们不仅签约了合同，还用更低的价格的方案实现了签约。而这个故事还在继续，让我们一起为Santos X团队加油！',
+    body: 'Today, I especially want to share a story about the Santos X team. The Santos X team is facing the biggest challenge. Under the leadership of Caio and Jay, they have signed many important exclusive merchants.\n\nCaio, where are you?\n\nLast week, I visited a top Brazilian food merchant in Santos together with the team. Our competitor offered a very high price to win this merchant. Caio and Victor were very professional and very patient. We insisted on making the KP understand Keeta\'s value, and making the KP trust us. Finally, after 6 hours of fighting, we not only signed the contract, but also signed with a lower-price plan. And this story is still going on. Let\'s cheer for Santos X team together!'
+  },
+  {
+    date: 'July 5, 2026',
+    title: 'All Hands Speech — §3 Closing',
+    cn: '让我们一起战斗、一起成长！都市圈必胜！SMB必胜！',
+    body: 'Let\'s fight together, grow together! Metropolitan will win! SMB will win!'
+  }
+];
+
+// ============================================================
+// State
+// ============================================================
+var currentTab = 0;
+var listenMode = false;
+var starOnly = false;
+var sceneFilters = {0: '', 1: '', 2: ''};
+var tagStates = loadState('tags');  // {id: 'star'|'done'|''}
+var deletedIds = loadState('deleted');  // {id: true}
+
+function getCardId(item, index) {
+  return 't' + item.tab + '_' + index;
+}
+
+// ============================================================
+// Render
+// ============================================================
+function getTabData(tab) {
+  return DATA.filter(function(d, i) {
+    return d.tab === tab && !deletedIds[getCardId(d, DATA.indexOf(d))];
+  });
+}
+
+function getScenes(tab) {
+  var scenes = [];
+  var seen = {};
+  DATA.forEach(function(d) {
+    if (d.tab === tab && !seen[d.scene]) {
+      seen[d.scene] = true;
+      scenes.push(d.scene);
+    }
+  });
+  return scenes;
+}
+
+function renderSceneFilter(tab) {
+  var el = document.getElementById('scene-filter-' + tab);
+  if (!el) return;
+  var scenes = getScenes(tab);
+  var html = '<button class="scene-btn' + (sceneFilters[tab] === '' ? ' active' : '') + '" onclick="setScene(' + tab + ', \'\')">全部</button>';
+  scenes.forEach(function(s) {
+    html += '<button class="scene-btn' + (sceneFilters[tab] === s ? ' active' : '') + '" onclick="setScene(' + tab + ', \'' + s.replace(/'/g, "\\'") + '\')">' + s + '</button>';
+  });
+  el.innerHTML = html;
+}
+
+function setScene(tab, scene) {
+  sceneFilters[tab] = scene;
+  renderSceneFilter(tab);
+  filterCards(tab);
+}
+
+function filterCards(tab) {
+  var query = (document.getElementById('search-' + tab) || {value:''}).value.toLowerCase();
+  var scene = sceneFilters[tab] || '';
+  var grid = document.getElementById('grid-' + tab);
+  var empty = document.getElementById('empty-' + tab);
+  if (!grid) return;
+  var cards = grid.querySelectorAll('.card-wrap');
+  var visible = 0;
+  cards.forEach(function(wrap) {
+    var cn = (wrap.dataset.cn || '').toLowerCase();
+    var en = (wrap.dataset.en || '').toLowerCase();
+    var sc = wrap.dataset.scene || '';
+    var id = wrap.dataset.id;
+    var tag = tagStates[id] || '';
+    var matchQuery = !query || cn.includes(query) || en.includes(query);
+    var matchScene = !scene || sc === scene;
+    var matchStar = !starOnly || tag === 'star';
+    if (matchQuery && matchScene && matchStar) {
+      wrap.style.display = '';
+      visible++;
+    } else {
+      wrap.style.display = 'none';
+    }
+  });
+  if (empty) empty.style.display = visible === 0 ? '' : 'none';
+  updateDash(tab);
+}
+
+function renderCards(tab) {
+  var grid = document.getElementById('grid-' + tab);
+  if (!grid) return;
+  var html = '';
+  DATA.forEach(function(d, i) {
+    if (d.tab !== tab) return;
+    var id = getCardId(d, i);
+    if (deletedIds[id]) return;
+    var tag = tagStates[id] || '';
+    html += renderCard(d, i, id, tag);
+  });
+  grid.innerHTML = html;
+  renderSceneFilter(tab);
+  filterCards(tab);
+  updateDash(tab);
+}
+
+function renderCard(d, i, id, tag) {
+  var starClass = tag === 'star' ? ' tagged-star' : '';
+  var doneClass = tag === 'done' ? ' tagged-done' : '';
+  var cid = 'se-card-' + id;
+  var wordSpans = SpeechEngine.buildWordSpans(d.en, cid);
+  var player = SpeechEngine.buildPlayer(cid, d.en);
+  return '<div class="card-wrap" data-id="' + id + '" data-cn="' + escHtml(d.cn) + '" data-en="' + escHtml(d.en) + '" data-scene="' + escHtml(d.scene) + '">' +
+    '<div class="flip-card" id="card-' + id + '" onclick="flipCard(\'' + id + '\')">' +
+      '<div class="flip-inner">' +
+        '<div class="flip-front">' +
+          '<div class="card-actions">' +
+            '<button class="card-action-btn' + starClass + '" onclick="tagCard(event,\'' + id + '\',\'star\')" title="重要">⭐</button>' +
+            '<button class="card-action-btn' + doneClass + '" onclick="tagCard(event,\'' + id + '\',\'done\')" title="掌握">✅</button>' +
+            '<button class="card-action-btn" onclick="deleteCard(event,\'' + id + '\')" title="删除">🗑</button>' +
+          '</div>' +
+          '<div class="card-cn">' + escHtml(d.cn) + '</div>' +
+          '<div class="card-scene-tag">' + escHtml(d.scene) + '</div>' +
+        '</div>' +
+        '<div class="flip-back" onclick="event.stopPropagation()">' +
+          '<div class="card-actions">' +
+            '<button class="card-action-btn' + starClass + '" onclick="tagCard(event,\'' + id + '\',\'star\')" title="重要">⭐</button>' +
+            '<button class="card-action-btn' + doneClass + '" onclick="tagCard(event,\'' + id + '\',\'done\')" title="掌握">✅</button>' +
+          '</div>' +
+          '<div class="card-en">' + wordSpans + '</div>' +
+          player +
+          '<div class="card-hint" style="margin-top:8px">点击翻回</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function updateDash(tab) {
+  var items = DATA.filter(function(d, i) { return d.tab === tab && !deletedIds[getCardId(d, i)]; });
+  var total = items.length;
+  var done = items.filter(function(d, i) {
+    var idx = DATA.indexOf(d);
+    return tagStates[getCardId(d, idx)] === 'done';
+  }).length;
+  var star = items.filter(function(d, i) {
+    var idx = DATA.indexOf(d);
+    return tagStates[getCardId(d, idx)] === 'star';
+  }).length;
+  var pct = total > 0 ? Math.round(done / total * 100) : 0;
+  var tEl = document.getElementById('dash-total-' + tab);
+  var dEl = document.getElementById('dash-done-' + tab);
+  var sEl = document.getElementById('dash-star-' + tab);
+  var bEl = document.getElementById('dash-bar-' + tab);
+  if (tEl) tEl.textContent = total;
+  if (dEl) dEl.textContent = done;
+  if (sEl) sEl.textContent = star;
+  if (bEl) bEl.style.width = pct + '%';
+}
+
+function renderTopics() {
+  var list = document.getElementById('topics-list');
+  if (!list) return;
+  var html = '';
+  TOPICS.forEach(function(t, i) {
+    var cid = 'se-topic-' + i;
+    var cnBlock = t.cn ? '<div class="topic-cn" style="font-size:13px;line-height:1.85;color:#888;margin-bottom:10px;padding:10px 12px;background:#fff5f5;border-radius:10px;border-left:3px solid #ff4b4b;">' + escHtml(t.cn) + '</div>' : '';
+    html += '<div class="topic-card">' +
+      '<div class="topic-date">📅 ' + t.date + '</div>' +
+      '<div class="topic-title">' + escHtml(t.title) + '</div>' +
+      cnBlock +
+      '<div class="topic-body" id="topic-body-' + i + '" style="font-size:14px;line-height:2;font-weight:500">' + SpeechEngine.buildWordSpans(t.body, cid) + '</div>' +
+      SpeechEngine.buildPlayer(cid, t.body) +
+      '<div class="topic-actions" style="margin-top:8px">' +
+        '<button class="topic-btn topic-btn-copy" onclick="copyTopic(' + i + ')">📋 复制</button>' +
+      '</div>' +
+    '</div>';
+  });
+  list.innerHTML = html;
+}
+
+// ============================================================
+// Actions
+// ============================================================
+function flipCard(id) {
+  var el = document.getElementById('card-' + id);
+  if (el) el.classList.toggle('flipped');
+}
+
+function tagCard(e, id, type) {
+  e.stopPropagation();
+  var cur = tagStates[id] || '';
+  var newTag = (cur === type) ? '' : type;
+  tagStates[id] = newTag;
+  saveState('tags', tagStates);
+  // Update all matching cards (front and back)
+  var allWraps = document.querySelectorAll('[data-id="' + id + '"]');
+  allWraps.forEach(function(wrap) {
+    var starBtns = wrap.querySelectorAll('.card-action-btn');
+    starBtns.forEach(function(btn) {
+      btn.classList.remove('tagged-star', 'tagged-done');
+    });
+    if (newTag === 'star') {
+      wrap.querySelectorAll('.card-action-btn:first-child').forEach(function(b) { b.classList.add('tagged-star'); });
+    } else if (newTag === 'done') {
+      wrap.querySelectorAll('.card-action-btn:nth-child(2)').forEach(function(b) { b.classList.add('tagged-done'); });
+    }
+  });
+  updateDash(currentTab);
+  if (newTag === 'done') showToast('✅ 已标记为掌握');
+  else if (newTag === 'star') showToast('⭐ 已标记为重要');
+  else showToast('标记已取消');
+}
+
+function deleteCard(e, id) {
+  e.stopPropagation();
+  deletedIds[id] = true;
+  saveState('deleted', deletedIds);
+  var wrap = document.querySelector('[data-id="' + id + '"]');
+  if (wrap) wrap.remove();
+  updateDash(currentTab);
+  showToast('🗑 已删除');
+}
+
+// speakText removed — using SpeechEngine directly
+
+// speakTopic removed — using SpeechEngine directly
+
+function copyTopic(i) {
+  var t = TOPICS[i];
+  var text = t.title + '\n\n' + t.body;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() { showToast('📋 已复制到剪贴板'); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('📋 已复制到剪贴板');
+  }
+}
+
+function switchTab(idx) {
+  currentTab = idx;
+  document.querySelectorAll('.tab-btn').forEach(function(b, i) {
+    b.classList.toggle('active', i === idx);
+  });
+  document.querySelectorAll('.tab-panel').forEach(function(p, i) {
+    p.classList.toggle('active', i === idx);
+  });
+  if (idx < 3) filterCards(idx);
+}
+
+function toggleListenMode() {
+  listenMode = !listenMode;
+  document.body.classList.toggle('listen-mode', listenMode);
+  var btn = document.getElementById('btnListen');
+  if (btn) btn.classList.toggle('active', listenMode);
+  showToast(listenMode ? '👂 听力模式已开启' : '👁 听力模式已关闭');
+}
+
+function toggleStarFilter() {
+  starOnly = !starOnly;
+  var btn = document.getElementById('btnStarOnly');
+  if (btn) btn.classList.toggle('active', starOnly);
+  for (var t = 0; t < 3; t++) filterCards(t);
+  showToast(starOnly ? '⭐ 只显示重要词句' : '全部词句');
+}
+
+// ============================================================
+// Toast
+// ============================================================
+var toastTimer = null;
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  if (!el) return;
+  el.textContent = msg;
+  el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function() { el.classList.remove('show'); }, 2000);
+}
+
+// ============================================================
+// Utils
+// ============================================================
+function escHtml(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function escJs(s) {
+  return (s || '').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'\\"');
+}
+
+// ============================================================
+// Init
+// ============================================================
+renderCards(0);
+renderCards(1);
+renderCards(2);
+renderTopics();
+
+// PWA service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js').catch(function(){});
+  });
+}
+</script>
+</body>
+</html>

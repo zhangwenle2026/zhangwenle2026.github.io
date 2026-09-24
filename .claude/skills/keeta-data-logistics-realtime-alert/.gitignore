@@ -1,0 +1,6 @@
+cron_config.json
+skill.manifest
+skill.sig
+__pycache__/
+*.pyc
+tests/

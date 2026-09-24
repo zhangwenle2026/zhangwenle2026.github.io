@@ -1,0 +1,315 @@
+{
+ "PerusBurguer": {
+  "t": "PerusBurguer",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ },
+ "Pizzaria La-Zamba II": {
+  "t": "Pizzaria La-Zamba II",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ },
+ "Doce Pimenta Confeitaria": {
+  "t": "Doce Pimenta Confeitaria",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "| Pizzaria Martinelli |": {
+  "t": "| Pizzaria Martinelli |",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Torun Burger": {
+  "t": "Torun Burger",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ },
+ "Panelinha Restaurante": {
+  "t": "Panelinha Restaurante",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Cantinho da Gula": {
+  "t": "Cantinho da Gula",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Rei do Dogão": {
+  "t": "Rei do Dogão",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Marcelinho Lanches": {
+  "t": "Marcelinho Lanches",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "TEKAO BURGUER": {
+  "t": "TEKAO BURGUER",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Marmitas - Paladar de Príncipe": {
+  "t": "Marmitas - Paladar de Príncipe",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Duplo Burguer Jaraguá": {
+  "t": "Duplo Burguer Jaraguá",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: —"
+  ]
+ },
+ "O Bom do Baião": {
+  "t": "O Bom do Baião",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Nil Bar Restaurante": {
+  "t": "Nil Bar Restaurante",
+  "reports": [
+   "Status do Contrato: —",
+   "Tipo de contrato: —",
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Açaí do Buriti": {
+  "t": "Açaí do Buriti",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Cantinho da Edina": {
+  "t": "Cantinho da Edina",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Pizza Lopez": {
+  "t": "Pizza Lopez",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "CAIXA DE FOGO 2": {
+  "t": "CAIXA DE FOGO 2",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Reis Burguer": {
+  "t": "Reis Burguer",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Thunder Lanches - ENTREGA RÁPIDA!": {
+  "t": "Thunder Lanches - ENTREGA RÁPIDA!",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ },
+ "Chef Pimenta - Marmitex & Delivery": {
+  "t": "Chef Pimenta - Marmitex & Delivery",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Hot Dog's Lorenzzo - Alphaville": {
+  "t": "Hot Dog's Lorenzzo - Alphaville",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Lanches e Refeições Express": {
+  "t": "Lanches e Refeições Express",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "PIZZARIA e ESFIHARIA AGEU": {
+  "t": "PIZZARIA e ESFIHARIA AGEU",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Restaurante Ms": {
+  "t": "Restaurante Ms",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Pastel da Lê": {
+  "t": "Pastel da Lê",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red",
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Yellow"
+  ]
+ },
+ "Bê Burguer! - Combos de Burguer na Caixa": {
+  "t": "Bê Burguer! - Combos de Burguer na Caixa",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "TJ PIZZAS E ESFIHAS": {
+  "t": "TJ PIZZAS E ESFIHAS",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Pizzaria Mukai - Entrega Rápida": {
+  "t": "Pizzaria Mukai - Entrega Rápida",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Hamburgueria Mãe Joana": {
+  "t": "Hamburgueria Mãe Joana",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red",
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "O Protagonista Burger": {
+  "t": "O Protagonista Burger",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Universitaria Grill Restaurante": {
+  "t": "Universitaria Grill Restaurante",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Restaurante Andorinhas": {
+  "t": "Restaurante Andorinhas",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red",
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Quirinos Restaurante": {
+  "t": "Quirinos Restaurante",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Pizzaria Nova Sião": {
+  "t": "Pizzaria Nova Sião",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Edu Sushi": {
+  "t": "Edu Sushi",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta",
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Caixa de Fogo Burger": {
+  "t": "Caixa de Fogo Burger",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: —"
+  ]
+ },
+ "Pizzaria do Bahia": {
+  "t": "Pizzaria do Bahia",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Feijoada & Espetinhos West": {
+  "t": "Feijoada & Espetinhos West",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Hamburgueria ITALIA 7": {
+  "t": "Hamburgueria ITALIA 7",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ },
+ "Divinuz Restaurante": {
+  "t": "Divinuz Restaurante",
+  "reports": [
+   "Status do Contrato: Assinado",
+   "Tipo de contrato: Bloquear Keeta e Red",
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Restaurante e boteco do Roque": {
+  "t": "Restaurante e boteco do Roque",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta e Red"
+  ]
+ },
+ "Pizzaria Alpes": {
+  "t": "Pizzaria Alpes",
+  "reports": [
+   "Status do Contrato: Recebido",
+   "Tipo de contrato: Bloquear Keeta"
+  ]
+ }
+}

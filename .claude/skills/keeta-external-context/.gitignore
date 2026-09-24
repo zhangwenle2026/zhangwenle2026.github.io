@@ -1,0 +1,18 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Local editor/runtime state
+/.claude/
+/.openclaw/
+/.cursor/
+/.idea/
+.cache/
+
+# Installed-package metadata should not be committed to source repo
+skill.manifest
+skill.sig
+
+# Local data cache or scratch output
+data/holidays_cache.json
+*.tmp

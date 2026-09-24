@@ -1,0 +1,8 @@
+{
+  "CM-BusinessPerformance": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750981/CM-BusinessPerformance_1788778422492.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370423&Signature=gajlW6nZdjNIba4%2FEEo7P%2BJb4fw%3D",
+  "Last10Days-OrderPerformance": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750982/Last10Days-OrderPerformance_1788778446126.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370446&Signature=enAgPNTxDfm5dG80FqCIxPdSzis%3D",
+  "Last10days-NewSigns": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750984/Last10days-NewSigns_1788778466995.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370467&Signature=LsWWPMAK5P9wdBe4ZEm2PlKLCz4%3D",
+  "Last10days-Promotion": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750985/Last10days-Promotion_1788778487717.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370488&Signature=0pPSREYXVSjs19BxatgpF70u%2B3I%3D",
+  "BD-BusinessPerformance": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750987/BD-BusinessPerformance_1788778531183.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370531&Signature=sBWR%2FInl9%2FZqGG%2B4RJFJifrDh9M%3D",
+  "SMB-MTDMerchantRanking": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260907/3750989/SMB-MTDMerchantRanking_1788778554268.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791370554&Signature=0daXxR4t95TYwju8Q0eChKvlHJ8%3D"
+}

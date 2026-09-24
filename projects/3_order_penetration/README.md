@@ -1,6 +1,6 @@
 # 3. 订单渗透率项目 Order Penetration
 
-> SP Metro订单渗透率激励赛 (7/27-8/31)，覆盖818家头部商户
+> ~~SP Metro订单渗透率激励赛 (7/27-8/31)，覆盖818家头部商户~~ 已于 2026-09-15 结项
 
 ## 核心
 - **作战方案**: contentId 2777384204
@@ -41,3 +41,13 @@
 ## Excel列名变化
 列名会随日期变化：如 `sign-0819`→`sign-0820`、`0813-0819 operating`→`0814-0820 operating`
 处理时按列名前缀匹配（sign-、operating、musthave等）
+
+## 结项信息 (2026-09-15)
+- **状态**: 正式结项 ✅
+- **周期**: 2026-07-27 ~ 2026-08-31，颁奖 9/5，奖金发放申请 9/15
+- **最终账目**: 预算 R$ 23,000 = 实发 R$ 23,000（100%用满）
+  - BD R$ 18,500（WS 17人 R$13,500 + Santos 3人 R$5,000 双金并列）
+  - BDM R$ 4,500（igorfeitosa 19.8人均 + adriananaves 17.38人均）
+- **发放明细Wiki**: contentId 2787412306 (https://km.sankuai.com/collabpage/2787412306)
+- **存档**: payout_wiki_final.xml + gen_payout_wiki_final.py（本目录）
+- **关键事实**: 20/71 BD达标(28.2%)；Top BD wanessasilva 60分；Santos并列双金 Jessica Rossi & Luiz Marques 各17分；WS Top7-15档11人（并列溢出）；BDM赛道冗余R$1,500吸收BD并列溢出

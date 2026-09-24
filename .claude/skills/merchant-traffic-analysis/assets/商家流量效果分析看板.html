@@ -1,0 +1,2507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>供给流量入口分析</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f0f2f5; color: #333; }
+
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+  .header h1 { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+  .header .subtitle { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+  .header .badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 12px; font-size: 12px; }
+
+  .container { max-width: 1600px; margin: 0 auto; padding: 20px 24px; }
+
+  /* 筛选器区域 */
+  .filter-panel { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+  .filter-panel h3 { font-size: 14px; color: #666; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .filter-panel h3::before { content: ''; display: inline-block; width: 3px; height: 14px; background: #1890ff; border-radius: 2px; }
+  .filter-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
+  .filter-item { display: flex; flex-direction: column; gap: 6px; min-width: 160px; }
+  .filter-item label { font-size: 12px; color: #888; font-weight: 500; }
+  .filter-item select, .filter-item input { border: 1px solid #d9d9d9; border-radius: 6px; padding: 7px 10px; font-size: 13px; color: #333; background: white; outline: none; transition: border-color 0.2s; }
+  .filter-item select:focus, .filter-item input:focus { border-color: #1890ff; box-shadow: 0 0 0 2px rgba(24,144,255,0.1); }
+  .filter-item select { cursor: pointer; }
+
+  /* 可搜索下拉组件 */
+  .searchable-select { position: relative; min-width: 160px; }
+  .searchable-select .ss-input-wrap { position: relative; display: flex; align-items: center; }
+  .searchable-select .ss-input { width: 100%; border: 1px solid #d9d9d9; border-radius: 6px; padding: 7px 28px 7px 10px; font-size: 13px; color: #333; background: white; outline: none; transition: border-color 0.2s; cursor: pointer; box-sizing: border-box; }
+  .searchable-select .ss-input:focus { border-color: #1890ff; box-shadow: 0 0 0 2px rgba(24,144,255,0.1); }
+  .searchable-select .ss-input.has-value { color: #1890ff; font-weight: 500; }
+  .searchable-select .ss-arrow { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #bbb; font-size: 10px; transition: transform 0.2s; }
+  .searchable-select.open .ss-arrow { transform: translateY(-50%) rotate(180deg); }
+  .searchable-select .ss-clear { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #bbb; font-size: 14px; line-height: 1; display: none; z-index: 1; }
+  .searchable-select .ss-clear:hover { color: #f5222d; }
+  .searchable-select.has-value .ss-clear { display: block; }
+  .searchable-select .ss-dropdown { display: none; position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: white; border: 1px solid #d9d9d9; border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.12); z-index: 9999; max-height: 260px; overflow: hidden; flex-direction: column; min-width: 200px; }
+  .searchable-select.open .ss-dropdown { display: flex; }
+  .searchable-select .ss-search { padding: 8px 10px; border-bottom: 1px solid #f0f0f0; flex-shrink: 0; }
+  .searchable-select .ss-search input { width: 100%; border: 1px solid #d9d9d9; border-radius: 4px; padding: 5px 8px; font-size: 12px; outline: none; box-sizing: border-box; }
+  .searchable-select .ss-search input:focus { border-color: #1890ff; }
+  .searchable-select .ss-list { overflow-y: auto; flex: 1; }
+  .searchable-select .ss-option { padding: 7px 12px; font-size: 13px; cursor: pointer; color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .searchable-select .ss-option:hover { background: #f0f7ff; color: #1890ff; }
+  .searchable-select .ss-option.selected { background: #e6f7ff; color: #1890ff; font-weight: 500; }
+  .searchable-select .ss-option.placeholder { color: #aaa; }
+  .searchable-select .ss-empty { padding: 12px; text-align: center; color: #bbb; font-size: 12px; }
+
+  .btn { padding: 8px 20px; border-radius: 6px; border: none; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+  .btn-primary { background: #1890ff; color: white; }
+  .btn-primary:hover { background: #40a9ff; }
+  .btn-primary:active { background: #096dd9; }
+  .btn-secondary { background: white; color: #666; border: 1px solid #d9d9d9; }
+  .btn-secondary:hover { border-color: #1890ff; color: #1890ff; }
+  .btn-export { background: #52c41a; color: white; }
+  .btn-export:hover { background: #73d13d; }
+  .btn-sql { background: #722ed1; color: white; }
+  .btn-sql:hover { background: #9254de; }
+
+
+  /* 维度/指标选择器 */
+  .config-panel { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+  .config-panel h3 { font-size: 14px; color: #666; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .config-panel h3::before { content: ''; display: inline-block; width: 3px; height: 14px; background: #722ed1; border-radius: 2px; }
+  .config-row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .config-section { flex: 1; min-width: 280px; }
+  .config-section h4 { font-size: 12px; color: #888; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .tag-group { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 4px; font-size: 12px; cursor: pointer; border: 1px solid #d9d9d9; background: white; color: #666; transition: all 0.15s; user-select: none; }
+  .tag:hover { border-color: #1890ff; color: #1890ff; }
+  .tag.active { background: #e6f7ff; border-color: #1890ff; color: #1890ff; font-weight: 500; }
+  .tag.metric-tag.active { background: #f9f0ff; border-color: #722ed1; color: #722ed1; }
+
+  /* 表格区域 */
+  .table-panel { background: white; border-radius: 12px; padding: 20px 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+  .table-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .table-header h3 { font-size: 14px; color: #333; font-weight: 600; }
+  .table-actions { display: flex; gap: 8px; }
+  .table-info { font-size: 12px; color: #888; }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead th { background: #fafafa; border-bottom: 2px solid #f0f0f0; padding: 10px 12px; text-align: left; font-weight: 600; color: #555; white-space: nowrap; position: sticky; top: 0; z-index: 1; }
+  thead th.sortable { cursor: pointer; }
+  thead th.sortable:hover { background: #f0f7ff; color: #1890ff; }
+  thead th .sort-icon { margin-left: 4px; opacity: 0.4; }
+  thead th.sorted .sort-icon { opacity: 1; color: #1890ff; }
+  tbody tr { border-bottom: 1px solid #f5f5f5; transition: background 0.1s; }
+  tbody tr:hover { background: #fafcff; }
+  tbody td { padding: 10px 12px; color: #333; white-space: nowrap; }
+  tbody td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody td.highlight { color: #1890ff; font-weight: 500; }
+
+  .rate-bar { display: flex; align-items: center; gap: 8px; }
+  .rate-bar .bar { height: 6px; border-radius: 3px; background: #e6f7ff; flex: 1; max-width: 80px; overflow: hidden; }
+  .rate-bar .fill { height: 100%; border-radius: 3px; background: #1890ff; }
+  .rate-bar .text { font-size: 12px; color: #1890ff; min-width: 40px; text-align: right; }
+
+  /* 状态 */
+  .status-bar { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #f6ffed; border: 1px solid #b7eb8f; border-radius: 8px; margin-bottom: 16px; font-size: 13px; color: #52c41a; }
+  .status-bar.loading { background: #e6f7ff; border-color: #91d5ff; color: #1890ff; }
+  .status-bar.error { background: #fff2f0; border-color: #ffccc7; color: #f5222d; }
+  .status-bar.warning { background: #fffbe6; border-color: #ffe58f; color: #faad14; }
+  .spinner { width: 14px; height: 14px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* SQL 预览弹窗 */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; }
+  .modal-overlay.show { display: flex; }
+  .modal { background: white; border-radius: 12px; padding: 24px; max-width: 900px; width: 90%; max-height: 80vh; overflow-y: auto; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+  .modal h3 { font-size: 16px; margin-bottom: 16px; color: #333; }
+  .modal pre { background: #1e1e2e; color: #cdd6f4; padding: 16px; border-radius: 8px; font-size: 13px; line-height: 1.6; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+  .modal .modal-actions { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+
+  /* 分页 */
+  .pagination { display: flex; align-items: center; justify-content: space-between; margin-top: 16px; }
+  .pagination .page-info { font-size: 12px; color: #888; }
+  .page-btns { display: flex; gap: 4px; }
+  .page-btn { padding: 4px 10px; border: 1px solid #d9d9d9; border-radius: 4px; background: white; cursor: pointer; font-size: 12px; color: #666; }
+  .page-btn:hover { border-color: #1890ff; color: #1890ff; }
+  .page-btn.active { background: #1890ff; border-color: #1890ff; color: white; }
+  .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* 空状态 */
+  .empty-state { text-align: center; padding: 60px 20px; color: #bbb; }
+  .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+  .empty-state p { font-size: 14px; }
+
+  /* 模块内嵌维度/指标配置面板 */
+  .module-config { border-top: 1px solid #f0f0f0; margin-top: 12px; padding-top: 12px; }
+  .module-config-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 12px; color: #888; user-select: none; margin-bottom: 0; }
+  .module-config-toggle:hover { color: #1890ff; }
+  .module-config-toggle .arrow { display: inline-block; transition: transform 0.2s; font-size: 10px; }
+  .module-config-toggle.open .arrow { transform: rotate(90deg); }
+  .module-config-body { display: none; margin-top: 10px; }
+  .module-config-body.open { display: block; }
+  .module-config-row { display: flex; gap: 20px; flex-wrap: wrap; }
+  .module-config-section { flex: 1; min-width: 240px; }
+  .module-config-section h5 { font-size: 11px; color: #aaa; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+  /* 品牌流量转化 tag 颜色（橙色系） */
+  .tag.brand-dim-tag { border-color: #d9d9d9; color: #666; }
+  .tag.brand-dim-tag:hover { border-color: #fa8c16; color: #fa8c16; }
+  .tag.brand-dim-tag.active { background: #fff7e6; border-color: #fa8c16; color: #fa8c16; font-weight: 500; }
+  .tag.brand-metric-tag { border-color: #d9d9d9; color: #666; }
+  .tag.brand-metric-tag:hover { border-color: #fa541c; color: #fa541c; }
+  .tag.brand-metric-tag.active { background: #fff2e8; border-color: #fa541c; color: #fa541c; font-weight: 500; }
+
+  /* 品牌流量转化异常分析模块 */
+  .anomaly-panel { background: white; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+  .anomaly-panel .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .anomaly-panel .panel-header h3 { font-size: 14px; color: #333; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+  .anomaly-panel .panel-actions { display: flex; gap: 8px; align-items: center; }
+  .anomaly-summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .anomaly-stat { background: #fff2f0; border: 1px solid #ffccc7; border-radius: 8px; padding: 10px 16px; display: flex; flex-direction: column; gap: 2px; min-width: 120px; }
+  .anomaly-stat.ok { background: #f6ffed; border-color: #b7eb8f; }
+  .anomaly-stat .stat-label { font-size: 11px; color: #888; }
+  .anomaly-stat .stat-value { font-size: 22px; font-weight: 700; color: #f5222d; }
+  .anomaly-stat.ok .stat-value { color: #52c41a; }
+  .anomaly-badge { display: inline-flex; align-items: center; gap: 3px; padding: 2px 7px; border-radius: 10px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .anomaly-badge.expose { background: #fff2f0; color: #f5222d; border: 1px solid #ffccc7; }
+  .anomaly-badge.click   { background: #fff7e6; color: #fa8c16; border: 1px solid #ffd591; }
+  .anomaly-badge.order   { background: #f9f0ff; color: #722ed1; border: 1px solid #d3adf7; }
+  .anomaly-row-highlight { background: #fff2f0 !important; }
+  .wow-down { color: #f5222d; font-weight: 600; }
+  .wow-up   { color: #52c41a; }
+  .wow-flat { color: #888; }
+  /* 预设分析路径按钮 */
+  .analysis-path-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f0f0; }
+  .path-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 6px; border: 1px solid #d9d9d9; background: white; font-size: 12px; color: #555; cursor: pointer; transition: all 0.15s; }
+  .path-btn:hover { border-color: #1890ff; color: #1890ff; background: #e6f7ff; }
+  .path-btn.active { border-color: #1890ff; color: #1890ff; background: #e6f7ff; font-weight: 500; }
+  /* 分析路径详情面板 */
+  .path-detail { display: none; margin-top: 12px; background: #fafafa; border-radius: 8px; padding: 14px 16px; border: 1px solid #f0f0f0; }
+  .path-detail.show { display: block; }
+  .path-detail h4 { font-size: 13px; color: #333; margin-bottom: 10px; font-weight: 600; }
+  .path-detail .path-status { font-size: 12px; color: #888; }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .container { padding: 12px; }
+    .filter-row { flex-direction: column; }
+    .metrics-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* 指标 Tooltip */
+  .metric-tooltip-wrap { position: relative; display: inline-flex; align-items: center; gap: 4px; cursor: help; }
+  .metric-tooltip-wrap .tip-icon { font-size: 11px; color: #bbb; line-height: 1; }
+  .metric-tooltip-wrap:hover .tip-icon { color: #1890ff; }
+  .metric-tooltip-box {
+    display: none;
+    position: fixed;
+    background: #1a1a2e;
+    color: #e8e8e8;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 10px 14px;
+    border-radius: 8px;
+    width: 260px;
+    white-space: normal;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    z-index: 9999;
+    pointer-events: none;
+  }
+  .metric-tooltip-box::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: var(--arrow-left, 50%);
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-bottom-color: #1a1a2e;
+  }
+  .metric-tooltip-box .tip-name { font-weight: 600; color: #fff; margin-bottom: 4px; font-size: 13px; }
+  .metric-tooltip-box .tip-code { color: #888; font-size: 11px; margin-bottom: 6px; font-family: monospace; }
+  .metric-tooltip-box .tip-define { color: #ccc; }
+  /* 表头 tooltip */
+  th .metric-tooltip-wrap { font-weight: 600; color: #555; }
+  th .metric-tooltip-wrap:hover { color: #1890ff; }
+  /* 悬停时提升 th 的层叠上下文，使 tooltip 能溢出显示在表格之上 */
+  thead th:has(.metric-tooltip-wrap:hover) { z-index: 100; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>🏪 供给流量入口分析</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 筛选器 -->
+  <div class="filter-panel">
+    <h3>筛选条件</h3>
+    <div class="filter-row">
+      <div class="filter-item">
+        <label>Region</label>
+        <select id="filterRegion">
+          <option value="">全部</option>
+          <option value="SA">SA（沙特）</option>
+          <option value="HK">HK（香港）</option>
+          <option value="AE">AE（阿联酋）</option>
+          <option value="KW">KW（科威特）</option>
+          <option value="QA">QA（卡塔尔）</option>
+          <option value="BR">BR（巴西）</option>
+          <option value="BH">BH（巴林）</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label>品牌ID</label>
+        <input type="text" id="filterBrandId" placeholder="多个用逗号分隔" />
+      </div>
+      <div class="filter-item">
+        <label>品牌范围</label>
+        <select id="filterTopN">
+          <option value="">全部品牌</option>
+          <option value="200">Top 200（按订单量）</option>
+          <option value="400">Top 400（按订单量）</option>
+          <option value="1000">Top 1000（按订单量）</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <label>页面名称</label>
+        <div class="searchable-select" id="ssPage">
+          <input type="hidden" id="filterPage" value="" />
+          <div class="ss-input-wrap">
+            <input type="text" class="ss-input" id="ssPageDisplay" placeholder="全部页面" readonly />
+            <span class="ss-clear" onclick="ssClear('ssPage','filterPage','ssPageDisplay',true)">✕</span>
+            <span class="ss-arrow">▼</span>
+          </div>
+          <div class="ss-dropdown">
+            <div class="ss-search"><input type="text" placeholder="搜索页面..." oninput="ssFilter('ssPage',this.value)" /></div>
+            <div class="ss-list" id="ssPageList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <label>资源位名称</label>
+        <div class="searchable-select" id="ssAdPos">
+          <input type="hidden" id="filterAdPos" value="" />
+          <div class="ss-input-wrap">
+            <input type="text" class="ss-input" id="ssAdPosDisplay" placeholder="全部资源位" readonly />
+            <span class="ss-clear" onclick="ssClear('ssAdPos','filterAdPos','ssAdPosDisplay',false)">✕</span>
+            <span class="ss-arrow">▼</span>
+          </div>
+          <div class="ss-dropdown">
+            <div class="ss-search"><input type="text" placeholder="搜索资源位..." oninput="ssFilter('ssAdPos',this.value)" /></div>
+            <div class="ss-list" id="ssAdPosList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-item">
+        <label>二级资源位ID</label>
+        <input type="text" id="filterAdPosId" placeholder="多个用逗号分隔" style="min-width:160px;" title="对应底表字段：second_ad_position_id" />
+      </div>
+      <div class="filter-item">
+        <label>开始日期</label>
+        <input type="date" id="filterDateStart" />
+      </div>
+      <div class="filter-item">
+        <label>结束日期</label>
+        <input type="date" id="filterDateEnd" />
+      </div>
+      <div class="filter-item" style="flex-direction: row; align-items: flex-end; gap: 8px;">
+        <button class="btn btn-primary" onclick="runQuery()">🔍 查询</button>
+        <button class="btn btn-secondary" onclick="resetFilters()">重置</button>
+        <button class="btn btn-sql" onclick="showSQL()">📋 查看SQL</button>
+        <button class="btn btn-export" onclick="exportCSV()">⬇ 导出CSV</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 状态栏 -->
+  <div id="statusBar" class="status-bar warning" style="display:none;"></div>
+
+  <!-- 品牌流量转化模块 -->
+  <div class="table-panel" style="margin-bottom:20px;">
+    <div class="table-header">
+      <h3>🏷️ 品牌流量转化</h3>
+      <div class="table-actions">
+        <span class="table-info" id="brandTableInfo">请点击「查询」加载数据</span>
+        <button class="btn btn-sql" style="padding:4px 12px;font-size:12px;" onclick="showBrandSQL()">📋 查看SQL</button>
+        <button class="btn btn-export" style="padding:4px 12px;font-size:12px;" onclick="exportBrandCSV()">⬇ 导出CSV</button>
+      </div>
+    </div>
+    <!-- 品牌流量转化：内嵌维度&指标配置 -->
+    <div class="module-config">
+      <div class="module-config-toggle" onclick="toggleModuleConfig('brandConfig', this)">
+        <span class="arrow">▶</span> 自定义维度 &amp; 指标
+        <span style="margin-left:6px;font-size:11px;color:#bbb;">（点击展开）</span>
+      </div>
+      <div class="module-config-body" id="brandConfig">
+        <div class="module-config-row">
+          <div class="module-config-section">
+            <h5>📐 分析维度（GROUP BY）</h5>
+            <div class="tag-group" id="brandDimTags">
+              <span class="tag brand-dim-tag active" data-dim="dt" onclick="this.classList.toggle('active')">日期</span>
+              <span class="tag brand-dim-tag active" data-dim="brand_id" onclick="this.classList.toggle('active')">品牌ID</span>
+              <span class="tag brand-dim-tag active" data-dim="brand_name" onclick="this.classList.toggle('active')">品牌名称</span>
+              <span class="tag brand-dim-tag active" data-dim="brand_en_name" onclick="this.classList.toggle('active')">品牌英文名</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_shop_id" onclick="this.classList.toggle('active')">门店ID</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_shop_name" onclick="this.classList.toggle('active')">门店名称</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_spu_id" onclick="this.classList.toggle('active')">SPU ID</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_spu_name" onclick="this.classList.toggle('active')">SPU商品名称</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_page_name" onclick="this.classList.toggle('active')">页面名称</span>
+              <span class="tag brand-dim-tag" data-dim="ad_position_name" onclick="this.classList.toggle('active')">资源位名称</span>
+              <span class="tag brand-dim-tag" data-dim="first_ad_position_name" onclick="this.classList.toggle('active')">一级资源位</span>
+              <span class="tag brand-dim-tag" data-dim="operation_city_name_en" onclick="this.classList.toggle('active')">城市</span>
+              <span class="tag brand-dim-tag" data-dim="region" onclick="this.classList.toggle('active')">Region</span>
+              <span class="tag brand-dim-tag" data-dim="shop_type" onclick="this.classList.toggle('active')">商家类型</span>
+            </div>
+          </div>
+          <div class="module-config-section">
+            <h5>📈 分析指标（聚合）</h5>
+            <div class="tag-group" id="brandMetricTags">
+              <span class="tag brand-metric-tag active" data-metric="expose_uv" onclick="this.classList.toggle('active')" title="商家入口曝光设备数：统计周期内商家入口被成功展示的去重设备数（union_id去重）">曝光UV</span>
+              <span class="tag brand-metric-tag active" data-metric="click_uv" onclick="this.classList.toggle('active')" title="商家点击设备数：统计周期内商家入口被点击的设备数（union_id去重）">点击UV</span>
+              <span class="tag brand-metric-tag active" data-metric="order_uv" onclick="this.classList.toggle('active')" title="商家入口成单设备数：通过商家入口完成成单（is_arrange=1）的去重设备数">成单UV</span>
+              <span class="tag brand-metric-tag active" data-metric="order_pv" onclick="this.classList.toggle('active')" title="订单量：统计周期内用户完成支付订单量的总和（order_view_id去重，is_arrange=1）">订单量</span>
+              <span class="tag brand-metric-tag active" data-metric="ctr" onclick="this.classList.toggle('active')" title="CTR（流量）：点击人数/曝光人数，商家入口曝光到点击的访问设备转化率">CTR</span>
+              <span class="tag brand-metric-tag active" data-metric="cvr" onclick="this.classList.toggle('active')" title="CVR（流量）：成单设备数/点击设备数，商家入口点击用户中完成成单的转化率">CVR</span>
+              <span class="tag brand-metric-tag active" data-metric="expose_to_order_cvr" onclick="this.classList.toggle('active')" title="CXR（流量）：成单设备数/曝光设备数，商家入口曝光用户中完成成单的整体转化率">CXR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:#faad14;padding:6px 0 10px;">⚠️ 橙色高亮 = 高曝光低转化（曝光UV ≥ 均值 且 CVR ≤ 均值的50%）</div>
+    <div class="table-wrap">
+      <div id="brandTableContainer">
+        <div class="empty-state"><div class="icon">🏷️</div><p>配置筛选条件后点击「查询」加载数据</p></div>
+      </div>
+    </div>
+    <div class="pagination" id="brandPagination" style="display:none;">
+      <span class="page-info" id="brandPageInfo"></span>
+      <div class="page-btns" id="brandPageBtns"></div>
+    </div>
+  </div>
+
+  <!-- 品牌流量入口分布 -->
+  <div class="table-panel">
+    <div class="table-header">
+      <h3>📋 品牌流量入口分布</h3>
+      <div class="table-actions">
+        <span class="table-info" id="tableInfo">请点击「查询」加载数据</span>
+        <button class="btn btn-sql" style="padding:4px 12px;font-size:12px;" onclick="showSQL()">📋 查看SQL</button>
+        <button class="btn btn-export" style="padding:4px 12px;font-size:12px;" onclick="exportCSV()">⬇ 导出CSV</button>
+      </div>
+    </div>
+    <!-- 品牌流量入口分布：内嵌维度&指标配置 -->
+    <div class="module-config">
+      <div class="module-config-toggle" onclick="toggleModuleConfig('distConfig', this)">
+        <span class="arrow">▶</span> 自定义维度 &amp; 指标
+        <span style="margin-left:6px;font-size:11px;color:#bbb;">（点击展开）</span>
+      </div>
+      <div class="module-config-body" id="distConfig">
+        <div class="module-config-row">
+          <div class="module-config-section">
+            <h5>📐 分析维度（GROUP BY）</h5>
+            <div class="tag-group" id="dimensionTags">
+              <span class="tag active" data-dim="dt" onclick="toggleDim(this)">日期</span>
+              <span class="tag active" data-dim="brand_id" onclick="toggleDim(this)">品牌ID</span>
+              <span class="tag active" data-dim="brand_name" onclick="toggleDim(this)">品牌名称</span>
+              <span class="tag active" data-dim="brand_en_name" onclick="toggleDim(this)">品牌英文名</span>
+              <span class="tag active" data-dim="ad_position_page_name" onclick="toggleDim(this)">页面名称</span>
+              <span class="tag active" data-dim="ad_position_name" onclick="toggleDim(this)">资源位名称</span>
+              <span class="tag" data-dim="first_ad_position_name" onclick="toggleDim(this)">一级资源位</span>
+              <span class="tag" data-dim="second_ad_position_name" onclick="toggleDim(this)">二级资源位</span>
+              <span class="tag" data-dim="third_ad_position_name" onclick="toggleDim(this)">三级资源位</span>
+              <span class="tag" data-dim="ad_position_shop_id" onclick="toggleDim(this)">门店ID</span>
+              <span class="tag" data-dim="ad_position_shop_name" onclick="toggleDim(this)">门店名称</span>
+              <span class="tag" data-dim="ad_position_shop_name_en" onclick="toggleDim(this)">门店英文名称</span>
+              <span class="tag" data-dim="ad_position_spu_id" onclick="toggleDim(this)">SPU ID</span>
+              <span class="tag" data-dim="ad_position_spu_name" onclick="toggleDim(this)">SPU商品名称</span>
+              <span class="tag" data-dim="operation_city_name_en" onclick="toggleDim(this)">城市</span>
+              <span class="tag" data-dim="region" onclick="toggleDim(this)">Region</span>
+              <span class="tag" data-dim="flow_ent_page_name" onclick="toggleDim(this)">导流页面</span>
+              <span class="tag" data-dim="flow_ent_name" onclick="toggleDim(this)">导流入口</span>
+              <span class="tag" data-dim="ad_position_en_name" onclick="toggleDim(this)">资源位英文名称</span>
+              <span class="tag" data-dim="first_ad_position_en_name" onclick="toggleDim(this)">一级资源位英文名称</span>
+              <span class="tag" data-dim="second_ad_position_id" onclick="toggleDim(this)">二级资源位ID</span>
+              <span class="tag" data-dim="third_ad_position_id" onclick="toggleDim(this)">三级资源位ID</span>
+              <span class="tag" data-dim="shop_expose_rank" onclick="toggleDim(this)">商家曝光顺序</span>
+              <span class="tag" data-dim="goods_expose_rank" onclick="toggleDim(this)">商品曝光顺序</span>
+              <span class="tag" data-dim="shop_type" onclick="toggleDim(this)">商家类型</span>
+            </div>
+          </div>
+          <div class="module-config-section">
+            <h5>📈 分析指标（聚合）</h5>
+            <div class="tag-group" id="metricTags">
+              <span class="tag metric-tag active" data-metric="expose_uv" onclick="toggleMetric(this)" title="商家入口曝光设备数：统计周期内商家入口被成功展示的去重设备数（union_id去重）">曝光UV</span>
+              <span class="tag metric-tag active" data-metric="click_uv" onclick="toggleMetric(this)" title="商家点击设备数：统计周期内商家入口被点击的设备数（union_id去重）">点击UV</span>
+              <span class="tag metric-tag active" data-metric="order_uv" onclick="toggleMetric(this)" title="商家入口成单设备数：通过商家入口完成成单（is_arrange=1）的去重设备数">成单UV</span>
+              <span class="tag metric-tag active" data-metric="order_pv" onclick="toggleMetric(this)" title="订单量：统计周期内用户完成支付订单量的总和（order_view_id去重，is_arrange=1）">订单量</span>
+              <span class="tag metric-tag active" data-metric="ctr" onclick="toggleMetric(this)" title="CTR（流量）：点击人数/曝光人数，商家入口曝光到点击的访问设备转化率">CTR</span>
+              <span class="tag metric-tag active" data-metric="cvr" onclick="toggleMetric(this)" title="CVR（流量）：成单设备数/点击设备数，商家入口点击用户中完成成单的转化率">CVR</span>
+              <span class="tag metric-tag active" data-metric="expose_to_order_cvr" onclick="toggleMetric(this)" title="CXR（流量）：成单设备数/曝光设备数，商家入口曝光用户中完成成单的整体转化率">CXR</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <div id="tableContainer">
+        <div class="empty-state">
+          <div class="icon">📊</div>
+          <p>配置筛选条件后点击「查询」加载数据</p>
+          <p style="margin-top:8px; font-size:12px; color:#ccc;">数据来源：mart_sailor_global 流量归因三表 · 仅商家入口（is_shop_ent='是'）</p>
+        </div>
+      </div>
+    </div>
+    <div class="pagination" id="pagination" style="display:none;">
+      <span class="page-info" id="pageInfo"></span>
+      <div class="page-btns" id="pageBtns"></div>
+    </div>
+  </div>
+
+  <!-- 品牌流量转化异常分析 -->
+  <div class="anomaly-panel">
+    <div class="panel-header">
+      <h3>🚨 品牌流量转化异常分析
+        <span style="font-size:11px;font-weight:400;color:#888;margin-left:4px;">周同比下降 &gt;20% 视为异常</span>
+      </h3>
+      <div class="panel-actions">
+        <span class="table-info" id="anomalyTableInfo">请先点击「查询」加载数据</span>
+        <button class="btn btn-sql" style="padding:4px 12px;font-size:12px;" onclick="showAnomalySQL()">📋 查看SQL</button>
+        <button class="btn btn-primary" style="padding:4px 12px;font-size:12px;" onclick="runAnomalyQuery()">🔄 单独刷新</button>
+      </div>
+    </div>
+
+    <!-- 异常汇总统计 -->
+    <div class="anomaly-summary" id="anomalySummary" style="display:none;">
+      <div class="anomaly-stat" id="anomalyStatTotal">
+        <span class="stat-label">异常品牌数</span>
+        <span class="stat-value" id="anomalyCountVal">—</span>
+      </div>
+      <div class="anomaly-stat" id="anomalyStatExpose">
+        <span class="stat-label">曝光UV异常</span>
+        <span class="stat-value" id="anomalyExposeCount">—</span>
+      </div>
+      <div class="anomaly-stat" id="anomalyStatClick">
+        <span class="stat-label">点击UV异常</span>
+        <span class="stat-value" id="anomalyClickCount">—</span>
+      </div>
+      <div class="anomaly-stat" id="anomalyStatOrder">
+        <span class="stat-label">订单量异常</span>
+        <span class="stat-value" id="anomalyOrderCount">—</span>
+      </div>
+    </div>
+
+    <!-- 异常品牌表格 -->
+    <div class="table-wrap">
+      <div id="anomalyTableContainer">
+        <div class="empty-state"><div class="icon">🔍</div><p>点击「查询」后自动检测本周 vs 上周同期的异常品牌</p></div>
+      </div>
+    </div>
+
+    <!-- 预设分析路径 -->
+    <div class="analysis-path-btns" id="analysisPathBtns" style="display:none;">
+      <span style="font-size:12px;color:#888;align-self:center;">预设分析路径：</span>
+      <button class="path-btn" id="pathBtnUser" onclick="togglePathDetail('user')">👥 用户结构变化</button>
+      <button class="path-btn" id="pathBtnEntry" onclick="togglePathDetail('entry')">🚪 流量入口变化</button>
+    </div>
+
+    <!-- 用户结构变化详情 -->
+    <div class="path-detail" id="pathDetailUser">
+      <h4>👥 用户结构变化分析</h4>
+      <div class="path-status" id="pathUserStatus">正在查询异常品牌的新老用户占比变化...</div>
+      <div class="table-wrap" style="margin-top:10px;">
+        <div id="pathUserContainer"></div>
+      </div>
+    </div>
+
+    <!-- 流量入口变化详情 -->
+    <div class="path-detail" id="pathDetailEntry">
+      <h4>🚪 流量入口变化分析</h4>
+      <div class="path-status" id="pathEntryStatus">正在查询异常品牌各资源位流量占比变化...</div>
+      <div class="table-wrap" style="margin-top:10px;">
+        <div id="pathEntryContainer"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SQL 预览弹窗 -->
+<div class="modal-overlay" id="sqlModal">
+  <div class="modal">
+    <h3>📋 当前查询 SQL</h3>
+    <pre id="sqlPreview"></pre>
+    <div class="modal-actions">
+      <button class="btn btn-primary" onclick="copySQL()">复制 SQL</button>
+      <button class="btn btn-secondary" onclick="document.getElementById('sqlModal').classList.remove('show')">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// 配置
+// ============================================================
+// 代理服务器地址（keeta-bi-query 路由）
+const PROXY_BASE = 'http://localhost:7788';
+
+/**
+ * 通用 SQL 执行函数
+ * 统一走 /keeta-bi-query → keeta_bi_skill.py run（Hive/OneSQL）
+ */
+async function execSQL(sql, queryName = '商家流量效果分析') {
+  const resp = await fetch(`${PROXY_BASE}/keeta-bi-query`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sql, limit: 1000 })
+  });
+  if (!resp.ok) {
+    const errText = await resp.text().catch(() => '');
+    throw new Error(`提交失败: HTTP ${resp.status}: ${errText.slice(0, 200)}`);
+  }
+  const data = await resp.json();
+  if (data.code !== 0) throw new Error(data.message || '查询失败');
+  return data.data.rows || [];
+}
+const TABLES = {
+  expose: 'mart_sailor_global.topic_flow_sdk_log_path_expose_d',
+  click:  'mart_sailor_global.topic_flow_sdk_log_path_click_d',
+  ord:    'mart_sailor_global.topic_flow_sdk_log_path_ord_d'
+};
+
+// 维度字段映射（字段名 -> 显示名）
+const DIM_LABELS = {
+  dt: '日期',
+  ad_position_page_name: '页面名称',
+  first_ad_position_name: '一级资源位',
+  ad_position_name: '资源位名称',
+  second_ad_position_name: '二级资源位',
+  third_ad_position_name: '三级资源位',
+  brand_id: '品牌ID',
+  brand_name: '品牌名称',
+  brand_en_name: '品牌英文名',
+  ad_position_shop_id: '门店ID',
+  ad_position_shop_name: '门店名称',
+  ad_position_shop_name_en: '门店英文名称',
+  ad_position_spu_id: 'SPU ID',
+  ad_position_spu_name: 'SPU商品名称',
+  ad_position_spu_en_name: 'SPU商品英文名称',
+  operation_city_name_en: '城市',
+  region: 'Region',
+  flow_ent_page_name: '导流页面',
+  flow_ent_name: '导流入口',
+  ad_position_en_name: '资源位英文名称',
+  first_ad_position_en_name: '一级资源位英文名称',
+  second_ad_position_id: '二级资源位ID',
+  third_ad_position_id: '三级资源位ID',
+  shop_expose_rank: '商家曝光顺序',
+  goods_expose_rank: '商品曝光顺序',
+  shop_type: '商家类型'
+};
+
+// 指标定义（含起源平台口径）
+const METRIC_DEFS = {
+  expose_uv:           {
+    label: '曝光UV',
+    originName: '商家入口曝光设备数',
+    originCode: 'expose_uv',
+    originDefine: '统计周期内，商家入口（is_shop_ent=\'是\'）被成功展示的去重设备数（按 union_id 去重）。',
+    sql: 'COUNT(DISTINCT e.union_id)',
+    format: 'num'
+  },
+  click_uv:            {
+    label: '点击UV',
+    originName: '商家点击设备数',
+    originCode: 'poi_click_uv',
+    originDefine: '统计周期内，商家入口被点击的设备数总和。设备数按 union_id 识别进行去重计数。',
+    sql: 'COUNT(DISTINCT c.union_id)',
+    format: 'num'
+  },
+  order_uv:            {
+    label: '成单UV',
+    originName: '商家入口成单设备数',
+    originCode: 'order_uv',
+    originDefine: '统计周期内，通过商家入口完成成单（is_arrange=1）的去重设备数（按 union_id 去重）。',
+    sql: 'COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END)',
+    format: 'num'
+  },
+  ctr:                 {
+    label: 'CTR',
+    originName: 'CTR（流量）',
+    originCode: 'ctr',
+    originDefine: '点击人数 / 曝光人数。统计周期内，针对商家入口的曝光到点击的访问设备转化率。',
+    sql: 'ROUND(COUNT(DISTINCT c.union_id) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id),0), 2)',
+    format: 'pct'
+  },
+  cvr:                 {
+    label: 'CVR',
+    originName: 'CVR（流量）',
+    originCode: 'cvr',
+    originDefine: '成单设备数 / 点击设备数。统计周期内，商家入口点击用户中完成成单的转化率。',
+    sql: 'ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT c.union_id),0), 2)',
+    format: 'pct'
+  },
+  order_pv:            {
+    label: '订单量',
+    originName: '订单量',
+    originCode: 'fin_ord_num',
+    originDefine: '统计周期内用户完成支付订单量的总和（按 order_view_id 去重计数，is_arrange=1）。',
+    sql: 'COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.order_view_id END)',
+    format: 'num'
+  },
+  expose_to_order_cvr: {
+    label: 'CXR',
+    originName: 'CXR（流量）',
+    originCode: 'cxr',
+    originDefine: '成单设备数 / 曝光设备数。统计周期内，商家入口曝光用户中完成成单的整体转化率（曝光到成单）。',
+    sql: 'ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id),0), 2)',
+    format: 'pct'
+  }
+};
+
+// 每个指标对应的周同比字段名和标签（CTR/CVR/CXR 是绝对差值 pp，其余是百分比变化）
+const WOW_DEFS = {
+  expose_uv:           { key: 'expose_uv_wow',          label: '曝光UV周同比', type: 'pct' },
+  click_uv:            { key: 'click_uv_wow',           label: '点击UV周同比', type: 'pct' },
+  order_uv:            { key: 'order_uv_wow',           label: '成单UV周同比', type: 'pct' },
+  order_pv:            { key: 'order_pv_wow',           label: '订单量周同比', type: 'pct' },
+  ctr:                 { key: 'ctr_wow',                label: 'CTR周同比',   type: 'pp'  },
+  cvr:                 { key: 'cvr_wow',                label: 'CVR周同比',   type: 'pp'  },
+  expose_to_order_cvr: { key: 'cxr_wow',               label: 'CXR周同比',   type: 'pp'  },
+};
+
+// 格式化周同比值（pct = 百分比变化，pp = 绝对差值）
+function fmtWowCell(val, type) {
+  const v = Number(val);
+  if (val === null || val === undefined || val === '' || isNaN(v)) return '<span class="wow-flat">—</span>';
+  const cls = v < -5 ? 'wow-down' : v > 5 ? 'wow-up' : 'wow-flat';
+  const sign = v > 0 ? '+' : '';
+  const suffix = type === 'pp' ? 'pp' : '%';
+  return `<span class="${cls}">${sign}${v}${suffix}</span>`;
+}
+
+// 生成指标 tooltip HTML
+function metricTooltipHTML(def) {
+  if (!def || !def.originName) return def ? def.label : '';
+  return `<span class="metric-tooltip-wrap">${def.label} <span class="tip-icon">ⓘ</span>` +
+    `<div class="metric-tooltip-box">` +
+    `<div class="tip-name">${def.originName}</div>` +
+    `<div class="tip-code">${def.originCode}</div>` +
+    `<div class="tip-define">${def.originDefine}</div>` +
+    `</div></span>`;
+}
+
+// 状态
+let currentData = [];
+let currentPage = 1;
+const PAGE_SIZE = 50;
+let sortCol = null;
+let sortAsc = true;
+
+// 品牌流量转化状态
+let brandData = [];
+let brandPage = 1;
+let brandSortCol = null;
+let brandSortAsc = true;
+
+// ============================================================
+// 折叠面板
+// ============================================================
+function toggleModuleConfig(id, toggleEl) {
+  const body = document.getElementById(id);
+  const isOpen = body.classList.toggle('open');
+  toggleEl.classList.toggle('open', isOpen);
+  const hint = toggleEl.querySelector('span:last-child');
+  if (hint) hint.textContent = isOpen ? '（点击收起）' : '（点击展开）';
+}
+
+// ============================================================
+// 获取当前选中的维度和指标（品牌流量入口分布）
+// ============================================================
+function getActiveDims() {
+  return [...document.querySelectorAll('#dimensionTags .tag.active')].map(t => t.dataset.dim);
+}
+function getActiveMetrics() {
+  return [...document.querySelectorAll('#metricTags .tag.active')].map(t => t.dataset.metric);
+}
+
+// 品牌流量转化专用
+function getBrandActiveDims() {
+  return [...document.querySelectorAll('#brandDimTags .tag.active')].map(t => t.dataset.dim);
+}
+function getBrandActiveMetrics() {
+  return [...document.querySelectorAll('#brandMetricTags .tag.active')].map(t => t.dataset.metric);
+}
+
+function toggleDim(el) { el.classList.toggle('active'); }
+function toggleMetric(el) { el.classList.toggle('active'); }
+
+// ============================================================
+// 构建 SQL
+// ============================================================
+function buildSQL() {
+  const region    = document.getElementById('filterRegion').value;
+  const brandId   = document.getElementById('filterBrandId').value.trim();
+  const page      = document.getElementById('filterPage').value;
+  const adPos     = document.getElementById('filterAdPos').value;
+  const adPosId   = document.getElementById('filterAdPosId').value.trim();
+  const dateStart = document.getElementById('filterDateStart').value;
+  const dateEnd   = document.getElementById('filterDateEnd').value;
+
+  const dims    = getActiveDims();
+  const metrics = getActiveMetrics();
+
+  // 日期范围：优先用筛选器，否则默认昨天
+  const dtStart = dateStart ? dateStart.replace(/-/g, '') : getYesterday();
+  const dtEnd   = dateEnd   ? dateEnd.replace(/-/g, '')   : getYesterday();
+  const dtLabel = dtStart === dtEnd ? dtStart : `${dtStart} ~ ${dtEnd}`;
+
+  // 上周同期：整体往前推7天
+  const shiftDate = (yyyymmdd, days) => {
+    const y = +yyyymmdd.slice(0,4), m = +yyyymmdd.slice(4,6)-1, d = +yyyymmdd.slice(6,8);
+    const dt = new Date(y, m, d); dt.setDate(dt.getDate() + days);
+    return `${dt.getFullYear()}${String(dt.getMonth()+1).padStart(2,'0')}${String(dt.getDate()).padStart(2,'0')}`;
+  };
+  const lastStart = shiftDate(dtStart, -7);
+  const lastEnd   = shiftDate(dtEnd,   -7);
+
+  const thisDtCond = dtStart === dtEnd ? `dt = '${dtStart}'` : `dt BETWEEN '${dtStart}' AND '${dtEnd}'`;
+  const lastDtCond = lastStart === lastEnd ? `dt = '${lastStart}'` : `dt BETWEEN '${lastStart}' AND '${lastEnd}'`;
+
+  // 维度 SELECT：FULL OUTER JOIN 后任意表可能为 NULL，用 COALESCE 取非空值
+  // this_agg 用 e/c/o，last_agg 用 le/lc/lo，避免别名混淆
+  const thisDimSelect = dims.length > 0
+    ? dims.map(d => `COALESCE(e.${d}, c.${d}, o.${d}) AS ${d}`).join(',\n    ')
+    : "'all' AS grp_key";
+  const lastDimSelect = dims.length > 0
+    ? dims.map(d => `COALESCE(le.${d}, lc.${d}, lo.${d}) AS ${d}`).join(',\n    ')
+    : "'all' AS grp_key";
+
+  // 各表 WHERE 条件
+  const topN = parseInt(document.getElementById('filterTopN')?.value) || 0;
+
+  const makeWhere = (alias, dtCond) => {
+    let w = `${dtCond}\n    AND ${alias}.is_shop_ent = '是'`;
+    if (region)   w += `\n    AND ${alias}.region = '${region}'`;
+    if (brandId)  w += `\n    AND ${alias}.brand_id IN (${brandId})`;
+    if (topN)     w += `\n    AND ${alias}.brand_id IN (\n      SELECT brand_id FROM ${TABLES.ord}\n      WHERE ${thisDtCond} AND is_shop_ent = '是'${region ? ` AND region = '${region}'` : ''}\n      GROUP BY brand_id ORDER BY COUNT(DISTINCT CASE WHEN is_arrange=1 THEN order_view_id END) DESC LIMIT ${topN}\n    )`;
+    if (page)     w += `\n    AND ${alias}.ad_position_page_name = '${page}'`;
+    if (adPos)    w += `\n    AND ${alias}.ad_position_name = '${adPos}'`;
+    if (adPosId)  w += `\n    AND ${alias}.second_ad_position_id IN (${adPosId})`;
+    return w;
+  };
+
+  // 子查询 SELECT 字段（维度 + union_id）
+  const subDimCols = dims.length > 0 ? dims.join(',\n    ') + ',\n    ' : '';
+
+  // JOIN ON 条件（this_agg 内部，e/c/o）
+  const joinOnEC = dims.length > 0
+    ? dims.map(d => `e.${d} = c.${d}`).join('\n  AND ') + '\n  AND e.union_id = c.union_id'
+    : 'e.union_id = c.union_id';
+  const joinOnECO = dims.length > 0
+    ? dims.map(d => `COALESCE(e.${d}, c.${d}) = o.${d}`).join('\n  AND ') + '\n  AND COALESCE(e.union_id, c.union_id) = o.union_id'
+    : 'COALESCE(e.union_id, c.union_id) = o.union_id';
+
+  // JOIN ON 条件（last_agg 内部，le/lc/lo）
+  const lastJoinOnEC = dims.length > 0
+    ? dims.map(d => `le.${d} = lc.${d}`).join('\n  AND ') + '\n  AND le.union_id = lc.union_id'
+    : 'le.union_id = lc.union_id';
+  const lastJoinOnECO = dims.length > 0
+    ? dims.map(d => `COALESCE(le.${d}, lc.${d}) = lo.${d}`).join('\n  AND ') + '\n  AND COALESCE(le.union_id, lc.union_id) = lo.union_id'
+    : 'COALESCE(le.union_id, lc.union_id) = lo.union_id';
+
+  // this_agg JOIN last_agg：排除 dt（两边日期不同，不能作为 JOIN key），只用业务维度
+  // dims 为空时按 grp_key（固定 'all'），不会笛卡尔积
+  const joinDims = dims.filter(d => d !== 'dt');
+  const finalJoinOn = joinDims.length > 0
+    ? joinDims.map(d => `t.${d} = l.${d}`).join(' AND ')
+    : `t.grp_key = l.grp_key`;
+
+  // GROUP BY 用位置序号
+  const groupByPositions = dims.length > 0
+    ? dims.map((_, i) => i + 1).join(', ')
+    : '1';
+
+  const metricSQL = `COUNT(DISTINCT e.union_id)                                                              AS expose_uv,
+    COUNT(DISTINCT c.union_id)                                                              AS click_uv,
+    COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END)                         AS order_uv,
+    ROUND(COUNT(DISTINCT c.union_id) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id), 0), 2)  AS ctr,
+    ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT c.union_id), 0), 2)  AS cvr,
+    ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id), 0), 2)  AS expose_to_order_cvr,
+    COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.order_view_id END)                   AS order_pv`;
+
+  const lastMetricSQL = metricSQL
+    .replace(/\be\./g, 'le.').replace(/\bc\./g, 'lc.').replace(/\bo\./g, 'lo.');
+
+  const sql =
+`-- 商家流量效果分析看板 SQL（含周同比）
+-- 当期：${dtLabel} | 上周同期：${lastStart} ~ ${lastEnd}
+-- 筛选条件：is_shop_ent = '是'（商家入口）
+-- 生成时间：${new Date().toLocaleString('zh-CN')}
+
+WITH
+-- 当期数据
+expose_base AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.expose} e WHERE ${makeWhere('e', thisDtCond)}
+),
+click_base AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.click} c WHERE ${makeWhere('c', thisDtCond)}
+),
+order_base AS (
+  SELECT ${subDimCols}union_id, order_view_id, is_arrange FROM ${TABLES.ord} o WHERE ${makeWhere('o', thisDtCond)}
+),
+this_agg AS (
+  SELECT ${thisDimSelect},
+    ${metricSQL}
+  FROM expose_base e
+  FULL OUTER JOIN click_base c ON ${joinOnEC}
+  FULL OUTER JOIN order_base o ON ${joinOnECO}
+  GROUP BY ${groupByPositions}
+),
+-- 上周同期数据
+expose_last AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.expose} le WHERE ${makeWhere('le', lastDtCond)}
+),
+click_last AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.click} lc WHERE ${makeWhere('lc', lastDtCond)}
+),
+order_last AS (
+  SELECT ${subDimCols}union_id, order_view_id, is_arrange FROM ${TABLES.ord} lo WHERE ${makeWhere('lo', lastDtCond)}
+),
+last_agg AS (
+  SELECT ${lastDimSelect},
+    ${lastMetricSQL}
+  FROM expose_last le
+  FULL OUTER JOIN click_last lc ON ${lastJoinOnEC}
+  FULL OUTER JOIN order_last lo ON ${lastJoinOnECO}
+  GROUP BY ${groupByPositions}
+)
+SELECT
+  ${dims.length > 0 ? dims.map(d => `t.${d},`).join('\n  ') + '\n  ' : ''}t.expose_uv,
+  ROUND((t.expose_uv - COALESCE(l.expose_uv,0)) * 100.0 / NULLIF(COALESCE(l.expose_uv,0),0), 1) AS expose_uv_wow,
+  t.click_uv,
+  ROUND((t.click_uv - COALESCE(l.click_uv,0)) * 100.0 / NULLIF(COALESCE(l.click_uv,0),0), 1) AS click_uv_wow,
+  t.order_uv,
+  ROUND((t.order_uv - COALESCE(l.order_uv,0)) * 100.0 / NULLIF(COALESCE(l.order_uv,0),0), 1) AS order_uv_wow,
+  t.order_pv,
+  ROUND((t.order_pv - COALESCE(l.order_pv,0)) * 100.0 / NULLIF(COALESCE(l.order_pv,0),0), 1) AS order_pv_wow,
+  t.ctr,
+  ROUND(t.ctr - COALESCE(l.ctr,0), 2) AS ctr_wow,
+  t.cvr,
+  ROUND(t.cvr - COALESCE(l.cvr,0), 2) AS cvr_wow,
+  t.expose_to_order_cvr,
+  ROUND(t.expose_to_order_cvr - COALESCE(l.expose_to_order_cvr,0), 2) AS cxr_wow
+FROM this_agg t
+LEFT JOIN last_agg l ON ${finalJoinOn}
+LIMIT 1000;`;
+
+  return sql;
+}
+
+function getYesterday() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  // 用本地时间，避免 UTC 偏差导致日期错误（如 KW UTC+3 场景）
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}${m}${day}`;
+}
+
+function getYesterdayDisplay() {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  // 用本地时间，避免 UTC 偏差导致日期错误（如 KW UTC+3 场景）
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+// ============================================================
+// 查询执行（通过 BI XHR API）
+// ============================================================
+async function runQuery() {
+  showStatus('loading', '正在提交查询...');
+  currentPage = 1;
+
+  const sql = buildSQL();
+
+  try {
+    showStatus('loading', '正在通过 keeta-bi 执行查询...');
+    const rows = await execSQL(sql, '商家流量效果分析看板');
+    // 兼容 processResult 期望的格式
+    processResult({ rows, columns: rows.length > 0 ? Object.keys(rows[0]).map(n => ({ name: n })) : [] });
+
+  } catch (err) {
+    // 查询失败：只提示错误，不展示假数据
+    showStatus('error',
+      `❌ 查询失败：${err.message}。` +
+      `<span style="margin-left:12px;">` +
+      `<button class="btn btn-sql" style="padding:4px 12px;font-size:12px;" onclick="showSQL()">📋 复制 SQL 到 BI 平台执行</button>` +
+      `</span>`
+    );
+    // 清空表格，避免残留旧数据误导
+    currentData = [];
+    document.getElementById('tableContainer').innerHTML =
+      '<div class="empty-state"><div class="icon">❌</div>' +
+      '<p>查询失败，请点击上方「复制 SQL 到 BI 平台执行」手动查询</p>' +
+      '<p style="margin-top:8px;font-size:12px;color:#ccc;">确保已在 <a href="https://bi.keetapp.com" target="_blank">bi.keetapp.com</a> 登录后再重试</p>' +
+      '</div>';
+    document.getElementById('pagination').style.display = 'none';
+    document.getElementById('tableInfo').textContent = '查询失败';
+  }
+}
+
+// pollResult 已废弃，查询统一走 execSQL → /keeta-bi-query
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ============================================================
+// 处理查询结果
+// ============================================================
+function processResult(resultData) {
+  // 支持两种格式：
+  // 1. BI API 格式：columns=[{name,type}]，data=[[val,val,...], ...]
+  // 2. execSQL 返回格式：rows=[{col:val,...}, ...]（已经是对象数组）
+  const columns = resultData.columns || [];
+  const rawRows = resultData.data || resultData.rows || [];
+
+  // 判断是否已经是对象数组（execSQL 返回的格式）
+  const isObjectArray = rawRows.length > 0 && !Array.isArray(rawRows[0]);
+  currentData = isObjectArray
+    ? rawRows
+    : rawRows.map(row => {
+        const obj = {};
+        columns.forEach((col, i) => { obj[col.name || col] = row[i]; });
+        return obj;
+      });
+
+  renderTable();
+  showStatus('success', `✅ 查询完成，共 ${currentData.length} 条记录，数据日期：${getYesterdayDisplay()}`);
+
+  // 同步触发品牌流量转化查询
+  runBrandQuery();
+  // 同步触发异常分析查询
+  runAnomalyQuery();
+}
+
+// ============================================================
+// 品牌流量转化：动态维度+指标构建 SQL
+// ============================================================
+function buildBrandSQL() {
+  const region    = document.getElementById('filterRegion').value;
+  const brandId   = document.getElementById('filterBrandId').value.trim();
+  const dateStart = document.getElementById('filterDateStart').value;
+  const dateEnd   = document.getElementById('filterDateEnd').value;
+
+  const dims    = getBrandActiveDims();
+  const metrics = getBrandActiveMetrics();
+
+  const dtStart = dateStart ? dateStart.replace(/-/g, '') : getYesterday();
+  const dtEnd   = dateEnd   ? dateEnd.replace(/-/g, '')   : getYesterday();
+  const dtLabel = dtStart === dtEnd ? dtStart : `${dtStart} ~ ${dtEnd}`;
+
+  // 上周同期：整体往前推7天
+  const shiftDate = (yyyymmdd, days) => {
+    const y = +yyyymmdd.slice(0,4), m = +yyyymmdd.slice(4,6)-1, d = +yyyymmdd.slice(6,8);
+    const dt = new Date(y, m, d); dt.setDate(dt.getDate() + days);
+    return `${dt.getFullYear()}${String(dt.getMonth()+1).padStart(2,'0')}${String(dt.getDate()).padStart(2,'0')}`;
+  };
+  const lastStart = shiftDate(dtStart, -7);
+  const lastEnd   = shiftDate(dtEnd,   -7);
+
+  const topN = parseInt(document.getElementById('filterTopN')?.value) || 0;
+
+  const page    = document.getElementById('filterPage').value;
+  const adPos   = document.getElementById('filterAdPos').value;
+  const adPosId = document.getElementById('filterAdPosId').value.trim();
+
+  // 构建 WHERE 片段
+  const makeWhere = (dtCond) => {
+    let w = `${dtCond}\n    AND is_shop_ent = '是'`;
+    if (region)   w += `\n    AND region = '${region}'`;
+    if (brandId)  w += `\n    AND brand_id IN (${brandId})`;
+    if (topN)     w += `\n    AND brand_id IN (\n      SELECT brand_id FROM ${TABLES.ord}\n      WHERE dt BETWEEN '${dtStart}' AND '${dtEnd}' AND is_shop_ent = '是'${region ? ` AND region = '${region}'` : ''}\n      GROUP BY brand_id ORDER BY COUNT(DISTINCT CASE WHEN is_arrange=1 THEN order_view_id END) DESC LIMIT ${topN}\n    )`;
+    if (page)     w += `\n    AND ad_position_page_name = '${page}'`;
+    if (adPos)    w += `\n    AND ad_position_name = '${adPos}'`;
+    if (adPosId)  w += `\n    AND second_ad_position_id IN (${adPosId})`;
+    return w;
+  };
+
+  const thisDtCond = dtStart === dtEnd ? `dt = '${dtStart}'` : `dt BETWEEN '${dtStart}' AND '${dtEnd}'`;
+  const lastDtCond = lastStart === lastEnd ? `dt = '${lastStart}'` : `dt BETWEEN '${lastStart}' AND '${lastEnd}'`;
+
+  // 子查询需要的字段：维度列 + union_id
+  const subDimCols = dims.length > 0 ? dims.join(', ') + ', ' : '';
+
+  // SELECT 维度列（COALESCE 处理 FULL OUTER JOIN 的 NULL）
+  // this_agg 用 e/c/o，last_agg 用 le/lc/lo，避免别名混淆
+  const thisDimSelect = dims.length > 0
+    ? dims.map(d => `COALESCE(e.${d}, c.${d}, o.${d}) AS ${d}`).join(',\n    ')
+    : "'all' AS grp_key";
+  const lastDimSelect = dims.length > 0
+    ? dims.map(d => `COALESCE(le.${d}, lc.${d}, lo.${d}) AS ${d}`).join(',\n    ')
+    : "'all' AS grp_key";
+
+  // JOIN ON 条件（this_agg 内部）
+  const joinOnEC = dims.length > 0
+    ? dims.map(d => `e.${d} = c.${d}`).join(' AND ') + ' AND e.union_id = c.union_id'
+    : 'e.union_id = c.union_id';
+  const joinOnECO = dims.length > 0
+    ? dims.map(d => `COALESCE(e.${d}, c.${d}) = o.${d}`).join(' AND ') + ' AND COALESCE(e.union_id, c.union_id) = o.union_id'
+    : 'COALESCE(e.union_id, c.union_id) = o.union_id';
+
+  // JOIN ON 条件（last_agg 内部，别名 le/lc/lo）
+  const lastJoinOnEC = dims.length > 0
+    ? dims.map(d => `le.${d} = lc.${d}`).join(' AND ') + ' AND le.union_id = lc.union_id'
+    : 'le.union_id = lc.union_id';
+  const lastJoinOnECO = dims.length > 0
+    ? dims.map(d => `COALESCE(le.${d}, lc.${d}) = lo.${d}`).join(' AND ') + ' AND COALESCE(le.union_id, lc.union_id) = lo.union_id'
+    : 'COALESCE(le.union_id, lc.union_id) = lo.union_id';
+
+  // this_agg JOIN last_agg 的条件
+  // 排除 dt（两边日期不同，不能作为 JOIN key），只用业务维度
+  // dims 为空时按 grp_key（固定值 'all'）JOIN，不会笛卡尔积
+  const joinDims = dims.filter(d => d !== 'dt');
+  const finalJoinOn = joinDims.length > 0
+    ? joinDims.map(d => `t.${d} = l.${d}`).join(' AND ')
+    : `t.grp_key = l.grp_key`;
+
+  const groupByPos = dims.length > 0 ? dims.map((_, i) => i + 1).join(', ') : '1';
+
+  const metricSQL = `COUNT(DISTINCT e.union_id) AS expose_uv,
+    COUNT(DISTINCT c.union_id) AS click_uv,
+    COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) AS order_uv,
+    COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.order_view_id END) AS order_pv,
+    ROUND(COUNT(DISTINCT c.union_id) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id), 0), 2) AS ctr,
+    ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT c.union_id), 0), 2) AS cvr,
+    ROUND(COUNT(DISTINCT CASE WHEN o.is_arrange = 1 THEN o.union_id END) * 100.0 / NULLIF(COUNT(DISTINCT e.union_id), 0), 2) AS expose_to_order_cvr`;
+
+  const lastMetricSQL = metricSQL
+    .replace(/\be\./g, 'le.').replace(/\bc\./g, 'lc.').replace(/\bo\./g, 'lo.');
+
+  return `-- 品牌流量转化 SQL（含周同比）
+-- 当期：${dtLabel} | 上周同期：${lastStart} ~ ${lastEnd}
+-- 维度：${dims.join(', ') || '无'} | 指标：${metrics.join(', ')}
+-- 生成时间：${new Date().toLocaleString('zh-CN')}
+
+WITH
+-- 当期
+expose_base AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.expose} WHERE ${makeWhere(thisDtCond)}
+),
+click_base AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.click} WHERE ${makeWhere(thisDtCond)}
+),
+order_base AS (
+  SELECT ${subDimCols}union_id, order_view_id, is_arrange FROM ${TABLES.ord} WHERE ${makeWhere(thisDtCond)}
+),
+this_agg AS (
+  SELECT ${thisDimSelect},
+    ${metricSQL}
+  FROM expose_base e
+  FULL OUTER JOIN click_base c ON ${joinOnEC}
+  FULL OUTER JOIN order_base o ON ${joinOnECO}
+  GROUP BY ${groupByPos}
+),
+-- 上周同期
+expose_last AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.expose} WHERE ${makeWhere(lastDtCond)}
+),
+click_last AS (
+  SELECT ${subDimCols}union_id FROM ${TABLES.click} WHERE ${makeWhere(lastDtCond)}
+),
+order_last AS (
+  SELECT ${subDimCols}union_id, order_view_id, is_arrange FROM ${TABLES.ord} WHERE ${makeWhere(lastDtCond)}
+),
+last_agg AS (
+  SELECT ${lastDimSelect},
+    ${lastMetricSQL}
+  FROM expose_last le
+  FULL OUTER JOIN click_last lc ON ${lastJoinOnEC}
+  FULL OUTER JOIN order_last lo ON ${lastJoinOnECO}
+  GROUP BY ${groupByPos}
+)
+SELECT
+  ${dims.length > 0 ? dims.map(d => `t.${d},`).join('\n  ') + '\n  ' : ''}t.expose_uv,
+  ROUND((t.expose_uv - COALESCE(l.expose_uv,0)) * 100.0 / NULLIF(COALESCE(l.expose_uv,0),0), 1) AS expose_uv_wow,
+  t.click_uv,
+  ROUND((t.click_uv - COALESCE(l.click_uv,0)) * 100.0 / NULLIF(COALESCE(l.click_uv,0),0), 1) AS click_uv_wow,
+  t.order_uv,
+  ROUND((t.order_uv - COALESCE(l.order_uv,0)) * 100.0 / NULLIF(COALESCE(l.order_uv,0),0), 1) AS order_uv_wow,
+  t.order_pv,
+  ROUND((t.order_pv - COALESCE(l.order_pv,0)) * 100.0 / NULLIF(COALESCE(l.order_pv,0),0), 1) AS order_pv_wow,
+  t.ctr,
+  ROUND(t.ctr - COALESCE(l.ctr,0), 2) AS ctr_wow,
+  t.cvr,
+  ROUND(t.cvr - COALESCE(l.cvr,0), 2) AS cvr_wow,
+  t.expose_to_order_cvr,
+  ROUND(t.expose_to_order_cvr - COALESCE(l.expose_to_order_cvr,0), 2) AS cxr_wow
+FROM this_agg t
+LEFT JOIN last_agg l ON ${finalJoinOn}
+LIMIT 1000;`;
+}
+
+async function runBrandQuery() {
+  document.getElementById('brandTableInfo').textContent = '查询中...';
+  const sql = buildBrandSQL();
+  try {
+    brandData = await execSQL(sql, '品牌流量转化');
+    brandPage = 1;
+    renderBrandTable();
+    document.getElementById('brandTableInfo').textContent = `共 ${brandData.length} 条`;
+  } catch (err) {
+    document.getElementById('brandTableInfo').textContent = `❌ ${err.message}`;
+    document.getElementById('brandTableContainer').innerHTML =
+      `<div class="empty-state"><div class="icon">❌</div>` +
+      `<p>品牌流量转化查询失败：${err.message}</p>` +
+      `<p style="margin-top:8px;font-size:12px;color:#ccc;">可点击「查看SQL」复制后到 <a href="https://bi.keetapp.com" target="_blank">bi.keetapp.com</a> 手动执行</p>` +
+      `</div>`;
+  } finally {
+    // 恢复状态栏（避免 execSQL 轮询的 loading 状态残留）
+    if (currentData.length > 0) {
+      showStatus('success', `✅ 查询完成，共 ${currentData.length} 条记录，数据日期：${getYesterdayDisplay()}`);
+    }
+  }
+}
+
+function showBrandSQL() {
+  document.getElementById('sqlPreview').textContent = buildBrandSQL();
+  document.getElementById('sqlModal').classList.add('show');
+}
+
+function exportBrandCSV() {
+  if (brandData.length === 0) { alert('暂无品牌流量转化数据可导出'); return; }
+  const dims    = getBrandActiveDims();
+  const metrics = getBrandActiveMetrics();
+  const cols    = [...dims, ...metrics];
+  const labels  = cols.map(c => DIM_LABELS[c] || METRIC_DEFS[c]?.label || c);
+  let csv = labels.join(',') + '\n';
+  brandData.forEach(row => {
+    csv += cols.map(c => {
+      const v = row[c];
+      if (v === null || v === undefined) return '';
+      const s = String(v);
+      return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s.replace(/"/g, '""')}"` : s;
+    }).join(',') + '\n';
+  });
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `品牌流量转化_${getYesterdayDisplay()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function renderBrandTable() {
+  // 动态读取当前选中的维度和指标
+  const dims    = getBrandActiveDims();
+  const metrics = getBrandActiveMetrics();
+  // 维度列 + 指标列（每个指标后紧跟 wow 列）
+  const BRAND_COLS = [
+    ...dims.map(d => ({ key: d, label: DIM_LABELS[d] || d, fmt: 'str' })),
+    ...metrics.flatMap(m => {
+      const def = METRIC_DEFS[m];
+      const wowDef = WOW_DEFS[m];
+      const cols = [{ key: m, label: def?.label || m, fmt: def?.format === 'pct' ? 'pct' : 'num' }];
+      if (wowDef) cols.push({ key: wowDef.key, label: wowDef.label, fmt: 'wow', wowType: wowDef.type });
+      return cols;
+    })
+  ];
+
+  if (brandData.length === 0) {
+    document.getElementById('brandTableContainer').innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暂无数据</p></div>';
+    document.getElementById('brandPagination').style.display = 'none';
+    return;
+  }
+
+  // 计算均值，用于高亮判断
+  const avgExposeUV = brandData.reduce((s, r) => s + (Number(r.expose_uv) || 0), 0) / brandData.length;
+  const avgCVR      = brandData.reduce((s, r) => s + (Number(r.cvr) || 0), 0) / brandData.length;
+
+  // 排序
+  let data = [...brandData];
+  if (brandSortCol) {
+    data.sort((a, b) => {
+      const va = Number(a[brandSortCol]) || a[brandSortCol] || '';
+      const vb = Number(b[brandSortCol]) || b[brandSortCol] || '';
+      if (va < vb) return brandSortAsc ? -1 : 1;
+      if (va > vb) return brandSortAsc ? 1 : -1;
+      return 0;
+    });
+  } else {
+    data.sort((a, b) => {
+      const da = String(a.dt || ''), db = String(b.dt || '');
+      if (da < db) return -1; if (da > db) return 1;
+      return (Number(b.expose_uv) || 0) - (Number(a.expose_uv) || 0);
+    });
+  }
+
+  const total = data.length;
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  const start = (brandPage - 1) * PAGE_SIZE;
+  const pageData = data.slice(start, start + PAGE_SIZE);
+
+  // 表头
+  let thead = '<thead><tr><th style="width:40px;">#</th>';
+  BRAND_COLS.forEach(col => {
+    const isSorted = brandSortCol === col.key;
+    const def = METRIC_DEFS[col.key];
+    const labelHTML = def ? metricTooltipHTML(def) : col.label;
+    thead += `<th class="sortable${isSorted ? ' sorted' : ''}" onclick="brandSortBy('${col.key}')">${labelHTML}<span class="sort-icon">${isSorted ? (brandSortAsc ? '↑' : '↓') : '↕'}</span></th>`;
+  });
+  thead += '</tr></thead>';
+
+  // 表体
+  let tbody = '<tbody>';
+  pageData.forEach((row, idx) => {
+    const isHighlight = (Number(row.expose_uv) || 0) >= avgExposeUV && (Number(row.cvr) || 0) <= avgCVR * 0.5;
+    const rowStyle = isHighlight ? ' style="background:#fff7e6;"' : '';
+    tbody += `<tr${rowStyle}>`;
+    tbody += `<td style="color:#bbb;font-size:11px;">${start + idx + 1}</td>`;
+    BRAND_COLS.forEach(col => {
+      const val = row[col.key];
+      if (col.fmt === 'wow') {
+        tbody += `<td class="num">${fmtWowCell(val, col.wowType)}</td>`;
+      } else if (col.fmt === 'pct') {
+        const pct = Number(val) || 0;
+        const maxPct = Math.max(...brandData.map(r => Number(r[col.key]) || 0));
+        tbody += `<td class="num"><div class="rate-bar"><div class="bar"><div class="fill" style="width:${maxPct > 0 ? (pct/maxPct*100) : 0}%"></div></div><span class="text${isHighlight && col.key === 'cvr' ? '" style="color:#fa8c16;font-weight:600' : ''}">${pct}%</span></div></td>`;
+      } else if (col.fmt === 'num') {
+        tbody += `<td class="num">${val !== undefined && val !== null ? Number(val).toLocaleString('zh-CN') : '—'}</td>`;
+      } else {
+        tbody += `<td>${val !== undefined && val !== null ? val : '—'}</td>`;
+      }
+    });
+    tbody += '</tr>';
+  });
+  tbody += '</tbody>';
+
+  document.getElementById('brandTableContainer').innerHTML = `<table>${thead}${tbody}</table>`;
+  document.getElementById('brandTableInfo').textContent = `共 ${total} 条，第 ${brandPage}/${totalPages} 页`;
+
+  // 分页
+  const pag = document.getElementById('brandPagination');
+  if (totalPages <= 1) { pag.style.display = 'none'; return; }
+  pag.style.display = 'flex';
+  document.getElementById('brandPageInfo').textContent = `共 ${total} 条记录`;
+  let btns = `<button class="page-btn" onclick="brandGoPage(${brandPage-1})" ${brandPage===1?'disabled':''}>‹</button>`;
+  getPageRange(brandPage, totalPages).forEach(p => {
+    if (p === '...') btns += `<span class="page-btn" style="cursor:default">…</span>`;
+    else btns += `<button class="page-btn${p===brandPage?' active':''}" onclick="brandGoPage(${p})">${p}</button>`;
+  });
+  btns += `<button class="page-btn" onclick="brandGoPage(${brandPage+1})" ${brandPage===totalPages?'disabled':''}>›</button>`;
+  document.getElementById('brandPageBtns').innerHTML = btns;
+}
+
+function brandSortBy(col) {
+  if (brandSortCol === col) brandSortAsc = !brandSortAsc;
+  else { brandSortCol = col; brandSortAsc = false; }
+  renderBrandTable();
+}
+
+function brandGoPage(p) {
+  const totalPages = Math.ceil(brandData.length / PAGE_SIZE);
+  if (p < 1 || p > totalPages) return;
+  brandPage = p;
+  renderBrandTable();
+}
+
+// ============================================================
+// Demo 数据（API 不可用时展示）
+// ============================================================
+function showDemoData() {
+  // 生成示例数据
+  const pages     = ['首页', '搜索页', '品类页', '活动页', '个人中心'];
+  const positions = ['Banner', '猜你喜欢', '热门商家', '附近商家', '品牌专区'];
+
+  // 根据筛选器日期范围生成对应天数的数据
+  // 用 yyyy-MM-dd 字符串直接比较，避免 new Date('yyyy-MM-dd') 时区偏移问题
+  const dateStart = document.getElementById('filterDateStart').value || getYesterdayDisplay();
+  const dateEnd   = document.getElementById('filterDateEnd').value   || getYesterdayDisplay();
+
+  // 安全解析：将 yyyy-MM-dd 转为本地时间的 Date（加 T00:00 避免 UTC 偏移）
+  const parseDateLocal = s => { const [y,m,d] = s.split('-'); return new Date(+y, +m-1, +d); };
+  const dtStart = parseDateLocal(dateStart);
+  const dtEnd   = parseDateLocal(dateEnd);
+
+  // 枚举日期范围内所有日期（最多 90 天，防止误操作）
+  const dates = [];
+  for (let d = new Date(dtStart); d <= dtEnd && dates.length < 90; d.setDate(d.getDate() + 1)) {
+    const iso = `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+    dates.push(iso);
+  }
+
+  currentData = [];
+  dates.forEach(dt => {
+    for (let i = 0; i < 5; i++) {
+      const exposeUV = Math.floor(Math.random() * 50000) + 5000;
+      const clickUV  = Math.floor(exposeUV * (0.05 + Math.random() * 0.15));
+      const orderUV  = Math.floor(clickUV  * (0.1  + Math.random() * 0.2));
+      currentData.push({
+        dt,
+        ad_position_page_name:  pages[i % pages.length],
+        first_ad_position_name: positions[i % positions.length],
+        brand_id:   10000 + i * 100,
+        brand_name: `品牌${String.fromCharCode(65 + i % 26)}`,
+        region:     ['SA', 'HK', 'AE', 'KW'][i % 4],
+        expose_uv:  exposeUV,
+        click_uv:   clickUV,
+        order_uv:   orderUV,
+        ctr:  (clickUV / exposeUV * 100).toFixed(2),
+        cvr:  (orderUV / clickUV  * 100).toFixed(2),
+        expose_to_order_cvr: (orderUV / exposeUV * 100).toFixed(2),
+        expose_pv: Math.floor(exposeUV * 1.5),
+        click_pv:  Math.floor(clickUV  * 1.3),
+        order_pv:  orderUV
+      });
+    }
+  });
+
+renderTable();
+}
+
+// ============================================================
+// 渲染表格
+// ============================================================
+function renderTable() {
+  const dims = getActiveDims();
+  const metrics = getActiveMetrics();
+  const allCols = [...dims, ...metrics];
+
+  if (currentData.length === 0) {
+    document.getElementById('tableContainer').innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暂无数据</p></div>';
+    document.getElementById('pagination').style.display = 'none';
+    document.getElementById('tableInfo').textContent = '无数据';
+    return;
+  }
+
+  // 排序：手动指定列优先；否则默认日期正序 + 曝光UV倒序
+  let data = [...currentData];
+  if (sortCol) {
+    data.sort((a, b) => {
+      const va = Number(a[sortCol]) || a[sortCol] || '';
+      const vb = Number(b[sortCol]) || b[sortCol] || '';
+      if (va < vb) return sortAsc ? -1 : 1;
+      if (va > vb) return sortAsc ? 1 : -1;
+      return 0;
+    });
+  } else {
+    data.sort((a, b) => {
+      // 一级：日期正序
+      const da = String(a.dt || ''), db = String(b.dt || '');
+      if (da < db) return -1;
+      if (da > db) return 1;
+      // 二级：曝光UV 倒序
+      return (Number(b.expose_uv) || 0) - (Number(a.expose_uv) || 0);
+    });
+  }
+
+  // 分页
+  const total = data.length;
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const pageData = data.slice(start, start + PAGE_SIZE);
+
+  // 构建表头（每个指标后紧跟 wow 列）
+  let thead = '<thead><tr>';
+  thead += '<th style="width:40px;">#</th>';
+  dims.forEach(d => {
+    const isSorted = sortCol === d;
+    thead += `<th class="sortable${isSorted ? ' sorted' : ''}" onclick="sortBy('${d}')">${DIM_LABELS[d] || d}<span class="sort-icon">${isSorted ? (sortAsc ? '↑' : '↓') : '↕'}</span></th>`;
+  });
+  metrics.forEach(m => {
+    const def = METRIC_DEFS[m];
+    const wowDef = WOW_DEFS[m];
+    const isSorted = sortCol === m;
+    thead += `<th class="sortable${isSorted ? ' sorted' : ''}" onclick="sortBy('${m}')">${metricTooltipHTML(def)}<span class="sort-icon">${isSorted ? (sortAsc ? '↑' : '↓') : '↕'}</span></th>`;
+    if (wowDef) {
+      const isWowSorted = sortCol === wowDef.key;
+      thead += `<th class="sortable${isWowSorted ? ' sorted' : ''}" onclick="sortBy('${wowDef.key}')" style="color:#888;font-size:11px;">${wowDef.label}<span class="sort-icon">${isWowSorted ? (sortAsc ? '↑' : '↓') : '↕'}</span></th>`;
+    }
+  });
+  thead += '</tr></thead>';
+
+  // 构建表体
+  let tbody = '<tbody>';
+  pageData.forEach((row, idx) => {
+    tbody += '<tr>';
+    tbody += `<td style="color:#bbb;font-size:11px;">${start + idx + 1}</td>`;
+    dims.forEach(d => {
+      tbody += `<td>${row[d] !== undefined && row[d] !== null ? row[d] : '—'}</td>`;
+    });
+    metrics.forEach(m => {
+      const def = METRIC_DEFS[m];
+      const wowDef = WOW_DEFS[m];
+      const val = row[m];
+      if (def.format === 'pct') {
+        const pct = Number(val) || 0;
+        const maxPct = Math.max(...currentData.map(r => Number(r[m]) || 0));
+        tbody += `<td class="num"><div class="rate-bar"><div class="bar"><div class="fill" style="width:${maxPct > 0 ? (pct/maxPct*100) : 0}%"></div></div><span class="text">${pct}%</span></div></td>`;
+      } else {
+        tbody += `<td class="num">${val !== undefined && val !== null ? formatNum(val) : '—'}</td>`;
+      }
+      if (wowDef) {
+        tbody += `<td class="num">${fmtWowCell(row[wowDef.key], wowDef.type)}</td>`;
+      }
+    });
+    tbody += '</tr>';
+  });
+  tbody += '</tbody>';
+
+  document.getElementById('tableContainer').innerHTML = `<table>${thead}${tbody}</table>`;
+  document.getElementById('tableInfo').textContent = `共 ${total} 条，第 ${currentPage}/${totalPages} 页`;
+
+  // 分页
+  renderPagination(total, totalPages);
+}
+
+function renderPagination(total, totalPages) {
+  const pag = document.getElementById('pagination');
+  if (totalPages <= 1) { pag.style.display = 'none'; return; }
+  pag.style.display = 'flex';
+  document.getElementById('pageInfo').textContent = `共 ${total} 条记录`;
+
+  let btns = '';
+  btns += `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?'disabled':''}>‹</button>`;
+  const range = getPageRange(currentPage, totalPages);
+  range.forEach(p => {
+    if (p === '...') btns += `<span class="page-btn" style="cursor:default">…</span>`;
+    else btns += `<button class="page-btn${p===currentPage?' active':''}" onclick="goPage(${p})">${p}</button>`;
+  });
+  btns += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?'disabled':''}>›</button>`;
+  document.getElementById('pageBtns').innerHTML = btns;
+}
+
+function getPageRange(cur, total) {
+  if (total <= 7) return Array.from({length: total}, (_, i) => i+1);
+  if (cur <= 4) return [1,2,3,4,5,'...',total];
+  if (cur >= total-3) return [1,'...',total-4,total-3,total-2,total-1,total];
+  return [1,'...',cur-1,cur,cur+1,'...',total];
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(currentData.length / PAGE_SIZE);
+  if (p < 1 || p > totalPages) return;
+  currentPage = p;
+  renderTable();
+}
+
+function sortBy(col) {
+  if (sortCol === col) sortAsc = !sortAsc;
+  else { sortCol = col; sortAsc = false; }
+  renderTable();
+}
+
+// ============================================================
+// 工具函数
+// ============================================================
+function formatNum(n) {
+  const num = Number(n);
+  if (isNaN(num)) return n;
+  return num.toLocaleString('zh-CN');
+}
+
+function showStatus(type, msg) {
+  const bar = document.getElementById('statusBar');
+  bar.style.display = 'flex';
+  bar.className = `status-bar ${type}`;
+  bar.innerHTML = type === 'loading' ? `<div class="spinner"></div> ${msg}` : msg;
+}
+
+// ============================================================
+// 可搜索下拉组件（Searchable Select）
+// ============================================================
+
+// 每个组件的完整选项列表（用于搜索过滤）
+const _ssAllOptions = {};
+
+/**
+ * 初始化一个可搜索下拉组件
+ * @param {string} wrapperId  - 外层 div id（如 'ssPage'）
+ * @param {string} hiddenId   - 隐藏 input id（如 'filterPage'）
+ * @param {string} displayId  - 显示 input id（如 'ssPageDisplay'）
+ * @param {string} listId     - 列表容器 id（如 'ssPageList'）
+ * @param {Array}  options    - [{value, label}] 数组，第一项为占位符（value=''）
+ * @param {Function} [onChange] - 选中后回调
+ */
+function ssInit(wrapperId, hiddenId, displayId, listId, options, onChange) {
+  _ssAllOptions[wrapperId] = options;
+  ssRenderList(wrapperId, hiddenId, displayId, listId, options, onChange, '');
+
+  const wrapper = document.getElementById(wrapperId);
+  const displayInput = document.getElementById(displayId);
+
+  // 点击显示框：切换下拉
+  displayInput.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const isOpen = wrapper.classList.contains('open');
+    ssCloseAll();
+    if (!isOpen) {
+      wrapper.classList.add('open');
+      // 清空搜索框并重新渲染全量
+      const searchInput = wrapper.querySelector('.ss-search input');
+      if (searchInput) { searchInput.value = ''; ssFilter(wrapperId, ''); }
+      // 滚动到选中项
+      setTimeout(() => {
+        const sel = wrapper.querySelector('.ss-option.selected');
+        if (sel) sel.scrollIntoView({ block: 'nearest' });
+      }, 0);
+    }
+  });
+}
+
+/** 渲染列表（支持搜索过滤） */
+function ssRenderList(wrapperId, hiddenId, displayId, listId, options, onChange, keyword) {
+  const listEl = document.getElementById(listId);
+  const currentVal = document.getElementById(hiddenId).value;
+  const kw = (keyword || '').toLowerCase();
+  const filtered = kw ? options.filter(o => o.value === '' || o.label.toLowerCase().includes(kw)) : options;
+
+  if (filtered.length === 0 || (filtered.length === 1 && filtered[0].value === '')) {
+    listEl.innerHTML = '<div class="ss-empty">无匹配结果</div>';
+    return;
+  }
+
+  listEl.innerHTML = filtered.map(o => {
+    const cls = ['ss-option', o.value === '' ? 'placeholder' : '', o.value === currentVal ? 'selected' : ''].filter(Boolean).join(' ');
+    return `<div class="${cls}" data-value="${o.value}" data-label="${o.label}">${o.label}</div>`;
+  }).join('');
+
+  // 绑定点击
+  listEl.querySelectorAll('.ss-option').forEach(el => {
+    el.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const val = this.dataset.value;
+      const label = this.dataset.label;
+      ssSelect(wrapperId, hiddenId, displayId, val, label);
+      if (onChange) onChange(val);
+      ssCloseAll();
+    });
+  });
+}
+
+/** 选中某个值 */
+function ssSelect(wrapperId, hiddenId, displayId, value, label) {
+  document.getElementById(hiddenId).value = value;
+  const displayInput = document.getElementById(displayId);
+  const wrapper = document.getElementById(wrapperId);
+  if (value === '') {
+    displayInput.value = '';
+    displayInput.placeholder = displayInput.dataset.placeholder || '全部';
+    displayInput.classList.remove('has-value');
+    wrapper.classList.remove('has-value');
+  } else {
+    displayInput.value = label;
+    displayInput.classList.add('has-value');
+    wrapper.classList.add('has-value');
+  }
+}
+
+/** 搜索过滤 */
+function ssFilter(wrapperId, keyword) {
+  const wrapper = document.getElementById(wrapperId);
+  const hiddenId = wrapper.querySelector('input[type=hidden]').id;
+  const displayId = wrapper.querySelector('.ss-input').id;
+  const listId = wrapper.querySelector('.ss-list').id;
+  const onChange = _ssOnChange[wrapperId];
+  ssRenderList(wrapperId, hiddenId, displayId, listId, _ssAllOptions[wrapperId] || [], onChange, keyword);
+}
+
+/** 清空选择 */
+function ssClear(wrapperId, hiddenId, displayId, triggerCascade) {
+  ssSelect(wrapperId, hiddenId, displayId, '', '');
+  if (triggerCascade && window._refreshAdPosOptions) {
+    window._refreshAdPosOptions('');
+  }
+  ssCloseAll();
+}
+
+/** 关闭所有下拉 */
+function ssCloseAll() {
+  document.querySelectorAll('.searchable-select.open').forEach(el => el.classList.remove('open'));
+}
+
+// 存储各组件的 onChange 回调
+const _ssOnChange = {};
+
+// 点击页面其他地方关闭下拉
+document.addEventListener('click', ssCloseAll);
+
+// 页面筛选器变化时，联动刷新资源位选项
+function onPageFilterChange() {
+  const selectedPage = document.getElementById('filterPage').value;
+  if (window._refreshAdPosOptions) {
+    window._refreshAdPosOptions(selectedPage);
+  }
+}
+
+function resetFilters() {
+  document.getElementById('filterRegion').value = 'KW';
+  document.getElementById('filterBrandId').value = '';
+  ssClear('ssPage', 'filterPage', 'ssPageDisplay', false);
+  window._refreshAdPosOptions('');
+  ssClear('ssAdPos', 'filterAdPos', 'ssAdPosDisplay', false);
+  document.getElementById('filterAdPosId').value = '';
+  document.getElementById('filterDateStart').value = getYesterdayDisplay();
+  document.getElementById('filterDateEnd').value = getYesterdayDisplay();
+}
+
+function showSQL() {
+  document.getElementById('sqlPreview').textContent = buildSQL();
+  document.getElementById('sqlModal').classList.add('show');
+}
+
+function copySQL() {
+  navigator.clipboard.writeText(buildSQL()).then(() => {
+    const btn = document.querySelector('.modal .btn-primary');
+    btn.textContent = '✅ 已复制';
+    setTimeout(() => btn.textContent = '复制 SQL', 2000);
+  });
+}
+
+function exportCSV() {
+  if (currentData.length === 0) { alert('暂无数据可导出'); return; }
+  const dims = getActiveDims();
+  const metrics = getActiveMetrics();
+  const cols = [...dims, ...metrics];
+  const headers = cols.map(c => DIM_LABELS[c] || METRIC_DEFS[c]?.label || c);
+
+  let csv = headers.join(',') + '\n';
+  currentData.forEach(row => {
+    csv += cols.map(c => {
+      const v = row[c];
+      if (v === null || v === undefined) return '';
+      const s = String(v);
+      return s.includes(',') || s.includes('"') || s.includes('\n') ? `"${s.replace(/"/g, '""')}"` : s;
+    }).join(',') + '\n';
+  });
+
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `商家流量效果分析_${getYesterdayDisplay()}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// 点击弹窗外部关闭
+document.getElementById('sqlModal').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('show');
+});
+
+// ============================================================
+// 初始化
+// ============================================================
+function init() {
+  // 更新日期显示
+  // dateDisplay 已移除
+
+  // 日期筛选器默认值：昨天
+  const yest = getYesterdayDisplay();
+  document.getElementById('filterDateStart').value = yest;
+  document.getElementById('filterDateEnd').value   = yest;
+
+  // Region 默认选中 KW
+  document.getElementById('filterRegion').value = 'KW';
+
+  // 初始化页面/资源位下拉（从已知数据填充，实际使用时可通过查询获取）
+  // ── 页面-资源位级联数据（来自 mart_sailor_global.dim_flow_ad_position）──
+  const PAGE_POSITION_MAP = {
+    "App开屏页": ["开屏"],
+    "Push承接引导页": ["顶通横幅"],
+    "一人食专区落地页": ["專區彈窗", "菜品卡片"],
+    "优惠券列表页": ["Banner", "优惠券使用", "优惠券兑换", "历史优惠", "无券状态"],
+    "全民免运落地页": ["店铺卡片", "推荐理由标签"],
+    "咖啡优惠落地页": ["店铺卡片", "推荐理由标签"],
+    "品牌专区落地页页": ["店铺卡片", "推荐理由标签"],
+    "品质专区落地页": ["推荐理由标签"],
+    "外卖首页": ["Banner", "Feeds", "Offer 专区", "一人食专区", "倒计时心智条", "品牌墙专区", "复购专区", "定位", "底tab", "底部浮层", "店铺专区", "弹窗", "排序", "推荐理由标签", "搜索", "新人专区", "新人权益区", "新版横版Banner", "消息通知浮条", "盲盒弹窗", "聚餐专区", "运营专区", "金刚区", "顶通"],
+    "多单任务落地页": ["参与活动", "奖励详情"],
+    "大额满折落地页": ["推荐理由标签"],
+    "奖励兑换活动页": ["奖励兑换"],
+    "店铺专区落地页": ["店铺卡片", "推荐理由标签", "菜品卡片"],
+    "店铺收藏页": ["店铺卡片", "推荐理由标签"],
+    "店铺详情页": ["Banner", "搜索框", "菜品卡片"],
+    "必嗌榜落地页": ["Banner", "分享", "分享面板", "店铺卡片", "推荐理由标签", "榜单投票入口"],
+    "慈善落地页": ["推荐理由标签"],
+    "折扣菜专区落地页": ["菜品卡片"],
+    "搜索引导页": ["sug", "历史搜索词", "热搜品牌词", "热搜词"],
+    "搜索结果页": ["商卡Banner", "店铺卡片", "搜索无结果", "相似菜品主题卡", "线索卡", "线索卡订阅按钮"],
+    "新增网红主题卡通用落地页": ["店铺卡片"],
+    "新店专区落地页": ["推荐理由标签"],
+    "新店主题卡片通用频道落地页": ["店铺卡片"],
+    "满折专区落地页": ["店铺卡片", "推荐理由标签"],
+    "独家金刚落地页": ["店铺卡片", "推荐理由标签"],
+    "自提落地页": ["推荐理由标签"],
+    "自提落地页页": ["Banner", "店铺卡片", "搜索"],
+    "订单列表页": ["再来一单", "订单卡片"],
+    "订单详情页": ["Banner", "弹窗"],
+    "邀请有礼落地页": ["二维码", "分享成功", "分享按钮", "奖励", "奖励提醒", "提现", "规则攻略", "邀请", "邀请码"],
+    "金刚区落地页": ["Banner", "店铺卡片", "推荐理由标签", "搜索"],
+    "高端供给页": ["店铺卡片", "落地页爆品台组件"],
+    "高达落地页": ["Keemart商品卡片", "VS下单组件", "一键领券", "一键领券的可用券列表", "下单得奖组件", "下单抽奖组件", "下挂菜供给组件", "二维码", "二维码组件", "付费券包售卖组件", "任务完成领奖弹窗", "优惠券兑换组件", "内容供给组件", "分享按钮", "分享组件", "助力领券组件", "历史邀请记录组件", "去使用券组件", "品牌墙组件", "商户组件", "图片组件", "多单任务组件", "大转盘抽奖组件", "天降发券", "奖励提醒", "奖品组件", "好友助力动画组件", "实例模块组件", "底部导航组件", "底部模块tab组件", "店铺组件", "慈善捐款组件", "抽奖组件", "提现", "搜索", "摇一摇组件", "新客领券弹窗组件", "未登录提示组件", "横滑下挂菜组件", "盲盒抽奖组件", "精品菜品组件", "精品菜组件", "继续分享弹窗组件", "菜品横划组件", "菜品组件", "裂变组件", "访问/分享得奖任务弹窗", "访问/分享得奖任务弹窗组件", "转盘抽奖组件2.0", "连续签到组件", "邀请", "阶梯任务模块", "顶部信息条组件", "领券组件"]
+  };
+
+  // 初始化页面可搜索下拉
+  const pageOptions = [
+    { value: '', label: '全部页面' },
+    ...Object.keys(PAGE_POSITION_MAP).sort().map(p => ({ value: p, label: p }))
+  ];
+  document.getElementById('ssPageDisplay').dataset.placeholder = '全部页面';
+  _ssOnChange['ssPage'] = function(val) {
+    if (window._refreshAdPosOptions) window._refreshAdPosOptions(val);
+  };
+  ssInit('ssPage', 'filterPage', 'ssPageDisplay', 'ssPageList', pageOptions, _ssOnChange['ssPage']);
+
+  // 初始化资源位可搜索下拉（支持级联刷新）
+  document.getElementById('ssAdPosDisplay').dataset.placeholder = '全部资源位';
+  window._refreshAdPosOptions = function(selectedPage) {
+    const prevVal = document.getElementById('filterAdPos').value;
+    const positions = selectedPage && PAGE_POSITION_MAP[selectedPage]
+      ? PAGE_POSITION_MAP[selectedPage]
+      : [...new Set(Object.values(PAGE_POSITION_MAP).flat())].sort();
+    const adPosOptions = [
+      { value: '', label: '全部资源位' },
+      ...positions.map(p => ({ value: p, label: p }))
+    ];
+    _ssAllOptions['ssAdPos'] = adPosOptions;
+    // 若之前选中的值在新列表中不存在，则清空
+    const stillValid = prevVal && positions.includes(prevVal);
+    if (!stillValid && prevVal) {
+      ssClear('ssAdPos', 'filterAdPos', 'ssAdPosDisplay', false);
+    }
+    ssRenderList('ssAdPos', 'filterAdPos', 'ssAdPosDisplay', 'ssAdPosList', adPosOptions, null, '');
+  };
+  ssInit('ssAdPos', 'filterAdPos', 'ssAdPosDisplay', 'ssAdPosList',
+    [{ value: '', label: '全部资源位' }], null);
+  window._refreshAdPosOptions('');
+
+  // 检测代理服务器是否就绪
+  checkProxy();
+}
+
+function downloadProxy() {
+  // 弹出模态框显示文件内容，用户一键复制后自行保存为 bi-proxy-server.js
+  // （iframe sandbox 无 allow-downloads，无法触发文件下载；模态框+复制是最可靠方案）
+  const b64 = "LyoqCiAqIOWVhuWutua1gemHj+aViOaenOWIhuaekOeci+advyAtIOacrOWcsOS7o+eQhuacjeWKoeWZqAogKiDop6PlhrMgZmlsZTovLyDmiZPlvIAgSFRNTCDml7YgZmV0Y2ggYmkua2VldGFwcC5jb20g55qEIENPUlMg6Zeu6aKYCiAqCiAqIOeUqOazle+8mm5vZGUgYmktcHJveHktc2VydmVyLmpzCiAqIOeEtuWQjua1j+iniOWZqOiuv+mXru+8mmh0dHA6Ly9sb2NhbGhvc3Q6ODc4OAogKgogKiBDb29raWUg6Ieq5Yqo5Yi35paw5py65Yi277yaCiAqICAgMS4g5ZCv5Yqo5pe25LuOIGNhdGRlc2sg5rWP6KeI5Zmo5a6e5pe26K+75Y+WIGJpLmtlZXRhcHAuY29tIOeahCBDb29raWUKICogICAyLiDku6PnkIbor7fmsYLmlLbliLAgNDAxIC8gMzAy4oaSbG9naW4g5pe277yM6Ieq5Yqo6YeN5paw5oqT5Y+W5bm26YeN6K+VCiAqICAgMy4gQ29va2llIOe8k+WtmOWIsCAuYmktY29va2llLWNhY2hlIOaWh+S7tu+8jOS4i+asoeWQr+WKqOS8mOWFiOivu+e8k+WtmO+8iOWKoOmAn+WQr+WKqO+8iQogKi8KCmNvbnN0IGh0dHAgICAgICAgPSByZXF1aXJlKCdodHRwJyk7CmNvbnN0IGh0dHBzICAgICAgPSByZXF1aXJlKCdodHRwcycpOwpjb25zdCBmcyAgICAgICAgID0gcmVxdWlyZSgnZnMnKTsKY29uc3QgcGF0aCAgICAgICA9IHJlcXVpcmUoJ3BhdGgnKTsKY29uc3QgdXJsICAgICAgICA9IHJlcXVpcmUoJ3VybCcpOwpjb25zdCB7IGV4ZWNTeW5jLCBleGVjIH0gPSByZXF1aXJlKCdjaGlsZF9wcm9jZXNzJyk7Cgpjb25zdCBQT1JUICAgICAgPSBwYXJzZUludChwcm9jZXNzLmVudi5QT1JUIHx8ICc4Nzg4JywgMTApOwoKLy8g4pSA4pSAIOWQr+WKqOWJjeiHquWKqOmHiuaUvuerr+WPo++8iOadgOaOieWNoOeUqOWQjOerr+WPo+eahOaXp+i/m+eoi++8ieKUgOKUgAp0cnkgewogIGNvbnN0IHJlc3VsdCA9IGV4ZWNTeW5jKGBsc29mIC10aSB0Y3A6JHtQT1JUfWAsIHsgZW5jb2Rpbmc6ICd1dGY4JyB9KS50cmltKCk7CiAgaWYgKHJlc3VsdCkgewogICAgY29uc3QgcGlkcyA9IHJlc3VsdC5zcGxpdCgnXG4nKS5maWx0ZXIoQm9vbGVhbik7CiAgICBwaWRzLmZvckVhY2gocGlkID0+IHsKICAgICAgdHJ5IHsKICAgICAgICBwcm9jZXNzLmtpbGwocGFyc2VJbnQocGlkKSwgJ1NJR0tJTEwnKTsKICAgICAgICBjb25zb2xlLmxvZyhg8J+UqiDlt7Lnu4jmraLljaDnlKjnq6/lj6MgJHtQT1JUfSDnmoTml6fov5vnqIsgKFBJRDogJHtwaWR9KWApOwogICAgICB9IGNhdGNoIChfKSB7fQogICAgfSk7CiAgICAvLyDnrYnlvoXnq6/lj6Pph4rmlL4KICAgIGV4ZWNTeW5jKCdzbGVlcCAwLjUnKTsKICB9Cn0gY2F0Y2ggKF8pIHsKICAvLyBsc29mIOaXoOi+k+WHuu+8iOerr+WPo+epuumXsu+8ieaXtuS8muaKm+W8guW4uO+8jOW/veeVpeWNs+WPrwp9Cgpjb25zdCBCSV9IT1NUICAgPSAnYmkua2VldGFwcC5jb20nOwpjb25zdCBIVE1MX0ZJTEUgPSBwYXRoLmpvaW4oX19kaXJuYW1lLCAn5ZWG5a625rWB6YeP5pWI5p6c5YiG5p6Q55yL5p2/Lmh0bWwnKTsKY29uc3QgQ0FDSEVfRklMRSA9IHBhdGguam9pbihfX2Rpcm5hbWUsICcuYmktY29va2llLWNhY2hlJyk7CmNvbnN0IENBVERFU0sgICA9IHBhdGguam9pbihwcm9jZXNzLmVudi5IT01FLCAnLmNhdHBhdy9iaW4vY2F0ZGVzaycpOwoKLy8g4pSA4pSAIOW9k+WJjeeUn+aViOeahCBDb29raWXvvIjov5DooYzml7bliqjmgIHmm7TmlrDvvInilIDilIAKbGV0IGN1cnJlbnRDb29raWUgPSAnJzsKbGV0IGlzUmVmcmVzaGluZyAgPSBmYWxzZTsgICAvLyDpmLLmraLlubblj5Hph43lpI3liLfmlrAKCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQovLyBDb29raWUg566h55CGCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoKLyoqIOS7jiBjYXRkZXNrIOa1j+iniOWZqOWunuaXtuaKk+WPliBiaS5rZWV0YXBwLmNvbSDnmoQgQ29va2llICovCmFzeW5jIGZ1bmN0aW9uIGZldGNoQ29va2llRnJvbUJyb3dzZXIoKSB7CiAgcmV0dXJuIG5ldyBQcm9taXNlKChyZXNvbHZlLCByZWplY3QpID0+IHsKICAgIC8vIOWFiOWvvOiIquWIsCBiaS5rZWV0YXBwLmNvbe+8iOehruS/nemhtemdouW3suWKoOi9ve+8ie+8jOWGjeivu+WPliBkb2N1bWVudC5jb29raWUKICAgIGNvbnN0IG5hdmlnYXRlQ21kID0gYCIke0NBVERFU0t9IiBicm93c2VyLWFjdGlvbiAneyJhY3Rpb24iOiJuYXZpZ2F0ZSIsInVybCI6Imh0dHBzOi8vYmkua2VldGFwcC5jb20iLCJ3YWl0VW50aWwiOiJsb2FkIn0nYDsKICAgIGV4ZWMobmF2aWdhdGVDbWQsIHsgdGltZW91dDogMTUwMDAgfSwgKGVycikgPT4gewogICAgICBpZiAoZXJyKSB7CiAgICAgICAgY29uc29sZS53YXJuKCdbY29va2llXSDlr7zoiKrlpLHotKXvvIzlsJ3or5Xnm7TmjqXor7vlj5YgQ29va2llOicsIGVyci5tZXNzYWdlKTsKICAgICAgfQogICAgICBjb25zdCBldmFsQ21kID0gYCIke0NBVERFU0t9IiBicm93c2VyLWFjdGlvbiAneyJhY3Rpb24iOiJldmFsdWF0ZSIsInNjcmlwdCI6ImRvY3VtZW50LmNvb2tpZSJ9J2A7CiAgICAgIGV4ZWMoZXZhbENtZCwgeyB0aW1lb3V0OiAxMDAwMCB9LCAoZXJyMiwgc3Rkb3V0KSA9PiB7CiAgICAgICAgaWYgKGVycjIpIHJldHVybiByZWplY3QobmV3IEVycm9yKCdjYXRkZXNrIGV2YWx1YXRlIOWksei0pTogJyArIGVycjIubWVzc2FnZSkpOwogICAgICAgIHRyeSB7CiAgICAgICAgICBjb25zdCBkYXRhID0gSlNPTi5wYXJzZShzdGRvdXQpOwogICAgICAgICAgY29uc3QgY29va2llID0gZGF0YT8uZGF0YT8ucmVzdWx0IHx8ICcnOwogICAgICAgICAgaWYgKCFjb29raWUpIHJldHVybiByZWplY3QobmV3IEVycm9yKCfojrflj5bliLDnmoQgQ29va2llIOS4uuepuicpKTsKICAgICAgICAgIHJlc29sdmUoY29va2llKTsKICAgICAgICB9IGNhdGNoIChlKSB7CiAgICAgICAgICByZWplY3QobmV3IEVycm9yKCfop6PmnpAgY2F0ZGVzayDovpPlh7rlpLHotKU6ICcgKyBlLm1lc3NhZ2UpKTsKICAgICAgICB9CiAgICAgIH0pOwogICAgfSk7CiAgfSk7Cn0KCi8qKiDliLfmlrAgQ29va2ll77ya5LuO5rWP6KeI5Zmo5oqT5Y+WIOKGkiDmm7TmlrDlhoXlrZgg4oaSIOWGmee8k+WtmCAqLwphc3luYyBmdW5jdGlvbiByZWZyZXNoQ29va2llKHJlYXNvbiA9ICcnKSB7CiAgaWYgKGlzUmVmcmVzaGluZykgewogICAgLy8g562J5b6F5q2j5Zyo6L+b6KGM55qE5Yi35paw5a6M5oiQCiAgICBhd2FpdCBuZXcgUHJvbWlzZShyID0+IHNldFRpbWVvdXQociwgMzAwMCkpOwogICAgcmV0dXJuOwogIH0KICBpc1JlZnJlc2hpbmcgPSB0cnVlOwogIGNvbnNvbGUubG9nKGBcbvCflIQgW2Nvb2tpZV0g5Yi35paw5LitJHtyZWFzb24gPyAn77yI5Y6f5Zug77yaJyArIHJlYXNvbiArICfvvIknIDogJyd9Li4uYCk7CiAgdHJ5IHsKICAgIGNvbnN0IGNvb2tpZSA9IGF3YWl0IGZldGNoQ29va2llRnJvbUJyb3dzZXIoKTsKICAgIGN1cnJlbnRDb29raWUgPSBjb29raWU7CiAgICBmcy53cml0ZUZpbGVTeW5jKENBQ0hFX0ZJTEUsIGNvb2tpZSwgJ3V0ZjgnKTsKICAgIGNvbnNvbGUubG9nKGDinIUgW2Nvb2tpZV0g5Yi35paw5oiQ5Yqf77yM5bey5YaZ5YWl57yT5a2YYCk7CiAgfSBjYXRjaCAoZSkgewogICAgY29uc29sZS5lcnJvcihg4p2MIFtjb29raWVdIOWIt+aWsOWksei0pe+8miR7ZS5tZXNzYWdlfWApOwogICAgY29uc29sZS5lcnJvcignICAg6K+356Gu5L+dIGNhdGRlc2sg5rWP6KeI5Zmo5bey5omT5byA5bm255m75b2VIGJpLmtlZXRhcHAuY29tJyk7CiAgfSBmaW5hbGx5IHsKICAgIGlzUmVmcmVzaGluZyA9IGZhbHNlOwogIH0KfQoKLyoqIOWIneWni+WMliBDb29raWXvvJrkvJjlhYjor7vnvJPlrZjnq4vljbPlkK/liqjvvIzlkI7lj7DlvILmraXliLfmlrAgKi8KYXN5bmMgZnVuY3Rpb24gaW5pdENvb2tpZSgpIHsKICAvLyAxLiDlhYjlsJ3or5Xor7vnvJPlrZjvvIjorqnmnI3liqHlmajog73lv6vpgJ/lkK/liqjvvIzkuI3pmLvloZ7vvIkKICBpZiAoZnMuZXhpc3RzU3luYyhDQUNIRV9GSUxFKSkgewogICAgdHJ5IHsKICAgICAgY29uc3QgY2FjaGVkID0gZnMucmVhZEZpbGVTeW5jKENBQ0hFX0ZJTEUsICd1dGY4JykudHJpbSgpOwogICAgICBpZiAoY2FjaGVkKSB7CiAgICAgICAgY3VycmVudENvb2tpZSA9IGNhY2hlZDsKICAgICAgICBjb25zb2xlLmxvZygn8J+TpiBbY29va2llXSDlt7Lku47nvJPlrZjliqDovb3vvIzmnI3liqHlmajljbPlsIblkK/liqguLi4nKTsKICAgICAgfQogICAgfSBjYXRjaCAoXykge30KICB9CgogIC8vIDIuIOWQjuWPsOW8guatpeWIt+aWsCBDb29raWXvvIzkuI3pmLvloZ7mnI3liqHlmajlkK/liqgKICAvLyAgICDvvIjliLfmlrDlrozmiJDliY3nlKjnvJPlrZggQ29va2llIOWkhOeQhuivt+axgu+8m+iLpeaXoOe8k+WtmOWImeetieW+hemmluasoeWIt+aWsO+8iQogIGlmIChjdXJyZW50Q29va2llKSB7CiAgICAvLyDmnInnvJPlrZjvvJrlkI7lj7DpnZnpu5jliLfmlrDvvIzkuI0gYXdhaXQKICAgIHJlZnJlc2hDb29raWUoJ+WIneWni+WMlicpLmNhdGNoKCgpID0+IHt9KTsKICB9IGVsc2UgewogICAgLy8g5peg57yT5a2Y77ya5b+F6aG7562J5b6F5LiA5qyh5Yi35paw5omN6IO95q2j5bi45Luj55CG77yM5L2G5Yqg6LaF5pe25L+d5oqkCiAgICBjb25zb2xlLmxvZygn4o+zIFtjb29raWVdIOaXoOe8k+WtmO+8jOetieW+hemmluasoeiOt+WPliBDb29raWXvvIjmnIDlpJogMzAg56eS77yJLi4uJyk7CiAgICBhd2FpdCBQcm9taXNlLnJhY2UoWwogICAgICByZWZyZXNoQ29va2llKCfliJ3lp4vljJYnKSwKICAgICAgbmV3IFByb21pc2UociA9PiBzZXRUaW1lb3V0KHIsIDMwMDAwKSkKICAgIF0pOwogICAgaWYgKCFjdXJyZW50Q29va2llKSB7CiAgICAgIGNvbnNvbGUud2Fybign4pqg77iPICBbY29va2llXSAzMCDnp5LlhoXmnKrojrflj5bliLAgQ29va2ll77yM5pyN5Yqh5Zmo5LuN5Lya5ZCv5Yqo77yM5p+l6K+i5pe25Y+v6IO95oqlIDUwMycpOwogICAgfQogIH0KfQoKLyoqIOWIpOaWreWTjeW6lOaYr+WQpuihqOekuiBDb29raWUg5aSx5pWI77yI6ZyA6KaB6YeN5paw55m75b2V77yJICovCmZ1bmN0aW9uIGlzQ29va2llRXhwaXJlZChzdGF0dXNDb2RlLCByZXNwb25zZUhlYWRlcnMpIHsKICBpZiAoc3RhdHVzQ29kZSA9PT0gNDAxIHx8IHN0YXR1c0NvZGUgPT09IDQwMykgcmV0dXJuIHRydWU7CiAgLy8gQkkg5bmz5Y+w55m75b2V6L+H5pyf5pe25LyaIDMwMiDot7PovazliLAgU1NPIOeZu+W9lemhtQogIGlmIChzdGF0dXNDb2RlID09PSAzMDIpIHsKICAgIGNvbnN0IGxvYyA9IHJlc3BvbnNlSGVhZGVyc1snbG9jYXRpb24nXSB8fCAnJzsKICAgIGlmIChsb2MuaW5jbHVkZXMoJ2xvZ2luJykgfHwgbG9jLmluY2x1ZGVzKCdzc28nKSB8fCBsb2MuaW5jbHVkZXMoJ3Bhc3Nwb3J0JykpIHJldHVybiB0cnVlOwogIH0KICByZXR1cm4gZmFsc2U7Cn0KCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQovLyDku6PnkIbor7fmsYLvvIjmlK/mjIEgQ29va2llIOi/h+acn+iHquWKqOmHjeivle+8iQovLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KCmZ1bmN0aW9uIHByb3h5UmVxdWVzdChyZXEsIHJlcywgY29va2llLCBpc1JldHJ5ID0gZmFsc2UpIHsKICBjb25zdCBwYXJzZWQgICAgPSB1cmwucGFyc2UocmVxLnVybCk7CiAgY29uc3QgdGFyZ2V0UGF0aCA9IHBhcnNlZC5wYXRobmFtZS5yZXBsYWNlKCcvYmktYXBpJywgJycpICsgKHBhcnNlZC5zZWFyY2ggfHwgJycpOwoKICBsZXQgYm9keSA9IFtdOwogIHJlcS5vbignZGF0YScsIGNodW5rID0+IGJvZHkucHVzaChjaHVuaykpOwogIHJlcS5vbignZW5kJywgKCkgPT4gewogICAgY29uc3QgYm9keUJ1ZiA9IEJ1ZmZlci5jb25jYXQoYm9keSk7CgogICAgY29uc3Qgb3B0aW9ucyA9IHsKICAgICAgaG9zdG5hbWU6IEJJX0hPU1QsCiAgICAgIHBvcnQ6IDQ0MywKICAgICAgcGF0aDogdGFyZ2V0UGF0aCwKICAgICAgbWV0aG9kOiByZXEubWV0aG9kLAogICAgICBoZWFkZXJzOiB7CiAgICAgICAgJ0NvbnRlbnQtVHlwZSc6ICAgcmVxLmhlYWRlcnNbJ2NvbnRlbnQtdHlwZSddICB8fCAnYXBwbGljYXRpb24vanNvbicsCiAgICAgICAgJ0FjY2VwdCc6ICAgICAgICAgcmVxLmhlYWRlcnNbJ2FjY2VwdCddICAgICAgICAgfHwgJ2FwcGxpY2F0aW9uL2pzb24nLAogICAgICAgICdDb29raWUnOiAgICAgICAgIGNvb2tpZSwKICAgICAgICAnVXNlci1BZ2VudCc6ICAgICAnTW96aWxsYS81LjAgKE1hY2ludG9zaDsgSW50ZWwgTWFjIE9TIFggMTBfMTVfNykgQXBwbGVXZWJLaXQvNTM3LjM2JywKICAgICAgICAnUmVmZXJlcic6ICAgICAgICAnaHR0cHM6Ly9iaS5rZWV0YXBwLmNvbS8nLAogICAgICAgICdPcmlnaW4nOiAgICAgICAgICdodHRwczovL2JpLmtlZXRhcHAuY29tJywKICAgICAgICAnQ29udGVudC1MZW5ndGgnOiBib2R5QnVmLmxlbmd0aCwKICAgICAgfQogICAgfTsKCiAgICBjb25zdCBwcm94eVJlcSA9IGh0dHBzLnJlcXVlc3Qob3B0aW9ucywgcHJveHlSZXMgPT4gewogICAgICAvLyDmo4DmtYsgQ29va2llIOaYr+WQpui/h+acnwogICAgICBpZiAoIWlzUmV0cnkgJiYgaXNDb29raWVFeHBpcmVkKHByb3h5UmVzLnN0YXR1c0NvZGUsIHByb3h5UmVzLmhlYWRlcnMpKSB7CiAgICAgICAgY29uc29sZS53YXJuKGBcbuKaoO+4jyAgW2Nvb2tpZV0g5qOA5rWL5Yiw55m75b2V5aSx5pWI77yISFRUUCAke3Byb3h5UmVzLnN0YXR1c0NvZGV977yJ77yM6Ieq5Yqo5Yi35pawIENvb2tpZSDlubbph43or5UuLi5gKTsKICAgICAgICAvLyDmtojotLnmjonlk43lupTkvZPvvIzpgb/lhY0gc29ja2V0IGhhbmcKICAgICAgICBwcm94eVJlcy5yZXN1bWUoKTsKICAgICAgICByZWZyZXNoQ29va2llKCfnmbvlvZXlpLHmlYgnKS50aGVuKCgpID0+IHsKICAgICAgICAgIC8vIOmHjeW7uuivt+axguWvueixoe+8iGJvZHkg5bey6K+75a6M77yM6ZyA6KaB6YeN5paw5rOo5YWl77yJCiAgICAgICAgICBjb25zdCBmYWtlUmVxID0gT2JqZWN0LmFzc2lnbihPYmplY3QuY3JlYXRlKHJlcSksIHsKICAgICAgICAgICAgb246IChldmVudCwgY2IpID0+IHsKICAgICAgICAgICAgICBpZiAoZXZlbnQgPT09ICdkYXRhJykgY2IoYm9keUJ1Zik7CiAgICAgICAgICAgICAgaWYgKGV2ZW50ID09PSAnZW5kJykgIGNiKCk7CiAgICAgICAgICAgICAgcmV0dXJuIGZha2VSZXE7CiAgICAgICAgICAgIH0KICAgICAgICAgIH0pOwogICAgICAgICAgcHJveHlSZXF1ZXN0KGZha2VSZXEsIHJlcywgY3VycmVudENvb2tpZSwgdHJ1ZSk7CiAgICAgICAgfSk7CiAgICAgICAgcmV0dXJuOwogICAgICB9CgogICAgICByZXMud3JpdGVIZWFkKHByb3h5UmVzLnN0YXR1c0NvZGUsIHsKICAgICAgICAnQ29udGVudC1UeXBlJzogcHJveHlSZXMuaGVhZGVyc1snY29udGVudC10eXBlJ10gfHwgJ2FwcGxpY2F0aW9uL2pzb24nLAogICAgICAgICdBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW4nOiAnKicsCiAgICAgIH0pOwogICAgICBwcm94eVJlcy5waXBlKHJlcyk7CiAgICB9KTsKCiAgICBwcm94eVJlcS5vbignZXJyb3InLCBlcnIgPT4gewogICAgICBjb25zb2xlLmVycm9yKCdbcHJveHkgZXJyb3JdJywgZXJyLm1lc3NhZ2UpOwogICAgICBpZiAoIXJlcy5oZWFkZXJzU2VudCkgewogICAgICAgIHJlcy53cml0ZUhlYWQoNTAyKTsKICAgICAgICByZXMuZW5kKEpTT04uc3RyaW5naWZ5KHsgY29kZTogLTEsIG1lc3NhZ2U6ICfku6PnkIbor7fmsYLlpLHotKU6ICcgKyBlcnIubWVzc2FnZSB9KSk7CiAgICAgIH0KICAgIH0pOwoKICAgIHByb3h5UmVxLndyaXRlKGJvZHlCdWYpOwogICAgcHJveHlSZXEuZW5kKCk7CiAgfSk7Cn0KCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQovLyBIVFRQIOacjeWKoeWZqAovLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KCmNvbnN0IHNlcnZlciA9IGh0dHAuY3JlYXRlU2VydmVyKChyZXEsIHJlcykgPT4gewogIGNvbnN0IHBhcnNlZCA9IHVybC5wYXJzZShyZXEudXJsKTsKCiAgLy8gQ09SUyDpooTmo4AKICByZXMuc2V0SGVhZGVyKCdBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW4nLCAnKicpOwogIHJlcy5zZXRIZWFkZXIoJ0FjY2Vzcy1Db250cm9sLUFsbG93LU1ldGhvZHMnLCAnR0VULFBPU1QsT1BUSU9OUycpOwogIHJlcy5zZXRIZWFkZXIoJ0FjY2Vzcy1Db250cm9sLUFsbG93LUhlYWRlcnMnLCAnQ29udGVudC1UeXBlLEFjY2VwdCcpOwogIGlmIChyZXEubWV0aG9kID09PSAnT1BUSU9OUycpIHsgcmVzLndyaXRlSGVhZCgyMDQpOyByZXMuZW5kKCk7IHJldHVybjsgfQoKICAvLyDpnZnmgIEgSFRNTAogIGlmIChyZXEubWV0aG9kID09PSAnR0VUJyAmJiAocGFyc2VkLnBhdGhuYW1lID09PSAnLycgfHwgcGFyc2VkLnBhdGhuYW1lID09PSAnL2luZGV4Lmh0bWwnKSkgewogICAgZnMucmVhZEZpbGUoSFRNTF9GSUxFLCAoZXJyLCBkYXRhKSA9PiB7CiAgICAgIGlmIChlcnIpIHsgcmVzLndyaXRlSGVhZCg1MDApOyByZXMuZW5kKCdIVE1MIOaWh+S7tuivu+WPluWksei0pTogJyArIGVyci5tZXNzYWdlKTsgcmV0dXJuOyB9CiAgICAgIHJlcy53cml0ZUhlYWQoMjAwLCB7ICdDb250ZW50LVR5cGUnOiAndGV4dC9odG1sOyBjaGFyc2V0PXV0Zi04JyB9KTsKICAgICAgcmVzLmVuZChkYXRhKTsKICAgIH0pOwogICAgcmV0dXJuOwogIH0KCiAgLy8g5omL5Yqo5Yi35pawIENvb2tpZSDmjqXlj6PvvIjkvpvosIPor5XnlKjvvJpHRVQgL3JlZnJlc2gtY29va2ll77yJCiAgaWYgKHJlcS5tZXRob2QgPT09ICdHRVQnICYmIHBhcnNlZC5wYXRobmFtZSA9PT0gJy9yZWZyZXNoLWNvb2tpZScpIHsKICAgIHJlZnJlc2hDb29raWUoJ+aJi+WKqOinpuWPkScpLnRoZW4oKCkgPT4gewogICAgICByZXMud3JpdGVIZWFkKDIwMCwgeyAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nIH0pOwogICAgICByZXMuZW5kKEpTT04uc3RyaW5naWZ5KHsgb2s6IHRydWUsIG1lc3NhZ2U6ICdDb29raWUg5bey5Yi35pawJyB9KSk7CiAgICB9KTsKICAgIHJldHVybjsKICB9CgogIC8vIOKUgOKUgCAvbXRkYXRhLXF1ZXJ577ya6YCa6L+HIG10ZGF0YSBiaSBydW4g5omn6KGMIFNRTO+8iOaXoOmcgCBDb29raWXvvIzmjqjojZDlnKjnur/niYjkvb/nlKjvvInilIDilIAKICBpZiAocmVxLm1ldGhvZCA9PT0gJ1BPU1QnICYmIHBhcnNlZC5wYXRobmFtZSA9PT0gJy9tdGRhdGEtcXVlcnknKSB7CiAgICBsZXQgYm9keSA9IFtdOwogICAgcmVxLm9uKCdkYXRhJywgY2h1bmsgPT4gYm9keS5wdXNoKGNodW5rKSk7CiAgICByZXEub24oJ2VuZCcsICgpID0+IHsKICAgICAgbGV0IHNxbCA9ICcnOwogICAgICB0cnkgewogICAgICAgIGNvbnN0IHBheWxvYWQgPSBKU09OLnBhcnNlKEJ1ZmZlci5jb25jYXQoYm9keSkudG9TdHJpbmcoKSk7CiAgICAgICAgc3FsID0gKHBheWxvYWQuc3FsIHx8ICcnKS50cmltKCk7CiAgICAgIH0gY2F0Y2ggKGUpIHsKICAgICAgICByZXMud3JpdGVIZWFkKDQwMCwgeyAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nIH0pOwogICAgICAgIHJlcy5lbmQoSlNPTi5zdHJpbmdpZnkoeyBjb2RlOiAtMSwgbWVzc2FnZTogJ+ivt+axguS9k+ino+aekOWksei0pe+8jOmcgOimgSBKU09OIHsgc3FsOiAiLi4uIiB9JyB9KSk7CiAgICAgICAgcmV0dXJuOwogICAgICB9CiAgICAgIGlmICghc3FsKSB7CiAgICAgICAgcmVzLndyaXRlSGVhZCg0MDAsIHsgJ0NvbnRlbnQtVHlwZSc6ICdhcHBsaWNhdGlvbi9qc29uJyB9KTsKICAgICAgICByZXMuZW5kKEpTT04uc3RyaW5naWZ5KHsgY29kZTogLTEsIG1lc3NhZ2U6ICdzcWwg5a2X5q615LiN6IO95Li656m6JyB9KSk7CiAgICAgICAgcmV0dXJuOwogICAgICB9CgogICAgICAvLyDmib4gbXRkYXRhIOWPr+aJp+ihjOaWh+S7tgogICAgICBjb25zdCBtdGRhdGFCaW4gPSAoKCkgPT4gewogICAgICAgIGNvbnN0IGNhbmRpZGF0ZXMgPSBbCiAgICAgICAgICBwYXRoLmpvaW4ocHJvY2Vzcy5lbnYuSE9NRSwgJy5sb2NhbC9iaW4vbXRkYXRhJyksCiAgICAgICAgICAnL3Vzci9sb2NhbC9iaW4vbXRkYXRhJywKICAgICAgICAgICdtdGRhdGEnLAogICAgICAgIF07CiAgICAgICAgZm9yIChjb25zdCBjIG9mIGNhbmRpZGF0ZXMpIHsKICAgICAgICAgIHRyeSB7IGlmIChmcy5leGlzdHNTeW5jKGMpKSByZXR1cm4gYzsgfSBjYXRjaCAoXykge30KICAgICAgICB9CiAgICAgICAgcmV0dXJuICdtdGRhdGEnOyAvLyDlhZzlupXvvIzkvp3otZYgUEFUSAogICAgICB9KSgpOwoKICAgICAgY29uc29sZS5sb2coYFxu8J+TiiBbbXRkYXRhXSDmiafooYwgU1FM77yIJHtzcWwubGVuZ3RofSDlrZfnrKbvvIkuLi5gKTsKICAgICAgY29uc3Qgc3RhcnRUaW1lID0gRGF0ZS5ub3coKTsKCiAgICAgIC8vIG10ZGF0YSBiaSBydW4gLS1mb3JtYXQganNvbiDovpPlh7rnu5PmnoTljJYgSlNPTgogICAgICBjb25zdCBjaGlsZCA9IGV4ZWMoCiAgICAgICAgYCIke210ZGF0YUJpbn0iIGJpIHJ1biAtLWJhc2UtdXJsIGh0dHBzOi8vYmkua2VldGFwcC5jb20gLS1mb3JtYXQganNvbiAtLWxpbWl0IDUwMCAke0pTT04uc3RyaW5naWZ5KHNxbCl9YCwKICAgICAgICB7IHRpbWVvdXQ6IDEyMDAwMCwgbWF4QnVmZmVyOiA1MCAqIDEwMjQgKiAxMDI0IH0sCiAgICAgICAgKGVyciwgc3Rkb3V0LCBzdGRlcnIpID0+IHsKICAgICAgICAgIGNvbnN0IGVsYXBzZWQgPSAoKERhdGUubm93KCkgLSBzdGFydFRpbWUpIC8gMTAwMCkudG9GaXhlZCgxKTsKICAgICAgICAgIGlmIChlcnIpIHsKICAgICAgICAgICAgY29uc29sZS5lcnJvcihg4p2MIFttdGRhdGFdIOaJp+ihjOWksei0pe+8iCR7ZWxhcHNlZH1z77yJOmAsIHN0ZGVyciB8fCBlcnIubWVzc2FnZSk7CiAgICAgICAgICAgIHJlcy53cml0ZUhlYWQoNTAwLCB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSk7CiAgICAgICAgICAgIHJlcy5lbmQoSlNPTi5zdHJpbmdpZnkoewogICAgICAgICAgICAgIGNvZGU6IC0xLAogICAgICAgICAgICAgIG1lc3NhZ2U6IGBtdGRhdGEg5omn6KGM5aSx6LSlOiAkeyhzdGRlcnIgfHwgZXJyLm1lc3NhZ2UgfHwgJycpLnNsaWNlKDAsIDUwMCl9YAogICAgICAgICAgICB9KSk7CiAgICAgICAgICAgIHJldHVybjsKICAgICAgICAgIH0KICAgICAgICAgIGNvbnNvbGUubG9nKGDinIUgW210ZGF0YV0g5omn6KGM5oiQ5Yqf77yIJHtlbGFwc2VkfXPvvIlgKTsKICAgICAgICAgIC8vIG10ZGF0YSAtLWZvcm1hdCBqc29uIOi+k+WHuu+8mnsgY29sdW1uczogWy4uLl0sIHJvd3M6IFtbLi4uXSwgLi4uXSB9CiAgICAgICAgICAvLyDovazmjaLkuLrliY3nq6/mnJ/mnJvnmoQgeyBkYXRhOiB7IHJvd3M6IFt7Y29sOiB2YWwsIC4uLn0sIC4uLl0gfSB9IOagvOW8jwogICAgICAgICAgdHJ5IHsKICAgICAgICAgICAgY29uc3QgcGFyc2VkID0gSlNPTi5wYXJzZShzdGRvdXQpOwogICAgICAgICAgICAvLyBtdGRhdGEganNvbiDmoLzlvI/vvJp7IGNvbHVtbnM6IFsiY29sMSIsImNvbDIiLC4uLl0sIHJvd3M6IFtbdjEsdjIsLi4uXSwgLi4uXSB9CiAgICAgICAgICAgIGNvbnN0IGNvbHVtbnMgPSBwYXJzZWQuY29sdW1ucyB8fCBbXTsKICAgICAgICAgICAgY29uc3QgcmF3Um93cyA9IHBhcnNlZC5yb3dzIHx8IHBhcnNlZC5kYXRhIHx8IFtdOwogICAgICAgICAgICBjb25zdCByb3dzID0gcmF3Um93cy5tYXAociA9PiB7CiAgICAgICAgICAgICAgaWYgKEFycmF5LmlzQXJyYXkocikpIHsKICAgICAgICAgICAgICAgIGNvbnN0IG9iaiA9IHt9OwogICAgICAgICAgICAgICAgY29sdW1ucy5mb3JFYWNoKChjb2wsIGkpID0+IHsgb2JqW2NvbF0gPSByW2ldOyB9KTsKICAgICAgICAgICAgICAgIHJldHVybiBvYmo7CiAgICAgICAgICAgICAgfQogICAgICAgICAgICAgIHJldHVybiByOyAvLyDlt7Lnu4/mmK/lr7nosaHmoLzlvI8KICAgICAgICAgICAgfSk7CiAgICAgICAgICAgIHJlcy53cml0ZUhlYWQoMjAwLCB7ICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbicgfSk7CiAgICAgICAgICAgIHJlcy5lbmQoSlNPTi5zdHJpbmdpZnkoeyBjb2RlOiAwLCBkYXRhOiB7IHJvd3MsIHRvdGFsOiByb3dzLmxlbmd0aCB9IH0pKTsKICAgICAgICAgIH0gY2F0Y2ggKHBhcnNlRXJyKSB7CiAgICAgICAgICAgIC8vIOino+aekOWksei0peaXtuWOn+agt+mAj+S8oO+8jOiuqeWJjeerr+iHquihjOWkhOeQhgogICAgICAgICAgICByZXMud3JpdGVIZWFkKDIwMCwgeyAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nIH0pOwogICAgICAgICAgICByZXMuZW5kKHN0ZG91dCk7CiAgICAgICAgICB9CiAgICAgICAgfQogICAgICApOwogICAgfSk7CiAgICByZXR1cm47CiAgfQoKICAvLyDku6PnkIYgL2JpLWFwaS8qIOKGkiBodHRwczovL2JpLmtlZXRhcHAuY29tLyrvvIjlhbzlrrnmnKzlnLDorr/pl67mqKHlvI/vvIkKICBpZiAocGFyc2VkLnBhdGhuYW1lLnN0YXJ0c1dpdGgoJy9iaS1hcGkvJykpIHsKICAgIGlmICghY3VycmVudENvb2tpZSkgewogICAgICByZXMud3JpdGVIZWFkKDUwMyk7CiAgICAgIHJlcy5lbmQoSlNPTi5zdHJpbmdpZnkoeyBjb2RlOiAtMSwgbWVzc2FnZTogJ0Nvb2tpZSDlsJrmnKrlsLHnu6rvvIzor7fnqI3lkI7ph43or5UnIH0pKTsKICAgICAgcmV0dXJuOwogICAgfQogICAgcHJveHlSZXF1ZXN0KHJlcSwgcmVzLCBjdXJyZW50Q29va2llKTsKICAgIHJldHVybjsKICB9CgogIHJlcy53cml0ZUhlYWQoNDA0KTsKICByZXMuZW5kKCdOb3QgZm91bmQnKTsKfSk7CgovLyA9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0KLy8g5ZCv5YqoCi8vID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PQoKKGFzeW5jICgpID0+IHsKICBjb25zb2xlLmxvZygnXG7wn5qAIOWVhuWutua1gemHj+aViOaenOWIhuaekOeci+advyAtIOS7o+eQhuacjeWKoeWZqCcpOwogIGNvbnNvbGUubG9nKCfilIAnLnJlcGVhdCg1MCkpOwoKICAvLyDmo4Dmn6UgY2F0ZGVzayDmmK/lkKblrZjlnKgKICBpZiAoIWZzLmV4aXN0c1N5bmMoQ0FUREVTSykpIHsKICAgIGNvbnNvbGUuZXJyb3IoYOKdjCDmnKrmib7liLAgY2F0ZGVza++8miR7Q0FUREVTS31gKTsKICAgIGNvbnNvbGUuZXJyb3IoJyAgIOivt+ehruS/nSBDYXRQYXcgRGVzayDlt7Llronoo4UnKTsKICAgIHByb2Nlc3MuZXhpdCgxKTsKICB9CgogIC8vIOWIneWni+WMliBDb29raWUKICBhd2FpdCBpbml0Q29va2llKCk7CgogIC8vIOWQr+WKqOacjeWKoeWZqAogIHNlcnZlci5saXN0ZW4oUE9SVCwgJzEyNy4wLjAuMScsICgpID0+IHsKICAgIGNvbnNvbGUubG9nKGBcbuKchSDmnI3liqHlmajlt7LlkK/liqhgKTsKICAgIGNvbnNvbGUubG9nKGAgICDnnIvmnb/lnLDlnYDvvJpodHRwOi8vbG9jYWxob3N0OiR7UE9SVH1gKTsKICAgIGNvbnNvbGUubG9nKGAgICDku6PnkIbot6/lvoTvvJovYmktYXBpLyog4oaSIGh0dHBzOi8vJHtCSV9IT1NUfS8qYCk7CiAgICBjb25zb2xlLmxvZyhgICAg5omL5Yqo5Yi35paw77yaaHR0cDovL2xvY2FsaG9zdDoke1BPUlR9L3JlZnJlc2gtY29va2llYCk7CiAgICBjb25zb2xlLmxvZyhgXG4gICDmjIkgQ3RybCtDIOWBnOatolxuYCk7CiAgfSk7Cn0pKCk7Cg==";
+  try {
+    const content = atob(b64);
+    // 创建模态框
+    const overlay = document.createElement('div');
+    overlay.id = 'proxy-modal-overlay';
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:99999;display:flex;align-items:center;justify-content:center;';
+    overlay.innerHTML = `
+      <div style="background:#1e293b;border-radius:12px;padding:24px;width:80%;max-width:700px;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <div>
+            <span style="color:#f1f5f9;font-size:16px;font-weight:700;">📄 bi-proxy-server.js</span>
+            <span style="color:#94a3b8;font-size:12px;margin-left:10px;">复制内容后，新建文件粘贴保存</span>
+          </div>
+          <button onclick="document.getElementById('proxy-modal-overlay').remove()" style="background:rgba(255,255,255,0.1);border:none;border-radius:6px;padding:4px 10px;color:#94a3b8;cursor:pointer;font-size:18px;line-height:1;">✕</button>
+        </div>
+        <div style="background:#0f172a;border-radius:8px;padding:16px;overflow-y:auto;flex:1;margin-bottom:16px;">
+          <pre id="proxy-code-content" style="margin:0;color:#e2e8f0;font-size:12px;font-family:monospace;white-space:pre;">${content.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button id="proxy-copy-btn" onclick="
+            navigator.clipboard.writeText(document.getElementById('proxy-code-content').textContent).then(()=>{
+              this.textContent='✅ 已复制！';
+              this.style.background='#22c55e';
+              setTimeout(()=>{this.textContent='📋 一键复制全部内容';this.style.background='#3b82f6';},2000);
+            }).catch(()=>{
+              const ta=document.createElement('textarea');ta.value=document.getElementById('proxy-code-content').textContent;
+              document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);
+              this.textContent='✅ 已复制！';this.style.background='#22c55e';
+              setTimeout(()=>{this.textContent='📋 一键复制全部内容';this.style.background='#3b82f6';},2000);
+            });
+          " style="flex:1;background:#3b82f6;border:none;border-radius:8px;padding:10px;color:#fff;cursor:pointer;font-size:14px;font-weight:600;">📋 一键复制全部内容</button>
+          <button onclick="document.getElementById('proxy-modal-overlay').remove()" style="background:rgba(255,255,255,0.1);border:none;border-radius:8px;padding:10px 20px;color:#94a3b8;cursor:pointer;font-size:14px;">关闭</button>
+        </div>
+        <div style="margin-top:10px;color:#64748b;font-size:11px;text-align:center;">复制后：新建文本文件 → 粘贴 → 另存为 <b style="color:#94a3b8;">bi-proxy-server.js</b>（注意去掉 .txt 后缀）</div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    // 点击遮罩关闭
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.remove(); });
+  } catch(e) {
+    alert('加载失败：' + e.message);
+  }
+}
+async function checkProxy() {
+  try {
+    // 用轻量 /ping 接口检测服务器是否在线，不执行 SQL（避免超时误判）
+    const resp = await fetch(`${PROXY_BASE}/ping`, {
+      signal: AbortSignal.timeout(3000)
+    });
+    if (resp.ok) {
+      showStatus('success', '✅ 代理服务器已连接（keeta-bi），可直接点击「查询」加载数据。');
+    } else {
+      showStatus('warning', '⚠️ 代理服务器响应异常，请确认 start-dashboard.sh 已启动。');
+    }
+  } catch (e) {
+    showStatus('warning', '⚠️ 未检测到代理服务器，请运行 start-dashboard.sh 后重试。');
+  }
+}
+
+// ============================================================
+// 品牌流量转化异常分析
+// ============================================================
+
+// 获取当前周的起止日期（周一~今天/昨天）
+function getWeekRange(offsetWeeks) {
+  // offsetWeeks=0 本周，offsetWeeks=-1 上周
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  // 周一为一周起点（getDay: 0=周日,1=周一,...,6=周六）
+  const dayOfWeek = today.getDay() === 0 ? 6 : today.getDay() - 1; // 0=周一
+  const monday = new Date(today);
+  monday.setDate(today.getDate() - dayOfWeek + offsetWeeks * 7);
+  // 本周结束：昨天（避免当天数据不完整）；上周结束：上周同期（与本周对齐）
+  const endDay = new Date(today);
+  endDay.setDate(today.getDate() - 1 + offsetWeeks * 7);
+  const fmt = d => `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}`;
+  return { start: fmt(monday), end: fmt(endDay) };
+}
+
+// 根据筛选器日期计算「当期」和「上周同期」的起止日期
+function getAnomalyDateRange() {
+  const dateStart = document.getElementById('filterDateStart').value;
+  const dateEnd   = document.getElementById('filterDateEnd').value;
+  const dtStart = dateStart ? dateStart.replace(/-/g, '') : getYesterday();
+  const dtEnd   = dateEnd   ? dateEnd.replace(/-/g, '')   : getYesterday();
+  // 上周同期：整体往前推7天
+  const shiftDate = (yyyymmdd, days) => {
+    const y = +yyyymmdd.slice(0,4), m = +yyyymmdd.slice(4,6)-1, d = +yyyymmdd.slice(6,8);
+    const dt = new Date(y, m, d);
+    dt.setDate(dt.getDate() + days);
+    return `${dt.getFullYear()}${String(dt.getMonth()+1).padStart(2,'0')}${String(dt.getDate()).padStart(2,'0')}`;
+  };
+  return {
+    thisStart: dtStart,
+    thisEnd:   dtEnd,
+    lastStart: shiftDate(dtStart, -7),
+    lastEnd:   shiftDate(dtEnd,   -7)
+  };
+}
+
+function buildAnomalySQL() {
+  const region  = document.getElementById('filterRegion').value;
+  const brandId = document.getElementById('filterBrandId').value.trim();
+
+  const { thisStart, thisEnd, lastStart, lastEnd } = getAnomalyDateRange();
+
+  const topN = parseInt(document.getElementById('filterTopN')?.value) || 0;
+
+  const page    = document.getElementById('filterPage').value;
+  const adPos   = document.getElementById('filterAdPos').value;
+  const adPosId = document.getElementById('filterAdPosId').value.trim();
+
+  // 公共 WHERE 片段（不含 dt 范围，dt 范围由外层 BETWEEN 覆盖两周）
+  const commonWhere = [
+    `is_shop_ent = '是'`,
+    region   ? `region = '${region}'`             : '',
+    brandId  ? `brand_id IN (${brandId})`         : '',
+    topN     ? `brand_id IN (\n      SELECT brand_id FROM ${TABLES.ord}\n      WHERE dt BETWEEN '${thisStart}' AND '${thisEnd}' AND is_shop_ent = '是'${region ? ` AND region = '${region}'` : ''}\n      GROUP BY brand_id ORDER BY COUNT(DISTINCT CASE WHEN is_arrange=1 THEN order_view_id END) DESC LIMIT ${topN}\n    )` : '',
+    page     ? `ad_position_page_name = '${page}'`  : '',
+    adPos    ? `ad_position_name = '${adPos}'`       : '',
+    adPosId  ? `second_ad_position_id IN (${adPosId})`  : '',
+  ].filter(Boolean).join('\n    AND ');
+
+  // 将上周 dt (yyyyMMdd) 偏移 +7 天，对齐到本周同一天
+  // Hive/OneSQL 不支持 TO_DATE(dt,'yyyyMMdd')，改用 CONCAT(SUBSTR...) 拼 yyyy-MM-dd
+  const shiftDt = `DATE_FORMAT(DATE_ADD(CONCAT(SUBSTR(dt,1,4),'-',SUBSTR(dt,5,2),'-',SUBSTR(dt,7,2)), 7), 'yyyyMMdd')`;
+
+  return `-- 品牌流量转化异常分析 SQL（周同比，按日期×品牌）
+-- 当期：${thisStart} ~ ${thisEnd}
+-- 上周同期：${lastStart} ~ ${lastEnd}
+-- 异常定义：曝光UV/点击UV/订单量 周同比下降 > 20%
+-- 优化：本周/上周各自独立 BETWEEN，精确分区裁剪；JOIN 时对上周 dt 偏移 +7 天对齐
+-- 生成时间：${new Date().toLocaleString('zh-CN')}
+
+WITH
+-- 本周曝光（分区裁剪：dt BETWEEN thisStart AND thisEnd）
+expose_this AS (
+  SELECT dt, brand_id,
+    MAX(brand_name)    AS brand_name,
+    MAX(brand_en_name) AS brand_en_name,
+    COUNT(DISTINCT union_id) AS expose_uv
+  FROM ${TABLES.expose}
+  WHERE dt BETWEEN '${thisStart}' AND '${thisEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 上周曝光（分区裁剪：dt BETWEEN lastStart AND lastEnd）
+expose_last AS (
+  SELECT dt, brand_id, COUNT(DISTINCT union_id) AS expose_uv
+  FROM ${TABLES.expose}
+  WHERE dt BETWEEN '${lastStart}' AND '${lastEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 本周点击
+click_this AS (
+  SELECT dt, brand_id, COUNT(DISTINCT union_id) AS click_uv
+  FROM ${TABLES.click}
+  WHERE dt BETWEEN '${thisStart}' AND '${thisEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 上周点击
+click_last AS (
+  SELECT dt, brand_id, COUNT(DISTINCT union_id) AS click_uv
+  FROM ${TABLES.click}
+  WHERE dt BETWEEN '${lastStart}' AND '${lastEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 本周订单
+order_this AS (
+  SELECT dt, brand_id,
+    COUNT(DISTINCT CASE WHEN is_arrange=1 THEN order_view_id END) AS order_pv
+  FROM ${TABLES.ord}
+  WHERE dt BETWEEN '${thisStart}' AND '${thisEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 上周订单
+order_last AS (
+  SELECT dt, brand_id,
+    COUNT(DISTINCT CASE WHEN is_arrange=1 THEN order_view_id END) AS order_pv
+  FROM ${TABLES.ord}
+  WHERE dt BETWEEN '${lastStart}' AND '${lastEnd}'
+    AND ${commonWhere}
+  GROUP BY dt, brand_id
+),
+-- 合并：上周 dt 偏移 +7 天对齐本周，JOIN 时做偏移
+combined AS (
+  SELECT
+    et.dt,
+    et.brand_id,
+    COALESCE(et.brand_name,    '') AS brand_name,
+    COALESCE(et.brand_en_name, '') AS brand_en_name,
+    et.expose_uv                                                                                        AS this_expose_uv,
+    COALESCE(el.expose_uv, 0)                                                                           AS last_expose_uv,
+    COALESCE(ct.click_uv, 0)                                                                            AS this_click_uv,
+    COALESCE(cl.click_uv, 0)                                                                            AS last_click_uv,
+    COALESCE(ot.order_pv, 0)                                                                            AS this_order_pv,
+    COALESCE(ol.order_pv, 0)                                                                            AS last_order_pv,
+    ROUND((et.expose_uv - COALESCE(el.expose_uv,0)) * 100.0 / NULLIF(COALESCE(el.expose_uv,0),0), 1)  AS expose_wow,
+    ROUND((COALESCE(ct.click_uv,0) - COALESCE(cl.click_uv,0)) * 100.0 / NULLIF(COALESCE(cl.click_uv,0),0), 1) AS click_wow,
+    ROUND((COALESCE(ot.order_pv,0) - COALESCE(ol.order_pv,0)) * 100.0 / NULLIF(COALESCE(ol.order_pv,0),0), 1) AS order_wow
+  FROM expose_this et
+  -- 上周 dt 偏移 +7 天 = 本周同一天；用 CONCAT(SUBSTR...) 避免 TO_DATE 两参数语法错误
+  LEFT JOIN expose_last el ON ${shiftDt.replace(/\bdt\b/g, 'el.dt')} = et.dt AND el.brand_id = et.brand_id
+  LEFT JOIN click_this  ct ON ct.dt = et.dt AND ct.brand_id = et.brand_id
+  LEFT JOIN click_last  cl ON ${shiftDt.replace(/\bdt\b/g, 'cl.dt')} = et.dt AND cl.brand_id = et.brand_id
+  LEFT JOIN order_this  ot ON ot.dt = et.dt AND ot.brand_id = et.brand_id
+  LEFT JOIN order_last  ol ON ${shiftDt.replace(/\bdt\b/g, 'ol.dt')} = et.dt AND ol.brand_id = et.brand_id
+  WHERE COALESCE(el.expose_uv,0) > 0 OR COALESCE(cl.click_uv,0) > 0 OR COALESCE(ol.order_pv,0) > 0
+)
+SELECT *
+FROM combined
+WHERE expose_wow < -20 OR click_wow < -20 OR order_wow < -20
+ORDER BY dt ASC, LEAST(COALESCE(expose_wow,0), COALESCE(click_wow,0), COALESCE(order_wow,0)) ASC
+LIMIT 500;`;
+}
+
+// 用户结构变化分析 SQL（异常品牌 × 生命周期分层）
+function buildUserStructSQL(anomalyBrandIds) {
+  const region  = document.getElementById('filterRegion').value;
+  const { thisStart, thisEnd, lastStart, lastEnd } = getAnomalyDateRange();
+  const brandFilter = anomalyBrandIds.length > 0 ? `AND brand_id IN (${anomalyBrandIds.join(',')})` : '';
+  const regionFilter = region ? `AND region = '${region}'` : '';
+
+  return `-- 用户结构变化分析（生命周期分层）
+-- 当期：${thisStart} ~ ${thisEnd} | 上周同期：${lastStart} ~ ${lastEnd}
+SELECT
+  brand_id,
+  COALESCE(MAX(brand_name), MAX(brand_en_name), CAST(brand_id AS VARCHAR)) AS brand_name,
+  user_level_detailed,
+  COUNT(DISTINCT CASE WHEN dt BETWEEN '${thisStart}' AND '${thisEnd}' THEN union_id END) AS this_expose_uv,
+  COUNT(DISTINCT CASE WHEN dt BETWEEN '${lastStart}' AND '${lastEnd}' THEN union_id END) AS last_expose_uv
+FROM ${TABLES.expose}
+WHERE dt BETWEEN '${lastStart}' AND '${thisEnd}'
+  AND is_shop_ent = '是'
+  ${regionFilter}
+  ${brandFilter}
+GROUP BY brand_id, user_level_detailed
+ORDER BY brand_id, this_expose_uv DESC
+LIMIT 500;`;
+}
+
+// 流量入口变化分析 SQL（异常品牌 × 页面 × 资源位，三表 FULL OUTER JOIN）
+function buildEntryStructSQL(anomalyBrandIds) {
+  const region  = document.getElementById('filterRegion').value;
+  const { thisStart, thisEnd, lastStart, lastEnd } = getAnomalyDateRange();
+  const brandFilter = anomalyBrandIds.length > 0 ? `AND brand_id IN (${anomalyBrandIds.join(',')})` : '';
+  const regionFilter = region ? `AND region = '${region}'` : '';
+
+  // 各表 WHERE 片段（不带表别名前缀）
+  const makeW = (start, end) => {
+    let w = `dt BETWEEN '${start}' AND '${end}'\n    AND is_shop_ent = '是'`;
+    if (region)  w += `\n    AND region = '${region}'`;
+    if (anomalyBrandIds.length > 0) w += `\n    AND brand_id IN (${anomalyBrandIds.join(',')})`;
+    return w;
+  };
+
+  return `-- 流量入口变化分析（页面 × 资源位）
+-- 当期：${thisStart} ~ ${thisEnd} | 上周同期：${lastStart} ~ ${lastEnd}
+WITH
+this_e AS (
+  SELECT brand_id, COALESCE(MAX(brand_name), MAX(brand_en_name), CAST(brand_id AS VARCHAR)) AS brand_name,
+    ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT union_id) AS expose_uv
+  FROM ${TABLES.expose}
+  WHERE ${makeW(thisStart, thisEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+),
+this_c AS (
+  SELECT brand_id, ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT union_id) AS click_uv
+  FROM ${TABLES.click}
+  WHERE ${makeW(thisStart, thisEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+),
+this_o AS (
+  SELECT brand_id, ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT CASE WHEN is_arrange = 1 THEN union_id END) AS order_uv,
+    COUNT(DISTINCT CASE WHEN is_arrange = 1 THEN order_view_id END) AS order_pv
+  FROM ${TABLES.ord}
+  WHERE ${makeW(thisStart, thisEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+),
+last_e AS (
+  SELECT brand_id, ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT union_id) AS expose_uv
+  FROM ${TABLES.expose}
+  WHERE ${makeW(lastStart, lastEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+),
+last_c AS (
+  SELECT brand_id, ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT union_id) AS click_uv
+  FROM ${TABLES.click}
+  WHERE ${makeW(lastStart, lastEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+),
+last_o AS (
+  SELECT brand_id, ad_position_page_name, ad_position_name,
+    COUNT(DISTINCT CASE WHEN is_arrange = 1 THEN union_id END) AS order_uv,
+    COUNT(DISTINCT CASE WHEN is_arrange = 1 THEN order_view_id END) AS order_pv
+  FROM ${TABLES.ord}
+  WHERE ${makeW(lastStart, lastEnd)}
+  GROUP BY brand_id, ad_position_page_name, ad_position_name
+)
+SELECT
+  COALESCE(te.brand_id, tc.brand_id, to2.brand_id)                         AS brand_id,
+  COALESCE(te.brand_name, tc.brand_id, to2.brand_id)                       AS brand_name,
+  COALESCE(te.ad_position_page_name, tc.ad_position_page_name, to2.ad_position_page_name) AS ad_position_page_name,
+  COALESCE(te.ad_position_name, tc.ad_position_name, to2.ad_position_name) AS ad_position_name,
+  -- 当期
+  COALESCE(te.expose_uv, 0)  AS this_expose_uv,
+  COALESCE(tc.click_uv, 0)   AS this_click_uv,
+  COALESCE(to2.order_uv, 0)  AS this_order_uv,
+  COALESCE(to2.order_pv, 0)  AS this_order_pv,
+  ROUND(COALESCE(tc.click_uv,0) * 100.0 / NULLIF(COALESCE(te.expose_uv,0),0), 2) AS this_ctr,
+  ROUND(COALESCE(to2.order_uv,0) * 100.0 / NULLIF(COALESCE(tc.click_uv,0),0), 2) AS this_cvr,
+  ROUND(COALESCE(to2.order_uv,0) * 100.0 / NULLIF(COALESCE(te.expose_uv,0),0), 2) AS this_cxr,
+  -- 上周同期
+  COALESCE(le.expose_uv, 0)  AS last_expose_uv,
+  COALESCE(lc.click_uv, 0)   AS last_click_uv,
+  COALESCE(lo.order_uv, 0)   AS last_order_uv,
+  COALESCE(lo.order_pv, 0)   AS last_order_pv,
+  ROUND(COALESCE(lc.click_uv,0) * 100.0 / NULLIF(COALESCE(le.expose_uv,0),0), 2) AS last_ctr,
+  ROUND(COALESCE(lo.order_uv,0) * 100.0 / NULLIF(COALESCE(lc.click_uv,0),0), 2) AS last_cvr,
+  ROUND(COALESCE(lo.order_uv,0) * 100.0 / NULLIF(COALESCE(le.expose_uv,0),0), 2) AS last_cxr
+FROM this_e te
+FULL OUTER JOIN this_c  tc  ON te.brand_id = tc.brand_id  AND te.ad_position_page_name = tc.ad_position_page_name  AND te.ad_position_name = tc.ad_position_name
+FULL OUTER JOIN this_o  to2 ON COALESCE(te.brand_id,tc.brand_id) = to2.brand_id AND COALESCE(te.ad_position_page_name,tc.ad_position_page_name) = to2.ad_position_page_name AND COALESCE(te.ad_position_name,tc.ad_position_name) = to2.ad_position_name
+FULL OUTER JOIN last_e  le  ON COALESCE(te.brand_id,tc.brand_id,to2.brand_id) = le.brand_id  AND COALESCE(te.ad_position_page_name,tc.ad_position_page_name,to2.ad_position_page_name) = le.ad_position_page_name  AND COALESCE(te.ad_position_name,tc.ad_position_name,to2.ad_position_name) = le.ad_position_name
+FULL OUTER JOIN last_c  lc  ON COALESCE(te.brand_id,tc.brand_id,to2.brand_id,le.brand_id) = lc.brand_id  AND COALESCE(te.ad_position_page_name,tc.ad_position_page_name,to2.ad_position_page_name,le.ad_position_page_name) = lc.ad_position_page_name  AND COALESCE(te.ad_position_name,tc.ad_position_name,to2.ad_position_name,le.ad_position_name) = lc.ad_position_name
+FULL OUTER JOIN last_o  lo  ON COALESCE(te.brand_id,tc.brand_id,to2.brand_id,le.brand_id,lc.brand_id) = lo.brand_id  AND COALESCE(te.ad_position_page_name,tc.ad_position_page_name,to2.ad_position_page_name,le.ad_position_page_name,lc.ad_position_page_name) = lo.ad_position_page_name  AND COALESCE(te.ad_position_name,tc.ad_position_name,to2.ad_position_name,le.ad_position_name,lc.ad_position_name) = lo.ad_position_name
+ORDER BY brand_id, this_expose_uv DESC
+LIMIT 500;`;
+}
+
+// 通用 BI 查询函数（统一走 execSQL）
+async function runBIQuery(sql, queryName) {
+  return execSQL(sql, queryName);
+}
+
+// 异常分析数据
+let anomalyData = [];
+let anomalyBrandIds = [];
+
+async function runAnomalyQuery() {
+  document.getElementById('anomalyTableInfo').textContent = '查询中...';
+  document.getElementById('anomalyTableContainer').innerHTML =
+    '<div class="empty-state"><div class="spinner" style="margin:0 auto;width:20px;height:20px;border-width:3px;"></div><p style="margin-top:12px;color:#888;">正在计算周同比，请稍候...</p></div>';
+  document.getElementById('anomalySummary').style.display = 'none';
+  document.getElementById('analysisPathBtns').style.display = 'none';
+  // 关闭已展开的分析路径
+  ['pathDetailUser','pathDetailEntry'].forEach(id => document.getElementById(id).classList.remove('show'));
+  ['pathBtnUser','pathBtnEntry'].forEach(id => document.getElementById(id).classList.remove('active'));
+
+  try {
+    const sql = buildAnomalySQL();
+    anomalyData = await runBIQuery(sql, '品牌流量转化异常分析');
+    anomalyBrandIds = [...new Set(anomalyData.map(r => r.brand_id).filter(Boolean))];
+    renderAnomalyTable();
+  } catch (err) {
+    document.getElementById('anomalyTableInfo').textContent = `❌ ${err.message}`;
+    document.getElementById('anomalyTableContainer').innerHTML =
+      `<div class="empty-state"><div class="icon">❌</div>` +
+      `<p>异常分析查询失败：${err.message}</p>` +
+      `<p style="margin-top:8px;font-size:12px;color:#ccc;">可点击「查看SQL」复制后到 <a href="https://bi.keetapp.com" target="_blank">bi.keetapp.com</a> 手动执行</p>` +
+      `</div>`;
+  } finally {
+    // 恢复状态栏（避免 execSQL 轮询的 loading 状态残留）
+    if (currentData.length > 0) {
+      showStatus('success', `✅ 查询完成，共 ${currentData.length} 条记录，数据日期：${getYesterdayDisplay()}`);
+    }
+  }
+}
+
+function renderAnomalyTable() {
+  if (anomalyData.length === 0) {
+    document.getElementById('anomalyTableContainer').innerHTML =
+      '<div class="empty-state"><div class="icon">✅</div><p>本周暂无异常品牌（所有品牌周同比下降均未超过20%）</p></div>';
+    document.getElementById('anomalyTableInfo').textContent = '无异常品牌';
+    // 汇总统计显示全绿
+    document.getElementById('anomalySummary').style.display = 'flex';
+    document.getElementById('anomalyCountVal').textContent = '0';
+    document.getElementById('anomalyExposeCount').textContent = '0';
+    document.getElementById('anomalyClickCount').textContent = '0';
+    document.getElementById('anomalyOrderCount').textContent = '0';
+    ['anomalyStatTotal','anomalyStatExpose','anomalyStatClick','anomalyStatOrder'].forEach(id => {
+      document.getElementById(id).classList.add('ok');
+    });
+    return;
+  }
+
+  // 统计各指标异常数
+  const exposeAbnormal = anomalyData.filter(r => Number(r.expose_wow) < -20).length;
+  const clickAbnormal  = anomalyData.filter(r => Number(r.click_wow)  < -20).length;
+  const orderAbnormal  = anomalyData.filter(r => Number(r.order_wow)  < -20).length;
+
+  // 汇总统计
+  document.getElementById('anomalySummary').style.display = 'flex';
+  document.getElementById('anomalyCountVal').textContent = anomalyData.length;
+  document.getElementById('anomalyExposeCount').textContent = exposeAbnormal;
+  document.getElementById('anomalyClickCount').textContent = clickAbnormal;
+  document.getElementById('anomalyOrderCount').textContent = orderAbnormal;
+  ['anomalyStatTotal','anomalyStatExpose','anomalyStatClick','anomalyStatOrder'].forEach(id => {
+    document.getElementById(id).classList.remove('ok');
+  });
+
+  // 渲染表格
+  const { thisStart, thisEnd, lastStart, lastEnd } = getAnomalyDateRange();
+
+  const exposeTooltip = metricTooltipHTML(METRIC_DEFS.expose_uv);
+  const clickTooltip  = metricTooltipHTML(METRIC_DEFS.click_uv);
+  const orderTooltip  = metricTooltipHTML(METRIC_DEFS.order_pv);
+
+  let thead = `<thead><tr>
+    <th style="width:36px;">#</th>
+    <th>日期</th>
+    <th>品牌ID</th>
+    <th>品牌名称</th>
+    <th>品牌英文名</th>
+    <th class="num">当期${exposeTooltip}<br><span style="font-size:10px;font-weight:400;color:#aaa;">${thisStart}~${thisEnd}</span></th>
+    <th class="num">上周同期${exposeTooltip}<br><span style="font-size:10px;font-weight:400;color:#aaa;">${lastStart}~${lastEnd}</span></th>
+    <th class="num">曝光UV周同比</th>
+    <th class="num">当期${clickTooltip}</th>
+    <th class="num">上周同期${clickTooltip}</th>
+    <th class="num">点击UV周同比</th>
+    <th class="num">当期${orderTooltip}</th>
+    <th class="num">上周同期${orderTooltip}</th>
+    <th class="num">订单量周同比</th>
+    <th>异常指标</th>
+  </tr></thead>`;
+
+  let tbody = '<tbody>';
+  anomalyData.forEach((row, idx) => {
+    const exposeWow = Number(row.expose_wow);
+    const clickWow  = Number(row.click_wow);
+    const orderWow  = Number(row.order_wow);
+
+    const fmtWow = v => {
+      if (isNaN(v) || row[Object.keys(row).find(k=>k.includes('wow'))] === null) return '<span class="wow-flat">—</span>';
+      const cls = v < -20 ? 'wow-down' : v > 0 ? 'wow-up' : 'wow-flat';
+      const sign = v > 0 ? '+' : '';
+      return `<span class="${cls}">${sign}${v}%</span>`;
+    };
+
+    const badges = [];
+    if (exposeWow < -20) badges.push(`<span class="anomaly-badge expose">↓曝光UV ${exposeWow}%</span>`);
+    if (clickWow  < -20) badges.push(`<span class="anomaly-badge click">↓点击UV ${clickWow}%</span>`);
+    if (orderWow  < -20) badges.push(`<span class="anomaly-badge order">↓订单量 ${orderWow}%</span>`);
+
+    tbody += `<tr class="anomaly-row-highlight">
+      <td style="color:#bbb;font-size:11px;">${idx+1}</td>
+      <td style="font-size:12px;color:#888;">${row.dt ?? '—'}</td>
+      <td>${row.brand_id ?? '—'}</td>
+      <td style="font-weight:500;">${row.brand_name ?? '—'}</td>
+      <td style="color:#666;font-size:12px;">${row.brand_en_name ?? '—'}</td>
+      <td class="num">${formatNum(row.this_expose_uv)}</td>
+      <td class="num">${formatNum(row.last_expose_uv)}</td>
+      <td class="num">${fmtWow(exposeWow)}</td>
+      <td class="num">${formatNum(row.this_click_uv)}</td>
+      <td class="num">${formatNum(row.last_click_uv)}</td>
+      <td class="num">${fmtWow(clickWow)}</td>
+      <td class="num">${formatNum(row.this_order_pv)}</td>
+      <td class="num">${formatNum(row.last_order_pv)}</td>
+      <td class="num">${fmtWow(orderWow)}</td>
+      <td style="min-width:160px;">${badges.join(' ')}</td>
+    </tr>`;
+  });
+  tbody += '</tbody>';
+
+  document.getElementById('anomalyTableContainer').innerHTML = `<table>${thead}${tbody}</table>`;
+  const anomalyBrandCount = new Set(anomalyData.map(r => r.brand_id)).size;
+  document.getElementById('anomalyTableInfo').textContent = `发现 ${anomalyData.length} 条异常记录（涉及 ${anomalyBrandCount} 个品牌）`;
+
+  // 显示分析路径按钮
+  document.getElementById('analysisPathBtns').style.display = 'flex';
+}
+
+function showAnomalySQL() {
+  document.getElementById('sqlPreview').textContent = buildAnomalySQL();
+  document.getElementById('sqlModal').classList.add('show');
+}
+
+// 切换分析路径详情面板
+function togglePathDetail(type) {
+  const detailId = type === 'user' ? 'pathDetailUser' : 'pathDetailEntry';
+  const btnId    = type === 'user' ? 'pathBtnUser'    : 'pathBtnEntry';
+  const detail   = document.getElementById(detailId);
+  const btn      = document.getElementById(btnId);
+  const isOpen   = detail.classList.toggle('show');
+  btn.classList.toggle('active', isOpen);
+
+  if (isOpen) {
+    if (type === 'user')  runUserStructQuery();
+    if (type === 'entry') runEntryStructQuery();
+  }
+}
+
+// 用户结构变化查询
+async function runUserStructQuery() {
+  const statusEl    = document.getElementById('pathUserStatus');
+  const containerEl = document.getElementById('pathUserContainer');
+  statusEl.textContent = '查询中...';
+  containerEl.innerHTML = '';
+  try {
+    const sql  = buildUserStructSQL(anomalyBrandIds);
+    const data = await runBIQuery(sql, '用户结构变化分析');
+    if (data.length === 0) {
+      statusEl.textContent = '暂无数据';
+      return;
+    }
+    statusEl.textContent = `共 ${data.length} 条记录`;
+
+    // 计算每个品牌当期/上周总曝光UV（用于占比）
+    const brandThisTotal = {}, brandLastTotal = {};
+    data.forEach(row => {
+      const bid = row.brand_id;
+      brandThisTotal[bid] = (brandThisTotal[bid] || 0) + (Number(row.this_expose_uv) || 0);
+      brandLastTotal[bid] = (brandLastTotal[bid] || 0) + (Number(row.last_expose_uv) || 0);
+    });
+
+    let html = `<table>
+      <thead><tr>
+        <th>品牌ID</th><th>品牌名称</th><th>生命周期分层</th>
+        <th class="num">当期${metricTooltipHTML(METRIC_DEFS.expose_uv)}</th><th class="num">当期占比</th>
+        <th class="num">上周同期${metricTooltipHTML(METRIC_DEFS.expose_uv)}</th><th class="num">上周同期占比</th>
+        <th class="num">占比变化</th><th class="num">周同比</th>
+      </tr></thead><tbody>`;
+    data.forEach(row => {
+      const bid = row.brand_id;
+      const thisUV = Number(row.this_expose_uv) || 0;
+      const lastUV = Number(row.last_expose_uv) || 0;
+      const thisRatio = brandThisTotal[bid] > 0 ? (thisUV / brandThisTotal[bid] * 100).toFixed(1) : '—';
+      const lastRatio = brandLastTotal[bid] > 0 ? (lastUV / brandLastTotal[bid] * 100).toFixed(1) : '—';
+      const delta = (thisRatio !== '—' && lastRatio !== '—')
+        ? (Number(thisRatio) - Number(lastRatio)).toFixed(1) : '—';
+      const deltaClass = delta !== '—' ? (Number(delta) > 2 ? 'wow-up' : Number(delta) < -2 ? 'wow-down' : 'wow-flat') : 'wow-flat';
+      const wow = lastUV > 0 ? ((thisUV - lastUV) / lastUV * 100).toFixed(1) : '—';
+      const wowClass = wow !== '—' ? (Number(wow) < -20 ? 'wow-down' : Number(wow) > 0 ? 'wow-up' : 'wow-flat') : 'wow-flat';
+      html += `<tr>
+        <td>${row.brand_id ?? '—'}</td>
+        <td style="font-weight:500;">${row.brand_name ?? '—'}</td>
+        <td>${row.user_level_detailed ?? '—'}</td>
+        <td class="num">${formatNum(thisUV)}</td>
+        <td class="num">${thisRatio !== '—' ? thisRatio + '%' : '—'}</td>
+        <td class="num">${formatNum(lastUV)}</td>
+        <td class="num">${lastRatio !== '—' ? lastRatio + '%' : '—'}</td>
+        <td class="num"><span class="${deltaClass}">${delta !== '—' ? (Number(delta) > 0 ? '+' : '') + delta + 'pp' : '—'}</span></td>
+        <td class="num"><span class="${wowClass}">${wow !== '—' ? (Number(wow) > 0 ? '+' : '') + wow + '%' : '—'}</span></td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    containerEl.innerHTML = html;
+  } catch (err) {
+    statusEl.textContent = `❌ 查询失败：${err.message}`;
+  }
+}
+
+// 流量入口变化查询
+async function runEntryStructQuery() {
+  const statusEl    = document.getElementById('pathEntryStatus');
+  const containerEl = document.getElementById('pathEntryContainer');
+  statusEl.textContent = '查询中...';
+  containerEl.innerHTML = '';
+  try {
+    const sql  = buildEntryStructSQL(anomalyBrandIds);
+    const data = await runBIQuery(sql, '流量入口变化分析');
+    if (data.length === 0) {
+      statusEl.textContent = '暂无数据';
+      return;
+    }
+    statusEl.textContent = `共 ${data.length} 条记录`;
+
+    // 计算每个品牌当期总曝光UV（用于占比）
+    const brandThisTotal = {}, brandLastTotal = {};
+    data.forEach(row => {
+      const bid = row.brand_id;
+      brandThisTotal[bid] = (brandThisTotal[bid] || 0) + (Number(row.this_expose_uv) || 0);
+      brandLastTotal[bid] = (brandLastTotal[bid] || 0) + (Number(row.last_expose_uv) || 0);
+    });
+
+    // 辅助：格式化周同比
+    const fmtWow = (cur, prev) => {
+      if (!prev) return '<span class="wow-flat">—</span>';
+      const v = ((cur - prev) / prev * 100).toFixed(1);
+      const cls = Number(v) < -20 ? 'wow-down' : Number(v) > 0 ? 'wow-up' : 'wow-flat';
+      return `<span class="${cls}">${Number(v) > 0 ? '+' : ''}${v}%</span>`;
+    };
+    // 辅助：格式化百分比指标（带周同比箭头色）
+    const fmtPct = (cur, prev) => {
+      const curStr = cur != null ? cur + '%' : '—';
+      const prevStr = prev != null ? prev + '%' : '—';
+      return `${curStr} / ${prevStr}`;
+    };
+
+    const sub = `<br><span style="font-size:10px;font-weight:400;color:#aaa;">当期 / 上周同期</span>`;
+    let html = `<table>
+      <thead><tr>
+        <th>品牌ID</th><th>品牌名称</th><th>页面</th><th>资源位名称</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.expose_uv)}${sub}</th>
+        <th class="num">曝光UV周同比</th>
+        <th class="num">曝光UV占比${sub}</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.click_uv)}${sub}</th>
+        <th class="num">点击UV周同比</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.order_uv)}${sub}</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.order_pv)}${sub}</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.ctr)}${sub}</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.cvr)}${sub}</th>
+        <th class="num">${metricTooltipHTML(METRIC_DEFS.expose_to_order_cvr)}${sub}</th>
+      </tr></thead><tbody>`;
+
+    data.forEach(row => {
+      const bid = row.brand_id;
+      const thisExpUV = Number(row.this_expose_uv) || 0;
+      const lastExpUV = Number(row.last_expose_uv) || 0;
+      const thisRatio = brandThisTotal[bid] > 0 ? (thisExpUV / brandThisTotal[bid] * 100).toFixed(1) : '—';
+      const lastRatio = brandLastTotal[bid] > 0 ? (lastExpUV / brandLastTotal[bid] * 100).toFixed(1) : '—';
+      html += `<tr>
+        <td>${row.brand_id ?? '—'}</td>
+        <td style="font-weight:500;">${row.brand_name ?? '—'}</td>
+        <td>${row.ad_position_page_name ?? '—'}</td>
+        <td>${row.ad_position_name ?? '—'}</td>
+        <td class="num">${formatNum(thisExpUV)} / ${formatNum(lastExpUV)}</td>
+        <td class="num">${fmtWow(thisExpUV, lastExpUV)}</td>
+        <td class="num">${thisRatio !== '—' ? thisRatio + '%' : '—'} / ${lastRatio !== '—' ? lastRatio + '%' : '—'}</td>
+        <td class="num">${formatNum(row.this_click_uv)} / ${formatNum(row.last_click_uv)}</td>
+        <td class="num">${fmtWow(Number(row.this_click_uv)||0, Number(row.last_click_uv)||0)}</td>
+        <td class="num">${formatNum(row.this_order_uv)} / ${formatNum(row.last_order_uv)}</td>
+        <td class="num">${formatNum(row.this_order_pv)} / ${formatNum(row.last_order_pv)}</td>
+        <td class="num">${fmtPct(row.this_ctr, row.last_ctr)}</td>
+        <td class="num">${fmtPct(row.this_cvr, row.last_cvr)}</td>
+        <td class="num">${fmtPct(row.this_cxr, row.last_cxr)}</td>
+      </tr>`;
+    });
+    html += '</tbody></table>';
+    containerEl.innerHTML = html;
+  } catch (err) {
+    statusEl.textContent = `❌ 查询失败：${err.message}`;
+  }
+}
+
+init();
+
+// ============================================================
+// Tooltip 定位（position:fixed + 防边缘溢出）
+// ============================================================
+document.addEventListener('mouseenter', function(e) {
+  const wrap = e.target.closest('.metric-tooltip-wrap');
+  if (!wrap) return;
+  const box = wrap.querySelector('.metric-tooltip-box');
+  if (!box) return;
+
+  box.style.display = 'block';
+
+  const wrapRect = wrap.getBoundingClientRect();
+  const boxW = 260;
+  const boxH = box.offsetHeight || 120;
+  const gap = 8;
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const margin = 8; // 距视口边缘最小间距
+
+  // 水平：优先居中对齐，超出则靠边
+  let left = wrapRect.left + wrapRect.width / 2 - boxW / 2;
+  if (left < margin) left = margin;
+  if (left + boxW > vw - margin) left = vw - boxW - margin;
+
+  // 垂直：优先向下，空间不足则向上
+  let top = wrapRect.bottom + gap;
+  if (top + boxH > vh - margin) top = wrapRect.top - gap - boxH;
+
+  box.style.left = left + 'px';
+  box.style.top  = top  + 'px';
+
+  // 调整小箭头水平位置，始终指向 wrap 中心
+  const arrow = box.querySelector('::after'); // 无法直接操作伪元素，用 data 属性传递
+  const arrowLeft = (wrapRect.left + wrapRect.width / 2) - left;
+  box.style.setProperty('--arrow-left', Math.max(16, Math.min(arrowLeft, boxW - 16)) + 'px');
+}, true);
+
+document.addEventListener('mouseleave', function(e) {
+  const wrap = e.target.closest('.metric-tooltip-wrap');
+  if (!wrap) return;
+  const box = wrap.querySelector('.metric-tooltip-box');
+  if (box) box.style.display = 'none';
+}, true);
+</script>
+<script>
+// 强制重绘 hack：解决 CatDesk 内置浏览器白屏问题
+// Chromium 在窗口非焦点时会暂停 GPU 合成层渲染，通过周期性触发 reflow 强制激活
+(function forceRepaint() {
+  function repaint() {
+    document.body.style.zoom = '0.9999';
+    requestAnimationFrame(function() {
+      document.body.style.zoom = '1';
+    });
+  }
+  // 页面加载后立即触发一次
+  repaint();
+  // 每 500ms 触发一次，持续 5 秒，确保渲染激活
+  var count = 0;
+  var timer = setInterval(function() {
+    repaint();
+    count++;
+    if (count >= 10) clearInterval(timer);
+  }, 500);
+  // 页面获得焦点时也触发
+  document.addEventListener('visibilitychange', repaint);
+  window.addEventListener('focus', repaint);
+})();
+</script>
+</body>
+</html>

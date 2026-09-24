@@ -1,0 +1,338 @@
+<km-doc>
+<km-title nodeId="1ea95d6be8ae4db08aab4fcf14f5af67">🐾 汪汪队 AI 团队看板</km-title>
+<p nodeId="72769b0f-1162-4ca9-9709-9716713f9ebc">文档标题：《🐾 汪汪队 AI 团队看板》<br />文档ID：2754982053<br />内容长度：40186 字符</p>
+<p nodeId="e743460d-cd34-43a7-923b-b4ad53f472b1">============================================================<br />文档内容：<br />============================================================</p>
+<h1 nodeId="01207810-9e9e-4de0-9f2f-ee004c6af585">🐾 汪汪队 AI 团队看板</h1>
+<blockquote nodeId="092b0df2-2998-413e-9448-13776175af7e">
+<p nodeId="2c275095-c563-4382-a105-dd97480df0af">「无论什么任务，汪汪队出动！」No job too big, no pup too small!</p>
+</blockquote>
+<hr nodeId="390e67a4-7bce-433d-aba7-ac70a8297bb6" />
+<h2 nodeId="331bd493-4a79-4edf-8300-b85fb9f12017">成员总览</h2>
+<table responsive="false" nodeId="f73492a5-8076-4ec8-8ce3-e493d4407f5b">
+<tr nodeId="44d93b90-a472-492b-af65-526ac6cdd0de">
+<th colwidth="[150]" nodeId="d958dd07-6d26-4fe8-a1d4-ff9a6200691e">
+<p nodeId="7bd38d62-8d3c-4a1f-9d8a-f7d1b9dcebcd">成员</p>
+</th>
+<th colwidth="[150]" nodeId="17ceafe1-1357-4191-a80b-0f78217e167f">
+<p nodeId="389b42d6-d306-4c23-ab8f-87c54ded2d2f">角色</p>
+</th>
+<th colwidth="[150]" nodeId="d01d6c4f-bbe2-45de-aaca-d85054c2a2f1">
+<p nodeId="75f7bf2d-0473-427f-b4a6-77a82a388ba4">状态</p>
+</th>
+<th colwidth="[150]" nodeId="82cd3b5c-e05e-4c4c-afb7-bcffa220db7a">
+<p nodeId="d9a6e55c-af62-4f47-ae41-086fb7fdd66a">大象 Bot 名</p>
+</th>
+<th colwidth="[150]" nodeId="9fb34acc-3a3f-4829-80b4-6c84875ff924">
+<p nodeId="09a9f7a2-fa35-44c7-9f71-84085206fa1b">botId</p>
+</th>
+<th colwidth="[150]" nodeId="c0c73996-5108-4261-bf15-e81078dba3e8">
+<p nodeId="43a47200-99ac-425f-a25a-60b52714c2ab">最后活跃</p>
+</th>
+</tr>
+<tr nodeId="fda24bb1-be08-428f-b0a2-ab23836cf1ea">
+<td colwidth="[150]" nodeId="20c13785-6207-4866-9148-890a01642031">
+<p nodeId="42fa5b25-db23-4158-890b-d22c8e896a4d">🐾 阿奇</p>
+</td>
+<td colwidth="[150]" nodeId="548e3496-e453-4b10-88cb-079030dc08a8">
+<p nodeId="0d14ef8e-b225-47d8-b5bf-eab2b166dda9">总控·大管家</p>
+</td>
+<td colwidth="[150]" nodeId="b6183eab-57df-4df4-9c5d-20bd353eda94">
+<p nodeId="059609ff-639d-4bb4-958e-bb14e091ada9">🟢 在线</p>
+</td>
+<td colwidth="[150]" nodeId="3a20f1ef-1f91-4a58-942b-cf14a7a46fd2">
+<p nodeId="15f729e6-58d7-4909-b948-d53ea1c17baa">AI Eric</p>
+</td>
+<td colwidth="[150]" nodeId="e88d6d7d-0f09-4243-b8f7-e27768feba05">
+<p nodeId="c1881278-cc82-473f-8428-1bf4b032f056">139076530784</p>
+</td>
+<td colwidth="[150]" nodeId="df85e465-5221-4114-92be-5f24e747615f">
+<p nodeId="1c3d29f6-0908-4065-b6ef-b63d98f55434">2026-09-12</p>
+</td>
+</tr>
+<tr nodeId="4e948fc7-c557-4d82-b9a4-2f05fe9af346">
+<td colwidth="[150]" nodeId="1e63e1eb-488f-4211-9f0f-7667224cf52d">
+<p nodeId="705020ba-ae33-4432-8bec-669ae534a186">🚜 砾石</p>
+</td>
+<td colwidth="[150]" nodeId="fc62c334-38d8-4a84-abc5-68b173fb275f">
+<p nodeId="9f905279-b9ac-4eda-bf4f-4212f0be922f">执行官</p>
+</td>
+<td colwidth="[150]" nodeId="63f135d3-c0e4-4fe0-bcd1-1e7e1ccba3d3">
+<p nodeId="a166cda1-8172-40d1-a00f-4ec7a261dfef">🟢 在线</p>
+</td>
+<td colwidth="[150]" nodeId="ce8dcc65-0b55-4187-bffe-a3e7151c777f">
+<p nodeId="15fbf02a-ff11-47aa-b07a-f1f1a444b62af">AI Eric（共用）</p>
+</td>
+<td colwidth="[150]" nodeId="fbf86ba2-668b-4a6c-ac7b-b17e145e952f">
+<p nodeId="a536449a-1e79-4f69-8ff5-2f34f1c3a4f8">139076530784</p>
+</td>
+<td colwidth="[150]" nodeId="edb57df1-0df2-43bd-bf38-9f861c9b0f62">
+<p nodeId="49a3ac94-856a-4d58-a62d-6502879f2ab6">2026-04-03</p>
+</td>
+</tr>
+<tr nodeId="ab37a104-8504-4c1c-8094-513e2d9a0323">
+<td colwidth="[150]" nodeId="3a3cc377-31ed-49c5-b389-b5971585f7bf">
+<p nodeId="d92c35e4-b5c7-4f6a-b9c8-1f27c7382f3b">✈️ 毛毛</p>
+</td>
+<td colwidth="[150]" nodeId="973a4f09-0a47-4227-a412-f5aff950e462">
+<p nodeId="fb9df7e3-e2d3-4121-9a39-a012b0bca8b9">学习教练·UI设计师</p>
+</td>
+<td colwidth="[150]" nodeId="341f11e0-ebe8-422e-a6fd-0bc73872307b">
+<p nodeId="b113c5fb-a44e-48f7-a69d-12d9d169e2da">🟢 在线</p>
+</td>
+<td colwidth="[150]" nodeId="fc423c3f-03d0-4957-a7ed-088d7e09f2e6">
+<p nodeId="7d8e1b23-26a4-4140-9f1d-269a299a7bbf">AI Eric（共用）</p>
+</td>
+<td colwidth="[150]" nodeId="3c62be39-c9e8-4159-90c9-dba7b8baf622">
+<p nodeId="cd82516e-1e3c-43ec-9cfb-aa80d782a59b">139076530784</p>
+</td>
+<td colwidth="[150]" nodeId="ee164aee-2c88-4a98-9e8a-cb492140e9fe">
+<p nodeId="a036de5a-f612-4089-886f-fc9983c163fc">2026-04-03</p>
+</td>
+</tr>
+<tr nodeId="cf102139-08f7-4420-9232-1e12920a6bd9">
+<td colwidth="[150]" nodeId="a29503e0-a978-4ac6-9400-8a8269595d07">
+<p nodeId="66738460-3b73-4fe4-af9d-9d250f2f284d">🏥 天天</p>
+</td>
+<td colwidth="[150]" nodeId="b8556761-1482-4d5a-a626-d0805e4817a1">
+<p nodeId="d0dcf5b3-ed44-4eae-92a3-bacedf40566b">私人助理</p>
+</td>
+<td colwidth="[150]" nodeId="9fe98364-7f7b-4be4-970e-889b64a70dc2">
+<p nodeId="29d8a4e2-35a7-4d23-baf3-47916e76fc2e">🟢 在线</p>
+</td>
+<td colwidth="[150]" nodeId="e80fc9ec-dd64-42b8-afae-c6897efd2b5d">
+<p nodeId="ebc595ae-4bd9-41db-a8de-631d01ae8e68">天天助理</p>
+</td>
+<td colwidth="[150]" nodeId="1c9a6631-ce20-42da-b567-938c1c5cd152">
+<p nodeId="76d12699-2563-428d-8ee0-d00fe1ad27c4">139083042107</p>
+</td>
+<td colwidth="[150]" nodeId="cef75e6a-6401-4586-8dd9-ab03e9d984a3">
+<p nodeId="fa92efca-d3d4-430d-bc1f-6ab04ab0d0c7">2026-04-02</p>
+</td>
+</tr>
+<tr nodeId="f2d92b8e-523d-4ec8-bb84-ef880f61b3f8">
+<td colwidth="[150]" nodeId="b805c390-56bc-4369-86c5-09c4cf59e932">
+<p nodeId="b545f927-8352-4d42-aaa2-ab8c7feed402">🔍 灰灰</p>
+</td>
+<td colwidth="[150]" nodeId="f743d798-87e2-4d8b-bfea-435274e1f146">
+<p nodeId="042619b7-4112-4e40-90dc-3471efb501f9">情报官</p>
+</td>
+<td colwidth="[150]" nodeId="ebb3dacc-269d-429c-95d4-2678ce8fbc92">
+<p nodeId="106e046e-e0f5-413b-8afd-c69264b9d53e">🟢 在线</p>
+</td>
+<td colwidth="[150]" nodeId="b3fa5b64-f79c-4859-9f05-8ebfd83c8bea">
+<p nodeId="11aec884-c784-4ff1-a4ca-8d57738d659e">灰灰情报官</p>
+</td>
+<td colwidth="[150]" nodeId="dd274205-45c2-4af8-8e78-f7925275ea9d">
+<p nodeId="68465354-5380-4a1c-8db0-6a58874d6af8">139088087467</p>
+</td>
+<td colwidth="[150]" nodeId="9d710b5a-be6b-4610-8380-ce95b8326302">
+<p nodeId="0d60ffe9-481a-486b-9cb8-11ac05e4fd0d">2026-04-02</p>
+</td>
+</tr>
+</table>
+<hr nodeId="hr-1" />
+<h2 nodeId="h2-archive">📋 存档记录</h2>
+<table nodeId="archive-table">
+<tr nodeId="archive-header">
+<th colwidth="[150]" nodeId="archive-h1">
+<p nodeId="archive-h1-p">日期 (BRT)</p>
+</th>
+<th colwidth="[400]" nodeId="archive-h2">
+<p nodeId="archive-h2-p">任务内容</p>
+</th>
+<th colwidth="[100]" nodeId="archive-h3">
+<p nodeId="archive-h3-p">状态</p>
+</th>
+<th colwidth="[68]" nodeId="archive-h4">
+<p nodeId="archive-h4-p" />
+</th>
+<th colwidth="[68]" nodeId="archive-h5">
+<p nodeId="archive-h5-p" />
+</th>
+<th colwidth="[68]" nodeId="archive-h6">
+<p nodeId="archive-h6-p" />
+</th>
+</tr>
+<tr nodeId="row-20260911">
+<td colwidth="[150]" nodeId="cell-20260911-date">
+<p nodeId="p-20260911-date">2026-09-11（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260911-task">
+<p nodeId="p-20260911-task">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.159 tag（24 commits·HQ自动更新持续运行）/ 无今日记忆文件（2026-09-11 无人工任务记录·纯自动化日）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·103天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260911-status">
+<p nodeId="p-20260911-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260911-empty1">
+<p nodeId="p-20260911-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260911-empty2">
+<p nodeId="p-20260911-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260911-empty3">
+<p nodeId="p-20260911-empty3" />
+</td>
+</tr>
+<tr nodeId="row-20260912">
+<td colwidth="[150]" nodeId="cell-20260912-date">
+<p nodeId="p-20260912-date">2026-09-12（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260912-task">
+<p nodeId="p-20260912-task">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.160 tag（1 commit·归档 daily_bill_2026-09-12.png·HQ自动更新持续运行）/ 无今日记忆文件（2026-09-12 无人工任务记录·纯自动化日）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·104天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260912-status">
+<p nodeId="p-20260912-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260912-empty1">
+<p nodeId="p-20260912-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260912-empty2">
+<p nodeId="p-20260912-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260912-empty3">
+<p nodeId="p-20260912-empty3" />
+</td>
+</tr>
+<tr nodeId="row-20260913">
+<td colwidth="[150]" nodeId="b1c19c08-ec01-4bd6-baad-937c6ee7ba9e">
+<p nodeId="670b5470-1e5c-4bee-bdc7-c002137740d2">2026-09-13（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="722b3048-5048-4258-a7fe-8fd5187d2977">
+<p nodeId="2846e3e4-9c9a-43d3-b548-e1405917358d">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.161 tag（1 commit·归档 daily_bill_2026-09-13.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-13·BP看板每日更新尝试·New Sign 7行数据捕获·其余Tab失败）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·105天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板部分成功（Playwright捕获New Sign·其余Tab懒加载未触发）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="ad0ab2bf-fc54-41e4-8b37-69a33df0d54b">
+<p nodeId="1526f5ef-4bcb-47bc-a3f9-84241f42c950">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="24863c48-6f5f-495c-8d3f-4d916530b776">
+<p nodeId="1c356657-cb31-466e-a5fe-747bc7106da5" />
+</td>
+<td colwidth="[68]" nodeId="570bd51f-72ed-4860-90cc-263eae078f37">
+<p nodeId="2789ce2d-d90e-49be-98b2-a24370a6a503" />
+</td>
+<td colwidth="[68]" nodeId="29e6cead-ba96-45b6-8837-efa2b92d62ab">
+<p nodeId="9bbddb45-7d82-43d8-8a70-f7280dbea6c9" />
+</td>
+</tr>
+<tr nodeId="row-20260914">
+<td colwidth="[150]" nodeId="cell-20260914-date">
+<p nodeId="p-20260914-date">2026-09-14（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260914-task">
+<p nodeId="p-20260914-task">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.162 tag（1 commit·归档 daily_bill_2026-09-14.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-14·Santos非独高销未营业32家名单v2确认 / Márcio Western CM转正评语中英定稿 / 周报9.7-9.13格式规范v3.0黄金模板归档）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·106天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260914-status">
+<p nodeId="p-20260914-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260914-empty1">
+<p nodeId="p-20260914-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260914-empty2">
+<p nodeId="p-20260914-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260914-empty3">
+<p nodeId="p-20260914-empty3" />
+</td>
+</tr>
+<tr nodeId="row-20260915">
+<td colwidth="[150]" nodeId="3f5232ba-d583-4913-ac48-533d1baaaebd">
+<p nodeId="aeef252a-7a36-45ae-b547-485f3c7ae18a">2026-09-15（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="c3282d77-0a36-465c-b9f3-3c519d89c1c7">
+<p nodeId="a3e637ce-c1a1-4e06-8827-4099b7d1a8a4">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.163 tag（归档 daily_bill_2026-09-15.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-15·激励赛奖金发放明细Wiki完成·Sushi Combo Nocode工具升级+Wiki联动·激励赛正式结项）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·107天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 新增2项 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="1bdc041f-1e2a-4b6d-a89b-d247f5a6de55">
+<p nodeId="5f6a0d91-d249-4be5-b622-9197aa3e3f2c">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="e88fe114-9be5-448c-9f48-6ec592693038">
+<p nodeId="7ac8353e-72bd-472f-8eb8-9db38e0da699" />
+</td>
+<td colwidth="[68]" nodeId="719d23c2-f77d-485f-a9a8-cc0394bc754a">
+<p nodeId="c16239e9-ff0d-4836-9381-b110043db0f6" />
+</td>
+<td colwidth="[68]" nodeId="f4a15195-f191-4045-9c83-9bacb9029562">
+<p nodeId="1200925c-69f1-4374-9fcb-5d3b99b7023d" />
+</td>
+</tr>
+<tr nodeId="row-20260916">
+<td colwidth="[150]" nodeId="cell-20260916-date">
+<p nodeId="p-20260916-date">2026-09-16（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260916-task">
+<p nodeId="p-20260916-task">每日例行存档 &amp; 汇报（wangwang-hq 打 v5.9.164 tag（归档 daily_bill_2026-09-16.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-16·Santos商补下滑深度排查·流量漏斗诊断·Wiki创建·归因教程）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·108天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260916-status">
+<p nodeId="p-20260916-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260916-empty1">
+<p nodeId="p-20260916-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260916-empty2">
+<p nodeId="p-20260916-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260916-empty3">
+<p nodeId="p-20260916-empty3" />
+</td>
+</tr>
+<tr nodeId="row-20260917">
+<td colwidth="[150]" nodeId="cell-20260917-date">
+<p nodeId="p-20260917-date">2026-09-17（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260917-task">
+<p nodeId="p-20260917-task">每日例行存档 &amp; 汇报（wangwang-hq 沿用 v5.9.165（无新人工改动·HQ自动更新持续运行）/ 无今日记忆文件（2026-09-17 无人工任务记录·纯自动化日）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·109天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新）</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260917-status">
+<p nodeId="p-20260917-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260917-empty1">
+<p nodeId="p-20260917-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260917-empty2">
+<p nodeId="p-20260917-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260917-empty3">
+<p nodeId="p-20260917-empty3" />
+</td>
+</tr>
+<tr nodeId="row-20260918">
+<td colwidth="[150]" nodeId="80172067-8f74-4049-9c44-e965b67d3808">
+<p nodeId="70105874-f814-46c4-98db-2dd5c1468c6c">2026-09-18（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="111c6fa1-c8ce-4dd5-9c64-935f45c02af1">
+<p nodeId="aa72a76d-03a0-4727-ae88-70e401514eba">每日例行存档：wangwang-hq 打 v5.9.166 tag（归档 daily_bill_2026-09-18.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-18·独家跟踪83家分析+5次Wiki英文化更新·contentId 2787612003）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·110天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 新增1项（独家跟踪分析系统）/ 学城看板更新</p>
+</td>
+<td colwidth="[100]" nodeId="e285477e-978a-4a69-a047-df0c3a537c7b">
+<p nodeId="1a34dd25-c46a-474c-85ba-b0bacc74d8df">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="b779d214-d092-4d11-b046-e42c5ba1c7b2">
+<p nodeId="40a14934-b71d-4bd4-9a64-5cb8fe3f4f87" />
+</td>
+<td colwidth="[68]" nodeId="bf6bf117-6345-4f19-85b4-bc29ed065a1c">
+<p nodeId="a04bcbd5-c868-4532-95fe-49c0a6234b35" />
+</td>
+<td colwidth="[68]" nodeId="e1d1fa73-6e81-4e4f-9f90-9ca0c67084ae">
+<p nodeId="0816478e-10ef-40a7-8e76-5dcca59c1237" />
+</td>
+</tr>
+<tr nodeId="row-20260919">
+<td colwidth="[150]" nodeId="cell-20260919-date">
+<p nodeId="p-20260919-date">2026-09-19（BRT 18:00）</p>
+</td>
+<td colwidth="[400]" nodeId="cell-20260919-task">
+<p nodeId="p-20260919-task">每日例行存档：wangwang-hq 打 v5.9.167 tag（归档 daily_bill_2026-09-19.png·HQ自动更新持续运行）/ 有今日记忆文件（2026-09-19·周报BRT 9.14-9.18定版·contentId 2788894160 / 独家跟踪S4竞对板块深化 / BDM Excel KRI全量更新 / BML板块重写）/ DBR日报连续失败（dbr_fetch.py 脚本缺失·111天+）/ DD/BD深折扣日报失败（脚本缺失）/ BP看板正常（MOA自动登录）/ CAPABILITIES.md 无新增 / 学城看板更新</p>
+</td>
+<td colwidth="[100]" nodeId="cell-20260919-status">
+<p nodeId="p-20260919-status">✅ 完成</p>
+</td>
+<td colwidth="[68]" nodeId="cell-20260919-empty1">
+<p nodeId="p-20260919-empty1" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260919-empty2">
+<p nodeId="p-20260919-empty2" />
+</td>
+<td colwidth="[68]" nodeId="cell-20260919-empty3">
+<p nodeId="p-20260919-empty3" />
+</td>
+</tr>
+</table>
+</km-doc>
+

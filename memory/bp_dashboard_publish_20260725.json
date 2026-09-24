@@ -1,0 +1,10 @@
+{
+  "date": "2026-07-25",
+  "action": "publish",
+  "uuid": "7fb461e7-0c98-4440-bcf6-bfceca5c17aa",
+  "url": "https://html-hosting-hub.mynocode.host/#/preview/7fb461e7-0c98-4440-bcf6-bfceca5c17aa",
+  "filename": "bp-dashboard-brsmb.html",
+  "data_date": "2026-07-22",
+  "status": "success",
+  "note": "BI mtbi-cli 登录过期，使用现有 bi_raw_data.json（7/23 更新，数据到 7/22）重新生成看板并更新发布"
+}

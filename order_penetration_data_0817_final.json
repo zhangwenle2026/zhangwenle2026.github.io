@@ -1,0 +1,2999 @@
+{
+  "data_date": "0817",
+  "operating_period": "0811-0817",
+  "previous": {
+    "date": "0816",
+    "total_operating": 112,
+    "total_score": 533,
+    "bd_level_score": 486,
+    "ns_op": 41,
+    "no_op": 14,
+    "nop_op": 57,
+    "signed": 324,
+    "cities": {
+      "Southern": {
+        "signed": 161,
+        "op": 47,
+        "score": 192,
+        "ns_op": 16,
+        "no_op": 3,
+        "nop_op": 28
+      },
+      "Western": {
+        "signed": 138,
+        "op": 53,
+        "score": 230,
+        "ns_op": 21,
+        "no_op": 8,
+        "nop_op": 24
+      },
+      "Santos": {
+        "signed": 25,
+        "op": 12,
+        "score": 51,
+        "ns_op": 4,
+        "no_op": 3,
+        "nop_op": 5
+      }
+    }
+  },
+  "regional_summary": {
+    "total_target": 818,
+    "total_signed": 326,
+    "total_operating": 113,
+    "total_score": 538,
+    "bd_level_score": 496,
+    "ns_target": 553,
+    "no_target": 46,
+    "nop_target": 219,
+    "ns_op": 42,
+    "no_op": 13,
+    "nop_op": 58,
+    "ns_score": 252,
+    "no_score": 52,
+    "nop_score": 174,
+    "hv_count": 30,
+    "hv_bonus": 60
+  },
+  "city_summary": {
+    "Southern": {
+      "target": 413,
+      "signed": 162,
+      "operating": 47,
+      "score": 216,
+      "op_rate": 11.4,
+      "ns_target": 278,
+      "no_target": 18,
+      "nop_target": 117,
+      "ns_op": 16,
+      "no_op": 3,
+      "nop_op": 28,
+      "ns_score": 96,
+      "no_score": 12,
+      "nop_score": 84,
+      "hv_count": 12,
+      "hv_bonus": 24
+    },
+    "Western": {
+      "target": 331,
+      "signed": 139,
+      "operating": 54,
+      "score": 265,
+      "op_rate": 16.3,
+      "ns_target": 220,
+      "no_target": 24,
+      "nop_target": 87,
+      "ns_op": 22,
+      "no_op": 7,
+      "nop_op": 25,
+      "ns_score": 132,
+      "no_score": 28,
+      "nop_score": 75,
+      "hv_count": 15,
+      "hv_bonus": 30
+    },
+    "Santos": {
+      "target": 74,
+      "signed": 25,
+      "operating": 12,
+      "score": 57,
+      "op_rate": 16.2,
+      "ns_target": 55,
+      "no_target": 4,
+      "nop_target": 15,
+      "ns_op": 4,
+      "no_op": 3,
+      "nop_op": 5,
+      "ns_score": 24,
+      "no_score": 12,
+      "nop_score": 15,
+      "hv_count": 3,
+      "hv_bonus": 6
+    }
+  },
+  "bdm_summary": {
+    "adriananaves": {
+      "city": "Southern",
+      "bd_count": 9,
+      "team_score": 44,
+      "avg": 4.89,
+      "qualified": false
+    },
+    "fernandooliveira": {
+      "city": "Southern",
+      "bd_count": 7,
+      "team_score": 39,
+      "avg": 5.57,
+      "qualified": false
+    },
+    "eduardoalbuquerque": {
+      "city": "Southern",
+      "bd_count": 7,
+      "team_score": 50,
+      "avg": 7.14,
+      "qualified": false
+    },
+    "alisaeed": {
+      "city": "Southern",
+      "bd_count": 6,
+      "team_score": 25,
+      "avg": 4.17,
+      "qualified": false
+    },
+    "tadeumoraes": {
+      "city": "Southern",
+      "bd_count": 6,
+      "team_score": 37,
+      "avg": 6.17,
+      "qualified": false
+    },
+    "biancaceotto": {
+      "city": "Western",
+      "bd_count": 7,
+      "team_score": 74,
+      "avg": 10.57,
+      "qualified": false
+    },
+    "cesararraes": {
+      "city": "Western",
+      "bd_count": 6,
+      "team_score": 49,
+      "avg": 8.17,
+      "qualified": false
+    },
+    "thiagoscavazini": {
+      "city": "Western",
+      "bd_count": 6,
+      "team_score": 44,
+      "avg": 7.33,
+      "qualified": false
+    },
+    "igorfeitosa": {
+      "city": "Western",
+      "bd_count": 5,
+      "team_score": 55,
+      "avg": 11.0,
+      "qualified": false
+    },
+    "lucasferreira": {
+      "city": "Western",
+      "bd_count": 4,
+      "team_score": 34,
+      "avg": 8.5,
+      "qualified": false
+    },
+    "sabrinafernandes": {
+      "city": "Santos",
+      "bd_count": 4,
+      "team_score": 7,
+      "avg": 1.75,
+      "qualified": false
+    },
+    "renataleite": {
+      "city": "Santos",
+      "bd_count": 4,
+      "team_score": 38,
+      "avg": 9.5,
+      "qualified": false
+    }
+  },
+  "ws_bds": [
+    {
+      "bd": "luizmoreira",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 5,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 35,
+      "leads": [
+        {
+          "name": "Ky Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Padaria Tur\u00edstica",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de bolos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de Bolos Vila Prel",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Pizzaria Jack Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de Bolos Umarizal",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "igorsouza",
+      "bdm": "igorfeitosa",
+      "city": "Western",
+      "not_signed": 3,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 28,
+      "leads": [
+        {
+          "name": "Bar e Restaurante Imp\u00e9rio",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Restaurante Palladar das flores",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Marmitas Sabores da  Rayane",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Doce Sabor",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Salgados Sabor & Arte",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "wanessasilva",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 4,
+      "total": 20,
+      "leads": [
+        {
+          "name": "Casa de Bolos Parque das Nac\u00f5es",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "A Bem Dita Doceria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Ponto da Esfiha",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "valeriachacon",
+      "bdm": "lucasferreira",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 3,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 20,
+      "leads": [
+        {
+          "name": "Osasco Hot Roll - Comida Japonesa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Caseirinho da ale",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Pastel de Quebrada",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Sah Doces",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Emp\u00f3rio 1400 Restaurante e Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "brunapadilha",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 19,
+      "leads": [
+        {
+          "name": "Sorveteria Kazu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Yakisoba da Mi - Yakissoba, Temaki & Hot Roll - Tabo\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Giradino Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "rodrigopoli",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 19,
+      "leads": [
+        {
+          "name": "Bolos e Salgados Ira\u00ea",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Benvenuti Salgados e Past\u00e9is - Perus",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Bel Confeitaria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Detona A\u00e7ai",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "claudiareis",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 16,
+      "leads": [
+        {
+          "name": "Parmegiana e Strogonoff  Fog\u00e3o de Madeira",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "A\u00e7a\u00ed Jucoski A\u00e7a\u00edteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Manu Churros Gourmet e A\u00e7a\u00ed",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "cristianedasilva",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 14,
+      "leads": [
+        {
+          "name": "Dog do Gordo - Cachorro Quente",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Cookie Spot",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "renansilva",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 13,
+      "leads": [
+        {
+          "name": "Marmitas da Poly Express",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Morumbi Caldos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "bd": "tamirislopes",
+      "bdm": "igorfeitosa",
+      "city": "Western",
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 12,
+      "leads": [
+        {
+          "name": "Elisa Salgados",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Pizzaria Mirassol",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "jadycarvalho",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Yak J\u00e1",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Chef SP Food",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "lucasnada",
+      "bdm": "lucasferreira",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "O Protagonista Chicken And Milk-shakes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Mio que tem",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Restaurante Jl",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "karinacolomina",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Casa da Esfiha - Vila Jaguara",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Tigela Cheia 1 - A\u00e7aiteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "milenasantana",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 10,
+      "leads": [
+        {
+          "name": "Shefa Restaurante",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Barbara Doceria Artesanal - Osasco",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "rodrigoalmeida",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "The Best Marmita Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Big Esfihas Gigante .",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "allanmaalouli",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Lucaldos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Kigostoso A\u00e7a\u00ed e Sorvetes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "marciajesuino",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Niku Burger Artesanal",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sailor Dog Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Realce de Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "marcelofeitosa",
+      "bdm": "igorfeitosa",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Leonato Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Golis Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "otaviomazzega",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Marmitas da Nice - Comida Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Poke Mandala - Comida Japoesa",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "paulosantos",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Zeza Bolos Doces e Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "padaria novo horizonte",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "rodrigocorreia",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Sushi Cupece - Yakisoba / Hot Holl / Temaki Empanado",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ]
+    },
+    {
+      "bd": "guilhermesantos",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Imp\u00e9rio Hamb\u00farguer",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ]
+    },
+    {
+      "bd": "johnataguimaraes",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Churrasco do Gord\u00e3o",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Pizzaria Gran Show",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "leandroresende",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "A Fabrica da Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ]
+    },
+    {
+      "bd": "felipecruz",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 7,
+      "leads": [
+        {
+          "name": "The Salgados e Cafeteria",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Sabor de casa G J",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "tiagodangelo",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Nosso Caf\u00e9s Especiais",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Padaria Cristal Express",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "ricardoalmeida",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Tempero da Zu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "williamhenrique",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Tempero Di V\u00f4vo - Morumbi",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "marialisboa",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Rodrigues House - Batata Recheada",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sabor Nordestino - Marmitex",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "tatianarodrigues",
+      "bdm": "igorfeitosa",
+      "city": "Western",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Comidinhas da Ka - Marmita & Feijoada",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "nilmaxfranca",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Flow",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "thaisvasconcelos",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Tenditudo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sabor do Mel Gastronomia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "felipesilva",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Italva P\u00e3es e Doces",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Pizzaria Juliana",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "paulosilva",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Restaurante Familia - Marmita & Marmitex",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "lucasreis",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Frittos",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "fernandoquintiliano",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Jl Comida Caseira - Parmegiana",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "carlosmotta",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Marmita Divina",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "bd": "eduardosantos",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Chal\u00e9 dos P\u00e3es e Bolos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "bd": "barbaraoliveira",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Grill In Fire - Marmitaria e Executiva",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "bd": "pedrosaccone",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Azul Pastel [VSP]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "bd": "wellingtonsantos",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": "Pastel e Garapa",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "felipesanches",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Marmitex Pre\u00e7o Baixo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "tatianeribeiro",
+      "bdm": "lucasferreira",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "SAMPA CHURROS",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "elisangelasouza",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Mm",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "kevinberti",
+      "bdm": "cesararraes",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Adega do Pepeu",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "ricardoaraujo",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Cantinho do Acaraj\u00e9 - da Silvia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "matheuscoelho",
+      "bdm": "tadeumoraes",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "A Dona dos Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "murilosilva",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Casantiga",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "wainnergonzales",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "S\u00f3 da Jappa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "caiolorencato",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Naoki S\u00e3o Luiz",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "evaldosilva",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Azul Pastel [Adri\u00e1tico]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "brunacrelien",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "ivanfelizardo",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "erikboilesen",
+      "bdm": "fernandooliveira",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "clebersoares",
+      "bdm": "lucasferreira",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "camilabatista",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "nayannedias",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "alexlima",
+      "bdm": "igorfeitosa",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "joycepurificacao",
+      "bdm": "eduardoalbuquerque",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "davidcaramaschi",
+      "bdm": "alisaeed",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "heloisamagnani",
+      "bdm": "thiagoscavazini",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "nicolemenezes",
+      "bdm": "biancaceotto",
+      "city": "Western",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "josenascimento",
+      "bdm": "adriananaves",
+      "city": "Southern",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    }
+  ],
+  "santos_bds": [
+    {
+      "bd": "luizmarques",
+      "bdm": "renataleite",
+      "city": "Santos",
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 17,
+      "leads": [
+        {
+          "name": "Past\u00e9is e Por\u00e7\u00f5es do Bar\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Med Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Dunk A\u00e7a\u00ed e Milk Shakes Premium",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "jessicarossi",
+      "bdm": "renataleite",
+      "city": "Santos",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Restaurante e Lanchonete Surf Dog",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Sr Hamb\u00farguer",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "joaocastro",
+      "bdm": "renataleite",
+      "city": "Santos",
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Du Forno P\u00e3es & Sabores",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ]
+    },
+    {
+      "bd": "nathaliabernardino",
+      "bdm": "renataleite",
+      "city": "Santos",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": "Hey Pizzas - Longa Fermenta\u00e7\u00e3o",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "giovanabareno",
+      "bdm": "sabrinafernandes",
+      "city": "Santos",
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": null,
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ]
+    },
+    {
+      "bd": "ericabarbosa",
+      "bdm": "sabrinafernandes",
+      "city": "Santos",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Pastel do P\u00eder",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "bd": "brunosalmaso",
+      "bdm": "sabrinafernandes",
+      "city": "Santos",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    },
+    {
+      "bd": "felipebarbosa",
+      "bdm": "sabrinafernandes",
+      "city": "Santos",
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 0,
+      "leads": []
+    }
+  ],
+  "bd_scores_detail": {
+    "brunapadilha": {
+      "leads": [
+        {
+          "name": "Sorveteria Kazu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Yakisoba da Mi - Yakissoba, Temaki & Hot Roll - Tabo\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Giradino Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 19
+    },
+    "guilhermesantos": {
+      "leads": [
+        {
+          "name": "Imp\u00e9rio Hamb\u00farguer",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8
+    },
+    "jadycarvalho": {
+      "leads": [
+        {
+          "name": "Yak J\u00e1",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Chef SP Food",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11
+    },
+    "cristianedasilva": {
+      "leads": [
+        {
+          "name": "Dog do Gordo - Cachorro Quente",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Cookie Spot",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 14
+    },
+    "leandroresende": {
+      "leads": [
+        {
+          "name": "A Fabrica da Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8
+    },
+    "barbaraoliveira": {
+      "leads": [
+        {
+          "name": "Grill In Fire - Marmitaria e Executiva",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5
+    },
+    "eduardosantos": {
+      "leads": [
+        {
+          "name": "Chal\u00e9 dos P\u00e3es e Bolos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5
+    },
+    "igorsouza": {
+      "leads": [
+        {
+          "name": "Bar e Restaurante Imp\u00e9rio",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Restaurante Palladar das flores",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Marmitas Sabores da  Rayane",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Doce Sabor",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Salgados Sabor & Arte",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 3,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 28
+    },
+    "valeriachacon": {
+      "leads": [
+        {
+          "name": "Osasco Hot Roll - Comida Japonesa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Caseirinho da ale",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Pastel de Quebrada",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Sah Doces",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Emp\u00f3rio 1400 Restaurante e Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 3,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 20
+    },
+    "claudiareis": {
+      "leads": [
+        {
+          "name": "Parmegiana e Strogonoff  Fog\u00e3o de Madeira",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "A\u00e7a\u00ed Jucoski A\u00e7a\u00edteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Manu Churros Gourmet e A\u00e7a\u00ed",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 16
+    },
+    "renansilva": {
+      "leads": [
+        {
+          "name": "Marmitas da Poly Express",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Morumbi Caldos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 13
+    },
+    "luizmarques": {
+      "leads": [
+        {
+          "name": "Past\u00e9is e Por\u00e7\u00f5es do Bar\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Med Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Dunk A\u00e7a\u00ed e Milk Shakes Premium",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 17
+    },
+    "luizmoreira": {
+      "leads": [
+        {
+          "name": "Ky Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Padaria Tur\u00edstica",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de bolos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de Bolos Vila Prel",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Pizzaria Jack Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Casa de Bolos Umarizal",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 5,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 35
+    },
+    "wanessasilva": {
+      "leads": [
+        {
+          "name": "Casa de Bolos Parque das Nac\u00f5es",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "A Bem Dita Doceria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Ponto da Esfiha",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 4,
+      "total": 20
+    },
+    "carlosmotta": {
+      "leads": [
+        {
+          "name": "Marmita Divina",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5
+    },
+    "johnataguimaraes": {
+      "leads": [
+        {
+          "name": "Churrasco do Gord\u00e3o",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Pizzaria Gran Show",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8
+    },
+    "jessicarossi": {
+      "leads": [
+        {
+          "name": "Restaurante e Lanchonete Surf Dog",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Sr Hamb\u00farguer",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11
+    },
+    "lucasnada": {
+      "leads": [
+        {
+          "name": "O Protagonista Chicken And Milk-shakes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "Mio que tem",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Restaurante Jl",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 2,
+      "total": 11
+    },
+    "karinacolomina": {
+      "leads": [
+        {
+          "name": "Casa da Esfiha - Vila Jaguara",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        },
+        {
+          "name": "Tigela Cheia 1 - A\u00e7aiteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11
+    },
+    "lucasreis": {
+      "leads": [
+        {
+          "name": "Frittos",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6
+    },
+    "pedrosaccone": {
+      "leads": [
+        {
+          "name": "Azul Pastel [VSP]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5
+    },
+    "nilmaxfranca": {
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Flow",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6
+    },
+    "paulosantos": {
+      "leads": [
+        {
+          "name": "Zeza Bolos Doces e Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5
+        },
+        {
+          "name": "padaria novo horizonte",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8
+    },
+    "rodrigocorreia": {
+      "leads": [
+        {
+          "name": "Sushi Cupece - Yakisoba / Hot Holl / Temaki Empanado",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8
+    },
+    "joaocastro": {
+      "leads": [
+        {
+          "name": "Du Forno P\u00e3es & Sabores",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "ricardoalmeida": {
+      "leads": [
+        {
+          "name": "Tempero da Zu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "rodrigoalmeida": {
+      "leads": [
+        {
+          "name": "The Best Marmita Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Big Esfihas Gigante .",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9
+    },
+    "tiagodangelo": {
+      "leads": [
+        {
+          "name": "Nosso Caf\u00e9s Especiais",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Padaria Cristal Express",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "elisangelasouza": {
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Mm",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "williamhenrique": {
+      "leads": [
+        {
+          "name": "Tempero Di V\u00f4vo - Morumbi",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "murilosilva": {
+      "leads": [
+        {
+          "name": "Casantiga",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "marcelofeitosa": {
+      "leads": [
+        {
+          "name": "Leonato Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Golis Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9
+    },
+    "wainnergonzales": {
+      "leads": [
+        {
+          "name": "S\u00f3 da Jappa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "rodrigopoli": {
+      "leads": [
+        {
+          "name": "Bolos e Salgados Ira\u00ea",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Benvenuti Salgados e Past\u00e9is - Perus",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Bel Confeitaria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Detona A\u00e7ai",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 19
+    },
+    "otaviomazzega": {
+      "leads": [
+        {
+          "name": "Marmitas da Nice - Comida Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Poke Mandala - Comida Japoesa",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9
+    },
+    "caiolorencato": {
+      "leads": [
+        {
+          "name": "Naoki S\u00e3o Luiz",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "thaisvasconcelos": {
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Tenditudo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sabor do Mel Gastronomia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "giovanabareno": {
+      "leads": [
+        {
+          "name": null,
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4
+    },
+    "allanmaalouli": {
+      "leads": [
+        {
+          "name": "Lucaldos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Kigostoso A\u00e7a\u00ed e Sorvetes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9
+    },
+    "wellingtonsantos": {
+      "leads": [
+        {
+          "name": "Pastel e Garapa",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4
+    },
+    "nathaliabernardino": {
+      "leads": [
+        {
+          "name": "Hey Pizzas - Longa Fermenta\u00e7\u00e3o",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4
+    },
+    "evaldosilva": {
+      "leads": [
+        {
+          "name": "Azul Pastel [Adri\u00e1tico]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "marialisboa": {
+      "leads": [
+        {
+          "name": "Rodrigues House - Batata Recheada",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sabor Nordestino - Marmitex",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "ericabarbosa": {
+      "leads": [
+        {
+          "name": "Pastel do P\u00eder",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "matheuscoelho": {
+      "leads": [
+        {
+          "name": "A Dona dos Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "felipecruz": {
+      "leads": [
+        {
+          "name": "The Salgados e Cafeteria",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Sabor de casa G J",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 7
+    },
+    "tatianarodrigues": {
+      "leads": [
+        {
+          "name": "Comidinhas da Ka - Marmita & Feijoada",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "marciajesuino": {
+      "leads": [
+        {
+          "name": "Niku Burger Artesanal",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Sailor Dog Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Realce de Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 0,
+      "total": 9
+    },
+    "felipesilva": {
+      "leads": [
+        {
+          "name": "Italva P\u00e3es e Doces",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        },
+        {
+          "name": "Pizzaria Juliana",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "milenasantana": {
+      "leads": [
+        {
+          "name": "Shefa Restaurante",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4
+        },
+        {
+          "name": "Barbara Doceria Artesanal - Osasco",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 10
+    },
+    "tamirislopes": {
+      "leads": [
+        {
+          "name": "Elisa Salgados",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        },
+        {
+          "name": "Pizzaria Mirassol",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 12
+    },
+    "fernandoquintiliano": {
+      "leads": [
+        {
+          "name": "Jl Comida Caseira - Parmegiana",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "paulosilva": {
+      "leads": [
+        {
+          "name": "Restaurante Familia - Marmita & Marmitex",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6
+        }
+      ],
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6
+    },
+    "tatianeribeiro": {
+      "leads": [
+        {
+          "name": "SAMPA CHURROS",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "ricardoaraujo": {
+      "leads": [
+        {
+          "name": "Cantinho do Acaraj\u00e9 - da Silvia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "kevinberti": {
+      "leads": [
+        {
+          "name": "Adega do Pepeu",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    },
+    "felipesanches": {
+      "leads": [
+        {
+          "name": "Marmitex Pre\u00e7o Baixo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3
+        }
+      ],
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3
+    }
+  }
+}

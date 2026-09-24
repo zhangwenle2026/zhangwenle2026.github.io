@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DBR Daily Report</title>
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8; --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6; --cyan:#06b6d4; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 24px; max-width: 780px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { color: var(--muted); font-size: 0.8rem; }
+.header .warning { color: var(--red); font-size: 0.75rem; margin-top: 4px; font-weight: 600; }
+.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi-card { background: var(--card); border-radius: 12px; padding: 16px; text-align: center; }
+.kpi-card .label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.kpi-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+.kpi-card .sub { font-size: 0.75rem; color: var(--muted); }
+.section { background: var(--card); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.section h2 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section h2::before { content: ''; display: inline-block; width: 4px; height: 14px; background: var(--blue); border-radius: 2px; }
+.metric-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #334155; }
+.metric-row:last-child { border-bottom: none; }
+.metric-label { color: var(--muted); font-size: 0.82rem; }
+.metric-value { font-weight: 600; font-size: 0.9rem; }
+.footer { text-align: center; color: var(--muted); font-size: 0.68rem; margin-top: 12px; }
+.trend-up { color: var(--green); }
+.trend-down { color: var(--red); }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 SP Metropolitan Region DBR</h1>
+  <div class="subtitle">Data Date: 2026-08-10 (Sun) BRT | Generated: 2026-08-11 (Mon) Beijing</div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Metro Total Orders</div>
+    <div class="value" style="color:var(--red)">45,676</div>
+    <div class="sub">Top 30,076 | Mid 11,104 | Must 4,496</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs</div>
+    <div class="value" style="color:var(--cyan)">11</div>
+    <div class="sub">Top 3 | Mid 6 | Must 2</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">WoW Orders</div>
+    <div class="value" style="color:var(--red)">-26,048</div>
+    <div class="sub">-36.3% vs 2026-08-09 (Sat)</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs MTD</div>
+    <div class="value" style="color:var(--cyan)">93</div>
+    <div class="sub">Aug 1-10 (Top 59 | Mid 25 | Must 9)</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📈 10-Day Orders Trend</h2>
+  <div class="metric-row"><span class="metric-label">2026-08-01 (Fri)</span><span class="metric-value">86,703</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-02 (Sat)</span><span class="metric-value">72,236</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-03 (Sun)</span><span class="metric-value">41,845</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-04 (Mon)</span><span class="metric-value">44,140</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-05 (Tue)</span><span class="metric-value">50,564</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-06 (Wed)</span><span class="metric-value">59,284</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-07 (Thu)</span><span class="metric-value">92,716</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-08 (Fri)</span><span class="metric-value">91,475</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-09 (Sat)</span><span class="metric-value">71,724</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-10 (Sun)</span><span class="metric-value" style="color:var(--green)"><strong>45,676</strong></span></div>
+</div>
+
+<div class="section">
+  <h2>📝 New Signs Trend</h2>
+  <div class="metric-row"><span class="metric-label">2026-08-04 (Mon)</span><span class="metric-value">18 (Top 11 | Mid 6 | Must 1)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-05 (Tue)</span><span class="metric-value">8 (Top 5 | Mid 2 | Must 1)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-06 (Wed)</span><span class="metric-value">16 (Top 11 | Mid 2 | Must 3)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-07 (Thu)</span><span class="metric-value">15 (Top 10 | Mid 4 | Must 1)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-08 (Fri)</span><span class="metric-value">0 (Top 0 | Mid 0 | Must 0)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-09 (Sat)</span><span class="metric-value">1 (Top 1 | Mid 0 | Must 0)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-10 (Sun)</span><span class="metric-value" style="color:var(--green)"><strong>11 (Top 3 | Mid 6 | Must 2)</strong></span></div>
+</div>
+
+<div class="section">
+  <h2>Key Insights</h2>
+  <div style="color:var(--muted);font-size:0.82rem;line-height:1.55;">
+    <p>• Metro Total orders: <strong style="color:var(--text)">45,676</strong> (-36.3% vs previous day 71,724)</p>
+    <p>• Sunday-level volume as expected; Monday-Tuesday recovery pattern typical</p>
+    <p>• New signs: <strong style="color:var(--text)">11</strong> (Sun)</p>
+    <p>• MTD new signs: 93 (Top 59 | Mid 25 | Must 9) — on track for 270+ in Aug</p>
+    <p>• ⚠️ Operation Performance / UX / Promotion data unavailable (tab query returned empty)</p>
+  </div>
+</div>
+
+<div class="footer">
+  SP Metropolitan Region DBR | Data Source: BI 300001446 | Generated via CDP DOM extraction
+</div>
+</body>
+</html>

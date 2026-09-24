@@ -1,0 +1,38 @@
+{
+  "target_skill": "keeta-brand-anomaly",
+  "target_dir": "/Users/tiantian/workspace/keeta-data-analyze-skill/skill-keeta-brand-anomaly",
+  "plan_items": [
+    {
+      "file": "scripts/brand_anomaly_evidence.py",
+      "symbol": "run_kdata_query",
+      "node_type": "skill-script",
+      "reason": "executes kdata standard query and emits evidence packet query_records",
+      "action": "insert",
+      "idempotency_key": "scripts/brand_anomaly_evidence.py::run_kdata_query::skill-script"
+    },
+    {
+      "file": "scripts/auth.py",
+      "symbol": "get_token",
+      "node_type": "skill-script",
+      "reason": "auth helper may call subprocess and CDP but is not a business analysis node",
+      "action": "skip",
+      "idempotency_key": "scripts/auth.py::get_token::skill-script"
+    },
+    {
+      "file": "scripts/skill_tracker.py",
+      "symbol": "_report",
+      "node_type": "skill-script",
+      "reason": "telemetry transport helper; instrumenting it would recursively report itself",
+      "action": "skip",
+      "idempotency_key": "scripts/skill_tracker.py::_report::skill-script"
+    }
+  ],
+  "validation": {
+    "commands": [
+      "python3 -m py_compile scripts/*.py",
+      "python3 scripts/skill_tracker.py --help",
+      "SKILL_TRACKER_DRY_RUN=1 python3 scripts/brand_anomaly_evidence.py --self-test --format json",
+      "bash scripts/preflight.sh"
+    ]
+  }
+}

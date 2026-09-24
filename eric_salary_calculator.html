@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eric's Salary Calculator 💰</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+  --bg: #0f1117;
+  --card: #1a1d27;
+  --card2: #232734;
+  --card3: #2a2e3f;
+  --border: #2e3348;
+  --accent: #6c63ff;
+  --accent2: #ff6b6b;
+  --accent3: #51cf66;
+  --accent4: #ffd43b;
+  --text: #e4e6f0;
+  --text2: #9a9db5;
+  --text3: #6b6f8a;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+.header { text-align: center; padding: 32px 0 24px; }
+.header h1 {
+  font-size: 2.2rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), #a78bfa, var(--accent2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.header .subtitle { color: var(--text2); font-size: 0.95rem; margin-top: 6px; }
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow);
+}
+.card-title {
+  font-size: 1.15rem; font-weight: 600; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title .icon { font-size: 1.3rem; }
+
+/* Form layout */
+.input-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.input-box {
+  background: var(--card2); border-radius: 10px; padding: 18px; border: 1px solid var(--border);
+}
+.input-box.full-width { grid-column: 1 / -1; }
+.input-box h4 { font-size: 0.95rem; color: var(--text2); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.form-row { display: flex; gap: 12px; align-items: end; flex-wrap: wrap; margin-bottom: 10px; }
+.form-group { display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 140px; }
+.form-group label { font-size: 0.78rem; color: var(--text3); font-weight: 500; }
+.form-group input, .form-group select {
+  background: var(--card3); border: 1px solid var(--border); border-radius: 8px;
+  padding: 9px 12px; color: var(--text); font-size: 0.92rem; outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--accent); }
+.form-group input::placeholder { color: var(--text3); }
+
+/* Brazil entries */
+.brazil-entry {
+  display: flex; gap: 10px; align-items: end; margin-bottom: 8px;
+  padding: 10px 12px; background: var(--card3); border-radius: 8px;
+  border: 1px solid var(--border); animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+.brazil-entry .form-group { min-width: 120px; }
+.brazil-entry .remove-entry {
+  background: none; border: none; color: var(--accent2); cursor: pointer;
+  font-size: 1.2rem; padding: 6px; border-radius: 6px; transition: background 0.2s;
+  flex-shrink: 0; margin-bottom: 2px;
+}
+.brazil-entry .remove-entry:hover { background: rgba(255,107,107,0.15); }
+.brazil-total {
+  font-size: 0.85rem; color: var(--accent4); padding: 6px 0; font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+  padding: 9px 18px; border: none; border-radius: 8px; font-size: 0.88rem;
+  font-weight: 600; cursor: pointer; transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary { background: linear-gradient(135deg, var(--accent), #8b7cf7); color: #fff; }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(108,99,255,0.4); }
+.btn-secondary { background: var(--card2); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--accent); }
+.btn-sm { padding: 6px 12px; font-size: 0.82rem; }
+.btn-add-entry {
+  background: rgba(81,207,102,0.12); color: var(--accent3);
+  border: 1px dashed rgba(81,207,102,0.4); border-radius: 8px;
+  padding: 8px 14px; cursor: pointer; font-size: 0.85rem; font-weight: 500;
+  transition: all 0.2s; width: 100%; text-align: center;
+}
+.btn-add-entry:hover { background: rgba(81,207,102,0.2); border-color: var(--accent3); }
+.btn-danger { background: rgba(255,107,107,0.15); color: var(--accent2); border: 1px solid rgba(255,107,107,0.3); padding: 5px 10px; font-size: 0.78rem; }
+.btn-danger:hover { background: rgba(255,107,107,0.25); }
+.btn-edit { background: rgba(108,99,255,0.15); color: var(--accent); border: 1px solid rgba(108,99,255,0.3); padding: 5px 10px; font-size: 0.78rem; }
+.btn-edit:hover { background: rgba(108,99,255,0.25); }
+.btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+
+/* Summary */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.summary-item {
+  background: var(--card2); border-radius: 10px; padding: 16px;
+  text-align: center; border: 1px solid var(--border);
+}
+.summary-item .label { font-size: 0.8rem; color: var(--text2); margin-bottom: 4px; }
+.summary-item .value { font-size: 1.4rem; font-weight: 700; }
+.summary-item .value.positive { color: var(--accent3); }
+.summary-item .value.negative { color: var(--accent2); }
+.summary-item .value.accent { color: var(--accent); }
+.summary-item .value.gold { color: var(--accent4); }
+.summary-item .sub { font-size: 0.76rem; color: var(--text3); margin-top: 3px; }
+
+/* Table */
+.table-wrapper { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; font-size: 0.86rem; white-space: nowrap; }
+thead th {
+  background: var(--card2); padding: 11px 14px; text-align: right;
+  font-weight: 600; font-size: 0.78rem; color: var(--text2);
+  border-bottom: 2px solid var(--border); position: sticky; top: 0;
+}
+thead th:first-child { text-align: left; }
+tbody td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--border); }
+tbody td:first-child { text-align: left; font-weight: 600; color: var(--accent); }
+tbody tr:hover { background: rgba(108,99,255,0.06); }
+tbody tr:last-child td { border-bottom: none; }
+.gap-negative { color: var(--accent2); }
+.gap-positive { color: var(--accent3); }
+.text-muted { color: var(--text3); }
+td .action-btns { display: flex; gap: 6px; justify-content: flex-end; }
+
+/* Expand row */
+.detail-row td { padding: 0; background: var(--card2); }
+.detail-content {
+  padding: 10px 16px; font-size: 0.82rem; color: var(--text2);
+}
+.detail-content .entry-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.detail-content .entry-tag {
+  background: var(--card3); padding: 4px 10px; border-radius: 6px;
+  border: 1px solid var(--border); font-size: 0.8rem;
+}
+
+/* Charts */
+.charts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 20px; }
+.chart-box {
+  background: var(--card2); border-radius: 10px; padding: 20px; border: 1px solid var(--border);
+}
+.chart-box h3 { font-size: 0.92rem; margin-bottom: 12px; color: var(--text2); }
+.chart-box canvas { max-height: 320px; }
+
+/* Edit Modal */
+.modal-overlay {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 28px; width: 92%; max-width: 600px; box-shadow: var(--shadow);
+  max-height: 90vh; overflow-y: auto;
+}
+.modal h3 { margin-bottom: 16px; font-size: 1.1rem; }
+.modal .form-group { margin-bottom: 10px; }
+.modal .modal-actions { display: flex; gap: 12px; justify-content: flex-end; margin-top: 16px; }
+.modal .brazil-section-title { font-size: 0.88rem; color: var(--text2); margin: 14px 0 8px; font-weight: 600; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 12px; }
+  .header h1 { font-size: 1.6rem; }
+  .input-section { grid-template-columns: 1fr; }
+  .charts-grid { grid-template-columns: 1fr; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  table { font-size: 0.76rem; }
+  thead th, tbody td { padding: 8px 10px; }
+  .brazil-entry { flex-wrap: wrap; }
+}
+@media (max-width: 480px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .form-row { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Eric's Salary Calculator 💰</h1>
+    <div class="subtitle">Global Compensation Tracker · Manual Entry · All amounts in 元 (Yuan) / R$ (Real)</div>
+  </div>
+
+  <!-- Input Form -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📝</span> Record Monthly Income</div>
+    <div class="input-section">
+      <!-- Left: Basic Info -->
+      <div class="input-box">
+        <h4>📅 Basic Info</h4>
+        <div class="form-group" style="margin-bottom:10px">
+          <label>Year-Month</label>
+          <input type="month" id="inputMonth">
+        </div>
+        <div class="form-group" style="margin-bottom:10px">
+          <label>Exchange Rate (BRL→CNY) — default 1.32</label>
+          <input type="number" id="inputRate" step="0.0001" value="1.32" placeholder="1.32">
+        </div>
+        <div class="form-group">
+          <label>Global Gross Salary (CNY 元) — optional, for Gap calc</label>
+          <input type="number" id="inputGross" step="0.01" placeholder="Leave blank to skip Gap">
+        </div>
+      </div>
+
+      <!-- Right: China -->
+      <div class="input-box">
+        <h4>🇨🇳 China Deposit</h4>
+        <div class="form-group" style="margin-bottom:10px">
+          <label>Amount (CNY 元)</label>
+          <input type="number" id="inputChinaAmt" step="0.01" placeholder="e.g. 37041.33">
+        </div>
+        <div class="form-group">
+          <label>Deposit Date</label>
+          <input type="date" id="inputChinaDate">
+        </div>
+      </div>
+
+      <!-- Full width: Brazil multi-entry -->
+      <div class="input-box full-width">
+        <h4>🇧🇷 Brazil Deposits — multiple entries per month</h4>
+        <div id="brazilEntries"></div>
+        <button class="btn-add-entry" onclick="addBrazilEntry()">＋ Add Brazil Payment</button>
+        <div class="brazil-total" id="brazilTotalPreview">Brazil total: R$ 0.00 → ¥0.00 CNY</div>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="addRecord()">💾 Save Month Record</button>
+      <button class="btn btn-secondary" onclick="exportCSV()">📥 Export CSV</button>
+      <button class="btn btn-secondary" onclick="resetData()">🔄 Reset to Default</button>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> Summary</div>
+    <div class="summary-grid" id="summaryGrid"></div>
+  </div>
+
+  <!-- Table -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📋</span> Monthly Breakdown</div>
+    <div class="table-wrapper">
+      <table>
+        <thead><tr>
+          <th>Month</th>
+          <th>China Deposit<br>(CNY 元)</th>
+          <th>Brazil Total<br>(BRL)</th>
+          <th>Rate<br>(BRL→CNY)</th>
+          <th>Brazil→CNY</th>
+          <th>Total Income<br>(CNY 元)</th>
+          <th>Global Gross<br>(CNY, opt.)</th>
+          <th>Gap (CNY)</th>
+          <th>Gap%</th>
+          <th>Actions</th>
+        </tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📈</span> Visualizations</div>
+    <div class="charts-grid">
+      <div class="chart-box">
+        <h3>Monthly Income Trend (CNY)</h3>
+        <canvas id="trendChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>China vs Brazil Composition (CNY, Stacked)</h3>
+        <canvas id="stackChart"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <h3>✏️ Edit: <span id="editMonthLabel"></span></h3>
+    <div class="form-group">
+      <label>Exchange Rate (BRL→CNY)</label>
+      <input type="number" id="editRate" step="0.0001">
+    </div>
+    <div class="form-group">
+      <label>Global Gross (CNY 元) — leave 0 or blank to skip</label>
+      <input type="number" id="editGross" step="0.01">
+    </div>
+    <div class="form-group">
+      <label>China Deposit Amount (CNY 元)</label>
+      <input type="number" id="editChinaAmt" step="0.01">
+    </div>
+    <div class="form-group">
+      <label>China Deposit Date</label>
+      <input type="date" id="editChinaDate">
+    </div>
+    <div class="brazil-section-title">🇧🇷 Brazil Deposits</div>
+    <div id="editBrazilEntries"></div>
+    <button class="btn-add-entry" onclick="addEditBrazilEntry()" style="margin-top:6px">＋ Add Brazil Payment</button>
+    <div class="brazil-total" id="editBrazilTotal">Brazil total: R$ 0.00</div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveEdit()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const STORAGE_KEY = 'eric_salary_v3';
+
+// Pre-filled historical data (Jan-Jun 2026)
+// brazilEntries: array of {amount(BRL), date}
+const DEFAULT_DATA = [
+  {
+    month: '2026-01', rate: 1.3393, gross: 94526.46,
+    chinaAmt: 88399.61, chinaDate: '2026-01-15',
+    brazilEntries: [{ amount: 4068.49, date: '2026-01-20' }]
+  },
+  {
+    month: '2026-02', rate: 1.3346, gross: 90523.21,
+    chinaAmt: 28604.54, chinaDate: '2026-02-15',
+    brazilEntries: [
+      { amount: 32747.38, date: '2026-02-07' },
+      { amount: 1320.00, date: '2026-02-20', note: 'Caju' }
+    ]
+  },
+  {
+    month: '2026-03', rate: 1.3166, gross: 90176.27,
+    chinaAmt: 65297.86, chinaDate: '2026-03-15',
+    brazilEntries: [
+      { amount: 3511.27, date: '2026-03-07' },
+      { amount: 1320.00, date: '2026-03-20', note: 'Caju' }
+    ]
+  },
+  {
+    month: '2026-04', rate: 1.3701, gross: 86903.36,
+    chinaAmt: 37041.33, chinaDate: '2026-04-15',
+    brazilEntries: [
+      { amount: 25467.38, date: '2026-04-07' },
+      { amount: 1320.00, date: '2026-04-20', note: 'Caju' }
+    ]
+  },
+  {
+    month: '2026-05', rate: 1.3439, gross: 86903.36,
+    chinaAmt: 37951.59, chinaDate: '2026-05-15',
+    brazilEntries: [
+      { amount: 25489.68, date: '2026-05-07' },
+      { amount: 1320.00, date: '2026-05-20', note: 'Caju' }
+    ]
+  },
+  {
+    month: '2026-06', rate: 1.3142, gross: 86903.36,
+    chinaAmt: 39031.20, chinaDate: '2026-06-15',
+    brazilEntries: [
+      { amount: 25489.68, date: '2026-06-07' },
+      { amount: 1320.00, date: '2026-06-20', note: 'Caju' }
+    ]
+  },
+];
+
+let records = [];
+let editIndex = -1;
+let trendChart = null;
+let stackChart = null;
+
+function loadData() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) { try { records = JSON.parse(saved); return; } catch(e) {} }
+  records = JSON.parse(JSON.stringify(DEFAULT_DATA));
+  saveData();
+}
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(records)); }
+
+function fmt(n, d=2) { return n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d}); }
+function fmtPct(n) { return n.toFixed(2)+'%'; }
+
+function compute(r) {
+  const brazilTotalBRL = (r.brazilEntries||[]).reduce((s,e) => s + (e.amount||0), 0);
+  const brazilCNY = brazilTotalBRL * r.rate;
+  const totalIncome = (r.chinaAmt||0) + brazilCNY;
+  const hasGross = r.gross && r.gross > 0;
+  const gap = hasGross ? totalIncome - r.gross : null;
+  const gapPct = hasGross ? (gap / r.gross * 100) : null;
+  return { brazilTotalBRL, brazilCNY, totalIncome, gap, gapPct, hasGross };
+}
+
+// ===== Brazil multi-entry (Add Form) =====
+let brazilInputEntries = [{ amount: '', date: '', note: '' }];
+
+function renderBrazilInputEntries() {
+  const container = document.getElementById('brazilEntries');
+  container.innerHTML = '';
+  brazilInputEntries.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'brazil-entry';
+    div.innerHTML = `
+      <div class="form-group" style="flex:1.2">
+        <label>Amount (BRL)</label>
+        <input type="number" step="0.01" placeholder="e.g. 25489.68"
+          value="${e.amount}" onchange="updateBrazilInput(${i},'amount',this.value)" oninput="updateBrazilPreview()">
+      </div>
+      <div class="form-group" style="flex:1">
+        <label>Date</label>
+        <input type="date" value="${e.date}" onchange="updateBrazilInput(${i},'date',this.value)">
+      </div>
+      <div class="form-group" style="flex:0.8">
+        <label>Note (opt.)</label>
+        <input type="text" placeholder="e.g. Caju" value="${e.note||''}" onchange="updateBrazilInput(${i},'note',this.value)">
+      </div>
+      ${brazilInputEntries.length > 1 ? `<button class="remove-entry" onclick="removeBrazilEntry(${i})" title="Remove">✕</button>` : ''}
+    `;
+    container.appendChild(div);
+  });
+  updateBrazilPreview();
+}
+
+function addBrazilEntry() {
+  brazilInputEntries.push({ amount: '', date: '', note: '' });
+  renderBrazilInputEntries();
+  // Focus last amount input
+  setTimeout(() => {
+    const inputs = document.querySelectorAll('#brazilEntries .brazil-entry input[type="number"]');
+    if (inputs.length) inputs[inputs.length-1].focus();
+  }, 50);
+}
+
+function removeBrazilEntry(i) {
+  brazilInputEntries.splice(i, 1);
+  if (brazilInputEntries.length === 0) brazilInputEntries.push({ amount: '', date: '', note: '' });
+  renderBrazilInputEntries();
+}
+
+function updateBrazilInput(i, field, val) {
+  brazilInputEntries[i][field] = field === 'amount' ? val : val;
+  updateBrazilPreview();
+}
+
+function updateBrazilPreview() {
+  const rate = parseFloat(document.getElementById('inputRate').value) || 1.32;
+  const total = brazilInputEntries.reduce((s,e) => s + (parseFloat(e.amount)||0), 0);
+  const cny = total * rate;
+  document.getElementById('brazilTotalPreview').innerHTML =
+    `Brazil total: <strong>R$ ${fmt(total)}</strong> → <strong>¥${fmt(cny)}</strong> CNY (rate: ${rate})`;
+}
+
+// ===== Add Record =====
+function addRecord() {
+  const month = document.getElementById('inputMonth').value;
+  const rate = parseFloat(document.getElementById('inputRate').value);
+  const grossVal = document.getElementById('inputGross').value;
+  const gross = grossVal ? parseFloat(grossVal) : 0;
+  const chinaAmt = parseFloat(document.getElementById('inputChinaAmt').value);
+  const chinaDate = document.getElementById('inputChinaDate').value;
+
+  if (!month) { alert('Please select a month.'); return; }
+  if (isNaN(rate) || rate <= 0) { alert('Please enter a valid exchange rate.'); return; }
+  if (isNaN(chinaAmt)) { alert('Please enter China deposit amount.'); return; }
+
+  // Build brazil entries
+  const bEntries = brazilInputEntries
+    .filter(e => e.amount && parseFloat(e.amount) > 0)
+    .map(e => ({ amount: parseFloat(e.amount), date: e.date || '', note: e.note || '' }));
+
+  const rec = { month, rate, gross, chinaAmt, chinaDate: chinaDate||'', brazilEntries: bEntries };
+
+  const existing = records.findIndex(r => r.month === month);
+  if (existing >= 0) {
+    if (!confirm(`Record for ${month} exists. Overwrite?`)) return;
+    records[existing] = rec;
+  } else {
+    records.push(rec);
+  }
+
+  records.sort((a,b) => a.month.localeCompare(b.month));
+  saveData();
+  renderAll();
+
+  // Reset form
+  document.getElementById('inputGross').value = '';
+  document.getElementById('inputChinaAmt').value = '';
+  document.getElementById('inputChinaDate').value = '';
+  brazilInputEntries = [{ amount: '', date: '', note: '' }];
+  renderBrazilInputEntries();
+
+  // Next month
+  const [y,m] = month.split('-').map(Number);
+  const nm = m===12?1:m+1, ny = m===12?y+1:y;
+  document.getElementById('inputMonth').value = `${ny}-${String(nm).padStart(2,'0')}`;
+}
+
+// ===== Delete =====
+function deleteRecord(i) {
+  if (!confirm(`Delete record for ${records[i].month}?`)) return;
+  records.splice(i, 1); saveData(); renderAll();
+}
+
+// ===== Edit Modal =====
+let editBrazilEntries = [];
+
+function openEdit(i) {
+  editIndex = i;
+  const r = records[i];
+  document.getElementById('editMonthLabel').textContent = r.month;
+  document.getElementById('editRate').value = r.rate;
+  document.getElementById('editGross').value = r.gross || '';
+  document.getElementById('editChinaAmt').value = r.chinaAmt;
+  document.getElementById('editChinaDate').value = r.chinaDate || '';
+  editBrazilEntries = JSON.parse(JSON.stringify(r.brazilEntries || []));
+  if (editBrazilEntries.length === 0) editBrazilEntries.push({ amount: '', date: '', note: '' });
+  renderEditBrazilEntries();
+  document.getElementById('editModal').classList.add('active');
+}
+
+function renderEditBrazilEntries() {
+  const container = document.getElementById('editBrazilEntries');
+  container.innerHTML = '';
+  editBrazilEntries.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'brazil-entry';
+    div.innerHTML = `
+      <div class="form-group" style="flex:1.2">
+        <label>Amount (BRL)</label>
+        <input type="number" step="0.01" value="${e.amount||''}"
+          onchange="editBrazilEntries[${i}].amount=parseFloat(this.value)||0;updateEditBrazilTotal()">
+      </div>
+      <div class="form-group" style="flex:1">
+        <label>Date</label>
+        <input type="date" value="${e.date||''}"
+          onchange="editBrazilEntries[${i}].date=this.value">
+      </div>
+      <div class="form-group" style="flex:0.8">
+        <label>Note</label>
+        <input type="text" value="${e.note||''}"
+          onchange="editBrazilEntries[${i}].note=this.value">
+      </div>
+      ${editBrazilEntries.length > 1 ? `<button class="remove-entry" onclick="editBrazilEntries.splice(${i},1);renderEditBrazilEntries()" title="Remove">✕</button>` : ''}
+    `;
+    container.appendChild(div);
+  });
+  updateEditBrazilTotal();
+}
+
+function addEditBrazilEntry() {
+  editBrazilEntries.push({ amount: '', date: '', note: '' });
+  renderEditBrazilEntries();
+  setTimeout(() => {
+    const inputs = document.querySelectorAll('#editBrazilEntries .brazil-entry input[type="number"]');
+    if (inputs.length) inputs[inputs.length-1].focus();
+  }, 50);
+}
+
+function updateEditBrazilTotal() {
+  const total = editBrazilEntries.reduce((s,e) => s + (parseFloat(e.amount)||0), 0);
+  document.getElementById('editBrazilTotal').innerHTML = `Brazil total: <strong>R$ ${fmt(total)}</strong>`;
+}
+
+function saveEdit() {
+  if (editIndex < 0) return;
+  const r = records[editIndex];
+  r.rate = parseFloat(document.getElementById('editRate').value);
+  r.gross = parseFloat(document.getElementById('editGross').value) || 0;
+  r.chinaAmt = parseFloat(document.getElementById('editChinaAmt').value) || 0;
+  r.chinaDate = document.getElementById('editChinaDate').value || '';
+  r.brazilEntries = editBrazilEntries
+    .filter(e => e.amount && parseFloat(e.amount) > 0)
+    .map(e => ({ amount: parseFloat(e.amount), date: e.date||'', note: e.note||'' }));
+  saveData(); renderAll(); closeEditModal();
+}
+
+function closeEditModal() {
+  document.getElementById('editModal').classList.remove('active'); editIndex = -1;
+}
+document.getElementById('editModal').addEventListener('click', e => {
+  if (e.target === document.getElementById('editModal')) closeEditModal();
+});
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeEditModal(); });
+
+// ===== Render Table =====
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = '';
+  records.forEach((r, i) => {
+    const c = compute(r);
+    const gapClass = c.gap !== null ? (c.gap >= 0 ? 'gap-positive' : 'gap-negative') : '';
+    const gapText = c.gap !== null ? fmt(c.gap) : '—';
+    const gapPctText = c.gapPct !== null ? fmtPct(c.gapPct) : '—';
+    const grossText = c.hasGross ? fmt(r.gross) : '<span class="text-muted">—</span>';
+
+    // Brazil detail tooltip
+    const bDetails = (r.brazilEntries||[]).map(e => {
+      let s = `R$${fmt(e.amount)}`;
+      if (e.date) s += ` (${e.date})`;
+      if (e.note) s += ` [${e.note}]`;
+      return s;
+    }).join(' + ');
+
+    tbody.innerHTML += `<tr>
+      <td>${r.month}</td>
+      <td>${fmt(r.chinaAmt)}${r.chinaDate ? `<br><span class="text-muted" style="font-size:0.75rem">${r.chinaDate}</span>` : ''}</td>
+      <td title="${bDetails}">${fmt(c.brazilTotalBRL)}${(r.brazilEntries||[]).length > 1 ? ` <span class="text-muted" style="font-size:0.72rem">(${(r.brazilEntries||[]).length}笔)</span>` : ''}</td>
+      <td>${fmt(r.rate, 4)}</td>
+      <td>${fmt(c.brazilCNY)}</td>
+      <td style="font-weight:700;color:var(--accent4)">${fmt(c.totalIncome)}</td>
+      <td>${grossText}</td>
+      <td class="${gapClass}">${gapText}</td>
+      <td class="${gapClass}">${gapPctText}</td>
+      <td><div class="action-btns">
+        <button class="btn btn-edit" onclick="openEdit(${i})">Edit</button>
+        <button class="btn btn-danger" onclick="deleteRecord(${i})">Del</button>
+      </div></td>
+    </tr>`;
+  });
+}
+
+// ===== Render Summary =====
+function renderSummary() {
+  const grid = document.getElementById('summaryGrid');
+  if (!records.length) { grid.innerHTML = '<p class="text-muted">No data yet.</p>'; return; }
+
+  let totalIncome = 0, totalChina = 0, totalBrazilCNY = 0, totalGross = 0, grossMonths = 0;
+  records.forEach(r => {
+    const c = compute(r);
+    totalIncome += c.totalIncome;
+    totalChina += r.chinaAmt || 0;
+    totalBrazilCNY += c.brazilCNY;
+    if (c.hasGross) { totalGross += r.gross; grossMonths++; }
+  });
+  const totalGap = grossMonths > 0 ? totalIncome - totalGross : null;
+  const avgIncome = totalIncome / records.length;
+  const chinaPct = totalIncome > 0 ? (totalChina / totalIncome * 100) : 0;
+  const brazilPct = totalIncome > 0 ? (totalBrazilCNY / totalIncome * 100) : 0;
+
+  grid.innerHTML = `
+    <div class="summary-item">
+      <div class="label">Cumulative Income (CNY)</div>
+      <div class="value gold">¥${fmt(totalIncome)}</div>
+      <div class="sub">${records.length} months</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Monthly Avg Income (CNY)</div>
+      <div class="value accent">¥${fmt(avgIncome)}</div>
+      <div class="sub">Per month</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">China Total (CNY)</div>
+      <div class="value positive">¥${fmt(totalChina)}</div>
+      <div class="sub">${fmtPct(chinaPct)} of income</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Brazil Total (→CNY)</div>
+      <div class="value" style="color:var(--accent2)">¥${fmt(totalBrazilCNY)}</div>
+      <div class="sub">${fmtPct(brazilPct)} of income</div>
+    </div>
+    ${totalGap !== null ? `
+    <div class="summary-item">
+      <div class="label">Cumul. Gross (${grossMonths}mo)</div>
+      <div class="value gold">¥${fmt(totalGross)}</div>
+      <div class="sub">Months with gross data</div>
+    </div>
+    <div class="summary-item">
+      <div class="label">Cumulative Gap (CNY)</div>
+      <div class="value ${totalGap >= 0 ? 'positive' : 'negative'}">¥${fmt(totalGap)}</div>
+      <div class="sub">${fmtPct(totalGap / totalGross * 100)} of gross</div>
+    </div>` : ''}
+  `;
+}
+
+// ===== Charts =====
+function renderCharts() {
+  const labels = records.map(r => r.month);
+  const totalArr = records.map(r => compute(r).totalIncome);
+  const chinaArr = records.map(r => r.chinaAmt || 0);
+  const brazilCNYArr = records.map(r => compute(r).brazilCNY);
+  const grossArr = records.map(r => (r.gross && r.gross > 0) ? r.gross : null);
+
+  // Trend
+  if (trendChart) trendChart.destroy();
+  const datasets = [{
+    label: 'Total Net Income (CNY)',
+    data: totalArr, borderColor: '#6c63ff', backgroundColor: 'rgba(108,99,255,0.1)',
+    borderWidth: 2.5, pointRadius: 5, tension: 0.3, fill: true,
+  }];
+  if (grossArr.some(v => v !== null)) {
+    datasets.unshift({
+      label: 'Global Gross (CNY)',
+      data: grossArr, borderColor: '#ffd43b', backgroundColor: 'rgba(255,212,59,0.08)',
+      borderWidth: 2, pointRadius: 4, tension: 0.3, fill: false, borderDash: [6,3],
+    });
+  }
+  trendChart = new Chart(document.getElementById('trendChart'), {
+    type: 'line', data: { labels, datasets },
+    options: {
+      responsive: true, spanGaps: true,
+      plugins: { legend: { labels: { color: '#9a9db5', font: { size: 12 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ¥${fmt(ctx.raw||0)}` } } },
+      scales: {
+        x: { ticks: { color: '#6b6f8a' }, grid: { color: 'rgba(46,51,72,0.5)' } },
+        y: { ticks: { color: '#6b6f8a', callback: v => '¥'+(v/1000).toFixed(0)+'k' }, grid: { color: 'rgba(46,51,72,0.5)' } }
+      }
+    }
+  });
+
+  // Stacked bar
+  if (stackChart) stackChart.destroy();
+  stackChart = new Chart(document.getElementById('stackChart'), {
+    type: 'bar',
+    data: { labels, datasets: [
+      { label: 'China (CNY)', data: chinaArr, backgroundColor: 'rgba(81,207,102,0.75)', borderColor: '#51cf66', borderWidth: 1, borderRadius: 4 },
+      { label: 'Brazil→CNY', data: brazilCNYArr, backgroundColor: 'rgba(255,107,107,0.75)', borderColor: '#ff6b6b', borderWidth: 1, borderRadius: 4 },
+    ]},
+    options: {
+      responsive: true,
+      plugins: { legend: { labels: { color: '#9a9db5', font: { size: 12 } } },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ¥${fmt(ctx.raw)}` } } },
+      scales: {
+        x: { stacked: true, ticks: { color: '#6b6f8a' }, grid: { color: 'rgba(46,51,72,0.5)' } },
+        y: { stacked: true, ticks: { color: '#6b6f8a', callback: v => '¥'+(v/1000).toFixed(0)+'k' }, grid: { color: 'rgba(46,51,72,0.5)' } }
+      }
+    }
+  });
+}
+
+function renderAll() { renderTable(); renderSummary(); renderCharts(); }
+
+// ===== Export CSV =====
+function exportCSV() {
+  if (!records.length) { alert('No data.'); return; }
+  const h = ['Month','China(CNY)','China Date','Brazil Total(BRL)','Brazil Entries','Rate','Brazil→CNY','Total Income(CNY)','Gross(CNY)','Gap(CNY)','Gap%'];
+  let csv = h.join(',') + '\n';
+  records.forEach(r => {
+    const c = compute(r);
+    const bDetail = (r.brazilEntries||[]).map(e => `${e.amount}${e.note?' '+e.note:''}`).join('; ');
+    csv += [
+      r.month, r.chinaAmt, r.chinaDate||'', c.brazilTotalBRL.toFixed(2),
+      '"'+bDetail+'"', r.rate, c.brazilCNY.toFixed(2), c.totalIncome.toFixed(2),
+      r.gross||'', c.gap!==null ? c.gap.toFixed(2) : '',
+      c.gapPct!==null ? c.gapPct.toFixed(2)+'%' : ''
+    ].join(',') + '\n';
+  });
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `eric_salary_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click(); URL.revokeObjectURL(url);
+}
+
+function resetData() {
+  if (!confirm('Reset all data to default (Jan-Jun 2026)?')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  records = JSON.parse(JSON.stringify(DEFAULT_DATA));
+  saveData(); renderAll();
+}
+
+// ===== Init =====
+loadData();
+renderBrazilInputEntries();
+
+// Set default next month
+(function() {
+  if (records.length) {
+    const last = records[records.length-1].month;
+    const [y,m] = last.split('-').map(Number);
+    const nm = m===12?1:m+1, ny = m===12?y+1:y;
+    document.getElementById('inputMonth').value = `${ny}-${String(nm).padStart(2,'0')}`;
+  }
+})();
+
+// Rate change updates preview
+document.getElementById('inputRate').addEventListener('input', updateBrazilPreview);
+
+renderAll();
+</script>
+</body>
+</html>

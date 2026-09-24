@@ -1,0 +1,58 @@
+{
+  "target_skill": "keeta-external-context",
+  "target_dir": "/Users/tiantian/workspace/keeta-data-analyze-skill/keeta-external-context",
+  "plan_items": [
+    {
+      "file": "scripts/weather.py",
+      "symbol": "_run_origin_query",
+      "node_type": "skill-script",
+      "reason": "calls subprocess.run to execute origin_query.py for internal weather dataset queries",
+      "action": "insert",
+      "idempotency_key": "scripts/weather.py::_run_origin_query::skill-script"
+    },
+    {
+      "file": "scripts/weather.py",
+      "symbol": "query_openmeteo",
+      "node_type": "skill-script",
+      "reason": "calls urllib.request.urlopen to fetch Open-Meteo fallback weather data",
+      "action": "insert",
+      "idempotency_key": "scripts/weather.py::query_openmeteo::skill-script"
+    },
+    {
+      "file": "scripts/holidays.py",
+      "symbol": "_get_bi_env",
+      "node_type": "skill-script",
+      "reason": "calls subprocess.run to exchange mtsso token for BI access",
+      "action": "insert",
+      "idempotency_key": "scripts/holidays.py::_get_bi_env::skill-script"
+    },
+    {
+      "file": "scripts/holidays.py",
+      "symbol": "_run_sql",
+      "node_type": "skill-script",
+      "reason": "calls subprocess.run to execute keeta_bi_skill.py SQL queries",
+      "action": "insert",
+      "idempotency_key": "scripts/holidays.py::_run_sql::skill-script"
+    },
+    {
+      "file": "scripts/events_search.py",
+      "symbol": "_catclaw_search",
+      "node_type": "skill-script",
+      "reason": "calls subprocess.run to execute catclaw_search.py realtime search",
+      "action": "insert",
+      "idempotency_key": "scripts/events_search.py::_catclaw_search::skill-script"
+    }
+  ],
+  "validation": {
+    "commands": [
+      "python3 -m py_compile scripts/*.py",
+      "python3 scripts/skill_tracker.py --help",
+      "python3 scripts/weather.py --help",
+      "python3 scripts/holidays.py --help",
+      "python3 scripts/events_search.py --help",
+      "python3 scripts/validate_skills.py",
+      "python3 -m unittest tests/test_skill_tracker.py",
+      "git diff --check"
+    ]
+  }
+}

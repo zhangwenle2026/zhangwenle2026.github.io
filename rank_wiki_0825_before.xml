@@ -1,0 +1,2708 @@
+<km-doc>
+<km-title nodeId="81364d1f-067e-4f55-ad90-dd604102dd1f">SP Metro Incentive Race Rankings — Aug 23 / 圣保罗都市圈激励赛排名 — 8月23日 / Classificação da Corrida de Incentivo — 23 de Agosto</km-title>
+<p nodeId="d2e4a5fe-31c4-4195-b3d1-b72c64d649b4"><strong>Data as of / 数据截至 / Dados截至:</strong> August 23, 2026 (BRT)</p>
+<p nodeId="dcde57f9-2a37-4be9-be13-ddd8664594c6"><strong>Campaign Period / 激励赛周期 / Período da Campanha:</strong> Jul 27 - Aug 31, 2026</p>
+<p nodeId="32ff3e88-e28c-47f3-8390-a43acfec6124"><strong>Document Owner / 文档负责人 / Responsável pelo Documento:</strong> SP Metro BD Team / 圣保罗都市圈BD团队 / Equipe BD Metropolitano de SP</p>
+<p nodeId="7109d697-9eee-4fae-a466-114fa8010b65">---</p>
+<h1 nodeId="b8e118ef-fc24-4d95-a6a1-c8db1be26ea5">Part 1: Incentive Race Rankings <em>第一部分：激励赛排名</em> <em>Parte 1: Classificação da Corrida de Incentivo</em></h1>
+<p nodeId="84769180-5d6d-4466-8826-3b3ec9e2a7f0">Based on: Order Penetration Rate — SP Metropolitan Incentive Scheme / 来源：订单渗透率激励赛方案 / Baseado em: Taxa de Penetração de Pedidos — Esquema de Incentivo Metropolitano de SP</p>
+<h2 nodeId="9ff29697-0f15-46bc-a926-111aea2371a6">1.1 Scoring Rules Summary <em>计分规则</em> <em>Resumo das Regras de Pontuação</em></h2>
+<table nodeId="05c5d9c9-ce3d-429f-959f-fd5ff362dcd4">
+<tr nodeId="a51349dc-1c9e-40ae-9606-520d18eeee6a">
+<th colwidth="[68]" nodeId="a4ce5b71-ae74-4387-b6d3-7c0c94bb7605">
+<p nodeId="1eaed967-ede7-4a9d-a5e2-8c22b73d091b">Direction / 方向 / Direção</p>
+</th>
+<th colwidth="[68]" nodeId="97df36b2-b2e2-4058-ab1d-e3ea49a225bc">
+<p nodeId="7aa193a7-7090-41a3-a4f5-63349f082a53">Condition / 条件 / Condição</p>
+</th>
+<th colwidth="[68]" nodeId="84bea840-1f74-4a57-8f38-c3c877542922">
+<p nodeId="eac95084-8d7c-4420-9201-cba6bbdf935e">Base Score / 基础分 / Pontos Base</p>
+</th>
+<th colwidth="[68]" nodeId="df043388-0e0b-457c-a719-478d5a0de749">
+<p nodeId="e238f3b1-dd3d-4f3c-8446-2205e9e9eb22">HV Bonus (iFood≥20) / HV奖励 / Bônus HV</p>
+</th>
+</tr>
+<tr nodeId="1dc2d77d-03e7-448f-9788-b7ea903c906c">
+<td colwidth="[68]" nodeId="c87ed450-ed95-4632-b0f7-17f1e019122b">
+<p nodeId="ca6ee7e0-8ac4-4a3c-88c8-42a00749f0ee">🔴 Not Signed / 未签约 / Não Assinado</p>
+</td>
+<td colwidth="[68]" nodeId="f2c2a0de-12b1-40d7-8f79-fdf8b7df18f9">
+<p nodeId="73863050-b711-41a8-b7e3-1ab282c502a4">未签约→有效营业 / Not Signed → Valid Operating / Não Assinado → Operação Válida</p>
+</td>
+<td colwidth="[68]" nodeId="946dbf35-2cc9-4e54-b47a-356ffdab7ff0">
+<p nodeId="083a90e7-ef29-4244-9a95-0cceb4d9003f">6</p>
+</td>
+<td colwidth="[68]" nodeId="b1deeaf5-7133-4ea9-943b-78f67bfb6ad8">
+<p nodeId="d8673677-1a91-4915-98a5-d5b113410c43">+2</p>
+</td>
+</tr>
+<tr nodeId="15c7a6fe-2d84-488c-8c13-39ddd1d7a260">
+<td colwidth="[68]" nodeId="66540898-f638-4893-912e-d5b16bdd0c68">
+<p nodeId="8338d914-d62c-4751-a56a-23ca73b8fd5d">🟡 Not Online / 未上线 / Não Online</p>
+</td>
+<td colwidth="[68]" nodeId="18b84f30-ce66-4c29-98c8-b23e9fc8b04e">
+<p nodeId="11678f12-5ec1-4f70-b023-8d4113a8215b">已签未上线→有效营业 / Signed Not Online → Valid Operating / Assinado Não Online → Operação Válida</p>
+</td>
+<td colwidth="[68]" nodeId="dff7b60b-4fc1-43ae-9f85-ac4de8950ac3">
+<p nodeId="02d06480-8775-4b8e-91b1-b77f0c76d792">4</p>
+</td>
+<td colwidth="[68]" nodeId="71637c21-61f2-4489-be7c-492d99f803cc">
+<p nodeId="fecc4bc9-9717-44d3-9dca-4c4b10e34586">+2</p>
+</td>
+</tr>
+<tr nodeId="acb8c46b-02f8-4696-acd9-41bd82752742">
+<td colwidth="[68]" nodeId="9e1715c8-4f70-4dfe-96af-4955e2cecc9a">
+<p nodeId="fecbc6a4-d40e-4911-b7d9-058c8a104b48">🟢 Not Operating / 未经营 / Não Operante</p>
+</td>
+<td colwidth="[68]" nodeId="a20762fa-b517-427f-86a6-2430aa1dc722">
+<p nodeId="aae49f08-f313-4b64-8f8c-6173e18a8ab7">已签不营业→恢复营业 / Signed Not Operating → Resume Operating / Assinado Não Operante → Retomar Operação</p>
+</td>
+<td colwidth="[68]" nodeId="ce7b4dfb-95fb-457d-8f56-ea44a086587b">
+<p nodeId="504fe49e-ea04-4005-933d-7ab1bb2dc757">3</p>
+</td>
+<td colwidth="[68]" nodeId="48c130ad-b4e7-402b-80b7-733ef5df9fb2">
+<p nodeId="b37bab9b-b9d5-4060-83c2-4c5059de4c25">+2</p>
+</td>
+</tr>
+</table>
+<ul nodeId="e5ba5e07-82e2-4d70-81c5-10df1ec9df46">
+<li nodeId="326f1a44-c3bb-4116-b2f3-5e643d317315">Valid Operating: 7d ≥ 15h + ≥ 1 order / 有效营业：近7天营业≥15小时且≥1单 / Operação Válida: 7d ≥ 15h + ≥ 1 pedido</li>
+<li nodeId="59434554-a20b-4c42-b946-2be7c5d94ee0">BD Qualification: ≥ 15 pts / BD达标线：≥15分 / Qualificação BD: ≥ 15 pts</li>
+<li nodeId="0b8e5334-dfc1-437e-8940-7c9110873878">BDM Qualification: avg ≥ 15 pts / BDM达标线：人均≥15分 / Qualificação BDM: média ≥ 15 pts</li>
+</ul>
+<h2 nodeId="bd442067-2217-4ef3-b56e-c69d6607b198">1.2 BD Personal Rankings — WS Combined (Western + Southern, 63 BDs) <em>BD个人排名 — 西部+南部合并（63人）</em> <em>Ranking Individual BD — Combinado WS (Oeste + Sul, 63 BDs)</em></h2>
+<table nodeId="a0591c40-271b-42d3-bced-45aae57db40e">
+<tr nodeId="80273e2d-4646-48be-b07d-20878c4f3e2b">
+<th colwidth="[68]" nodeId="6c517bf7-b5a0-4aa0-b02c-0de2a2a38b42">
+<p nodeId="22facb8d-ff41-4fb2-9d2d-f72654d79ed5">Rank / 排名 / Posição</p>
+</th>
+<th colwidth="[68]" nodeId="4e015953-da96-47e5-b4f8-2e3b3fd24264">
+<p nodeId="ebfea358-a971-44b5-899c-2be92d74b873">BD</p>
+</th>
+<th colwidth="[68]" nodeId="2dc366bc-d501-46b5-9436-8e9a1c4547ec">
+<p nodeId="292c0528-8265-479d-a816-7c7f455111fa">BDM</p>
+</th>
+<th colwidth="[68]" nodeId="9466498a-6b63-4b37-99ca-90d2eedf8ec2">
+<p nodeId="da2ee1f1-cf0d-4105-b5f4-d431b439ce39">City / 城市 / Cidade</p>
+</th>
+<th colwidth="[68]" nodeId="08583ef8-4ef0-4231-8892-248e6b983a4b">
+<p nodeId="1af2893f-7a7d-43e6-af4e-37c094028710">🔴NS</p>
+</th>
+<th colwidth="[68]" nodeId="2f37ba7d-0ae3-4a98-a844-af336ff77805">
+<p nodeId="1d928a71-5742-4058-a696-e04511a8e249">🟡NO</p>
+</th>
+<th colwidth="[68]" nodeId="65adeff2-dc3d-4a5e-a6de-0eb7f1ab49b4">
+<p nodeId="ca2eba15-c815-46fe-a771-8e38a2333ff3">🟢NOP</p>
+</th>
+<th colwidth="[68]" nodeId="1b849108-7953-4d66-9eb4-489196c350aa">
+<p nodeId="ef9f4b9e-421a-4a36-8ebb-cdcba5673910">HV+2</p>
+</th>
+<th colwidth="[68]" nodeId="913cdab5-47ca-4e8a-abd1-91f4b5acb9bd">
+<p nodeId="1c4d4e0c-7768-491d-b8da-abadb08dce98">Total / 总分 / Pontuação Total</p>
+</th>
+<th colwidth="[68]" nodeId="51c30ac3-16d4-4ef7-9fea-6e7af67cb9a2">
+<p nodeId="19796411-7817-42e5-b72c-d7bba14ed921">Status / 状态 / Status</p>
+</th>
+</tr>
+<tr nodeId="a446d39f-8566-4aaf-b522-2dd60e594aa0">
+<td colwidth="[68]" nodeId="8184b8c3-29dd-4650-acd8-ec7558834d38">
+<p nodeId="1f76b384-f606-405f-a887-a99f192a6dca">🥇 1</p>
+</td>
+<td colwidth="[68]" nodeId="51925be2-9d7e-49f7-a7aa-375a06abf7da">
+<p nodeId="3dea2363-5506-40bd-ada8-3d0aa85176bf">luizmoreira</p>
+</td>
+<td colwidth="[68]" nodeId="7e030b92-9ba8-4f16-bc25-49325b6fba65">
+<p nodeId="77b06deb-de0e-4ed1-ba1d-90d06eb750f1">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="c83ca6fb-0691-4672-bbdf-07d31f7a1b13">
+<p nodeId="e7d65437-fa18-4090-a3e7-d557716977c2">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="ec682ff6-039a-4eb6-8a4b-bbe2c6862e5e">
+<p nodeId="8045f819-5b80-474b-b143-3d86c6b5564f">5</p>
+</td>
+<td colwidth="[68]" nodeId="cea9af6b-63bb-4cfe-837e-d55d4f124da7">
+<p nodeId="6574e604-6b0d-4229-8e9a-1003e8fac3a4">0</p>
+</td>
+<td colwidth="[68]" nodeId="29fa4d96-124c-43a9-bed2-8c8498165948">
+<p nodeId="ce473fd6-0aa7-4af6-9579-103a2d6e662f">2</p>
+</td>
+<td colwidth="[68]" nodeId="a9df96b6-4a8e-4d7d-b838-acec1d30e53a">
+<p nodeId="9e090c8d-8eee-48a2-a481-be6bf1e89003">+1</p>
+</td>
+<td colwidth="[68]" nodeId="f48af293-2077-4963-a9c5-ac51acb14437">
+<p nodeId="42466065-2bbc-440f-b19b-3c4e529917ac"><strong>38</strong></p>
+</td>
+<td colwidth="[68]" nodeId="ca382612-3aca-421a-a6e5-4371b31ed2e7">
+<p nodeId="5780deff-8fb5-480a-b475-e58c7ced0bb2">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="9da933b9-5a9a-4161-98b6-99a395a6b7ab">
+<td colwidth="[68]" nodeId="1960995b-2304-4206-91af-08b8603fe98c">
+<p nodeId="cbc3362e-c4c4-4a1f-93b6-b8c132653178">🥈 2</p>
+</td>
+<td colwidth="[68]" nodeId="6f8238ad-f01a-4922-a8b8-0c513d00907a">
+<p nodeId="ab732d73-a1ef-4760-82c6-c1bba3147dd4">wanessasilva</p>
+</td>
+<td colwidth="[68]" nodeId="acf1d366-8e4b-4706-b718-ef190121fbdc">
+<p nodeId="006dabd2-be69-495c-84ef-d9daa6c96913">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="d20d800c-693c-4ac4-ade8-3b8d1401260d">
+<p nodeId="a4877868-2c49-4296-9d2a-2820a11e0853">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="2637dc3f-d759-4e2e-9ff4-5c45fec6e72b">
+<p nodeId="1a10db4e-a194-4541-954e-cee20acade6b">4</p>
+</td>
+<td colwidth="[68]" nodeId="c964e87f-5656-4667-9034-aa28f5bc7bf5">
+<p nodeId="26036f17-237f-4664-8998-8535b2c1753e">1</p>
+</td>
+<td colwidth="[68]" nodeId="143ab741-db89-4a0c-9ea3-9da588f6f489">
+<p nodeId="cf436230-116a-4649-8e61-6f18f3726b3b">1</p>
+</td>
+<td colwidth="[68]" nodeId="d5ff6430-a9b7-4444-85e3-35cc67aaa946">
+<p nodeId="abb92474-4f6a-4fd3-be74-ae26c4404e5e">+3</p>
+</td>
+<td colwidth="[68]" nodeId="4a71308b-b908-4794-859e-e03a5323ffe0">
+<p nodeId="eb0caa3f-4264-4b02-a5cf-13b5d3692703"><strong>37</strong></p>
+</td>
+<td colwidth="[68]" nodeId="b513aef8-8031-4f91-b136-fea58fb51ddd">
+<p nodeId="89556c50-8da4-4bd0-8066-6d3abf40d593">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="d22bc479-f91d-4e1e-9d66-7f6076e8439f">
+<td colwidth="[68]" nodeId="7b7b84df-8ecd-4519-a7c8-61f7828b4c8c">
+<p nodeId="4d2a7ef8-7dc1-475c-a7d2-2dd997c5ffd9">🥉 3</p>
+</td>
+<td colwidth="[68]" nodeId="3619f84b-3b7a-4926-a2ac-aa3600bd6423">
+<p nodeId="b213cbc4-fcf5-41c8-be50-d7133491a647">cristianedasilva</p>
+</td>
+<td colwidth="[68]" nodeId="99981848-18e2-496c-b5b3-ec653d05cc54">
+<p nodeId="04b9d062-8f1f-47aa-bf7c-f2d797183083">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="5484e419-b36e-4eaf-a659-5453b1ec4a71">
+<p nodeId="0af1de95-42d0-46c0-a34a-af9b36137dcf">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="6e1d52a9-0d3b-4a8d-b9d8-08031420b9aa">
+<p nodeId="54ec16a7-ef55-4b01-9743-01f4f387aef6">4</p>
+</td>
+<td colwidth="[68]" nodeId="1c93225a-b882-49f6-ba43-42273bfd558b">
+<p nodeId="d720a749-7d85-4e2f-a715-6220d038475a">0</p>
+</td>
+<td colwidth="[68]" nodeId="54cdd1be-2169-45e3-bd21-bbd0ca4a8a2d">
+<p nodeId="5d03f629-23d2-4eb0-9764-ca3f5bfa3376">0</p>
+</td>
+<td colwidth="[68]" nodeId="8523ab04-d01e-4543-8430-e8ffd9c88f38">
+<p nodeId="c02f465f-0e1d-4e07-ba78-a97a0f621650">+2</p>
+</td>
+<td colwidth="[68]" nodeId="ef3f3997-3d87-4a1b-b13f-11ca27111c52">
+<p nodeId="030deb5a-0c84-4904-882f-f2c740642282"><strong>28</strong></p>
+</td>
+<td colwidth="[68]" nodeId="a68f1a71-a473-4d89-b51f-2ddcfaa971e8">
+<p nodeId="bdcd9622-ab59-4d12-8b4c-6189402094ff">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="b208b86e-2450-4661-a51d-ccff0f659f34">
+<td colwidth="[68]" nodeId="aea31ffd-4fb3-4920-b07b-f8cbd1f48bde">
+<p nodeId="4f92d2fe-0a38-47b1-8c36-84ff6db41eaa">4</p>
+</td>
+<td colwidth="[68]" nodeId="c5017b7d-2a41-4f91-ab7e-9b595f3e48a9">
+<p nodeId="857ef2cc-1249-4438-8ec7-3f01adf60a57">brunapadilha</p>
+</td>
+<td colwidth="[68]" nodeId="bb8faf8b-1a6e-4005-903c-1aa376f80017">
+<p nodeId="8b55eaf7-072b-4f60-97bc-7152137c23a3">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="4765bb67-8b71-46a1-9555-f7d79f1286d4">
+<p nodeId="eef17b20-2527-403e-9eb8-203c0d5b3b0e">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="5927df96-eb59-40ce-8ba2-51fb3ce3c507">
+<p nodeId="825d2d4c-af99-42b2-bcb3-e7e63b9e98f9">2</p>
+</td>
+<td colwidth="[68]" nodeId="01828f16-62d7-4dc9-9477-988ed16746a7">
+<p nodeId="e269137c-225d-4b2c-953c-28e0e8b17f56">0</p>
+</td>
+<td colwidth="[68]" nodeId="99cb8602-4836-491c-a34b-2319a2a0ca99">
+<p nodeId="bfc29549-6098-4842-9d70-8c6b7e0d7ac8">3</p>
+</td>
+<td colwidth="[68]" nodeId="92c5090a-e96e-449c-8627-07fed3f66165">
+<p nodeId="a2895241-5300-429f-9db3-cf42438afb06">+2</p>
+</td>
+<td colwidth="[68]" nodeId="615ca5d8-a8cc-4b40-8607-090d6191a057">
+<p nodeId="134d9977-b099-48cc-854f-99c55c05ce43"><strong>25</strong></p>
+</td>
+<td colwidth="[68]" nodeId="df93a238-fbbf-4f65-92b6-f58827c43490">
+<p nodeId="1e08a563-ddc1-4dc9-ab4f-5ae037bb0196">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="20a8fd00-66a8-4a72-adaf-8a0bfeaa80df">
+<td colwidth="[68]" nodeId="cff4ad93-2294-468d-8849-3ce90ba65a63">
+<p nodeId="0239a102-1534-4eae-800e-15b43bf5214a">5</p>
+</td>
+<td colwidth="[68]" nodeId="443db894-9883-41e6-bea1-559f9ec185d5">
+<p nodeId="c5d71c85-4993-4412-88e1-3272290ade73">rodrigopoli</p>
+</td>
+<td colwidth="[68]" nodeId="4a0de254-3550-44ee-9bf3-7543eaf359a7">
+<p nodeId="b870654c-3b84-4c93-afa8-f803b66a35a3">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="b8b96d66-deab-42af-b5eb-fc7ed88a9339">
+<p nodeId="a16dac16-7e13-4c6c-a1fe-fa2ff40ce539">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="92b8956c-302a-4bc6-8224-15ea758f3e89">
+<p nodeId="3db4281c-bccd-4c33-b7b7-e637c131a08d">2</p>
+</td>
+<td colwidth="[68]" nodeId="903e605f-2044-415b-b01b-ad7f669751ee">
+<p nodeId="115c71c3-2c0e-4017-ac59-1f17c3139f8c">1</p>
+</td>
+<td colwidth="[68]" nodeId="5d18e760-e03f-4453-963a-ecbfbc3e8974">
+<p nodeId="c1b6ad5e-8b23-4357-adc4-abcaa92bbb49">2</p>
+</td>
+<td colwidth="[68]" nodeId="4836a02d-b956-4ef5-a49f-b6fafd148f01">
+<p nodeId="b26f72d5-286b-4220-a592-4a93bdfb5b3a">+1</p>
+</td>
+<td colwidth="[68]" nodeId="28e15d2a-2242-4ff2-a6a3-d00a100ec8fc">
+<p nodeId="61951050-193d-49b3-8075-2b4dce853141"><strong>24</strong></p>
+</td>
+<td colwidth="[68]" nodeId="50258836-87e1-450f-9a88-16dce36d51d1">
+<p nodeId="4db0f68a-ae98-43e4-9302-56ca9d8da5a0">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="4f63d47f-e496-4fd6-8af8-f97f430282f5">
+<td colwidth="[68]" nodeId="498a2dd3-d062-41e7-a838-57c7e07d56e3">
+<p nodeId="3ce064b8-fdfb-4f68-a5ae-bed7ddc0a895">6</p>
+</td>
+<td colwidth="[68]" nodeId="72d13ae3-02c9-403e-bcc5-44b3bc408f06">
+<p nodeId="47f0462b-22f2-48c8-8879-d51c6683053c">igorsouza</p>
+</td>
+<td colwidth="[68]" nodeId="e69b5e35-8308-4807-a4e1-a27278aac097">
+<p nodeId="0a1a316c-e19e-4530-81cf-45d62c434366">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="229d1e1c-f003-4a5c-b4c6-79c871d3d2d7">
+<p nodeId="2e5174f0-2a34-420f-966f-23d507be12b1">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="e8ff83ae-f69e-4d61-9803-3c9e1c398ef5">
+<p nodeId="6c94d510-ef73-4d77-9cb5-275c65574d26">3</p>
+</td>
+<td colwidth="[68]" nodeId="9e2f9fd9-6d0b-40b8-96e6-0e45941cc03c">
+<p nodeId="31a4f82d-f2c5-44ff-993f-c631bc8ca18d">0</p>
+</td>
+<td colwidth="[68]" nodeId="3862802f-7b75-41db-846b-565682690370">
+<p nodeId="888ffab8-3b5a-417c-8507-fb241b229989">1</p>
+</td>
+<td colwidth="[68]" nodeId="334c8de1-1d0d-4941-aaae-7b6da8ec5984">
+<p nodeId="e3299e7f-bf73-49d6-b034-5f21ddaf1eee">+1</p>
+</td>
+<td colwidth="[68]" nodeId="aabe15f6-1641-491c-bf65-98f6d5db4951">
+<p nodeId="c6702326-fe84-42bb-b380-7434306039b9"><strong>23</strong></p>
+</td>
+<td colwidth="[68]" nodeId="5797e386-1924-4e81-a9a4-dd8ea05f9671">
+<p nodeId="3efb52b6-c5d3-4cb5-aa13-f4aba8b608f8">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="82fb733f-0c05-41a7-be1e-794eefd5ea26">
+<td colwidth="[68]" nodeId="687ad322-56db-4874-8bdf-83e8fbf0cb1d">
+<p nodeId="d9d139cc-08ad-45ac-902d-f9d79c0c11c4">7</p>
+</td>
+<td colwidth="[68]" nodeId="756e4b5b-c587-4b27-849e-1affc8a2d9fd">
+<p nodeId="c9649ac6-e0f8-47eb-b0a5-770829d4da26">ricardoalmeida</p>
+</td>
+<td colwidth="[68]" nodeId="7ed201e5-e6a6-4585-995a-300dfe80b869">
+<p nodeId="46b037c3-260b-4218-b302-f34da88f5a2f">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="f1c3ab3c-3353-49db-8dfb-07861bfc8380">
+<p nodeId="f822845f-0bff-4269-85d5-e5a5ee5dd45f">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="a633853d-4cb6-4344-bba2-e95ff5b72cbf">
+<p nodeId="306a362d-3576-421e-a995-b2df3aaa1bc4">3</p>
+</td>
+<td colwidth="[68]" nodeId="170c68d4-8393-4d30-8c1e-beed2c398e46">
+<p nodeId="c9e56e6a-79a3-4f03-af9e-aabd406c7ab3">0</p>
+</td>
+<td colwidth="[68]" nodeId="3a4f8465-c635-48f1-92ed-6d91cf4c74f8">
+<p nodeId="b6a1d681-1f83-45cc-b506-1ecf91ef1a8a">0</p>
+</td>
+<td colwidth="[68]" nodeId="e9c644e4-be64-4d53-9b3d-322feaa7509a">
+<p nodeId="61f97223-e00a-459c-b0e9-de6ca8b04a3d">+1</p>
+</td>
+<td colwidth="[68]" nodeId="e517e32d-a280-48af-b351-a06d85a9db8e">
+<p nodeId="5063d46f-771c-404b-917c-dcbeee87eb7b"><strong>20</strong></p>
+</td>
+<td colwidth="[68]" nodeId="65221d97-e9e5-4154-9673-ce6473678cf5">
+<p nodeId="9c7bc5b5-6647-40f1-b61b-88f2f21d4729">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="9c793c14-96ac-4539-8840-a3de43889bb4">
+<td colwidth="[68]" nodeId="fd63b349-c003-42e2-ae32-8ddf116509d7">
+<p nodeId="668e5d11-1d34-42ca-8312-7babc1043d57">7</p>
+</td>
+<td colwidth="[68]" nodeId="fbabb7d7-7d60-47db-bd3c-0938e7ec853d">
+<p nodeId="d47cc17d-155a-4d97-b34f-e1ce969b5eb3">valeriachacon</p>
+</td>
+<td colwidth="[68]" nodeId="3b78111d-6e36-4d3b-98d4-e65492ed3633">
+<p nodeId="5a93f930-374e-453c-9e34-89e0abc844f2">lucasferreira</p>
+</td>
+<td colwidth="[68]" nodeId="8a46ae40-5442-4c4c-96d4-1cc76a12533e">
+<p nodeId="ad31ce95-4c5b-4fb2-b960-f0498a2cfedd">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="562affbb-64ea-42f5-9280-6ae2a6b5c26b">
+<p nodeId="594ce984-ef11-4b78-b9c0-8874d64f0c64">0</p>
+</td>
+<td colwidth="[68]" nodeId="625040b9-1a45-4bc3-bd5e-200ec9c1704e">
+<p nodeId="1e21a883-74bc-4f4f-8e2f-0f4a5a9e627d">3</p>
+</td>
+<td colwidth="[68]" nodeId="f975f266-f831-402d-a558-a7c3a6afd079">
+<p nodeId="4389ddf3-0f91-415b-8389-f79359e0a953">2</p>
+</td>
+<td colwidth="[68]" nodeId="b03257b5-a05c-4460-ac59-b24289247fca">
+<p nodeId="85716949-a04c-4719-8e1c-4ccd41d48850">+1</p>
+</td>
+<td colwidth="[68]" nodeId="4e3997db-ec6e-4e83-9d69-f439ddc852f2">
+<p nodeId="5e92c8f9-2162-4d6f-8e29-eb27915473d3"><strong>20</strong></p>
+</td>
+<td colwidth="[68]" nodeId="5f01ceb9-116e-4c2b-bcb0-6fab5ac2f8b2">
+<p nodeId="05271b3a-5fa5-48dd-8f0e-4e76c7743ee4">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="61661173-ed4f-420e-b847-5509658442a8">
+<td colwidth="[68]" nodeId="b6abc0f9-05c2-42d3-a9f3-e9268c71c40e">
+<p nodeId="e1947219-1dfd-422e-be7e-c10de85f2105">7</p>
+</td>
+<td colwidth="[68]" nodeId="dc08699e-51b0-46b7-8d94-c1f36996ca9e">
+<p nodeId="a2a6d333-ded4-4644-b1dc-972189bbf908">marcelofeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="da767c24-206d-45e1-aa6d-dce4807a61e7">
+<p nodeId="2237a0f7-b179-47c7-9fe6-2c69fef04a74">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="8c8531bc-a021-4732-bee6-2a2653f261e0">
+<p nodeId="41638c35-41ba-4829-bcea-fcf7110699e1">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="2f41cdbf-35bf-432d-bee9-c6d72db4a8f3">
+<p nodeId="50abc4a9-1b5d-46e1-9ec2-5e01b470811b">2</p>
+</td>
+<td colwidth="[68]" nodeId="79134845-c23e-424b-bc83-e3cfeda90c97">
+<p nodeId="46f80b92-f752-4e52-b175-c0b33dd127fa">0</p>
+</td>
+<td colwidth="[68]" nodeId="3c63a6a3-952d-44ca-ad8f-2e0e6c9e06d0">
+<p nodeId="74593406-00c4-4da7-a90a-683cee6eb6e1">2</p>
+</td>
+<td colwidth="[68]" nodeId="8c37410e-603f-48e5-8107-8c23c73fa373">
+<p nodeId="429fee07-a09c-49e6-acaf-4d9e799a78e8">+1</p>
+</td>
+<td colwidth="[68]" nodeId="9d6f534d-5d68-426f-a3a2-c52f78f999cf">
+<p nodeId="4fee8d28-13e5-4740-a6ba-f319ee652cf1"><strong>20</strong></p>
+</td>
+<td colwidth="[68]" nodeId="a3b26a3f-a6bf-4bdf-9df2-0e228948b87a">
+<p nodeId="f533d747-8f05-47ad-96d9-4d32a7d9e96c">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="102bce36-af68-41dd-837c-b46693383faa">
+<td colwidth="[68]" nodeId="6027ddfc-f988-46a2-b75b-18a5abd821df">
+<p nodeId="9894b94b-c1a5-4eaa-b5ed-5fa456e6c8a5">10</p>
+</td>
+<td colwidth="[68]" nodeId="4ed5c9a1-5505-47e1-8d6a-4c15efb376ac">
+<p nodeId="8ad54fdd-dfc8-4354-8a1d-80dab1ca3d7e">guilhermesantos</p>
+</td>
+<td colwidth="[68]" nodeId="8b6dfe5b-e6ff-4280-b2b3-2721717096c2">
+<p nodeId="46571f5d-8c73-4231-8e90-7f455ec4686d">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="78aff11e-5d13-4a06-8ba7-02333b3bbf2f">
+<p nodeId="6541f21a-0bcb-4fb0-8c22-e66ffad53a58">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="23ab6a99-158d-4d76-8a74-982b4fc6b0b8">
+<p nodeId="649bfe32-92dc-45de-a3c7-360f098364ce">1</p>
+</td>
+<td colwidth="[68]" nodeId="b10a5390-540e-4d10-bb68-beb1df664732">
+<p nodeId="dbe3f854-22ed-4a18-b1a8-a215a2ffd8e5">2</p>
+</td>
+<td colwidth="[68]" nodeId="88acc50c-d0e6-42d2-8282-b33c78980174">
+<p nodeId="2006df4a-1025-4f39-af3d-f5e6af1fd649">1</p>
+</td>
+<td colwidth="[68]" nodeId="fa72d935-b674-41ef-8d61-99c2a42ae2af">
+<p nodeId="65fe9f14-beeb-40fc-bd2d-7f04de813646">+1</p>
+</td>
+<td colwidth="[68]" nodeId="07208b00-8ea6-47c6-b7d2-45998f093b70">
+<p nodeId="53687493-0e27-4a15-8a9f-53bb6b221361"><strong>19</strong></p>
+</td>
+<td colwidth="[68]" nodeId="8061d18c-5b6d-4137-aa77-3c294a3704b9">
+<p nodeId="0e84b1e2-6555-4bfb-b5e9-7b4038be05cd">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="507a09bf-1884-4ca5-90a3-219de06db4af">
+<td colwidth="[68]" nodeId="351f6937-0b83-4962-8fc3-1c60dcbe579f">
+<p nodeId="a27b1da0-a275-44c0-bd3f-afd32e5da6f8">11</p>
+</td>
+<td colwidth="[68]" nodeId="116677be-f076-4587-b743-007bccda1722">
+<p nodeId="74caf1ef-fdec-43d2-bb88-112365c661c3">lucasnada</p>
+</td>
+<td colwidth="[68]" nodeId="13d20952-b999-4188-9ad3-faedde95adea">
+<p nodeId="c28028f4-7f77-4c9d-ac37-176cc42149ae">lucasferreira</p>
+</td>
+<td colwidth="[68]" nodeId="789cda6f-19bf-4e45-bca2-322a674fb531">
+<p nodeId="bee2b91d-a0c0-46a7-9a2c-52890e65419d">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="2f2a4b83-eed0-4b1c-8d29-862996a76e6c">
+<p nodeId="df6f2481-765c-40fd-8563-8d73f4e72d7a">1</p>
+</td>
+<td colwidth="[68]" nodeId="664e4799-1933-44a7-8994-f6f60a623ee6">
+<p nodeId="74597cb2-5717-43e0-8301-5a31ee9183b5">0</p>
+</td>
+<td colwidth="[68]" nodeId="5b9f9040-5fac-4f64-aa7c-bb51eb3712ce">
+<p nodeId="eda937c0-f734-4a11-b8ac-ca682a748277">3</p>
+</td>
+<td colwidth="[68]" nodeId="cdb883b5-545e-4859-a104-22816f473a7e">
+<p nodeId="8840dec5-f7d0-470e-87b9-a24ec2b22da7">+1</p>
+</td>
+<td colwidth="[68]" nodeId="fdbf9c2f-64df-4cd1-930d-840d4ca6454c">
+<p nodeId="ee7e0e91-69a8-45ff-ab92-e36b06bfb0a4"><strong>17</strong></p>
+</td>
+<td colwidth="[68]" nodeId="68f028ee-902f-46ae-b30b-68a8215ea140">
+<p nodeId="fe03297b-b7f3-4c11-b53e-86f82232e9e8">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="5fa5408b-efa0-45c2-b023-bace855005ee">
+<td colwidth="[68]" nodeId="ee401c86-3db6-4cc0-86aa-3c72cb91ef4d">
+<p nodeId="c993a456-b6d7-408d-a930-25e135bc192d">11</p>
+</td>
+<td colwidth="[68]" nodeId="f70c6a30-d670-4c45-a2ee-3e87c2178481">
+<p nodeId="59361d77-cf17-4b21-aeb3-0e73825c7580">rodrigoalmeida</p>
+</td>
+<td colwidth="[68]" nodeId="e9772ae4-8d72-4512-b452-c976bcf9faca">
+<p nodeId="07557714-cc28-4724-8dc4-7cee1cf96967">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="ec8f3105-c23c-4c6e-9198-4564ecb0fbfc">
+<p nodeId="2a9f0f5c-b151-4769-9600-2e090cd4d61a">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="f1dfa608-6bf6-405d-9e87-7ee4fc5c094e">
+<p nodeId="ca78563d-3b98-4d6c-ba08-4d6ca70934eb">2</p>
+</td>
+<td colwidth="[68]" nodeId="895585f9-20c6-4de4-a841-fcff7a1b2a0b">
+<p nodeId="ac870655-ebeb-4a03-a4ed-4a095923624f">0</p>
+</td>
+<td colwidth="[68]" nodeId="cf998b12-3456-4430-bcff-a77faddfd50c">
+<p nodeId="28403fea-0f76-4ba8-8e6d-40557e3a7c01">1</p>
+</td>
+<td colwidth="[68]" nodeId="e0e16537-ee14-4b9e-9577-fdc981500bd7">
+<p nodeId="c76e0cb5-93e4-4259-8ce2-2815e4baaf5f">+1</p>
+</td>
+<td colwidth="[68]" nodeId="93df980b-6b82-4502-83aa-1d4d76c81826">
+<p nodeId="7723c46b-1f19-457a-804e-f90cb15e3f24"><strong>17</strong></p>
+</td>
+<td colwidth="[68]" nodeId="ab325e98-a935-4ba5-a1be-643ff12fc0c4">
+<p nodeId="3cc6dedd-1bb4-48f0-84b4-e29ed5af99e9">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="afa49ede-c8e1-44bc-a188-07515f147a66">
+<td colwidth="[68]" nodeId="83e421eb-e365-4716-a98c-2e0089cc8de7">
+<p nodeId="51729693-2362-4067-9461-9cc03cc07607">13</p>
+</td>
+<td colwidth="[68]" nodeId="aea91a93-8231-4d43-9275-5f302851704f">
+<p nodeId="ca91f2d4-128a-456d-95f9-b86f8e78479d">rodrigocorreia</p>
+</td>
+<td colwidth="[68]" nodeId="6a42e16e-88c3-40ed-9bd4-9aed86d5cef1">
+<p nodeId="6499c093-0106-4ae1-8f03-ead5e884bc09">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="d01217e0-844f-4664-b527-6a053d720bd2">
+<p nodeId="227acf65-70d4-4000-ad94-36016a53e6f1">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="8cb2f02e-1f6e-4a73-9056-5bb33a00981b">
+<p nodeId="cecec644-2ff9-4562-a69b-94a1f0111228">2</p>
+</td>
+<td colwidth="[68]" nodeId="99751a0c-7020-409c-bccc-ed9404f214cc">
+<p nodeId="3f882c69-f019-404d-9411-bcf41208d2e8">0</p>
+</td>
+<td colwidth="[68]" nodeId="2729a1d7-0050-4edd-a2ad-efb2627c223e">
+<p nodeId="3360f7b6-7bd7-4ba8-a9a2-8590ed718a8d">0</p>
+</td>
+<td colwidth="[68]" nodeId="7041e634-1226-4023-afdc-bc0517dde9f7">
+<p nodeId="7f887530-212e-46ca-9a38-05d07fcbbe73">+2</p>
+</td>
+<td colwidth="[68]" nodeId="3c9dafb7-19a4-4ec3-af77-f2509897d58c">
+<p nodeId="5e22cd84-3fe7-4ac7-8377-3dad536bd33b"><strong>16</strong></p>
+</td>
+<td colwidth="[68]" nodeId="05db212f-33c8-4bf9-86f9-63c4a26c59af">
+<p nodeId="c06e8f56-c06d-4abb-8581-cb1fdac57e6b">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="17393511-b8b9-4a63-b056-d76d039701a8">
+<td colwidth="[68]" nodeId="72a853eb-79b1-4454-8ac8-452e7391b95f">
+<p nodeId="d7022e82-654d-4e0a-a2f1-6a284fb70416">14</p>
+</td>
+<td colwidth="[68]" nodeId="bf432266-58bd-45ea-a328-8c0702d405e9">
+<p nodeId="377bdbd6-f9cc-4d05-ad05-805d776a14a5">tiagodangelo</p>
+</td>
+<td colwidth="[68]" nodeId="ad101925-7d9e-43af-addd-b41c19c7d8c4">
+<p nodeId="a478d0f6-58bd-49a6-8ef6-f22dd1822cf8">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="700f1b7f-e20c-4b04-af97-d4d2ba474ae1">
+<p nodeId="ccac1866-b3cd-4feb-81e6-148f8f603b2c">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="ff321d81-5947-4b43-bae3-f75a786552e0">
+<p nodeId="bc3989bc-49da-4c7b-8e30-2ef80e3205bf">1</p>
+</td>
+<td colwidth="[68]" nodeId="6e0c9ff6-aadd-4a0d-b4e9-8737d3485a81">
+<p nodeId="2bfd9354-1651-425a-b401-20ba55e2382b">0</p>
+</td>
+<td colwidth="[68]" nodeId="16582783-9afe-41fe-bbd1-e794b4891e9d">
+<p nodeId="035f3129-0282-49fe-ac07-7ca04a137360">2</p>
+</td>
+<td colwidth="[68]" nodeId="e906fbc7-225e-4064-a1ca-a1352afa9579">
+<p nodeId="03e71618-66a0-4ac5-8e29-2a89be7f33e0">+1</p>
+</td>
+<td colwidth="[68]" nodeId="bc088391-acb9-44f3-b493-32f6f44e4017">
+<p nodeId="f4e38383-7d2e-48cc-af0a-1b1eb3290fb2">14</p>
+</td>
+<td colwidth="[68]" nodeId="034f659e-8260-4b51-bf5f-2bff9d6f782a">
+<p nodeId="4060a906-4278-45a7-8509-7707fdfcfa01">还差 1 分</p>
+</td>
+</tr>
+<tr nodeId="517326ad-b166-4a24-8acf-72b4a9d836fa">
+<td colwidth="[68]" nodeId="a2215f21-9be0-4fa4-97f0-d67b9a9c2c19">
+<p nodeId="9327e7dc-2b54-4cc9-ba23-cabd163d268c">15</p>
+</td>
+<td colwidth="[68]" nodeId="b25e0a2c-edae-4844-8f12-3712e19035d5">
+<p nodeId="2fc58814-2122-4125-b1be-df321fba1b86">pedrosaccone</p>
+</td>
+<td colwidth="[68]" nodeId="07cead0c-ff60-4921-9042-8565a42ce564">
+<p nodeId="58aa486b-646b-4606-8d4f-aa38419bbf81">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="24d0cbc1-2830-46a9-be98-1e73ca9528fd">
+<p nodeId="110496ff-2493-4221-ad1b-1b974f6cff64">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="34a65968-bb9d-4b5c-893a-a367d3e14f86">
+<p nodeId="46d2d7a3-3e0c-4e39-abde-1d6cff355667">1</p>
+</td>
+<td colwidth="[68]" nodeId="5f79acfe-9a40-41be-a411-a5a48b463f3b">
+<p nodeId="a73aecc3-d7ff-4551-bf07-de4db8057963">0</p>
+</td>
+<td colwidth="[68]" nodeId="8e4996aa-e487-4639-8024-96eb5a65fbe7">
+<p nodeId="27f0515d-c014-4435-8f6f-2729ec7a8dae">1</p>
+</td>
+<td colwidth="[68]" nodeId="63329528-2639-4a6c-8848-045386314886">
+<p nodeId="3d67857a-3f47-4418-bd5c-b2d993254ec7">+2</p>
+</td>
+<td colwidth="[68]" nodeId="bc00a5b8-cd9c-4ae2-bc24-ab2ff8f59715">
+<p nodeId="998fa2d2-658e-4238-9121-fb4ae043ebad">13</p>
+</td>
+<td colwidth="[68]" nodeId="0e0fbe3e-6327-4d5d-90ba-b6ceebb3b6e8">
+<p nodeId="216749c5-adb6-4c8e-b362-a25ca2c05f20">还差 2 分</p>
+</td>
+</tr>
+<tr nodeId="1da0afe0-fdef-4487-bda2-9c4f4606ab5f">
+<td colwidth="[68]" nodeId="472e0c1f-4645-413b-9f0b-cbe4ee48a7c1">
+<p nodeId="89261b44-d457-46d4-b6e0-920a25ee591a">15</p>
+</td>
+<td colwidth="[68]" nodeId="ef27729f-4eb1-4267-98c5-e46b6061d1ae">
+<p nodeId="caa15166-0835-419c-9a00-0ef08087e5e9">renansilva</p>
+</td>
+<td colwidth="[68]" nodeId="6c09d87a-1cb7-465d-b1c2-14f2d79c4e38">
+<p nodeId="4840a4d2-38ee-4354-a744-aada92a11702">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="1da24fe7-c37f-4371-9300-921c2f740d11">
+<p nodeId="9af1e23b-3bf4-4808-b3c0-232f74a1b19b">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="94d9ede8-6cd1-4d29-bc45-0c6a6c7354b0">
+<p nodeId="a3a42f24-c254-4b4c-97a7-2cce12a86943">1</p>
+</td>
+<td colwidth="[68]" nodeId="736ada8c-8d0d-448f-b88c-a59d5053a106">
+<p nodeId="2e52e36e-3026-4c32-af8c-76f62dedb0b3">0</p>
+</td>
+<td colwidth="[68]" nodeId="d9522034-80ae-4b5c-a4a4-fc2d750c4ff9">
+<p nodeId="650bc277-9dcf-47c8-b2b4-3f209325d22e">1</p>
+</td>
+<td colwidth="[68]" nodeId="c82e5a14-e0c2-48b9-bc04-319800ce23a1">
+<p nodeId="cad557b3-99b8-40e1-bb40-d491b3b68e06">+2</p>
+</td>
+<td colwidth="[68]" nodeId="927f1445-b8dc-4ae4-aa1e-d6163e53b455">
+<p nodeId="29a2cd2d-5b8a-43c8-a84e-8ccd49f3a7e8">13</p>
+</td>
+<td colwidth="[68]" nodeId="b349cb09-3585-41f3-8861-388cb8fc806b">
+<p nodeId="85b9f01d-b0be-4293-93ff-a49330fce049">还差 2 分</p>
+</td>
+</tr>
+<tr nodeId="d95c194b-99fe-4a9c-8b3d-7b0b56801fe2">
+<td colwidth="[68]" nodeId="6d2d7ff3-1524-42e5-aa3b-3207b9588ea7">
+<p nodeId="cafce2f2-c9e0-4624-8ecd-6e524f5b464f">17</p>
+</td>
+<td colwidth="[68]" nodeId="99e4b0ec-4b9a-4c5f-a838-270ea301d257">
+<p nodeId="1e36f661-8939-4ea1-bb50-f018d281c2df">tatianarodrigues</p>
+</td>
+<td colwidth="[68]" nodeId="1539dd68-b348-4a3a-b4ff-74dd1e33c3d4">
+<p nodeId="a6a50a68-f556-4cf8-87cc-f9aef5006404">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="a4ecaf0b-7a5e-4c87-b4ee-bb95cbb6337d">
+<p nodeId="88b77cd4-c633-4073-a329-4c6d7d3740c4">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="272bbb2c-4d8f-4354-9990-dfff6e67cd40">
+<p nodeId="23147f5e-abaa-4e8d-a852-224dcb6b3b06">1</p>
+</td>
+<td colwidth="[68]" nodeId="4b69bfcb-d661-4570-bdae-70d2e13a211a">
+<p nodeId="ae706245-7deb-4ed4-ad02-46f02c21aaa5">0</p>
+</td>
+<td colwidth="[68]" nodeId="7f203dbf-1fc5-4c2b-a4b1-a1d88bcded1f">
+<p nodeId="8027fbf3-a090-4518-8a03-476d339f96f1">2</p>
+</td>
+<td colwidth="[68]" nodeId="02ea594d-1fee-4736-9467-11ea77b71f02">
+<p nodeId="405f704b-0619-4e67-b384-981180a35dd6">-</p>
+</td>
+<td colwidth="[68]" nodeId="3ac0155f-0366-4a40-8c44-bb79b8589d71">
+<p nodeId="69d00eb0-6d68-4981-9602-621f0a61c2d6">12</p>
+</td>
+<td colwidth="[68]" nodeId="93175bfa-3486-4775-8487-042b766f36a2">
+<p nodeId="9ea2916b-3f39-481a-ac9d-446d3606ca61">还差 3 分</p>
+</td>
+</tr>
+<tr nodeId="8edb348c-ba7d-4d14-aef4-bbc7b65e061f">
+<td colwidth="[68]" nodeId="66d048a3-b983-4820-acbe-1af8044394f0">
+<p nodeId="6a71702e-7507-4db2-8270-de5effbf88ec">17</p>
+</td>
+<td colwidth="[68]" nodeId="27b25903-2f40-4cf1-b6a8-3ca47b226d41">
+<p nodeId="2895882b-707b-4e1b-b83f-a25946c57279">davidcaramaschi</p>
+</td>
+<td colwidth="[68]" nodeId="5b31dfc6-6984-4b35-ba62-6fc0a9553355">
+<p nodeId="a4dc74f5-82b8-4d23-8822-4c661ec1a9d4">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="1e419afd-8b99-4eca-a381-13a927263cdd">
+<p nodeId="7a1ed388-dbdb-4b5d-a264-35d897f19cb7">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="c8a7f2a1-b31f-47d3-9e2b-b647590f7c21">
+<p nodeId="b310a991-d0ff-4939-aade-d1b54858c368">2</p>
+</td>
+<td colwidth="[68]" nodeId="a76a5b66-f0e9-4faf-8485-f23fa20cae01">
+<p nodeId="11780163-42ce-417f-a38a-25aea3196d41">0</p>
+</td>
+<td colwidth="[68]" nodeId="ee3727f2-20a0-41fe-88e7-9caa48842adf">
+<p nodeId="feb5d46b-cdce-4d3b-9c52-d358e4734250">0</p>
+</td>
+<td colwidth="[68]" nodeId="7e192cb0-ecda-4777-af00-ee592f10657e">
+<p nodeId="a3bd9424-b823-4842-8f74-3481d1970edc">-</p>
+</td>
+<td colwidth="[68]" nodeId="c28cc28a-0098-48c2-a6d1-0fff777a469b">
+<p nodeId="4221b7ab-64de-4b08-9387-22215622c733">12</p>
+</td>
+<td colwidth="[68]" nodeId="f8e89255-571f-4e03-a445-6bfb49eb790a">
+<p nodeId="d6bf3a53-da15-43db-a82f-e09909a92994">还差 3 分</p>
+</td>
+</tr>
+<tr nodeId="b8f5841f-c63d-4126-9a1a-79daa9986acb">
+<td colwidth="[68]" nodeId="721f59b0-d875-4235-8be0-f2583743d30c">
+<p nodeId="3a431fe3-2437-44ca-8537-97b4d9d37cbc">17</p>
+</td>
+<td colwidth="[68]" nodeId="f85cd1b7-8e05-4ce7-bffd-e1e35979f491">
+<p nodeId="a6192150-3202-4190-9da0-76ca6d1b9f4c">marciajesuino</p>
+</td>
+<td colwidth="[68]" nodeId="7ff29150-eea3-4080-8c00-3515ae3574a2">
+<p nodeId="44177822-71d3-47ef-bf01-758680c3b7d3">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="7dc10dec-6fea-42a9-b0db-219cd11ab9f6">
+<p nodeId="c646a641-0796-46c6-ab75-c146d767f210">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="cef5d958-88b8-4c63-9390-a3702be63640">
+<p nodeId="8f37cade-1b6d-455b-8228-ae806dc0a7f4">0</p>
+</td>
+<td colwidth="[68]" nodeId="d0c9956f-8a56-4f4b-ac52-6c1f3ddbabdc">
+<p nodeId="2169a8e1-6e67-4de1-8e08-f24af6aaf9ef">0</p>
+</td>
+<td colwidth="[68]" nodeId="321229eb-dc20-434d-88ff-50aac60fb6ac">
+<p nodeId="20430990-72ad-4874-9e61-d031057c8d6e">4</p>
+</td>
+<td colwidth="[68]" nodeId="98a71926-d391-4084-874e-5dccb05d12d4">
+<p nodeId="2336dbe8-f6dc-4223-b69c-2580aec5771f">-</p>
+</td>
+<td colwidth="[68]" nodeId="f2f59b8d-6505-4209-be06-9524e6ecd297">
+<p nodeId="3a630260-3ae0-47cb-85df-4119e486178b">12</p>
+</td>
+<td colwidth="[68]" nodeId="87eea10a-79e5-4bd0-8ce7-e88edb896739">
+<p nodeId="ce9f3ed0-ef09-49f3-bd46-794a6a4d5dcc">还差 3 分</p>
+</td>
+</tr>
+<tr nodeId="66e4b5a2-6fef-49c5-b2ac-0ca1b7e34675">
+<td colwidth="[68]" nodeId="6a880d26-5591-4df0-91b9-cb40446a83aa">
+<p nodeId="ed7397fc-0c43-447e-b52c-b20a8b8f8f59">17</p>
+</td>
+<td colwidth="[68]" nodeId="c3f22a94-191e-49d6-aedc-83ac8aa446c4">
+<p nodeId="95e6c06b-30a8-4141-9034-8f3932b211b4">josenascimento</p>
+</td>
+<td colwidth="[68]" nodeId="66fefe8b-16a2-4b77-8a5d-f8be49f55fed">
+<p nodeId="dd7c3d4c-d000-436e-834a-0ee1662658e8">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="ca1859db-6f7c-4ec4-bba0-d442071db1b3">
+<p nodeId="34df63db-030d-4c5c-8bba-52a336bd7221">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="3dfd004d-99d3-4ca1-afdd-e9a18d6987e7">
+<p nodeId="9328adda-4478-49e3-bb77-28ebce3ad238">2</p>
+</td>
+<td colwidth="[68]" nodeId="42dc1203-4f98-41cf-a17c-3a817758f08f">
+<p nodeId="b95c5f3f-58b9-41d2-84c6-fdc62cf21465">0</p>
+</td>
+<td colwidth="[68]" nodeId="6e1a9b27-fb6c-42cc-86e0-32bfaa9e006b">
+<p nodeId="897df17c-6661-457d-968c-edc3ea37b489">0</p>
+</td>
+<td colwidth="[68]" nodeId="cdae9696-5bde-4752-900c-922e039126f4">
+<p nodeId="824118cc-597d-40fe-8776-8f316cdfb23c">-</p>
+</td>
+<td colwidth="[68]" nodeId="af4bb637-0d64-4d7d-8112-a9402f528756">
+<p nodeId="d48cdad3-fee0-4863-9b05-4cd27e9e6dc4">12</p>
+</td>
+<td colwidth="[68]" nodeId="dde19ec9-6977-4448-8616-f93400f6148c">
+<p nodeId="706f3add-333a-4e13-8310-b71de20109b0">还差 3 分</p>
+</td>
+</tr>
+<tr nodeId="ddf351af-3a46-4042-8fb1-0266bc2f862a">
+<td colwidth="[68]" nodeId="f219f136-b6a9-44c3-ab3a-49ced468e430">
+<p nodeId="45527e18-cf05-4895-8266-c4ed94f3377c">17</p>
+</td>
+<td colwidth="[68]" nodeId="9838592c-ce4b-43f3-9fdd-3c7c8e7d5f9b">
+<p nodeId="759b947f-1bf5-492d-bb52-887b2f6d55bb">tamirislopes</p>
+</td>
+<td colwidth="[68]" nodeId="4b50353d-792c-48dd-b692-7478314435d8">
+<p nodeId="2c6a84f7-fb02-4b9e-b12d-584607c16580">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="501be98f-3a76-45ed-ab63-bae016659f01">
+<p nodeId="ed3351b1-5b39-4e52-a13b-eb47d3d4cfcb">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="2802e2c7-32a1-4230-a91d-0bd3d041714e">
+<p nodeId="8a931fb3-7d75-4f2a-abd2-b46ffc1a1fa5">2</p>
+</td>
+<td colwidth="[68]" nodeId="37d277f7-df85-41f1-8f70-e7f61b7d13cb">
+<p nodeId="21f66c56-2d46-4c15-a42a-e5d4fdde57fd">0</p>
+</td>
+<td colwidth="[68]" nodeId="a7850ce9-1581-44f3-acd1-23d1af1856c2">
+<p nodeId="0b27b263-57e0-4795-a8b2-5be1412bda75">0</p>
+</td>
+<td colwidth="[68]" nodeId="9fa1c513-cc57-4789-ba51-e4aabc77d3dc">
+<p nodeId="db5fca54-a40e-4564-b1b2-c9ad225392f0">-</p>
+</td>
+<td colwidth="[68]" nodeId="6cfb3e50-ab00-4b36-838a-67eed3b1220c">
+<p nodeId="8202ba9a-faed-4932-819f-5eb6794e4c79">12</p>
+</td>
+<td colwidth="[68]" nodeId="61c53cba-9540-4240-ba1c-fecde5c87c93">
+<p nodeId="2b84a2c6-6e7f-4ca8-999f-0e9f30203690">还差 3 分</p>
+</td>
+</tr>
+<tr nodeId="ad412773-440b-412f-95d5-4262c755f7f3">
+<td colwidth="[68]" nodeId="17c8b7a9-6161-4825-9d24-ab8b2202f134">
+<p nodeId="2eca9d5e-8a18-447d-bb50-3830d78eb040">22</p>
+</td>
+<td colwidth="[68]" nodeId="bff78fa1-b69c-4830-8dbf-2dc65a574687">
+<p nodeId="a1d8ff86-8e55-4256-9de7-b83fdfe04ca4">claudiareis</p>
+</td>
+<td colwidth="[68]" nodeId="c5f745ff-7a1b-499c-9a4f-fbad3456d5ee">
+<p nodeId="3fc8c1af-53b4-476b-858e-b34e24a78948">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="9fc9e5ab-1fb7-4db7-a71c-3cab5189422a">
+<p nodeId="66d29026-2710-47b4-864e-edae13eb5a37">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="0d31e9cc-d92b-407c-8e6f-1c2721d0f25a">
+<p nodeId="f496a135-a005-43d4-91d7-4f235cab17d5">1</p>
+</td>
+<td colwidth="[68]" nodeId="78960036-83c5-4f87-8a73-902ff578280c">
+<p nodeId="25fa82a4-5ea4-47d7-ba8f-d9de60d9cdc5">0</p>
+</td>
+<td colwidth="[68]" nodeId="fd97eeae-4042-4ba4-aa36-93fe64bcb31a">
+<p nodeId="6a261e06-39ac-493f-a153-9ba590fd1276">1</p>
+</td>
+<td colwidth="[68]" nodeId="e57dc7ec-5c0e-4d70-8411-1a9c03f20cdd">
+<p nodeId="0ff91fd1-7426-438c-be9b-8b3150014976">+1</p>
+</td>
+<td colwidth="[68]" nodeId="6efef736-360d-45a3-948a-0b685140c6c6">
+<p nodeId="4054beaa-16f7-4ba1-b2bb-723818896d78">11</p>
+</td>
+<td colwidth="[68]" nodeId="182be902-3546-430e-83f4-ab1ef28dc4a3">
+<p nodeId="81b8adbe-e661-422a-a4ef-f60454245658">还差 4 分</p>
+</td>
+</tr>
+<tr nodeId="ba8248cb-ce13-4e7d-90a5-52688e2877b8">
+<td colwidth="[68]" nodeId="e77b7696-bcca-4f93-a26f-4a96436deb0a">
+<p nodeId="b2aeb9fe-527b-4671-b2fa-ac8588eb5c3b">22</p>
+</td>
+<td colwidth="[68]" nodeId="4dfc5da7-8ba2-4edf-ab35-bf7c3bebd0d5">
+<p nodeId="208a356c-289d-4424-8838-66bf36459277">karinacolomina</p>
+</td>
+<td colwidth="[68]" nodeId="cf9cd3f9-6642-4bfa-954a-0f41027f70d2">
+<p nodeId="2933a35f-82d0-4f4b-a3ca-f1ebc9b73447">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="5910ffc9-c5eb-4517-a115-3e4959fee660">
+<p nodeId="6fc26241-10d0-4e31-bf17-c196ee3e9647">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="154aef51-c8bb-4539-b6e7-9342730a1fc2">
+<p nodeId="0b47f118-4ce2-4571-8ed6-c2e96730cbf2">1</p>
+</td>
+<td colwidth="[68]" nodeId="eb70108d-0b83-47dd-86c7-1a6983ad22bd">
+<p nodeId="ebc3d007-1c7b-48df-8188-608441313a44">0</p>
+</td>
+<td colwidth="[68]" nodeId="9809fb5d-6701-41c5-b8b1-9e42934b691c">
+<p nodeId="c01e98db-8dd1-4cd5-93a4-98079d1bb6cd">1</p>
+</td>
+<td colwidth="[68]" nodeId="d411e24c-64e8-4616-985f-3cb741a9c2ab">
+<p nodeId="1ad0896c-4a85-4a9f-898d-e34038d72c01">+1</p>
+</td>
+<td colwidth="[68]" nodeId="a0df457b-69f9-4025-9081-5abb45397764">
+<p nodeId="9c181fcc-ce4e-4dd6-9e2b-7b5399173c87">11</p>
+</td>
+<td colwidth="[68]" nodeId="45160e89-479e-4d56-9f6a-aea84a9ab1a4">
+<p nodeId="3e99f44b-ddb7-4600-80bc-adab35a546ec">还差 4 分</p>
+</td>
+</tr>
+<tr nodeId="721c27eb-50ad-42bb-9ec9-565001bcc8ba">
+<td colwidth="[68]" nodeId="ddcaa7cd-76f6-4c8b-801b-617a5d36bcbd">
+<p nodeId="d05c801d-e9a1-49fa-bb8c-0b111898eee4">22</p>
+</td>
+<td colwidth="[68]" nodeId="00fa6543-0a1e-43e7-ba5f-ca43402d1054">
+<p nodeId="6fd39d78-c382-49a5-a10c-b6cceb4d09ed">jadycarvalho</p>
+</td>
+<td colwidth="[68]" nodeId="7119f8a7-92cb-4f52-a340-82fbe17d3901">
+<p nodeId="36c10bc1-234d-45bb-ad8d-68d729d0345e">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="b107b2e7-66ac-433f-a576-612e8d69f33d">
+<p nodeId="2aeefc68-293a-4028-83ce-3b7bf8eeea23">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="89564812-073a-4aec-8b62-fb27984e54a0">
+<p nodeId="233b68f3-d0da-4935-8730-7760d4b00c26">1</p>
+</td>
+<td colwidth="[68]" nodeId="54466175-3653-4b26-9c69-719356b20de5">
+<p nodeId="8ef89ee6-75e6-4ab5-9ce8-c7964c04bbef">0</p>
+</td>
+<td colwidth="[68]" nodeId="7c576be2-4049-43db-84d1-c72ab4650e6d">
+<p nodeId="322b1f48-6fea-4b37-8075-16d4bb81bac4">1</p>
+</td>
+<td colwidth="[68]" nodeId="21ce3955-d2bc-4abc-8090-ba2e0a7174a0">
+<p nodeId="6449683a-efca-437b-9bad-c877768b0d21">+1</p>
+</td>
+<td colwidth="[68]" nodeId="4728496e-f946-46c9-a136-1c81d7db7004">
+<p nodeId="3f7dce92-e87d-4f23-9e0f-1493e56d931d">11</p>
+</td>
+<td colwidth="[68]" nodeId="361fc39b-8830-42a3-b0e2-0b0e2669e548">
+<p nodeId="9b1d7866-2349-4a20-a7a9-3c7c93d7ff28">还差 4 分</p>
+</td>
+</tr>
+<tr nodeId="cab87cf6-d73e-414a-bfdc-6da60715a874">
+<td colwidth="[68]" nodeId="6661fc7a-33d3-487d-b581-e63d01096508">
+<p nodeId="8c4486a9-3aac-40bd-ae45-b0e52d2e6a21">25</p>
+</td>
+<td colwidth="[68]" nodeId="d29b7c97-7878-4d86-9a8f-9fc9da6ecfe8">
+<p nodeId="24b519b9-8fdc-45e1-a650-acc11dd42843">milenasantana</p>
+</td>
+<td colwidth="[68]" nodeId="4ec0f275-fa2e-4cc8-b498-439dfd157f79">
+<p nodeId="61380fc4-4c17-40b2-b673-bfe2812d7471">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="5137176b-f154-45fe-ba98-96431b5a39ec">
+<p nodeId="67e7c381-93f2-4aa6-95e4-ef30369f32d1">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="b1874db1-3ee5-44c7-b99e-d5fbda667f25">
+<p nodeId="18bd2315-6f6f-4e16-b1fa-4f12df0b71ae">1</p>
+</td>
+<td colwidth="[68]" nodeId="a12ae826-0780-4c48-a888-92734eaba974">
+<p nodeId="11cea45f-11d5-4b00-b9e2-34864037286e">1</p>
+</td>
+<td colwidth="[68]" nodeId="0df9dff5-8222-497b-9981-9f98a0847634">
+<p nodeId="27e7b705-1050-419c-8a53-5a4ccfa2cdbe">0</p>
+</td>
+<td colwidth="[68]" nodeId="1b7e5a7b-81a1-40d5-b2e9-aa9d7f5dd261">
+<p nodeId="095b821c-dd45-4980-a0b7-44052a0b27cb">-</p>
+</td>
+<td colwidth="[68]" nodeId="93d1044b-134d-439b-9665-5234ef4b7df3">
+<p nodeId="fe07252c-6797-4c4e-9d4e-f7ebc03a707d">10</p>
+</td>
+<td colwidth="[68]" nodeId="ccd7ca30-3dba-4d25-bcbf-4d006dbe2d3a">
+<p nodeId="31dd4737-6664-4061-83a8-8f2bb3e91721">还差 5 分</p>
+</td>
+</tr>
+<tr nodeId="f370a70b-efcb-4bc5-a900-c201eabadd4f">
+<td colwidth="[68]" nodeId="5dcf0bcd-6f99-411a-a696-30c61c24fbc0">
+<p nodeId="4e783cf7-3cc1-4fed-b6b5-0a6c94cc104c">26</p>
+</td>
+<td colwidth="[68]" nodeId="084e3b01-8a99-4a3e-9cc7-d6c0f804bdf4">
+<p nodeId="767202f1-3b6f-4bb3-8658-c58947ff4082">allanmaalouli</p>
+</td>
+<td colwidth="[68]" nodeId="59c3fbc0-1311-48e1-b5be-697ab05fba9a">
+<p nodeId="76f5802a-036a-4f60-949c-803e753875e9">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="ef3a74b1-a9df-4af0-a05c-0bccb0334e1e">
+<p nodeId="588f0d4a-9f36-4af5-8be2-82083552ba95">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="8399e57b-4463-483c-83b4-0bcb24a08758">
+<p nodeId="e16239fb-3132-4277-bcab-646e01fa7382">1</p>
+</td>
+<td colwidth="[68]" nodeId="f1e7c431-4e7f-41c1-af45-3faedfc5c9d1">
+<p nodeId="c071a73f-76a1-4878-ac38-6e40af8f8f9a">0</p>
+</td>
+<td colwidth="[68]" nodeId="34f867fa-869a-4443-a62b-c7ac08ecb926">
+<p nodeId="7c12e40e-cd12-4fe3-b48b-c8250741823f">1</p>
+</td>
+<td colwidth="[68]" nodeId="07e828b6-2934-48ea-8d21-92c4902fb036">
+<p nodeId="16544218-bb13-439e-9a78-9e489cd3987e">-</p>
+</td>
+<td colwidth="[68]" nodeId="2b2990e4-f3f9-482d-9490-32a31528857a">
+<p nodeId="d274b54d-a064-46ab-8065-61115ecdfdfe">9</p>
+</td>
+<td colwidth="[68]" nodeId="75edc084-b09d-48ba-86a0-6beba0c6e7ba">
+<p nodeId="18ad7816-3026-4fd2-8a81-4f0a4df668d7">还差 6 分</p>
+</td>
+</tr>
+<tr nodeId="a011b148-035a-4a56-8b23-f0f763386f50">
+<td colwidth="[68]" nodeId="73e6b48a-44ca-4d74-9983-7928d3f3da10">
+<p nodeId="11da3831-06bc-444c-b481-32bcd95ec962">26</p>
+</td>
+<td colwidth="[68]" nodeId="0fc13968-4c67-4128-947e-8affbcbf5a58">
+<p nodeId="36aae1fc-f184-4a96-8dc8-170747f06931">felipecruz</p>
+</td>
+<td colwidth="[68]" nodeId="3cf1aa90-96c5-4c9e-b21e-349e5ea81c6a">
+<p nodeId="31d65e53-9a04-4062-8fd0-e6cdadb18d28">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="a68c303c-3d99-404e-8831-0ac1d9be0527">
+<p nodeId="f45fcafd-cdf5-44d7-8229-706e0239b6fc">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="a1d3dcb9-f16c-4324-affc-a84fa54967ed">
+<p nodeId="c168aa01-96a4-4782-9d9a-5716f1f1b41d">0</p>
+</td>
+<td colwidth="[68]" nodeId="d1995e22-1ce4-4db7-b788-586145387c9c">
+<p nodeId="b9cd8231-f68e-4c7d-899d-2ffa03e91fdb">1</p>
+</td>
+<td colwidth="[68]" nodeId="d5fa80eb-5803-4227-8692-39144bcdc059">
+<p nodeId="a10a1bd8-9a66-4e95-8c3c-dca9e3918044">1</p>
+</td>
+<td colwidth="[68]" nodeId="ea46dbb0-79b2-48f4-a97c-4dd75c27e11b">
+<p nodeId="2e560e05-1da9-4d32-9c75-2ff961a267ac">+1</p>
+</td>
+<td colwidth="[68]" nodeId="2503f558-5994-4fc7-848f-4358265bda12">
+<p nodeId="239becb5-7184-4331-962f-f605af01b05d">9</p>
+</td>
+<td colwidth="[68]" nodeId="c0d3c730-6763-4588-8dba-8587a1ead03c">
+<p nodeId="3293acdc-9286-456f-8bdf-e851a2dc37d2">还差 6 分</p>
+</td>
+</tr>
+<tr nodeId="7f14571b-6059-45f1-a0ea-98de01cb4740">
+<td colwidth="[68]" nodeId="566bd108-0ff3-4000-8d67-92dc03604ac5">
+<p nodeId="73becbb9-9390-453c-a635-2cf1f0faa9d8">26</p>
+</td>
+<td colwidth="[68]" nodeId="8f80fe20-b0e3-489d-8ceb-2e00a7d3fa64">
+<p nodeId="0866d061-2e6f-4ca5-81d6-c37f28af7514">otaviomazzega</p>
+</td>
+<td colwidth="[68]" nodeId="3ade7bc3-728f-4de8-8f6b-9cf85f493b54">
+<p nodeId="06194159-fde0-4650-8c36-75ced20ecf9e">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="fae390c4-5b1c-4ae5-ba62-bfb822a1574a">
+<p nodeId="acc4c43f-e77c-4857-9271-678c9b94e1fd">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="b309ad40-a430-4b3a-8d37-8dbc81cfd65f">
+<p nodeId="1fa4097f-a197-4df6-bdc7-82aca999b39f">1</p>
+</td>
+<td colwidth="[68]" nodeId="b973894d-16e8-49cf-b0ea-a5f909786395">
+<p nodeId="7c6f1339-ab8c-453f-b8b4-83faa5f46e28">0</p>
+</td>
+<td colwidth="[68]" nodeId="83809133-acf2-41ff-b3e9-5361fdc88305">
+<p nodeId="1d16ee61-b2fe-4642-b6c5-eb9683399477">1</p>
+</td>
+<td colwidth="[68]" nodeId="38aff98c-537b-4e0f-9f87-03dc1c2050ef">
+<p nodeId="d5309630-e2f9-4c79-8c03-ef441190d1ae">-</p>
+</td>
+<td colwidth="[68]" nodeId="b3b106fb-3b26-4d2b-8d98-11dbf067f71a">
+<p nodeId="4f452dbc-c196-4a13-8db9-7deb4149364d">9</p>
+</td>
+<td colwidth="[68]" nodeId="e31d5c75-121d-4102-91af-f78c5b0779ef">
+<p nodeId="218a2a56-26d2-481a-95eb-ef50e54ab375">还差 6 分</p>
+</td>
+</tr>
+<tr nodeId="89591237-5783-4379-ac01-adc06c734e57">
+<td colwidth="[68]" nodeId="614d3f92-bab5-4edc-984a-416e39d9609a">
+<p nodeId="394952c4-5796-454b-bb48-43fa75641a44">29</p>
+</td>
+<td colwidth="[68]" nodeId="d2a6ee32-f08d-41ca-85b9-5c437cef2f50">
+<p nodeId="b291bcd3-cc68-46f2-9a6f-6c9e2c741f7f">paulosantos</p>
+</td>
+<td colwidth="[68]" nodeId="377a695f-f2c6-430c-9c35-c0e7c6632f2f">
+<p nodeId="55572d6e-a5a0-40f7-9ea7-0a80170d752e">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="08ae0eee-7be2-4e0e-82fd-29a752766a93">
+<p nodeId="072260a0-e757-4a07-bce6-2f2f055e9031">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="795b656d-ad33-4e67-8890-5ee1e715388d">
+<p nodeId="6f364887-afea-444c-b30c-a0642e0802e2">0</p>
+</td>
+<td colwidth="[68]" nodeId="1990a447-9d6c-46bb-a962-1bdd9a40149e">
+<p nodeId="2b8dbdef-a2aa-4415-a40f-a0e430254e6a">0</p>
+</td>
+<td colwidth="[68]" nodeId="e14c29e8-a2b6-4e53-8605-d83af83a7b8b">
+<p nodeId="1e93de05-f14d-484b-9f4f-83c393ba1d2f">2</p>
+</td>
+<td colwidth="[68]" nodeId="6c9a7d7e-155a-4a36-a9b0-c945a3e1a4d2">
+<p nodeId="bba49075-2268-4c47-b5af-647ab93453c5">+1</p>
+</td>
+<td colwidth="[68]" nodeId="eb42e45b-2792-4255-915f-312255ada97f">
+<p nodeId="0c260a59-0f9b-4824-866a-05c9b04992d2">8</p>
+</td>
+<td colwidth="[68]" nodeId="fe408487-0b08-4a3e-ad16-31047cf139ee">
+<p nodeId="059f2620-2085-4aea-a12b-320dc0c0f5ad">还差 7 分</p>
+</td>
+</tr>
+<tr nodeId="427f4ee9-3781-4c63-9855-8c33407fceb6">
+<td colwidth="[68]" nodeId="86e8f405-7ab8-4a67-a0fc-299768523ccb">
+<p nodeId="cdb2fff2-55a4-4cb9-bba3-1fe26312dd9b">29</p>
+</td>
+<td colwidth="[68]" nodeId="eac05f39-57e9-439d-89db-29f1093ff18f">
+<p nodeId="ec9dead7-0051-49f3-a3ec-396dccf7ca48">tatianeribeiro</p>
+</td>
+<td colwidth="[68]" nodeId="75b8df3e-9716-458f-a2d1-5f22c47e882e">
+<p nodeId="e98d1741-c054-4e77-81c7-ee0a7dddf80d">lucasferreira</p>
+</td>
+<td colwidth="[68]" nodeId="c2ceee01-f4cb-4bfd-b336-fbf699fbfac5">
+<p nodeId="a246d545-0ed4-4a1d-87d5-56a31eb23a65">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="1b72c065-c8c2-4fca-a8b5-f5480d42ce5d">
+<p nodeId="3870c4b1-a1da-48c6-a2b9-88d350b4b587">0</p>
+</td>
+<td colwidth="[68]" nodeId="dba53b54-5f12-4a78-a511-2ad21e02230c">
+<p nodeId="c034eb7d-13a8-49b2-a5dc-7e5e0a380ffd">0</p>
+</td>
+<td colwidth="[68]" nodeId="10a20f65-2a14-4178-a50b-b8f0ecaebe1c">
+<p nodeId="e64e9eb1-3434-4bc9-b18a-9092cce3ee4a">2</p>
+</td>
+<td colwidth="[68]" nodeId="4258570c-e06b-4a07-9af1-5474293878cc">
+<p nodeId="e3718b22-2a1c-4262-8690-235666fad73a">+1</p>
+</td>
+<td colwidth="[68]" nodeId="65d5a51b-3da7-4d5f-97a9-1e7cf1914a80">
+<p nodeId="95791686-b0f9-4371-9977-1755bdcb32ac">8</p>
+</td>
+<td colwidth="[68]" nodeId="ff86a8de-3cd7-4749-ad51-e5a1a77d7634">
+<p nodeId="ea26867f-2988-4943-9e2a-dff81ffe0f0b">还差 7 分</p>
+</td>
+</tr>
+<tr nodeId="efe2a2ba-2356-4f91-a195-54b3362f2f0a">
+<td colwidth="[68]" nodeId="de62e67d-8ffc-48c3-8fe6-47d3cea96552">
+<p nodeId="2fd13986-00b8-469c-94b4-8889cdb780b0">29</p>
+</td>
+<td colwidth="[68]" nodeId="6f89af09-ed52-42ff-be8e-aede273ff099">
+<p nodeId="7de5334a-a3e3-4ddd-a4f8-cd568bf263fc">leandroresende</p>
+</td>
+<td colwidth="[68]" nodeId="8c69a421-017a-407f-9918-f1d8d1408bb0">
+<p nodeId="003a293c-2feb-420e-ac25-d3585f590ac2">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="e7efbe78-3efa-4fae-9a23-8a55747875b6">
+<p nodeId="32fc2071-6c9d-4bc0-bbe9-ad5eab1f268d">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="d592cd07-d9fa-4b73-86d1-2a3d4d090256">
+<p nodeId="d7b863f6-2b00-449f-88fb-eeac1a329f20">1</p>
+</td>
+<td colwidth="[68]" nodeId="0837236c-27c2-464a-a713-0ef1bcea4ca0">
+<p nodeId="3a13d557-9ea7-456c-82cf-2ee0fa2c01bd">0</p>
+</td>
+<td colwidth="[68]" nodeId="89355afd-3a24-4105-97c5-3c5931163e4c">
+<p nodeId="9c4970e4-a3b4-4133-8f39-5228bcf28aad">0</p>
+</td>
+<td colwidth="[68]" nodeId="faf041d4-8a13-424a-882e-fa0155ef55d1">
+<p nodeId="86e82cf8-d6f0-4cf9-8a0f-199fe9241263">+1</p>
+</td>
+<td colwidth="[68]" nodeId="c63e40c0-fb18-493f-8cfb-ab4923cf62b2">
+<p nodeId="f43e20e6-e1a2-40dc-8956-ca505baccac0">8</p>
+</td>
+<td colwidth="[68]" nodeId="8c60d0af-53af-4406-8b32-99167d3cfdba">
+<p nodeId="f9797a39-d608-4e20-b40a-a3aa464ff62f">还差 7 分</p>
+</td>
+</tr>
+<tr nodeId="919f3327-2e03-495d-be1e-2c70ef7427fd">
+<td colwidth="[68]" nodeId="c4afbfa4-05d6-4000-ae44-a6c3c6ea7a8b">
+<p nodeId="9be8ae12-a2bd-44be-9478-cc28cd838d76">32</p>
+</td>
+<td colwidth="[68]" nodeId="933a1a0f-acfe-4e8a-96be-c5927fbb0483">
+<p nodeId="312a711e-00fc-4f11-863a-0249ca3a51b3">marialisboa</p>
+</td>
+<td colwidth="[68]" nodeId="f3150dea-fc4a-4ada-8beb-251df0313945">
+<p nodeId="55a440ca-e167-413a-9475-43697a1f10d7">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="e69c9035-65a9-4f44-96e2-8722f7b00f3a">
+<p nodeId="5f173933-519c-4e60-8d36-d6d35ae13325">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="561ca0ac-bb71-4b3a-921c-e0973d9ab385">
+<p nodeId="38767703-b5ce-402c-9cf4-7ee1a883d4b2">0</p>
+</td>
+<td colwidth="[68]" nodeId="fb5b752a-baaa-48dd-b905-3e669a7c96bc">
+<p nodeId="0b0a0475-3c8f-4de2-8c32-c1c5e5fb0da4">0</p>
+</td>
+<td colwidth="[68]" nodeId="4f86a1dd-57ad-4862-824c-257015158ccb">
+<p nodeId="55e3e1ef-ae8b-4cad-bafc-b51fae39560b">2</p>
+</td>
+<td colwidth="[68]" nodeId="a8ec80d6-bf1a-4e27-b2fc-b50f3ac92eba">
+<p nodeId="0de9390e-31d2-4e50-8266-6296d914cee9">-</p>
+</td>
+<td colwidth="[68]" nodeId="017e3ed9-0fb3-485c-8369-ca1c46f1ec02">
+<p nodeId="b41d3598-b561-4fb7-ad08-18df1caa646e">6</p>
+</td>
+<td colwidth="[68]" nodeId="5870134f-3fcb-4e08-a716-00d7bba99954">
+<p nodeId="82406dc4-f466-4102-b944-96f694d7c571">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="7afd387a-ebdf-450d-87b3-4d7c10147cb2">
+<td colwidth="[68]" nodeId="5a4fc7c8-5d14-4b57-834c-ca8a2754d4f9">
+<p nodeId="1da62dfe-48ce-4dbf-9361-eae9d81ebb6d">32</p>
+</td>
+<td colwidth="[68]" nodeId="16d7ec28-e73a-4ed6-a889-0903d953ef7a">
+<p nodeId="ee00a271-96f9-4169-ba54-3cc9e560149e">lucasreis</p>
+</td>
+<td colwidth="[68]" nodeId="c0f07e48-779c-4953-8321-0d4cbc75d9de">
+<p nodeId="55b20874-e157-4a4f-94fb-5cf48eebc59c">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="78d66ebe-2d3c-4584-8ced-1b06ea148c59">
+<p nodeId="5b66ba0a-a969-4b8a-b76d-5385c99648dc">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="93fee771-51ec-4cfd-973a-187ade8da97b">
+<p nodeId="7b7bf942-ba20-47db-a3b4-3dd3f9fece9d">0</p>
+</td>
+<td colwidth="[68]" nodeId="9573721a-20ec-4b6c-b93c-ce7db1b91cb2">
+<p nodeId="0f377939-90a7-4feb-8eee-83f98a85a0bb">1</p>
+</td>
+<td colwidth="[68]" nodeId="58c10ff8-9592-482f-8573-893ac7a46115">
+<p nodeId="4f62e5fd-84ba-4f9e-82c7-f2207140a759">0</p>
+</td>
+<td colwidth="[68]" nodeId="7dfb1610-e619-4401-b022-d82e9b096e74">
+<p nodeId="16e09020-708d-4fd9-b792-c4caa5aaccca">+1</p>
+</td>
+<td colwidth="[68]" nodeId="7bf9f14f-8f80-4b46-9797-67f7c008c7c1">
+<p nodeId="e3514dfb-57b1-4c31-9ab8-2a404541a5a6">6</p>
+</td>
+<td colwidth="[68]" nodeId="3af4ec72-93c3-4cb3-a0d5-618d7344122c">
+<p nodeId="cf7eac75-5a78-4f82-9948-5ee80d2a1735">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="99013713-fd86-4a58-b114-2e8e7d126795">
+<td colwidth="[68]" nodeId="8874b61c-e1f8-4831-ab0e-07c42dcd4a49">
+<p nodeId="6bc9f3ea-0d25-432a-ba82-a676cf19e4e8">32</p>
+</td>
+<td colwidth="[68]" nodeId="842bd28d-5c8c-4bfa-9576-f63f494a7590">
+<p nodeId="3d0c0496-bb9c-4d9d-9770-2670dd4655ad">nilmaxfranca</p>
+</td>
+<td colwidth="[68]" nodeId="24af26d5-6e59-4a56-a31f-3e9fbb1dbbeb">
+<p nodeId="d94d4073-efae-4047-ad52-7d0c4294b2eb">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="82cbf0ec-1c0b-4d7b-be95-005b7c258e7a">
+<p nodeId="6a3faf48-b859-4acc-b278-a91087a138e5">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="8695f96d-7ad4-4f2a-893e-74a1bb9ca2b9">
+<p nodeId="39429483-a55c-4ddd-9a7e-fbf4df221200">0</p>
+</td>
+<td colwidth="[68]" nodeId="78e7fada-3335-4e5a-b2fe-8c59c1ed4f7c">
+<p nodeId="a0105a82-3f8c-4133-95ae-8d330a23d7f1">1</p>
+</td>
+<td colwidth="[68]" nodeId="812eae89-5682-40d2-a455-735199e7d86b">
+<p nodeId="148e6cfc-55f6-44ad-9976-d75f7f4b2a05">0</p>
+</td>
+<td colwidth="[68]" nodeId="63543cbe-71fb-4db2-9c37-a7227f62a047">
+<p nodeId="418d34ed-f7da-4fe0-af09-77e5a5a73cab">+1</p>
+</td>
+<td colwidth="[68]" nodeId="7ded4e54-5f27-41a6-8e5f-6d1785552ecd">
+<p nodeId="fa19e006-9cd2-4936-a2f8-532d964136ae">6</p>
+</td>
+<td colwidth="[68]" nodeId="040669c4-656c-4819-969c-c9a10a783856">
+<p nodeId="6f0e8821-7cae-430b-9763-864773234530">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="95a1d432-fc0d-48c5-b2bd-e99324706947">
+<td colwidth="[68]" nodeId="a5f1d2b9-910e-4477-be3c-72a49bb2d2b7">
+<p nodeId="887bb4a8-0d52-47d9-bb5a-290d3a9b7679">32</p>
+</td>
+<td colwidth="[68]" nodeId="9fa8847a-f11b-4bf2-9b4d-05f7320806a3">
+<p nodeId="550066d8-52f2-4851-b52f-937fdb9fa2b2">paulosilva</p>
+</td>
+<td colwidth="[68]" nodeId="dbcbd835-3487-453a-8310-b594d17e8706">
+<p nodeId="c532c49a-19e9-4032-ab5a-da1e60388a92">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="12626812-c1e7-4061-b084-5b61a51e7a6e">
+<p nodeId="1e033ed7-bb02-47da-8ca8-f42fb597b864">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="07b8000c-3dd4-46fd-a018-ad51ff483a65">
+<p nodeId="15350761-f40e-469e-8bca-8d723842b6a0">1</p>
+</td>
+<td colwidth="[68]" nodeId="013f8677-d0fa-4cd0-948c-e2bd5fd3796f">
+<p nodeId="0ec4a92f-e454-4cfe-a571-60a7779afbd4">0</p>
+</td>
+<td colwidth="[68]" nodeId="cd99866e-ef67-45af-b525-52aeab91a9c5">
+<p nodeId="94e4b537-074c-4514-8b48-dbc19b0b1fd5">0</p>
+</td>
+<td colwidth="[68]" nodeId="3a90e5a4-5acc-471a-adbb-acb9d0ad1a8a">
+<p nodeId="87ee6775-d182-462d-9218-709695267b9c">-</p>
+</td>
+<td colwidth="[68]" nodeId="c663b2dc-b470-405a-94c4-caf7a776edde">
+<p nodeId="83dcb562-0684-4282-8bff-c7b4a68f46df">6</p>
+</td>
+<td colwidth="[68]" nodeId="672290c6-ec08-45d8-b3a8-0994515d84b8">
+<p nodeId="8a3003cf-2b1b-4576-8250-2632ca7231e7">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="2d5f4e2d-8326-4b93-9d06-4367266e4acd">
+<td colwidth="[68]" nodeId="20878b46-91f5-4e2f-b0ef-d697d0932347">
+<p nodeId="f877473f-142b-47c2-859a-4b4976ec4ee5">32</p>
+</td>
+<td colwidth="[68]" nodeId="fcded9dc-fe04-440c-9839-56b9bdda8cb7">
+<p nodeId="de69f3b0-8177-4cfa-b527-bee798d21185">felipesilva</p>
+</td>
+<td colwidth="[68]" nodeId="92cad848-135b-4d93-8206-fcbd617578ca">
+<p nodeId="bc04e47e-077a-4cfe-8cd3-5ffdab3618a4">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="4a340826-ce31-4a85-93d1-cbdc5feefeb8">
+<p nodeId="5906e695-f844-4953-bae9-db6f5947d8b1">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="84e1e528-812f-42c0-a8db-cec6f076102e">
+<p nodeId="056e1e12-2ebe-42c6-be87-eaf8605f3465">0</p>
+</td>
+<td colwidth="[68]" nodeId="9b619f17-7b7d-4beb-b5d3-c9a4a6c86b74">
+<p nodeId="756ad30b-1f54-4bb6-a68e-ba421b2dc47b">0</p>
+</td>
+<td colwidth="[68]" nodeId="c49380a7-e516-426a-8436-e58bb79769ab">
+<p nodeId="78411028-2968-435e-bce3-6aadfe021add">2</p>
+</td>
+<td colwidth="[68]" nodeId="d37dae60-a65c-4756-9525-5db4d8e6a7cf">
+<p nodeId="2ee3695a-4d94-4274-a96b-dd4fca830316">-</p>
+</td>
+<td colwidth="[68]" nodeId="4edcb164-4b6a-416e-a12d-a78d1818024f">
+<p nodeId="88174f0e-ca43-44d3-a22c-d46200aab715">6</p>
+</td>
+<td colwidth="[68]" nodeId="413989ed-b789-47b9-93f6-1af492df3194">
+<p nodeId="a61b68c7-f96f-49b4-b404-7b2ea6566d89">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="fe52c42d-8c62-4869-bdd8-e0a4a7225e1e">
+<td colwidth="[68]" nodeId="23770cf9-2f4a-4879-980d-4b53872f03b7">
+<p nodeId="13d26900-6bbf-4d73-8f17-190c448368de">32</p>
+</td>
+<td colwidth="[68]" nodeId="0d733c71-568d-4e70-856f-c61f505b8235">
+<p nodeId="9e72aa01-0a83-4524-8f9d-0ed153fc8ad6">thaisvasconcelos</p>
+</td>
+<td colwidth="[68]" nodeId="b8900854-c60a-4b9c-945f-876f55fb15ab">
+<p nodeId="05c86425-fcd0-4272-823d-bf77aed3f76b">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="f8ec6756-d6f0-46dc-b3be-a9fcc00ac8c7">
+<p nodeId="0f03d5fa-ff2e-4c42-a0cf-aa3721d5b992">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="7275ec05-9796-4dda-8fe2-86a857e581be">
+<p nodeId="9dd87bd5-ad4f-48e5-a28f-96abb940c02e">0</p>
+</td>
+<td colwidth="[68]" nodeId="c7a017ff-87da-4c9f-ad29-7cf4bb227501">
+<p nodeId="cd23a42a-b0c2-4b88-b79d-b574881933ce">0</p>
+</td>
+<td colwidth="[68]" nodeId="2d6f5b43-fcb0-44e4-8d7d-29cb6334ad88">
+<p nodeId="d030ecfb-53d7-4821-9e5c-851aac9e4c32">2</p>
+</td>
+<td colwidth="[68]" nodeId="aa8c2492-f6ee-452b-b0d8-2afe8a4b7731">
+<p nodeId="f80a18c4-06ea-4961-90b4-33ebdbb8e1b5">-</p>
+</td>
+<td colwidth="[68]" nodeId="ce40f0a1-95ed-4d52-8bfb-1099cab1ccf5">
+<p nodeId="c6b772dc-4dbd-411c-8bc6-d1a44c1059d0">6</p>
+</td>
+<td colwidth="[68]" nodeId="b35dd824-debe-44fe-ade8-ba4d29e65ad9">
+<p nodeId="f181459e-d119-422e-af3b-4ddd240dd747">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="6d508519-925d-4443-b5d5-4f6d0487f5bd">
+<td colwidth="[68]" nodeId="dbf64244-2616-4fcb-aa33-d9276880ec15">
+<p nodeId="dc2e8875-94fc-4423-9617-1e814d3911d6">32</p>
+</td>
+<td colwidth="[68]" nodeId="9d8bed40-6307-4545-a2cc-0ea7574f3083">
+<p nodeId="aeca6b7d-cab6-4571-bc80-fa50739a7655">fernandoquintiliano</p>
+</td>
+<td colwidth="[68]" nodeId="f126a043-ec1d-42d8-b414-cccc79eb5f62">
+<p nodeId="d744eda2-72b8-4e1d-a8f2-8f2a4928fcc1">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="337c7018-0a4f-4202-8987-ac55499cf7dc">
+<p nodeId="4fb1b8d0-e593-4fbb-8360-08a32dcf079e">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="7e4e39c4-5bba-4765-b101-050471e5c30d">
+<p nodeId="4c4d9367-1d77-4930-bf00-7ac25fb684fd">1</p>
+</td>
+<td colwidth="[68]" nodeId="326df467-2c77-422e-90b4-f47fa1242edc">
+<p nodeId="b88faa0b-ad25-4449-8326-41fe40e51d43">0</p>
+</td>
+<td colwidth="[68]" nodeId="d414fcb6-a06c-4f64-bed8-0096eb7a9e12">
+<p nodeId="d40d908a-ad30-49fa-ac5c-51e559ef83be">0</p>
+</td>
+<td colwidth="[68]" nodeId="ceddbe2f-8a9b-4ecb-9bee-52d8706694ba">
+<p nodeId="ea127632-8593-41f3-ab7a-72e5370131ce">-</p>
+</td>
+<td colwidth="[68]" nodeId="9798ea6e-d340-4dce-92a0-3165e656fb5d">
+<p nodeId="f9a3ba9e-45d6-4ae9-bef8-f1e980598e18">6</p>
+</td>
+<td colwidth="[68]" nodeId="17e414ba-cf18-4f6a-b103-afd99a280a4f">
+<p nodeId="42fe9593-e041-4a8b-aa93-d2984d5b03cb">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="3fc6f6f1-ceeb-4b1b-86a5-20a9a33f2eae">
+<td colwidth="[68]" nodeId="03de8ad7-0aac-473a-9f49-c47a87e6a451">
+<p nodeId="8a779185-7b71-4562-a1d1-95faaca231c6">32</p>
+</td>
+<td colwidth="[68]" nodeId="536a29fe-6d35-4ac5-bc76-36658dfe504b">
+<p nodeId="8221bbbc-148c-489f-a4c6-641f50a1d9e8">williamhenrique</p>
+</td>
+<td colwidth="[68]" nodeId="6e8ab933-c4c7-46c1-84db-577ccb509133">
+<p nodeId="e3677891-726d-4dc6-8f84-870a0e24361c">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="d8a447d8-3709-49a7-b8b6-aadc15501c88">
+<p nodeId="13a0b4e1-15bb-43b2-b9b8-3411805cc6a9">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="bdae80c9-9923-44d7-a8a9-b14c4fe50dbf">
+<p nodeId="ab6ed891-eb6e-4d51-bc31-ca562d4807be">1</p>
+</td>
+<td colwidth="[68]" nodeId="5573dde3-016a-4022-87a7-adbdfb089df2">
+<p nodeId="9b11f9af-0eab-449c-87de-d39c538afbb5">0</p>
+</td>
+<td colwidth="[68]" nodeId="89375a88-d75a-40fc-abba-4cf1987adce2">
+<p nodeId="cb48f0cd-d29e-4570-975d-f18d18e52ddb">0</p>
+</td>
+<td colwidth="[68]" nodeId="577ce9ac-3092-4943-a6b7-303e74bbdfcc">
+<p nodeId="6594bd45-aa8f-458c-a350-ead8596f3ce6">-</p>
+</td>
+<td colwidth="[68]" nodeId="506e7dc4-25ab-48d1-817e-cd82ed22a474">
+<p nodeId="54f5c8bc-b390-4984-8281-3097d089107b">6</p>
+</td>
+<td colwidth="[68]" nodeId="ec26508c-94f4-4910-8cba-ceece4f9911a">
+<p nodeId="550c594b-d6f6-4e56-9579-b739a17520ee">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="a82d9c85-060c-453d-90d4-e04a808c1dcd">
+<td colwidth="[68]" nodeId="ee4cdc85-8654-44b4-b52d-f2a1cbc58453">
+<p nodeId="bb0fd107-8b13-4e02-af19-ec362b236c91">40</p>
+</td>
+<td colwidth="[68]" nodeId="df8a9a83-7116-4958-bb54-9edf2adc0389">
+<p nodeId="14487cf1-909f-4947-89cd-c7fc5e6edc4c">ivanfelizardo</p>
+</td>
+<td colwidth="[68]" nodeId="9ff810c6-ef97-4da5-b943-548de33e71d3">
+<p nodeId="3b162436-9922-456a-af7b-989ae9bfb993">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="2372f409-9e4a-49d6-bfb5-f6b5c912aa7a">
+<p nodeId="823a2e83-7490-45f0-83c5-4e7c5e349a86">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="da022fe2-f798-471e-99c0-51297b1f468c">
+<p nodeId="8275a09b-5899-4d10-a87f-a50acca1c208">0</p>
+</td>
+<td colwidth="[68]" nodeId="f9e03455-94c5-4ba8-baf1-e878f7b495ff">
+<p nodeId="2dad6cef-962c-4509-9c0d-7dae5ae4f22a">0</p>
+</td>
+<td colwidth="[68]" nodeId="5a947209-1419-4094-a769-d8c28e884254">
+<p nodeId="c1d0b949-0577-4051-b9aa-8efb300f5851">1</p>
+</td>
+<td colwidth="[68]" nodeId="dfeed099-6c3b-488d-97e3-2742b4ac66cd">
+<p nodeId="9c2fce6e-27d0-4219-baae-0c0fd0b0adcb">+1</p>
+</td>
+<td colwidth="[68]" nodeId="d9a0d9db-e301-4c1d-9fae-945faf73fd2e">
+<p nodeId="915d6226-8804-400b-81cb-11bc4a7e79d0">5</p>
+</td>
+<td colwidth="[68]" nodeId="4ecd3a24-4239-4b37-8053-52a4a07d1e2d">
+<p nodeId="503e9572-c5bf-48f3-8f86-6a6abb56d963">还差 10 分</p>
+</td>
+</tr>
+<tr nodeId="56734016-9d18-4e82-8ef6-2333e629127e">
+<td colwidth="[68]" nodeId="e31f573d-48df-43c8-a7ff-0b320f72e04e">
+<p nodeId="bb7abd32-04f5-421f-a560-cc4d9fbaa427">40</p>
+</td>
+<td colwidth="[68]" nodeId="ac28db4d-05f8-472e-b3a3-388ceed5c9b0">
+<p nodeId="023d2709-956f-4577-b0c4-ad843eb5a88a">eduardosantos</p>
+</td>
+<td colwidth="[68]" nodeId="76dc7d36-df3f-4343-8c5b-37c57f359c91">
+<p nodeId="534852d6-1b5e-4cf2-831c-183a9d8dba28">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="2243f026-0764-485f-aaed-7c382dfba0fb">
+<p nodeId="c159c2e8-1406-402a-bdb7-2ec600e1fce5">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="370c4fa1-7e7e-4e98-80d8-a5e48f0732be">
+<p nodeId="3efeecb7-9dd4-43f4-a2ae-22b6b487f49d">0</p>
+</td>
+<td colwidth="[68]" nodeId="6c46e841-1acb-4d51-99ef-382349284eac">
+<p nodeId="fdd63f2f-c0cd-4204-94e7-5a412e342c5b">0</p>
+</td>
+<td colwidth="[68]" nodeId="22d389a2-b6c3-4a93-8134-eed7fd8fc651">
+<p nodeId="facdacf0-dc1d-4c9d-9201-60f937cf40d5">1</p>
+</td>
+<td colwidth="[68]" nodeId="3dbb7532-05f8-4943-bfe3-e850637ed4dd">
+<p nodeId="19cd7837-5693-4614-bdad-b83e135bb6ce">+1</p>
+</td>
+<td colwidth="[68]" nodeId="6817a981-cfed-4c07-9a3c-2efd106fe240">
+<p nodeId="61c5baf0-e7b6-4f30-a85a-775bfe4c5043">5</p>
+</td>
+<td colwidth="[68]" nodeId="aa106639-291f-4296-a22b-64b98d3cdfdc">
+<p nodeId="e8590f3b-761d-4212-b716-ed31a3f61c21">还差 10 分</p>
+</td>
+</tr>
+<tr nodeId="7dafad97-01f7-4d41-a8be-82dd47defefb">
+<td colwidth="[68]" nodeId="6a17acdc-4734-4b57-885d-9d3890c5a80f">
+<p nodeId="2cb7b981-7416-41b8-8e4d-f89a265ab166">40</p>
+</td>
+<td colwidth="[68]" nodeId="22a7b98f-6364-4710-a9d0-270fe1a9ef29">
+<p nodeId="40a1b7a4-1d8a-48cc-9736-5df9835f53e5">carlosmotta</p>
+</td>
+<td colwidth="[68]" nodeId="beaad483-4a4b-4cd4-a72f-8a1dff5d31b5">
+<p nodeId="03731b26-b1a5-4d90-8066-af6b1bfc7deb">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="6b65f56e-89cc-4199-9543-54ebc8413177">
+<p nodeId="948e3334-07aa-41a4-88f0-fc6a5245376c">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="eed74420-a14c-4817-9022-987ef80a3fda">
+<p nodeId="92940d0a-5399-4d0d-8e14-b82c24a21eaa">0</p>
+</td>
+<td colwidth="[68]" nodeId="915c9f57-af05-490e-b4e0-9675872a7766">
+<p nodeId="be998417-93dd-4c80-b217-dfe163a8c145">0</p>
+</td>
+<td colwidth="[68]" nodeId="ddcc12ec-b5a5-46fb-b9a6-408720f39177">
+<p nodeId="e2991e5f-093e-4b8f-b6a5-34739414db25">1</p>
+</td>
+<td colwidth="[68]" nodeId="9b7ff1cd-079c-484b-b1d9-90a87acd7745">
+<p nodeId="5c693d33-78ef-48eb-8d82-9770e3fa0e26">+1</p>
+</td>
+<td colwidth="[68]" nodeId="7d31dc71-6302-4262-a8a3-8fe26b17c2a8">
+<p nodeId="de4eec31-6e7d-4cc1-8455-ed2821dffd8a">5</p>
+</td>
+<td colwidth="[68]" nodeId="fd613c93-0756-442c-af78-bb7267d9c697">
+<p nodeId="41dce343-0a36-4bbe-a03e-c23d64049261">还差 10 分</p>
+</td>
+</tr>
+<tr nodeId="e857049f-5212-47b4-aefa-52649e869b09">
+<td colwidth="[68]" nodeId="03789820-94ce-45ff-866b-10585befa820">
+<p nodeId="8166ac58-aa24-467f-85bd-7a75fbe6b207">43</p>
+</td>
+<td colwidth="[68]" nodeId="60465cbc-3aa1-4201-9b6f-7cd1dd46500b">
+<p nodeId="232241e9-c31a-4337-9827-4e63d81f9b04">wellingtonsantos</p>
+</td>
+<td colwidth="[68]" nodeId="6b982880-8436-4b76-8b55-4b7398fde6f3">
+<p nodeId="d9315bb5-783b-4646-8bf5-0dac45bd85c8">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="bcf033b2-8457-4792-8132-8c1dfc0dbcfb">
+<p nodeId="202d445a-6502-442f-8f08-66755eb89e0d">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="cc9c1d91-97a0-4803-80a4-1bc1139735e5">
+<p nodeId="fc22882c-4a1f-43ce-a7e3-d161caa184f6">0</p>
+</td>
+<td colwidth="[68]" nodeId="0619fbbf-79c7-420d-b89e-fddc81bec0f1">
+<p nodeId="e2d79bac-af36-404b-adb2-3c41edc5f2e9">1</p>
+</td>
+<td colwidth="[68]" nodeId="52667c80-4994-409a-8409-5ef0992c7abd">
+<p nodeId="bc0fcf4e-a02e-4fea-8dc2-b3a60a240953">0</p>
+</td>
+<td colwidth="[68]" nodeId="0ead8c7c-5a6b-4200-92ca-84c0a72f4efc">
+<p nodeId="2eeb9e58-30ca-44c4-9889-5f13f736bff4">-</p>
+</td>
+<td colwidth="[68]" nodeId="b3da52c8-e650-4167-913f-492cacbf7763">
+<p nodeId="86a89b3e-8a8d-4375-a5f6-364df0ad1379">4</p>
+</td>
+<td colwidth="[68]" nodeId="85d09a90-5218-46f3-a1ca-5a5f49e6914a">
+<p nodeId="ce8a8139-e8c9-4f33-8655-281e08939469">还差 11 分</p>
+</td>
+</tr>
+<tr nodeId="5f23c43e-8bbb-435f-970b-3fee08689f44">
+<td colwidth="[68]" nodeId="7d7a94c7-c17f-4b58-a2f9-c5992f355310">
+<p nodeId="76c65cf5-0d0f-4485-9c3f-4079b59a3ca8">44</p>
+</td>
+<td colwidth="[68]" nodeId="b62212ba-2761-4100-bfde-9dd2713a6004">
+<p nodeId="e5b96382-d0fb-48a5-9ad9-78a59fac395d">nayannedias</p>
+</td>
+<td colwidth="[68]" nodeId="99e1dc85-da8c-45ce-8fe0-37de7f56463c">
+<p nodeId="44ef29ff-cc67-4f95-9308-2f71490ffcad">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="d1d00bba-27e3-4d06-9783-4be84578c3a6">
+<p nodeId="ca6bb7e8-9e07-45f6-ba4f-208b35fa967d">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="a154e46d-8c95-46e3-b9dd-b2f7361064d1">
+<p nodeId="2059297f-9a89-4356-b35e-aa58df8934bc">0</p>
+</td>
+<td colwidth="[68]" nodeId="07451324-3bf3-4ba8-aa0e-fb2b2f46c5e6">
+<p nodeId="8eca2b79-ab2e-4e15-806b-4beca83df60e">0</p>
+</td>
+<td colwidth="[68]" nodeId="492e22fb-3401-4758-97a0-51483ecb84d3">
+<p nodeId="f331ce69-e784-4d05-a13d-1dc0860f097d">1</p>
+</td>
+<td colwidth="[68]" nodeId="7eea8732-c8d7-462b-a3d4-10068a879420">
+<p nodeId="515b0359-fcdb-42ca-8b03-3bc31f105ecb">-</p>
+</td>
+<td colwidth="[68]" nodeId="88ee51f7-e8aa-48f8-9615-eeb040b360b9">
+<p nodeId="a6b6962d-20e6-4026-a060-1cb0e8421f41">3</p>
+</td>
+<td colwidth="[68]" nodeId="5bf0af44-9204-42c8-9a55-5e48801742f2">
+<p nodeId="9656a248-e1fa-4a26-b160-9c954cb4f72c">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="7a363092-1737-4be7-8c84-1a0bb89d6332">
+<td colwidth="[68]" nodeId="6eae5269-bf81-4704-821a-80f097c0f275">
+<p nodeId="27afaf5b-d6c0-4307-9e7b-321213b70fe0">44</p>
+</td>
+<td colwidth="[68]" nodeId="6a66f807-9639-47e9-8077-3058bee2f745">
+<p nodeId="ad484b96-c2a9-479f-a467-5e5179a02786">murilosilva</p>
+</td>
+<td colwidth="[68]" nodeId="6321927c-c6a2-4277-9d06-228ad57afee6">
+<p nodeId="3a1896c3-7888-44c8-adca-39bf97884553">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="ff335746-b68a-4524-ba8e-232e5b7aa051">
+<p nodeId="528dfb57-eeee-4d8a-a3ce-7365c9f0f8f5">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="30ae1564-be43-4aaf-a010-9b04bdfea3ae">
+<p nodeId="91f9846d-3758-402b-91b1-02b1920a062a">0</p>
+</td>
+<td colwidth="[68]" nodeId="60013178-1df1-4709-b283-078e288b8f12">
+<p nodeId="c651d394-a3e5-46d1-8f5a-a30336558e40">0</p>
+</td>
+<td colwidth="[68]" nodeId="0d873095-46aa-4a51-a84a-36bb0bdd11a1">
+<p nodeId="a46134e1-b551-4e08-b072-5349a29b1c77">1</p>
+</td>
+<td colwidth="[68]" nodeId="d4cb6b3d-67cd-433c-9331-6f6db74e5da0">
+<p nodeId="00e6670e-e1ac-4e49-ba06-9eca16250fc0">-</p>
+</td>
+<td colwidth="[68]" nodeId="af9e35ab-1e2d-4934-beb1-cc9185fbc321">
+<p nodeId="84a60f25-e1dd-4108-95bc-4a1e4144ffad">3</p>
+</td>
+<td colwidth="[68]" nodeId="7f3f21fa-0427-4d6c-b9b8-60e871f2f9a9">
+<p nodeId="388fd5e6-fd26-499d-804e-11e956d36b44">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="b1611194-02e8-47ef-b50d-4b09cef537fa">
+<td colwidth="[68]" nodeId="46581742-1afc-4c42-9bfa-4d53e040cb44">
+<p nodeId="065a1f2a-2aaf-45fb-b4b9-a64ed104e971">44</p>
+</td>
+<td colwidth="[68]" nodeId="45b885a2-86cc-4421-b069-622f8ac662e7">
+<p nodeId="620231fb-d73c-486b-b222-84038f5a14fe">wainnergonzales</p>
+</td>
+<td colwidth="[68]" nodeId="3aaa77c2-c53f-4d3d-a4d7-59d5c8f9df8e">
+<p nodeId="441a2f64-291b-4faa-82a8-b1217d1fffbc">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="88e97665-3e4f-4167-a571-b16f0dcdcd36">
+<p nodeId="bad8ed2d-0bd0-49f8-9f6c-14a2d266b8a7">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="343e4549-c221-430e-9678-b5a1a4b02043">
+<p nodeId="1f7c272a-f815-49e6-936b-937a733faa8f">0</p>
+</td>
+<td colwidth="[68]" nodeId="b6dea830-bb78-42bb-92e1-9c3e3923acc1">
+<p nodeId="01d67e34-ec0e-457c-87d1-0f8ebb8125b1">0</p>
+</td>
+<td colwidth="[68]" nodeId="c7a1d6a0-c79d-49e4-990f-18b0d5abcc99">
+<p nodeId="20f25a72-8556-4ff9-b599-924ee347967c">1</p>
+</td>
+<td colwidth="[68]" nodeId="ffbbeb24-a694-4ef9-901a-65661efb144e">
+<p nodeId="a3594d55-5044-4b6f-ad78-62f4315470fd">-</p>
+</td>
+<td colwidth="[68]" nodeId="6fa22a96-a9a4-4a0a-a04e-cd13149f1de2">
+<p nodeId="256ffff9-81df-470d-9717-edbe56fd8ca7">3</p>
+</td>
+<td colwidth="[68]" nodeId="032d594a-71aa-4044-801e-615e0eea7d91">
+<p nodeId="badaa60e-cf19-4d92-9428-26a15d317bd1">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="34601434-9a36-4d5d-9d37-2bad8937262b">
+<td colwidth="[68]" nodeId="6664bc82-3b6f-4486-ad93-63e567c35da2">
+<p nodeId="c9659535-7ab1-4ad3-8eed-02a97e5a5677">44</p>
+</td>
+<td colwidth="[68]" nodeId="6cd1fb20-6f24-4a73-b4a3-f4a34f731d8a">
+<p nodeId="ccf4fdb6-a0f8-4345-a7b1-515ede536d2d">caiolorencato</p>
+</td>
+<td colwidth="[68]" nodeId="e59f464d-1edd-4b49-a676-f2e0a6a0cd5a">
+<p nodeId="8431ef98-ee13-4138-8ac3-ab76f8e106bb">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="f9abe773-68bf-4a3f-9860-c6be1cd638ff">
+<p nodeId="468e630a-c779-4fe0-bb12-7c9fd2cd445b">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="18125401-021b-4e45-a92a-f0c77081d6fd">
+<p nodeId="1da7dbef-e5ec-42ba-9bee-7bfcbcc2fedd">0</p>
+</td>
+<td colwidth="[68]" nodeId="e7de6358-d9be-4817-88da-113c63396d9a">
+<p nodeId="64a4977a-3e6b-4c52-ae4a-8c5f1cab8072">0</p>
+</td>
+<td colwidth="[68]" nodeId="7c770bf1-a8c1-4d2a-b4db-568ad404f6d6">
+<p nodeId="e402121f-d813-4dca-a98e-7bfb9a1547e8">1</p>
+</td>
+<td colwidth="[68]" nodeId="5d87b19b-b54d-4310-8f4d-ed72dd3ad548">
+<p nodeId="980edb07-00e1-4d60-9d07-d766f1a76558">-</p>
+</td>
+<td colwidth="[68]" nodeId="6ce2baf3-475b-4202-a465-11eb4f39597c">
+<p nodeId="bea493a4-13ff-4cf3-a002-c14fd245eb62">3</p>
+</td>
+<td colwidth="[68]" nodeId="18e0858f-2b25-4ef4-a41b-489303cf704c">
+<p nodeId="c2f34b18-e0f2-4870-82a1-30a129d3c1da">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="4bb6615a-1023-4b1a-afc9-fae1b477d618">
+<td colwidth="[68]" nodeId="c3be7459-9307-47cf-99ae-8bdc1fe30fd8">
+<p nodeId="a3a6b63f-79eb-4ab6-8231-2f8b225982b7">44</p>
+</td>
+<td colwidth="[68]" nodeId="03f07887-3034-40f0-81b4-a1981bb0b4bf">
+<p nodeId="b804e657-695d-47a1-b5aa-7af69bde4d13">evaldosilva</p>
+</td>
+<td colwidth="[68]" nodeId="1b172fe0-bbfa-4ae1-a6a4-cc11f6ef7a7b">
+<p nodeId="9e7cc249-6dd5-4653-92dd-5b1591d83f31">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="2714b992-001d-425d-8f34-3e49dfe2532d">
+<p nodeId="90142136-eb5b-4c0f-abba-0adb961591b4">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="6215ba7b-71f7-4074-a5af-7fb36302ce11">
+<p nodeId="476141d6-097b-453d-b004-ff958b616f0a">0</p>
+</td>
+<td colwidth="[68]" nodeId="887684aa-e652-4ad0-94b2-24e5091d81f7">
+<p nodeId="98e4c22d-a876-4eae-8b75-bb66d26c7ef5">0</p>
+</td>
+<td colwidth="[68]" nodeId="e03d74a8-e3af-45da-90fa-4fbf0d4cc7b9">
+<p nodeId="26178336-95ca-4888-878b-14540fc9e0e6">1</p>
+</td>
+<td colwidth="[68]" nodeId="5ba7c772-5c1e-4146-b2c0-72f0b930e505">
+<p nodeId="20123b2d-6adf-499c-83f6-b6692d0d667c">-</p>
+</td>
+<td colwidth="[68]" nodeId="a5a4f5c3-dc28-47bc-a193-1cd83762a3cc">
+<p nodeId="ba44ec98-b5fa-4753-a43f-6954bd5dab1a">3</p>
+</td>
+<td colwidth="[68]" nodeId="347ea4f8-624e-4afc-a540-de14f6a47c8d">
+<p nodeId="f26eb388-67fa-4a08-a0c3-dfcafa51ccae">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="b2ad1ed0-2883-4f29-9045-4b5bfb442b4c">
+<td colwidth="[68]" nodeId="83fb1cef-1175-4992-bb93-3e4a030f82bf">
+<p nodeId="5bb7cc6a-858a-4ad3-8d7f-b935425e6e0f">44</p>
+</td>
+<td colwidth="[68]" nodeId="b1928ae2-c938-4930-b1e3-fee2a0ddd78d">
+<p nodeId="1e038d11-0afb-4397-a3fd-90b8ffea4914">elisangelasouza</p>
+</td>
+<td colwidth="[68]" nodeId="ae73bb93-2b9a-49d2-bb07-688e573ba5ec">
+<p nodeId="9f9459f0-83d0-4088-a101-0f2b9c082563">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="3f364479-c1a9-4d28-afaf-9f308481d98d">
+<p nodeId="c0d81b16-d692-4bc8-b4d3-6383b16e17dd">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="8415f1cc-5c8a-4dce-8136-3fdbe998b9ee">
+<p nodeId="86d96ca3-d99f-410d-8807-e99f3d6588e1">0</p>
+</td>
+<td colwidth="[68]" nodeId="b23f708e-eab9-4467-ac42-8171464c4af9">
+<p nodeId="607da24e-48f4-4b55-982a-e0154a3e4058">0</p>
+</td>
+<td colwidth="[68]" nodeId="c8056b93-fa1f-42d5-b32c-d1736d67829f">
+<p nodeId="3bff31bf-ae0a-4d1d-ad8c-da3a510a4212">1</p>
+</td>
+<td colwidth="[68]" nodeId="e5df077c-7c18-41d8-8392-931c5a25c0c3">
+<p nodeId="12b118c6-92a8-426d-9cfb-044881002d3e">-</p>
+</td>
+<td colwidth="[68]" nodeId="34c070b0-d0ce-44c4-b654-56ece2fbacdf">
+<p nodeId="7715d2a9-6ee4-433f-a55b-17ea9e523fd1">3</p>
+</td>
+<td colwidth="[68]" nodeId="6dc02853-76ff-4289-941b-6d7f59a0cf79">
+<p nodeId="51fe4301-69f3-4af8-963f-5704a4c28bc3">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="c7f78116-0082-497e-afa7-d5573e526a92">
+<td colwidth="[68]" nodeId="22f5899e-da08-4497-9f63-c1d0b2ad8b58">
+<p nodeId="26a00ee4-731e-47d3-bbec-0b6e73c458d3">44</p>
+</td>
+<td colwidth="[68]" nodeId="1ad289a9-8f34-42b5-bcf9-3c27a1a505cb">
+<p nodeId="37a20c60-805a-40fc-b29e-2d15eb8a33f3">matheuscoelho</p>
+</td>
+<td colwidth="[68]" nodeId="8040cf7d-be48-4029-a8a3-48ae789272ef">
+<p nodeId="0b61c8e7-5c15-47cf-97bc-806a1eec3bed">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="29389c86-faf3-48e1-a502-6190afe0c0dc">
+<p nodeId="6c1016b7-030c-4525-a9e8-91d4e7d9e8ec">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="99eb41ec-dbea-4794-b628-599f735fa612">
+<p nodeId="aed65533-0900-4880-b94f-d6a35a68499e">0</p>
+</td>
+<td colwidth="[68]" nodeId="f7266997-3ff1-48bc-9b5b-623ab4975452">
+<p nodeId="f810f950-f79d-4d00-aa03-02421293955b">0</p>
+</td>
+<td colwidth="[68]" nodeId="c5fc64de-1d88-4156-92d2-a7c4465fbf17">
+<p nodeId="43fed634-033c-4b99-886d-8714aa5977ec">1</p>
+</td>
+<td colwidth="[68]" nodeId="dc876524-2584-439e-8ee2-c6ea3650503e">
+<p nodeId="d0edf70f-6468-42ce-b4f4-037fce32b60c">-</p>
+</td>
+<td colwidth="[68]" nodeId="1b261b9e-51fa-41ba-b2ec-2f9fea50746e">
+<p nodeId="61fa1e77-e3ab-4754-9323-9469c4bde7f5">3</p>
+</td>
+<td colwidth="[68]" nodeId="1693039c-536b-48e0-ba0c-4e02482a506c">
+<p nodeId="8bf52b36-5c61-456b-b4a0-885a6863cdd7">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="c3a00b8e-b26f-4c4e-a2e4-e9477f57f9a2">
+<td colwidth="[68]" nodeId="cde99bea-2a49-4740-bac8-18fbfeca4a3a">
+<p nodeId="036d874c-5b32-4adc-9cfa-3b80010c872b">44</p>
+</td>
+<td colwidth="[68]" nodeId="26b47427-4867-4458-b9dc-d91843afab2d">
+<p nodeId="ae2985b0-b85d-4e65-930b-97f8c7645632">johnataguimaraes</p>
+</td>
+<td colwidth="[68]" nodeId="da4cce22-45cd-440c-9225-dfb1ceac8267">
+<p nodeId="80fec20b-e2aa-4e1c-bf02-b9ce6d304a7b">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="495a2077-2ef9-4781-8ea5-bf39d170ed4c">
+<p nodeId="e5a14a9e-3ca6-4556-b3af-1cda4491db55">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="6ba7f22f-1fde-4505-a8ce-4a403c110d70">
+<p nodeId="adbb1b72-7c42-49ed-b4ab-87720db82787">0</p>
+</td>
+<td colwidth="[68]" nodeId="1aa4489c-c1e9-4179-880d-524882da26dd">
+<p nodeId="a7f47967-099f-4d6c-a638-a7bdc584e395">0</p>
+</td>
+<td colwidth="[68]" nodeId="4dcba4a9-7fcc-47a3-bc06-c5aa323e2e3c">
+<p nodeId="cf705db3-86e1-4790-866d-3b8d952fd1b1">1</p>
+</td>
+<td colwidth="[68]" nodeId="42a5f82d-95c8-4a2d-8521-018a5757f93e">
+<p nodeId="ae362f3e-8d33-4881-acfb-b45854f6fe96">-</p>
+</td>
+<td colwidth="[68]" nodeId="f1cf12b2-03b8-4736-a020-db4e190a2bcd">
+<p nodeId="f4a7eb79-cf85-441c-bad2-0679c94524df">3</p>
+</td>
+<td colwidth="[68]" nodeId="9d744d89-46a2-4e61-bd46-79a0ab54b703">
+<p nodeId="f00289c8-6776-416c-94ea-5e408cb454c2">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="705ea2e9-409a-4ace-a3c4-a45852bfc6ea">
+<td colwidth="[68]" nodeId="ebdd585a-0870-473b-add1-eb8e34315eec">
+<p nodeId="0de57edc-a592-4c72-9be3-df5999d6aaed">44</p>
+</td>
+<td colwidth="[68]" nodeId="4808eac1-aeb7-4623-afbc-d0ac9aa89ba1">
+<p nodeId="323884bd-be8c-4987-a164-42f8b1ad9fd2">felipesanches</p>
+</td>
+<td colwidth="[68]" nodeId="1e78d632-e4d5-4aa4-95b7-6a58f7bd1532">
+<p nodeId="606843cc-f2e0-4cf4-b3ed-6f4f3ba5ceac">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="b1d39f20-2dbc-4a0e-ba79-981ed9936189">
+<p nodeId="684dde93-664d-4c73-8262-81086870abce">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="9e875e40-bdcc-488d-9578-1103ef58af2b">
+<p nodeId="fda563de-8ef8-49f8-a825-246b422d0ea5">0</p>
+</td>
+<td colwidth="[68]" nodeId="0bae17b4-668e-43ae-ab17-9ed3072002fa">
+<p nodeId="d8800e90-0bdf-42da-95bd-473fd80e24d0">0</p>
+</td>
+<td colwidth="[68]" nodeId="5d70037c-7e21-42a6-817a-23535df1f445">
+<p nodeId="4cf92163-b320-40cf-82ed-aafa55de1885">1</p>
+</td>
+<td colwidth="[68]" nodeId="52656979-2fcf-4719-98ec-acdf49782ef0">
+<p nodeId="d3228d92-9acf-4c47-806a-e1f076b534f2">-</p>
+</td>
+<td colwidth="[68]" nodeId="5005e68f-b277-4c4c-929f-2c690d17e878">
+<p nodeId="d5a55898-2211-4c29-8588-b6a1799d6a22">3</p>
+</td>
+<td colwidth="[68]" nodeId="5f791b98-8c7e-4290-a238-17f96ec230c9">
+<p nodeId="8611f1b1-60db-4726-8969-11678fbe2b5e">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="c55803e8-fea8-4b34-8755-3f85fb092d4d">
+<td colwidth="[68]" nodeId="dade424f-f1fe-417e-9628-d6e564cb280a">
+<p nodeId="2c44af4b-7fcc-4c8e-9148-98bc7362ce47">44</p>
+</td>
+<td colwidth="[68]" nodeId="0a63644d-9e36-4f96-86f4-6b906b1aa785">
+<p nodeId="26a92fca-e6bb-459b-8f26-597246f48272">ricardoaraujo</p>
+</td>
+<td colwidth="[68]" nodeId="32c14ed7-278c-4675-9435-f7a6ac2de3cd">
+<p nodeId="69b2434e-3e34-4945-9b2a-fdc4192c6010">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="a3f70479-4fbc-4438-84b6-04f535f8d620">
+<p nodeId="ac0fbe74-aad3-4430-93e0-1c174b379564">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="5fa872b0-e678-498d-807b-91448ff75897">
+<p nodeId="063bc26e-6787-4d28-a30d-7ac45602801c">0</p>
+</td>
+<td colwidth="[68]" nodeId="3d473cd2-9a5e-427b-bc84-5379bedae71a">
+<p nodeId="28dad454-90f5-4bd3-b9e9-bb236fc71eb1">0</p>
+</td>
+<td colwidth="[68]" nodeId="3866413f-089e-4e52-8655-34b886c61165">
+<p nodeId="67802038-3acf-4f1a-a987-fb794d45d023">1</p>
+</td>
+<td colwidth="[68]" nodeId="cd0e49af-eed3-40bf-b549-8b4dfb62787b">
+<p nodeId="c666c677-4398-4b78-a464-d95524781f3c">-</p>
+</td>
+<td colwidth="[68]" nodeId="65851660-0624-4aca-8168-92311d6d219e">
+<p nodeId="16810e2d-c830-4bb2-aead-46630ec92189">3</p>
+</td>
+<td colwidth="[68]" nodeId="276183cc-28fe-478b-80ba-952da0f01cbe">
+<p nodeId="155bfe93-2ced-4b8d-95f7-ec3e2c01e8e1">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="fb6c99a9-f209-426d-8da0-e39142e98a0d">
+<td colwidth="[68]" nodeId="f68f3212-285d-46b2-8358-5696b0a28472">
+<p nodeId="abfde12f-6c55-4a37-af3c-69f52be4f8b0">54</p>
+</td>
+<td colwidth="[68]" nodeId="d30db7a6-f0f3-421a-b0a7-b3c81c2a5ea4">
+<p nodeId="eb31692b-f9e2-4efe-a120-474025ae0f89">barbaraoliveira</p>
+</td>
+<td colwidth="[68]" nodeId="3e31fa52-b6cb-4505-8026-c51823ef9995">
+<p nodeId="d91d7427-43b6-4fce-b6eb-f3f29f6cf068">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="c51aedad-071c-4d3b-a3ca-8d95d287ebf5">
+<p nodeId="1360aa1d-5e3e-4490-ad32-25d90b3435b4">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="b74dd19f-0c8e-47e3-acd5-6a42c452e405">
+<p nodeId="5f15b695-146e-4aa4-a463-cd342ea58646">0</p>
+</td>
+<td colwidth="[68]" nodeId="d9052f71-9dd7-4048-895c-05dac85ccf45">
+<p nodeId="651fc569-f341-4cc3-9f54-506c9ddd8ec9">0</p>
+</td>
+<td colwidth="[68]" nodeId="466af392-377f-4ffb-98b8-9533c93ae751">
+<p nodeId="49b3588c-932d-45fd-99e8-faea36a27d58">0</p>
+</td>
+<td colwidth="[68]" nodeId="708c1ab8-4b3a-436e-9543-ca68025cea07">
+<p nodeId="2fd7e342-6e45-408f-bbc6-b0a1c0169747">-</p>
+</td>
+<td colwidth="[68]" nodeId="3fc26c5b-0451-4fb3-b13b-c784c710b845">
+<p nodeId="8d2e8af6-cba4-458d-bfd6-a096ef7807c0">0</p>
+</td>
+<td colwidth="[68]" nodeId="02410652-2853-4b50-8d20-6c998a7e3cf1">
+<p nodeId="b6c9ec69-682b-4e4f-aebc-a425509f5117">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="d8c38d02-0eb6-49a1-b088-cc0c898684cd">
+<td colwidth="[68]" nodeId="62efddf4-caa5-4a21-aa35-686e015b1cde">
+<p nodeId="3c149514-34d8-48d2-be54-c83c9fe57e41">54</p>
+</td>
+<td colwidth="[68]" nodeId="d7090e81-9de0-40e2-ada2-648e8a1016e0">
+<p nodeId="5c86b82e-2e35-4ead-b0a2-7340bc37ef52">alexlima</p>
+</td>
+<td colwidth="[68]" nodeId="989a8ff6-aa46-491f-8e82-8b266e30071c">
+<p nodeId="ff6013c7-1075-423b-8aea-bb0ce01fb60d">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="6101ae99-0449-4faf-bb7f-782845919d57">
+<p nodeId="679a8b57-8be8-4cbc-b8d8-bdce19661fcd">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="42ffc0c8-e06b-4364-9e3a-a0d9b37ae464">
+<p nodeId="d4f7cffe-2ff2-4a0e-9556-ab3410b3d65e">0</p>
+</td>
+<td colwidth="[68]" nodeId="b4e9bbe2-3a5a-46f0-8892-e1ef7039819e">
+<p nodeId="a72f9bca-8a3f-435c-b1f7-cce8797ce103">0</p>
+</td>
+<td colwidth="[68]" nodeId="dd3f02d0-b183-4313-812e-86b38a712f47">
+<p nodeId="e4edcaed-cdc0-4ab7-b818-cc765cb3edaf">0</p>
+</td>
+<td colwidth="[68]" nodeId="825b6bd8-59c1-4a1a-bbc6-e58d65fba8bc">
+<p nodeId="3ac49df9-630c-42af-a639-ccbff842320d">-</p>
+</td>
+<td colwidth="[68]" nodeId="93e974fc-641a-4cb6-97ea-b1aadf2de8ef">
+<p nodeId="5eed7e36-429e-4d8a-9484-58bb8b019552">0</p>
+</td>
+<td colwidth="[68]" nodeId="842f1ffb-2b1b-4ee8-ae24-0446585633b8">
+<p nodeId="deffed03-f694-44fb-92a6-c619cc00074b">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="5e8d6201-b390-4efe-95e1-eb374520abcd">
+<td colwidth="[68]" nodeId="86f3d948-2d92-4009-87fb-95789d59ee00">
+<p nodeId="4d4bd067-47e9-42a2-8e34-718a78d88ef3">54</p>
+</td>
+<td colwidth="[68]" nodeId="4fa1c2d5-3635-4e96-902b-f5ba8b442331">
+<p nodeId="6e1e115e-3a61-4b1d-8753-bb6e8e0c5dbd">erikboilesen</p>
+</td>
+<td colwidth="[68]" nodeId="7aafc358-5404-4c25-b83a-ae3f545fcbfb">
+<p nodeId="7beb2333-08f0-4c58-b030-b53c555e46f3">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="d90c9ef5-87c9-41ea-be0f-db1fd426db6c">
+<p nodeId="c329e411-f199-4578-bc4d-3fc2e0138409">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="a7e84729-67a6-4d03-9ced-d5e7167e2a38">
+<p nodeId="8a3ade97-e5d0-4d1c-99da-ec2b3bbb9820">0</p>
+</td>
+<td colwidth="[68]" nodeId="543eacc3-b9e7-4522-a1bc-d932ecb33bc4">
+<p nodeId="00309480-f7a8-46fe-9a3e-c86df04a8e42">0</p>
+</td>
+<td colwidth="[68]" nodeId="b62e7570-8b42-488c-92f4-2b8d7652bebd">
+<p nodeId="c542e4b3-c003-4f0f-a983-a0377713903b">0</p>
+</td>
+<td colwidth="[68]" nodeId="1bf0449c-c5fd-48b3-9b31-8f6f130d393f">
+<p nodeId="021658f3-f0b4-4ee7-948f-7963d1ff3133">-</p>
+</td>
+<td colwidth="[68]" nodeId="0ef8b74d-870b-4e0b-88f0-0c1a2531b4c5">
+<p nodeId="4cd8b66f-cc73-4e26-9fd1-5baba5d8da8b">0</p>
+</td>
+<td colwidth="[68]" nodeId="aed9fef7-9350-4da3-aab0-75b110840dcb">
+<p nodeId="ae9f27f8-943e-41ef-9116-55a80f5e2133">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="7657fc76-68f6-4465-9ced-67b65bcd4899">
+<td colwidth="[68]" nodeId="cc5870c7-2e46-4394-9b52-bf912e0c8075">
+<p nodeId="46ea5487-3ad3-465d-9c6d-af9321b0389a">54</p>
+</td>
+<td colwidth="[68]" nodeId="07d6bd18-8baa-4319-825e-8f6e205f6558">
+<p nodeId="7e76ead1-bb77-4966-90db-cc306fb7ac43">nicolemenezes</p>
+</td>
+<td colwidth="[68]" nodeId="11293e6a-db1a-4feb-847c-38c1d506e59b">
+<p nodeId="9da7531a-a962-40ed-956e-c3bc3ca22820">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="0178379f-328f-4bdd-8394-c5370800b2e0">
+<p nodeId="29b39096-8517-47aa-9051-05671f1df698">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="9a93e85b-d328-4e83-ac4e-d8dd0a6bf65f">
+<p nodeId="31632bf3-61b8-44b2-9f5c-855bc44dd0ac">0</p>
+</td>
+<td colwidth="[68]" nodeId="ca80572e-9062-4df4-bbf6-0b8f7a56910e">
+<p nodeId="1fe7466b-7f79-49e1-946e-de549d32c876">0</p>
+</td>
+<td colwidth="[68]" nodeId="9a0e2286-36e8-4335-adcd-bf6400fb0241">
+<p nodeId="451bfa5e-0395-4ba1-87f3-cac1a09b5c26">0</p>
+</td>
+<td colwidth="[68]" nodeId="ea0fdf2a-6038-45b9-8a95-a737675ef86a">
+<p nodeId="7ab0ec49-5507-4cee-b87e-b9b76585aa08">-</p>
+</td>
+<td colwidth="[68]" nodeId="7e224a61-c323-45bd-8dcb-36f240a4c3db">
+<p nodeId="4a1cf1a6-4620-400a-9a3c-1f18d06367d8">0</p>
+</td>
+<td colwidth="[68]" nodeId="aca6a21e-72c5-4ab3-8001-0a3ceb06c774">
+<p nodeId="508b70b8-dc2a-4f6e-9c57-b7175496763e">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="15f47506-435d-48c9-80b6-f79b621e351a">
+<td colwidth="[68]" nodeId="7a0699f5-70d5-43b0-923a-e942f682bb7e">
+<p nodeId="c074f09a-53e5-4601-aeca-f02f90ad82f0">54</p>
+</td>
+<td colwidth="[68]" nodeId="9b334cd3-47f2-4cc2-9bb8-556c4e1765db">
+<p nodeId="9f797719-6822-4ad6-a052-a24569d1dbfc">heloisamagnani</p>
+</td>
+<td colwidth="[68]" nodeId="b76946ac-ea9c-43d1-be0d-dd39a30aeb32">
+<p nodeId="e8b161dd-4021-4aec-b9b7-17fbd3334868">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="730b1213-fb1b-4842-9138-14ecb53567bc">
+<p nodeId="0736cf34-c2fc-4a53-af59-7151b6980e55">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="63747847-fdec-4c1b-92b1-ef0bf6238de4">
+<p nodeId="6713809d-ff43-4b8b-8e80-1910eb73e726">0</p>
+</td>
+<td colwidth="[68]" nodeId="5bc88c7f-5397-4f30-9a6a-bfd53fd576b3">
+<p nodeId="8b353f32-ee0e-4bdc-a5fa-25cc530239d4">0</p>
+</td>
+<td colwidth="[68]" nodeId="41524833-0061-4895-a182-220433632c0b">
+<p nodeId="214334c7-2771-4bc7-a20c-08fdf53dd58c">0</p>
+</td>
+<td colwidth="[68]" nodeId="105614f1-6170-4458-974b-aca8b245a991">
+<p nodeId="be1de7f6-d992-4ecd-bb8d-1dc3baa7d01f">-</p>
+</td>
+<td colwidth="[68]" nodeId="f403cdc1-75d4-4434-8f99-2ca6d1aaddac">
+<p nodeId="174f88a2-93a1-47ac-878f-cd7ad623a0c8">0</p>
+</td>
+<td colwidth="[68]" nodeId="b4ea6b1d-ef36-4bd2-88a3-d9f32c49d3e1">
+<p nodeId="1eba0cf6-bd17-40ec-a83d-5b1f660fe2e7">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="fa0d2f5d-7bdb-4ba3-8325-89b4e9652d91">
+<td colwidth="[68]" nodeId="ba5de763-4df4-449e-ad27-f726141630db">
+<p nodeId="cd9354b2-70d6-4adf-a212-ab5be6c22288">54</p>
+</td>
+<td colwidth="[68]" nodeId="98ed0999-c492-4cf9-be2a-0eb56b4e0bbf">
+<p nodeId="0a430678-d105-48f1-9b66-2b1d3776a11b">joycepurificacao</p>
+</td>
+<td colwidth="[68]" nodeId="c36a6229-cdf0-4860-8aca-29921f29a61e">
+<p nodeId="d622c9de-eeed-4870-b26a-bd4283dcaad8">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="c4cd1d0b-fdd4-4669-97f4-548db4c540d3">
+<p nodeId="e6e52770-7072-40fc-ac20-1a63c44cfda3">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="dee8ef61-29af-4b2c-9bb5-ce46fd03ed0e">
+<p nodeId="8ac2deff-9038-46bd-9f97-563d3c5c2026">0</p>
+</td>
+<td colwidth="[68]" nodeId="8425db66-aa42-4bf9-bb63-354aeba6dce7">
+<p nodeId="a845ec85-14ef-4939-a80e-27d5018628fc">0</p>
+</td>
+<td colwidth="[68]" nodeId="cba71d75-b11f-4c87-9e56-5140fd7b766a">
+<p nodeId="74c81760-e83e-402f-ac1a-086abf87621a">0</p>
+</td>
+<td colwidth="[68]" nodeId="4a7a256a-01c7-46c8-a496-facf02d6fbf5">
+<p nodeId="6b44c138-f600-41de-9a0e-09d887794670">-</p>
+</td>
+<td colwidth="[68]" nodeId="103c3159-6084-4e4a-9266-31ae9341d66e">
+<p nodeId="179d333f-dea0-457f-b8de-622abe5ec5fd">0</p>
+</td>
+<td colwidth="[68]" nodeId="0a764a88-a195-4214-9511-0518d753ff1c">
+<p nodeId="b02c6c37-33d1-4991-b48c-0608b4db85aa">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="ed683065-7da0-477c-8e39-0fa2f6886edb">
+<td colwidth="[68]" nodeId="544f25ee-0fa1-4b35-9bdd-d7ef75ec3879">
+<p nodeId="d86b0f9c-3c55-49af-be89-de2f1f358186">54</p>
+</td>
+<td colwidth="[68]" nodeId="f3d26b6d-c758-4206-8963-4e755f7be21c">
+<p nodeId="43f421c1-5810-4f22-bf38-e4fc48d229d0">camilabatista</p>
+</td>
+<td colwidth="[68]" nodeId="d252c1a4-9b58-4b30-8e8b-0e4d51c8ae63">
+<p nodeId="54de4e3b-c1eb-42cb-99d5-48125d324aec">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="8a54a3c0-9b32-4ed3-826d-31deb1dd362f">
+<p nodeId="43ed9efe-c5f0-4aa4-a6ee-6bc9a55eabe2">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="79278484-b6a4-44fe-86f7-46142104aafa">
+<p nodeId="4111bc2a-06c2-4da1-a234-597aa9f1296f">0</p>
+</td>
+<td colwidth="[68]" nodeId="f7999582-5c61-448b-a615-644ba518e0dc">
+<p nodeId="0e4c971a-452c-4e72-aadd-894121966233">0</p>
+</td>
+<td colwidth="[68]" nodeId="739f8c99-a8a8-486a-a22b-e777f364c608">
+<p nodeId="0ca9b02c-bf25-49df-ab14-1ec670e05b38">0</p>
+</td>
+<td colwidth="[68]" nodeId="c7517c2a-75c1-483d-9ab5-8e830ab31663">
+<p nodeId="d77131b3-cde8-46e8-8c60-8224e66a754f">-</p>
+</td>
+<td colwidth="[68]" nodeId="9e118602-2f1c-4609-b8a4-a7a7842cd5c3">
+<p nodeId="22e6162d-d130-47ea-aae9-a1c04f13521f">0</p>
+</td>
+<td colwidth="[68]" nodeId="3a4ecee6-6292-417d-844f-3bfdb15da2fb">
+<p nodeId="272692f4-cfd8-4abd-99b3-5f8e90583afb">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="be4ccb17-4c75-4fb6-a57c-231987507413">
+<td colwidth="[68]" nodeId="6fb2d639-9c0e-464d-a852-d1b2f72a1636">
+<p nodeId="46c146af-2bef-4663-b654-d93764511c84">54</p>
+</td>
+<td colwidth="[68]" nodeId="5105396f-2cc9-4b0f-8c9f-1fb764e1da48">
+<p nodeId="85d421ae-5646-4e86-8004-455232713bd6">kevinberti</p>
+</td>
+<td colwidth="[68]" nodeId="2bf493fb-a5c4-4d2e-89a2-7ada12870510">
+<p nodeId="a4b2b396-a2a5-4761-9d96-d42f7e7be93c">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="e8097471-8e33-4d1d-89bc-c8fc2a92aae1">
+<p nodeId="7f68467f-6431-4708-bfcb-d955bb9e03c1">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="56bae7bd-41e5-4591-8824-88b6155b94ac">
+<p nodeId="4b5db1c3-37db-43db-b187-365c3fc91f3d">0</p>
+</td>
+<td colwidth="[68]" nodeId="4c269da2-1081-4b86-8163-bb09c6be89e3">
+<p nodeId="8ce81768-fc3b-4885-9641-10656611879a">0</p>
+</td>
+<td colwidth="[68]" nodeId="34b771d4-c19c-4c15-b951-e5ac04cd00a8">
+<p nodeId="24ab247e-0ccb-4e37-ad34-d85917d32d3e">0</p>
+</td>
+<td colwidth="[68]" nodeId="d8d4611a-1417-492f-b4ae-d122800a0da7">
+<p nodeId="ac9df2da-561f-44b1-9b2f-a3902c92d1ab">-</p>
+</td>
+<td colwidth="[68]" nodeId="7aa3772a-bc40-4ace-8454-ccf9251a59dc">
+<p nodeId="9a74e975-6092-45e7-ab03-891f63bedf41">0</p>
+</td>
+<td colwidth="[68]" nodeId="d0664d52-3669-4f6b-b0de-2137fe0eb6e5">
+<p nodeId="857ba86a-7eb4-4260-9b3f-66f709c716f2">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="a9af6807-325a-408f-9043-b77d1bb8198c">
+<td colwidth="[68]" nodeId="9004f635-01a7-4092-a6f8-a9279ccc18e1">
+<p nodeId="a43bd5ad-56cd-4dd5-8c30-ab3f9b71587b">54</p>
+</td>
+<td colwidth="[68]" nodeId="53cc4d68-38d6-4394-a025-b0250cc16939">
+<p nodeId="626c610e-2fab-413a-b7c4-0da5a3315327">clebersoares</p>
+</td>
+<td colwidth="[68]" nodeId="71552971-c5ba-4453-8754-aa1e10230e4b">
+<p nodeId="2b8c99a3-ce22-42df-91dd-414d40c3ff9a">lucasferreira</p>
+</td>
+<td colwidth="[68]" nodeId="1bc827ed-de92-455b-961a-c053c34a2330">
+<p nodeId="fcfb6091-d9e4-46f3-bb51-9cb565534c2c">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="ed4df12b-dc09-43a1-bc25-579e5adf5071">
+<p nodeId="11e9617e-262c-4706-9dc6-4b58b25f41a9">0</p>
+</td>
+<td colwidth="[68]" nodeId="0f593f78-a9ec-4f55-a45b-c4f028db67f1">
+<p nodeId="e9296af9-39bf-47bb-aafa-bc9568927892">0</p>
+</td>
+<td colwidth="[68]" nodeId="2bce1456-41a3-4ac3-8370-7d7a23d751c9">
+<p nodeId="ab15f422-c303-41ff-a2b5-0b6f0165b9be">0</p>
+</td>
+<td colwidth="[68]" nodeId="0363b875-57c7-4544-9ed1-4fab8c8e079b">
+<p nodeId="6966402f-df5f-45d3-972a-8eeaddfa8b0a">-</p>
+</td>
+<td colwidth="[68]" nodeId="2c0e0325-efa1-4271-8023-69e6c0cbfbbe">
+<p nodeId="871e0b8b-60b4-4a07-b6c6-d27b80f2d088">0</p>
+</td>
+<td colwidth="[68]" nodeId="e674dba8-af71-4382-808b-831c500942ea">
+<p nodeId="3658de86-e72f-4d24-8bce-30bfb2c70cf4">还差 15 分</p>
+</td>
+</tr>
+<tr nodeId="173b0f10-08ef-4951-b41b-b89deab08956">
+<td colwidth="[68]" nodeId="e34d1c40-3e63-4d50-8146-f25a08ee8c02">
+<p nodeId="8514410d-b9bb-4028-8a36-2689f4f9730e">54</p>
+</td>
+<td colwidth="[68]" nodeId="3ffec102-5997-4786-a534-8c2fc8600f88">
+<p nodeId="e4f97120-69ac-4570-9e37-b556fa853968">brunacrelien</p>
+</td>
+<td colwidth="[68]" nodeId="9b59a32a-7550-4c49-8a9c-12cbab199ced">
+<p nodeId="a0898088-c884-42f5-9b72-71e04e64d22e">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="edd9d29e-f3b3-49f1-b4f8-9a898d9885cc">
+<p nodeId="12f5082f-c79e-4c6d-aa05-687678845f78">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="03da12b9-7066-4f0f-85ec-a9d21b4daa2c">
+<p nodeId="78acb555-43df-4422-93ab-780270d705de">0</p>
+</td>
+<td colwidth="[68]" nodeId="8e0f90a9-3350-4df3-9c41-ec1357c44372">
+<p nodeId="d7b0a55e-c7cb-49a0-a72b-b4be65551a37">0</p>
+</td>
+<td colwidth="[68]" nodeId="28b41c5f-86f0-4687-bf80-c385a67f1978">
+<p nodeId="50884ee4-579b-4630-9c4d-e0c2e53c3ce5">0</p>
+</td>
+<td colwidth="[68]" nodeId="d1dd627e-6606-46a9-85f6-753bb8f8a18e">
+<p nodeId="b117b37f-498d-4a6d-ad3d-4597ae25ab5f">-</p>
+</td>
+<td colwidth="[68]" nodeId="a7eb0aa6-7d46-4167-b0b9-8876b0403b61">
+<p nodeId="94d0fa4d-08b8-4d6a-af20-b6313b9c8379">0</p>
+</td>
+<td colwidth="[68]" nodeId="918961ad-939e-4382-aec6-fbd5505314ba">
+<p nodeId="6c2ba527-06f2-4ef8-9488-6fe07b36b452">还差 15 分</p>
+</td>
+</tr>
+</table>
+<p nodeId="3bf351f0-4960-4de5-b01b-fe4cfeb07758"><em>Remaining 48 BDs omitted. Full rankings available on dashboard. / 剩余48名BD省略，完整排名见看板。 / 48 BDs restantes omitidos. Ranking completo disponível no painel.</em></p>
+<p nodeId="c00235d3-6a15-4454-b9a7-d38eb88b0ccd">✅ <strong>Qualified BDs / 达标BD / BDs Qualificados: 13</strong> — luizmoreira (38), wanessasilva (37), cristianedasilva (28), brunapadilha (25), rodrigopoli (24), igorsouza (23), ricardoalmeida (20), valeriachacon (20), marcelofeitosa (20), guilhermesantos (19), lucasnada (17), rodrigoalmeida (17), rodrigocorreia (16)</p>
+<h2 nodeId="911f1579-0250-436b-86ad-48fa35fbc5b6">1.3 BD Personal Rankings — Santos (8 BDs) <em>BD个人排名 — Santos（8人）</em> <em>Ranking Individual BD — Santos (8 BDs)</em></h2>
+<table nodeId="f084a98d-b471-47ce-a986-aa1b455be014">
+<tr nodeId="982d2369-6513-45ee-ab18-ee59ac6a8005">
+<th colwidth="[68]" nodeId="f72cb06f-3d3b-405f-8ec5-6de60f1654b4">
+<p nodeId="1a3833f7-fe04-4b23-b935-e522341f9eb6">Rank / 排名 / Posição</p>
+</th>
+<th colwidth="[68]" nodeId="cd877384-c246-4d1c-8d92-f2a350c8e29c">
+<p nodeId="b507115b-7847-4985-bbd0-6edc398aab71">BD</p>
+</th>
+<th colwidth="[68]" nodeId="b2f79c0e-0f54-4a12-82b9-4520d59dd3b3">
+<p nodeId="ab185080-97ea-4dc9-a358-e475a06f8bc2">BDM</p>
+</th>
+<th colwidth="[68]" nodeId="d160b3d5-1e89-4ecc-bd77-e6e1718786c8">
+<p nodeId="fdb0d003-ed98-4556-a72c-50b5401f56b8">🔴NS</p>
+</th>
+<th colwidth="[68]" nodeId="d74732b9-3114-4859-8caf-6890f1142237">
+<p nodeId="3306a412-c6de-46da-be16-f1aedac0266f">🟡NO</p>
+</th>
+<th colwidth="[68]" nodeId="d5fd62ca-6234-4218-abe7-31cc99112c23">
+<p nodeId="42c8abac-f006-4e0d-b22d-b33f2a39d55b">🟢NOP</p>
+</th>
+<th colwidth="[68]" nodeId="1bb3fe31-4606-48e6-89fe-308d679ee889">
+<p nodeId="46d7cbd4-8905-45b0-b697-d069d3bd0fce">HV+2</p>
+</th>
+<th colwidth="[68]" nodeId="2d550bee-4a10-4be1-891b-fce0e5208ef7">
+<p nodeId="a837a75b-8c91-490a-9b50-0ee7be933d74">Total / 总分 / Pontuação Total</p>
+</th>
+<th colwidth="[68]" nodeId="7737d9c1-a925-485e-af91-7dfbd2e4fec0">
+<p nodeId="a29c74de-74a2-4b0a-95fd-00e58dcf5aa3">Status / 状态 / Status</p>
+</th>
+</tr>
+<tr nodeId="2e943291-17d4-4321-a121-e5328fe9fad5">
+<td colwidth="[68]" nodeId="72090193-55dd-4395-a9dc-d2f7302bdae9">
+<p nodeId="7cdd4bd8-0480-4d02-a864-11b129129367">🥇 1</p>
+</td>
+<td colwidth="[68]" nodeId="adc9861c-868d-42db-98de-84ac54168782">
+<p nodeId="e8f5703a-c314-4c93-87bf-a021c3fb32b4">luizmarques</p>
+</td>
+<td colwidth="[68]" nodeId="7eddd630-790c-4902-bed5-3eb6a4f5df25">
+<p nodeId="29931682-e0f5-4eb6-bee1-c549f84b4cc7">renataleite</p>
+</td>
+<td colwidth="[68]" nodeId="fac57709-4636-4971-941c-5c7e08fc28b7">
+<p nodeId="9db682ba-e38c-4e00-a4e5-988ac6bb3042">1</p>
+</td>
+<td colwidth="[68]" nodeId="c336840d-b018-4b93-aa5b-b93f62b31bb0">
+<p nodeId="e64f719b-1be9-4ec9-af12-c19a28ada98b">1</p>
+</td>
+<td colwidth="[68]" nodeId="b67244c0-52ff-4846-9262-2fb257aa1cc5">
+<p nodeId="a90dbff5-4f5e-4aec-9baf-dd408e287543">1</p>
+</td>
+<td colwidth="[68]" nodeId="b1df70b3-da70-45e4-97d6-4e48b6c79287">
+<p nodeId="2e34f16e-176e-45b1-9bc4-3f4818ea7dd8">+2</p>
+</td>
+<td colwidth="[68]" nodeId="510288b2-cf91-4224-9a24-efdd580a111c">
+<p nodeId="81f00b0d-922b-4b37-be0e-e84ba52a1705"><strong>17</strong></p>
+</td>
+<td colwidth="[68]" nodeId="d48966fd-c3c5-49c3-ad01-9fae1ed2d0e9">
+<p nodeId="5e184bdf-0d30-41a7-9b73-95f89fcdad34">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="4d09a9d9-a33f-44bc-9b19-5c3c34bda3f2">
+<td colwidth="[68]" nodeId="ae929fc0-6cb7-4b69-972a-a6ad55bc96da">
+<p nodeId="b8073fc7-5577-4e6a-99e1-15a078adb8cf">🥇 1</p>
+</td>
+<td colwidth="[68]" nodeId="597d6bb5-9557-4685-b6f0-f418a73e5579">
+<p nodeId="facd7b9f-86f1-408f-8eda-580b763b6b4b">jessicarossi</p>
+</td>
+<td colwidth="[68]" nodeId="e3abfb68-c88c-42d6-aa70-96f638ef803a">
+<p nodeId="f7a8751f-b37a-4047-8535-cfc2a2ac28cc">renataleite</p>
+</td>
+<td colwidth="[68]" nodeId="b270b255-0a83-476f-b86c-90ad92d2c664">
+<p nodeId="ea5b3ec5-b854-4553-8592-e6b556b49748">2</p>
+</td>
+<td colwidth="[68]" nodeId="ca88e136-b3fd-4b33-ba50-b2fc645ccda1">
+<p nodeId="d0681bac-477e-407f-ad6d-0bc3fafc5668">0</p>
+</td>
+<td colwidth="[68]" nodeId="74cff340-d2e5-4c2f-9fd4-ae6770755182">
+<p nodeId="04d56734-bf38-46e0-9436-e713a9a6fa0c">1</p>
+</td>
+<td colwidth="[68]" nodeId="ad190ca6-db43-42ad-9750-870833d53967">
+<p nodeId="aa807f38-98a9-4a5a-be1c-eb4f074c63da">+1</p>
+</td>
+<td colwidth="[68]" nodeId="811b750b-d0d7-4476-bd01-565982ef65c9">
+<p nodeId="b2b4255b-cddb-45be-97a8-6e17e1e9cfa9"><strong>17</strong></p>
+</td>
+<td colwidth="[68]" nodeId="dde7cb7d-ff4d-4e8b-8075-9eab82136bb6">
+<p nodeId="d49fba7d-a0a9-430d-bcd4-51f573bf41ef">✅ 达标</p>
+</td>
+</tr>
+<tr nodeId="9a3ec0dd-b27b-4520-a7ae-41871895508e">
+<td colwidth="[68]" nodeId="b533cd56-4a1e-4387-ad05-fe56fc4ce604">
+<p nodeId="300fbe4c-d799-41bd-ac4a-2afbbaf95c95">🥉 3</p>
+</td>
+<td colwidth="[68]" nodeId="fa89e152-1bf5-4f33-90cc-df1a0dd5d275">
+<p nodeId="aba9c0b3-2ad4-460a-8081-b376be981a89">nathaliabernardino</p>
+</td>
+<td colwidth="[68]" nodeId="f5993f8c-048d-494a-b135-a4a75a8861a2">
+<p nodeId="f530af78-9294-45b0-9bbb-575fd86e3168">renataleite</p>
+</td>
+<td colwidth="[68]" nodeId="e79e46db-21ac-445c-9307-37e296b3600c">
+<p nodeId="72b3cf80-0912-48dd-91ba-37e4c3a37999">0</p>
+</td>
+<td colwidth="[68]" nodeId="054f4dd8-e671-4369-9b54-69757c70b17d">
+<p nodeId="b8f81efc-60b3-4e90-b70b-ee136f94519a">1</p>
+</td>
+<td colwidth="[68]" nodeId="84be5369-7006-4bf3-8ad2-78bf9c77f95a">
+<p nodeId="e8c92833-220f-4eaa-a9b8-5a09cb5e49e8">1</p>
+</td>
+<td colwidth="[68]" nodeId="89ec44f7-2240-4e91-8a13-bca04831f966">
+<p nodeId="df1cce58-baa9-491a-9e62-dcf5e5138aa3">-</p>
+</td>
+<td colwidth="[68]" nodeId="b2978a1e-fad4-4665-bc25-7838d7af0565">
+<p nodeId="c48167e0-e717-4dcb-973b-53dc3278453a">7</p>
+</td>
+<td colwidth="[68]" nodeId="e580b505-576b-49cf-b498-93aeb274e6cb">
+<p nodeId="254fbd96-b51e-48c2-86e2-026214635a8a">还差 8 分</p>
+</td>
+</tr>
+<tr nodeId="fc5f1f93-569b-44e4-b603-63103750d594">
+<td colwidth="[68]" nodeId="97622e9a-e3d5-4b8c-9a59-3d6107870e3e">
+<p nodeId="7fa17ecf-b1f3-4166-9df0-a90c012c221d">4</p>
+</td>
+<td colwidth="[68]" nodeId="0836e0b1-1cf2-4b36-9dee-7c65453e866e">
+<p nodeId="599edebe-7e4d-4696-83ee-3806b1103041">felipebarbosa</p>
+</td>
+<td colwidth="[68]" nodeId="573ef3fd-af87-4abc-91ad-0be423bb9791">
+<p nodeId="fe038aff-fbb3-4dcd-beda-179d28d7f72e">sabrinafernandes</p>
+</td>
+<td colwidth="[68]" nodeId="c647bb59-eb6e-4c35-9789-ae142ba58323">
+<p nodeId="cea75a36-11f5-41c6-95f5-b142877b403f">1</p>
+</td>
+<td colwidth="[68]" nodeId="cd6055cc-4f1d-43e2-8335-7989320b1fb6">
+<p nodeId="64345076-4aef-46e4-af15-fdf45d28d74e">0</p>
+</td>
+<td colwidth="[68]" nodeId="b095a979-41b3-4f1d-9da1-9b7f000b48b8">
+<p nodeId="3ef68b33-34ce-4dfc-a1a4-8ab38b683ed1">0</p>
+</td>
+<td colwidth="[68]" nodeId="0d74de15-1a32-4d0e-8784-0257e411e108">
+<p nodeId="9e196835-af21-4194-a244-c238721983e4">-</p>
+</td>
+<td colwidth="[68]" nodeId="e68d5ff0-bba8-401f-9153-42bec60fe5f6">
+<p nodeId="2ed87ec6-6848-4121-bed6-a4f49cfbc492">6</p>
+</td>
+<td colwidth="[68]" nodeId="743e6dac-4919-4a2e-8929-8f12f5e51788">
+<p nodeId="39cb61c1-bdec-4b3b-a033-f436c6010c36">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="4a92895d-371b-40d9-98bc-820ead6d512d">
+<td colwidth="[68]" nodeId="151a6873-1664-423b-a3fb-7bc6a625073d">
+<p nodeId="ecd12c56-af3b-499d-afaa-cae3865add96">4</p>
+</td>
+<td colwidth="[68]" nodeId="3c768fef-4188-4e2e-894d-ce83b38925b9">
+<p nodeId="ffa89354-057a-4398-9b69-db6daee8bc17">joaocastro</p>
+</td>
+<td colwidth="[68]" nodeId="92570f9a-e1ac-4fbe-a242-8bb6ec4bb87f">
+<p nodeId="ed65f3ad-9d60-4268-a210-c225984c8c6b">renataleite</p>
+</td>
+<td colwidth="[68]" nodeId="a9e2d59f-826e-4bef-834a-2e8cad344556">
+<p nodeId="97011d6d-4921-414e-a71b-c6ae9b9f5ace">1</p>
+</td>
+<td colwidth="[68]" nodeId="639b2967-95bd-4432-bb06-3b954da95197">
+<p nodeId="926e7766-52f3-45fb-90c6-a92bff79c59c">0</p>
+</td>
+<td colwidth="[68]" nodeId="a53152b4-8dec-4a5a-a105-05e24b880df2">
+<p nodeId="54b2a34e-d87e-4ea1-9f36-4660b8a6de6d">0</p>
+</td>
+<td colwidth="[68]" nodeId="ed61eb59-b41e-44de-a9df-1341924d4d78">
+<p nodeId="1df47f1d-e9bf-4a7d-a007-18b1a08d9fb7">-</p>
+</td>
+<td colwidth="[68]" nodeId="40514c2a-d6b1-446d-b33a-ebc68437abe3">
+<p nodeId="7273e204-8327-42f5-8f73-f10cd0d4463b">6</p>
+</td>
+<td colwidth="[68]" nodeId="bcde5fb0-6515-43a4-8a08-5638b56c8e3f">
+<p nodeId="2a57d94b-8796-467f-b11e-ebfe19619faf">还差 9 分</p>
+</td>
+</tr>
+<tr nodeId="51ed8c86-83ef-4f98-8db3-c217429b1d28">
+<td colwidth="[68]" nodeId="b588d912-016a-4b32-a270-74938d61e820">
+<p nodeId="318ad17b-0928-46f1-9ae1-a21030b81f21">6</p>
+</td>
+<td colwidth="[68]" nodeId="ef4ebd73-c90a-4183-b616-cb6ac16e99cb">
+<p nodeId="ddae6361-d939-4286-a043-1987f43532fe">giovanabareno</p>
+</td>
+<td colwidth="[68]" nodeId="5051323f-671a-4382-9e40-06dd5834691d">
+<p nodeId="dd559f7f-597d-4b94-b56d-f7aa40094f33">sabrinafernandes</p>
+</td>
+<td colwidth="[68]" nodeId="ebe4520f-9301-426c-b984-298611e9249e">
+<p nodeId="88e4a22d-ba42-4b4b-8b1a-ec6f635cc0eb">0</p>
+</td>
+<td colwidth="[68]" nodeId="772fca28-ad2e-48c9-a26e-b40be6dfb517">
+<p nodeId="41ee7a10-3b6d-44d6-9c69-897ff5ec2dac">1</p>
+</td>
+<td colwidth="[68]" nodeId="a0c0cdbd-83fd-4435-99e9-5e3c2cd547e9">
+<p nodeId="49ec6a64-60c6-49d2-bd93-bff1a4145e2b">0</p>
+</td>
+<td colwidth="[68]" nodeId="c58d3a6a-b69d-4a45-abb2-849a363a866d">
+<p nodeId="4afd70ed-e9e5-4ce5-a10c-74643cd3bb9a">-</p>
+</td>
+<td colwidth="[68]" nodeId="65861d8d-8aaa-4605-82d3-73811d9efc19">
+<p nodeId="f86e8e5a-ede1-4a7e-9b4c-c5b36e90bd1f">4</p>
+</td>
+<td colwidth="[68]" nodeId="875598b9-f86e-4e96-be9a-ab89f6fe8a64">
+<p nodeId="5f3a7448-b60a-4337-bd51-ba30f9b1297c">还差 11 分</p>
+</td>
+</tr>
+<tr nodeId="5228bd70-58d0-4384-9ed1-845424b15222">
+<td colwidth="[68]" nodeId="f74e22a3-7f3b-417d-b076-866e85df168d">
+<p nodeId="7b92b76e-e1d8-493d-a1c3-22ef804898db">7</p>
+</td>
+<td colwidth="[68]" nodeId="07e88c46-54e6-44be-ba1f-0f9492b766f7">
+<p nodeId="4c884a7b-72d4-479b-b1dc-bba07d3586e3">ericabarbosa</p>
+</td>
+<td colwidth="[68]" nodeId="45af784a-508c-4c83-8568-d6f6bfd8cec4">
+<p nodeId="31cf4f6a-9e32-4d1b-984a-c5247b85235b">sabrinafernandes</p>
+</td>
+<td colwidth="[68]" nodeId="26684469-8b89-4c90-b3df-2b47d3d5d0ed">
+<p nodeId="f293fc78-67c5-411d-8182-7b18a80024ad">0</p>
+</td>
+<td colwidth="[68]" nodeId="81180441-b504-47ac-bb32-29b321c2811c">
+<p nodeId="976f5b63-4755-4d94-a345-bed666edb7e8">0</p>
+</td>
+<td colwidth="[68]" nodeId="a5f0a58c-01c1-4d4c-802c-1c0b9e225d5f">
+<p nodeId="142a2775-7088-4262-b24e-8a02cfef7cc8">1</p>
+</td>
+<td colwidth="[68]" nodeId="cc795caa-982d-4b2c-aad3-5eedfeac3671">
+<p nodeId="522ca698-c7d1-467a-baa0-7ef783279c64">-</p>
+</td>
+<td colwidth="[68]" nodeId="757e74bd-03b9-4bcb-a1bc-d59510ed7c3c">
+<p nodeId="d3ed2e7b-095d-48cc-950a-585cc9bc1d3e">3</p>
+</td>
+<td colwidth="[68]" nodeId="e22f55d5-7113-4fc2-9d7b-5e56e1e2029e">
+<p nodeId="749aa36e-55d8-4927-b87a-fe2fe82c37e4">还差 12 分</p>
+</td>
+</tr>
+<tr nodeId="d1a7ba8c-4f52-4dcf-bcc5-412aeeef1d42">
+<td colwidth="[68]" nodeId="4a5209de-0aa7-4492-8257-b3c8be53a7f1">
+<p nodeId="58839208-165e-404f-b237-5406d6e2e743">-</p>
+</td>
+<td colwidth="[68]" nodeId="43316fc4-f61c-4abc-8208-aa07347ea10f">
+<p nodeId="2c360ee6-25c3-453f-ae02-99a3305eac5b">brunosalmaso</p>
+</td>
+<td colwidth="[68]" nodeId="985ffae3-ee7e-46b7-b68f-34cb7fc6a940">
+<p nodeId="aa984300-327f-4f43-bb13-2cb04022f50c">sabrinafernandes</p>
+</td>
+<td colwidth="[68]" nodeId="56a7db70-434f-4ad3-86ce-938ffc4ac011">
+<p nodeId="a9ec7b2e-5d4a-4ae8-aaa6-fe3458096ec4">0</p>
+</td>
+<td colwidth="[68]" nodeId="9dc30e2d-78bb-4001-8b5b-34fb9887ec88">
+<p nodeId="c412d9ef-718a-4d9b-aee2-88ea41f3d351">0</p>
+</td>
+<td colwidth="[68]" nodeId="52bc293c-05e3-4d1f-b190-33baaffe00e5">
+<p nodeId="8e44b7f4-4b53-40b7-9832-c52bd28b5545">0</p>
+</td>
+<td colwidth="[68]" nodeId="bfda89b4-a2a3-4fe4-b9bc-17579681849f">
+<p nodeId="fae8d5a3-5371-483c-8902-d97b4f2b75f8">-</p>
+</td>
+<td colwidth="[68]" nodeId="e29c7a97-28f8-4ec8-9d97-e56020541194">
+<p nodeId="da223f0d-21f8-4df4-a62d-1e4ee5ec28a0">0</p>
+</td>
+<td colwidth="[68]" nodeId="83650a2f-ffa8-4653-af78-4451a73d515d">
+<p nodeId="a1e77a48-12d9-49a8-8c9c-342b5c9f0361">还差 15 分</p>
+</td>
+</tr>
+</table>
+<p nodeId="9f9acb0f-2be8-4e70-bcfd-99cd32c13e05">✅ <strong>Qualified BD / 达标BD / BD Qualificado: 2</strong> — luizmarques (17), jessicarossi (17)</p>
+<h2 nodeId="4ae3293e-0cd8-419e-a013-16e5e3ca7d68">1.4 BDM Team Rankings (12 BDMs) <em>BDM团队排名（12人）</em> <em>Ranking de Equipes BDM (12 BDMs)</em></h2>
+<table nodeId="8c44d276-8dbd-4d81-9978-247e3f27e23a">
+<tr nodeId="b3ef0022-9177-4020-89e4-a3c4eac77232">
+<th colwidth="[68]" nodeId="a6340e77-990e-4dcc-b95f-8144eaade0be">
+<p nodeId="0a3ea43d-5643-4ee2-852d-dbc173ef73e4">Rank / 排名 / Posição</p>
+</th>
+<th colwidth="[68]" nodeId="3d22b522-55a1-4c8a-8fde-725f82c5d0a9">
+<p nodeId="a2513d5f-752a-4cd7-ada5-ad07a8c7e180">BDM</p>
+</th>
+<th colwidth="[68]" nodeId="c5691637-1812-478e-b268-6f6586584b1a">
+<p nodeId="f8ab1706-d861-4b17-b901-51ba44d9c9d0">City / 城市 / Cidade</p>
+</th>
+<th colwidth="[68]" nodeId="0848f518-3e56-4021-941e-8114038f580f">
+<p nodeId="b35be9a9-b95e-4e2b-b6c0-de393822a738">BD Count / BD人数 / Nº de BDs</p>
+</th>
+<th colwidth="[68]" nodeId="165a6f1f-9f86-4c77-9916-43cb9eea4ed3">
+<p nodeId="cf01928b-0ef2-4d49-bb8a-3154b565d028">Team Score / 团队总分 / Pontuação da Equipe</p>
+</th>
+<th colwidth="[68]" nodeId="0b6905f6-adf8-4fa0-b691-d1fff06381b4">
+<p nodeId="08ebb92a-cfbc-49e8-854f-fbd9da789577">Avg / 人均 / Média</p>
+</th>
+<th colwidth="[68]" nodeId="e7caf8ff-f004-4fa9-a5af-54c17b3a0fec">
+<p nodeId="748ee72e-4cb7-4928-a035-9c5366da77c7">Status / 状态 / Status</p>
+</th>
+</tr>
+<tr nodeId="49290d0b-dabc-476f-959f-af9f5889c1c4">
+<td colwidth="[68]" nodeId="29df0d10-84d6-493b-b6e2-83cc8985e01f">
+<p nodeId="330876c3-b5cb-4210-80c0-ba848303d5e6">🥇 1</p>
+</td>
+<td colwidth="[68]" nodeId="a80ab6a0-17eb-4509-a584-a9108a475fb2">
+<p nodeId="21765457-033f-4630-8d78-895e5171f09f">igorfeitosa</p>
+</td>
+<td colwidth="[68]" nodeId="fb335bd9-a723-4fac-91ba-5c9f2e1bad69">
+<p nodeId="afbac3dd-92fb-4a30-a675-22b58df14b59">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="b69811ba-c119-4bba-ab51-8aaebf2f99ec">
+<p nodeId="e352c4fe-263b-4fae-8483-d9301af56d32">5</p>
+</td>
+<td colwidth="[68]" nodeId="12ea59b9-4f2d-4951-a431-b350e441e24e">
+<p nodeId="898091c7-0a7f-45db-8c32-513c1d96a844">67</p>
+</td>
+<td colwidth="[68]" nodeId="36dde286-4283-4bbf-9405-54ca36413046">
+<p nodeId="f24be917-a91e-40b6-887c-901a42e0f550">13.4</p>
+</td>
+<td colwidth="[68]" nodeId="2165733d-5419-45d2-867e-e684ba422169">
+<p nodeId="25f34d57-0252-494d-9cb1-1975ec1a5b2f">还差 1.6</p>
+</td>
+</tr>
+<tr nodeId="f433f324-282c-4703-aac2-d58b4ad7a868">
+<td colwidth="[68]" nodeId="5242ad60-29bc-430f-83be-92e43775dd96">
+<p nodeId="ee6a54e7-b05f-4490-95e3-139887b79784">🥈 2</p>
+</td>
+<td colwidth="[68]" nodeId="3d54437b-0a3b-46dc-9eb4-77f71067cd6b">
+<p nodeId="e0d4851a-e09a-49eb-b4bf-d8f31cd0e6fd">biancaceotto</p>
+</td>
+<td colwidth="[68]" nodeId="e4697d88-5986-4b54-b225-8dc1a647d671">
+<p nodeId="1a139699-c11e-400b-b6d3-f677c1df9705">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="0ac041b3-6215-4cfa-94d6-b3871d53c651">
+<p nodeId="807ff67d-f524-49e3-b2bb-78fa521e2d8d">7</p>
+</td>
+<td colwidth="[68]" nodeId="56ed71e2-4921-4c4a-ad6a-2a4223b88d3e">
+<p nodeId="15101b03-1e64-42dd-9aca-c6948f1f9079">85</p>
+</td>
+<td colwidth="[68]" nodeId="e9239546-2133-496d-9c4a-7e3c3f66b3cc">
+<p nodeId="acb0a708-3c68-4dd5-9653-e43d34500b9a">12.14</p>
+</td>
+<td colwidth="[68]" nodeId="92803263-e448-42fa-b205-dc61a9b606f7">
+<p nodeId="3697a881-1061-4f7d-b916-8f29f4439efd">还差 2.9</p>
+</td>
+</tr>
+<tr nodeId="3ec006c8-e7da-42a3-acf2-59480b3a3af0">
+<td colwidth="[68]" nodeId="328602d7-8f5e-4558-a7a6-e97dc3cfd67e">
+<p nodeId="fed1a5c1-1e4b-4d0d-a263-1de47dfd8bca">🥉 3</p>
+</td>
+<td colwidth="[68]" nodeId="4dd7bb47-84f7-429b-99d8-18706535ccd1">
+<p nodeId="a7961ca7-a4c2-4269-821d-79900b25608a">renataleite</p>
+</td>
+<td colwidth="[68]" nodeId="98166c36-b51d-42cd-8322-8c7a2dfdce0d">
+<p nodeId="a4794dc2-9d85-4db9-bf19-d5614bb1ebb9">Santos</p>
+</td>
+<td colwidth="[68]" nodeId="eb6814b2-6b4a-4e01-857b-ff0fccdce220">
+<p nodeId="4baf3ee1-4116-4578-903a-8f599ced4a66">4</p>
+</td>
+<td colwidth="[68]" nodeId="6ee3715c-721f-4b18-83e1-837a8dc42c35">
+<p nodeId="d4f14675-f94b-4abb-8c29-0a7bef61c859">47</p>
+</td>
+<td colwidth="[68]" nodeId="0d75e935-81e1-45bd-bb75-6620d4855031">
+<p nodeId="01d6c137-7c8b-43ed-93b0-d1bb971a6ca9">11.75</p>
+</td>
+<td colwidth="[68]" nodeId="2617d6ca-6b88-4851-8248-70ba1378872c">
+<p nodeId="fb48c0fe-4475-4a40-964c-33553bcba1ce">还差 3.2</p>
+</td>
+</tr>
+<tr nodeId="7bf3c781-a0c2-452e-a485-d31b65f4922d">
+<td colwidth="[68]" nodeId="7648e09d-3c1b-4e6b-b30d-8267d1fff499">
+<p nodeId="b8728c1a-9674-4fc9-81cb-ed4199778fa1">4</p>
+</td>
+<td colwidth="[68]" nodeId="9dcf13b6-0fd2-4d1e-8b39-d05f776859c1">
+<p nodeId="f1f70a9e-b082-406d-ad44-2f72606baea7">lucasferreira</p>
+</td>
+<td colwidth="[68]" nodeId="52f5f418-3ead-4a21-b110-ba912fd9caf9">
+<p nodeId="b30e59aa-7ad8-4471-b254-ab064a211967">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="e840ca8a-6cfc-4b57-864e-736099d390c2">
+<p nodeId="c9d873da-2d3f-40c2-9811-465303d7e352">4</p>
+</td>
+<td colwidth="[68]" nodeId="5c2b2ced-b708-476d-bd93-ff6ef410af89">
+<p nodeId="32bef94a-b65b-48ee-9159-f0357e6cc3e9">45</p>
+</td>
+<td colwidth="[68]" nodeId="dde6b173-e249-4e01-b44b-255d80e67837">
+<p nodeId="fe9441f6-a24c-4f93-95cc-578b5ce26ace">11.25</p>
+</td>
+<td colwidth="[68]" nodeId="0561c223-c0f5-4789-b4bc-fe65d9868978">
+<p nodeId="ab96be78-4000-4a69-8131-81ecf8d9d8bb">还差 3.8</p>
+</td>
+</tr>
+<tr nodeId="6c449e40-3a67-402a-a009-77798731adee">
+<td colwidth="[68]" nodeId="9e967257-fb30-47ff-95c6-fe0125aa83a7">
+<p nodeId="55f8fc62-6345-4616-807a-35e0dd5f0577">5</p>
+</td>
+<td colwidth="[68]" nodeId="b056e16f-488b-4cd9-a2f1-2c5850566b97">
+<p nodeId="d7ad99ee-38b1-41c7-ab75-f48bb062d399">adriananaves</p>
+</td>
+<td colwidth="[68]" nodeId="7fdbfd4e-99e3-4b08-a7ae-db177f07650b">
+<p nodeId="bce61d66-2add-43d8-95b3-6d0d5c6b8318">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="dbdbff11-084e-4325-a3e5-40994ad52f8c">
+<p nodeId="eb4d0023-a1e7-455d-b5f2-d616b8100ff1">9</p>
+</td>
+<td colwidth="[68]" nodeId="d4bf76f4-d9f8-4082-914f-7bcb6f417e1a">
+<p nodeId="728c3317-1cc7-4d3d-b4c0-14a46fa1b8f1">94</p>
+</td>
+<td colwidth="[68]" nodeId="e46bb9d0-490b-4e4f-8959-e28bd1ac9a7d">
+<p nodeId="853a2da2-efbc-4cb7-8f8b-7053346c9611">10.44</p>
+</td>
+<td colwidth="[68]" nodeId="90d64b20-e183-4c2b-9a9d-aac67207b074">
+<p nodeId="0e24aa7a-8425-4d7b-ba7a-b3e03645caf2">还差 4.6</p>
+</td>
+</tr>
+<tr nodeId="0aa622d1-4779-4de9-85af-24b255f963dd">
+<td colwidth="[68]" nodeId="4513ac2c-7c18-4ba2-8266-cb49f978c7b2">
+<p nodeId="a580a182-3a48-425a-b594-7cbfd44ec6be">6</p>
+</td>
+<td colwidth="[68]" nodeId="61d52d4b-76cc-433b-9d80-18e7b1858d18">
+<p nodeId="a7f27b84-892e-40ed-955e-9e477cb39eaf">fernandooliveira</p>
+</td>
+<td colwidth="[68]" nodeId="73548f2a-78d8-4ef7-8853-22841c461881">
+<p nodeId="c62a1e75-2061-4c30-bd73-a6e232408c17">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="b0e9f714-db2d-4243-b344-248b287099bb">
+<p nodeId="806800c6-ae66-4ef7-aa08-7130b68d3ea8">8</p>
+</td>
+<td colwidth="[68]" nodeId="e246a9f9-c37d-40ae-8755-ca7734a70d32">
+<p nodeId="d20ba662-22ce-4499-b429-d0bdf4db3e47">81</p>
+</td>
+<td colwidth="[68]" nodeId="b57d7eeb-1d6b-4203-a4e5-057a72890d6e">
+<p nodeId="8da661cf-4e84-493b-8a89-9916d711b304">10.12</p>
+</td>
+<td colwidth="[68]" nodeId="e4f6f73e-bef4-4b20-93ba-f5159d3ceeaa">
+<p nodeId="e6e4fafb-8ab8-4598-9232-80f576b74833">还差 4.9</p>
+</td>
+</tr>
+<tr nodeId="7fc0a975-9ef2-4309-838f-01852a5b6024">
+<td colwidth="[68]" nodeId="9aefc6c6-3814-4984-9710-7c992c2de872">
+<p nodeId="f1acf9e0-dca1-427a-8b4e-57c6fbb7e09f">7</p>
+</td>
+<td colwidth="[68]" nodeId="1bc833dd-2cf0-4eb4-b2d8-877fc2f491ed">
+<p nodeId="424f2ce6-b7fb-4871-9a5b-58f49a8567ac">cesararraes</p>
+</td>
+<td colwidth="[68]" nodeId="b674b1c3-b573-43fe-aa27-42ba6e157619">
+<p nodeId="a162e18b-235f-4122-ad8f-b10804882ea4">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="d05c96e1-46e2-4102-8cd7-3cdff3f93d8a">
+<p nodeId="b399de01-7d77-4186-bb96-75892d5ad859">6</p>
+</td>
+<td colwidth="[68]" nodeId="134c8a89-0bf2-425f-8cd7-828f6e62f21c">
+<p nodeId="7f63cabd-ad13-4a41-997e-cde1c1993882">52</p>
+</td>
+<td colwidth="[68]" nodeId="d0d6d149-b935-42b4-ae0b-d91850abbbba">
+<p nodeId="d096eea9-1a4c-427e-8f9a-d8935b5172c7">8.67</p>
+</td>
+<td colwidth="[68]" nodeId="380f1133-50f6-4d4e-af52-2567c97952fb">
+<p nodeId="9cf408f0-00b9-4c68-be62-710c3ed27cc6">还差 6.3</p>
+</td>
+</tr>
+<tr nodeId="c533f05a-9dfa-4078-b339-e28205b1ca91">
+<td colwidth="[68]" nodeId="449442c4-9506-438b-abb5-16f81a85d07c">
+<p nodeId="f7898e38-108b-4655-b77e-d73f7e7d3734">8</p>
+</td>
+<td colwidth="[68]" nodeId="b7e3962d-92bb-4749-9775-d04216757e64">
+<p nodeId="d92ae51d-4aaa-43ef-ab9d-4caad9edadb4">tadeumoraes</p>
+</td>
+<td colwidth="[68]" nodeId="18b2a332-967c-494a-b8cf-171d11a67938">
+<p nodeId="63077c19-1803-4b0a-a198-ba2e0370bfc9">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="3b84a0c3-6f20-4dfc-ba2d-0f26951d1bad">
+<p nodeId="1f28b005-713b-49c7-8885-717fc452c0dc">6</p>
+</td>
+<td colwidth="[68]" nodeId="728621cb-8355-46d7-b31f-1d649b92ece4">
+<p nodeId="d2108997-9c3d-49d4-ac8b-20fb71b8a587">51</p>
+</td>
+<td colwidth="[68]" nodeId="a5f9e161-c017-4091-b1bd-cde2aad9993d">
+<p nodeId="1fb1b7f3-29dd-47b5-85c3-01ba1a03d9ec">8.5</p>
+</td>
+<td colwidth="[68]" nodeId="b3a8f146-b340-4e60-8fec-12715bb5f7aa">
+<p nodeId="d9e286cd-0c57-4a3e-a809-7586ac2a6739">还差 6.5</p>
+</td>
+</tr>
+<tr nodeId="15a5f819-00ed-4acf-989e-0dec429e438b">
+<td colwidth="[68]" nodeId="eec7321f-2a50-49b1-93bc-44f56b93adc3">
+<p nodeId="63bbcd58-741b-47c7-bb31-bb68487e75d2">9</p>
+</td>
+<td colwidth="[68]" nodeId="d719cdd7-ab61-444b-9b54-1e7349087240">
+<p nodeId="37b99264-0515-40b3-b829-c0e5ef88553a">alisaeed</p>
+</td>
+<td colwidth="[68]" nodeId="d6e7725d-5901-4fa1-a8d1-c609fa2416b4">
+<p nodeId="ee7b7b6e-c578-4f22-9ae7-8778c2addf10">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="5f19b7f1-e05e-45aa-9526-fbf309ca2ecb">
+<p nodeId="a9ddcb01-af73-4f41-894a-b8936f2ca843">6</p>
+</td>
+<td colwidth="[68]" nodeId="a87e1643-3fb3-4023-9f2c-d6a9b9af818a">
+<p nodeId="a7791498-0205-431e-9d31-f2ee1896017c">48</p>
+</td>
+<td colwidth="[68]" nodeId="e5774621-7c84-476a-b857-c2ab9f80d544">
+<p nodeId="a2d16c73-dbb8-4e0a-ae76-34d09b104a51">8.0</p>
+</td>
+<td colwidth="[68]" nodeId="23d89b45-2fbb-48ac-b86f-4f7140bd6560">
+<p nodeId="ebdb218d-2199-46c4-81ca-511d2d032b80">还差 7.0</p>
+</td>
+</tr>
+<tr nodeId="1bf85fd4-0d12-4ba5-a6b9-8748c8cc33c5">
+<td colwidth="[68]" nodeId="ceae17e5-09ad-4c3d-a199-68df9d257721">
+<p nodeId="d270b0c0-2611-4629-977c-8d5c2c12b92c">10</p>
+</td>
+<td colwidth="[68]" nodeId="db4d8652-8480-4d6d-b5b8-08f9e312a1cc">
+<p nodeId="9c0ae5ec-dd69-479e-b9d5-26921c73bb86">eduardoalbuquerque</p>
+</td>
+<td colwidth="[68]" nodeId="ac41778c-dbdd-4ed5-b0de-cb53f3e8eb58">
+<p nodeId="6b8d4be2-6cdf-47c5-816b-9d52270b42de">Southern / 南部 / Sul</p>
+</td>
+<td colwidth="[68]" nodeId="1233c0c9-51e1-48dc-8815-f2b204d570c8">
+<p nodeId="2f69ce66-5217-4c00-83bd-63120a1ef8b3">6</p>
+</td>
+<td colwidth="[68]" nodeId="3b59be1d-92dc-41b2-9cff-4def38c4b073">
+<p nodeId="69cb34bb-ab58-40c9-93d6-aa3fc4a1ba97">36</p>
+</td>
+<td colwidth="[68]" nodeId="18095bf2-d7f8-407e-83b4-86b9bb614fdc">
+<p nodeId="bc5230ba-3340-414e-9c53-c3b8f0abd525">6.0</p>
+</td>
+<td colwidth="[68]" nodeId="94d8bf28-6467-4c2f-b4f7-6ca7a969daab">
+<p nodeId="ae0aa6ad-7753-4e3d-b895-9bfe8c50798f">还差 9.0</p>
+</td>
+</tr>
+<tr nodeId="78c673b7-5c1a-4168-9c96-1d3031097e57">
+<td colwidth="[68]" nodeId="2d601ec7-7734-4444-b5ca-33b36d280d8a">
+<p nodeId="64edb63f-899c-4175-9a4d-fb34a72f8017">10</p>
+</td>
+<td colwidth="[68]" nodeId="fc072314-e939-46b4-a8ef-5f3306574fda">
+<p nodeId="7af23e5c-cf42-4123-b53e-95814e85c8bb">thiagoscavazini</p>
+</td>
+<td colwidth="[68]" nodeId="3da4b51e-b964-4e15-94a3-1797060f03a4">
+<p nodeId="171b9971-41d7-468e-a155-638a7b07fda8">Western / 西部 / Oeste</p>
+</td>
+<td colwidth="[68]" nodeId="7bcd2966-6ba0-4b74-b06f-a2a1797baaca">
+<p nodeId="f9d73eb5-98e3-4e88-bc71-780d4fa7b3bf">6</p>
+</td>
+<td colwidth="[68]" nodeId="59789edb-0087-41fa-bc3e-f43800d84f6d">
+<p nodeId="3f2841e9-158c-4b5d-8e2c-8058819e400a">36</p>
+</td>
+<td colwidth="[68]" nodeId="ba0cd4ed-e89e-4930-9ced-0d1dae6a7fa4">
+<p nodeId="63a70407-cf28-438c-9c2e-f65ed6c91bb7">6.0</p>
+</td>
+<td colwidth="[68]" nodeId="d70cd0a5-9cc0-4f8d-95f9-4db68820d619">
+<p nodeId="d2c28d99-7c50-42b1-88cf-fc7e93115a70">还差 9.0</p>
+</td>
+</tr>
+<tr nodeId="aaa3618e-a39d-4b82-89bb-3e2840d225b4">
+<td colwidth="[68]" nodeId="530be4bb-153b-4ab1-ad52-e12e9faacb0b">
+<p nodeId="82d121c7-4c64-4e42-b6f4-05ec0d817788">12</p>
+</td>
+<td colwidth="[68]" nodeId="85a59e74-9ac7-4d83-8e88-712d8a190fa7">
+<p nodeId="574f2f5d-ad1f-459e-9998-41d44c479668">sabrinafernandes</p>
+</td>
+<td colwidth="[68]" nodeId="396653b0-79b2-4e48-9e22-afa02e717d96">
+<p nodeId="33792ae8-be9e-4e22-ab92-28db3570903c">Santos</p>
+</td>
+<td colwidth="[68]" nodeId="01a8d18c-bdb1-4abc-a9d2-46002ca903bd">
+<p nodeId="003e7d4a-6a50-4ab7-8b49-6e5e279394e5">4</p>
+</td>
+<td colwidth="[68]" nodeId="ed1b7847-7fc9-4d42-b4d8-968b3e56a5d4">
+<p nodeId="7977b333-a852-470a-89cb-a85bf54a949c">13</p>
+</td>
+<td colwidth="[68]" nodeId="749a675a-558c-4bf0-8945-ea0f96c3b566">
+<p nodeId="9491bec5-b1c6-4e6f-a309-c1539b1b6154">3.25</p>
+</td>
+<td colwidth="[68]" nodeId="75e306e8-0226-434f-a560-964f3ca4f256">
+<p nodeId="b2d82485-8f9f-45cc-80f7-1492c014d4a2">还差 11.8</p>
+</td>
+</tr>
+</table>
+<p nodeId="0e326a0d-a089-4bf6-bcfb-007669ab336c">✅ <strong>Qualified BDMs / 达标BDM / BDMs Qualificados: 0</strong> — No BDM has reached the 15 avg threshold yet. Closest: igorfeitosa (avg 13.4), biancaceotto (avg 12.14). / 达标BDM 0人：暂无BDM达到人均15分。最接近：igorfeitosa (avg 13.4), biancaceotto (avg 12.14)。 / BDMs qualificados: 0 — Nenhum BDM alcançou média de 15. Mais próximos: igorfeitosa (avg 13.4), biancaceotto (avg 12.14).</p>
+<h2 nodeId="5ac187a1-6a0b-4533-9840-1e712fc2d187">1.5 Summary <em>小结</em> <em>Resumo</em></h2>
+<ul nodeId="07bcddc2-720d-4d7d-ba01-af5872e39917">
+<li nodeId="5831ce19-877e-4eaf-a0f7-911565cccc06">Total Score / 总分 / Pontuação Total: 694 (BD-Level / BD级别 / Nível BD: 655)</li>
+<li nodeId="d8d36c48-2bca-4bfd-9fa9-21c79f3ab37c">Qualified BDs / 达标BD / BDs Qualificados: 15/71 (21.1%)</li>
+<li nodeId="c81b77cf-90f2-4821-b403-a6644db859c1">Qualified BDMs / 达标BDM / BDMs Qualificados: 0/12</li>
+<li nodeId="0dedfbe2-ee63-4153-80b7-51ce3f78a4e7">Top BD / 最佳BD / Melhor BD: luizmoreira (38 pts)</li>
+<li nodeId="d9af30d4-85df-4cba-807a-31af7e369822">Top BDM / 最佳BDM / Melhor BDM: igorfeitosa (avg 13.4)</li>
+</ul>
+<p nodeId="a8577bdc-2acc-4278-b1b7-1cb4d7f84ea4">---</p>
+<h2 nodeId="0c32cc8f-5ead-440e-9f9c-26347d146ed8">Links / 相关链接 / Links</h2>
+<ul nodeId="1888cbbf-cd1f-43b4-b13a-8f48e267237c">
+<li nodeId="ad7ccf21-efe1-47ed-b656-7a3dbaf94f58">Dashboard / 看板 / Painel: <a href="https://html-hosting-hub.mynocode.host/#/preview/c998d382-7874-4273-8867-1cfe183eed41" nodeId="5adc73a3-27e1-45bb-bb3e-80e258290635">Order Penetration Dashboard</a></li>
+<li nodeId="46a4b613-3633-4f7e-ac70-2e4e2935c2d0">Incentive Scheme / 激励方案 / Esquema de Incentivo: <a href="https://km.sankuai.com/collabpage/2776855669" nodeId="770f6829-2d00-4130-a483-14fdc2ca304b">Incentive Scheme Document</a></li>
+</ul>
+</km-doc>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9.2 管理培训 · 如何应对竞争对手 — 英语学习</title>
+<style>
+  :root{
+    --bg:#0f1420; --card:#171e2e; --card2:#1d2740; --text:#e8ecf4;
+    --muted:#8b96ab; --accent:#4da3ff; --accent2:#ffd166;
+    --green:#4ade80; --border:#2a3550;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--text); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6;}
+  header{position:sticky; top:0; z-index:50; background:rgba(15,20,32,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); padding:12px 16px;}
+  header h1{font-size:16px;}
+  header .sub{font-size:12px; color:var(--muted); margin-top:2px;}
+  .ctrl{display:flex; align-items:center; gap:8px; font-size:13px; color:var(--muted); margin-top:8px; flex-wrap:wrap;}
+  .ctrl select,.ctrl button{background:var(--card2); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:5px 10px; font-size:13px; cursor:pointer;}
+  .ctrl button.on{border-color:var(--accent); color:var(--accent);}
+  .toc{margin:16px; padding:12px 16px; background:var(--card); border-radius:12px; font-size:13px; line-height:2;}
+  .toc b{color:var(--accent2);}
+  .toc a{color:var(--accent); text-decoration:none; margin-right:12px;}
+  main{max-width:860px; margin:0 auto; padding:0 14px 80px;}
+  .block{background:var(--card); border:1px solid var(--border); border-radius:14px; margin:14px 0; overflow:hidden;}
+  .block-head{display:flex; align-items:center; gap:10px; padding:10px 16px; background:var(--card2); border-bottom:1px solid var(--border);}
+  .block-head .ts{font-size:12px; color:var(--muted); font-family:monospace;}
+  .block-head .idx{font-size:12px; color:var(--accent); font-weight:600;}
+  .block-head .playall{margin-left:auto; background:none; border:1px solid var(--border); color:var(--muted); border-radius:8px; padding:3px 10px; font-size:12px; cursor:pointer;}
+  .block-head .playall:hover{color:var(--accent); border-color:var(--accent);}
+  .sent{padding:12px 16px; border-bottom:1px dashed var(--border);}
+  .sent:last-child{border-bottom:none;}
+  .en{font-size:16px; display:flex; align-items:flex-start; gap:10px;}
+  .spk{flex:none; width:30px; height:30px; border-radius:50%; background:var(--card2); border:1px solid var(--border); color:var(--accent); cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; margin-top:1px; transition:all .15s;}
+  .spk:hover{background:var(--accent); color:#fff;}
+  .spk.playing{background:var(--green); color:#000; animation:pulse 1s infinite;}
+  @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(74,222,128,.15);}}
+  .spk .ico{pointer-events:none;}
+  .entext{flex:1; cursor:pointer;}
+  .entext:hover{color:#fff;}
+  .cn{font-size:14px; color:var(--muted); margin-top:6px; padding-left:40px;}
+  .cn b{color:var(--text); font-weight:600;}
+  .xy{font-size:13px; color:var(--accent2); margin-top:4px; padding-left:40px; font-style:italic;}
+  .note{font-size:12px; color:#f0a35e; margin-top:4px; padding-left:40px;}
+  body.hide-cn .cn{display:none;}
+  body.hide-xy .xy{display:none;}
+  footer{position:fixed; bottom:0; left:0; right:0; background:rgba(15,20,32,.95); border-top:1px solid var(--border); padding:8px 16px; font-size:12px; color:var(--muted); display:flex; gap:14px; justify-content:center; flex-wrap:wrap; z-index:50;}
+  footer span{cursor:pointer;}
+  footer span:hover{color:var(--accent);}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎓 9.2 管理培训：如何应对竞争对手 How to Handle Competition</h1>
+  <div class="sub">英语学习版 · 英文原句 / 中文翻译 / 中文谐音 · 点🔊朗读整句，点英文句子逐句连播</div>
+  <div class="ctrl">
+    <label>语速
+      <select id="rate">
+        <option value="0.6">慢速 0.6x</option>
+        <option value="0.8">较慢 0.8x</option>
+        <option value="0.95" selected>常速 1x</option>
+        <option value="1.15">稍快 1.15x</option>
+      </select>
+    </label>
+    <button id="t-cn" class="on" onclick="toggle('cn',this)">翻译</button>
+    <button id="t-xy" class="on" onclick="toggle('xy',this)">谐音</button>
+  </div>
+</header>
+<div class="toc" id="toc"></div>
+<main id="main"></main>
+<footer>
+  <span onclick="scrollTo({top:0,behavior:'smooth'})">⬆ 顶部</span>
+  <span onclick="stopAll()">⏹ 停止播放</span>
+  <span>🔊 单句播放 · 点英文整句=连读本段</span>
+</footer>
+<script>
+const DATA = /*__DATA__*/[];
+const esc = t => String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+// ---- render ----
+const main = document.getElementById('main');
+let html = '';
+DATA.forEach(b=>{
+  let sentsHtml = '';
+  b.sentences.forEach((s,i)=>{
+    const xy = b.xy[i] ? `<div class="xy">🈶 ${b.xy[i]}</div>` : '';
+    sentsHtml += `<div class="sent">
+      <div class="en">
+        <button class="spk" data-i="${i}" onclick="speakOne(${b.id},${i})" title="播放本句"><span class="ico">🔊</span></button>
+        <div class="entext" onclick="playBlock(${b.id},this)" title="连读本段">${esc(s)}</div>
+      </div>
+      ${b.cnSentence[i] ? `<div class="cn"><b>译：</b>${esc(b.cnSentence[i])}</div>` : (i===0 ? `<div class="cn"><b>译：</b>${esc(b.cn)}</div>` : '')}
+      ${xy}
+      ${b.note?'<div class="note">💡 '+b.note+'</div>':''}
+    </div>`;
+  });
+  html += `<div class="block" id="b${b.id}">
+    <div class="block-head">
+      <span class="idx">#${b.id+1}</span><span class="ts">${b.ts||''}</span>
+      <button class="playall" onclick="playBlock(${b.id},this)">▶ 整段连读</button>
+    </div>
+    ${sentsHtml}
+  </div>`;
+});
+main.innerHTML = html;
+
+// ---- TOC ----
+(function(){
+  const toc = document.getElementById('toc');
+  let html = '<b>📍 目录（按时间）</b><br>';
+  let bucket = null, first = null, last = null;
+  DATA.forEach(b=>{
+    if(!b.ts) return;
+    const m = b.ts.match(/^(\d{2}):(\d{2})/);
+    if(!m) return;
+    const bk = m[1] + ':' + (Math.floor(+m[2]/10)*10).toString().padStart(2,'0');
+    if(bk !== bucket){
+      if(bucket!==null) html += `<a href="#b${first}">${bucket}（段${first+1}-${last+1}）</a>`;
+      bucket = bk; first = b.id;
+    }
+    last = b.id;
+  });
+  if(first!==null) html += `<a href="#b${first}">${bucket}（段${first+1}-${last+1}）</a>`;
+  toc.innerHTML = html;
+})();
+
+// ---- speech ----
+let chain = null;
+function getRate(){ return parseFloat(document.getElementById('rate').value); }
+function clearPlaying(){ document.querySelectorAll('.spk.playing').forEach(e=>e.classList.remove('playing')); }
+function stopAll(){ speechSynthesis.cancel(); chain=null; clearPlaying(); }
+function speakOne(bid, i){
+  const b = DATA.find(x=>x.id===bid);
+  const text = b.sentences[i];
+  speechSynthesis.cancel(); chain = null; clearPlaying();
+  const btn = document.querySelector(`#b${bid} .spk[data-i="${i}"]`);
+  speak(text, btn);
+}
+function speak(text, btn, onend){
+  if(!('speechSynthesis' in window)){ alert('当前浏览器不支持语音合成，请用 Chrome / Edge / Safari 打开'); return; }
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-US';
+  u.rate = getRate();
+  const voices = speechSynthesis.getVoices();
+  const v = voices.find(v=>/en[-_]US/i.test(v.lang)) || voices.find(v=>/^en/i.test(v.lang));
+  if(v) u.voice = v;
+  if(btn){ btn.classList.add('playing'); }
+  u.onend = ()=>{ if(btn) btn.classList.remove('playing'); if(onend) onend(); };
+  u.onerror = ()=>{ if(btn) btn.classList.remove('playing'); if(onend) onend(); };
+  speechSynthesis.speak(u);
+}
+function playBlock(bid, btnOrEl){
+  const b = DATA.find(x=>x.id===bid);
+  if(chain && chain.bid===bid){ stopAll(); return; }
+  speechSynthesis.cancel(); clearPlaying();
+  chain = {bid:bid, i:0};
+  const step = ()=>{
+    if(!chain || chain.bid!==bid) return;
+    const i = chain.i;
+    if(i >= b.sentences.length){ chain=null; return; }
+    chain.i = i+1;
+    const sb = document.querySelector(`#b${bid} .spk[data-i="${i}"]`);
+    // scroll into view softly
+    if(sb && sb.scrollIntoView) sb.closest('.sent').scrollIntoView({block:'center',behavior:'smooth'});
+    speak(b.sentences[i], sb, step);
+  };
+  step();
+}
+
+// ---- toggles ----
+function toggle(cls, btn){
+  document.body.classList.toggle('hide-'+cls);
+  btn.classList.toggle('on');
+}
+
+// preload voices (Chrome async)
+speechSynthesis.getVoices();
+if(speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = ()=>speechSynthesis.getVoices();
+</script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 1600px;
+  background: #0a0e1a;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.poster {
+  width: 1200px;
+  height: 1600px;
+  position: relative;
+  background: linear-gradient(165deg, #0a0e1a 0%, #0f1628 40%, #0a1020 100%);
+  overflow: hidden;
+}
+
+/* Geometric bg elements */
+.geo {
+  position: absolute;
+  opacity: 0.06;
+}
+.geo-1 {
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border: 2px solid #c9a227;
+  border-radius: 50%;
+  transform: rotate(45deg);
+}
+.geo-2 {
+  top: -50px; right: -50px;
+  width: 300px; height: 300px;
+  border: 1px solid #c9a227;
+  border-radius: 50%;
+}
+.geo-3 {
+  bottom: -150px; left: -150px;
+  width: 500px; height: 500px;
+  border: 1px solid #c9a227;
+  border-radius: 50%;
+  opacity: 0.04;
+}
+.geo-tr {
+  top: 0; right: 0;
+  border-top: 180px solid rgba(201,162,39,0.08);
+  border-left: 250px solid transparent;
+}
+.geo-bl {
+  bottom: 0; left: 0;
+  border-bottom: 120px solid rgba(201,162,39,0.05);
+  border-right: 200px solid transparent;
+}
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 60px 80px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
+.logo-area {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo-box {
+  display: inline-block;
+  border: 1px solid #c9a227;
+  border-radius: 6px;
+  padding: 12px 40px;
+  font-size: 14px;
+  color: #c9a227;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+
+/* Title */
+.title-section {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.title-top {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6677aa;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.title-main {
+  font-family: 'Oswald', sans-serif;
+  font-size: 88px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+.title-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 58px;
+  font-weight: 600;
+  color: #c9a227;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 22px 0 18px;
+}
+.divider-line {
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a227, transparent);
+}
+.divider-diamond {
+  width: 8px; height: 8px;
+  background: #c9a227;
+  transform: rotate(45deg);
+}
+.divider-dot {
+  width: 5px; height: 5px;
+  background: #8b6914;
+  border-radius: 50%;
+}
+
+/* Date */
+.date {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #6677aa;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+}
+
+/* Section */
+.section-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.section-line {
+  width: 260px;
+  height: 1px;
+  background: #c9a227;
+  margin: 0 auto;
+}
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #c9a227;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.section-line-bottom {
+  width: 260px;
+  height: 1px;
+  background: rgba(201,162,39,0.2);
+  margin: 0 auto;
+}
+
+/* Agenda */
+.agenda {
+  flex: 1;
+}
+.agenda-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 20px;
+}
+.agenda-item:hover {
+  background: rgba(201,162,39,0.03);
+  border-radius: 6px;
+}
+.agenda-time {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: #c9a227;
+  width: 110px;
+  flex-shrink: 0;
+  letter-spacing: 0.5px;
+}
+.agenda-dot {
+  width: 10px; height: 10px;
+  border: 2px solid #c9a227;
+  border-radius: 50%;
+  margin: 0 18px;
+  flex-shrink: 0;
+  position: relative;
+}
+.agenda-dot::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 30px;
+  background: rgba(201,162,39,0.15);
+}
+.agenda-dot.qa {
+  border-color: #3a4a6c;
+}
+.agenda-dot.qa::after {
+  display: none;
+}
+.agenda-content {
+  flex: 1;
+}
+.agenda-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ddeeff;
+  margin-bottom: 2px;
+}
+.agenda-title.qa {
+  color: #556688;
+  font-size: 14px;
+  font-style: italic;
+}
+.agenda-speaker {
+  font-size: 15px;
+  font-weight: 700;
+  color: #c9a227;
+}
+.agenda-city {
+  font-size: 12px;
+  color: #5a6a8c;
+  float: right;
+  margin-top: -18px;
+}
+
+/* Host */
+.host-section {
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(201,162,39,0.1);
+}
+.host-label {
+  font-size: 11px;
+  color: #4a5a7c;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.host-photo {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  border: 2px solid #c9a227;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3a4a6c;
+  font-size: 11px;
+  background: radial-gradient(circle, rgba(201,162,39,0.05), transparent);
+}
+.host-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.host-role {
+  font-size: 12px;
+  color: #4a5a7c;
+  margin-top: 3px;
+}
+
+/* Speakers */
+.speakers-section {
+  text-align: center;
+  margin-top: 20px;
+}
+.speakers-label {
+  font-size: 11px;
+  color: #4a5a7c;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.speakers-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.speaker {
+  text-align: center;
+}
+.speaker-photo {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 2px solid #8899bb;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3a4a6c;
+  font-size: 10px;
+  background: radial-gradient(circle, rgba(136,153,187,0.05), transparent);
+}
+.speaker-photo.host {
+  border-color: #c9a227;
+  background: radial-gradient(circle, rgba(201,162,39,0.08), transparent);
+}
+.speaker-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #8899bb;
+}
+.speaker-name.host {
+  color: #c9a227;
+}
+
+/* Bottom bar */
+.bottom-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8b6914, #c9a227, #8b6914);
+}
+</style>
+</head>
+<body>
+<div class="poster">
+  <!-- Geometric bg -->
+  <div class="geo geo-1"></div>
+  <div class="geo geo-2"></div>
+  <div class="geo geo-3"></div>
+  <div class="geo geo-tr"></div>
+  <div class="geo geo-bl"></div>
+
+  <div class="content">
+    <!-- Logo -->
+    <div class="logo-area">
+      <div class="logo-box">[ Keeta Logo ]</div>
+    </div>
+
+    <!-- Title -->
+    <div class="title-section">
+      <div class="title-top">Metropolitan Region</div>
+      <div class="title-main">Leadership</div>
+      <div class="title-sub">Meeting</div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Date -->
+    <div class="date">September 11, 2026 · São Paulo</div>
+
+    <!-- Section -->
+    <div class="section-header">
+      <div class="section-line"></div>
+      <div class="section-title">City Best Practices</div>
+      <div class="section-line-bottom"></div>
+    </div>
+
+    <!-- Agenda -->
+    <div class="agenda">
+      <div class="agenda-item">
+        <div class="agenda-time">10:00</div>
+        <div class="agenda-dot"></div>
+        <div class="agenda-content">
+          <div class="agenda-title">Opening & Sharing — <span class="agenda-speaker">Eric</span></div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">10:20</div>
+        <div class="agenda-dot"></div>
+        <div class="agenda-content">
+          <div class="agenda-title">Sales Process Standardization — <span class="agenda-speaker">Tadeu Moraes</span></div>
+          <div class="agenda-city">Southern</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">10:40</div>
+        <div class="agenda-dot qa"></div>
+        <div class="agenda-content">
+          <div class="agenda-title qa">Q&A Session</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">11:00</div>
+        <div class="agenda-dot"></div>
+        <div class="agenda-content">
+          <div class="agenda-title">Sales Consultative Process — <span class="agenda-speaker">Igor Feitosa</span></div>
+          <div class="agenda-city">Western</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">11:20</div>
+        <div class="agenda-dot qa"></div>
+        <div class="agenda-content">
+          <div class="agenda-title qa">Q&A Session</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">11:40</div>
+        <div class="agenda-dot"></div>
+        <div class="agenda-content">
+          <div class="agenda-title">Yellow Defend Process — <span class="agenda-speaker">Renata Leite</span></div>
+          <div class="agenda-city">Santos</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">12:00</div>
+        <div class="agenda-dot qa"></div>
+        <div class="agenda-content">
+          <div class="agenda-title qa">Q&A Session</div>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-time">12:20</div>
+        <div class="agenda-dot"></div>
+        <div class="agenda-content">
+          <div class="agenda-title">CM Closing Remarks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Host -->
+    <div class="host-section">
+      <div class="host-label">Hosted By</div>
+      <div class="host-photo">[Photo]</div>
+      <div class="host-name">Daniel Albuquerque</div>
+      <div class="host-role">Metropolitan Regional Director</div>
+    </div>
+
+    <!-- Speakers -->
+    <div class="speakers-section">
+      <div class="speakers-label">Speakers</div>
+      <div class="speakers-row">
+        <div class="speaker">
+          <div class="speaker-photo host">[Photo]</div>
+          <div class="speaker-name host">Daniel</div>
+        </div>
+        <div class="speaker">
+          <div class="speaker-photo">[Photo]</div>
+          <div class="speaker-name">Tadeu</div>
+        </div>
+        <div class="speaker">
+          <div class="speaker-photo">[Photo]</div>
+          <div class="speaker-name">Igor</div>
+        </div>
+        <div class="speaker">
+          <div class="speaker-photo">[Photo]</div>
+          <div class="speaker-name">Renata</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar"></div>
+</div>
+</body>
+</html>

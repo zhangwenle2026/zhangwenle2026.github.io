@@ -1,0 +1,1726 @@
+{
+  "data_date": "0817",
+  "operating_period": "0811-0817",
+  "regional_summary": {
+    "total_target": 818,
+    "total_assigned": 818,
+    "total_operating": 113,
+    "total_score": 538
+  },
+  "bd_scores": {
+    "brunapadilha": {
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 19,
+      "leads": [
+        {
+          "name": "Sorveteria Kazu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Yakisoba da Mi - Yakissoba, Temaki & Hot Roll - Tabo\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Giradino Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "guilhermesantos": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Imp\u00e9rio Hamb\u00farguer",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "jadycarvalho": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Yak J\u00e1",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Chef SP Food",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "cristianedasilva": {
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 14,
+      "leads": [
+        {
+          "name": "Dog do Gordo - Cachorro Quente",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Cookie Spot",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "leandroresende": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "A Fabrica da Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "barbaraoliveira": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Grill In Fire - Marmitaria e Executiva",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "eduardosantos": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Chal\u00e9 dos P\u00e3es e Bolos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "alisaeed",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "igorsouza": {
+      "not_signed": 3,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 28,
+      "leads": [
+        {
+          "name": "Bar e Restaurante Imp\u00e9rio",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Restaurante Palladar das flores",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Marmitas Sabores da  Rayane",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Doce Sabor",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Salgados Sabor & Arte",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "valeriachacon": {
+      "not_signed": 0,
+      "not_online": 3,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 20,
+      "leads": [
+        {
+          "name": "Osasco Hot Roll - Comida Japonesa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Caseirinho da ale",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Pastel de Quebrada",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Sah Doces",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Emp\u00f3rio 1400 Restaurante e Pizzaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "claudiareis": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 4,
+      "total": 16,
+      "leads": [
+        {
+          "name": "Parmegiana e Strogonoff  Fog\u00e3o de Madeira",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "A\u00e7a\u00ed Jucoski A\u00e7a\u00edteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Manu Churros Gourmet e A\u00e7a\u00ed",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "renansilva": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 13,
+      "leads": [
+        {
+          "name": "Marmitas da Poly Express",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Morumbi Caldos",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "luizmarques": {
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 4,
+      "total": 17,
+      "leads": [
+        {
+          "name": "Past\u00e9is e Por\u00e7\u00f5es do Bar\u00e3o",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        },
+        {
+          "name": "Med Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        },
+        {
+          "name": "Dunk A\u00e7a\u00ed e Milk Shakes Premium",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "luizmoreira": {
+      "not_signed": 5,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 35,
+      "leads": [
+        {
+          "name": "Ky Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Padaria Tur\u00edstica",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Casa de bolos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Casa de Bolos Vila Prel",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Pizzaria Jack Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Casa de Bolos Umarizal",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "wanessasilva": {
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 4,
+      "total": 20,
+      "leads": [
+        {
+          "name": "Casa de Bolos Parque das Nac\u00f5es",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "A Bem Dita Doceria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Ponto da Esfiha",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "carlosmotta": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Marmita Divina",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "johnataguimaraes": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Churrasco do Gord\u00e3o",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Pizzaria Gran Show",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "jessicarossi": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Restaurante e Lanchonete Surf Dog",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        },
+        {
+          "name": "Sr Hamb\u00farguer",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "lucasnada": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "O Protagonista Chicken And Milk-shakes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Mio que tem",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Restaurante Jl",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "karinacolomina": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 11,
+      "leads": [
+        {
+          "name": "Casa da Esfiha - Vila Jaguara",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Tigela Cheia 1 - A\u00e7aiteria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "lucasreis": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Frittos",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "pedrosaccone": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 2,
+      "total": 5,
+      "leads": [
+        {
+          "name": "Azul Pastel [VSP]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "nilmaxfranca": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 6,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Flow",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 1,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "paulosantos": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Zeza Bolos Doces e Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 1,
+          "score": 5,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "padaria novo horizonte",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "rodrigocorreia": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 2,
+      "total": 8,
+      "leads": [
+        {
+          "name": "Sushi Cupece - Yakisoba / Hot Holl / Temaki Empanado",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 1,
+          "score": 8,
+          "bdm": "alisaeed",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "joaocastro": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Du Forno P\u00e3es & Sabores",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "ricardoalmeida": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Tempero da Zu",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "rodrigoalmeida": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "The Best Marmita Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Big Esfihas Gigante .",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "tiagodangelo": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Nosso Caf\u00e9s Especiais",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Padaria Cristal Express",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "elisangelasouza": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Mm",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "williamhenrique": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Tempero Di V\u00f4vo - Morumbi",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "murilosilva": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Casantiga",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "jessicacruz": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Bella Mama Gourmet",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "sabrinafernandes",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "julianocorreia": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Elite pizzas",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "A\u00e7a\u00ed Superfruit - Santo Amaro",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "fellipemoraes": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Divino's Gourmet",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "maiconalmeida": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Alice Formiga - Confeitaria",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "marcelofeitosa": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Leonato Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Golis Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "wainnergonzales": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "S\u00f3 da Jappa",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "rodrigopoli": {
+      "not_signed": 2,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 19,
+      "leads": [
+        {
+          "name": "Bolos e Salgados Ira\u00ea",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Benvenuti Salgados e Past\u00e9is - Perus",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Bel Confeitaria",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Detona A\u00e7ai",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "otaviomazzega": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Marmitas da Nice - Comida Caseira e Lanches",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Poke Mandala - Comida Japoesa",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "caiolorencato": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Naoki S\u00e3o Luiz",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "biancaceotto",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "thaisvasconcelos": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "A\u00e7a\u00ed Tenditudo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Sabor do Mel Gastronomia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "giovanabareno": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": null,
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "sabrinafernandes",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "allanmaalouli": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Lucaldos",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Kigostoso A\u00e7a\u00ed e Sorvetes",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "wellingtonsantos": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": "Pastel e Garapa",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "nathaliabernardino": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 4,
+      "leads": [
+        {
+          "name": "Hey Pizzas - Longa Fermenta\u00e7\u00e3o",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "renataleite",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "evaldosilva": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Azul Pastel [Adri\u00e1tico]",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "marialisboa": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Rodrigues House - Batata Recheada",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Sabor Nordestino - Marmitex",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "ericabarbosa": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Pastel do P\u00eder",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "sabrinafernandes",
+          "city": "Santos City"
+        }
+      ]
+    },
+    "matheuscoelho": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "A Dona dos Salgados",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "felipecruz": {
+      "not_signed": 0,
+      "not_online": 1,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 7,
+      "leads": [
+        {
+          "name": "The Salgados e Cafeteria",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Sabor de casa G J",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "tatianarodrigues": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Comidinhas da Ka - Marmita & Feijoada",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "marciajesuino": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 3,
+      "hv_bonus": 0,
+      "total": 9,
+      "leads": [
+        {
+          "name": "Niku Burger Artesanal",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Sailor Dog Burger",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Realce de Sabor",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "adriananaves",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "felipesilva": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Italva P\u00e3es e Doces",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Pizzaria Juliana",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "victorsantos02": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 2,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Fast Pizza",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "giovannavilla",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Restaurante Sabores",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "giovannavilla",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "milenasantana": {
+      "not_signed": 1,
+      "not_online": 1,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 10,
+      "leads": [
+        {
+          "name": "Shefa Restaurante",
+          "direction": "not_online",
+          "base": 4,
+          "hv": 0,
+          "score": 4,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Barbara Doceria Artesanal - Osasco",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "thiagoscavazini",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "tamirislopes": {
+      "not_signed": 2,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 12,
+      "leads": [
+        {
+          "name": "Elisa Salgados",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Pizzaria Mirassol",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "igorfeitosa",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "fernandoquintiliano": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Jl Comida Caseira - Parmegiana",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "eduardoalbuquerque",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "#N/A": {
+      "not_signed": 3,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 18,
+      "leads": [
+        {
+          "name": "Marmitas Kii Fominha Restaurante",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "#N/A",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        },
+        {
+          "name": "Benditta Pizza",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "#N/A",
+          "city": "Santos City"
+        },
+        {
+          "name": "Cacau Show -posto Divisa",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "#N/A",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "paulosilva": {
+      "not_signed": 1,
+      "not_online": 0,
+      "not_operating": 0,
+      "hv_bonus": 0,
+      "total": 6,
+      "leads": [
+        {
+          "name": "Restaurante Familia - Marmita & Marmitex",
+          "direction": "not_signed",
+          "base": 6,
+          "hv": 0,
+          "score": 6,
+          "bdm": "tadeumoraes",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "tatianeribeiro": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "SAMPA CHURROS",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "lucasferreira",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "ricardoaraujo": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Cantinho do Acaraj\u00e9 - da Silvia",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "alisaeed",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "kevinberti": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Adega do Pepeu",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "cesararraes",
+          "city": "Western S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    },
+    "felipesanches": {
+      "not_signed": 0,
+      "not_online": 0,
+      "not_operating": 1,
+      "hv_bonus": 0,
+      "total": 3,
+      "leads": [
+        {
+          "name": "Marmitex Pre\u00e7o Baixo",
+          "direction": "not_operating",
+          "base": 3,
+          "hv": 0,
+          "score": 3,
+          "bdm": "fernandooliveira",
+          "city": "Southern S\u00e3o Paulo Metropolitan"
+        }
+      ]
+    }
+  },
+  "bdm_summary": {
+    "fernandooliveira": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 7,
+      "team_score": 49,
+      "avg": 7.0
+    },
+    "#N/A": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 18,
+      "avg": 18.0
+    },
+    "cesararraes": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 6,
+      "team_score": 49,
+      "avg": 8.17
+    },
+    "lucasferreira": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 4,
+      "team_score": 37,
+      "avg": 9.25
+    },
+    "tadeumoraes": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 6,
+      "team_score": 37,
+      "avg": 6.17
+    },
+    "thiagoscavazini": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 6,
+      "team_score": 44,
+      "avg": 7.33
+    },
+    "alisaeed": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 5,
+      "team_score": 16,
+      "avg": 3.2
+    },
+    "eduardoalbuquerque": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 8,
+      "team_score": 49,
+      "avg": 6.12
+    },
+    "igorfeitosa": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 5,
+      "team_score": 55,
+      "avg": 11.0
+    },
+    "renataleite": {
+      "city": "Santos City",
+      "bd_count": 5,
+      "team_score": 41,
+      "avg": 8.2
+    },
+    "biancaceotto": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 7,
+      "team_score": 74,
+      "avg": 10.57
+    },
+    "sabrinafernandes": {
+      "city": "Santos City",
+      "bd_count": 5,
+      "team_score": 10,
+      "avg": 2.0
+    },
+    "adriananaves": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 9,
+      "team_score": 53,
+      "avg": 5.89
+    },
+    "liuhongwei04": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 0,
+      "avg": 0.0
+    },
+    "giovannavilla": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 6,
+      "avg": 6.0
+    },
+    "danielalbuquerque": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 0,
+      "avg": 0.0
+    },
+    "marciojaroslavsky": {
+      "city": "Western S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 0,
+      "avg": 0.0
+    },
+    "guilhermehaddad": {
+      "city": "Southern S\u00e3o Paulo Metropolitan",
+      "bd_count": 1,
+      "team_score": 0,
+      "avg": 0.0
+    }
+  },
+  "city_summary": {
+    "Santos City": {
+      "target": 74,
+      "assigned": 74,
+      "operating": 12,
+      "score": 114
+    },
+    "Southern S\u00e3o Paulo Metropolitan": {
+      "target": 413,
+      "assigned": 413,
+      "operating": 47,
+      "score": 406
+    },
+    "Western S\u00e3o Paulo Metropolitan": {
+      "target": 331,
+      "assigned": 331,
+      "operating": 54,
+      "score": 842
+    }
+  }
+}

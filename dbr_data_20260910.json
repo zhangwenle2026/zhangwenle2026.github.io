@@ -1,0 +1,10 @@
+{
+  "date": "20260910",
+  "data_source": "dom",
+  "results": {
+    "New Signs": {
+      "code": 0,
+      "download": "http://wenshu-s3-eu.mykeeta.com/v2/wsjr_653/20260911/3760959/Last10days-NewSigns_1789126588644.csv?AWSAccessKeyId=SRV_mVMbGfZfuUGPn5xUwstCwxnI3UEsydW1&Expires=1791718691&Signature=MYYqeBvjCsJxzSH%2FYLjg0%2BgKu%2BE%3D"
+    }
+  }
+}

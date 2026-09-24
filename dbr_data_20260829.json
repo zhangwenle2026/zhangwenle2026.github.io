@@ -1,0 +1,46 @@
+{
+  "date": "20260829",
+  "data_source": "dom",
+  "results": {
+    "Business Performance": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [],
+        "columns": []
+      }
+    },
+    "New Signs": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [],
+        "columns": []
+      }
+    },
+    "Operation Performance": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [],
+        "columns": []
+      }
+    },
+    "Promotion": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [],
+        "columns": []
+      }
+    },
+    "User Experience": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [],
+        "columns": []
+      }
+    }
+  }
+}

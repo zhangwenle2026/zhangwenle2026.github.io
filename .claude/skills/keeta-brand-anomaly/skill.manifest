@@ -1,0 +1,19 @@
+skill-manifest-version: 1
+skill-id: 5d7a88907cbfb9f045577b18695ba2af083617d51c1b86efad98bdac549d0240
+
+files:
+  c19bf0399b9df39e253fbeb0c8df7a085bd44da81e41675ba2b5288d49ee7f5c  .gitignore
+  bd0b8cca0b4fee767b1cba16cf67aeebdec1dc7a6f9f1f908d148921c159864d  .skill-dev/progress.md
+  f4ec7fa1e2d901bbe06a6104020c4c82cd3b33ecb16a268881dbed908cf69a25  .skill-dev/tracking-plan.json
+  38f71e23542ed5eb77bb3bcd0999b85a6dbac1b99110b8169e34f90650cf056b  SKILL.md
+  4782f12a1361840329e8814ecd195eeb684cd08416a7438897091b3485ad5204  references/browser-ops.md
+  6d1bc393fcfbf87d1f9f3eaf167efd7d35c4d92045a0ad110ebaa0b33ab95096  references/data-query-protocol.md
+  00f2be7624331ff0f304ca61f1b1c7e5952387e1330e48cd2d058bc88eb2dd53  references/output-format.md
+  f9cfc1351385b5df3d23fb6c6bc795ebc469ab408b05d39e416d5cdf06f5845b  references/sql-templates.md
+  4d38629c06fea898848cb05ba2588b0f9d0d556c7a3236e0bd17fc4f728120a8  references/workflow.md
+  afdaafa3b8e473ea195a40cac0c5b308be8c68feb9aac82c6897d44d04d71152  requirements.txt
+  91cca2117ed9a032963553b21607e9da04eb8dd3d744e11a5a4203fe4d80147c  scripts/__pycache__/auth.cpython-312.pyc
+  5881ce271a492158fde67c7820d3ccd5f82e9d3f66755c8555c67ba78f4f9198  scripts/auth.py
+  19e1f5ddc87d13cbfda6448d43f5415374139dbdca902cc3fed8e85cf1202c0a  scripts/brand_anomaly_evidence.py
+  f3505b6034f25ac4fa66f17bccdd3c5d3cb539a8e65fc76a9d8fe4a2d802b9a7  scripts/preflight.sh
+  ae9fc3a980b17c9867791c4a43383a8d05ef8a9d56ae3914c3135b4c9df35439  scripts/skill_tracker.py

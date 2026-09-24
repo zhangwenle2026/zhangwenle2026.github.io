@@ -1,7 +1,7 @@
 # 🎯 桑托斯破独 / Santos X — 重点项目
 
 > Santos Exclusivity-Breaking Project
-> 最后更新: 2026-06-29
+> 最后更新: 2026-07-16
 
 ---
 
@@ -15,7 +15,7 @@
 | **BD团队** | Victor、Rafael、Pedro、Douglas、Milena |
 | **核心BD** | Victor、Pedro、Marcelo、Vinicius |
 | **Pipeline 健康度** | 62/100 |
-| **Win Rate** | ~7% |
+| **Win Rate** | ~19% (8/42 signed) |
 | **日均潜力** | 3,926 单/天 |
 
 ---
@@ -27,6 +27,7 @@
 | 1 | **Santos X 作战平台** (客户盘点表) | https://ete0ca.mynocode.host | cli-5687tpoamkafh1g7 | ✅ 在线 |
 | 2 | **BD 周日程工具** (周会日历) | https://santos-schedule-tool.mynocode.host | cli-26ik01z7nuhkg8da | ✅ 在线 |
 | 3 | ~~客户盘点看板 (横向卡片版)~~ | ~~key-client-analytics.mynocode.host~~ | cli-dq4sc9xrr9cvvmfl | ❌ 已删除 6/29 |
+| 4 | **Santos X High 商户跟进盘点表** (看板+表格+BD视图) | https://merchant-status-grid.mynocode.host | cli-egkgjhisnllc8mgd | ✅ 在线 7/16 |
 
 ---
 
@@ -38,6 +39,8 @@
 | 2 | CFPPS & 1 Group, 2 Meetings | (桑托斯核心推进下) | 商机转化管理机制 |
 | 3 | BD 本周客户 KP 谈判/签约日程表 | (桑托斯核心推进下) | 周一至周五日历 |
 | 4 | 桑托斯作战计划（应对99进场6-7月） | (桑托斯核心推进下) | 战略计划 |
+| 5 | 42家高优商户盘点表 (Wiki) | https://km.sankuai.com/collabpage/2775001967 | 7/16更新，8签约/17推进/13高风险/4丢失 |
+| 6 | Santos X High List review (盘点会议) | https://km.sankuai.com/collabpage/2771977727 | 盘点会议模板 |
 
 ---
 
@@ -51,14 +54,22 @@
 | v2.7 | 6/21 | 数据修正（42商户）、筛选器 |
 | v3.0 | 6/23 | 新增 Tab 0 周会日历 + Tab 1 W4 客户盘点，原 Tab 顺延 |
 | **当前** | 6/24 | 精简为仅**客户盘点表**（42家商户，7个筛选器） |
+| v4.0 | 7/16 | 新建 merchant-status-grid 项目：看板+表格+BD视图，数据库驱动，SSO认证，三语，Excel导出 |
 
 ---
 
 ## 🏆 已签约商户 Signed
 
-| 商户 | 成交额 | 日期 |
+| 商户 | BD | 日期 |
 |---|---|---|
-| O Temakeiro | 83万 | 6月 |
+| La Banoffeeria | pedrorosanovaes | 6月 |
+| Temakeria Poke | victorvasques | 6月 |
+| Guadalupe Restaurante | pedrorosanovaes | 6月 |
+| Estrada do Nordeste | victorvasques | 7/16 |
+| Esfiharia Santista 2 Original | milenasilva02 | 7/16 |
+| O Temakeiro - Zona Noroeste | douglasaraujo | 7/16 |
+| O Temakeiro 013 - Marapé | douglasaraujo | 7/16 |
+| O Temakeiro - Ponta da Praia | douglasaraujo | 7/16 |
 
 ---
 

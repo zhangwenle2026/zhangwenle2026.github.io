@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Order Penetration Incentive Race Dashboard</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #1a1d2e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #e0e0e0; padding: 20px; }
+.container { max-width: 1400px; margin: 0 auto; }
+.header { text-align: center; padding: 30px 20px; margin-bottom: 24px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; color: white; }
+.header h1 { font-size: 28px; margin-bottom: 4px; }
+.header .subtitle { font-size: 16px; opacity: 0.9; }
+.header .date { font-size: 13px; opacity: 0.75; margin-top: 8px; }
+.section-title { font-size: 20px; font-weight: 700; margin: 32px 0 16px; padding-left: 12px; border-left: 4px solid #667eea; color: #e0e0e0; }
+.section-subtitle { font-size: 13px; color: #95a5a6; margin-top: -12px; margin-bottom: 16px; padding-left: 16px; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.kpi-card { background: #252840; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); text-align: center; }
+.kpi-value { font-size: 36px; font-weight: 800; color: #e0e0e0; }
+.kpi-value small { font-size: 16px; color: #95a5a6; font-weight: 400; }
+.kpi-label { font-size: 13px; color: #95a5a6; margin-top: 4px; }
+.kpi-dod { font-size: 13px; margin-top: 6px; }
+.dod-up { color: #2ecc71; font-weight: 600; }
+.dod-down { color: #e74c3c; font-weight: 600; }
+.dod-flat { color: #95a5a6; }
+.dod-card { background: #252840; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); margin-bottom: 24px; }
+.dod-card h3 { font-size: 16px; margin-bottom: 16px; color: #bdc3c7; }
+.dod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.dod-item { display: flex; flex-direction: column; gap: 4px; padding: 12px; background: #1a1d2e; border-radius: 8px; }
+.dod-label { font-size: 13px; font-weight: 600; color: #bdc3c7; margin-bottom: 4px; }
+.dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.dir-card { background: #252840; border-radius: 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.dir-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; padding: 8px; border-radius: 8px; background: #1a1d2e; }
+.dir-icon { font-size: 20px; }
+.dir-title { font-size: 15px; font-weight: 600; }
+.dir-subtitle { font-size: 11px; color: #95a5a6; }
+.dir-stats { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.dir-stat { text-align: center; }
+.dir-stat-label { display: block; font-size: 11px; color: #95a5a6; }
+.dir-stat-value { display: block; font-size: 20px; font-weight: 700; }
+.dir-pct { text-align: right; font-size: 12px; color: #95a5a6; margin-top: 4px; }
+.progress-bar-wrap { background: #1a1d2e; border-radius: 6px; height: 8px; overflow: hidden; }
+.progress-bar-wrap.small { height: 5px; margin-top: 4px; }
+.progress-bar { height: 100%; border-radius: 6px; transition: width 0.6s ease; min-width: 2px; }
+.city-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+.city-card { background: #252840; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+.city-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; color: #bdc3c7; }
+.city-pool { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; }
+.city-stat { display: flex; justify-content: space-between; padding: 4px 0; }
+.city-stat-label { font-size: 12px; color: #95a5a6; }
+.city-stat-value { font-size: 14px; font-weight: 600; color: #e0e0e0; }
+.city-stat-value.highlight { color: #e74c3c; font-size: 16px; }
+.city-stat-value small { font-size: 11px; color: #95a5a6; font-weight: 400; }
+.city-directions { margin-top: 16px; }
+.city-dir { margin-bottom: 10px; padding: 8px; background: #1a1d2e; border-radius: 8px; }
+.city-dir-label { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #bdc3c7; }
+.city-dir-stats { font-size: 12px; color: #bdc3c7; display: flex; gap: 12px; }
+.tabs { display: flex; gap: 0; margin-bottom: 0; }
+.tab { padding: 10px 24px; background: #1a1d2e; border: none; cursor: pointer; font-size: 14px; font-weight: 600; color: #95a5a6; border-radius: 8px 8px 0 0; }
+.tab.active { background: #252840; color: #e0e0e0; box-shadow: 0 -2px 8px rgba(0,0,0,0.3); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.table-wrap { background: #252840; border-radius: 0 12px 12px 12px; padding: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); overflow-x: auto; margin-bottom: 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th { background: #1a1d2e; padding: 10px 8px; text-align: left; font-weight: 600; font-size: 12px; color: #bdc3c7; border-bottom: 2px solid #2c3e50; white-space: nowrap; }
+tbody td { padding: 8px; border-bottom: 1px solid #2c3e50; vertical-align: middle; color: #e0e0e0; }
+tbody tr:hover { background: #2c3e50; }
+.score-ns { color: #e74c3c; font-weight: 600; }
+.score-no { color: #f39c12; font-weight: 600; }
+.score-nop { color: #2ecc71; font-weight: 600; }
+.score-hv { color: #9b59b6; font-weight: 600; }
+.score-total { font-size: 15px; }
+.status-ok { color: #2ecc71; font-weight: 600; font-size: 12px; }
+.status-gap { color: #e74c3c; font-weight: 600; font-size: 12px; }
+.prize { color: #D4A017; font-weight: 700; white-space: nowrap; }
+.zero-row { opacity: 0.4; }
+.gold { background: linear-gradient(90deg, rgba(212,160,23,0.08) 0%, transparent 100%); }
+.silver { background: linear-gradient(90deg, rgba(160,160,160,0.08) 0%, transparent 100%); }
+.bronze { background: linear-gradient(90deg, rgba(205,127,50,0.08) 0%, transparent 100%); }
+.detail-row td { padding: 0 !important; background: #1a1d2e; }
+.detail-table-wrap { padding: 8px 16px 8px 40px; }
+.detail-table { width: auto; min-width: 400px; font-size: 12px; }
+.detail-table th { background: #252840; font-size: 11px; padding: 6px 10px; color: #bdc3c7; }
+.detail-table td { padding: 5px 10px; border-bottom: 1px solid #2c3e50; color: #e0e0e0; }
+.rules-card { background: #252840; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); margin-bottom: 24px; }
+.rules-table { width: 100%; }
+.rules-table th { background: #667eea; color: white; padding: 10px; text-align: left; }
+.rules-table td { padding: 10px; border-bottom: 1px solid #2c3e50; color: #e0e0e0; }
+.rules-table tr:nth-child(even) td { background: #1a1d2e; }
+.stats-bar { margin-top: 16px; padding: 12px; background: #1a1d2e; border-radius: 8px; font-size: 12px; color: #bdc3c7; display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .dir-grid { grid-template-columns: 1fr; }
+    .city-grid { grid-template-columns: 1fr; }
+    .dod-grid { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+}
+@media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr; }
+    body { padding: 10px; }
+}
+</style>
+</head>
+<body><div class="container">
+<div class="header">
+<h1>🏆 Order Penetration Incentive Race Dashboard</h1>
+<div class="subtitle">订单渗透激励赛看板 / Painel de Corrida de Incentivo à Penetração</div>
+<div class="date">Data as of 数据截至: 2026-08-27 (BRT) | Metropolitan Region | Operating Period: 0821-0827</div>
+</div>
+
+<div class="section-title">📊 MODULE 1: Regional Overview 区域总览 Visão Regional</div>
+<div class="section-subtitle">Battle Pool 作战池 Piscina de Batalha</div>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="kpi-value">818</div><div class="kpi-label">Target Merchants 目标商家 Alvos</div><div class="kpi-dod"><span class="dod-flat">→ 0</span></div></div>
+<div class="kpi-card"><div class="kpi-value">297 <small>(36.3%)</small></div><div class="kpi-label">Assigned to BD 已分配BD Atribuído</div><div class="kpi-dod"><span class="dod-flat">→ 0</span></div></div>
+<div class="kpi-card"><div class="kpi-value">151 <small>(18.5%)</small></div><div class="kpi-label">Operating 有效营业 Operando</div><div class="kpi-dod"><span class="dod-up">↑+2</span></div></div>
+<div class="kpi-card"><div class="kpi-value" style="color:#e74c3c">760</div><div class="kpi-label">Total Score 总积分 Pontuação Total</div><div class="kpi-dod"><span class="dod-up">↑+15</span></div></div>
+</div>
+<div class="dod-card"><h3>📈 Day-over-Day Changes 日环比变化 (vs 08-26)</h3><div class="dod-grid">
+<div class="dod-item"><span class="dod-label">📊 Overall 总体</span><span class="dod-up">Operating: +2</span><span class="dod-up">Score: +15</span></div>
+<div class="dod-item"><span class="dod-label">🔴 Not Sign</span><span class="dod-up">Operating +3</span><span class="dod-up">Score +18</span></div>
+<div class="dod-item"><span class="dod-label">🟡 Not Online</span><span class="dod-up">Operating +0</span><span class="dod-up">Score +0</span></div>
+<div class="dod-item"><span class="dod-label">🟢 Not Oper.</span><span class="dod-up">Operating -1</span><span class="dod-up">Score -3</span></div>
+</div></div>
+<div class="section-subtitle">Three Attack Directions 三大攻坚方向 Três Direções de Ataque</div><div class="dir-grid">
+<div class="dir-card">
+<div class="dir-header" style="border-left:4px solid #e74c3c">
+<span class="dir-icon">🔴</span><div><div class="dir-title">Not Signed</div><div class="dir-subtitle">未签约 / Não Assinado</div></div></div>
+<div class="dir-stats"><div class="dir-stat"><span class="dir-stat-label">Target 目标</span><span class="dir-stat-value">553</span></div>
+<div class="dir-stat"><span class="dir-stat-label">Operating 营业</span><span class="dir-stat-value">69 <span class="dod-up">↑+3</span></span></div>
+<div class="dir-stat"><span class="dir-stat-label">Score 积分</span><span class="dir-stat-value">414 <span class="dod-up">↑+18</span></span></div></div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:12.5%;background:#e74c3c"></div></div>
+<div class="dir-pct">12.5%</div></div>
+<div class="dir-card">
+<div class="dir-header" style="border-left:4px solid #f39c12">
+<span class="dir-icon">🟡</span><div><div class="dir-title">Not Online</div><div class="dir-subtitle">未上线 / Não Online</div></div></div>
+<div class="dir-stats"><div class="dir-stat"><span class="dir-stat-label">Target 目标</span><span class="dir-stat-value">46</span></div>
+<div class="dir-stat"><span class="dir-stat-label">Operating 营业</span><span class="dir-stat-value">16 <span class="dod-flat">→ 0</span></span></div>
+<div class="dir-stat"><span class="dir-stat-label">Score 积分</span><span class="dir-stat-value">64 <span class="dod-flat">→ 0</span></span></div></div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:34.8%;background:#f39c12"></div></div>
+<div class="dir-pct">34.8%</div></div>
+<div class="dir-card">
+<div class="dir-header" style="border-left:4px solid #27ae60">
+<span class="dir-icon">🟢</span><div><div class="dir-title">Not Operating</div><div class="dir-subtitle">未营业 / Não Operando</div></div></div>
+<div class="dir-stats"><div class="dir-stat"><span class="dir-stat-label">Target 目标</span><span class="dir-stat-value">219</span></div>
+<div class="dir-stat"><span class="dir-stat-label">Operating 营业</span><span class="dir-stat-value">66 <span class="dod-down">↓-1</span></span></div>
+<div class="dir-stat"><span class="dir-stat-label">Score 积分</span><span class="dir-stat-value">198 <span class="dod-down">↓-3</span></span></div></div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:30.1%;background:#27ae60"></div></div>
+<div class="dir-pct">30.1%</div></div></div>
+<div class="section-title">🏙️ MODULE 2: City Battle Overview 城市作战概况 Visão por Cidade</div><div class="city-grid"><div class="city-card"><h3>Southern</h3>
+<div class="city-pool">
+<div class="city-stat"><span class="city-stat-label">Target 目标</span><span class="city-stat-value">413</span></div>
+<div class="city-stat"><span class="city-stat-label">Assigned 已分配</span><span class="city-stat-value">157 <small>(38.0%)</small> <span class="dod-flat">→ 0</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Unassigned 未分配</span><span class="city-stat-value">256</span></div>
+<div class="city-stat"><span class="city-stat-label">Operating 营业</span><span class="city-stat-value">71 <span class="dod-up">↑+1</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Score 积分</span><span class="city-stat-value highlight">368 <span class="dod-up">↑+6</span></span></div>
+</div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:17.2%;background:#3498db"></div></div>
+<div class="dir-pct">Operating Rate: 17.2%</div>
+<div class="city-directions"><div class="city-dir"><div class="city-dir-label">🔴 Not Sign 未签约</div>
+<div class="city-dir-stats"><span>Target: 278</span><span>→ Operating: 36</span><span>→ Score: 216</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:12.9%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟡 Not Online 未上线</div>
+<div class="city-dir-stats"><span>Target: 18</span><span>→ Operating: 3</span><span>→ Score: 12</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:16.7%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟢 Not Oper. 未营业</div>
+<div class="city-dir-stats"><span>Target: 117</span><span>→ Operating: 32</span><span>→ Score: 96</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:27.4%;background:#e74c3c"></div></div></div></div></div><div class="city-card"><h3>Western</h3>
+<div class="city-pool">
+<div class="city-stat"><span class="city-stat-label">Target 目标</span><span class="city-stat-value">331</span></div>
+<div class="city-stat"><span class="city-stat-label">Assigned 已分配</span><span class="city-stat-value">118 <small>(35.6%)</small> <span class="dod-flat">→ 0</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Unassigned 未分配</span><span class="city-stat-value">213</span></div>
+<div class="city-stat"><span class="city-stat-label">Operating 营业</span><span class="city-stat-value">62 <span class="dod-up">↑+1</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Score 积分</span><span class="city-stat-value highlight">308 <span class="dod-up">↑+9</span></span></div>
+</div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:18.7%;background:#3498db"></div></div>
+<div class="dir-pct">Operating Rate: 18.7%</div>
+<div class="city-directions"><div class="city-dir"><div class="city-dir-label">🔴 Not Sign 未签约</div>
+<div class="city-dir-stats"><span>Target: 220</span><span>→ Operating: 27</span><span>→ Score: 162</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:12.3%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟡 Not Online 未上线</div>
+<div class="city-dir-stats"><span>Target: 24</span><span>→ Operating: 9</span><span>→ Score: 36</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:37.5%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟢 Not Oper. 未营业</div>
+<div class="city-dir-stats"><span>Target: 87</span><span>→ Operating: 26</span><span>→ Score: 78</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:29.9%;background:#e74c3c"></div></div></div></div></div><div class="city-card"><h3>Santos</h3>
+<div class="city-pool">
+<div class="city-stat"><span class="city-stat-label">Target 目标</span><span class="city-stat-value">74</span></div>
+<div class="city-stat"><span class="city-stat-label">Assigned 已分配</span><span class="city-stat-value">22 <small>(29.7%)</small> <span class="dod-flat">→ 0</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Unassigned 未分配</span><span class="city-stat-value">52</span></div>
+<div class="city-stat"><span class="city-stat-label">Operating 营业</span><span class="city-stat-value">18 <span class="dod-flat">→ 0</span></span></div>
+<div class="city-stat"><span class="city-stat-label">Score 积分</span><span class="city-stat-value highlight">84 <span class="dod-flat">→ 0</span></span></div>
+</div>
+<div class="progress-bar-wrap"><div class="progress-bar" style="width:24.3%;background:#3498db"></div></div>
+<div class="dir-pct">Operating Rate: 24.3%</div>
+<div class="city-directions"><div class="city-dir"><div class="city-dir-label">🔴 Not Sign 未签约</div>
+<div class="city-dir-stats"><span>Target: 55</span><span>→ Operating: 6</span><span>→ Score: 36</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:10.9%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟡 Not Online 未上线</div>
+<div class="city-dir-stats"><span>Target: 4</span><span>→ Operating: 4</span><span>→ Score: 16</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:100.0%;background:#e74c3c"></div></div></div><div class="city-dir"><div class="city-dir-label">🟢 Not Oper. 未营业</div>
+<div class="city-dir-stats"><span>Target: 15</span><span>→ Operating: 8</span><span>→ Score: 24</span></div>
+<div class="progress-bar-wrap small"><div class="progress-bar" style="width:53.3%;background:#e74c3c"></div></div></div></div></div></div>
+<div class="section-title">👤 MODULE 3: BD Personal Rankings BD个人排名 Ranking BD</div>
+<div class="tabs"><button class="tab active" onclick="switchTab('ws')">Western + Southern 联合赛区</button><button class="tab" onclick="switchTab('santos')">Santos 赛区</button></div>
+<div id="tab-ws" class="tab-content active"><div class="table-wrap"><table><thead><tr><th>Rank 排名</th><th>BD</th><th>BDM</th><th>City 城市</th><th>🔴 Not Sign 未签约</th><th>🟡 Not Online 未上线</th><th>🟢 Not Oper. 未营业</th><th>HV+2 高价值</th><th>Total 总分</th><th>Status 达标</th><th>Prize 奖金</th></tr></thead><tbody>
+<tr class="medal-row gold" onclick="toggleDetail('ws-wanessasilva')" style="cursor:pointer"><td>🥇 1</td><td>wanessasilva ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">7</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">+8</td><td class="score-total"><b>57</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-wanessasilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Casa de Bolos Parque das Nacões</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>A Bem Dita Doceria</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Bolaria da Lu</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Restaurante Delicias dos Vianas</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Ponto da Esfiha</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Ponto da Esfiha</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Cacau Show -posto Divisa</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Insano Burguer Sbc</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Parmegiana Marmita</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row silver" onclick="toggleDetail('ws-cristianedasilva')" style="cursor:pointer"><td>🥈 2</td><td>cristianedasilva ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">5</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+4</td><td class="score-total"><b>37</b> <span class="dod-up">↑+6</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-cristianedasilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Dog do Gordo - Cachorro Quente</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Kyo Sushi</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>PANELA DE BARRO-MARMITA-PARMEGIANA</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Cookie Spot</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Apple Sushi</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Biga&#x27;s Burguer</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row bronze" onclick="toggleDetail('ws-luizmoreira')" style="cursor:pointer"><td>🥉 3</td><td>luizmoreira ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">5</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>35</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-luizmoreira" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Ky Sabor</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Padaria Turística</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Casa de bolos</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Casa de Bolos Vila Prel</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Pizzaria Jack Pizza</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Casa de Bolos Umarizal</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-tamirislopes')" style="cursor:pointer"><td>4</td><td>tamirislopes ▶</td><td>igorfeitosa</td><td>Western</td><td class="score-ns">4</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">+2</td><td class="score-total"><b>26</b> <span class="dod-up">↑+6</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-tamirislopes" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Onaka Gourmet - Feijoada</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Elisa Salgados</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Divino Sabor - Hot Dog</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Pizzaria Mirassol</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-rodrigocorreia')" style="cursor:pointer"><td>5</td><td>rodrigocorreia ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">3</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">+6</td><td class="score-total"><b>24</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-rodrigocorreia" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Sushi-yakisoba-poke-hotroll</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Casa Moura - Marmitaria &amp; Marmitex</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Sushi Cupece - Yakisoba / Hot Holl / Temaki Empanado</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-rodrigopoli')" style="cursor:pointer"><td>6</td><td>rodrigopoli ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">2</td><td class="score-no">1</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>24</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-rodrigopoli" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Burger House</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Bolos e Salgados Iraê</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Benvenuti Salgados e Pastéis - Perus</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Bel Confeitaria</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Detona Açai</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-igorsouza')" style="cursor:pointer"><td>7</td><td>igorsouza ▶</td><td>igorfeitosa</td><td>Western</td><td class="score-ns">3</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>23</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-igorsouza" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Restaurante Palladar das flores</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Marmitas Sabores da  Rayane</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Doce Sabor</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Salgados Sabor &amp; Arte</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-brunapadilha')" style="cursor:pointer"><td>8</td><td>brunapadilha ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+4</td><td class="score-total"><b>22</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-brunapadilha" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Sorveteria Kazu</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Yakisoba da Mi - Yakissoba, Temaki &amp; Hot Roll - Taboão</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Padaria Paraty</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Giradino Pizzaria</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-pedrosaccone')" style="cursor:pointer"><td>9</td><td>pedrosaccone ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+6</td><td class="score-total"><b>21</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-pedrosaccone" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Ki Tudo lanche e pizza</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Azul Pastel [VSP]</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Padaria Fornaria do Lago</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-marcelofeitosa')" style="cursor:pointer"><td>10</td><td>marcelofeitosa ▶</td><td>igorfeitosa</td><td>Western</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>20</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-marcelofeitosa" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Lu Confeitaria</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Leonato Pizza</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Yakissoba da Tati</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Golis Burger</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-ricardoalmeida')" style="cursor:pointer"><td>11</td><td>ricardoalmeida ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">3</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">+2</td><td class="score-total"><b>20</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-ricardoalmeida" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Açaí do Mineiro - Pastel &amp; Açaí</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Tempero da Zu</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Ceará Salgados</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-guilhermesantos')" style="cursor:pointer"><td>12</td><td>guilhermesantos ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">1</td><td class="score-no">2</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>19</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-guilhermesantos" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Império Hambúrguer</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Los Burger - Express</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Sotir Doces Gourmet</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Hermanos Burguer</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-rodrigoalmeida')" style="cursor:pointer"><td>13</td><td>rodrigoalmeida ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>17</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-rodrigoalmeida" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Feijoada Magra - a Feijoada Que Dá Para Comer Todo Dia</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>The Best Marmita Caseira e Lanches</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Big Esfihas Gigante .</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-felipecruz')" style="cursor:pointer"><td>14</td><td>felipecruz ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">1</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>15</b> <span class="dod-up">↑+6</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-felipecruz" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Lanchonete Tudo Gostoso Lu</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>The Salgados e Cafeteria</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Pavê e Comê - Sorvetes, Donuts, Açaí...</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-karinacolomina')" style="cursor:pointer"><td>15</td><td>karinacolomina ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">1</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>15</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-karinacolomina" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Casa da Esfiha - Vila Jaguara</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Predilleto Restaurante</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Tigela Cheia 1 - Açaiteria</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-jadycarvalho')" style="cursor:pointer"><td>16</td><td>jadycarvalho ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>14</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 1 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-jadycarvalho" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Yak Já</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>None</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Chef SP Food</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-tiagodangelo')" style="cursor:pointer"><td>17</td><td>tiagodangelo ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>14</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 1 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-tiagodangelo" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Cookie Factory Plaza Shopping</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Nosso Cafés Especiais</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Padaria Cristal Express</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-renansilva')" style="cursor:pointer"><td>18</td><td>renansilva ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+4</td><td class="score-total"><b>13</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 2 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-renansilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Marmitas da Poly Express</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Morumbi Caldos</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-valeriachacon')" style="cursor:pointer"><td>19</td><td>valeriachacon ▶</td><td>lucasferreira</td><td>Western</td><td class="score-ns">0</td><td class="score-no">2</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>13</b> <span class="dod-down">↓-3</span></td><td><span class="status-gap">还差 2 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-valeriachacon" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Osasco Hot Roll - Comida Japonesa</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Caseirinho da ale</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Pastel de Quebrada</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-davidcaramaschi')" style="cursor:pointer"><td>20</td><td>davidcaramaschi ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>12</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-davidcaramaschi" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Esfiha Boa Mania - Ponto da Esfiha</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Marmita Cidade Dutra Feijoada &amp; Parmegiana</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-josenascimento')" style="cursor:pointer"><td>21</td><td>josenascimento ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>12</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-josenascimento" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Sabor e Memória</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Açaí 100miséria</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-marciajesuino')" style="cursor:pointer"><td>22</td><td>marciajesuino ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">4</td><td class="score-hv">-</td><td class="score-total"><b>12</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-marciajesuino" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Niku Burger Artesanal</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Pizzaria Brasitália</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Sailor Dog Burger</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Realce de Sabor</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-tatianarodrigues')" style="cursor:pointer"><td>23</td><td>tatianarodrigues ▶</td><td>igorfeitosa</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">-</td><td class="score-total"><b>12</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-tatianarodrigues" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Pizza Lopez</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Tolens Burger - Hamburgueria Artesanal</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Comidinhas da Ka - Marmita &amp; Feijoada</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-claudiareis')" style="cursor:pointer"><td>24</td><td>claudiareis ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>11</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 4 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-claudiareis" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Parmegiana e Strogonoff  Fogão de Madeira</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Manu Churros Gourmet e Açaí</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-milenasantana')" style="cursor:pointer"><td>25</td><td>milenasantana ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">1</td><td class="score-no">1</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>10</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 5 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-milenasantana" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Shefa Restaurante</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Barbara Doceria Artesanal - Osasco</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-allanmaalouli')" style="cursor:pointer"><td>26</td><td>allanmaalouli ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>9</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 6 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-allanmaalouli" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Lucaldos</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+<tr><td>Kigostoso Açaí e Sorvetes</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-lucasnada')" style="cursor:pointer"><td>27</td><td>lucasnada ▶</td><td>lucasferreira</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>9</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 6 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-lucasnada" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Mio que tem</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Mandorla</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-otaviomazzega')" style="cursor:pointer"><td>28</td><td>otaviomazzega ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>9</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 6 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-otaviomazzega" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Marmitas da Nice - Comida Caseira e Lanches</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Poke Mandala - Comida Japoesa</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-leandroresende')" style="cursor:pointer"><td>29</td><td>leandroresende ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">+2</td><td class="score-total"><b>8</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 7 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-leandroresende" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>A Fabrica da Pizza</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-paulosantos')" style="cursor:pointer"><td>30</td><td>paulosantos ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>8</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 7 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-paulosantos" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Zeza Bolos Doces e Salgados</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>padaria novo horizonte</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-tatianeribeiro')" style="cursor:pointer"><td>31</td><td>tatianeribeiro ▶</td><td>lucasferreira</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>8</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 7 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-tatianeribeiro" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Esplendor Doceria</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>SAMPA CHURROS</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-wellingtonsantos')" style="cursor:pointer"><td>32</td><td>wellingtonsantos ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>7</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 8 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-wellingtonsantos" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Pastel e Garapa</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>Pizzaria Doro</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-felipesilva')" style="cursor:pointer"><td>33</td><td>felipesilva ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-felipesilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Italva Pães e Doces</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Pizzaria Juliana</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-fernandoquintiliano')" style="cursor:pointer"><td>34</td><td>fernandoquintiliano ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-fernandoquintiliano" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Jl Comida Caseira - Parmegiana</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-lucasreis')" style="cursor:pointer"><td>35</td><td>lucasreis ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">0</td><td class="score-hv">+2</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-lucasreis" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Frittos</td><td>🟡 Not Online</td><td>4</td><td>+1</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-nilmaxfranca')" style="cursor:pointer"><td>36</td><td>nilmaxfranca ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">0</td><td class="score-hv">+2</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-nilmaxfranca" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Açaí Flow</td><td>🟡 Not Online</td><td>4</td><td>+1</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-paulosilva')" style="cursor:pointer"><td>37</td><td>paulosilva ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-paulosilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Restaurante Familia - Marmita &amp; Marmitex</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-thaisvasconcelos')" style="cursor:pointer"><td>38</td><td>thaisvasconcelos ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">2</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-thaisvasconcelos" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Açaí Tenditudo</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Sabor do Mel Gastronomia</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-williamhenrique')" style="cursor:pointer"><td>39</td><td>williamhenrique ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-williamhenrique" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Tempero Di Vôvo - Morumbi</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-eduardosantos')" style="cursor:pointer"><td>40</td><td>eduardosantos ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>5</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 10 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-eduardosantos" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Chalé dos Pães e Bolos</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-ivanfelizardo')" style="cursor:pointer"><td>41</td><td>ivanfelizardo ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>5</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 10 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-ivanfelizardo" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Xeirinho de Bolo</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-caiolorencato')" style="cursor:pointer"><td>42</td><td>caiolorencato ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-caiolorencato" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Naoki São Luiz</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-elisangelasouza')" style="cursor:pointer"><td>43</td><td>elisangelasouza ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-elisangelasouza" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Açaí Mm</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-evaldosilva')" style="cursor:pointer"><td>44</td><td>evaldosilva ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-evaldosilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Azul Pastel [Adriático]</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-felipesanches')" style="cursor:pointer"><td>45</td><td>felipesanches ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-felipesanches" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Marmitex Preço Baixo</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-heloisamagnani')" style="cursor:pointer"><td>46</td><td>heloisamagnani ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-heloisamagnani" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Tapioca &amp; Açaí Louise - Alphaville</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-johnataguimaraes')" style="cursor:pointer"><td>47</td><td>johnataguimaraes ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-johnataguimaraes" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Pizzaria Gran Show</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-marialisboa')" style="cursor:pointer"><td>48</td><td>marialisboa ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-marialisboa" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Sabor Nordestino - Marmitex</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-matheuscoelho')" style="cursor:pointer"><td>49</td><td>matheuscoelho ▶</td><td>tadeumoraes</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-matheuscoelho" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>A Dona dos Salgados</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-murilosilva')" style="cursor:pointer"><td>50</td><td>murilosilva ▶</td><td>adriananaves</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-murilosilva" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Casantiga</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-nayannedias')" style="cursor:pointer"><td>51</td><td>nayannedias ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-nayannedias" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Dózin Pizzas</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-ricardoaraujo')" style="cursor:pointer"><td>52</td><td>ricardoaraujo ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-ricardoaraujo" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Cantinho do Acarajé - da Silvia</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('ws-wainnergonzales')" style="cursor:pointer"><td>53</td><td>wainnergonzales ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 12 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-wainnergonzales" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Só da Jappa</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-alexlima')" style="cursor:pointer"><td> -</td><td>alexlima ▶</td><td>igorfeitosa</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-alexlima" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-barbaraoliveira')" style="cursor:pointer"><td> -</td><td>barbaraoliveira ▶</td><td>thiagoscavazini</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-barbaraoliveira" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-camilabatista')" style="cursor:pointer"><td> -</td><td>camilabatista ▶</td><td>alisaeed</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-camilabatista" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-carlosmotta')" style="cursor:pointer"><td> -</td><td>carlosmotta ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-carlosmotta" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-clebersoares')" style="cursor:pointer"><td> -</td><td>clebersoares ▶</td><td>lucasferreira</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-clebersoares" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-erikboilesen')" style="cursor:pointer"><td> -</td><td>erikboilesen ▶</td><td>fernandooliveira</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-erikboilesen" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-joycepurificacao')" style="cursor:pointer"><td> -</td><td>joycepurificacao ▶</td><td>eduardoalbuquerque</td><td>Southern</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-joycepurificacao" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-kevinberti')" style="cursor:pointer"><td> -</td><td>kevinberti ▶</td><td>cesararraes</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-kevinberti" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('ws-nicolemenezes')" style="cursor:pointer"><td> -</td><td>nicolemenezes ▶</td><td>biancaceotto</td><td>Western</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-ws-nicolemenezes" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+</tbody></table></div></div>
+<div id="tab-santos" class="tab-content"><div class="table-wrap"><table><thead><tr><th>Rank 排名</th><th>BD</th><th>BDM</th><th>City 城市</th><th>🔴 Not Sign 未签约</th><th>🟡 Not Online 未上线</th><th>🟢 Not Oper. 未营业</th><th>HV+2 高价值</th><th>Total 总分</th><th>Status 达标</th><th>Prize 奖金</th></tr></thead><tbody>
+<tr class="medal-row gold" onclick="toggleDetail('santos-jessicarossi')" style="cursor:pointer"><td>🥇 1</td><td>jessicarossi ▶</td><td>renataleite</td><td>Santos</td><td class="score-ns">2</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">+2</td><td class="score-total"><b>17</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-jessicarossi" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Restaurante e Lanchonete Surf Dog</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Sr Hambúrguer</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Point do Sorvete</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row silver" onclick="toggleDetail('santos-luizmarques')" style="cursor:pointer"><td>🥈 2</td><td>luizmarques ▶</td><td>renataleite</td><td>Santos</td><td class="score-ns">1</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">+4</td><td class="score-total"><b>17</b> <span class="dod-flat">→ 0</span></td><td><span class="status-ok">✅ 达标</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-luizmarques" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Pastéis e Porções do Barão</td><td>🔴 Not Sign</td><td>6</td><td>+1</td><td><b>8</b></td></tr>
+<tr><td>Med Lanches</td><td>🟢 Not Oper.</td><td>3</td><td>+1</td><td><b>5</b></td></tr>
+<tr><td>Dunk Açaí e Milk Shakes Premium</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row bronze" onclick="toggleDetail('santos-ericabarbosa')" style="cursor:pointer"><td>🥉 3</td><td>ericabarbosa ▶</td><td>sabrinafernandes</td><td>Santos</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">2</td><td class="score-hv">+2</td><td class="score-total"><b>12</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-ericabarbosa" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Açaí dos Deuses</td><td>🟡 Not Online</td><td>4</td><td>+1</td><td><b>6</b></td></tr>
+<tr><td>Império Gourmet Bolos e Doces</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Pastel do Píer</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('santos-felipebarbosa')" style="cursor:pointer"><td>4</td><td>felipebarbosa ▶</td><td>sabrinafernandes</td><td>Santos</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>9</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 6 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-felipebarbosa" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Casa de Lanches</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+<tr><td>Zap Combos</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('santos-nathaliabernardino')" style="cursor:pointer"><td>5</td><td>nathaliabernardino ▶</td><td>renataleite</td><td>Santos</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">1</td><td class="score-hv">-</td><td class="score-total"><b>7</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 8 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-nathaliabernardino" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Hey Pizzas - Longa Fermentação</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+<tr><td>SHINKOO SUSHI</td><td>🟢 Not Oper.</td><td>3</td><td>-</td><td><b>3</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('santos-joaocastro')" style="cursor:pointer"><td>6</td><td>joaocastro ▶</td><td>renataleite</td><td>Santos</td><td class="score-ns">1</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>6</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-joaocastro" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>Du Forno Pães &amp; Sabores</td><td>🔴 Not Sign</td><td>6</td><td>-</td><td><b>6</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="medal-row" onclick="toggleDetail('santos-giovanabareno')" style="cursor:pointer"><td>7</td><td>giovanabareno ▶</td><td>sabrinafernandes</td><td>Santos</td><td class="score-ns">0</td><td class="score-no">1</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>4</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 11 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-giovanabareno" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody>
+<tr><td>None</td><td>🟡 Not Online</td><td>4</td><td>-</td><td><b>4</b></td></tr>
+</tbody></table></div></td></tr>
+<tr class="zero-row" onclick="toggleDetail('santos-brunosalmaso')" style="cursor:pointer"><td> -</td><td>brunosalmaso ▶</td><td>sabrinafernandes</td><td>Santos</td><td class="score-ns">0</td><td class="score-no">0</td><td class="score-nop">0</td><td class="score-hv">-</td><td class="score-total"><b>0</b></td><td><span class="status-gap">还差 15 分</span></td><td class="prize"></td></tr>
+<tr class="detail-row" id="detail-santos-brunosalmaso" style="display:none"><td colspan="11"><div class="detail-table-wrap"><table class="detail-table"><thead><tr><th>Lead Name 商家</th><th>Direction 方向</th><th>Base 基础分</th><th>HV 高价值+2</th><th>Subtotal 小计</th></tr></thead><tbody><tr><td colspan="5" style="color:#95a5a6">No converted leads yet 暂无转化商家</td></tr></tbody></table></div></td></tr>
+</tbody></table></div></div>
+<div class="section-title">👥 MODULE 4: BDM Team Rankings BDM团队排名 Ranking BDM</div>
+<div class="table-wrap"><table><thead><tr><th>Rank 排名</th><th>BDM</th><th>City 城市</th><th>BD Count BD数</th><th>Team Score 团队总分</th><th>Avg 人均</th><th>Status 达标</th></tr></thead><tbody>
+<tr class="gold"><td>🥇 1</td><td>igorfeitosa</td><td>Western</td><td>5</td><td><b>81</b></td><td class="score-total"><b>16.2</b> <span class="dod-up">↑+1.1999999999999993</span></td><td><span class="status-ok">✅ 达标</span></td></tr>
+<tr class="silver"><td>🥈 2</td><td>adriananaves</td><td>Southern</td><td>8</td><td><b>114</b></td><td class="score-total"><b>14.2</b> <span class="dod-down">↓-0.05000000000000071</span></td><td><span class="status-gap">还差 0.8</span></td></tr>
+<tr class="bronze"><td>🥉 3</td><td>biancaceotto</td><td>Western</td><td>7</td><td><b>86</b></td><td class="score-total"><b>12.3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 2.7</span></td></tr>
+<tr class=""><td>4</td><td>renataleite</td><td>Santos</td><td>4</td><td><b>47</b></td><td class="score-total"><b>11.8</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 3.2</span></td></tr>
+<tr class=""><td>5</td><td>fernandooliveira</td><td>Southern</td><td>8</td><td><b>93</b></td><td class="score-total"><b>11.6</b> <span class="dod-up">↑+0.6999999999999993</span></td><td><span class="status-gap">还差 3.4</span></td></tr>
+<tr class=""><td>6</td><td>alisaeed</td><td>Southern</td><td>6</td><td><b>56</b></td><td class="score-total"><b>9.3</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 5.7</span></td></tr>
+<tr class=""><td>7</td><td>cesararraes</td><td>Western</td><td>6</td><td><b>55</b></td><td class="score-total"><b>9.2</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 5.8</span></td></tr>
+<tr class=""><td>8</td><td>tadeumoraes</td><td>Southern</td><td>6</td><td><b>51</b></td><td class="score-total"><b>8.5</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 6.5</span></td></tr>
+<tr class=""><td>9</td><td>lucasferreira</td><td>Western</td><td>4</td><td><b>30</b></td><td class="score-total"><b>7.5</b> <span class="dod-down">↓-0.6999999999999993</span></td><td><span class="status-gap">还差 7.5</span></td></tr>
+<tr class=""><td>10</td><td>thiagoscavazini</td><td>Western</td><td>6</td><td><b>42</b></td><td class="score-total"><b>7.0</b> <span class="dod-up">↑+1.0</span></td><td><span class="status-gap">还差 8.0</span></td></tr>
+<tr class=""><td>11</td><td>sabrinafernandes</td><td>Santos</td><td>4</td><td><b>25</b></td><td class="score-total"><b>6.2</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 8.8</span></td></tr>
+<tr class=""><td>12</td><td>eduardoalbuquerque</td><td>Southern</td><td>6</td><td><b>36</b></td><td class="score-total"><b>6.0</b> <span class="dod-flat">→ 0</span></td><td><span class="status-gap">还差 9.0</span></td></tr>
+</tbody></table></div>
+<div class="section-title">📋 MODULE 5: Scoring Rules 得分规则 Regras de Pontuação</div>
+<div class="rules-card">
+<table class="rules-table">
+<thead><tr><th>Direction 方向</th><th>Condition 条件</th><th>Base Score 基础分</th><th>HV Bonus 高价值加分</th></tr></thead>
+<tbody>
+<tr><td>🔴 Not Signed 未签约</td><td>未签约 → 有效营业</td><td>6</td><td>iFood ≥ 20: +2</td></tr>
+<tr><td>🟡 Not Online 未上线</td><td>已签未上线 → 有效营业</td><td>4</td><td>iFood ≥ 20: +2</td></tr>
+<tr><td>🟢 Not Operating 未营业</td><td>已签不营业 → 恢复营业</td><td>3</td><td>iFood ≥ 20: +2</td></tr>
+</tbody></table>
+<div class="stats-bar">
+<span>有效营业判定: 最近7天营业≥15小时 + ≥1个订单</span>
+<span>| BD达标: ≥15分</span>
+<span>| BDM达标: 人均≥15分</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+function switchTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    event.target.classList.add('active');
+}
+function toggleDetail(id) {
+    var el = document.getElementById('detail-' + id);
+    if (!el) return;
+    if (el.style.display === 'none') {
+        el.style.display = 'table-row';
+    } else {
+        el.style.display = 'none';
+    }
+}
+</script>
+</body>
+</html>

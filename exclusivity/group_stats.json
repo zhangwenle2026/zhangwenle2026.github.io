@@ -1,0 +1,156 @@
+{
+ "by_cm": {
+  "marciojaroslavsky": {
+   "total": 40,
+   "Reportado": 34,
+   "KP aceitou": 2,
+   "Contrato assinado": 0,
+   "Encerrado": 3,
+   "recusada": 0,
+   "aceita": 2,
+   "Relatório BDM e CM aprovado": 1
+  },
+  "danielalbuquerque": {
+   "total": 20,
+   "Reportado": 12,
+   "KP aceitou": 1,
+   "Contrato assinado": 1,
+   "Encerrado": 5,
+   "recusada": 3,
+   "aceita": 1,
+   "Proposta concluída": 1
+  },
+  "zhangwenle": {
+   "total": 18,
+   "Reportado": 14,
+   "KP aceitou": 2,
+   "Contrato assinado": 0,
+   "Encerrado": 2,
+   "recusada": 1,
+   "aceita": 2
+  },
+  "victorpinheiro": {
+   "total": 1,
+   "Reportado": 1,
+   "KP aceitou": 0,
+   "Contrato assinado": 0,
+   "Encerrado": 0,
+   "recusada": 0,
+   "aceita": 0
+  },
+  "jaylin": {
+   "total": 3,
+   "Reportado": 1,
+   "KP aceitou": 1,
+   "Contrato assinado": 0,
+   "Encerrado": 1,
+   "recusada": 0,
+   "aceita": 1
+  },
+  "—": {
+   "total": 1,
+   "Reportado": 1,
+   "KP aceitou": 0,
+   "Contrato assinado": 0,
+   "Encerrado": 0,
+   "recusada": 0,
+   "aceita": 0
+  }
+ },
+ "by_bdm": {
+  "igorfeitosa": {
+   "total": 18,
+   "Reportado": 16,
+   "KP aceitou": 0,
+   "Encerrado": 1,
+   "recusada": 0,
+   "Relatório BDM e CM aprovado": 1
+  },
+  "fernandooliveira": {
+   "total": 7,
+   "Reportado": 3,
+   "KP aceitou": 0,
+   "Encerrado": 4,
+   "recusada": 2
+  },
+  "danielalbuquerque": {
+   "total": 18,
+   "Reportado": 14,
+   "KP aceitou": 2,
+   "Encerrado": 2,
+   "recusada": 1
+  },
+  "biancaceotto": {
+   "total": 13,
+   "Reportado": 11,
+   "KP aceitou": 0,
+   "Encerrado": 2,
+   "recusada": 0
+  },
+  "alisaeed": {
+   "total": 7,
+   "Reportado": 5,
+   "KP aceitou": 0,
+   "Encerrado": 1,
+   "recusada": 1,
+   "Proposta concluída": 1
+  },
+  "adriananaves": {
+   "total": 3,
+   "Reportado": 1,
+   "KP aceitou": 1,
+   "Encerrado": 0,
+   "recusada": 0,
+   "Contrato assinado": 1
+  },
+  "leonardomello": {
+   "total": 1,
+   "Reportado": 1,
+   "KP aceitou": 0,
+   "Encerrado": 0,
+   "recusada": 0
+  },
+  "lucasferreira": {
+   "total": 2,
+   "Reportado": 1,
+   "KP aceitou": 1,
+   "Encerrado": 0,
+   "recusada": 0
+  },
+  "tadeumoraes": {
+   "total": 3,
+   "Reportado": 3,
+   "KP aceitou": 0,
+   "Encerrado": 0,
+   "recusada": 0
+  },
+  "renataleite": {
+   "total": 3,
+   "Reportado": 1,
+   "KP aceitou": 1,
+   "Encerrado": 1,
+   "recusada": 0
+  },
+  "cesararraes": {
+   "total": 3,
+   "Reportado": 2,
+   "KP aceitou": 1,
+   "Encerrado": 0,
+   "recusada": 0
+  },
+  "thiagoscavazini": {
+   "total": 4,
+   "Reportado": 4,
+   "KP aceitou": 0,
+   "Encerrado": 0,
+   "recusada": 0
+  },
+  "—": {
+   "total": 1,
+   "Reportado": 1,
+   "KP aceitou": 0,
+   "Encerrado": 0,
+   "recusada": 0
+  }
+ }
+}

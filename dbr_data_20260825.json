@@ -1,0 +1,2583 @@
+{
+  "date": "2026-08-20",
+  "data_source": "dom",
+  "results": {
+    "Business Performance": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [
+          [
+            "20260825",
+            "Central Eestern Region",
+            "São Paulo City A",
+            "5",
+            "46.316",
+            "231.57999999999998",
+            "2.5",
+            "583.5",
+            "27.0",
+            "0.04627249357326478",
+            "264.0",
+            "0.20895522388059729",
+            "0.2514455552553365",
+            "0.6666666666666666",
+            "-0.2306334650654184",
+            "1.0857425920922275",
+            "0.6666666666666666",
+            "0.5713644524236985",
+            "10.56"
+          ],
+          [
+            "20260825",
+            "Central Eestern Region",
+            "São Paulo City B",
+            "73",
+            "45.40424657534247",
+            "3314.51",
+            "73.0",
+            "4869.0",
+            "380.0",
+            "0.07804477305401519",
+            "2672.0",
+            "0.035422343324250684",
+            "0.07946000131573562",
+            "-0.1411764705882353",
+            "-0.01136198929668497",
+            "-0.07293435181119182",
+            "-0.1411764705882353",
+            "0.047322004732200475",
+            "106.88"
+          ],
+          [
+            "20260825",
+            "Central Eestern Region",
+            "São Paulo City D",
+            "9",
+            "32.17333333333333",
+            "289.56",
+            "9.0",
+            "495.5",
+            "28.5",
+            "0.05751765893037336",
+            "232.0",
+            "0.2127659574468085",
+            "0.3978855026586388",
+            "-0.35714285714285715",
+            "0.5847950705283727",
+            "-0.10135931971944641",
+            "-0.35714285714285715",
+            "-0.23474903474903475",
+            "9.28"
+          ],
+          [
+            "20260825",
+            "Central Western Region",
+            "São Paulo City C",
+            "11",
+            "40.92",
+            "450.12",
+            "11.0",
+            "1386.0",
+            "123.0",
+            "0.08874458874458875",
+            "213.0",
+            "0.26804123711340205",
+            "0.15838641188959657",
+            "-0.21428571428571427",
+            "0.2369348864194225",
+            "-0.08983924780103125",
+            "-0.21428571428571427",
+            "0.02514792899408284",
+            "8.52"
+          ],
+          [
+            "20260825",
+            "Central Western Region",
+            "São Paulo City E",
+            "23",
+            "40.66173913043478",
+            "935.22",
+            "4.6",
+            "520.3333333333334",
+            "30.0",
+            "0.057655349135169766",
+            "603.0",
+            "1.027027027027027",
+            "-0.08640702959198393",
+            "0.38",
+            "0.11220284987101133",
+            "0.050631915969218594",
+            "0.15",
+            "0.8225335668417981",
+            "24.12"
+          ],
+          [
+            "20260825",
+            "Central Western Region",
+            "São Paulo City F",
+            "1",
+            "40.99",
+            "40.99",
+            "1.0",
+            "50.666666666666664",
+            "1.3333333333333333",
+            "0.02631578947368421",
+            "188.0",
+            "-0.8095238095238095",
+            "-0.023698940097653862",
+            "0.0",
+            "-0.5363408521303259",
+            "-0.511849470048827",
+            "-0.5",
+            "-0.5891891891891892",
+            "7.52"
+          ],
+          [
+            "20260825",
+            "Metropolitan Region",
+            "NULL",
+            "17100",
+            "42.384255555555505",
+            "724770.7699999991",
+            "9.380142622051563",
+            "729.3084042947056",
+            "52.298037763791186",
+            "0.0717090841896539",
+            "625522.0",
+            "0.02891631478567341",
+            "0.02161459781779917",
+            "-0.04268023109787003",
+            "-0.003579690042131432",
+            "-0.012235122544138716",
+            "-0.03313355196200384",
+            "0.032612748358349535",
+            "25020.88"
+          ],
+          [
+            "20260825",
+            "Metropolitan Region",
+            "Northeast São Paulo Metropolitan",
+            "23167",
+            "42.6221345016618",
+            "987426.9899999987",
+            "9.171417260490895",
+            "748.7979404397439",
+            "52.937934873364874",
+            "0.0706972228613185",
+            "847989.0",
+            "0.012271924125066344",
+            "0.017203573686214873",
+            "-0.050396147106245515",
+            "9.828772322267418E-4",
+            "-0.010557366940062176",
+            "-0.027291430490825882",
+            "0.011277962040723824",
+            "33919.56"
+          ],
+          [
+            "20260825",
+            "Metropolitan Region",
+            "Santos City",
+            "4961",
+            "45.821243700866766",
+            "227319.19000000003",
+            "9.119485294117647",
+            "760.274459974587",
+            "57.14739517153748",
+            "0.0751667959140015",
+            "161692.0",
+            "0.004631035905781564",
+            "0.02638812044638484",
+            "-0.026144682763935025",
+            "-0.015263288817036024",
+            "0.010700965767073235",
+            "-0.015283842794759825",
+            "0.02020268412550447",
+            "6467.68"
+          ]
+        ],
+        "columns": [
+          "日期",
+          "Region Org",
+          "City Org",
+          "订单量",
+          "实付单均价",
+          "实付交易额",
+          "交易门店店均订单量",
+          "Entry Exposure UV(Avg)",
+          "Entry Homepage Expose UV(Avg)",
+          "CTR(Avg)",
+          "MTD (Orders Number)",
+          "WoW",
+          "WoW",
+          "WoW",
+          "WoW",
+          "WoW",
+          "WoW",
+          "WoW",
+          "MTD (Avg Orders Number)"
+        ],
+        "filters": {
+          "relationType": "AND",
+          "children": [
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062577,
+                    "code": "shop_type_name",
+                    "name": "商家类型名称",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595823,
+                    "codeNameType": 0,
+                    "codeOrName": 2,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "standardType": 1,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "SMB"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10058307,
+                    "code": "dt",
+                    "name": "日期",
+                    "type": "DATE",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "dateFormat": "yyyyMMdd",
+                    "dateGranularity": "DAY",
+                    "customType": "ORIGIN",
+                    "derivedDateType": "STANDARD",
+                    "versionId": 2350595658,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 2351362475,
+                    "hierarchyLevel": 2,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 4,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "BETWEEN_AND",
+                  "values": [
+                    "20260825",
+                    "20260825"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000340,
+                    "code": "mtbi_b293baf7733ffc30b792f40c8f74b903",
+                    "name": "Priority",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000340,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Must-have",
+                    "Top-Tier",
+                    "Mid-Tier"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "ORG_AUTH",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062119,
+                    "code": "org_2_id",
+                    "name": "二级组织架构id",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "customType": "ORIGIN",
+                    "versionId": 2339224484,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "65280006_zhangwenle"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10104238,
+                    "code": "global_region_code",
+                    "name": "Region Code",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595697,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 0,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "BR"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000444,
+                    "code": "mtbi_9a69f3405a4a56bf4107a3883064beed",
+                    "name": "Region Org",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000444,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Central Eestern Region",
+                    "Metropolitan Region",
+                    "Central Western Region"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270872,
+                    "code": "org_4_mis_id",
+                    "name": "四级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340338061,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_OTHER_",
+                    "_NULL_"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270873,
+                    "code": "org_5_mis_id",
+                    "name": "五级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340333565,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_NULL_"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "New Signs": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [
+          [
+            "20260822",
+            "Top-Tier",
+            "0"
+          ],
+          [
+            "20260821",
+            "Mid-Tier",
+            "3"
+          ],
+          [
+            "20260821",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260824",
+            "Top-Tier",
+            "5"
+          ],
+          [
+            "20260818",
+            "Top-Tier",
+            "9"
+          ],
+          [
+            "20260823",
+            "Top-Tier",
+            "1"
+          ],
+          [
+            "20260820",
+            "Mid-Tier",
+            "2"
+          ],
+          [
+            "20260820",
+            "Must-have",
+            "2"
+          ],
+          [
+            "20260825",
+            "Top-Tier",
+            "4"
+          ],
+          [
+            "20260819",
+            "Top-Tier",
+            "8"
+          ],
+          [
+            "20260816",
+            "Mid-Tier",
+            "0"
+          ],
+          [
+            "20260816",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260817",
+            "Mid-Tier",
+            "3"
+          ],
+          [
+            "20260817",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260822",
+            "Mid-Tier",
+            "2"
+          ],
+          [
+            "20260822",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260821",
+            "Top-Tier",
+            "8"
+          ],
+          [
+            "20260824",
+            "Mid-Tier",
+            "3"
+          ],
+          [
+            "20260824",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260818",
+            "Mid-Tier",
+            "2"
+          ],
+          [
+            "20260818",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260823",
+            "Mid-Tier",
+            "0"
+          ],
+          [
+            "20260823",
+            "Must-have",
+            "0"
+          ],
+          [
+            "20260820",
+            "Top-Tier",
+            "3"
+          ],
+          [
+            "20260825",
+            "Mid-Tier",
+            "3"
+          ],
+          [
+            "20260825",
+            "Must-have",
+            "1"
+          ],
+          [
+            "20260819",
+            "Mid-Tier",
+            "3"
+          ],
+          [
+            "20260819",
+            "Must-have",
+            "2"
+          ],
+          [
+            "20260816",
+            "Top-Tier",
+            "0"
+          ],
+          [
+            "20260817",
+            "Top-Tier",
+            "6"
+          ]
+        ],
+        "columns": [
+          "日期",
+          "Priority",
+          "新签商家数"
+        ],
+        "filters": {
+          "relationType": "AND",
+          "children": [
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "ORG_AUTH",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062119,
+                    "code": "org_2_id",
+                    "name": "二级组织架构id",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "customType": "ORIGIN",
+                    "versionId": 2339224484,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "65280006_zhangwenle"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10104238,
+                    "code": "global_region_code",
+                    "name": "Region Code",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595697,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 0,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "BR"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10058307,
+                    "code": "dt",
+                    "name": "日期",
+                    "type": "DATE",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "dateFormat": "yyyyMMdd",
+                    "dateGranularity": "DAY",
+                    "customType": "ORIGIN",
+                    "derivedDateType": "STANDARD",
+                    "versionId": 2350595658,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 2351362475,
+                    "hierarchyLevel": 2,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 4,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "BETWEEN_AND",
+                  "values": [
+                    "20260816",
+                    "20260826"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000340,
+                    "code": "mtbi_b293baf7733ffc30b792f40c8f74b903",
+                    "name": "Priority",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000340,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "Long-Tail",
+                    "-"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000444,
+                    "code": "mtbi_9a69f3405a4a56bf4107a3883064beed",
+                    "name": "Region Org",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000444,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Metropolitan Region",
+                    "Central Western Region",
+                    "Central Eestern Region"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Operation Performance": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [
+          [
+            "20260816",
+            "Mid-Tier",
+            "0.3232449297971919"
+          ],
+          [
+            "20260816",
+            "Must-have",
+            "0.5896414342629482"
+          ],
+          [
+            "20260816",
+            "Top-Tier",
+            "0.48553846153846153"
+          ],
+          [
+            "20260817",
+            "Mid-Tier",
+            "0.3025105254950881"
+          ],
+          [
+            "20260817",
+            "Must-have",
+            "0.6771653543307087"
+          ],
+          [
+            "20260817",
+            "Top-Tier",
+            "0.45981959819598195"
+          ],
+          [
+            "20260818",
+            "Mid-Tier",
+            "0.39445396479202366"
+          ],
+          [
+            "20260818",
+            "Must-have",
+            "0.75390625"
+          ],
+          [
+            "20260818",
+            "Top-Tier",
+            "0.5865876098957269"
+          ],
+          [
+            "20260819",
+            "Mid-Tier",
+            "0.4282598535597445"
+          ],
+          [
+            "20260819",
+            "Must-have",
+            "0.83203125"
+          ],
+          [
+            "20260819",
+            "Top-Tier",
+            "0.6420408163265307"
+          ],
+          [
+            "20260820",
+            "Mid-Tier",
+            "0.43612883149214254"
+          ],
+          [
+            "20260820",
+            "Must-have",
+            "0.8365758754863813"
+          ],
+          [
+            "20260820",
+            "Top-Tier",
+            "0.643598615916955"
+          ],
+          [
+            "20260821",
+            "Mid-Tier",
+            "0.4528624766645924"
+          ],
+          [
+            "20260821",
+            "Must-have",
+            "0.8146718146718147"
+          ],
+          [
+            "20260821",
+            "Top-Tier",
+            "0.6606490872210954"
+          ],
+          [
+            "20260822",
+            "Mid-Tier",
+            "0.43777224642190415"
+          ],
+          [
+            "20260822",
+            "Must-have",
+            "0.806949806949807"
+          ],
+          [
+            "20260822",
+            "Top-Tier",
+            "0.6377633711507293"
+          ],
+          [
+            "20260823",
+            "Mid-Tier",
+            "0.32337844143723754"
+          ],
+          [
+            "20260823",
+            "Must-have",
+            "0.6216216216216216"
+          ],
+          [
+            "20260823",
+            "Top-Tier",
+            "0.4939246658566221"
+          ],
+          [
+            "20260824",
+            "Mid-Tier",
+            "0.3022858031410356"
+          ],
+          [
+            "20260824",
+            "Must-have",
+            "0.7061068702290076"
+          ],
+          [
+            "20260824",
+            "Top-Tier",
+            "0.46160064672594986"
+          ],
+          [
+            "20260825",
+            "Mid-Tier",
+            "0.39829059829059826"
+          ],
+          [
+            "20260825",
+            "Must-have",
+            "0.7748091603053435"
+          ],
+          [
+            "20260825",
+            "Top-Tier",
+            "0.5973397823458283"
+          ]
+        ],
+        "columns": [
+          "日期",
+          "Priority",
+          "Valid Operating Rate"
+        ],
+        "filters": {
+          "relationType": "AND",
+          "children": [
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062577,
+                    "code": "shop_type_name",
+                    "name": "商家类型名称",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595823,
+                    "codeNameType": 0,
+                    "codeOrName": 2,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "standardType": 1,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "SMB"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000340,
+                    "code": "mtbi_b293baf7733ffc30b792f40c8f74b903",
+                    "name": "Priority",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000340,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Must-have",
+                    "Top-Tier",
+                    "Mid-Tier"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "ORG_AUTH",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062119,
+                    "code": "org_2_id",
+                    "name": "二级组织架构id",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "customType": "ORIGIN",
+                    "versionId": 2339224484,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "65280006_zhangwenle"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10104238,
+                    "code": "global_region_code",
+                    "name": "Region Code",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595697,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 0,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "BR"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10058307,
+                    "code": "dt",
+                    "name": "日期",
+                    "type": "DATE",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "dateFormat": "yyyyMMdd",
+                    "dateGranularity": "DAY",
+                    "customType": "ORIGIN",
+                    "derivedDateType": "STANDARD",
+                    "versionId": 2350595658,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 2351362475,
+                    "hierarchyLevel": 2,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 4,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "BETWEEN_AND",
+                  "values": [
+                    "20260816",
+                    "20260826"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270868,
+                    "code": "org_3_mis_id",
+                    "name": "三级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340336980,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "caishiwei02",
+                    "_OTHER_"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270873,
+                    "code": "org_5_mis_id",
+                    "name": "五级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340333565,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_NULL_"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "Promotion": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [
+          [
+            "20260816",
+            "0.7369029912411171",
+            "0.3025946124607503",
+            "0.949760370186746"
+          ],
+          [
+            "20260817",
+            "0.7395904436860068",
+            "0.3003412969283277",
+            "0.9496587030716723"
+          ],
+          [
+            "20260818",
+            "0.7444334137001843",
+            "0.2957027372003971",
+            "0.9475251737342221"
+          ],
+          [
+            "20260819",
+            "0.7518306483823726",
+            "0.2975635734256424",
+            "0.9498069498069498"
+          ],
+          [
+            "20260820",
+            "0.7565376569037657",
+            "0.2992939330543933",
+            "0.9486140167364017"
+          ],
+          [
+            "20260821",
+            "0.7589723728375936",
+            "0.2978311386522076",
+            "0.9394526207074619"
+          ],
+          [
+            "20260822",
+            "0.7545923087088674",
+            "0.3009118541033435",
+            "0.939209726443769"
+          ],
+          [
+            "20260823",
+            "0.7575608958639856",
+            "0.3070132417851888",
+            "0.9385319601111656"
+          ],
+          [
+            "20260824",
+            "0.765648726168382",
+            "0.30183904167369663",
+            "0.9380799730048929"
+          ],
+          [
+            "20260825",
+            "0.7638015373864431",
+            "0.29727463312368974",
+            "0.9352900069881201"
+          ]
+        ],
+        "columns": [
+          "日期",
+          "折扣菜活动生效且在售过营业商家覆盖率",
+          "满折活动生效营业商家覆盖率",
+          "减配活动生效营业商家覆盖率 (商补>0)"
+        ],
+        "filters": {
+          "relationType": "AND",
+          "children": [
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062577,
+                    "code": "shop_type_name",
+                    "name": "商家类型名称",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595823,
+                    "codeNameType": 0,
+                    "codeOrName": 2,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "standardType": 1,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "SMB"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000340,
+                    "code": "mtbi_b293baf7733ffc30b792f40c8f74b903",
+                    "name": "Priority",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000340,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Must-have",
+                    "Top-Tier",
+                    "Mid-Tier"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "ORG_AUTH",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062119,
+                    "code": "org_2_id",
+                    "name": "二级组织架构id",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "customType": "ORIGIN",
+                    "versionId": 2339224484,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "65280006_zhangwenle"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10104238,
+                    "code": "global_region_code",
+                    "name": "Region Code",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595697,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 0,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "BR"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10058307,
+                    "code": "dt",
+                    "name": "日期",
+                    "type": "DATE",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "dateFormat": "yyyyMMdd",
+                    "dateGranularity": "DAY",
+                    "customType": "ORIGIN",
+                    "derivedDateType": "STANDARD",
+                    "versionId": 2350595658,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 2351362475,
+                    "hierarchyLevel": 2,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 4,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "BETWEEN_AND",
+                  "values": [
+                    "20260816",
+                    "20260826"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270868,
+                    "code": "org_3_mis_id",
+                    "name": "三级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340336980,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_OTHER_",
+                    "caishiwei02"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270873,
+                    "code": "org_5_mis_id",
+                    "name": "五级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340333565,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_NULL_"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "User Experience": {
+      "code": 0,
+      "message": "",
+      "data": {
+        "data": [
+          [
+            "20260816",
+            "0.011496764638040087",
+            "0.005516096751360718",
+            "0.009152815406018892"
+          ],
+          [
+            "20260817",
+            "0.013520484931860196",
+            "0.005503195753439497",
+            "0.008363124255226952"
+          ],
+          [
+            "20260818",
+            "0.012467659461771956",
+            "0.005578342904019688",
+            "0.008449548810500411"
+          ],
+          [
+            "20260819",
+            "0.01032472634906712",
+            "0.005494303564865858",
+            "0.00830576993752297"
+          ],
+          [
+            "20260820",
+            "0.009906891330261928",
+            "0.005865577808023851",
+            "0.008798366712035776"
+          ],
+          [
+            "20260821",
+            "0.008267122375604776",
+            "0.005441023982874154",
+            "0.00844027695704044"
+          ],
+          [
+            "20260822",
+            "0.00822064562676957",
+            "0.005654059395070538",
+            "0.00819015205577208"
+          ],
+          [
+            "20260823",
+            "0.011715125270646458",
+            "0.006050790360196942",
+            "0.009743456854107282"
+          ],
+          [
+            "20260824",
+            "0.014244949723706858",
+            "0.005638497009542072",
+            "0.01061498424873305"
+          ],
+          [
+            "20260825",
+            "0.012316507046965831",
+            "0.0051351123831972385",
+            "0.007934169542890815"
+          ]
+        ],
+        "columns": [
+          "日期",
+          "Timeout Cancelled + Merchant Cancelled / total paid orders",
+          "Proportion of Spill or Damage Order",
+          "Proportion of Missing or Wrong Meal Order"
+        ],
+        "filters": {
+          "relationType": "AND",
+          "children": [
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000800,
+                    "code": "mtbi_c4af89a62296d69ab64bac3be282922e",
+                    "name": "Top Offenders EX",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "standardType": 1,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "1",
+                    "0"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062577,
+                    "code": "shop_type_name",
+                    "name": "商家类型名称",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595823,
+                    "codeNameType": 0,
+                    "codeOrName": 2,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "standardType": 1,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "SMB"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 300000340,
+                    "code": "mtbi_b293baf7733ffc30b792f40c8f74b903",
+                    "name": "Priority",
+                    "type": "TEXT",
+                    "source": "MTBI_MODEL",
+                    "dataType": "TEXT",
+                    "customType": "STANDARD",
+                    "versionId": 0,
+                    "codeNameType": 0,
+                    "codeOrName": 0,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 300000340,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "Must-have",
+                    "Top-Tier",
+                    "Mid-Tier"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "ORG_AUTH",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10062119,
+                    "code": "org_2_id",
+                    "name": "二级组织架构id",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "customType": "ORIGIN",
+                    "versionId": 2339224484,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "65280006_zhangwenle"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10104238,
+                    "code": "global_region_code",
+                    "name": "Region Code",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2350595697,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "shared": 0,
+                    "originDimType": 2,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 0,
+                    "modelSpecified": false,
+                    "subjectMaterializeType": 0,
+                    "canUse": true,
+                    "canOrgAuth": false,
+                    "isRowPerm": false,
+                    "hasPermission": false,
+                    "canDetailFlag": false,
+                    "recommend": false,
+                    "isVirtualAsset": false,
+                    "isSubjectVar": false
+                  },
+                  "filterType": "INCLUDE",
+                  "values": [
+                    "BR"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10058307,
+                    "code": "dt",
+                    "name": "日期",
+                    "type": "DATE",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "INT",
+                    "dateFormat": "yyyyMMdd",
+                    "dateGranularity": "DAY",
+                    "customType": "ORIGIN",
+                    "derivedDateType": "STANDARD",
+                    "versionId": 2350595658,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 2351362475,
+                    "hierarchyLevel": 2,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 4,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "BETWEEN_AND",
+                  "values": [
+                    "20260816",
+                    "20260826"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270868,
+                    "code": "org_3_mis_id",
+                    "name": "三级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340336980,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "caishiwei02",
+                    "_OTHER_"
+                  ]
+                }
+              ]
+            },
+            {
+              "relationType": "AND",
+              "children": [
+                {
+                  "relationType": "LEAF",
+                  "filterTab": "NORMAL",
+                  "metaType": 2,
+                  "field": {
+                    "id": 10270873,
+                    "code": "org_5_mis_id",
+                    "name": "五级组织架构负责人miscode（组织）",
+                    "type": "TEXT",
+                    "source": "ORIGIN_MODEL",
+                    "dataType": "STRING",
+                    "customType": "ORIGIN",
+                    "versionId": 2340333565,
+                    "codeNameType": 0,
+                    "codeOrName": 1,
+                    "hierarchyId": 0,
+                    "hierarchyLevel": 0,
+                    "canMove": false,
+                    "collectFlag": false,
+                    "order": 0,
+                    "shared": 0,
+                    "originDimType": 1,
+                    "groupId": 0,
+                    "supportEngine": "doris",
+                    "canEngineUse": true,
+                    "originKpiType": 0,
+                    "refType": 0,
+                    "certifiedStatus": 0,
+                    "clcCertified": false,
+                    "dimType": 0,
+                    "subjectId": 62058080,
+                    "modelSpecified": true,
+                    "subjectName": "BR-OPS-供给大盘",
+                    "subjectMaterializeType": 2,
+                    "fromMtbiSql": false,
+                    "canUse": true,
+                    "canOrgAuth": true,
+                    "isRowPerm": false,
+                    "hasPermission": true,
+                    "hierarchyHasPermission": true,
+                    "standardType": 1,
+                    "num": 0
+                  },
+                  "filterType": "EXCLUDE",
+                  "values": [
+                    "_NULL_"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "page_date_indicators": [],
+  "metro_filter": "not found"
+}

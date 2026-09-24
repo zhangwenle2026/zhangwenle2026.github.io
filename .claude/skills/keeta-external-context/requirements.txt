@@ -1,0 +1,5 @@
+# Runtime dependencies for keeta-external-context.
+#
+# The shipped scripts currently use the Python standard library and external
+# CLIs/skills (`mtsso-moa-local-exchange`, `keeta-data-query`, `catclaw-search`).
+# Keep this file present so new environments have an explicit dependency surface.

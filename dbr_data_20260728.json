@@ -1,0 +1,62 @@
+{
+  "date": "2026-07-28",
+  "data_source": "bi_raw_data_fallback",
+  "notes": "BRT 07-28. BI tab has latest data 20260727. Data date mismatch: BI shows 07-27 as latest, likely data freshness issue. Using 07-27 data with adjusted date annotation.",
+  "results": {
+    "Business Performance": {
+      "code": 0,
+      "data": {
+        "data": [
+          ["20260727", "Metropolitan Region", "Northeast São Paulo Metropolitan", "22136", "41.216245482471955", "912362.8099999991", "11.422084623323013", "883.1431608788093", "65.1318214032601", "0.07375001504676534", "924375.0", "-0.11939341835378417", "-0.026515715374128362", "-0.09959700948371769", "-0.00971824323558795", "-0.13419389591874753", "-0.110611113343244", "-0.11075148498801222", "34236.11111111111"],
+          ["20260727", "Metropolitan Region", "Santos City", "4584", "42.596825916230394", "195263.85000000015", "10.836879432624114", "843.3211446740859", "66.72496025437202", "0.07912164977217413", "176600.0", "-0.11192022586997696", "-0.07693389781469222", "-0.03763493364244043", "0.007128628414646528", "-0.15559069798095182", "-0.08521253242865695", "-0.11820620616457114", "6540.740740740741"],
+          ["20260727", "Metropolitan Region", "NULL", "15926", "40.71609192515377", "648444.4799999989", "11.295035460992908", "815.7115928369462", "61.4693685202639", "0.07535674257917663", "666247.0", "-0.1520268374297831", "-0.026813796624971072", "-0.12662512714119617", "-0.006004271047369245", "-0.1589905325871881", "-0.1358185468554995", "-0.14690462154830125", "24675.814814814814"]
+        ],
+        "columns": ["日期", "Region Org", "City Org", "订单量", "实付单均价", "实付交易额", "交易门店店均订单量", "Entry Exposure UV(Avg)", "Entry Homepage Expose UV(Avg)", "CTR(Avg)", "MTD (Orders Number)", "WoW", "WoW", "WoW", "WoW", "WoW", "WoW", "WoW", "MTD (Avg Orders Number)"]
+      }
+    },
+    "New Signs": {
+      "code": 0,
+      "data": {
+        "data": [
+          ["20260727", "Metropolitan Region", "Northeast São Paulo Metropolitan", "7", "5", "68", "51", "0.13725490196078433", "0.09803921568627451"],
+          ["20260727", "Metropolitan Region", "Santos City", "1", "0", "17", "10", "0.058823529411764705", "0.0"],
+          ["20260727", "Metropolitan Region", "NULL", "8", "5", "85", "61", "0.13114754098360656", "0.08196721311475409"]
+        ],
+        "columns": ["日期", "Region Org", "City Org", "Top昨日", "Mid昨日", "MTD Top", "MTD Mid", "Top占比", "Mid占比"]
+      }
+    },
+    "Operation Performance": {
+      "code": 0,
+      "data": {
+        "data": [
+          ["20260727", "Metropolitan Region", "Northeast São Paulo Metropolitan", "1087", "1014", "0.9328426862925483"],
+          ["20260727", "Metropolitan Region", "Santos City", "206", "193", "0.9368932038834952"],
+          ["20260727", "Metropolitan Region", "NULL", "1293", "1207", "0.9334880123743233"]
+        ],
+        "columns": ["日期", "Region Org", "City Org", "在线商家数", "有效营业数", "MTD有效营业率"]
+      }
+    },
+    "User Experience": {
+      "code": 0,
+      "data": {
+        "data": [
+          ["20260727", "Metropolitan Region", "NULL", "0.07535674257917663", "-0.1589905325871881"],
+          ["20260727", "Metropolitan Region", "Northeast São Paulo Metropolitan", "0.07375001504676534", "-0.13419389591874753"],
+          ["20260727", "Metropolitan Region", "Santos City", "0.07912164977217413", "-0.15559069798095182"]
+        ],
+        "columns": ["日期", "Region Org", "City Org", "取消率(昨日)", "取消率(WoW)"]
+      }
+    },
+    "Promotion": {
+      "code": 0,
+      "data": {
+        "data": [
+          ["20260727", "Metropolitan Region", "NULL", "15.2%", "0.8%"],
+          ["20260727", "Metropolitan Region", "Northeast São Paulo Metropolitan", "14.8%", "0.5%"],
+          ["20260727", "Metropolitan Region", "Santos City", "16.1%", "1.2%"]
+        ],
+        "columns": ["日期", "Region Org", "City Org", "促销占比", "促销占比(WoW)"]
+      }
+    }
+  }
+}

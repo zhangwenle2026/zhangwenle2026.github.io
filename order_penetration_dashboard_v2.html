@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Penetration Incentive Race Dashboard v2</title>
+<style>
+:root {
+    --bg: #1a1a2e; --bg2: #16213e; --bg3: #0f3460; --card: #1e2a4a;
+    --border: #2a3a5c; --text: #e2e8f0; --text2: #94a3b8;
+    --gold: #ffd700; --silver: #c0c0c0; --bronze: #cd7f32;
+    --accent: #818cf8; --green: #4ade80; --red: #f87171; --orange: #fb923c;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; line-height:1.5; }
+.container { max-width:1200px; margin:0 auto; padding:16px; }
+
+/* Header */
+.header { text-align:center; padding:24px 0 16px; border-bottom:2px solid var(--accent); margin-bottom:20px; }
+.header h1 { font-size:1.6rem; background:linear-gradient(135deg,var(--accent),#c084fc); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:4px; }
+.header .subtitle { color:var(--text2); font-size:0.85rem; }
+
+/* KPI Cards */
+.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+.kpi-card { background:var(--card); border-radius:10px; padding:16px; text-align:center; border:1px solid var(--border); position:relative; overflow:hidden; }
+.kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); }
+.kpi-card.green::before { background:var(--green); }
+.kpi-card.orange::before { background:var(--orange); }
+.kpi-num { font-size:2rem; font-weight:700; color:#fff; }
+.kpi-label { font-size:0.75rem; color:var(--text2); margin-top:4px; }
+
+/* Race Progress */
+.race-progress { background:var(--card); border-radius:10px; padding:12px 16px; margin-bottom:16px; border:1px solid var(--border); display:flex; align-items:center; gap:12px; }
+.race-progress .label { font-size:0.85rem; white-space:nowrap; color:var(--text2); }
+.race-bar { flex:1; height:20px; background:var(--bg2); border-radius:10px; overflow:hidden; }
+.race-fill { height:100%; background:linear-gradient(90deg,var(--accent),#c084fc); border-radius:10px; }
+.race-text { font-size:0.85rem; white-space:nowrap; font-weight:600; }
+
+/* City Cards */
+.city-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
+.city-card { background:var(--card); border-radius:10px; padding:14px; border:1px solid var(--border); text-align:center; }
+.city-emoji { font-size:1.5rem; margin-bottom:4px; }
+.city-name { font-size:0.85rem; font-weight:600; margin-bottom:8px; }
+.city-name small { color:var(--text2); font-weight:400; }
+.city-metrics { display:flex; justify-content:space-around; }
+.city-metrics div { text-align:center; }
+.metric-num { display:block; font-size:1.3rem; font-weight:700; color:#fff; }
+.city-metrics small { font-size:0.7rem; color:var(--text2); }
+
+/* Section */
+.section { margin-bottom:24px; }
+.section-header { display:flex; align-items:center; gap:8px; margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); flex-wrap:wrap; }
+.section-header h2 { font-size:1.1rem; }
+.section-header small { color:var(--text2); font-size:0.8rem; }
+
+/* Tabs */
+.tabs { display:flex; gap:4px; margin-bottom:12px; background:var(--bg2); border-radius:8px; padding:4px; }
+.tab { flex:1; padding:8px 12px; text-align:center; border-radius:6px; cursor:pointer; font-size:0.85rem; font-weight:500; color:var(--text2); border:none; background:none; transition:all 0.2s; }
+.tab.active { background:var(--accent); color:#fff; }
+.tab:hover:not(.active) { background:var(--card); color:var(--text); }
+
+/* Tables */
+.table-wrap { overflow-x:auto; border-radius:8px; border:1px solid var(--border); }
+table { width:100%; border-collapse:collapse; font-size:0.82rem; }
+th { background:var(--bg3); padding:10px 8px; text-align:left; font-weight:600; font-size:0.75rem; text-transform:uppercase; color:var(--text2); white-space:nowrap; }
+td { padding:8px; border-top:1px solid var(--border); white-space:nowrap; }
+tr:hover { background:rgba(129,140,248,0.05); }
+
+tr.gold { background:rgba(255,215,0,0.08); }
+tr.gold td.rank { color:var(--gold); font-weight:700; }
+tr.silver { background:rgba(192,192,192,0.06); }
+tr.silver td.rank { color:var(--silver); font-weight:700; }
+tr.bronze { background:rgba(205,127,50,0.06); }
+tr.bronze td.rank { color:var(--bronze); font-weight:700; }
+tr.zero-score { opacity:0.45; }
+
+.rank { width:60px; text-align:center; }
+.bd-name { font-weight:600; }
+.bdm-name { color:var(--text2); }
+.score { text-align:center; }
+.total-score { font-weight:700; font-size:0.9rem; color:#fff; }
+.avg-score { color:var(--accent); font-weight:700; }
+.count { text-align:center; }
+.bonus { text-align:center; color:var(--green); font-weight:600; }
+.gap-cell { text-align:center; }
+.merchants { text-align:center; }
+.qualified { color:var(--green); font-size:0.78rem; font-weight:600; }
+.gap { color:var(--red); font-size:0.75rem; }
+.table-footer { background:var(--bg2); }
+.table-footer td { text-align:center; font-size:0.78rem; color:var(--text2); padding:10px; }
+.table-footer strong { color:var(--text); }
+
+/* Expand/Detail */
+.expand-btn { background:var(--bg3); border:1px solid var(--border); color:var(--accent); padding:2px 8px; border-radius:4px; cursor:pointer; font-size:0.78rem; }
+.expand-btn:hover { background:var(--accent); color:#fff; }
+.no-merchants { color:var(--text2); }
+.detail-row { background:rgba(129,140,248,0.03) !important; }
+.detail-row td { padding:4px 8px; font-size:0.75rem; color:var(--text2); border-top:1px dashed rgba(42,58,92,0.5); }
+.detail-lead { font-style:italic; }
+.detail-type { text-align:center; font-size:0.7rem; }
+.detail-score { text-align:center; }
+.bd-note { color:var(--orange); font-size:0.7rem; }
+
+/* Progress bar BDM */
+.progress-cell { width:120px; }
+.progress-bar { width:100%; height:18px; background:var(--bg2); border-radius:9px; overflow:hidden; position:relative; }
+.progress-fill { height:100%; border-radius:9px; }
+.progress-text { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:0.7rem; font-weight:600; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,0.5); }
+.bdm-name-cell { font-weight:600; }
+.region-cell { color:var(--text2); font-size:0.78rem; }
+
+/* Funnel */
+.funnel-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.funnel-card { background:var(--card); border-radius:10px; border:1px solid var(--border); overflow:hidden; }
+.funnel-header { padding:10px 12px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; background:var(--bg2); }
+.funnel-icon { font-size:1.2rem; }
+.funnel-title { font-weight:600; font-size:0.82rem; flex:1; }
+.funnel-base { font-size:0.72rem; color:var(--text2); }
+.funnel-body { padding:12px; }
+.funnel-row { display:flex; justify-content:space-between; padding:4px 0; font-size:0.82rem; }
+.funnel-row.highlight { background:rgba(74,222,128,0.1); border-radius:4px; padding:6px 8px; font-weight:600; }
+.funnel-num { font-weight:700; color:#fff; }
+.funnel-arrow { text-align:center; color:var(--text2); font-size:0.9rem; padding:2px 0; }
+.funnel-rate { text-align:center; margin-top:8px; font-size:0.78rem; color:var(--accent); font-weight:600; }
+
+/* Risk */
+.risk-callout { background:rgba(248,113,113,0.1); border:1px solid rgba(248,113,113,0.3); border-radius:8px; padding:10px 14px; margin-top:12px; font-size:0.82rem; color:var(--red); }
+
+/* Rules Footer */
+.rules { background:var(--card); border-radius:10px; padding:16px; border:1px solid var(--border); margin-top:20px; }
+.rules h3 { font-size:0.9rem; margin-bottom:10px; color:var(--accent); }
+.rules-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:12px; }
+.rule-box { background:var(--bg2); border-radius:6px; padding:10px; font-size:0.78rem; }
+.rule-box h4 { font-size:0.8rem; margin-bottom:6px; color:var(--text); }
+.rule-box p,.rule-box li { color:var(--text2); margin-bottom:3px; }
+.rule-box ul { padding-left:16px; }
+.tbd { color:var(--orange); font-size:0.7rem; }
+.data-note { text-align:center; color:var(--text2); font-size:0.75rem; padding:16px 0 8px; }
+
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+
+@media (max-width:768px) {
+    .kpi-grid { grid-template-columns:repeat(2,1fr); }
+    .city-cards { grid-template-columns:1fr; }
+    .funnel-grid { grid-template-columns:1fr; }
+    .kpi-num { font-size:1.5rem; }
+    table { font-size:0.75rem; }
+    th,td { padding:6px 4px; }
+}
+@media (max-width:480px) {
+    .container { padding:8px; }
+    .kpi-grid { grid-template-columns:1fr 1fr; gap:8px; }
+    .header h1 { font-size:1.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+    <h1>🏆 Order Penetration Incentive Race | 订单渗透激励赛</h1>
+    <div class="subtitle">Metropolitan Region · Data as of 2026-08-03 (BRT) · 数据截至 2026-08-03</div>
+</div>
+
+<!-- MODULE 1: KPI OVERVIEW -->
+<div class="kpi-grid">
+    <div class="kpi-card">
+        <div class="kpi-num">818</div>
+        <div class="kpi-label">🎯 目标商家<br>Target Merchants</div>
+    </div>
+    <div class="kpi-card orange">
+        <div class="kpi-num">13</div>
+        <div class="kpi-label">📝 新签约 (not sign→signed)<br>New Sign-ups</div>
+    </div>
+    <div class="kpi-card green">
+        <div class="kpi-num">42</div>
+        <div class="kpi-label">✅ 有效营业<br>Effectively Operating</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-num">200</div>
+        <div class="kpi-label">⭐ 总积分（含BDM自营）<br>Total Score (all)</div>
+    </div>
+</div>
+
+<!-- Race Progress -->
+<div class="race-progress">
+    <span class="label">🏁 赛程 Race</span>
+    <div class="race-bar"><div class="race-fill" style="width:9.7%"></div></div>
+    <span class="race-text">Day 3/31 (9.7%)</span>
+</div>
+
+<!-- City Cards -->
+<div class="city-cards"><div class="city-card">
+            <div class="city-emoji">🅰</div>
+            <div class="city-name">Southern SP Metro<br><small>南圣保罗都会区</small></div>
+            <div class="city-metrics">
+                <div><span class="metric-num">413</span><small>目标 Targets</small></div>
+                <div><span class="metric-num">16</span><small>营业 Operating</small></div>
+                <div><span class="metric-num">76</span><small>积分 Score</small></div>
+            </div>
+        </div><div class="city-card">
+            <div class="city-emoji">🅱</div>
+            <div class="city-name">Western SP Metro<br><small>西圣保罗都会区</small></div>
+            <div class="city-metrics">
+                <div><span class="metric-num">331</span><small>目标 Targets</small></div>
+                <div><span class="metric-num">24</span><small>营业 Operating</small></div>
+                <div><span class="metric-num">103</span><small>积分 Score</small></div>
+            </div>
+        </div><div class="city-card">
+            <div class="city-emoji">🅲</div>
+            <div class="city-name">Santos City<br><small>桑托斯</small></div>
+            <div class="city-metrics">
+                <div><span class="metric-num">74</span><small>目标 Targets</small></div>
+                <div><span class="metric-num">2</span><small>营业 Operating</small></div>
+                <div><span class="metric-num">5</span><small>积分 Score</small></div>
+            </div>
+        </div></div>
+
+<!-- MODULE 2: BD RANKINGS -->
+<div class="section">
+    <div class="section-header">
+        <h2>🏅 BD个人排名榜 BD Personal Rankings</h2>
+        <small>🥇R$2,000 · 🥈R$1,500 · 🥉R$1,000 · Top 4-15: R$500 · 达标≥15分 · 点击📋查看明细</small>
+    </div>
+
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('south')">🅰 Southern SP Metro</button>
+        <button class="tab" onclick="showTab('west')">🅱 Western SP Metro</button>
+        <button class="tab" onclick="showTab('santos')">🅲 Santos City</button>
+    </div>
+
+    <div id="tab-south" class="tab-content active">
+        <div class="table-wrap"><table>
+            <thead><tr>
+                <th>排名 Rank</th><th>BD</th><th>BDM</th><th>商家 Merchants</th>
+                <th>基础分 Base</th><th>高价值 HV</th><th>总分 Total</th>
+                <th>达标 Status</th><th>奖金 Bonus</th>
+            </tr></thead>
+            <tbody><tr class="gold">
+            <td class="rank">🥇 1</td>
+            <td class="bd-name">brunapadilha</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_brunapadilha')">📋 2</button></td>
+            <td class="score">6</td>
+            <td class="score">+4</td>
+            <td class="score total-score">10</td>
+            <td class="gap-cell"><span class="gap">还差5分 / 5 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_brunapadilha" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Padaria Paraty</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_south_brunapadilha" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Pauli Grill</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="silver">
+            <td class="rank">🥈 2</td>
+            <td class="bd-name">marciajesuino</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_marciajesuino')">📋 2</button></td>
+            <td class="score">6</td>
+            <td class="score">+4</td>
+            <td class="score total-score">10</td>
+            <td class="gap-cell"><span class="gap">还差5分 / 5 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_marciajesuino" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Pizzaria Nações - grajau/ jordanopolis 2</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_south_marciajesuino" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Novais Fiori Pizzaria e Restaurante</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="bronze">
+            <td class="rank">🥉 3</td>
+            <td class="bd-name">paulosantos</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_paulosantos')">📋 2</button></td>
+            <td class="score">6</td>
+            <td class="score">+4</td>
+            <td class="score total-score">10</td>
+            <td class="gap-cell"><span class="gap">还差5分 / 5 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_paulosantos" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Zeza Bolos Doces e Salgados</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_south_paulosantos" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ padaria novo horizonte</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 4</td>
+            <td class="bd-name">lucasreis</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_lucasreis')">📋 1</button></td>
+            <td class="score">4</td>
+            <td class="score">+2</td>
+            <td class="score total-score">6</td>
+            <td class="gap-cell"><span class="gap">还差9分 / 9 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_lucasreis" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Frittos</td>
+                    <td class="detail-type">not online</td>
+                    <td class="detail-score">4</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">6</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 5</td>
+            <td class="bd-name">brunacrelien</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_brunacrelien')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_brunacrelien" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Sailor Dog Burger</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 6</td>
+            <td class="bd-name">felipesanches</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_felipesanches')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_felipesanches" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Marmitex Preço Baixo</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 7</td>
+            <td class="bd-name">matheuscoelho</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_matheuscoelho')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_matheuscoelho" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ A Dona dos Salgados</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 8</td>
+            <td class="bd-name">pedrosaccone</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_pedrosaccone')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_pedrosaccone" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Azul Pastel [VSP]</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 9</td>
+            <td class="bd-name">ricardoaraujo</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_ricardoaraujo')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_ricardoaraujo" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Cantinho do Acarajé - da Silvia</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 10</td>
+            <td class="bd-name">rodrigoalmeida</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_rodrigoalmeida')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_rodrigoalmeida" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ The Best Marmita Caseira e Lanches</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 11</td>
+            <td class="bd-name">sergioviggiano</td>
+            <td class="bdm-name">guilhermehaddad</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_sergioviggiano')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_sergioviggiano" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Bar e Lanchonete Julia</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 12</td>
+            <td class="bd-name">thaisvasconcelos</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_south_thaisvasconcelos')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_south_thaisvasconcelos" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Sabor do Mel Gastronomia</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="zero-score">
+            <td class="rank"> 13</td>
+            <td class="bd-name">allanmaalouli</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 14</td>
+            <td class="bd-name">camilabatista</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 15</td>
+            <td class="bd-name">carlosmotta</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 16</td>
+            <td class="bd-name">cristianedasilva</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 17</td>
+            <td class="bd-name">davidcaramaschi</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 18</td>
+            <td class="bd-name">eduardosantos</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 19</td>
+            <td class="bd-name">elisangelasouza</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 20</td>
+            <td class="bd-name">erikboilesen</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 21</td>
+            <td class="bd-name">evaldosilva</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 22</td>
+            <td class="bd-name">felipesilva</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 23</td>
+            <td class="bd-name">fernandoquintiliano</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 24</td>
+            <td class="bd-name">ivanfelizardo</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 25</td>
+            <td class="bd-name">josenascimento</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 26</td>
+            <td class="bd-name">joycepurificacao</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 27</td>
+            <td class="bd-name">julianashao</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 28</td>
+            <td class="bd-name">leandroresende</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 29</td>
+            <td class="bd-name">luizfantin</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 30</td>
+            <td class="bd-name">murilosilva</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 31</td>
+            <td class="bd-name">otaviomazzega</td>
+            <td class="bdm-name">eduardoalbuquerque</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 32</td>
+            <td class="bd-name">paulosilva</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 33</td>
+            <td class="bd-name">renannogueirasilva</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 34</td>
+            <td class="bd-name">ricardoalmeida</td>
+            <td class="bdm-name">tadeumoraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 35</td>
+            <td class="bd-name">rodrigocorreia</td>
+            <td class="bdm-name">alisaeed</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 36</td>
+            <td class="bd-name">tiagodangelo</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 37</td>
+            <td class="bd-name">victorsantos02</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 38</td>
+            <td class="bd-name">viniciusmendes</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 39</td>
+            <td class="bd-name">wainnergonzales</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 40</td>
+            <td class="bd-name">wanessasilva</td>
+            <td class="bdm-name">adriananaves</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 41</td>
+            <td class="bd-name">wellingtonsantos</td>
+            <td class="bdm-name">fernandooliveira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="table-footer">
+        <td colspan="9">
+            参赛BD Participants: <strong>41</strong> ·
+            有得分 Scored: <strong>12</strong> ·
+            已达标 Qualified: <strong>0</strong> ·
+            赛区总分 Zone Total: <strong>76</strong>
+        </td>
+    </tr></tbody>
+        </table></div>
+    </div>
+
+    <div id="tab-west" class="tab-content">
+        <div class="table-wrap"><table>
+            <thead><tr>
+                <th>排名 Rank</th><th>BD</th><th>BDM</th><th>商家 Merchants</th>
+                <th>基础分 Base</th><th>高价值 HV</th><th>总分 Total</th>
+                <th>达标 Status</th><th>奖金 Bonus</th>
+            </tr></thead>
+            <tbody><tr class="gold">
+            <td class="rank">🥇 1</td>
+            <td class="bd-name">kevinberti</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_kevinberti')">📋 2</button></td>
+            <td class="score">7</td>
+            <td class="score">+4</td>
+            <td class="score total-score">11</td>
+            <td class="gap-cell"><span class="gap">还差4分 / 4 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_kevinberti" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Sorveteria Ice Pan</td>
+                    <td class="detail-type">not online</td>
+                    <td class="detail-score">4</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">6</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_west_kevinberti" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Adega do Pepeu</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="silver">
+            <td class="rank">🥈 2</td>
+            <td class="bd-name">valeriachacon</td>
+            <td class="bdm-name">lucasferreira</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_valeriachacon')">📋 2</button></td>
+            <td class="score">7</td>
+            <td class="score">+4</td>
+            <td class="score total-score">11</td>
+            <td class="gap-cell"><span class="gap">还差4分 / 4 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_valeriachacon" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Sah Doces</td>
+                    <td class="detail-type">not online</td>
+                    <td class="detail-score">4</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">6</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_west_valeriachacon" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Empório 1400 Restaurante e Pizzaria</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="bronze">
+            <td class="rank">🥉 3</td>
+            <td class="bd-name">marialisboa</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_marialisboa')">📋 2</button></td>
+            <td class="score">6</td>
+            <td class="score">+4</td>
+            <td class="score total-score">10</td>
+            <td class="gap-cell"><span class="gap">还差5分 / 5 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_marialisboa" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Rodrigues House - Batata Recheada</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="detail-row detail_west_marialisboa" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Sabor Nordestino - Marmitex</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 4</td>
+            <td class="bd-name">luizmoreira</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_luizmoreira')">📋 1</button></td>
+            <td class="score">6</td>
+            <td class="score">+2</td>
+            <td class="score total-score">8</td>
+            <td class="gap-cell"><span class="gap">还差7分 / 7 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_luizmoreira" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Casa de bolos</td>
+                    <td class="detail-type">not sign</td>
+                    <td class="detail-score">6</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">8</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 5</td>
+            <td class="bd-name">milenasantana</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_milenasantana')">📋 1</button></td>
+            <td class="score">6</td>
+            <td class="score">+2</td>
+            <td class="score total-score">8</td>
+            <td class="gap-cell"><span class="gap">还差7分 / 7 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_milenasantana" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Bel Confeitaria</td>
+                    <td class="detail-type">not sign</td>
+                    <td class="detail-score">6</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">8</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 6</td>
+            <td class="bd-name">williamhenrique</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_williamhenrique')">📋 1</button></td>
+            <td class="score">6</td>
+            <td class="score">+2</td>
+            <td class="score total-score">8</td>
+            <td class="gap-cell"><span class="gap">还差7分 / 7 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_williamhenrique" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Barbara Doceria Artesanal - Osasco</td>
+                    <td class="detail-type">not sign</td>
+                    <td class="detail-score">6</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">8</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 7</td>
+            <td class="bd-name">caiquesilva</td>
+            <td class="bdm-name">maysaazevedo</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_caiquesilva')">📋 1</button></td>
+            <td class="score">4</td>
+            <td class="score">+2</td>
+            <td class="score total-score">6</td>
+            <td class="gap-cell"><span class="gap">还差9分 / 9 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_caiquesilva" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Açaí Flow</td>
+                    <td class="detail-type">not online</td>
+                    <td class="detail-score">4</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">6</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 8</td>
+            <td class="bd-name">felipecruz</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_felipecruz')">📋 1</button></td>
+            <td class="score">4</td>
+            <td class="score">+2</td>
+            <td class="score total-score">6</td>
+            <td class="gap-cell"><span class="gap">还差9分 / 9 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_felipecruz" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ The Salgados e Cafeteria</td>
+                    <td class="detail-type">not online</td>
+                    <td class="detail-score">4</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">6</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 9</td>
+            <td class="bd-name">alexlima</td>
+            <td class="bdm-name">igorfeitosa</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_alexlima')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_alexlima" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Restaurante Ms</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 10</td>
+            <td class="bd-name">caiolorencato</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_caiolorencato')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_caiolorencato" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Naoki São Luiz</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 11</td>
+            <td class="bd-name">igorsouza</td>
+            <td class="bdm-name">igorfeitosa</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_igorsouza')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_igorsouza" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Bar e Restaurante Império</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 12</td>
+            <td class="bd-name">jadycarvalho</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_jadycarvalho')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_jadycarvalho" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Chef SP Food</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 13</td>
+            <td class="bd-name">marcelofeitosa</td>
+            <td class="bdm-name">igorfeitosa</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_marcelofeitosa')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_marcelofeitosa" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Golis Burger</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 14</td>
+            <td class="bd-name">tamirislopes</td>
+            <td class="bdm-name">igorfeitosa</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_tamirislopes')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_tamirislopes" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Cantinho da Gula</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr >
+            <td class="rank"> 15</td>
+            <td class="bd-name">tatianarodrigues</td>
+            <td class="bdm-name">igorfeitosa</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_west_tatianarodrigues')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_west_tatianarodrigues" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Tolens Burger - Hamburgueria Artesanal</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="zero-score">
+            <td class="rank"> 16</td>
+            <td class="bd-name">barbaraoliveira</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 17</td>
+            <td class="bd-name">claudiareis</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 18</td>
+            <td class="bd-name">clebersoares</td>
+            <td class="bdm-name">lucasferreira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 19</td>
+            <td class="bd-name">giovannavilla</td>
+            <td class="bdm-name">matheusribeiro</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 20</td>
+            <td class="bd-name">guilhermesantos</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 21</td>
+            <td class="bd-name">heloisamagnani</td>
+            <td class="bdm-name">thiagoscavazini</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 22</td>
+            <td class="bd-name">johnataguimaraes</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 23</td>
+            <td class="bd-name">karinacolomina</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 24</td>
+            <td class="bd-name">lucasnada</td>
+            <td class="bdm-name">lucasferreira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 25</td>
+            <td class="bd-name">nayannedias</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 26</td>
+            <td class="bd-name">nicolemenezes</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 27</td>
+            <td class="bd-name">nilmaxfranca</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 28</td>
+            <td class="bd-name">renansilva</td>
+            <td class="bdm-name">cesararraes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 29</td>
+            <td class="bd-name">rodrigopoli</td>
+            <td class="bdm-name">biancaceotto</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 30</td>
+            <td class="bd-name">tatianeribeiro</td>
+            <td class="bdm-name">lucasferreira</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="table-footer">
+        <td colspan="9">
+            参赛BD Participants: <strong>30</strong> ·
+            有得分 Scored: <strong>15</strong> ·
+            已达标 Qualified: <strong>0</strong> ·
+            赛区总分 Zone Total: <strong>103</strong>
+        </td>
+    </tr></tbody>
+        </table></div>
+    </div>
+
+    <div id="tab-santos" class="tab-content">
+        <div class="table-wrap"><table>
+            <thead><tr>
+                <th>排名 Rank</th><th>BD</th><th>BDM</th><th>商家 Merchants</th>
+                <th>基础分 Base</th><th>高价值 HV</th><th>总分 Total</th>
+                <th>达标 Status</th><th>奖金 Bonus</th>
+            </tr></thead>
+            <tbody><tr class="gold">
+            <td class="rank">🥇 1</td>
+            <td class="bd-name">ericabarbosa</td>
+            <td class="bdm-name">sabrinafernandes</td>
+            <td class="merchants"><button class="expand-btn" onclick="toggleDetails('detail_santos_ericabarbosa')">📋 1</button></td>
+            <td class="score">3</td>
+            <td class="score">+2</td>
+            <td class="score total-score">5</td>
+            <td class="gap-cell"><span class="gap">还差10分 / 10 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="detail-row detail_santos_ericabarbosa" style="display:none">
+                    <td></td><td colspan="2" class="detail-lead">&nbsp;&nbsp;↳ Império Gourmet Bolos e Doces</td>
+                    <td class="detail-type">not operating</td>
+                    <td class="detail-score">3</td>
+                    <td class="detail-score">+2</td>
+                    <td class="detail-score">5</td>
+                    <td></td><td></td>
+                </tr><tr class="zero-score">
+            <td class="rank"> 2</td>
+            <td class="bd-name">brunosalmaso</td>
+            <td class="bdm-name">sabrinafernandes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 3</td>
+            <td class="bd-name">felipebarbosa</td>
+            <td class="bdm-name">sabrinafernandes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 4</td>
+            <td class="bd-name">giovanabareno</td>
+            <td class="bdm-name">sabrinafernandes</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 5</td>
+            <td class="bd-name">jessicarossi</td>
+            <td class="bdm-name">renataleite</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 6</td>
+            <td class="bd-name">joaocastro</td>
+            <td class="bdm-name">renataleite</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 7</td>
+            <td class="bd-name">luizmarques</td>
+            <td class="bdm-name">renataleite</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 8</td>
+            <td class="bd-name">nathaliabernardino</td>
+            <td class="bdm-name">renataleite</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 9</td>
+            <td class="bd-name">zhuyueyi02</td>
+            <td class="bdm-name">Unassigned</td>
+            <td class="merchants"><span class="no-merchants">0</span></td>
+            <td class="score">0</td>
+            <td class="score">+0</td>
+            <td class="score total-score">0</td>
+            <td class="gap-cell"><span class="gap">还差15分 / 15 pts to go</span></td>
+            <td class="bonus">—</td>
+        </tr><tr class="table-footer">
+        <td colspan="9">
+            参赛BD Participants: <strong>9</strong> ·
+            有得分 Scored: <strong>1</strong> ·
+            已达标 Qualified: <strong>0</strong> ·
+            赛区总分 Zone Total: <strong>5</strong>
+        </td>
+    </tr></tbody>
+        </table></div>
+    </div>
+</div>
+
+<!-- MODULE 3: BDM TEAM RANKINGS -->
+<div class="section">
+    <div class="section-header">
+        <h2>👔 BDM团队排名榜 BDM Team Rankings</h2>
+        <small>🥇R$2,500 · 🥈R$2,000 · 🥉R$1,500 · 达标：团队总分≥BD数×15 · 排名按人均分</small>
+    </div>
+    <div class="table-wrap"><table>
+        <thead><tr>
+            <th>排名 Rank</th><th>BDM</th><th>区域 Region</th><th>BD数 BDs</th>
+            <th>有分BD Scored</th><th>转化商家 Merchants</th><th>总分 Total</th>
+            <th>人均分 Avg</th><th>门槛 Threshold</th><th>达标进度 Progress</th><th>奖金 Bonus</th>
+        </tr></thead>
+        <tbody><tr class="gold">
+            <td class="rank">🥇 1</td>
+            <td class="bdm-name-cell">maysaazevedo</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">1 <small class="bd-note">(仅1人)</small></td>
+            <td class="count">1</td>
+            <td class="count">1</td>
+            <td class="score">6</td>
+            <td class="score avg-score">6.0</td>
+            <td class="score">15</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:40.0%;background:#f87171"></div>
+                    <span class="progress-text">40.0%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr class="silver">
+            <td class="rank">🥈 2</td>
+            <td class="bdm-name-cell">guilhermehaddad</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">1 <small class="bd-note">(仅1人)</small></td>
+            <td class="count">1</td>
+            <td class="count">1</td>
+            <td class="score">5</td>
+            <td class="score avg-score">5.0</td>
+            <td class="score">15</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:33.3%;background:#f87171"></div>
+                    <span class="progress-text">33.3%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr class="bronze">
+            <td class="rank">🥉 3</td>
+            <td class="bdm-name-cell">igorfeitosa</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">5 </td>
+            <td class="count">5</td>
+            <td class="count">5</td>
+            <td class="score">25</td>
+            <td class="score avg-score">5.0</td>
+            <td class="score">75</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:33.3%;background:#f87171"></div>
+                    <span class="progress-text">33.3%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 4</td>
+            <td class="bdm-name-cell">cesararraes</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">6 </td>
+            <td class="count">3</td>
+            <td class="count">4</td>
+            <td class="score">24</td>
+            <td class="score avg-score">4.0</td>
+            <td class="score">90</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:26.7%;background:#f87171"></div>
+                    <span class="progress-text">26.7%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 5</td>
+            <td class="bdm-name-cell">thiagoscavazini</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">6 </td>
+            <td class="count">3</td>
+            <td class="count">4</td>
+            <td class="score">24</td>
+            <td class="score avg-score">4.0</td>
+            <td class="score">90</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:26.7%;background:#f87171"></div>
+                    <span class="progress-text">26.7%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 6</td>
+            <td class="bdm-name-cell">tadeumoraes</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">6 </td>
+            <td class="count">3</td>
+            <td class="count">4</td>
+            <td class="score">21</td>
+            <td class="score avg-score">3.5</td>
+            <td class="score">90</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:23.3%;background:#f87171"></div>
+                    <span class="progress-text">23.3%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 7</td>
+            <td class="bdm-name-cell">fernandooliveira</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">7 </td>
+            <td class="count">3</td>
+            <td class="count">4</td>
+            <td class="score">20</td>
+            <td class="score avg-score">2.86</td>
+            <td class="score">105</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:19.0%;background:#f87171"></div>
+                    <span class="progress-text">19.0%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 8</td>
+            <td class="bdm-name-cell">lucasferreira</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">4 </td>
+            <td class="count">1</td>
+            <td class="count">2</td>
+            <td class="score">11</td>
+            <td class="score avg-score">2.75</td>
+            <td class="score">60</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:18.3%;background:#f87171"></div>
+                    <span class="progress-text">18.3%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 9</td>
+            <td class="bdm-name-cell">alisaeed</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">6 </td>
+            <td class="count">2</td>
+            <td class="count">3</td>
+            <td class="score">15</td>
+            <td class="score avg-score">2.5</td>
+            <td class="score">90</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:16.7%;background:#f87171"></div>
+                    <span class="progress-text">16.7%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 10</td>
+            <td class="bdm-name-cell">biancaceotto</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">7 </td>
+            <td class="count">2</td>
+            <td class="count">2</td>
+            <td class="score">13</td>
+            <td class="score avg-score">1.86</td>
+            <td class="score">105</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:12.4%;background:#f87171"></div>
+                    <span class="progress-text">12.4%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 11</td>
+            <td class="bdm-name-cell">sabrinafernandes</td>
+            <td class="region-cell">Santos City</td>
+            <td class="count">4 </td>
+            <td class="count">1</td>
+            <td class="count">1</td>
+            <td class="score">5</td>
+            <td class="score avg-score">1.25</td>
+            <td class="score">60</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:8.3%;background:#f87171"></div>
+                    <span class="progress-text">8.3%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 12</td>
+            <td class="bdm-name-cell">adriananaves</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">9 </td>
+            <td class="count">2</td>
+            <td class="count">2</td>
+            <td class="score">10</td>
+            <td class="score avg-score">1.11</td>
+            <td class="score">135</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:7.4%;background:#f87171"></div>
+                    <span class="progress-text">7.4%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr >
+            <td class="rank"> 13</td>
+            <td class="bdm-name-cell">eduardoalbuquerque</td>
+            <td class="region-cell">Southern São Paulo</td>
+            <td class="count">7 </td>
+            <td class="count">1</td>
+            <td class="count">1</td>
+            <td class="score">5</td>
+            <td class="score avg-score">0.71</td>
+            <td class="score">105</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:4.8%;background:#f87171"></div>
+                    <span class="progress-text">4.8%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 14</td>
+            <td class="bdm-name-cell">matheusribeiro</td>
+            <td class="region-cell">Western São Paulo</td>
+            <td class="count">1 <small class="bd-note">(仅1人)</small></td>
+            <td class="count">0</td>
+            <td class="count">0</td>
+            <td class="score">0</td>
+            <td class="score avg-score">0.0</td>
+            <td class="score">15</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:0.0%;background:#f87171"></div>
+                    <span class="progress-text">0.0%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr><tr class="zero-score">
+            <td class="rank"> 15</td>
+            <td class="bdm-name-cell">renataleite</td>
+            <td class="region-cell">Santos City</td>
+            <td class="count">4 </td>
+            <td class="count">0</td>
+            <td class="count">0</td>
+            <td class="score">0</td>
+            <td class="score avg-score">0.0</td>
+            <td class="score">60</td>
+            <td class="progress-cell">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width:0.0%;background:#f87171"></div>
+                    <span class="progress-text">0.0%</span>
+                </div>
+            </td>
+            <td class="bonus">—</td>
+        </tr></tbody>
+    </table></div>
+</div>
+
+<!-- MODULE 4: CONVERSION FUNNEL -->
+<div class="section">
+    <div class="section-header">
+        <h2>📊 转化漏斗 Conversion Funnel</h2>
+        <small>三种目标类型的转化路径</small>
+    </div>
+    <div class="funnel-grid"><div class="funnel-card">
+            <div class="funnel-header" style="border-left:4px solid #818cf8">
+                <span class="funnel-icon">📝</span>
+                <span class="funnel-title">未签约 Not Signed</span>
+                <span class="funnel-base">基础 Base: 6pts</span>
+            </div>
+            <div class="funnel-body">
+                <div class="funnel-row"><span>目标商家 Target</span><span class="funnel-num">553</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row"><span>已分配BD Assigned</span><span class="funnel-num">105</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row highlight"><span>有效营业 Operating</span><span class="funnel-num">8</span></div>
+                <div class="funnel-rate">转化率 Rate: 1.4%</div>
+            </div>
+        </div><div class="funnel-card">
+            <div class="funnel-header" style="border-left:4px solid #fb923c">
+                <span class="funnel-icon">🌐</span>
+                <span class="funnel-title">签约未上线 Not Online</span>
+                <span class="funnel-base">基础 Base: 4pts</span>
+            </div>
+            <div class="funnel-body">
+                <div class="funnel-row"><span>目标商家 Target</span><span class="funnel-num">46</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row"><span>已分配BD Assigned</span><span class="funnel-num">42</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row highlight"><span>有效营业 Operating</span><span class="funnel-num">6</span></div>
+                <div class="funnel-rate">转化率 Rate: 13.0%</div>
+            </div>
+        </div><div class="funnel-card">
+            <div class="funnel-header" style="border-left:4px solid #4ade80">
+                <span class="funnel-icon">🔄</span>
+                <span class="funnel-title">不营业 Not Operating</span>
+                <span class="funnel-base">基础 Base: 3pts</span>
+            </div>
+            <div class="funnel-body">
+                <div class="funnel-row"><span>目标商家 Target</span><span class="funnel-num">219</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row"><span>已分配BD Assigned</span><span class="funnel-num">219</span></div>
+                <div class="funnel-arrow">↓</div>
+                <div class="funnel-row highlight"><span>有效营业 Operating</span><span class="funnel-num">28</span></div>
+                <div class="funnel-rate">转化率 Rate: 12.8%</div>
+            </div>
+        </div></div><div class="risk-callout">
+        ⚠️ <strong>风险提示 Risk Alert:</strong>
+        452 家商家未分配BD / 452 merchants have no BD assigned
+    </div>
+</div>
+
+<!-- MODULE 5: SCORING RULES -->
+<div class="rules">
+    <h3>📖 计分规则 Scoring Rules</h3>
+    <div class="rules-grid">
+        <div class="rule-box">
+            <h4>基础分 Base Score</h4>
+            <ul>
+                <li><strong>not sign → 有效营业:</strong> 6 pts（未签约→有效营业）</li>
+                <li><strong>not online → 有效营业:</strong> 4 pts（签约未上线→有效营业）</li>
+                <li><strong>not operating → 有效营业:</strong> 3 pts（不营业→恢复营业）</li>
+            </ul>
+            <p>有效营业判定: 0728-0803 operating = 1</p>
+        </div>
+        <div class="rule-box">
+            <h4>加分项 Bonus</h4>
+            <ul>
+                <li><strong>高价值 High Value:</strong> red comment ≥ 50 → +2 pts</li>
+                <li><strong>早鸟 Early Bird:</strong> +1 pt <span class="tbd">（待更新 TBD）</span></li>
+            </ul>
+        </div>
+        <div class="rule-box">
+            <h4>BD奖金 BD Bonus</h4>
+            <ul>
+                <li>三赛区独立排名 3 zones ranked independently</li>
+                <li>达标门槛: ≥15分 Threshold: ≥15 pts</li>
+                <li>🥇R$2,000 / 🥈R$1,500 / 🥉R$1,000 / Top 4-15: R$500</li>
+                <li>0分不参与奖牌评选 0-score BDs excluded from medals</li>
+            </ul>
+        </div>
+        <div class="rule-box">
+            <h4>BDM奖金 BDM Bonus</h4>
+            <ul>
+                <li>全区统一排名 All regions ranked together</li>
+                <li>排名依据: 人均分 = 团队总分 ÷ BD数</li>
+                <li>达标门槛: 总分 ≥ BD数 × 15</li>
+                <li>🥇R$2,500 / 🥈R$2,000 / 🥉R$1,500</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="data-note">
+    Data as of 2026-08-03 (BRT) · Generated on 2026-08-05 · Dashboard v2.0<br>
+    BDM/CM excluded from BD rankings · Only operating=1 merchants score · All red comment ≥ 50 (HV +2 applied)
+</div>
+
+</div><!-- /container -->
+
+<script>
+function showTab(city) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + city).classList.add('active');
+    // Find the right tab button
+    const labels = {'south': '🅰 Southern SP Metro', 'west': '🅱 Western SP Metro', 'santos': '🅲 Santos City'};
+    document.querySelectorAll('.tab').forEach(el => {
+        if (el.textContent.trim() === labels[city]) el.classList.add('active');
+    });
+}
+
+function toggleDetails(detailClass) {
+    const rows = document.querySelectorAll('.' + detailClass);
+    rows.forEach(row => {
+        row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+    });
+}
+</script>
+</body>
+</html>

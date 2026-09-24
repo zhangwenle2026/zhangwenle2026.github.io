@@ -1,0 +1,8 @@
+{
+  "name": "keeta-data-query",
+  "private": true,
+  "dependencies": {
+    "@dp/mtcli": "^1.1.12",
+    "@mtfe/mtsso-auth-official": "^1.0.9"
+  }
+}

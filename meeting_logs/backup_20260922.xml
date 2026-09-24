@@ -1,0 +1,363 @@
+<km-doc>
+<km-title nodeId="6378da35-99b3-4162-84d9-c1573ed3fb9c">📋 Meeting Log · 会议日账本</km-title>
+<h2 nodeId="4b2699c7-3be2-46c5-a921-ee716c10f795">📅 会议记录 · Meeting Records</h2>
+<table responsive="false" nodeId="9c4a5969-2455-426a-8b9e-68bd58a679ae">
+<tr nodeId="8a8798f2-a41b-4adf-bf2a-b25ce1c5c132">
+<th colwidth="[120]" nodeId="41810340-863f-4eac-97d5-5baee2bf70d7"><p nodeId="de19c112-d532-43bb-a0b2-3e204b75b077">日期 Date</p></th>
+<th colwidth="[180]" nodeId="1190eee1-dff1-4f90-82da-2ef4f120bdad"><p nodeId="9cd6b942-4082-4edf-bd81-7f314c06f83e">会议名称 Meeting Name</p></th>
+<th colwidth="[120]" nodeId="8350aa3f-1413-4b2d-9406-4a2752485cf2"><p nodeId="fc62dc5e-d53e-4ead-b604-39dba7eefeca">分类 Category</p></th>
+<th colwidth="[160]" nodeId="header-minutes-new"><p nodeId="para-minutes-new">会议纪要 Meeting Minutes</p></th>
+<th colwidth="[160]" nodeId="9548038f-994f-4e32-babd-4cf07e146928"><p nodeId="acd188c4-98ae-4489-bd4b-8ad6922ea9e5">会议文档 Meeting Doc</p></th>
+<th colwidth="[300]" nodeId="c4ad48b9-c977-4fd6-865d-d66c6a002a14"><p nodeId="722edcd9-8413-4ca7-8701-6210fb966b1e">会议概要 Summary</p></th>
+<th colwidth="[160]" nodeId="92b66cfb-820e-4d78-9078-8c6486bf9c59"><p nodeId="08a8badf-418d-4714-9fbd-88b914976783">备忘 Notes</p></th>
+</tr>
+<tr nodeId="2d09bebd-acf3-4509-bed4-761c415c76ed">
+<td nodeId="5a937087-c0b8-49e1-8866-3de43615f30b">
+<p nodeId="7b7edf85-3458-4bbe-8dd0-2a11fd3732b7">2026-09-22 00:31 BRT</p>
+</td>
+<td nodeId="58c374d6-937c-47ce-b1d7-0093a068926d">
+<p nodeId="90222ea3-38ab-49f1-b815-4d7b855a003a">商户独占案件盘查与信息补全 / Merchant Case Review &amp; Information Completion</p>
+</td>
+<td nodeId="014a819a-d1af-4eec-a587-7b9a9bae31a7">
+<p nodeId="58a475df-8d51-4caa-b1c7-e9ac4cc44bc5">业务复盘 Business Review</p>
+</td>
+<td nodeId="1a7a1df8-66b4-4917-97c1-b3ee52106867">
+<p nodeId="511fa6f4-5ca5-4a01-bc0a-6eebcc1a7d00">—</p>
+</td>
+<td nodeId="4c1ecff3-5830-48e5-90a9-d57464849209">
+<p nodeId="f0324b1b-06a2-4116-9008-e6f9bb973a4a"><a href="https://km.sankuai.com/page/2788156171" nodeId="a856863c-8f00-4303-a7e8-f0f655d1856d">📄 会议纪要</a></p>
+</td>
+<td nodeId="d8957c5e-75c9-4438-8a2a-7ef6ad92fde3">
+<p nodeId="752f314d-1007-415d-aec2-f5fea446e25e">1. 文乐与Márcio逐案过西部独家风险盘：核对每案upfront、KP态度、竞对日单、合同状态，要求把群聊信息全部补录进NoCode看板。 *Wenle and Márcio case-by-case reviewed Western exclusivity risks, auditing upfront/KP attitude/competitor volume and backfilling intel into the dashboard.* 2. 重点案：Duple Burger三品牌打包签99（upfront R$2M）；某已签99商户仍在Keeta正常经营且是分区头部；披萨商户补贴被砍日单一周内跌70%，是99挖角窗口。 *Key cases: Duple Burger signed 99 (R$2M upfront, 3 brands); a signed merchant still top-performing on Keeta; pizza merchant subsidy cut → 70% order drop = poaching window.* 3. 看板缺&quot;未收到报价&quot;状态选项（现有仅Assinado/Recebido），部分商家仅获口头offer需在notes说明——影响KP态度分类准确性。 *Dashboard lacks a &quot;not received&quot; status option; verbal-only offers must be noted — affects attitude classification.* 4. 行动：BD按checklist（upfront/AOV/CKA/竞对日单/反馈）今天-明早前补齐全部信息；周三早review会上Lucas逐案深挖。 *Action: BDs backfill everything via checklist before Wednesday; Wednesday review with Lucas case-by-case.* 5. 高风险聚焦：西部（Márcio区）+CKA，Lucas/Tony重点投入。 *High-risk focus: Western region + CKA; Lucas/Tony to prioritize.*</p>
+</td>
+<td nodeId="02a94587-1487-40fa-9919-fc47d3e2ee5e">
+<p nodeId="1980cd79-2e09-4c68-9b8e-0b355974207f">参会：文乐/Márcio/Lucas/Thiago/César/Bianca；Duple R$2M=三品牌打包(Black Knight/Duple/Ofenwes)</p>
+</td>
+</tr>
+<tr nodeId="37fd2c9d-4c7b-46d0-8808-27fbfd6708df">
+<td nodeId="d0af04c3-8a43-4b9e-98e0-c7be3ec4ad9e"><p nodeId="448811b4-c432-4453-9a2c-299b0d3aff60">2026-09-19 14:41 BRT</p></td>
+<td nodeId="dc909495-bffb-437d-bd3f-838275e65798">
+<p nodeId="57b8a812-c91b-486f-8671-b66b99e895eb">Bianca问题反馈1:1（Eric x Marcio x 文乐） / Bianca Issue 1:1 (Eric x Márcio x Wenle)</p>
+</td>
+<td nodeId="06545a5b-5c97-43a8-addb-410eb854c30e">
+<p nodeId="50b0feb1-ee85-4ab0-990a-0f6afbfd5b32">团队同步 Team Sync</p>
+</td>
+<td nodeId="7a7f65ff-6357-4952-b18b-c6e18e9d7c06">
+<p nodeId="20d660e8-e446-4497-83f6-e595d9df8293">—</p>
+</td>
+<td nodeId="a884a8d2-8d3e-4d26-9c07-0e295a163521">
+<p nodeId="0aa69d01-114b-4e7c-a567-65e3df1225e1">—</p>
+</td>
+<td nodeId="faafb9cb-fa1f-4bf8-a488-a511a1a64446">
+<p nodeId="0e1b500e-7029-47b1-b717-85f8c6affdae">1. BDM Bianca（巴伊亚区）能力出众、业绩能打，但个性强势、不接受反馈，与CM Márcio公开冲突。 *BDM Bianca delivers strong results but is difficult: rejects feedback, openly clashes with CM Márcio.*</p>
+<p nodeId="177e3279-05db-4236-bedd-0f025c786f6e">2. 曾单月约50起伪造签名，证据已呈James；团队成员多次向HR投诉其高压管理。 *~50 fake-signature cases in one month shown to James; multiple HR complaints on her aggressive management style.*</p>
+<p nodeId="6a99d70c-55be-4275-82ab-13f60d48929d">3. 建了不含Márcio的WhatsApp/群组专门抱怨管理层，还私下拉拢其他BDM。 *Created WhatsApp groups excluding Márcio to complain about him and lobby other BDMs.*</p>
+<p nodeId="5990a2a7-bef0-4610-8b4d-b0dc9da811b0">4. 散播离职威胁（&quot;要去99&quot;&quot;要告Keeta拿钱&quot;），整体氛围负面。 *Keeps spreading negativity: threatens to leave for 99 and sue Keeta.*</p>
+<p nodeId="6104ed2f-c2f2-40b9-b16a-da2fcedf9dd6">5. 待跟进：与Márcio对齐1:1处理方案，评估保留或调岗。 *Follow-up: align with Márcio on 1:1 plan; evaluate retention vs transfer.*</p>
+</td>
+<td nodeId="b84d05a7-06b6-4db3-8236-a9c267f47ba0">
+<p nodeId="8a2116ec-95d2-4dd6-b7a4-69ab8e6ab97a">Closed-caption转录件已存：workspace/meeting_logs/cc_20260919_bianca.txt</p>
+<p nodeId="1512d15f-7680-4977-be78-079d15d9683a">敏感：仅限管理层知悉，勿外传</p>
+</td>
+</tr>
+<tr nodeId="15052adb-7df1-4a43-8a63-e80b17f7e953">
+<td nodeId="f3595fa8-4341-469c-b474-f5ba055f55da">
+<p nodeId="3d042b81-4926-401d-9abb-7a5e6e6b6a87">2026-04-30 09:27 BRT</p>
+</td>
+<td nodeId="c3c5aa34-d723-4290-8ee4-d9465e892e83">
+<p nodeId="de8bc5d7-330e-4cbc-8b28-e0b398332d53">DBR Region B · 0430</p>
+</td>
+<td nodeId="8b636700-5e97-4661-9554-8f51dfad4083">
+<p nodeId="6a96458c-14d9-4691-9786-ba49ac7d2482">业务复盘 Business Review</p>
+</td>
+<td nodeId="1853a07f-66cf-4348-b8a6-310e10a22f4b">
+<p nodeId="949b2e9d-40ad-4dad-bf1a-be59cd9c2bd7">:[link]{href=&quot;https://km.sankuai.com/page/2760403194&quot; nodeId=&quot;baba0f61-0e02-4238-b9d2-d10d917203f0&quot;}📄 2760403194[/link]</p>
+</td>
+<td nodeId="12f7de41-04e6-4102-a56a-f04d01b5da15">
+<p nodeId="24e846fe-7d7d-4774-8d51-bdccf9b1c4c5">—</p>
+</td>
+<td nodeId="723ca7e5-0fe5-4e5b-9fa5-e3238af51e34">
+<p nodeId="e2d9b695-b5a0-41c6-b3b1-6bbbb86607d4">【4月收官冲刺日 Apr 30 Final Sprint】<br/>① 新签/营业：Top Tier整体完成117%，但CTC/CTD未达标，今日重点召回250家已签未营业商家；Must-have CDB独家反馈完成率&lt;80%需紧急跟进。<br/>② 供应日常化：新签上线和营业指标必须纳入每日管理体系，杜绝月末冲刺；新商家至少需3单才能激活流量机制，产品正在优化自动分配。<br/>③ 线下审批新规：BD发起线下申请须获CM授权，昨日32个案例均需附原因+证据截图。<br/>④ 深折覆盖稳定，Santos订单环比+25%全区最强；5月将发布新促销方案。<br/>*Top Tier 117% overall but CTC/CTD gaps; recall 250 signed-not-operating today. Supply metrics → daily mgmt. Offline approval requires CM sign-off. Santos orders +25% WoW.*</p>
+</td>
+<td nodeId="05ed9f9f-f9c9-4613-816e-50e18d6130b3">
+<p nodeId="2e3850dc-9569-4cc5-b489-36b9d96060de">—</p>
+</td>
+</tr>
+<tr nodeId="e61fbadb-16c3-42d0-985a-6381b8ccabe8">
+<td nodeId="1e273aae-68ff-446d-8efc-b3b64220d7f0">
+<p nodeId="89cc11f6-3d2a-4055-93c9-0ed61c38ee2a">2026-04-29 09:28 BRT</p>
+</td>
+<td nodeId="6b2fd34f-5105-4417-8ea8-69fc9755001b">
+<p nodeId="ec9bc6b8-5ec8-454f-9d4b-bb9ed1f00023">DBR Region B · 0429</p>
+</td>
+<td nodeId="49d09607-7a76-4bcd-810d-bac396872154">
+<p nodeId="56a8fd43-2f5d-4d6f-93e3-3d380d90c3ae">业务复盘 Business Review</p>
+</td>
+<td nodeId="d6bf8b5a-5236-4c51-9e44-eed18d68fbf5">
+<p nodeId="729d1310-f6bb-48b0-a93a-74d3470d3a28">:[link]{href=&quot;https://km.sankuai.com/page/2760211441&quot; nodeId=&quot;4f24522f-7d93-4a6e-9092-21237b0238d4&quot;}📄 2760211441[/link]</p>
+</td>
+<td nodeId="d463fbf4-e17b-40b6-8049-ff2d62ff28ba">
+<p nodeId="3e4fb17e-2133-4f6e-8c7e-a52b6a7652d0">—</p>
+</td>
+<td nodeId="125ba1f3-d57f-4446-8c39-065e8319608a">
+<p nodeId="994ab12a-417a-49a9-a82e-5c4df2fe422e">【4月29日DBR：BDAPP新界面+数据对齐问题 Apr 29 DBR】<br/>① BDAPP访问界面全面改版：BD注册拜访流程重构，SOP已发Keeta账号和BGM群，新PC/App看板实时追踪拜访/签约状态。<br/>② 4月营业目标整体已完成，CTD/CTC仍有小缺口；东区数据对齐存疑（Paolo团队质疑看板准确性）；东北区部分商家被错误归属至其他区域。<br/>③ 业务增长强劲：MTD订单量2.9M（目标3M），GMV 3.7M，较3月显著增长；Mid/Top营业商家环比+5pp。<br/>*BDAPP visit interface fully revamped — new SOP live. MTD orders 2.9M/3M target, GMV 3.7M strong vs March. CTC/CTD gaps. NE data misattribution flagged by Paolo.*</p>
+</td>
+<td nodeId="5558f7be-b669-45ca-ac04-45186454a0f9">
+<p nodeId="c376f534-89ec-451b-a677-653932d59059">—</p>
+</td>
+</tr>
+<tr nodeId="07f7e128-a2ab-4582-b272-e01b2fd8e946">
+<td nodeId="42058ae6-e1bc-40e0-afe8-9b0f6976160d">
+<p nodeId="2001969f-7778-468d-bbea-275035dcda07">2026-04-29 18:20 BRT</p>
+</td>
+<td nodeId="66c79e6d-5d86-4727-a5a4-8b820400ccf1">
+<p nodeId="6d5d7b40-1ccd-4b00-a627-523269c08eaa">B-WBR 0429</p>
+</td>
+<td nodeId="3d03c0f5-8c0c-43b0-a26d-e5140f042682">
+<p nodeId="2638d37d-3c65-4276-90b6-1489a7dcb2e0">业务复盘 Business Review</p>
+</td>
+<td nodeId="0b460cb8-0fcd-4253-a003-19e04a8be1e0">
+<p nodeId="35952f44-8dfe-483e-83e7-66435b160f24">:[link]{href=&quot;https://km.sankuai.com/page/2759885310&quot; nodeId=&quot;df4ffee1-d7ae-43a2-bda4-1a0b73a10a4a&quot;}📄 2759885310[/link]</p>
+</td>
+<td nodeId="82ecff94-850e-4e95-928b-9252d5934415">
+<p nodeId="58fc7a67-6808-472d-af29-ec4e402c1d58">—</p>
+</td>
+<td nodeId="230fb407-4fcf-4f36-bdd6-3b7671d51a0e">
+<p nodeId="dfd50121-f75f-4963-8461-4f1da83ab634">【B-WBR 0429：商户留存危机+SK品牌策略 Merchant Retention Crisis】<br/>① 商户留存核心问题：召回商户因流量/订单过低导致二次流失，二次召回难度更高；为新商家提供流量加速项目因产品/技术限制仍未落地。Must Have mid-rate 70%，目标90%，差距20pp。<br/>② SK品牌：4月仅新增8个品牌，贡献订单低；12个&quot;Loose品牌&quot;与竞对(Red)有6K订单差距，优先对这12个+麦当劳等头部连锁发力，达成90%订单渗透目标。<br/>③ 深折扣：SMB覆盖率35%(3+菜品)进展良好；SK数据对齐问题（特殊谈判未在看板体现）；&quot;假折扣&quot;（先涨价再打折）风险需防范。<br/>*Must Have mid-rate 70% vs 90% target. Recalled merchants re-churn due to low traffic — 2nd recall nearly impossible. 12 Loose brands = 6K order gap vs competitor. DD fake-discount risk flagged.*</p>
+</td>
+<td nodeId="7bd203cd-1afd-40bb-88ff-64abdcf5d846">
+<p nodeId="749983ed-df68-4a62-992c-16c1241c178b">—</p>
+</td>
+</tr>
+<tr nodeId="44d89834-020c-4a82-b51f-af23713ad414">
+<td nodeId="35eeb87b-c42f-477d-8daa-6dfa47b32b28">
+<p nodeId="8a45c319-1aeb-42c5-af85-7e8ba4292d2f">2026-04-28 09:27 BRT</p>
+</td>
+<td nodeId="1c8a3210-8380-41e6-8555-66539e32d595">
+<p nodeId="f1279688-8996-4546-8f2f-a830a27c8ddb">DBR Region B · 0428</p>
+</td>
+<td nodeId="26d46ee3-540c-4ab4-ac3e-9dc2801e0fc6">
+<p nodeId="deaa82a0-b8c3-4bef-aa4d-8748c525b360">业务复盘 Business Review</p>
+</td>
+<td nodeId="87d30039-7f46-4a3c-952c-84f5fb7320d3">
+<p nodeId="4b37df4f-aa7b-4c99-a30b-4e9aeba191fd">:[link]{href=&quot;https://km.sankuai.com/page/2759009497&quot; nodeId=&quot;1b44ea5c-f304-43a7-9e08-c8a887127cda&quot;}📄 2759009497[/link]</p>
+</td>
+<td nodeId="ac8fbdad-31ae-4480-97ea-9b6aac99c95a">
+<p nodeId="a883bb2d-ed20-459b-a746-49d0c6a4a133">—</p>
+</td>
+<td nodeId="c7af394d-27ba-4ac9-9fab-76168a2b4259">
+<p nodeId="9a732cff-be67-4461-83da-537f9d1c7245">【4月28日DBR：新看板上线+BML截止 Apr 28 DBR】<br/>① 新看板指标上线：订单渗透率和营业渗透率新增追踪，本周末数据稳定后开放给BDM；BML看板/BOC集成预计2-3周完成。<br/>② Must-have商家完成率仅36%；已签约未营业约1550家，300家重点召回名单昨日更新（3月/4月签约但近7天未营业），需3天内反馈；CTA/CTV/Eastern/Santos独家商家反馈紧急。<br/>③ 今日为BML 120-6 SPU调价任务截止日，Eva/Jim各有&gt;10个SPU未完成；Must-have深折覆盖率63.8%（目标65%），差距1.5pp；全区退款率3.7%高于季度目标3%。<br/>*New order/operating mitrate dashboard live. Must-have signing only 36%; 1,550 signed-not-operating; 300-merchant recall list urgent. BML SPU deadline TODAY. Refund rate 3.7% vs 3% quarterly target.*</p>
+</td>
+<td nodeId="7bc771a5-1741-4e1e-a043-de48a8962b6f">
+<p nodeId="e7cd1934-bb96-4c34-8040-c58a2e8c0c9e">—</p>
+</td>
+</tr>
+<tr nodeId="d4e6261d-bbd3-4291-ae67-bfa598855017">
+<td nodeId="2dc0ce6c-2ee5-4e35-83d0-daff0adc500b">
+<p nodeId="730a4b75-3f66-48b3-bc25-28b9b26024c1">2026-04-28 19:24 BRT</p>
+</td>
+<td nodeId="7bd83dc7-e5e6-42f7-81f0-d8dd11855bf3">
+<p nodeId="e00f19b4-4709-4021-8564-666eaefb18ee">Incentive discussion · slot 2</p>
+</td>
+<td nodeId="dde0433d-89e4-4ef1-85c9-0d6430f2b6ad">
+<p nodeId="308469e6-3797-45f0-9977-0235f96028ed">团队同步 Team Sync</p>
+</td>
+<td nodeId="407a25ad-fa89-44bf-83e8-eacc8d0d21c3">
+<p nodeId="d2470a8c-429b-4d34-92b9-fd86ebf49bce">:[link]{href=&quot;https://km.sankuai.com/page/2759798191&quot; nodeId=&quot;1419cecb-085b-4fc9-93a3-f7aa43704d62&quot;}📄 2759798191[/link]</p>
+</td>
+<td nodeId="f2f84eba-e3dc-4f26-a267-3db0ab89f4a6">
+<p nodeId="6216b463-bf70-4047-9481-88eb0f8c8930">—</p>
+</td>
+<td nodeId="cb951728-f83b-4459-954a-87865653cf55">
+<p nodeId="380e6ac5-b227-41ff-8462-8592463765fc">【Incentive slot 2：价格整改+5月权重方案 BD Incentive May Plan】<br/>① 价格整改纳入考核（核心新增）：平台24%商品价格高于iFood；操作=BD获商家KP确认截图+OB批量配置；每BD月约20家；造假按合规违规处理。<br/>② 指标权重调整（提案）：取消&quot;体验&quot;指标；营业率↓至15%；新签↑至25-30%；价格整改10-20%；活动招商25-30%（覆盖率&lt;50%则×0.8系数）。<br/>③ 5月继续沿用Top/Mid口径不切换SABC新标签，6月再全面迁移。<br/>④ 新签商家必须完成80%物料铺设才能结算激励，OB审核接入照片校验。<br/>*Price rectification added as KPI (24% SKUs priced above iFood). BD confirms with merchant KP, OB configures in bulk. Cancel experience metric. Activity recruitment 25-30% with 50% coverage floor. Material install 80% threshold for signing payout.*</p>
+</td>
+<td nodeId="b9b60d1c-3ac1-4b66-a01b-62c270d47937">
+<p nodeId="970e9099-0ce5-4499-a5fa-ec918f66cedf">—</p>
+</td>
+</tr>
+<tr nodeId="2426f15d-a60d-47a9-8597-1246d276b6c0">
+<td nodeId="561cff29-a7f6-4bb4-a0f4-262df17a91cd">
+<p nodeId="1ecc2ef3-8d1e-4dd3-be38-9c29ea15e54a">2026-04-28 17:01 BRT</p>
+</td>
+<td nodeId="7841627e-a237-45a9-8be6-4bc99757b91e">
+<p nodeId="fdf53473-a194-4a4b-8be8-4ae895871020">Incentive discussion · Part 2 (OV growth + Price)</p>
+</td>
+<td nodeId="43c77cac-8069-48d2-bdd7-30b4ee16d132">
+<p nodeId="fe29eeda-bfe2-4e61-ad11-2f8b73c5fd6e">团队同步 Team Sync</p>
+</td>
+<td nodeId="eeeb6a9b-d58c-4590-b8e1-fc00365b2976">
+<p nodeId="f0a756e9-b795-44d6-9a8b-dd8be5ab7f79">:[link]{href=&quot;https://km.sankuai.com/page/2759718359&quot; nodeId=&quot;f006835a-ccbf-4d2c-b93e-7156a8e5e3ac&quot;}📄 2759718359[/link]</p>
+</td>
+<td nodeId="92c212fe-dbf1-4b9e-b947-f5035beadc1f">
+<p nodeId="1cc42f87-ac49-42df-bcdd-cf4c21623d1a">—</p>
+</td>
+<td nodeId="6cf325ce-6254-4626-8703-0064abe1a041">
+<p nodeId="dbb3f3e5-b490-4261-ac41-834252471e58">【Incentive Part 2：OV目标公式+猎人模式 OV Logic &amp; Hunter Mode】<br/>① 物料替换：Jason团队负责前2000头部商家安装新物料；新签商家必须上传物料照片才能领取上线激励（老商家非强制）。<br/>② OV目标公式：个人增长率×市场渗透率(Mitrate)，商家分3档：小型(+22%)、中型(+18%)、大型(稳定)；冻结日=每月22日锁定商家归属防纠纷。<br/>③ BML&quot;猎人模式&quot;：每商家TOP5 SKU狩猎清单；首个折扣商品1分/后续0.5分；考核覆盖商家数而非SKU数（第一个商品带来最大转化提升）。<br/>④ Multi-onboarding子门店：不额外给签约激励，但计入BD的订单量和促销覆盖目标。<br/>*OV target = personal growth × mitrate; 3 merchant buckets. Freeze Day = 22nd. BML &quot;hunter list&quot; top 5 SKUs/merchant; 1 pt for 1st discounted item. Multi-onboarding: no extra incentive but counts toward OV/promo targets.*</p>
+</td>
+<td nodeId="0a75a955-686d-4ccb-b2a2-9d278ba66e98">
+<p nodeId="32d678e1-66b0-41cd-b491-810e308649be">—</p>
+</td>
+</tr>
+<tr nodeId="0fd31bb6-623a-438f-bf13-b29e2e8435d3">
+<td nodeId="88c9db8d-f6b7-4c1f-85ab-17b412de0792">
+<p nodeId="97957646-25d3-4fbb-a5f5-f7f19dfe634c">2026-04-27 09:27 BRT</p>
+</td>
+<td nodeId="a50b73b7-b6cd-4890-9cec-722211081cd4">
+<p nodeId="c175645f-0299-46f1-b88a-1a2ddeab756c">DBR Region B · 0427</p>
+</td>
+<td nodeId="e0914d1d-5744-4825-b22f-c213f600a72d">
+<p nodeId="9ac306f9-cd0d-4b00-8f28-a60d12bfd7d2">业务复盘 Business Review</p>
+</td>
+<td nodeId="fb93a15c-e7c1-4a2f-a92d-3c1b76bcbb15">
+<p nodeId="4064f898-74bf-4866-beed-439dfc2117b4">:[link]{href=&quot;https://km.sankuai.com/collabpage/2759056564&quot; nodeId=&quot;e5b39d21-0670-4058-ba52-bcea675710a6&quot;}📄 2759056564[/link]</p>
+</td>
+<td nodeId="7d70d25c-35c8-41f2-b437-c0ae7960e0db">
+<p nodeId="c69e0567-9cd8-43e9-b161-86ab26179006">—</p>
+</td>
+<td nodeId="d44d504d-28e8-41b4-81c1-1e04f5928719">
+<p nodeId="00745cd0-766f-4146-9e8d-1f31345e0502">【4月27日DBR：周末历史新高+月末冲刺部署 Apr 27 DBR】<br/>① 周末历史新高：单量2.5M、GMV 7M双创纪录，但营业率与BML调价缺口仍大。<br/>② Must-have签约完成率仅~30%（东区最低），营业完成率~50%（西区/南区最差）；Top Tier已签未营业&gt;2700家，CTC/CTD/AB新签缺口明显。<br/>③ 最后4个工作日行动清单：①召回线索反馈 ②今日截止BML亏本价调整（维持补贴资格） ③节假日前备店备餐以最大化激励资格。<br/>*Record weekend: 2.5M orders, GMV 7M. Must-have signing **~30%; 2,700+ signed-not-operating. Final 4 days: recall leads + BML price fix (today deadline) + holiday merchant prep for incentive eligibility.*</p>
+</td>
+<td nodeId="802a52c3-ef14-4397-9938-e6f7224c2787">
+<p nodeId="786aa474-58b8-4e40-b1f9-8ba0386c2899">—</p>
+</td>
+</tr>
+<tr nodeId="9e3e245f-6dbd-40dc-9f0f-7bdddc6470d3">
+<td nodeId="07786524-9b8e-4920-8c3c-2c5bcca9c5d3">
+<p nodeId="cc947367-0e48-4edb-afb4-d7a4da76bfde">2026-04-27 14:02 BRT</p>
+</td>
+<td nodeId="c1cb538a-8d57-4966-ab2a-c9e5c37f450a">
+<p nodeId="eaa4b554-2902-48f7-8675-f558ef3880bb">BDM Selection &amp; District Assignment Review</p>
+</td>
+<td nodeId="b5b2298a-ce33-4c06-9c52-5934fb35af67">
+<p nodeId="018ee58b-07e4-4331-8d09-19be3131e30f">团队同步 Team Sync</p>
+</td>
+<td nodeId="9ceacabb-dd54-4578-8860-0ef7ab36340a">
+<p nodeId="cb001607-7808-46b7-a241-afc34ff2ba48">:[link]{href=&quot;https://km.sankuai.com/page/2759396156&quot; nodeId=&quot;aa0d0067-c866-4b99-8bc7-14766e36b3ec&quot;}📄 2759396156[/link]</p>
+</td>
+<td nodeId="0a6b831d-8779-48cb-a6ba-1b28e748d480">
+<p nodeId="bd92190e-1b0b-44bb-b59f-b0bf75981bdf">—</p>
+</td>
+<td nodeId="61d14fcd-8128-4930-ae84-1b3b3c74df89">
+<p nodeId="3ff5d68a-468a-48ba-ac76-8a7a3f32f33b">【BDM竞聘评审：候选人投票+区域匹配 BDM Selection Review】<br/>① 决策机制：最终决定权归5位CT Manager（BDM仅参与讨论）；优先评估真实BDM能力，不够格则开放外部招聘。<br/>② 候选人：Eagle(4票领先)、Sabrina(3票)、Melo(3票)；Eagle/Sabrina/Leonardo/Alini英语能力强。<br/>③ 区域匹配：AB区需英语强BDM（支持非葡语CM）；CC区最难（需强新签能力→建议Leonardo）；EB区运营导向（建议Helene）；Bruno/Larisa不会英语→分配葡语区域。<br/>④ 离职新规：严格执行30天通知期；立即离职扣1个月薪资；直接加入竞对者视情况协商保护商业利益。<br/>*CT Managers hold final vote. Eagle leads (4 votes). CC = hardest district → Leonardo. AB needs English speaker. 30-day notice enforced; immediate departure = 1 month deduction. Competitor joiners handled case-by-case.*</p>
+</td>
+<td nodeId="7273cb6b-594c-4fcd-a163-c01e977a53c8">
+<p nodeId="516b3f43-34eb-4242-9734-c77fb96ef6ff">—</p>
+</td>
+</tr>
+<tr nodeId="bca94e9c-0a8b-47e6-98b3-bfaedc80f987">
+<td nodeId="d51590db-af04-4428-8309-898ee89cf42d">
+<p nodeId="63d15baf-1af4-486d-b77f-17715b75ea80">2026-04-27 11:59 BRT</p>
+</td>
+<td nodeId="2310f5e4-c327-4dc9-a299-9ea20280403f">
+<p nodeId="4c17c37c-d6b6-4748-aeee-34fb6ae8c21a">Performance Review &amp; Market Strategy — Santos &amp; SP</p>
+</td>
+<td nodeId="916982b8-b2be-4cdf-8ccf-0ac0905c5c9f">
+<p nodeId="a1774005-d0c2-4e32-a73a-cc6409380341">业务复盘 Business Review</p>
+</td>
+<td nodeId="890c0a17-da78-4e82-8111-90d3564585d4">
+<p nodeId="a642fe72-d3cb-4bfa-a2a1-1941dd2da052">:[link]{href=&quot;https://km.sankuai.com/page/2759236209&quot; nodeId=&quot;ccb67033-f782-4655-ad22-05b06843e138&quot;}📄 2759236209[/link]</p>
+</td>
+<td nodeId="e4681045-3518-4f82-ae21-205f90eebfb2">
+<p nodeId="af7ecd81-d0f9-4a5d-b057-6f1bc1e503e1">:[link]{href=&quot;https://km.sankuai.com/collabpage/2759595906&quot; nodeId=&quot;9eeb0df8-5749-4589-ab0d-239e2e325a28&quot;}📄 2759595906[/link]</p>
+</td>
+<td nodeId="53c291d6-dfbc-4d8d-9c90-577cb2d0b8a7">
+<p nodeId="f21f02b1-e6d3-4d5a-a61c-c85cbb97c5f2">【桑托斯+圣保罗业绩复盘+5月规划 Santos &amp; SP Review】<br/>① 周末数据（4/24-4/26）：GME/DAU显著增长，桑托斯周日突破5000单；交易率微降但仍超4月目标26%；周均5000单=市场主导地位。<br/>② 补贴AB测试成功：削减in-app push补贴上限→转化率无变化，验证&quot;减补不掉量&quot;可行；新AB测试针对停留&gt;30秒高意向用户定向补贴。<br/>③ 5月商家营业新标准（双条件）：配置时间≥80% 且 每日实际营业≥3小时；5月将建立综合追踪指标体系。<br/>④ 竞对情报：99上线时间从5月中推迟至6月中，SKA进展困难；计划重点投入Santos/São Vicente/Guarujá/Praia Grande&quot;长滩区域&quot;，视为战略重点。<br/>*Santos hit 5K orders Sunday. Subsidy cap cut AB test = no conversion drop (success). May standard: ≥80% config + ≥3hrs/day. Competitor 99 delayed to mid-June; heavy investment planned for Santos coast area.*</p>
+</td>
+<td nodeId="4046c92f-4a51-4678-b5da-fce4cd02c239">
+<p nodeId="49ac75d7-f56a-4bba-9240-a234bc69f863">:[link]{href=&quot;https://km.sankuai.com/collabpage/2759309130&quot; nodeId=&quot;2bd44943-8eab-4533-9fa4-8b3db14279af&quot;}📄 Santos_WBR_0426[/link]</p>
+</td>
+</tr>
+<tr nodeId="4997dfbb-e909-41c4-a9bd-3b996538824f">
+<td nodeId="c3123d5c-655b-4f33-a92b-c266a0cd9314">
+<p nodeId="2800d07e-58ab-4056-9feb-b5a716b2db46">2026-04-24 11:04 BRT</p>
+</td>
+<td nodeId="c95a0b69-131b-49d6-99f6-b4c12411043d">
+<p nodeId="6764e30a-235b-4014-8758-6ecf438f0a0d">Incentive Bonus Plan: May — Part I</p>
+</td>
+<td nodeId="49983bf3-20bb-47c0-9783-42be0def8f7d">
+<p nodeId="5cf47ada-d9d5-4de0-be73-d8103284dae2">团队同步 Team Sync</p>
+</td>
+<td nodeId="7e6e2839-9b8a-42a9-aef3-8e9bb702ee40">
+<p nodeId="e57785a3-a83b-4c17-9b0b-51883686a94c">:[link]{href=&quot;https://km.sankuai.com/page/2759211806&quot; nodeId=&quot;50de483b-a007-44aa-a130-56e6017de669&quot;}📄 2759211806[/link]</p>
+</td>
+<td nodeId="1c3e999c-acf8-4c6b-8c0f-f8d73f602f7d">
+<p nodeId="f21a5e91-6f03-41e9-8023-1fadbda6e6bf">—</p>
+</td>
+<td nodeId="24d48366-b7b7-4a26-8c10-68dfbad0d92e">
+<p nodeId="ef9b2876-7c40-4eea-baf8-3bd106d9812a">【Incentive Part I：4月绩效复盘+5-6月激励规划 April Incentive Review】<br/>① 4月达成：整体YS系数0.79落后；西区CDC风险最高（预估系数0.5），原因：人员更替频繁+前期重心在活动覆盖；东区达成最均衡；看板与统计口径存在约3pp差异（&quot;在线7天&quot;逻辑偏差）。<br/>② 绩效管理权交接：5月商分负责 → 6月业务+商分共同 → 7月业务团队独立。<br/>③ 5月方案：新增&quot;订单量&quot;指标(10%)；营业率↓至20%；深折覆盖率维持40%；引入BML原价Baseline管控（防先涨价再打折），超标BD奖金受损。<br/>④ 6月差异化激励：高职级BD负责200家商家/5000奖金，低职级100家/3000奖金。<br/>*April YS coefficient 0.79; West/CDC worst (**~0.5) due to team churn. Perf handoff: BA(May)→joint(Jun)→biz(Jul). May: add OV 10%, cut operating rate to 20%, BML price baseline. Jun: level-based incentive (200 merchants/5K vs 100/3K).*</p>
+</td>
+<td nodeId="17306a65-907a-4168-862b-dd60adcac96b">
+<p nodeId="0d643e44-dbc2-437a-a19b-87588c4ee64b">—</p>
+</td>
+</tr>
+<tr nodeId="956dda59-4685-48a0-8259-49c21b1ece91">
+<td nodeId="3cbec00d-1724-4227-8317-cdf295c59708">
+<p nodeId="e29aac74-9820-432c-a624-cc633ea03ee9">2026-04-27（持续更新）</p>
+</td>
+<td nodeId="10ef9c0c-7e04-4da7-9588-218e863d3284">
+<p nodeId="54bf983c-7b33-4cc9-a4c3-5a905f734298">【文档】桑托斯5月规划 Santos May Planning</p>
+</td>
+<td nodeId="da93a683-016a-4075-aab2-2d46bbbccdd9">
+<p nodeId="cd905d92-be1d-4e78-8c49-fc5e0cdf07e0">其他 Others</p>
+</td>
+<td nodeId="a52e6dec-d888-4d33-9575-e3017f7fe0f6">
+<p nodeId="3fdbe086-d398-40c1-a0a8-a372c0800a8f">—</p>
+</td>
+<td nodeId="fcbef6a3-20d0-43eb-8dfe-28ac7128eec4">
+<p nodeId="106b2f38-b355-46a9-95b1-5b21157ce483">:[link]{href=&quot;https://km.sankuai.com/collabpage/2759595906&quot; nodeId=&quot;0a3a68e0-a575-467d-9305-5018901b1c91&quot;}📄 2759595906[/link]</p>
+</td>
+<td nodeId="a056a055-b129-4188-9bdd-a6c1af37d82b">
+<p nodeId="91ae54f5-b64c-44f2-a114-f0c8b9f12ee1">5月桑托斯城市规划文档，含目标/策略/执行计划。*Santos city plan for May: targets, strategy, execution roadmap.*</p>
+</td>
+<td nodeId="6cfb753c-3c2b-4646-9ea4-f9ba0dd63148">
+<p nodeId="09c1a548-3c30-4fba-9b5b-1db41a00a087">—</p>
+</td>
+</tr>
+<tr nodeId="dcec3f78-7d57-41d0-a53b-c7697a499f56">
+<td nodeId="c0eaf3b2-4174-47be-84e2-ac8f0710f814">
+<p nodeId="0c2d2dfe-fec8-4021-9c3f-97e319aaa965">（持续更新）</p>
+</td>
+<td nodeId="6ac6d9a8-4ddc-4aac-9881-0e53f6698209">
+<p nodeId="7babe808-451b-46f1-bcb6-ad65c8ec71a1">【文档】Operation Tier Migration Analysis — S/A/B/C</p>
+</td>
+<td nodeId="edc22c50-1449-4b05-9157-1ef178174ee7">
+<p nodeId="979bb725-2a96-4915-af9c-351ff0f9c0da">其他 Others</p>
+</td>
+<td nodeId="c75425f2-62ca-47ec-ba91-5b45b5b2b053">
+<p nodeId="56a52e33-b8ee-405c-a2cc-f08fe17da878">—</p>
+</td>
+<td nodeId="6e7ac0e4-19ec-46e5-9b18-4bc2cc2c9c02">
+<p nodeId="70295f8e-3d71-43f1-acf1-de3b77c3d5ca">:[link]{href=&quot;https://km.sankuai.com/collabpage/2759887727&quot; nodeId=&quot;f5fe76bc-2460-4255-83b2-c132873b2852&quot;}📄 2759887727[/link]</p>
+</td>
+<td nodeId="abca8f5c-1822-4243-934a-81c36ff21f37">
+<p nodeId="4eed47cb-aa0b-4882-99d0-0df4fd18185c">运营层级迁移分析：S/A/B/C商家分级，供给结构优化参考文档。*Merchant tier migration analysis across S/A/B/C tiers; supply structure optimization reference.*</p>
+</td>
+<td nodeId="7e3a7c2b-33ce-48f3-b1ed-2d1ebf22bcf3">
+<p nodeId="b5fdde16-3ec1-4ab1-95a9-e02400368c3e">—</p>
+</td>
+</tr>
+<tr nodeId="2b46daf5-cca9-4fc4-ac7b-d43f8ddf3737">
+<td nodeId="f4b6979d-fd56-43a9-9023-ceca2ff9bc77">
+<p nodeId="b28bc68f-4fef-4f60-9f9b-13a41ba1571a">（持续更新）</p>
+</td>
+<td nodeId="7ef0d9a3-18fe-47b3-ba4b-d3537c3b36bc">
+<p nodeId="4a93e28a-88ca-449b-bdf1-cda1c21c1a11">【文档】May Work BD Num</p>
+</td>
+<td nodeId="17c86da5-f49d-4ed5-b682-1e896cc16247">
+<p nodeId="03f9477e-6141-4da4-9fa4-d4bcc42b0e87">其他 Others</p>
+</td>
+<td nodeId="50c0232d-e3c7-4c8e-8627-5e870aae2bcf">
+<p nodeId="faa0687b-9a65-47dd-a966-60507b47d2f8">—</p>
+</td>
+<td nodeId="5eebc9a9-27a7-4192-8f6c-5ec7bbfa4594">
+<p nodeId="29926d81-b631-4e00-93fd-159ef005e738">:[link]{href=&quot;https://km.sankuai.com/collabpage/2760700367&quot; nodeId=&quot;8f60267d-44b5-42d7-b93a-434821a2e620&quot;}📄 2760700367[/link]</p>
+</td>
+<td nodeId="a0469ad5-ebd2-4971-8e80-968b8f0ef6eb">
+<p nodeId="53e87df4-c272-4766-9e39-8c36e3b1059a">5月BD人员规划文档。*May BD headcount planning document.*</p>
+</td>
+<td nodeId="c93a18ab-1de5-4b5c-889e-97a9c9c2c371">
+<p nodeId="2eecf08c-640a-4eb4-8011-237af8528a8a">—</p>
+</td>
+</tr>
+</table>
+</km-doc>

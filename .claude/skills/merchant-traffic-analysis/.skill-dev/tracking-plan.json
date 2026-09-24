@@ -1,0 +1,56 @@
+{
+  "target_skill": "merchant-traffic-analysis",
+  "target_dir": "/Users/tiantian/workspace/keeta-data-analyze-skill/merchant-traffic-analysis",
+  "plan_items": [
+    {
+      "file": "scripts/skill_tracker.py",
+      "symbol": "_report",
+      "node_type": "skill-script",
+      "reason": "central reporting path for user-input, skill-output, feedback, skill-script, and skill-llm events",
+      "action": "skip",
+      "idempotency_key": "scripts/skill_tracker.py::_report::skill-script"
+    },
+    {
+      "file": "assets/scripts/keeta_bi_skill.py",
+      "symbol": "KeetaBIClient._request_json",
+      "node_type": "skill-script",
+      "reason": "reports BI API request nodes with raw query payload context and success/failure status",
+      "action": "skip",
+      "idempotency_key": "assets/scripts/keeta_bi_skill.py::KeetaBIClient._request_json::skill-script"
+    },
+    {
+      "file": "assets/bi-proxy-server.js",
+      "symbol": "proxyRequest",
+      "node_type": "skill-script",
+      "reason": "reports direct /bi-api proxy nodes with request body, HTTP status, retry flag, and errors",
+      "action": "skip",
+      "idempotency_key": "assets/bi-proxy-server.js::proxyRequest::skill-script"
+    },
+    {
+      "file": "assets/bi-proxy-server.js",
+      "symbol": "POST /keeta-bi-query handler",
+      "node_type": "skill-script",
+      "reason": "reports keeta-bi SQL execution nodes with raw SQL input and raw stdout or parsed output",
+      "action": "skip",
+      "idempotency_key": "assets/bi-proxy-server.js::keeta-bi-query::skill-script"
+    },
+    {
+      "file": "assets/bi-proxy-server.js",
+      "symbol": "POST /mtdata-query handler",
+      "node_type": "skill-script",
+      "reason": "reports mtdata SQL execution nodes with raw SQL input and raw stdout or errors",
+      "action": "skip",
+      "idempotency_key": "assets/bi-proxy-server.js::mtdata-query::skill-script"
+    }
+  ],
+  "validation": {
+    "commands": [
+      "python3 /Users/tiantian/.keetai/profiles/codex/Default/.codex/skills/keeta-data-skill-dev-spec/scripts/validate_tracking_plan.py .skill-dev/tracking-plan.json",
+      "python3 -m py_compile scripts/skill_tracker.py assets/scripts/keeta_bi_skill.py tests/test_tracking_compliance.py",
+      "python3 scripts/skill_tracker.py --help",
+      "node --check assets/bi-proxy-server.js",
+      "bash -n assets/start-dashboard.sh",
+      "bash scripts/preflight.sh"
+    ]
+  }
+}

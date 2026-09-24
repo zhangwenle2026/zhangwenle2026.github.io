@@ -1,0 +1,13 @@
+.cache/
+.workspace/
+.openclaw/
+.catpaw/
+__pycache__/
+*.pyc
+
+node_modules/
+
+scripts/.bi_cookie
+scripts/.rag_cookie
+scripts/capability5_meta/.origin_token_cache.json
+scripts/capability5_meta/origin/.origin_token_cache.json

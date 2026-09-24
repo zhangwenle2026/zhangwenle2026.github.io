@@ -1,0 +1,78 @@
+{
+  "target_skill": "keeta-data-v2r-analysis",
+  "target_dir": "/Users/tiantian/workspace/keeta-data-v2r-analysis",
+  "plan_items": [
+    {
+      "file": "scripts/cxr_fetch.py",
+      "symbol": "_run_one",
+      "node_type": "skill-script",
+      "reason": "calls KeetaClient.query for each dataset/date business query",
+      "action": "insert",
+      "idempotency_key": "scripts/cxr_fetch.py::_run_one::skill-script"
+    },
+    {
+      "file": "scripts/cxr_fetch.py",
+      "symbol": "_fetch_daily_cxr._query_daily",
+      "node_type": "skill-script",
+      "reason": "calls KeetaClient.query for daily CXR series",
+      "action": "insert",
+      "idempotency_key": "scripts/cxr_fetch.py::_fetch_daily_cxr._query_daily::skill-script"
+    },
+    {
+      "file": "scripts/cxr_fetch.py",
+      "symbol": "_fetch_baseline_health._week_cxr",
+      "node_type": "skill-script",
+      "reason": "calls KeetaClient.query for baseline health windows",
+      "action": "insert",
+      "idempotency_key": "scripts/cxr_fetch.py::_fetch_baseline_health._week_cxr::skill-script"
+    },
+    {
+      "file": "scripts/cxr_fetch.py",
+      "symbol": "_fetch_external_context._query_weather",
+      "node_type": "skill-script",
+      "reason": "calls the external weather script through subprocess.run",
+      "action": "insert",
+      "idempotency_key": "scripts/cxr_fetch.py::_fetch_external_context._query_weather::skill-script"
+    },
+    {
+      "file": "scripts/cxr_fetch.py",
+      "symbol": "_fetch_external_context.holidays",
+      "node_type": "skill-script",
+      "reason": "calls the external holidays script through subprocess.run",
+      "action": "insert",
+      "idempotency_key": "scripts/cxr_fetch.py::_fetch_external_context.holidays::skill-script"
+    },
+    {
+      "file": "scripts/cli_log.py",
+      "symbol": "write_log",
+      "node_type": "skill-script",
+      "reason": "telemetry helper writes logs itself; self-instrumenting it would duplicate observability records",
+      "action": "skip",
+      "idempotency_key": "scripts/cli_log.py::write_log::skill-script"
+    },
+    {
+      "file": "scripts/cli_log.py",
+      "symbol": "query_logs",
+      "node_type": "skill-script",
+      "reason": "telemetry helper query path is not part of the business CXR analysis workflow",
+      "action": "skip",
+      "idempotency_key": "scripts/cli_log.py::query_logs::skill-script"
+    },
+    {
+      "file": "scripts/skill_tracker.py",
+      "symbol": "_report",
+      "node_type": "skill-script",
+      "reason": "core telemetry transport; adding report_script here would recurse into itself",
+      "action": "skip",
+      "idempotency_key": "scripts/skill_tracker.py::_report::skill-script"
+    }
+  ],
+  "validation": {
+    "commands": [
+      "python3 -m py_compile scripts/*.py",
+      "python3 scripts/skill_tracker.py --help",
+      "python3 scripts/cxr_fetch.py --help",
+      "python3 scripts/cxr_fetch.py --region QA --date 20260419 --compare 20260412 --dry-run"
+    ]
+  }
+}

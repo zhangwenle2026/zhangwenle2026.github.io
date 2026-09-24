@@ -1,0 +1,119 @@
+{
+  "dashboard": {
+    "id": 250639,
+    "name": "CLC数据产品价值度",
+    "version": 4,
+    "security_level": "C-2"
+  },
+  "tabs": [
+    {
+      "tab_id": 30525594,
+      "tab_name": "产品价值度分析",
+      "components": [
+        {
+          "component_id": "dashboard-chart-container-9m9gi-5498f",
+          "component_name": "产品热度和成本消耗明细",
+          "type": "TABLE",
+          "biz_id": 332,
+          "dataset_id": 70120814,
+          "dataset_name": "CLC产品价值度",
+          "dataset_url": "https://bi.keetapp.com/v2/dataset/detail/70120814",
+          "metrics": [
+            {
+              "code": "kpi_mau_1774947329201_15e62ba8a8cc61f870513da64a6e259c",
+              "name": "MAV"
+            },
+            {
+              "code": "kpi_pv_1774947329206_4cc0f95c2063841b2d0192d42a067f9e",
+              "name": "月PV"
+            },
+            {
+              "code": "kpi_bear_cost_1774947329210_c577d179182415bb7a2d442b3d27ca6c",
+              "name": "消耗总成本(天/元)"
+            },
+            {
+              "code": "kpi_bear_cost_cu_1774947329213_83c6de62fd624096ae1a209a87b2587a",
+              "name": "消耗总CU成本(天/CU天)"
+            },
+            {
+              "code": "kpi_bear_cost_store_1774947329216_9a1baaa01c26fb84c35955de4ee8ce3b",
+              "name": "消耗总存储成本(天/GB)"
+            }
+          ],
+          "dims": [
+            {
+              "code": "dim_business_name_1774947257685_01fa6c8accd855f6043f00df654d9cb8",
+              "name": "核算单元"
+            },
+            {
+              "code": "dim_report_id_1774947257690_ef980854f962b2529071e575496ab40b",
+              "name": "报表id"
+            },
+            {
+              "code": "dim_report_name_1774947257695_413c822e4a2fe4255f98d5c863c178ef",
+              "name": "报表名称"
+            },
+            {
+              "code": "dim_report_type_1774947257700_617b5d2e7b97f8fb8814dddc30f6efc3",
+              "name": "报表类型"
+            }
+          ]
+        },
+        {
+          "component_id": "iframe-chart-1",
+          "component_name": "核算单元产品消耗成本汇总",
+          "type": "TABLE",
+          "biz_id": 332,
+          "dataset_id": 70128605,
+          "dataset_name": "CLC产品价值度汇总",
+          "dataset_url": "https://bi.keetapp.com/v2/dataset/detail/70128605",
+          "metrics": [
+            {
+              "code": "kpi_bu_total_cost_1776071869916_e26d588e13de5c0ab534eb473bdfc00d",
+              "name": "实际消耗总成本(元)"
+            },
+            {
+              "code": "kpi_cu_1776071869917_32052bd5f4fedf2880d11bf244088e24",
+              "name": "实际消耗消耗总CU"
+            },
+            {
+              "code": "kpi_store_size_pb_1776071869920_15e83f333c7761c6ba1683657b1fb0bd",
+              "name": "实际消耗总存储PB"
+            },
+            {
+              "code": "kpi_bear_cost_1776071869922_c577d179182415bb7a2d442b3d27ca6c",
+              "name": "产品消耗汇总成本(元)"
+            },
+            {
+              "code": "kpi_bear_cost_cu_1776071869925_83c6de62fd624096ae1a209a87b2587a",
+              "name": "产品消耗汇总CU"
+            },
+            {
+              "code": "kpi_bear_cost_store_1776071869929_9a1baaa01c26fb84c35955de4ee8ce3b",
+              "name": "产品消耗汇总存储"
+            }
+          ],
+          "dims": [
+            {
+              "code": "dim_business_name_1776071792906_01fa6c8accd855f6043f00df654d9cb8",
+              "name": "核算单元"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "global_filters": [
+    {
+      "fid": "dashboard-filter-dricu-da36e",
+      "name": "核算单元",
+      "type": "NORMAL_FILTER",
+      "fields": [
+        {
+          "code": "dim_business_name_1774947257685_01fa6c8accd855f6043f00df654d9cb8",
+          "name": "核算单元"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Southern Exclusivity Review 南部独家盘点 (2026-09-24)</title>
+<style>
+:root { --bg:#f6f7f9; --card:#fff; --line:#e5e7eb; --txt:#1f2937; --mut:#6b7280; --acc:#0f766e; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:-apple-system,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--txt); padding:16px; }
+.wrap { max-width:1400px; margin:0 auto; }
+h1 { font-size:20px; margin-bottom:2px; }
+.sub { color:var(--mut); font-size:12.5px; margin-bottom:12px; }
+.cards { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:10px 14px; min-width:130px; }
+.card .n { font-size:20px; font-weight:700; }
+.card .l { font-size:11.5px; color:var(--mut); }
+.lost .n{color:#374151} .high .n{color:#dc2626} .medium .n{color:#d97706} .resolved .n{color:#059669} .pending .n{color:#6b7280}
+.toolbar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; align-items:center; }
+.search { flex:1; min-width:220px; position:relative; }
+.search input { width:100%; padding:9px 12px 9px 34px; border:1px solid var(--line); border-radius:8px; font-size:14px; background:var(--card); }
+.search::before { content:"🔍"; position:absolute; left:10px; top:8px; font-size:13px; opacity:.6; }
+select { padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:13px; background:var(--card); color:var(--txt); max-width:220px; }
+.count { font-size:12.5px; color:var(--mut); }
+table { width:100%; border-collapse:collapse; background:var(--card); border-radius:10px; overflow:hidden; font-size:12.5px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+thead th { position:sticky; top:0; background:#f3f4f6; padding:9px 8px; text-align:left; font-weight:600; border-bottom:2px solid var(--line); cursor:pointer; user-select:none; white-space:nowrap; z-index:2; }
+thead th:hover { background:#ebedf0; }
+thead th .arr { font-size:9px; margin-left:3px; color:var(--acc); }
+tbody td { padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+tbody tr:hover { background:#fafafa; }
+.rk { display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600; white-space:nowrap; }
+.rk.lost{background:#e5e7eb;color:#374151} .rk.high{background:#fee2e2;color:#b91c1c} .rk.medium{background:#fef3c7;color:#b45309} .rk.resolved{background:#d1fae5;color:#047857} .rk.pending{background:#f3f4f6;color:#6b7280}
+.mname { font-weight:600; }
+.facts { max-width:340px; line-height:1.5; }
+.att { display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:600; white-space:nowrap; }
+.att.rejected{background:#d1fae5;color:#047857} .att.signed{background:#e5e7eb;color:#374151} .att.considering{background:#fee2e2;color:#b91c1c} .att.under{background:#dbeafe;color:#1d4ed8} .att.not{background:#f3f4f6;color:#6b7280}
+.qs { margin:0; padding-left:14px; }
+.qs li { margin-bottom:3px; line-height:1.45; }
+.up { font-weight:600; white-space:nowrap; }
+.mono { font-family:ui-monospace,monospace; font-size:11.5px; }
+.foot { margin-top:10px; color:var(--mut); font-size:11.5px; }
+@media (max-width:760px){ body{padding:8px} table{font-size:11.5px} thead th,tbody td{padding:6px 5px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Southern Exclusivity Review 南部独家案件盘点</h1>
+<div class="sub">Southern São Paulo Metropolitan (CM: danielalbuquerque) · 24 merchants 商家 · Data updated 数据更新: 2026-09-23 · Click column headers to sort 点击表头排序</div>
+<div class="cards">
+ <div class="card lost"><div class="n">6</div><div class="l">Lost 已失守</div></div>
+ <div class="card high"><div class="n">3</div><div class="l">High Risk 高风险</div></div>
+ <div class="card medium"><div class="n">11</div><div class="l">Medium 中风险</div></div>
+ <div class="card resolved"><div class="n">1</div><div class="l">Resolved 已解除</div></div>
+ <div class="card pending"><div class="n">3</div><div class="l">Pending 待跟进</div></div>
+ <div class="card"><div class="n">R$ 4.47M</div><div class="l">Known Upfront 已知预付</div></div>
+</div>
+<div class="toolbar">
+ <div class="search"><input id="q" type="text" placeholder="Search merchant name, ID, BD, BDM... 搜索商家名、ID、BD、BDM..."></div>
+ <select id="fRisk"><option value="">Risk 风险: All 全部</option><option value="lost">Lost 已失守</option><option value="high">High 高风险</option><option value="medium">Medium 中风险</option><option value="resolved">Resolved 已解除</option><option value="pending">Pending 待跟进</option></select>
+ <select id="fBdm"><option value="">BDM: All 全部</option></select>
+ <select id="fPlat"><option value="">Platform 平台: All 全部</option><option>Yellow(99)</option><option>Red(iFood)</option></select>
+ <select id="fAtt"><option value="">KP Attitude 态度: All 全部</option><option value="rejected">Rejected comp 拒绝竞对</option><option value="closed">Case closed 案件已关闭</option><option value="under">Under negotiation 谈判中</option><option value="not">Not reported 未报</option></select>
+ <span class="count" id="cnt"></span>
+</div>
+<div style="overflow-x:auto">
+<table id="tbl">
+<thead><tr>
+ <th data-k="idx" data-t="n">#</th>
+ <th data-k="rk" data-t="s">Risk 风险</th>
+ <th data-k="name" data-t="s">Merchant 商家</th>
+ <th data-k="id" data-t="s">ID</th>
+ <th data-k="plat" data-t="s">Plataforma</th>
+ <th data-k="bd" data-t="s">BD</th>
+ <th data-k="bdm" data-t="s">BDM</th>
+ <th data-k="facts" data-t="s">Facts 事实说明</th>
+ <th data-k="att" data-t="s">KP Attitude on Comp KP对竞对态度</th>
+ <th data-k="stage" data-t="s">Stage 阶段</th>
+ <th data-k="kp" data-t="s">KP</th>
+ <th data-k="upfront" data-t="u">Upfront 预付</th>
+ <th data-k="co" data-t="n">Comp Orders 竞对日单</th>
+ <th data-k="ca" data-t="n">Comp AOV 竞对客单</th>
+ <th data-k="k_o" data-t="n">Keeta Orders Keeta日单</th>
+ <th data-k="sit" data-t="s">Status 状态</th>
+ <th data-k="qs" data-t="s">Questions 追问</th>
+</tr></thead>
+<tbody></tbody>
+</table>
+</div>
+<div class="foot">Risk by case stage & KP status 风险按案件阶段与KP状态: Closed/Lost=已失守 · KP Accepted (our counter)=Resolved 已解除 · Reportado with big money/ongoing proposal=High/Medium · Questions personalized 追问按商家定制 · Source: SMB Dashboard Exclusividade Tracking · Southern 23 cases, upfront R$ 1.79M lost / R$ 2.43M in fight</div>
+</div>
+<script>
+const DATA = [{"name": "Gaúcho Figueiras Grill", "id": "159393719 ~ 159563640", "plat": "Yellow(99)", "bd": "rodrigoalmeida", "bdm": "adriananaves", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Not filled 未录", "upfront": 1100000.0, "upfront_s": "R$ 1.10M", "co": "150", "ca": "49", "kgmv": "0", "k_o": "0", "sit": "Lost to Yellow 已失守", "qs": ["Why did we lose Gaúcho? 为什么丢了Gaúcho？", "How long is the contract? 合同签了多久？", "What can bring Gaúcho back? 什么条件能拉回Gaúcho？"], "upd": "19/09", "facts": "Yellow以R$ 1.10M预付锁定，案件已关闭；Keeta日单0。判断：失守，金额战未跟上；合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "BAETA GRILL", "id": "159424602", "plat": "Yellow(99)", "bd": "pedrosaccone", "bdm": "fernandooliveira", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Recusada (R1)", "upfront": 450000.0, "upfront_s": "R$ 450K", "co": "", "ca": "", "kgmv": "46.538", "k_o": "37", "sit": "Lost to Yellow 已失守", "qs": ["Why did we lose BAETA? 为什么丢了BAETA？", "How long is the contract? 合同签了多久？", "What can bring BAETA back? 什么条件能拉回BAETA？"], "upd": "19/09", "facts": "我方拒绝跟价（Yellow报价R$ 450K），案件已关闭；Keeta日单37。判断：主动放弃的金额战——确认是否为策略性放弃，合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "Feijoca’s", "id": "159405590", "plat": "Yellow(99)", "bd": "carlosmotta", "bdm": "fernandooliveira", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Not filled 未录", "upfront": 193000.0, "upfront_s": "R$ 193K", "co": "", "ca": "", "kgmv": "6.233", "k_o": "4.07", "sit": "Lost to Yellow 已失守", "qs": ["Why did we lose Feijoca’s? 为什么丢了Feijoca’s？", "How long is the contract? 合同签了多久？", "What can bring Feijoca’s back? 什么条件能拉回Feijoca’s？"], "upd": "19/09", "facts": "Yellow以R$ 193K预付锁定，案件已关闭；Keeta日单4.07。判断：失守，金额战未跟上；合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "Marmitaria Dia a Dia marmitex", "id": "159393702", "plat": "Yellow(99)", "bd": "rodrigocorreia", "bdm": "alisaeed", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Not filled 未录", "upfront": 50000.0, "upfront_s": "R$ 50K", "co": "30", "ca": "35", "kgmv": "52.482", "k_o": "58", "sit": "Lost to Yellow 已失守", "qs": ["Why did we lose Marmitaria? 为什么丢了Marmitaria？", "How long is the contract? 合同签了多久？", "What can bring Marmitaria back? 什么条件能拉回Marmitaria？"], "upd": "19/09", "facts": "Yellow以R$ 50K预付锁定，案件已关闭；Keeta日单58。判断：失守，金额战未跟上；合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "Mr. Smash - Hamburguer, Fritas e Combos", "id": "159404708", "plat": "Yellow(99)", "bd": "pedrosaccone", "bdm": "fernandooliveira", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Recusada (R1)", "upfront": 0.0, "upfront_s": "—", "co": "50", "ca": "45", "kgmv": "0", "k_o": "0", "sit": "Lost to Yellow 已失守", "qs": ["Why did we lose Mr.? 为什么丢了Mr.？", "How long is the contract? 合同签了多久？", "What can bring Mr. back? 什么条件能拉回Mr.？"], "upd": "19/09", "facts": "我方拒绝跟价（Yellow报价—），案件已关闭；Keeta日单0。判断：主动放弃的金额战——确认是否为策略性放弃，合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "Restaurante Caravitta - Comida Caseira", "id": "159554526", "plat": "Red(iFood)", "bd": "erikboilesen", "bdm": "fernandooliveira", "risk": "Lost 已失守", "rk": "lost", "stage": "Closed 已关闭", "kp": "Not filled 未录", "upfront": 0.0, "upfront_s": "—", "co": "", "ca": "", "kgmv": "4.127", "k_o": "5.23", "sit": "Lost to Red 已失守", "qs": ["Why did we lose Restaurante? 为什么丢了Restaurante？", "How long is the contract? 合同签了多久？", "What can bring Restaurante back? 什么条件能拉回Restaurante？"], "upd": "19/09", "facts": "Red以—预付锁定，案件已关闭；Keeta日单5.23。判断：失守，金额战未跟上；合同到期日是唯一翻盘窗口。", "att": "Case closed 案件已关闭"}, {"name": "RCD FOOD RESTAURANTE", "id": "159398964", "plat": "Yellow(99)", "bd": "carlosmotta", "bdm": "fernandooliveira", "risk": "High 高风险", "rk": "high", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 400000.0, "upfront_s": "R$ 400K", "co": "38", "ca": "67", "kgmv": "", "k_o": "", "sit": "Under attack 被进攻中", "qs": ["The R$ 400K — one-time or monthly? R$ 400K是一次性还是按月？", "Does RCD really do 38/day? Check the app. RCD真有日单38？查App。", "What is our counter-offer? 我们的还价是什么？"], "upd": "23/09", "facts": "Yellow报价R$ 400K（23/09更新）；商家Yellow日单38/d、Keeta 0/d，单量依赖竞对。判断：大额资金战，我方反制方案未定，需CM级介入定价。", "att": "Not reported 未报状态"}, {"name": "Pastelaria do Carlão", "id": "159589649", "plat": "Yellow(99)", "bd": "paulosantos", "bdm": "tadeumoraes", "risk": "High 高风险", "rk": "high", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 300000.0, "upfront_s": "R$ 300K", "co": "110", "ca": "25", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["The R$ 300K — one-time or monthly? R$ 300K是一次性还是按月？", "Does Pastelaria really do 110/day? Check the app. Pastelaria真有日单110？查App。", "What is our counter-offer? 我们的还价是什么？"], "upd": "24/09", "facts": "Yellow报价R$ 300K（24/09更新）；商家Yellow日单110/d、Keeta 0/d，单量依赖竞对。判断：大额资金战，我方反制方案未定，需CM级介入定价。", "att": "Not reported 未报状态"}, {"name": "Hamburgueria Ovni", "id": "159392614", "plat": "Yellow(99)", "bd": "rodrigocorreia", "bdm": "alisaeed", "risk": "High 高风险", "rk": "high", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 300000.0, "upfront_s": "R$ 300K", "co": "", "ca": "", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["The R$ 300K — one-time or monthly? R$ 300K是一次性还是按月？", "How many orders/day really? Ask, don't guess. 真实日单多少？要问不要猜。", "What is our counter-offer? 我们的还价是什么？"], "upd": "19/09", "facts": "Yellow报价R$ 300K（19/09更新）；竞对日单未核实，Keeta 0/d。判断：大额资金战，我方反制方案未定，需CM级介入定价。", "att": "Not reported 未报状态"}, {"name": "Lounge Vila Ferreira-Hambúrguer Artesanal - 20% Off Vem Conferir!!", "id": "159401057", "plat": "Yellow(99)", "bd": "felipesanches", "bdm": "fernandooliveira", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 280000.0, "upfront_s": "R$ 280K", "co": "57", "ca": "42", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Lounge? 上次拜访Lounge是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Lounge need to sign? Lounge要什么条件才肯签？"], "upd": "23/09", "facts": "Yellow已给预付R$ 280K，竞对日单57/d；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Cantina da Vila Burger e Pastéis - 21% OFF Vem conferir!!", "id": "159412369", "plat": "Yellow(99)", "bd": "felipesanches", "bdm": "fernandooliveira", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 250000.0, "upfront_s": "R$ 250K", "co": "40", "ca": "39", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Cantina? 上次拜访Cantina是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Cantina need to sign? Cantina要什么条件才肯签？"], "upd": "23/09", "facts": "Yellow已给预付R$ 250K，竞对日单40/d；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Pizzaria Gema", "id": "159396868", "plat": "Yellow(99)", "bd": "fernandoquintiliano", "bdm": "未分配 Unassigned", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 200000.0, "upfront_s": "R$ 200K", "co": "", "ca": "", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Pizzaria? 上次拜访Pizzaria是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Pizzaria need to sign? Pizzaria要什么条件才肯签？"], "upd": "19/09", "facts": "Yellow已给预付R$ 200K，竞对日单未知；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "JM Lanches", "id": "159399120 ~ 159424864", "plat": "Yellow(99)", "bd": "rodrigocorreia", "bdm": "alisaeed", "risk": "Medium 中风险", "rk": "medium", "stage": "Proposal Done 提案完成", "kp": "Recusada (R1)", "upfront": 180000.0, "upfront_s": "R$ 180K", "co": "100", "ca": "38", "kgmv": "80.711", "k_o": "75.47", "sit": "Proposal done 提案完成", "qs": ["When did you last visit JM? 上次拜访JM是什么时候？", "How many orders/day on the platform? 平台日单多少？", "JM does 75/d on Keeta — double it and they sign? Keeta日单75，翻一倍签吗？"], "upd": "19/09", "facts": "Yellow已给预付R$ 180K，竞对日单100/d；Keeta日单75.47；提案完成。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Under negotiation 谈判进行中"}, {"name": "Pizzaria Bella Fatia", "id": "159395283", "plat": "Yellow(99)", "bd": "paulosilva", "bdm": "tadeumoraes", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 150000.0, "upfront_s": "R$ 150K", "co": "60", "ca": "31", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Pizzaria? 上次拜访Pizzaria是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Pizzaria need to sign? Pizzaria要什么条件才肯签？"], "upd": "19/09", "facts": "Yellow已给预付R$ 150K，竞对日单60/d；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Tuff's Burger", "id": "159424923", "plat": "Yellow(99)", "bd": "paulosilva", "bdm": "tadeumoraes", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 115000.0, "upfront_s": "R$ 115K", "co": "", "ca": "", "kgmv": "18.738", "k_o": "11.57", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Tuff's? 上次拜访Tuff's是什么时候？", "How many orders/day on the platform? 平台日单多少？", "Tuff's does 11/d on Keeta — double it and they sign? Keeta日单11，翻一倍签吗？"], "upd": "23/09", "facts": "Yellow已给预付R$ 115K，竞对日单未知；Keeta日单11.57；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Rei da Feijoada - Marmita & Marmitex", "id": "159474076", "plat": "Yellow(99)", "bd": "eduardosantos", "bdm": "alisaeed", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 90000.0, "upfront_s": "R$ 90K", "co": "", "ca": "", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Rei? 上次拜访Rei是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Rei need to sign? Rei要什么条件才肯签？"], "upd": "19/09", "facts": "Yellow已给预付R$ 90K，竞对日单未知；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Açaí Soberano", "id": "159411012 ~ 159408617", "plat": "Yellow(99)", "bd": "eduardosantos", "bdm": "alisaeed", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 60000.0, "upfront_s": "R$ 60K", "co": "125", "ca": "25", "kgmv": "872", "k_o": "0.97", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Açaí? 上次拜访Açaí是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Açaí need to sign? Açaí要什么条件才肯签？"], "upd": "19/09", "facts": "Yellow已给预付R$ 60K，竞对日单125/d；Keeta日单0.97；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Monster Burguer", "id": "159401744", "plat": "Yellow(99)", "bd": "ricardoaraujo", "bdm": "alisaeed", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 50000.0, "upfront_s": "R$ 50K", "co": "", "ca": "", "kgmv": "50.928", "k_o": "40.6", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Monster? 上次拜访Monster是什么时候？", "How many orders/day on the platform? 平台日单多少？", "Monster does 40/d on Keeta — double it and they sign? Keeta日单40，翻一倍签吗？"], "upd": "19/09", "facts": "Yellow已给预付R$ 50K，竞对日单未知；Keeta日单40.6；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Marmitex Tempero da Núbia - Almoço", "id": "159401485", "plat": "Yellow(99)", "bd": "wainnergonzales", "bdm": "fernandooliveira", "risk": "Medium 中风险", "rk": "medium", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 30000.0, "upfront_s": "R$ 30K", "co": "76", "ca": "30", "kgmv": "0", "k_o": "0", "sit": "Under attack 被进攻中", "qs": ["When did you last visit Marmitex? 上次拜访Marmitex是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Marmitex need to sign? Marmitex要什么条件才肯签？"], "upd": "24/09", "facts": "Yellow已给预付R$ 30K，竞对日单76/d；Keeta日单0；已上报。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Not reported 未报状态"}, {"name": "Pizza Via Carlo Premium", "id": "159394919", "plat": "Yellow(99)", "bd": "eduardosantos", "bdm": "alisaeed", "risk": "Medium 中风险", "rk": "medium", "stage": "Proposal Done 提案完成", "kp": "Not filled 未录", "upfront": 25000.0, "upfront_s": "R$ 25K", "co": "60", "ca": "35", "kgmv": "", "k_o": "", "sit": "Proposal done 提案完成", "qs": ["When did you last visit Pizza? 上次拜访Pizza是什么时候？", "How many orders/day on the platform? 平台日单多少？", "What does Pizza need to sign? Pizza要什么条件才肯签？"], "upd": "23/09", "facts": "Yellow已给预付R$ 25K，竞对日单60/d；Keeta零单；提案完成。判断：金额在我方可对抗范围，先核实真实单量和商家态度，再谈钱。", "att": "Under negotiation 谈判进行中"}, {"name": "Garoupa", "id": "159475646", "plat": "Red(iFood)", "bd": "tiagodangelo", "bdm": "adriananaves", "risk": "Resolved 已解除", "rk": "resolved", "stage": "KP Approved KP已通过", "kp": "Aceita (R1)", "upfront": 250000.0, "upfront_s": "R$ 250K", "co": "1400", "ca": "", "kgmv": "46.791", "k_o": "15.87", "sit": "Won — sign soon 已胜出待签约", "qs": ["When do we sign? 什么时候签约？", "What can still go wrong? 还有什么变数？", "What finally convinced Garoupa? 最后是什么打动了Garoupa？"], "upd": "21/09", "facts": "KP已通过我方R$ 250K方案，已胜出未签约；Keeta日单15.87。判断：方案赢了，最大风险是拖延变卦——锁定签约日期是唯一要务。", "att": "Rejected comp, chose us 拒绝竞对·选我方"}, {"name": "Skina88 Hamburgueria Artesanal e Lanches", "id": "159407695", "plat": "—", "bd": "ricardoaraujo", "bdm": "alisaeed", "risk": "Pending 待跟进", "rk": "pending", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 0.0, "upfront_s": "—", "co": "", "ca": "", "kgmv": "0", "k_o": "0", "sit": "Intel missing 情报缺失", "qs": ["When did we first contact Skina88? 第一次接触Skina88是什么时候？", "Real orders — don't guess. 真实日单，不要猜。", "Is Skina88 worth fighting for? Skina88值得争吗？"], "upd": "20/09", "facts": "仅已上报（20/09更新）：无预付金额、无竞对日单、KP未录。判断：情报黑洞——BD未深挖或商家拒绝透露；需上门当面核实。", "att": "Not reported 未报状态"}, {"name": "Recanto da Paraiba Comida Tipica do Nordeste", "id": "159402907", "plat": "—", "bd": "eduardosantos", "bdm": "alisaeed", "risk": "Pending 待跟进", "rk": "pending", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 0.0, "upfront_s": "—", "co": "", "ca": "", "kgmv": "0", "k_o": "0", "sit": "Intel missing 情报缺失", "qs": ["When did we first contact Recanto? 第一次接触Recanto是什么时候？", "Real orders — don't guess. 真实日单，不要猜。", "Is Recanto worth fighting for? Recanto值得争吗？"], "upd": "20/09", "facts": "仅已上报（20/09更新）：无预付金额、无竞对日单、KP未录。判断：情报黑洞——BD未深挖或商家拒绝透露；需上门当面核实。", "att": "Not reported 未报状态"}, {"name": "Porto Lanches", "id": "159548625", "plat": "Yellow(99)", "bd": "ricardoalmeida", "bdm": "tadeumoraes", "risk": "Pending 待跟进", "rk": "pending", "stage": "Reported 已上报", "kp": "Not filled 未录", "upfront": 0.0, "upfront_s": "—", "co": "", "ca": "", "kgmv": "96.802", "k_o": "56.03", "sit": "Intel missing 情报缺失", "qs": ["When did we first contact Porto? 第一次接触Porto是什么时候？", "Real orders — don't guess. 真实日单，不要猜。", "Is Porto worth fighting for? Porto值得争吗？"], "upd": "19/09", "facts": "仅已上报（19/09更新）：无预付金额、无竞对日单、KP未录。判断：情报黑洞——BD未深挖或商家拒绝透露；需上门当面核实。", "att": "Not reported 未报状态"}];
+const tbody = document.querySelector('#tbl tbody');
+const RISKC = {lost:'Lost 已失守',high:'High 高风险',medium:'Medium 中风险',resolved:'Resolved 已解除',pending:'Pending 待跟进'};
+let sortK = 'idx', sortAsc = true;
+const bdms = [...new Set(DATA.map(r=>r.bdm))].sort();
+const fs = document.getElementById('fBdm');
+bdms.forEach(b=>{const o=document.createElement('option');o.textContent=b;fs.appendChild(o);});
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function val(r,k){
+  if(k==='idx') return r._i;
+  if(k==='qs') return r.qs.join(' ');
+  const v = r[k];
+  if(k==='upfront') return r.upfront;
+  if(k==='co'||k==='ca'||k==='k_o') return parseFloat(v)||0;
+  return v;
+}
+function attKey(r){
+  const a = r.att.split(' ')[0].toLowerCase();
+  return {'rejected':'rejected','case':'closed','under':'under','not':'not'}[a]||'not';
+}
+function render(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const fr = document.getElementById('fRisk').value;
+  const fb = document.getElementById('fBdm').value;
+  const fp = document.getElementById('fPlat').value;
+  const fa = document.getElementById('fAtt').value;
+  let rows = DATA.filter(r=>{
+    if(fr && r.rk!==fr) return false;
+    if(fb && r.bdm!==fb) return false;
+    if(fp && r.plat!==fp) return false;
+    if(fa && attKey(r)!==fa) return false;
+    if(q){
+      const hay = (r.name+' '+r.id+' '+r.bd+' '+r.bdm).toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  rows.sort((a,b)=>{
+    const t = sortK==='idx'||['co','ca','k_o','upfront'].includes(sortK) ? 'n':'s';
+    let va=val(a,sortK), vb=val(b,sortK);
+    if(t==='n'){ va=+va||0; vb=+vb||0; return sortAsc?va-vb:vb-va; }
+    va=String(va); vb=String(vb);
+    return sortAsc? va.localeCompare(vb) : vb.localeCompare(va);
+  });
+  document.getElementById('cnt').textContent = rows.length + ' / ' + DATA.length + ' merchants 商家';
+  tbody.innerHTML = rows.map(r=>`<tr>
+   <td>${r._i}</td>
+   <td><span class="rk ${r.rk}">${RISKC[r.rk]}</span></td>
+   <td class="mname">${esc(r.name)}</td>
+   <td class="mono">${esc(r.id)}</td>
+   <td>${esc(r.plat)}</td>
+   <td>${esc(r.bd)}</td>
+   <td>${esc(r.bdm)}</td>
+   <td class="facts">${esc(r.facts)}</td>
+   <td><span class="att ${attKey(r)==='rejected'?'rejected':(attKey(r)==='closed'?'signed':(attKey(r)==='under'?'under':'not'))}">${esc(r.att)}</span></td>
+   <td>${esc(r.stage)}</td>
+   <td>${esc(r.kp)}</td>
+   <td class="up">${r.upfront_s}</td>
+   <td>${esc(r.co||'—')}</td>
+   <td>${r.ca?('R$'+r.ca):'—'}</td>
+   <td>${r.k_o?esc(r.k_o):'0'}</td>
+   <td>${esc(r.sit)}</td>
+   <td><ul class="qs">${r.qs.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></td>
+  </tr>`).join('');
+}
+document.querySelectorAll('thead th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const k = th.dataset.k;
+    if(sortK===k) sortAsc=!sortAsc; else { sortK=k; sortAsc=true; }
+    document.querySelectorAll('thead th .arr').forEach(a=>a.remove());
+    const s=document.createElement('span');s.className='arr';s.textContent=sortAsc?'▲':'▼';th.appendChild(s);
+    render();
+  });
+});
+['q','fRisk','fBdm','fPlat','fAtt'].forEach(id=>{
+  document.getElementById(id).addEventListener('input',render);
+  document.getElementById(id).addEventListener('change',render);
+});
+DATA.forEach((r,i)=>r._i=i+1);
+render();
+</script>
+</body>
+</html>

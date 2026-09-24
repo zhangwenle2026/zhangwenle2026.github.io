@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SP Metropolitan Region · Business Platform</title>
+<style>
+:root {
+  --bg:#0f172a;
+  --card:#1e293b;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --green:#22c55e;
+  --yellow:#eab308;
+  --red:#ef4444;
+  --blue:#3b82f6;
+  --cyan:#06b6d4;
+  --purple:#a855f7;
+  --orange:#f97316;
+  --border:#334155;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  padding: 16px;
+  line-height: 1.5;
+}
+.header { text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { color: var(--muted); font-size: 0.85rem; }
+.version-badge {
+  display: inline-block;
+  background: rgba(59,130,246,0.15);
+  color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  margin-left: 8px;
+}
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+.kpi-card .label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 8px;
+}
+.kpi-card .value { font-size: 1.6rem; font-weight: 700; margin-bottom: 4px; }
+.kpi-card .delta { font-size: 0.8rem; color: var(--muted); }
+.section {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 18px;
+  border: 1px solid var(--border);
+}
+.section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background: var(--blue);
+  border-radius: 2px;
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+tr:hover { background: rgba(255,255,255,0.03); }
+.num-col { text-align: right; font-variant-numeric: tabular-nums; }
+.total-row { font-weight: 700; background: rgba(59,130,246,0.08); }
+.total-row td { border-top: 2px solid var(--border); }
+.bar-cell { min-width: 120px; }
+.bar { height: 6px; border-radius: 3px; background: var(--blue); min-width: 2px; }
+.footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 16px;
+  padding-bottom: 20px;
+}
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .kpi-card .value { font-size: 1.3rem; }
+  th, td { padding: 6px 8px; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>SP Metropolitan Region · Business Platform <span class="version-badge">v4 Deep Discount</span></h1>
+  <div class="subtitle">Data: 2026-09-20 (BRT) · SMB Dashboard · Deep Discount Coverage</div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Total Shops</div>
+    <div class="value" style="color:var(--blue)">8,291</div>
+    <div class="delta">In merchant list</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Active Deep Discount</div>
+    <div class="value" style="color:var(--green)">3,363</div>
+    <div class="delta">40.6% of shops</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs</div>
+    <div class="value" style="color:var(--cyan)">553</div>
+    <div class="delta">MTD</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Churned (DD)</div>
+    <div class="value" style="color:var(--red)">508</div>
+    <div class="delta">1+ Hotselling DD Over 15</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Avg DD Coverage</div>
+    <div class="value" style="color:var(--yellow)">40.6%</div>
+    <div class="delta">1+ Hotselling Over R$15</div>
+  </div>
+</div>
+<div class="section">
+  <h2>CM Deep Discount Performance</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>CM</th><th class="num-col">Shops</th><th class="num-col">Active DD</th><th class="num-col">DD Rate</th><th class="num-col">Avg Coverage</th><th class="num-col">New Sign</th><th class="num-col">Churn</th></tr>
+      <tr><td>danielalbuquerque</td><td class="num-col">4,055</td><td class="num-col">1,706</td><td class="num-col">42.1%</td><td class="num-col">42.1%</td><td class="num-col">248</td><td class="num-col">257</td></tr>
+      <tr><td>marciojaroslavsky</td><td class="num-col">3,269</td><td class="num-col">1,337</td><td class="num-col">40.9%</td><td class="num-col">40.9%</td><td class="num-col">222</td><td class="num-col">189</td></tr>
+      <tr><td>jaylin</td><td class="num-col">901</td><td class="num-col">310</td><td class="num-col">34.4%</td><td class="num-col">34.4%</td><td class="num-col">57</td><td class="num-col">62</td></tr>
+      <tr><td>zhangwenle</td><td class="num-col">66</td><td class="num-col">10</td><td class="num-col">15.2%</td><td class="num-col">15.2%</td><td class="num-col">26</td><td class="num-col">0</td></tr>
+      <tr class="total-row"><td>Total</td><td class="num-col">8,291</td><td class="num-col">3,363</td><td class="num-col">40.6%</td><td class="num-col">40.6%</td><td class="num-col">553</td><td class="num-col">508</td></tr>
+    </table>
+  </div>
+</div>
+<div class="section">
+  <h2>BDM Deep Discount Performance</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>BDM</th><th>CM</th><th class="num-col">Shops</th><th class="num-col">Active DD</th><th class="num-col">DD Rate</th><th class="num-col">Avg Coverage</th><th class="num-col">New Sign</th></tr>
+      <tr><td>cesararraes</td><td>marciojaroslavsky</td><td class="num-col">932</td><td class="num-col">381</td><td class="num-col">40.9%</td><td class="num-col">40.9%</td><td class="num-col">60</td></tr>
+      <tr><td>marcoscruz</td><td>danielalbuquerque</td><td class="num-col">846</td><td class="num-col">367</td><td class="num-col">43.4%</td><td class="num-col">43.4%</td><td class="num-col">36</td></tr>
+      <tr><td>fernandooliveira</td><td>danielalbuquerque</td><td class="num-col">866</td><td class="num-col">348</td><td class="num-col">40.2%</td><td class="num-col">40.2%</td><td class="num-col">61</td></tr>
+      <tr><td>alisaeed</td><td>danielalbuquerque</td><td class="num-col">680</td><td class="num-col">335</td><td class="num-col">49.3%</td><td class="num-col">49.3%</td><td class="num-col">31</td></tr>
+      <tr><td>tadeumoraes</td><td>danielalbuquerque</td><td class="num-col">789</td><td class="num-col">330</td><td class="num-col">41.8%</td><td class="num-col">41.8%</td><td class="num-col">53</td></tr>
+      <tr><td>adriananaves</td><td>danielalbuquerque</td><td class="num-col">874</td><td class="num-col">326</td><td class="num-col">37.3%</td><td class="num-col">37.3%</td><td class="num-col">67</td></tr>
+      <tr><td>biancaceotto</td><td>marciojaroslavsky</td><td class="num-col">764</td><td class="num-col">315</td><td class="num-col">41.2%</td><td class="num-col">41.2%</td><td class="num-col">56</td></tr>
+      <tr><td>lucasferreira</td><td>marciojaroslavsky</td><td class="num-col">634</td><td class="num-col">245</td><td class="num-col">38.6%</td><td class="num-col">38.6%</td><td class="num-col">35</td></tr>
+      <tr><td>thiagoscavazini</td><td>marciojaroslavsky</td><td class="num-col">477</td><td class="num-col">207</td><td class="num-col">43.4%</td><td class="num-col">43.4%</td><td class="num-col">42</td></tr>
+      <tr><td>igorfeitosa</td><td>marciojaroslavsky</td><td class="num-col">462</td><td class="num-col">189</td><td class="num-col">40.9%</td><td class="num-col">40.9%</td><td class="num-col">29</td></tr>
+      <tr><td>sabrinafernandes</td><td>jaylin</td><td class="num-col">507</td><td class="num-col">173</td><td class="num-col">34.1%</td><td class="num-col">34.1%</td><td class="num-col">29</td></tr>
+      <tr><td>renataleite</td><td>jaylin</td><td class="num-col">394</td><td class="num-col">137</td><td class="num-col">34.8%</td><td class="num-col">34.8%</td><td class="num-col">28</td></tr>
+      <tr><td>zhangwenle</td><td>zhangwenle</td><td class="num-col">66</td><td class="num-col">10</td><td class="num-col">15.2%</td><td class="num-col">15.2%</td><td class="num-col">26</td></tr>
+    </table>
+  </div>
+</div>
+<div class="section">
+  <h2>BD Performance (Top 20 by Active DD)</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>BD</th><th>BDM</th><th class="num-col">Shops</th><th class="num-col">Active DD</th><th class="num-col">DD Rate</th><th class="num-col">New Sign</th></tr>
+      <tr><td>rodrigocorreia</td><td>alisaeed</td><td class="num-col">127</td><td class="num-col">72</td><td class="num-col">56.7%</td><td class="num-col">6</td></tr>
+      <tr><td>otaviomazzega</td><td>marcoscruz</td><td class="num-col">143</td><td class="num-col">68</td><td class="num-col">47.6%</td><td class="num-col">4</td></tr>
+      <tr><td>renansilva</td><td>cesararraes</td><td class="num-col">134</td><td class="num-col">68</td><td class="num-col">50.7%</td><td class="num-col">18</td></tr>
+      <tr><td>wellingtonsantos</td><td>marcoscruz</td><td class="num-col">131</td><td class="num-col">64</td><td class="num-col">48.9%</td><td class="num-col">5</td></tr>
+      <tr><td>tatianeribeiro</td><td>lucasferreira</td><td class="num-col">136</td><td class="num-col">60</td><td class="num-col">44.1%</td><td class="num-col">10</td></tr>
+      <tr><td>ricardoaraujo</td><td>alisaeed</td><td class="num-col">122</td><td class="num-col">59</td><td class="num-col">48.4%</td><td class="num-col">10</td></tr>
+      <tr><td>felipesanches</td><td>fernandooliveira</td><td class="num-col">132</td><td class="num-col">56</td><td class="num-col">42.4%</td><td class="num-col">9</td></tr>
+      <tr><td>thaisvasconcelos</td><td>marcoscruz</td><td class="num-col">128</td><td class="num-col">56</td><td class="num-col">43.8%</td><td class="num-col">5</td></tr>
+      <tr><td>wainnergonzales</td><td>fernandooliveira</td><td class="num-col">115</td><td class="num-col">52</td><td class="num-col">45.2%</td><td class="num-col">6</td></tr>
+      <tr><td>brunapadilha</td><td>fernandooliveira</td><td class="num-col">114</td><td class="num-col">51</td><td class="num-col">44.7%</td><td class="num-col">5</td></tr>
+      <tr><td>cristianedasilva</td><td>fernandooliveira</td><td class="num-col">129</td><td class="num-col">51</td><td class="num-col">39.5%</td><td class="num-col">11</td></tr>
+      <tr><td>johnataguimaraes</td><td>cesararraes</td><td class="num-col">96</td><td class="num-col">51</td><td class="num-col">53.1%</td><td class="num-col">6</td></tr>
+      <tr><td>paulosilva</td><td>tadeumoraes</td><td class="num-col">90</td><td class="num-col">51</td><td class="num-col">56.7%</td><td class="num-col">5</td></tr>
+      <tr><td>viniciusnovais</td><td>biancaceotto</td><td class="num-col">101</td><td class="num-col">51</td><td class="num-col">50.5%</td><td class="num-col">7</td></tr>
+      <tr><td>erikboilesen</td><td>fernandooliveira</td><td class="num-col">122</td><td class="num-col">50</td><td class="num-col">41.0%</td><td class="num-col">6</td></tr>
+      <tr><td>eduardosantos</td><td>alisaeed</td><td class="num-col">78</td><td class="num-col">49</td><td class="num-col">62.8%</td><td class="num-col">2</td></tr>
+      <tr><td>pedrosaccone</td><td>fernandooliveira</td><td class="num-col">140</td><td class="num-col">48</td><td class="num-col">34.3%</td><td class="num-col">12</td></tr>
+      <tr><td>alexlima</td><td>igorfeitosa</td><td class="num-col">122</td><td class="num-col">47</td><td class="num-col">38.5%</td><td class="num-col">8</td></tr>
+      <tr><td>carloscasado</td><td>tadeumoraes</td><td class="num-col">112</td><td class="num-col">47</td><td class="num-col">42.0%</td><td class="num-col">11</td></tr>
+      <tr><td>claudiareis</td><td>thiagoscavazini</td><td class="num-col">118</td><td class="num-col">47</td><td class="num-col">39.8%</td><td class="num-col">11</td></tr>
+    </table>
+  </div>
+</div>
+<div class="section">
+  <h2>Merchant Tier Distribution</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Tier</th><th class="num-col">Shops</th><th class="num-col">Active DD</th><th class="num-col">DD Rate</th></tr>
+      <tr><td>Top Tier</td><td class="num-col">4,158</td><td class="num-col">1,874</td><td class="num-col">45.1%</td></tr>
+      <tr><td>Mid Tier</td><td class="num-col">3,923</td><td class="num-col">1,373</td><td class="num-col">35.0%</td></tr>
+      <tr><td>Must Have</td><td class="num-col">210</td><td class="num-col">116</td><td class="num-col">55.2%</td></tr>
+    </table>
+  </div>
+</div>
+<div class="footer">
+  Business Platform Dashboard | Data Source: BI #300001446 (Deep Discount model) | Generated: 2026-09-24 20:48 CST
+</div>
+</body>
+</html>

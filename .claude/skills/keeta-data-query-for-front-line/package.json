@@ -1,0 +1,7 @@
+{
+  "name": "keeta-data-query-for-front-line",
+  "private": true,
+  "dependencies": {
+    "@dp/mtcli": "^1.1.12"
+  }
+}

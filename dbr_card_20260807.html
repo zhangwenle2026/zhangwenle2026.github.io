@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DBR Daily Report</title>
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8; --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6; --cyan:#06b6d4; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 24px; max-width: 780px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { color: var(--muted); font-size: 0.8rem; }
+.header .warning { color: var(--red); font-size: 0.75rem; margin-top: 4px; font-weight: 600; }
+.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi-card { background: var(--card); border-radius: 12px; padding: 16px; text-align: center; }
+.kpi-card .label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.kpi-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+.kpi-card .sub { font-size: 0.75rem; color: var(--muted); }
+.section { background: var(--card); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.section h2 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section h2::before { content: ''; display: inline-block; width: 4px; height: 14px; background: var(--blue); border-radius: 2px; }
+.metric-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #334155; }
+.metric-row:last-child { border-bottom: none; }
+.metric-label { color: var(--muted); font-size: 0.82rem; }
+.metric-value { font-weight: 600; font-size: 0.9rem; }
+.region-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.region-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; text-align: center; }
+.region-card .name { font-size: 0.72rem; color: var(--muted); margin-bottom: 3px; }
+.region-card .orders { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+.region-card .gmv { font-size: 0.72rem; color: var(--muted); }
+.footer { text-align: center; color: var(--muted); font-size: 0.68rem; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 SP Metropolitan Region DBR</h1>
+  <div class="subtitle">Data Date: 2026-07-27 (Mon) BRT | Generated: 2026-08-07 (Fri) Beijing</div>
+  <div class="warning">⚠️ BI data delayed by 11 days. No fresh data available.</div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Metro Total Orders</div>
+    <div class="value" style="color:var(--green)">31,852</div>
+    <div class="sub">AOV R$ 40.64</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Metro Total GMV</div>
+    <div class="value" style="color:var(--blue)">R$ 1,294,533.54</div>
+    <div class="sub">GTV R$ 43.03</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs</div>
+    <div class="value" style="color:var(--cyan)">10</div>
+    <div class="sub">Top 4 | Mid 5 | Must 1</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">Operation Rate</div>
+    <div class="value" style="color:var(--yellow)">120700.0%</div>
+    <div class="sub">Online merchants active rate</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Regional Breakdown</h2>
+  <div class="region-grid">
+    <div class="region-card"><div class="name">Southern SP</div><div class="orders">4,578</div><div class="gmv">R$ 185,935.47</div></div>
+    <div class="region-card"><div class="name">Western SP</div><div class="orders">3,872</div><div class="gmv">R$ 156,550.49</div></div>
+    <div class="region-card"><div class="name">Northeast SP</div><div class="orders">4,256</div><div class="gmv">R$ 174,698.93</div></div>
+    <div class="region-card"><div class="name">Santos City</div><div class="orders">3,220</div><div class="gmv">R$ 128,904.17</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>User Experience</h2>
+  <div class="metric-row"><span class="metric-label">Cancel Rate</span><span class="metric-value" style="color:var(--green)">7.5%</span></div>
+  <div class="metric-row"><span class="metric-label">Cancel Rate WoW</span><span class="metric-value" style="color:var(green)">-15.9%</span></div>
+</div>
+
+<div class="section">
+  <h2>Promotion</h2>
+  <div class="metric-row"><span class="metric-label">Deep Discount Rate</span><span class="metric-value">10.2%</span></div>
+  <div class="metric-row"><span class="metric-label">Promo Rate</span><span class="metric-value">48.2%</span></div>
+  <div class="metric-row"><span class="metric-label">Coverage</span><span class="metric-value" style="color:var(--green)">94.6%</span></div>
+</div>
+
+<div class="section">
+  <h2>Key Insights</h2>
+  <div style="color:var(--muted);font-size:0.82rem;line-height:1.55;">
+    <p>• Metro Total orders: <strong style="color:var(--text)">31,852</strong> with GMV <strong style="color:var(--text)">R$ 1,294,533.54</strong></p>
+    <p>• New signs: <strong style="color:var(--text)">10</strong> (Top 4, Mid 5, Must 1)</p>
+    <p>• Operation rate: <strong style="color:var(--text)">120700.0%</strong></p>
+    <p>• Cancel rate: <strong style="color:var(--text)">7.5%</strong> (WoW -15.9%)</p>
+    <p>• Promotion coverage: <strong style="color:var(--text)">94.6%</strong></p>
+  </div>
+</div>
+
+<div class="footer">
+  SP Metropolitan Region DBR | Data Source: BI 300001446 | BI tab offline, using cached data
+</div>
+</body>
+</html>

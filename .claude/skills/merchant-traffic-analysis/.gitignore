@@ -1,0 +1,10 @@
+.DS_Store
+.cache/
+.env
+__pycache__/
+*.py[cod]
+node_modules/
+assets/.bi-cookie-cache
+skill.manifest
+skill.sig
+

@@ -1,0 +1,41 @@
+{
+  "contentId": 2772488088,
+  "charts": [
+    {
+      "name": "chart1_new_signs",
+      "title": "Daily New Signs (BRT 6.28-7.4)",
+      "localPath": "/mnt/openclaw/.openclaw/workspace/charts/chart1_new_signs.jpg",
+      "url": "https://km.sankuai.com/api/file/cdn/2772488088/244865532980?contentType=0&isNewContent=false",
+      "width": 630,
+      "height": 376,
+      "imageXml": "<p><img src=\"https://km.sankuai.com/api/file/cdn/2772488088/244865532980?contentType=0&isNewContent=false\" name=\"Daily New Signs BRT 6.28-7.4\" width=\"630\" height=\"376\" /></p>"
+    },
+    {
+      "name": "chart2_promo_coverage",
+      "title": "Promotion Coverage (BRT 6.28-7.4)",
+      "localPath": "/mnt/openclaw/.openclaw/workspace/charts/chart2_promo_coverage.jpg",
+      "url": "https://km.sankuai.com/api/file/cdn/2772488088/244867767763?contentType=0&isNewContent=false",
+      "width": 646,
+      "height": 378,
+      "imageXml": "<p><img src=\"https://km.sankuai.com/api/file/cdn/2772488088/244867767763?contentType=0&isNewContent=false\" name=\"Promotion Coverage BRT 6.28-7.4\" width=\"646\" height=\"378\" /></p>"
+    },
+    {
+      "name": "chart3_cancel_rate",
+      "title": "Cancel Rate Trend (Target: 1.5%)",
+      "localPath": "/mnt/openclaw/.openclaw/workspace/charts/chart3_cancel_rate.jpg",
+      "url": "https://km.sankuai.com/api/file/cdn/2772488088/244867787530?contentType=0&isNewContent=false",
+      "width": 635,
+      "height": 378,
+      "imageXml": "<p><img src=\"https://km.sankuai.com/api/file/cdn/2772488088/244867787530?contentType=0&isNewContent=false\" name=\"Cancel Rate Trend\" width=\"635\" height=\"378\" /></p>"
+    },
+    {
+      "name": "chart4_daily_orders",
+      "title": "Daily Orders (BRT 6.28-7.4)",
+      "localPath": "/mnt/openclaw/.openclaw/workspace/charts/chart4_daily_orders.jpg",
+      "url": "https://km.sankuai.com/api/file/cdn/2772488088/244865809238?contentType=0&isNewContent=false",
+      "width": 646,
+      "height": 378,
+      "imageXml": "<p><img src=\"https://km.sankuai.com/api/file/cdn/2772488088/244865809238?contentType=0&isNewContent=false\" name=\"Daily Orders BRT 6.28-7.4\" width=\"646\" height=\"378\" /></p>"
+    }
+  ]
+}

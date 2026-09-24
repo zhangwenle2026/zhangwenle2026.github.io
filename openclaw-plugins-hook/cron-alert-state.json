@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "files": {
+    "/root/.openclaw/cron/runs/001ea520-b53c-447b-a6a8-a5b1c99d7b06.jsonl": {
+      "offset": 35881,
+      "lastLineStart": 35560,
+      "lastUploadedTs": 1787102648894
+    },
+    "/root/.openclaw/cron/runs/08b411ae-b092-4e63-a60c-a259bc64924a.jsonl": {
+      "offset": 51858,
+      "lastLineStart": 49553,
+      "lastUploadedTs": 1789694940908
+    },
+    "/root/.openclaw/cron/runs/0a451b7a-3b2f-4e6f-8084-116743b0cc7c.jsonl": {
+      "offset": 52647,
+      "lastLineStart": 52325,
+      "lastUploadedTs": 1790248359434
+    },
+    "/root/.openclaw/cron/runs/1338db6e-ab0a-4771-a178-95f83d5d74d0.jsonl": {
+      "offset": 47917,
+      "lastLineStart": 47581,
+      "lastUploadedTs": 1790252154465
+    },
+    "/root/.openclaw/cron/runs/4257f6bc-ced4-4f2b-a432-b2b9a4b76c14.jsonl": {
+      "offset": 23935,
+      "lastLineStart": 23605,
+      "lastUploadedTs": 1783855800010
+    },
+    "/root/.openclaw/cron/runs/4b19c6dd-a444-4b1f-b0ac-436b44551385.jsonl": {
+      "offset": 2141,
+      "lastLineStart": 2141
+    },
+    "/root/.openclaw/cron/runs/4fc9d7a3-fe98-4951-a67a-791dd16fbbe7.jsonl": {
+      "offset": 34173,
+      "lastLineStart": 33843,
+      "lastUploadedTs": 1786536418688
+    },
+    "/root/.openclaw/cron/runs/5cfbb6bb-9d0d-449c-a623-09ed0d9a32d8.jsonl": {
+      "offset": 1352307,
+      "lastLineStart": 1351746,
+      "lastUploadedTs": 1790284632376
+    },
+    "/root/.openclaw/cron/runs/6531f4e5-ddeb-424f-b0d3-ff3e24eb88d3.jsonl": {
+      "offset": 239,
+      "lastLineStart": 239
+    },
+    "/root/.openclaw/cron/runs/6a7caf64-1e67-4d79-af0a-c8f4afcc9e9c.jsonl": {
+      "offset": 43003,
+      "lastLineStart": 42672,
+      "lastUploadedTs": 1790263480128
+    },
+    "/root/.openclaw/cron/runs/6dfd533a-2591-4e9e-bd49-a8eddd2bc8f6.jsonl": {
+      "offset": 252427,
+      "lastLineStart": 250728,
+      "lastUploadedTs": 1790198518343
+    },
+    "/root/.openclaw/cron/runs/9ebfd5a1-bd02-460a-a14a-3f8a6b0a2029.jsonl": {
+      "offset": 594,
+      "lastLineStart": 594
+    },
+    "/root/.openclaw/cron/runs/a19ed295-320c-485a-a102-8f6d0ffc91eb.jsonl": {
+      "offset": 2609,
+      "lastLineStart": 2609
+    },
+    "/root/.openclaw/cron/runs/a7c1830a-d635-4ef6-869b-ca76beb3e0eb.jsonl": {
+      "offset": 1898120,
+      "lastLineStart": 1897547,
+      "lastUploadedTs": 1790284600378
+    },
+    "/root/.openclaw/cron/runs/aae40ae3-76e0-417e-a61f-f5fb7840d476.jsonl": {
+      "offset": 1934,
+      "lastLineStart": 1934
+    },
+    "/root/.openclaw/cron/runs/b046fe44-bf21-46d9-b626-82052400a3c4.jsonl": {
+      "offset": 1889211,
+      "lastLineStart": 1888439,
+      "lastUploadedTs": 1790283905717
+    },
+    "/root/.openclaw/cron/runs/c34c4564-82ca-4006-8a33-d78fa74784d2.jsonl": {
+      "offset": 1944,
+      "lastLineStart": 1944
+    },
+    "/root/.openclaw/cron/runs/c49cf379-4f0a-47ad-bca4-f20bdb837123.jsonl": {
+      "offset": 1590464,
+      "lastLineStart": 1589881,
+      "lastUploadedTs": 1790284804067
+    },
+    "/root/.openclaw/cron/runs/c9452d10-c98e-433c-ba3b-30aea06e1bd7.jsonl": {
+      "offset": 1543140,
+      "lastLineStart": 1543140
+    },
+    "/root/.openclaw/cron/runs/d3b3c403-d9f8-4706-89ff-fb25942f75d9.jsonl": {
+      "offset": 123084,
+      "lastLineStart": 122053,
+      "lastUploadedTs": 1790222819113
+    },
+    "/root/.openclaw/cron/runs/d6eaf993-131a-4b80-b139-ef48b04aab33.jsonl": {
+      "offset": 23988,
+      "lastLineStart": 23669,
+      "lastUploadedTs": 1783875600009
+    },
+    "/root/.openclaw/cron/runs/b6e6c0d8-14fc-4afb-8497-a3a320ca5350.jsonl": {
+      "offset": 1575774,
+      "lastLineStart": 1574927,
+      "lastUploadedTs": 1782705007713
+    },
+    "/root/.openclaw/cron/runs/337aa99a-d9ea-4a03-a4a4-e7c4120d42e7.jsonl": {
+      "offset": 52724,
+      "lastLineStart": 51456,
+      "lastUploadedTs": 1790224066215
+    },
+    "/root/.openclaw/cron/runs/8f0a0f99-9d3b-4944-bbad-e4ee7427cbb3.jsonl": {
+      "offset": 52237,
+      "lastLineStart": 50626,
+      "lastUploadedTs": 1790222793175
+    },
+    "/root/.openclaw/cron/runs/7329222e-5a98-4da9-81c5-d719d6152f93.jsonl": {
+      "offset": 402,
+      "lastLineStart": 0,
+      "lastUploadedTs": 1786363203117
+    }
+  }
+}

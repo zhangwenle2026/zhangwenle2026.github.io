@@ -1,0 +1,33 @@
+{
+  "period": "BRT 2026-06-07 ~ 2026-06-13",
+  "orders_gmv_daily": [
+    {"dt":"20260607","city":"Northeast","orders":38411,"gmv_brl":3437243.86,"aov":89.49,"cancel_orders":7053},
+    {"dt":"20260607","city":"Santos","orders":8649,"gmv_brl":815392.51,"aov":94.28,"cancel_orders":1208},
+    {"dt":"20260607","city":"Southern","orders":51805,"gmv_brl":4788986.92,"aov":92.44,"cancel_orders":7667},
+    {"dt":"20260607","city":"Western","orders":37000,"gmv_brl":3400702.31,"aov":91.91,"cancel_orders":5969},
+    {"dt":"20260608","city":"Northeast","orders":20393,"gmv_brl":1684354.27,"aov":82.59,"cancel_orders":4735},
+    {"dt":"20260608","city":"Santos","orders":5374,"gmv_brl":457766.65,"aov":85.18,"cancel_orders":1027},
+    {"dt":"20260608","city":"Southern","orders":28475,"gmv_brl":2351631.30,"aov":82.59,"cancel_orders":5261},
+    {"dt":"20260608","city":"Western","orders":21711,"gmv_brl":1821130.35,"aov":83.88,"cancel_orders":4424},
+    {"dt":"20260609","city":"Northeast","orders":20957,"gmv_brl":1738460.25,"aov":82.95,"cancel_orders":3915},
+    {"dt":"20260609","city":"Santos","orders":5589,"gmv_brl":477137.70,"aov":85.37,"cancel_orders":887},
+    {"dt":"20260609","city":"Southern","orders":30565,"gmv_brl":2544837.44,"aov":83.26,"cancel_orders":4735},
+    {"dt":"20260609","city":"Western","orders":22588,"gmv_brl":1898085.71,"aov":84.03,"cancel_orders":3524},
+    {"dt":"20260610","city":"Northeast","orders":21794,"gmv_brl":1818968.05,"aov":83.46,"cancel_orders":4305},
+    {"dt":"20260610","city":"Santos","orders":6314,"gmv_brl":543315.15,"aov":86.05,"cancel_orders":999},
+    {"dt":"20260610","city":"Southern","orders":32915,"gmv_brl":2813382.33,"aov":85.47,"cancel_orders":5681},
+    {"dt":"20260610","city":"Western","orders":23577,"gmv_brl":2000997.04,"aov":84.87,"cancel_orders":4664},
+    {"dt":"20260611","city":"Northeast","orders":23726,"gmv_brl":1972320.71,"aov":83.13,"cancel_orders":5117},
+    {"dt":"20260611","city":"Santos","orders":6328,"gmv_brl":541547.84,"aov":85.58,"cancel_orders":1076},
+    {"dt":"20260611","city":"Southern","orders":35846,"gmv_brl":3032972.65,"aov":84.61,"cancel_orders":6109},
+    {"dt":"20260611","city":"Western","orders":26275,"gmv_brl":2210175.12,"aov":84.12,"cancel_orders":4984},
+    {"dt":"20260612","city":"Northeast","orders":44442,"gmv_brl":4145351.21,"aov":93.28,"cancel_orders":9415},
+    {"dt":"20260612","city":"Santos","orders":10346,"gmv_brl":1019215.70,"aov":98.51,"cancel_orders":1761},
+    {"dt":"20260612","city":"Southern","orders":63589,"gmv_brl":6071744.03,"aov":95.48,"cancel_orders":10621},
+    {"dt":"20260612","city":"Western","orders":47170,"gmv_brl":4550639.56,"aov":96.47,"cancel_orders":8422},
+    {"dt":"20260613","city":"Northeast","orders":34783,"gmv_brl":3201112.60,"aov":92.03,"cancel_orders":6668},
+    {"dt":"20260613","city":"Santos","orders":8191,"gmv_brl":789298.08,"aov":96.36,"cancel_orders":1276},
+    {"dt":"20260613","city":"Southern","orders":46519,"gmv_brl":4404516.06,"aov":94.68,"cancel_orders":7667},
+    {"dt":"20260613","city":"Western","orders":34383,"gmv_brl":3266086.65,"aov":94.99,"cancel_orders":5970}
+  ]
+}

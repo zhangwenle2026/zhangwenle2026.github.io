@@ -1,0 +1,12 @@
+# Python 编译缓存
+__pycache__/
+*.pyc
+.cache/
+
+# 历史备份文件（git 本身即备份，无需手动 .bak）
+*.bak
+*.bak.*
+
+# Friday/SkillHub 发布安装产物
+skill.manifest
+skill.sig

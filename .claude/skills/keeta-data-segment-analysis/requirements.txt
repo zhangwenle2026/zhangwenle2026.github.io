@@ -1,0 +1,6 @@
+matplotlib
+requests
+python-dotenv
+browser-cookie3
+keyring
+cryptography

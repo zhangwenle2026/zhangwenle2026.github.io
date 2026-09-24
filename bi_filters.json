@@ -1,0 +1,521 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "key": "dashboard-filter-kanmk-bd076",
+      "name": "Merchant Type",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "SMB"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "SMB",
+          "label": "SMB",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "KA",
+          "label": "KA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "SA",
+          "label": "SA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-0y5pp-63aba",
+      "name": "Date",
+      "filterType": "time",
+      "filterValue": {
+        "offset": -1,
+        "granularity": "DAY",
+        "type": "OFFSET"
+      },
+      "options": []
+    },
+    {
+      "key": "dashboard-filter-ptd98-9eee5",
+      "name": "Priority",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must-have",
+          "Top-Tier",
+          "Mid-Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "Must-have",
+          "label": "Must-have",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Top-Tier",
+          "label": "Top-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Mid-Tier",
+          "label": "Mid-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Long-Tail",
+          "label": "Long-Tail",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "-",
+          "label": "-",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-z29va-971b7",
+      "name": "Merchant Type",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "SMB"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "SMB",
+          "label": "SMB",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "KA",
+          "label": "KA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "SA",
+          "label": "SA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-cjh4y-64d80",
+      "name": "Priority",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must-have",
+          "Top-Tier",
+          "Mid-Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "Must-have",
+          "label": "Must-have",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Top-Tier",
+          "label": "Top-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Mid-Tier",
+          "label": "Mid-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Long-Tail",
+          "label": "Long-Tail",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "-",
+          "label": "-",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-1xegx-98e08",
+      "name": "Merchant Type",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "SMB"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "SMB",
+          "label": "SMB",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "KA",
+          "label": "KA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "SA",
+          "label": "SA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-o46f8-2b3df",
+      "name": "Date",
+      "filterType": "time",
+      "filterValue": {
+        "offset": -1,
+        "granularity": "DAY",
+        "type": "OFFSET"
+      },
+      "options": []
+    },
+    {
+      "key": "dashboard-filter-70fab-cdb79",
+      "name": "Priority",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must-have",
+          "Top-Tier",
+          "Mid-Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "Must-have",
+          "label": "Must-have",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Top-Tier",
+          "label": "Top-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Mid-Tier",
+          "label": "Mid-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Long-Tail",
+          "label": "Long-Tail",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "-",
+          "label": "-",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-2tp1v-b5371",
+      "name": "Date",
+      "filterType": "time",
+      "filterValue": {
+        "offset": -1,
+        "granularity": "DAY",
+        "type": "OFFSET"
+      },
+      "options": []
+    },
+    {
+      "key": "dashboard-filter-s7des-c49e7",
+      "name": "Priority",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must Have",
+          "Top Tier",
+          "Mid Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": true
+      },
+      "options": [
+        {
+          "value": "Must Have",
+          "label": "Must Have",
+          "hasPermission": true
+        },
+        {
+          "value": "Top Tier",
+          "label": "Top Tier",
+          "hasPermission": true
+        },
+        {
+          "value": "Mid Tier",
+          "label": "Mid Tier",
+          "hasPermission": true
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-m1u9k-164a2",
+      "name": "Merchant Type",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "SMB"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "SMB",
+          "label": "SMB",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "KA",
+          "label": "KA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "SA",
+          "label": "SA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-42msd-07d2a",
+      "name": "Date",
+      "filterType": "time",
+      "filterValue": {
+        "offset": -1,
+        "granularity": "DAY",
+        "type": "OFFSET"
+      },
+      "options": []
+    },
+    {
+      "key": "dashboard-filter-putjw-ca310",
+      "name": "Leadtag",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must-have",
+          "Top-Tier",
+          "Mid-Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "Must-have",
+          "label": "Must-have",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Top-Tier",
+          "label": "Top-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Mid-Tier",
+          "label": "Mid-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Long-Tail",
+          "label": "Long-Tail",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "-",
+          "label": "-",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-8ka8u-9429f",
+      "name": "Top 1000 Offenders",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "1",
+          "0"
+        ],
+        "rel": "IN",
+        "selectAllFlag": true
+      },
+      "options": [
+        {
+          "value": "1",
+          "label": "1",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "0",
+          "label": "0",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-jp2xy-f1b17",
+      "name": "Merchant Type",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "SMB"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "SMB",
+          "label": "SMB",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "KA",
+          "label": "KA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "SA",
+          "label": "SA",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    },
+    {
+      "key": "dashboard-filter-lx4is-141da",
+      "name": "Date",
+      "filterType": "time",
+      "filterValue": {
+        "offset": -1,
+        "granularity": "DAY",
+        "type": "OFFSET"
+      },
+      "options": []
+    },
+    {
+      "key": "dashboard-filter-eatf7-ae24b",
+      "name": "Priority",
+      "filterType": "ordinary",
+      "filterValue": {
+        "kind": 1,
+        "value": [
+          "Must-have",
+          "Top-Tier",
+          "Mid-Tier"
+        ],
+        "rel": "IN",
+        "selectAllFlag": false
+      },
+      "options": [
+        {
+          "value": "Must-have",
+          "label": "Must-have",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Top-Tier",
+          "label": "Top-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Mid-Tier",
+          "label": "Mid-Tier",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "Long-Tail",
+          "label": "Long-Tail",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        },
+        {
+          "value": "-",
+          "label": "-",
+          "hasPermission": true,
+          "isFakeDimValue": false
+        }
+      ]
+    }
+  ]
+}

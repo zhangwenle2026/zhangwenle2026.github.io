@@ -1,0 +1,47 @@
+{
+  "target_skill": "keeta-data-segment-analysis",
+  "target_dir": "/Users/tiantian/workspace/keeta-data-analyze-skill/keeta-data-segment-analysis",
+  "plan_items": [
+    {
+      "file": "scripts/ae_dbr_query.py",
+      "symbol": "report_query_node",
+      "node_type": "skill-script",
+      "reason": "reports each BiClient.run_sql SQL query node, including success and query failures",
+      "action": "skip",
+      "idempotency_key": "scripts/ae_dbr_query.py::report_query_node::skill-script"
+    },
+    {
+      "file": "scripts/ae_dbr_query.py",
+      "symbol": "report_gate_node",
+      "node_type": "skill-script",
+      "reason": "reports the overall G1-G4 gate check result after SQL execution",
+      "action": "insert",
+      "idempotency_key": "scripts/ae_dbr_query.py::report_gate_node::skill-script"
+    },
+    {
+      "file": "scripts/ae_dbr_query.py",
+      "symbol": "report_report_node",
+      "node_type": "skill-script",
+      "reason": "reports report generation after all query and gate checks pass",
+      "action": "insert",
+      "idempotency_key": "scripts/ae_dbr_query.py::report_report_node::skill-script"
+    },
+    {
+      "file": "scripts/ae_dbr_chart.py",
+      "symbol": "report_chart_node",
+      "node_type": "skill-script",
+      "reason": "reports chart rendering and G5 chart file validation as one script node",
+      "action": "insert",
+      "idempotency_key": "scripts/ae_dbr_chart.py::report_chart_node::skill-script"
+    }
+  ],
+  "validation": {
+    "commands": [
+      "python3 /Users/tiantian/.keetai/profiles/codex/Default/.codex/skills/keeta-data-skill-dev-spec/scripts/validate_tracking_plan.py .skill-dev/tracking-plan.json",
+      "python3 -m py_compile scripts/skill_tracker.py scripts/ae_dbr_query.py scripts/ae_dbr_chart.py scripts/bi_client.py",
+      "python3 scripts/skill_tracker.py --help",
+      "python3 scripts/ae_dbr_query.py --help",
+      "python3 scripts/ae_dbr_chart.py --help"
+    ]
+  }
+}

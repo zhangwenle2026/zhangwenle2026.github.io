@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通喜果汁 · 能量进化 — 商业计划书 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:    #8DC63F;
+  --dg:   #2D6A2D;
+  --ink:  #0F0F0F;
+  --sub:  #666666;
+  --faint:#BBBBAA;
+  --line: #E6E6DE;
+  --bg:   #FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Inter',-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  font-weight:300;line-height:1.9;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:56px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 72px;border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-mark{width:26px;height:26px;background:var(--g);border-radius:4px;display:flex;align-items:center;justify-content:center;}
+.nav-mark svg{width:14px;height:14px;}
+.nav-name{font-size:13px;font-weight:700;color:var(--ink);}
+
+/* TAB SWITCHER */
+.nav-tabs{display:flex;align-items:center;gap:2px;}
+.nav-tab{
+  font-size:12px;font-weight:400;color:var(--faint);
+  padding:6px 16px;border-radius:20px;cursor:pointer;
+  letter-spacing:0.02em;transition:all 0.15s ease;
+  border:none;background:none;font-family:inherit;
+  white-space:nowrap;
+}
+.nav-tab:hover{color:var(--ink);}
+.nav-tab.active{
+  background:var(--g);color:#fff;font-weight:600;
+}
+
+/* PAGE VISIBILITY */
+#page-bp{display:block;}
+#page-insights{display:none;}
+
+.nav-tag{font-size:11px;color:var(--faint);letter-spacing:0.14em;text-transform:uppercase;}
+
+/* CHAPTER DIVIDER — magazine style */
+.ch-div{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;padding:64px 72px 56px;
+  font-size:10px;font-weight:400;letter-spacing:0.35em;
+  text-transform:uppercase;color:var(--faint);
+  max-width:1200px;margin:0 auto;
+}
+.ch-div::before,.ch-div::after{content:'';display:block;height:1px;flex:1;background:var(--line);}
+
+/* SECTIONS */
+.s{padding:96px 72px 80px;max-width:1200px;margin:0 auto;}
+.s-tight{padding-top:0;}
+.hr{border:none;border-top:1px solid var(--line);}
+
+/* EYEBROW */
+.eye{font-size:10px;font-weight:400;letter-spacing:0.26em;text-transform:uppercase;color:var(--faint);margin-bottom:32px;}
+
+/* HERO NUM */
+.hero-num{font-size:clamp(5rem,12vw,10rem);font-weight:900;line-height:0.88;letter-spacing:-0.045em;color:var(--ink);}
+.hero-num .g{color:var(--g);}
+
+/* HERO CAPTION */
+.hero-cap{
+  font-size:clamp(0.95rem,1.4vw,1.1rem);font-weight:300;color:var(--sub);
+  margin-top:28px;line-height:1.85;max-width:560px;
+}
+.hero-cap strong{font-weight:700;color:var(--ink);}
+
+/* SECTION TITLE */
+.s-title{font-size:clamp(2.2rem,4vw,3.4rem);font-weight:900;line-height:1.08;letter-spacing:-0.03em;color:var(--ink);margin-bottom:56px;}
+.s-title .g{color:var(--g);}
+
+/* MAGAZINE PULL QUOTE — large, open, left-accented */
+.mag-pull{
+  font-size:clamp(1.45rem,2.6vw,2.05rem);font-weight:300;font-style:normal;
+  color:var(--ink);line-height:1.65;letter-spacing:-0.01em;
+  max-width:860px;margin:52px 0;
+  padding-left:32px;border-left:3px solid var(--g);
+}
+.mag-pull strong{font-weight:700;color:var(--g);}
+.mag-pull em{font-style:normal;color:var(--dg);font-weight:400;}
+.mag-pull .plain{font-style:normal;}
+
+/* INLINE PULL — smaller, left-accent */
+.inline-pull{
+  font-size:clamp(1.05rem,1.6vw,1.3rem);font-weight:300;font-style:italic;
+  color:var(--sub);line-height:1.8;
+  margin:56px 0;padding-left:28px;border-left:2px solid var(--g);
+  max-width:700px;
+}
+.inline-pull strong{font-weight:700;font-style:normal;color:var(--ink);}
+.inline-pull .g{color:var(--g);font-style:normal;font-weight:700;}
+
+/* STAT ROW — open, no cards */
+.stat-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border-top:1px solid var(--line);
+  padding-top:40px;margin-bottom:80px;
+}
+.stat-col{padding-right:40px;}
+.stat-col:last-child{padding-right:0;}
+.stat-n{
+  font-size:clamp(2rem,3vw,2.8rem);font-weight:900;color:var(--g);
+  line-height:1;letter-spacing:-0.03em;display:block;margin-bottom:10px;
+}
+.stat-n.dk{color:var(--dg);}
+.stat-l{font-size:13px;color:var(--ink);font-weight:400;line-height:1.5;}
+.stat-s{font-size:11px;color:var(--faint);margin-top:4px;font-weight:300;}
+
+/* TWO COL */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-bottom:64px;}
+
+/* LABEL */
+.label{
+  font-size:10px;font-weight:400;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--faint);padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:28px;
+}
+
+/* DATA LIST */
+.dl{display:flex;flex-direction:column;}
+.dr{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line);}
+.dk-{font-size:13px;color:var(--sub);font-weight:300;}
+.dv{font-size:14px;font-weight:700;color:var(--ink);}
+.dv.g{color:var(--g);}
+
+/* TABLE */
+table.t{width:100%;border-collapse:collapse;margin-bottom:64px;}
+table.t thead th{
+  font-size:10px;font-weight:400;color:var(--faint);letter-spacing:0.18em;
+  text-transform:uppercase;text-align:left;padding:0 0 14px;border-bottom:1px solid var(--line);
+}
+table.t thead th.r{text-align:right;}
+table.t tbody td{
+  font-size:14px;color:var(--ink);font-weight:300;
+  padding:15px 0;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.5;
+}
+table.t tbody td.r{text-align:right;}
+table.t tbody td.g{color:var(--g);font-weight:700;}
+table.t tbody td.sub{color:var(--sub);}
+table.t tbody td.big{font-size:1.25rem;font-weight:900;color:var(--g);}
+table.t tbody td.str{font-weight:600;}
+table.t tbody tr.hl td{color:var(--dg);font-weight:700;}
+table.t tbody tr:last-child td{border-bottom:none;}
+
+/* PRODUCT GRID */
+.prod-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border-top:1px solid var(--line);margin-bottom:72px;
+}
+.prod-cell{padding:40px 32px 40px 0;border-right:1px solid var(--line);}
+.prod-cell:last-child{border-right:none;padding-right:0;}
+.prod-cell:not(:first-child){padding-left:32px;}
+.prod-idx{font-size:10px;color:var(--faint);letter-spacing:0.1em;margin-bottom:18px;font-weight:300;}
+.prod-tag{font-size:10px;font-weight:400;color:var(--g);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;}
+.prod-name{font-size:20px;font-weight:900;color:var(--ink);margin-bottom:6px;letter-spacing:-0.02em;}
+.prod-price{font-size:13px;font-weight:300;color:var(--sub);margin-bottom:20px;}
+.prod-items{display:flex;flex-direction:column;gap:12px;}
+.prod-item{font-size:12px;color:var(--sub);line-height:1.6;font-weight:300;}
+.prod-item strong{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:1px;}
+
+/* ADDON GRID */
+.addon-row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--line);margin-bottom:64px;}
+.addon-cell{padding:28px 16px 28px 0;border-right:1px solid var(--line);}
+.addon-cell:last-child{border-right:none;}
+.addon-cell:not(:first-child){padding-left:16px;}
+.addon-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.addon-en{font-size:10px;color:var(--faint);letter-spacing:0.04em;margin-bottom:10px;font-weight:300;}
+.addon-price{font-size:20px;font-weight:900;color:var(--g);}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);margin-bottom:72px;}
+.step{padding:36px 32px 36px 0;border-right:1px solid var(--line);}
+.step:last-child{border-right:none;padding-right:0;}
+.step:not(:first-child){padding-left:32px;}
+.step-n{font-size:10px;font-weight:400;color:var(--g);letter-spacing:0.12em;margin-bottom:16px;}
+.step-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.step-desc{font-size:12px;color:var(--sub);line-height:1.75;font-weight:300;}
+.step-day{margin-top:16px;font-size:12px;font-weight:700;color:var(--dg);}
+
+/* PILOT */
+.pilot{background:var(--dg);padding:56px;margin-bottom:72px;}
+.pilot-tag{font-size:10px;font-weight:400;color:var(--g);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:20px;}
+.pilot-name{font-size:2.2rem;font-weight:900;color:#fff;margin-bottom:6px;letter-spacing:-0.025em;}
+.pilot-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:36px;font-weight:300;}
+.pilot-dl{display:flex;flex-direction:column;}
+.pilot-dr{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+.pilot-dr:last-child{border-bottom:none;}
+.pilot-dk{font-size:13px;color:rgba(255,255,255,0.4);font-weight:300;}
+.pilot-dv{font-size:13px;font-weight:600;color:#fff;}
+.pilot-dv.g{color:var(--g);}
+
+/* ACTION ROWS */
+.act-row{display:grid;grid-template-columns:64px 1fr 160px;gap:40px;padding:40px 0;border-bottom:1px solid var(--line);align-items:start;}
+.act-row:first-child{border-top:1px solid var(--line);}
+.act-idx{font-size:4rem;font-weight:900;color:var(--line);line-height:1;letter-spacing:-0.04em;}
+.act-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.act-title .g{color:var(--g);}
+.act-desc{font-size:13px;color:var(--sub);line-height:1.85;font-weight:300;}
+.act-day{font-size:13px;font-weight:700;color:var(--g);display:block;margin-bottom:4px;}
+.act-note{font-size:11px;color:var(--faint);line-height:1.6;font-weight:300;}
+
+/* GREEN BAND */
+.band{background:var(--dg);padding:88px 72px;}
+.band-inner{max-width:1200px;margin:0 auto;}
+.band-eyebrow{font-size:10px;font-weight:400;letter-spacing:0.25em;text-transform:uppercase;color:rgba(141,198,63,0.55);margin-bottom:24px;}
+.band-text{
+  font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.82);line-height:1.72;max-width:820px;
+}
+.band-text strong{font-weight:700;font-style:normal;color:#fff;}
+.band-text .g{color:var(--g);font-style:normal;}
+
+/* FOOTER */
+footer{padding:44px 72px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.ft-l{font-size:13px;font-weight:600;color:var(--ink);}
+.ft-r{font-size:11px;color:var(--faint);letter-spacing:0.12em;text-transform:uppercase;font-weight:300;}
+
+svg.chart{display:block;overflow:visible;}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav,.s,footer,.band,.ch-div{padding-left:28px;padding-right:28px;}
+  .stat-row,.two,.prod-grid,.addon-row,.steps{grid-template-columns:1fr;}
+  .stat-col,.step,.prod-cell,.addon-cell{border-right:none;border-bottom:1px solid var(--line);padding:20px 0;}
+  .act-row{grid-template-columns:1fr;gap:10px;}
+  .hero-num{font-size:clamp(3.5rem,16vw,6rem);}
+  .ch-div::before,.ch-div::after{width:40px;}
+}
+</style>
+<style>
+/* ══ Insights v5 ══ */
+.wi-hero {
+  background: #fff;
+  padding: 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+.wi-hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=1800&q=85') center/cover;
+  opacity: 0.08;
+}
+.wi-hero-inner {
+  position: relative; z-index: 1;
+  padding: 100px 120px 80px;
+}
+.wi-hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: #8DC63F; margin-bottom: 20px; font-weight: 500;
+}
+.wi-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4.5vw, 64px);
+  font-weight: 900; line-height: 1.1;
+  letter-spacing: -1px; color: #0F0F0F;
+  margin: 0 0 16px;
+}
+.wi-hero-title span { color: #8DC63F; }
+.wi-hero-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px; font-weight: 400; font-style: italic;
+  color: #8DC63F; letter-spacing: 0.02em;
+  margin-top: 0; margin-bottom: 12px;
+  max-width: 640px;
+}
+.wi-hero-desc {
+  font-size: 15px; font-weight: 300; color: #666;
+  max-width: 600px; line-height: 1.8; margin-top: 0;
+}
+
+/* chapter divider */
+.wi-ch {
+  text-align: center;
+  padding: 64px 0 40px;
+  border-top: 1px solid #eee;
+  margin-top: 0;
+}
+.wi-ch-label {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: #8DC63F; font-weight: 600;
+}
+.wi-ch-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 900; color: #0F0F0F;
+  margin-top: 8px;
+}
+.wi-ch-desc { font-size: 14px; color: #999; margin-top: 8px; }
+
+/* brand block */
+.wi-brand {
+  display: grid;
+  min-height: 520px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.wi-brand-ltr { grid-template-columns: 480px 1fr; }
+.wi-brand-rtl { grid-template-columns: 1fr 480px; }
+
+.wi-brand-img {
+  position: relative; overflow: hidden; background: #f5f5f5;
+}
+.wi-brand-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.wi-brand:hover .wi-brand-img img { transform: scale(1.03); }
+
+.wi-brand-info {
+  padding: 44px 52px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border: 1px solid #f5f5f5;
+}
+.wi-brand-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; font-weight: 900; color: #f0f0f0; line-height: 1;
+  margin-bottom: -8px;
+}
+.wi-brand-category {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #8DC63F; font-weight: 600; margin-bottom: 4px;
+}
+.wi-brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900; color: #0F0F0F;
+  margin-bottom: 4px; line-height: 1.1;
+}
+.wi-brand-flag { font-size: 13px; color: #999; margin-bottom: 12px; }
+.wi-brand-like {
+  font-size: 13px; font-style: italic; color: #8DC63F;
+  margin-bottom: 16px; font-weight: 400;
+}
+.wi-brand-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+}
+.wi-brand-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 4px 10px;
+  border: 1px solid #ddd; border-radius: 2px; color: #666;
+}
+.wi-analysis {
+  font-size: 13px; color: #555; line-height: 1.75;
+  border-left: 2px solid #8DC63F; padding-left: 12px;
+  margin-bottom: 20px;
+}
+.wi-refs-title {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #bbb; font-weight: 600; margin-bottom: 8px;
+}
+.wi-refs { list-style: none; padding: 0; margin: 0 0 16px; }
+.wi-refs li {
+  font-size: 12px; color: #666; padding: 5px 0;
+  border-bottom: 1px solid #f5f5f5; display: flex; gap: 8px;
+}
+.wi-ref-arrow { color: #8DC63F; font-weight: 700; flex-shrink: 0; }
+.wi-brand-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 4px;
+  padding: 7px 14px;
+  border: 1px solid #c8e09a;
+  border-radius: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px; font-weight: 500; letter-spacing: 0.07em;
+  color: #2D6A2D; text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.18s;
+  width: fit-content;
+}
+.wi-brand-link:hover { background: #8DC63F; color: #fff; border-color: #8DC63F; }
+
+/* pull quote */
+.wi-pull {
+  max-width: 800px; margin: 48px auto;
+  padding: 0 24px 0 28px;
+  border-left: 3px solid #8DC63F;
+  font-size: 17px; font-weight: 300; color: #333; line-height: 1.8;
+}
+.wi-pull strong { font-weight: 700; color: #0F0F0F; }
+
+/* priority ranking */
+.wi-priority {
+  background: #0a0f0a; padding: 72px 80px;
+}
+.wi-priority-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 900; color: #fff;
+  margin-bottom: 8px;
+}
+.wi-priority-sub { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 40px; }
+.wi-rank-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+}
+.wi-rank-col { background: #111; padding: 32px 28px; }
+.wi-rank-tier {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #8DC63F; font-weight: 600; margin-bottom: 20px;
+}
+.wi-rank-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0; border-bottom: 1px solid #1a1a1a;
+}
+.wi-rank-item:last-child { border-bottom: none; }
+.wi-rank-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 900; color: #8DC63F;
+  line-height: 1; min-width: 32px;
+}
+.wi-rank-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+.wi-rank-desc { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+/* trend table */
+.wi-trend {
+  background: #111; padding: 72px 80px;
+  border-top: 1px solid #1a1a1a;
+}
+.wi-trend-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900; color: #fff; margin-bottom: 8px;
+}
+.wi-trend-sub { font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 36px; }
+.wi-trend-table { width: 100%; border-collapse: collapse; }
+.wi-trend-table th {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); font-weight: 600;
+  padding: 12px 16px; border-bottom: 1px solid #222; text-align: left;
+}
+.wi-trend-table td {
+  padding: 14px 16px; border-bottom: 1px solid #1a1a1a;
+  font-size: 13px; color: rgba(255,255,255,0.7); vertical-align: top;
+}
+.wi-trend-table td:first-child { color: #8DC63F; font-weight: 600; }
+.wi-trend-old { text-decoration: line-through; color: rgba(255,255,255,0.25) !important; font-weight: 400 !important; }
+.wi-trend-new { color: #8DC63F !important; font-weight: 600 !important; }
+
+/* conclusion */
+.wi-conclusion { padding: 72px 80px; background: #fff; }
+.wi-conclusion-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; font-weight: 900; color: #0F0F0F; margin-bottom: 8px;
+}
+.wi-conclusion-sub { font-size: 13px; color: #999; margin-bottom: 36px; }
+.wi-conclusion-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.wi-conclusion-card {
+  padding: 28px 24px; border-top: 3px solid #8DC63F; background: #fafafa;
+}
+.wi-conclusion-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 900; color: #8DC63F; margin-bottom: 8px;
+}
+.wi-conclusion-label { font-size: 13px; font-weight: 700; color: #0F0F0F; margin-bottom: 6px; }
+.wi-conclusion-desc { font-size: 12px; color: #666; line-height: 1.7; }
+
+/* footer */
+.wi-footer {
+  background: #0a0f0a; padding: 48px 80px; text-align: center;
+}
+
+@media(max-width:900px){
+  .wi-hero-inner { padding: 60px 24px 48px; }
+  .wi-brand-ltr,.wi-brand-rtl { grid-template-columns: 1fr; }
+  .wi-brand-img { height: 280px; }
+  .wi-brand-info { padding: 28px 24px; }
+  .wi-priority,.wi-trend,.wi-conclusion { padding: 48px 24px; }
+  .wi-rank-grid,.wi-conclusion-grid { grid-template-columns: 1fr; }
+}
+</style>
+<style>
+/* ── TORCE Page Tokens ── */
+:root {
+  --tc-black: #0A0A0A;
+  --tc-white: #FFFFFF;
+  --tc-green: #8DC63F;
+  --tc-darkgreen: #2D6A2D;
+  --tc-gray: #f5f5f5;
+  --tc-text: #1a1a1a;
+  --tc-muted: #666;
+}
+
+/* ── Hero ── */
+.tc-hero {
+  position: relative; overflow: hidden;
+  background: #fff;
+  min-height: 520px;
+  display: flex; align-items: center;
+}
+.tc-hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/torce_hero.png') center/cover no-repeat;
+  opacity: 0.06;
+}
+.tc-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 80px;
+}
+.tc-hero-eyebrow {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--tc-green); margin-bottom: 20px; font-weight: 500;
+}
+.tc-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 900; color: #0F0F0F;
+  line-height: 1.05; letter-spacing: -1px;
+  margin: 0 0 12px;
+}
+.tc-hero-title span { color: var(--tc-green); }
+.tc-hero-subtitle {
+  font-size: 13px; font-style: italic; color: var(--tc-green);
+  letter-spacing: 0.04em; margin-bottom: 20px;
+}
+.tc-hero-desc {
+  font-size: 16px; color: #555;
+  max-width: 560px; line-height: 1.8; margin: 0;
+}
+.tc-hero-stats {
+  display: flex; gap: 48px; margin-top: 48px;
+}
+.tc-hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 900; color: var(--tc-green);
+  line-height: 1;
+}
+.tc-hero-stat-label {
+  font-size: 12px; color: #999;
+  letter-spacing: 0.05em; margin-top: 4px;
+}
+
+/* ── Section ── */
+.tc-section {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 80px;
+}
+.tc-section-eyebrow {
+  font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--tc-green); margin-bottom: 12px; font-weight: 500;
+}
+.tc-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 900; color: var(--tc-black);
+  line-height: 1.1; margin: 0 0 40px;
+}
+.tc-divider {
+  border: none; border-top: 1px solid #e8e8e8; margin: 0;
+}
+
+/* ── Design Principles ── */
+.tc-principles {
+  background: #fff;
+  padding: 72px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.tc-principles .tc-section-title { color: #0F0F0F; }
+.tc-principles .tc-section-eyebrow { color: var(--tc-green); }
+.tc-princ-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+  margin-top: 40px;
+}
+.tc-princ-card {
+  background: #fafafa; padding: 32px 28px;
+  border-top: 3px solid var(--tc-green);
+}
+.tc-princ-icon { font-size: 28px; margin-bottom: 16px; }
+.tc-princ-title {
+  font-size: 15px; font-weight: 700; color: #0F0F0F;
+  margin-bottom: 8px; letter-spacing: 0.01em;
+}
+.tc-princ-desc { font-size: 13px; color: #666; line-height: 1.7; }
+
+/* ── Products ── */
+.tc-products-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-top: 0;
+}
+.tc-product-card {
+  display: grid; grid-template-columns: 420px 1fr;
+  min-height: 480px; overflow: hidden;
+}
+.tc-product-card:nth-child(even) {
+  grid-template-columns: 1fr 420px;
+}
+.tc-product-card:nth-child(even) .tc-product-img { order: 2; }
+.tc-product-card:nth-child(even) .tc-product-info { order: 1; }
+.tc-product-img {
+  position: relative; overflow: hidden;
+  background: #f0f0f0;
+}
+.tc-product-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.6s ease;
+}
+.tc-product-card:hover .tc-product-img img { transform: scale(1.04); }
+.tc-product-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: var(--tc-green); color: #fff;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 5px 10px; border-radius: 2px;
+}
+.tc-product-info {
+  padding: 40px 44px;
+  background: #fff;
+  display: flex; flex-direction: column; justify-content: space-between;
+  border: 1px solid #f0f0f0;
+}
+.tc-product-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px; font-weight: 900;
+  color: #f0f0f0; line-height: 1;
+  margin-bottom: -12px;
+}
+.tc-product-category {
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tc-green); font-weight: 600; margin-bottom: 6px;
+}
+.tc-product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 900; color: var(--tc-black);
+  margin-bottom: 4px; line-height: 1.1;
+}
+.tc-product-english {
+  font-size: 12px; color: var(--tc-muted); letter-spacing: 0.05em;
+  margin-bottom: 16px; font-style: italic;
+}
+.tc-product-tags {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+}
+.tc-product-tag {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 4px 10px;
+  border: 1px solid #ddd; border-radius: 2px; color: #555;
+}
+.tc-product-desc {
+  font-size: 13px; color: var(--tc-muted); line-height: 1.75;
+  margin-bottom: 20px; border-left: 2px solid var(--tc-green);
+  padding-left: 12px;
+}
+
+/* Recipe + Steps */
+.tc-recipe-title {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #999; font-weight: 600; margin-bottom: 8px;
+}
+.tc-recipe-list {
+  list-style: none; padding: 0; margin: 0 0 16px;
+}
+.tc-recipe-list li {
+  font-size: 12px; color: var(--tc-text);
+  padding: 4px 0; border-bottom: 1px solid #f5f5f5;
+  display: flex; justify-content: space-between;
+}
+.tc-recipe-list li span { color: var(--tc-muted); }
+.tc-steps {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.tc-step {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--tc-muted);
+}
+.tc-step-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--tc-green); color: #fff;
+  font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Price + Strategy row */
+.tc-product-footer {
+  display: flex; align-items: center; gap: 0;
+  border-top: 1px solid #f0f0f0; padding-top: 16px;
+  margin-top: auto;
+}
+.tc-price-box {
+  flex: 1; text-align: center; padding: 12px;
+  border-right: 1px solid #f0f0f0;
+}
+.tc-price-box:last-child { border-right: none; }
+.tc-price-label {
+  font-size: 10px; color: #999; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.tc-price-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 900; color: var(--tc-darkgreen);
+}
+.tc-price-sub { font-size: 11px; color: var(--tc-muted); margin-top: 2px; }
+.tc-strategy-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: 2px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tc-strategy-引流 { background: #FFF3E0; color: #E65100; }
+.tc-strategy-利润 { background: #E8F5E9; color: #2E7D32; }
+.tc-strategy-爆款 { background: #E3F2FD; color: #1565C0; }
+.tc-strategy-破圈 { background: #F3E5F5; color: #6A1B9A; }
+.tc-strategy-差异 { background: #FCE4EC; color: #AD1457; }
+.tc-strategy-专业 { background: #EDE7F6; color: #4527A0; }
+
+/* ── Strategy Matrix ── */
+.tc-matrix {
+  background: #fafafa; padding: 72px 0;
+  border-top: 1px solid #eee;
+}
+.tc-matrix .tc-section-title { color: #0F0F0F; }
+.tc-matrix .tc-section-eyebrow { color: var(--tc-green); }
+.tc-matrix-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+  margin-top: 40px;
+}
+.tc-matrix-cell {
+  background: #fff; padding: 32px 28px;
+  border: 1px solid #eee;
+}
+.tc-matrix-role {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--tc-green); font-weight: 600; margin-bottom: 8px;
+}
+.tc-matrix-products {
+  margin-bottom: 12px;
+}
+.tc-matrix-product-name {
+  font-size: 15px; font-weight: 700; color: #0F0F0F; margin-bottom: 2px;
+}
+.tc-matrix-product-desc { font-size: 12px; color: #999; }
+.tc-matrix-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px; font-weight: 900; color: var(--tc-green);
+  margin-top: 16px;
+}
+.tc-matrix-value-label { font-size: 11px; color: #999; }
+
+/* ── Launch Timeline ── */
+.tc-timeline {
+  padding: 72px 0; background: #fafafa;
+}
+.tc-timeline-track {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; margin-top: 48px; position: relative;
+}
+.tc-timeline-track::before {
+  content: ''; position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 1px; background: var(--tc-green); opacity: 0.3;
+}
+.tc-tl-item { text-align: center; padding: 0 20px; }
+.tc-tl-dot {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--tc-green); color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.tc-tl-month {
+  font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--tc-muted); margin-bottom: 8px;
+}
+.tc-tl-products {
+  font-size: 13px; font-weight: 600; color: var(--tc-black);
+  line-height: 1.6; margin-bottom: 8px;
+}
+.tc-tl-desc { font-size: 12px; color: var(--tc-muted); line-height: 1.6; }
+
+
+/* ── Product Recipe Label Overlay ── */
+.tc-img-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.tc-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.tc-recipe-label {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 14px 20px;
+  min-width: 200px;
+  max-width: 240px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  text-align: center;
+}
+.tc-rl-icon {
+  font-size: 18px;
+  margin-bottom: 6px;
+  display: block;
+}
+.tc-rl-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.tc-rl-sub {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.tc-rl-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+.tc-rl-pill {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── Full-width product section ── */
+.tc-products-section {
+  background: #fff;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .tc-hero-inner,.tc-section { padding: 48px 24px; }
+  .tc-products-grid { grid-template-columns: 1fr; }
+  .tc-product-card, .tc-product-card:nth-child(even) {
+    grid-template-columns: 1fr; grid-template-rows: 280px auto;
+  }
+  .tc-product-card:nth-child(even) .tc-product-img { order: 1; }
+  .tc-product-card:nth-child(even) .tc-product-info { order: 2; }
+  .tc-princ-grid, .tc-matrix-grid { grid-template-columns: 1fr 1fr; }
+  .tc-timeline-track { grid-template-columns: 1fr 1fr; }
+  .tc-hero-stats { gap: 24px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-mark">
+      <svg viewBox="0 0 14 14" fill="none">
+        <rect x="1" y="3" width="9" height="9" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+        <rect x="3.5" y="1" width="9.5" height="9.5" rx="1.5" fill="white"/>
+      </svg>
+    </div>
+    <div><div class="nav-name">通喜果汁</div></div>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('bp')">商业计划书</button>
+    <button class="nav-tab" onclick="switchTab('insights')">全球鲜果&能量饮品全景洞察</button>
+    <button class="nav-tab" onclick="switchTab('products')">通喜能量饮品计划</button>
+  </div>
+</nav>
+
+<script>
+function switchTab(tab){
+  document.getElementById('page-bp').style.display = tab==='bp' ? 'block' : 'none';
+  document.getElementById('page-insights').style.display = tab==='insights' ? 'block' : 'none';
+  document.getElementById('page-products').style.display = tab==='products' ? 'block' : 'none';
+  document.querySelectorAll('.nav-tab').forEach((el,i)=>{
+    el.classList.toggle('active', (tab==='bp' && i===0) || (tab==='insights' && i===1));
+  });
+  window.scrollTo(0,0);
+}
+</script>
+
+<!-- ══ PAGE: 商业计划书 ══ -->
+<div id="page-bp">
+
+<!-- COVER -->
+<div style="padding-top:56px;">
+  <div class="s" style="padding-top:100px;padding-bottom:72px;">
+    <div class="eye">商业分析与落地计划书 · 2026</div>
+    <div style="margin-bottom:52px;">
+      <div class="hero-num">通喜果汁</div>
+      <div class="hero-num"><span class="g">能量进化</span></div>
+    </div>
+    <div class="hero-cap">全系列能量饮品牌扩张计划 · <strong>Full Energy Drink Brand Expansion</strong></div>
+  </div>
+</div>
+
+<hr class="hr">
+<div class="ch-div">01 · 核心结论</div>
+
+<!-- 01 CONCLUSION -->
+<div class="s s-tight">
+  <div style="margin-bottom:56px;">
+    <div class="hero-num"><span class="g">5.5%</span></div>
+    <div class="hero-num">→ <span class="g">31%</span></div>
+  </div>
+
+  <div class="mag-pull">
+    净利率的质变——<strong>不是改良，是重构盈利模型。</strong><br>
+    单店投入 ¥11,500，13天回本，<em>100% 复用现有门店资源，无需新增固定成本</em>。
+  </div>
+
+  <div class="inline-pull">
+    依托 60+ 厦门门店与「0糖鲜榨」品牌心智，打造果汁+能量饮集合店，开辟<span class="g">第二增长曲线</span>。<br>
+    3个月完成门店复制；「通喜能量」作为通喜品牌新产品系列，12个月内在全网络落地。
+  </div>
+</div>
+
+<hr class="hr">
+<div class="ch-div">02 · 行业机会与品牌壁垒</div>
+
+<!-- 02 MARKET -->
+<div class="s s-tight">
+  <div class="s-title">厦门是<span class="g">最优起点</span><br>通喜已有护城河</div>
+
+  <div class="stat-row">
+    <div class="stat-col"><span class="stat-n">¥380亿</span><div class="stat-l">健身营养饮品市场</div><div class="stat-s">年增速 13.7%</div></div>
+    <div class="stat-col"><span class="stat-n">43.1%</span><div class="stat-l">厦门健身人群占比</div><div class="stat-s">全国前五</div></div>
+    <div class="stat-col"><span class="stat-n">¥3,640</span><div class="stat-l">厦门人均体育消费</div><div class="stat-s">消费基础优质</div></div>
+    <div class="stat-col"><span class="stat-n dk">蓝海</span><div class="stat-l">现制功能饮品赛道</div><div class="stat-s">无头部连锁品牌</div></div>
+  </div>
+
+  <div class="two">
+    <div>
+      <div class="label">业务痛点</div>
+      <div class="dl">
+        <div class="dr"><span class="dk-">月固定成本</span><span class="dv">¥60,000</span></div>
+        <div class="dr"><span class="dk-">水果损耗率</span><span class="dv">15—20%</span></div>
+        <div class="dr"><span class="dk-">当前净利率</span><span class="dv">5.5%</span></div>
+        <div class="dr"><span class="dk-">回本周期</span><span class="dv">18—24个月</span></div>
+        <div class="dr"><span class="dk-">营收时段覆盖</span><span class="dv">午后为主</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="label">通喜四大壁垒</div>
+      <div class="dl">
+        <div class="dr"><span class="dk-">品牌口碑</span><span class="dv g">13年「0糖鲜榨」心智</span></div>
+        <div class="dr"><span class="dk-">门店网络</span><span class="dv g">60+ 商场覆盖，零选址成本</span></div>
+        <div class="dr"><span class="dk-">供应链</span><span class="dv g">本土化采购，成本可控</span></div>
+        <div class="dr"><span class="dk-">存量客群</span><span class="dv g">健康意识强，天然接受</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mag-pull" style="font-size:clamp(1.3rem,2.2vw,1.75rem);">
+    60+ 家门店，已是厦门最大的健康饮品渠道网络。<br>
+    <strong>能量饮不是新赛道，是现有流量的二次变现。</strong>"
+  </div>
+
+  <div class="label">对标 · 巴西 Energy Bar</div>
+  <table class="t">
+    <thead><tr><th style="width:18%">维度</th><th>巴西 Energy Bar</th><th>通喜能量饮</th></tr></thead>
+    <tbody>
+      <tr><td class="str">配方</td><td class="sub">天然水果+蜂蜜，部分含添加糖</td><td class="g">100% 水果天然，0 添加糖</td></tr>
+      <tr><td class="str">供应链</td><td class="sub">进口原料，成本较高</td><td class="g">本土供应链，成本更低</td></tr>
+      <tr><td class="str">渠道</td><td class="sub">健身房单一渠道</td><td class="g">商场 + 写字楼 + 健身房</td></tr>
+      <tr><td class="str">启动成本</td><td class="sub">独立选址装修，投入大</td><td class="g">嵌入现有门店，¥11,500 启动</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="hr">
+<div class="ch-div">03 · 产品体系</div>
+
+<!-- 03 PRODUCT -->
+<div class="s s-tight">
+  <div class="s-title">六大核心产品<br><span class="g">全量复用现有基底</span></div>
+
+  <div class="prod-grid">
+    <div class="prod-cell">
+      <div class="prod-idx">01</div>
+      <div class="prod-tag">RECOVERY</div>
+      <div class="prod-name">运动恢复</div>
+      <div class="prod-price">¥28 — 32</div>
+      <div class="prod-items">
+        <div class="prod-item">巴西莓 + 蓝莓 + 乳清蛋白 + BCAA</div>
+      </div>
+    </div>
+    <div class="prod-cell">
+      <div class="prod-idx">02</div>
+      <div class="prod-tag">PERFORMANCE</div>
+      <div class="prod-name">运动表现</div>
+      <div class="prod-price">¥28 — 32</div>
+      <div class="prod-items">
+        <div class="prod-item">芒果 + 香蕉 + 肌酸 + 电解质</div>
+      </div>
+    </div>
+    <div class="prod-cell">
+      <div class="prod-idx">03</div>
+      <div class="prod-tag">PROTEIN</div>
+      <div class="prod-name">高蛋白代餐</div>
+      <div class="prod-price">¥26 — 30</div>
+      <div class="prod-items">
+        <div class="prod-item">椰奶 + 香蕉 + 乳清蛋白 + 奇亚籽</div>
+      </div>
+    </div>
+    <div class="prod-cell">
+      <div class="prod-idx">04</div>
+      <div class="prod-tag">DETOX ⭐标志产品</div>
+      <div class="prod-name">净化轻体</div>
+      <div class="prod-price">¥22 — 26</div>
+      <div class="prod-items">
+        <div class="prod-item">青苹果 + 螺旋藻 + 椰子水 + 柠檬</div>
+      </div>
+    </div>
+    <div class="prod-cell">
+      <div class="prod-idx">05</div>
+      <div class="prod-tag">ENERGY</div>
+      <div class="prod-name">天然提神</div>
+      <div class="prod-price">¥24 — 28</div>
+      <div class="prod-items">
+        <div class="prod-item">菠萝 + 芒果 + 天然咖啡因 + 电解质</div>
+      </div>
+    </div>
+    <div class="prod-cell">
+      <div class="prod-idx">06</div>
+      <div class="prod-tag">L-CARNITINE</div>
+      <div class="prod-name">燃脂辅助</div>
+      <div class="prod-price">¥26 — 30</div>
+      <div class="prod-items">
+        <div class="prod-item">抹茶 + 左旋肉碱 + 燕麦奶</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="label">DIY 能量升级包 — 任意饮品叠加，每包 +¥8</div>
+  <div class="addon-row">
+    <div class="addon-cell"><div class="addon-name">乳清蛋白</div><div class="addon-en">Whey Protein</div><div class="addon-price">+¥8</div></div>
+    <div class="addon-cell"><div class="addon-name">BCAA</div><div class="addon-en">Amino Acids</div><div class="addon-price">+¥8</div></div>
+    <div class="addon-cell"><div class="addon-name">肌酸</div><div class="addon-en">Creatine</div><div class="addon-price">+¥8</div></div>
+    <div class="addon-cell"><div class="addon-name">螺旋藻粉</div><div class="addon-en">Spirulina</div><div class="addon-price">+¥8</div></div>
+    <div class="addon-cell"><div class="addon-name">左旋肉碱</div><div class="addon-en">L-Carnitine</div><div class="addon-price">+¥8</div></div>
+    <div class="addon-cell"><div class="addon-name">胶原蛋白</div><div class="addon-en">Collagen</div><div class="addon-price">+¥8</div></div>
+  </div>
+</div>
+
+<hr class="hr">
+<div class="ch-div">04 · 单店 UE 模型</div>
+
+<!-- 04 UE -->
+<div class="s s-tight">
+  <div style="margin-bottom:52px;">
+    <div class="hero-num">+<span class="g">809%</span></div>
+  </div>
+
+  <div class="mag-pull">
+    月净利 <strong>¥5,520 → ¥50,160</strong>。<br>
+    能量饮 100% 复用现有固定成本，<em>新增收入几乎全部转化为净利润</em>。
+  </div>
+
+  <div class="two">
+    <div>
+      <div class="label">单店 UE 对比</div>
+      <table class="t" style="margin-bottom:0;">
+        <thead><tr><th>指标</th><th class="r">上线前</th><th class="r">上线后</th><th class="r">变化</th></tr></thead>
+        <tbody>
+          <tr><td>日均出杯</td><td class="r sub">120 杯</td><td class="r">150 杯</td><td class="r g">+25%</td></tr>
+          <tr><td>平均客单价</td><td class="r sub">¥28</td><td class="r">¥36</td><td class="r g">+28.6%</td></tr>
+          <tr><td>月营收</td><td class="r sub">¥100,800</td><td class="r">¥162,000</td><td class="r g">+60.7%</td></tr>
+          <tr><td>综合毛利率</td><td class="r sub">65%</td><td class="r">68%</td><td class="r g">+3pts</td></tr>
+          <tr class="hl"><td>月净利润</td><td class="r sub">¥5,520</td><td class="r big">¥50,160</td><td class="r big">+809%</td></tr>
+          <tr class="hl"><td>净利润率</td><td class="r sub">5.5%</td><td class="r big">31%</td><td class="r big">↑25.5pts</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div class="label">单杯经济学</div>
+      <table class="t" style="margin-bottom:32px;">
+        <thead><tr><th>指标</th><th class="r">能量饮</th><th class="r">鲜榨果汁</th></tr></thead>
+        <tbody>
+          <tr><td>售价</td><td class="r">¥28</td><td class="r sub">¥28</td></tr>
+          <tr><td>原料成本</td><td class="r g">¥8.5</td><td class="r sub">¥9.8</td></tr>
+          <tr><td>水果损耗</td><td class="r g">0%</td><td class="r sub">15—20%</td></tr>
+          <tr><td>制作时间</td><td class="r g">60—90秒</td><td class="r sub">120—180秒</td></tr>
+          <tr class="hl"><td>单杯毛利率</td><td class="r big">69.6%</td><td class="r sub">65.0%</td></tr>
+        </tbody>
+      </table>
+      <div style="margin-bottom:10px;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:var(--sub);font-weight:300;">原料成本 ¥8.5</span><span style="font-size:12px;color:var(--faint);">30.4%</span></div>
+        <div style="height:3px;background:var(--line);border-radius:2px;"><div style="height:3px;width:30.4%;background:var(--faint);border-radius:2px;"></div></div>
+      </div>
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:12px;color:var(--sub);font-weight:300;">单杯净利 ¥19.5</span><span style="font-size:12px;color:var(--g);font-weight:700;">69.6%</span></div>
+        <div style="height:3px;background:var(--line);border-radius:2px;"><div style="height:3px;width:69.6%;background:var(--g);border-radius:2px;"></div></div>
+      </div>
+      <div style="font-size:11px;color:var(--faint);margin-top:12px;font-weight:300;">* 固定成本已被原有业务覆盖</div>
+    </div>
+  </div>
+</div>
+
+<!-- BAND -->
+<div class="band">
+  <div class="band-inner">
+    <div class="band-eyebrow">关键洞察</div>
+    <div class="band-text">每日多卖 <strong>30 杯</strong>能量饮，等同于新建一家高利润率业务单元。<br>固定成本已经存在——<strong>新增收入几乎全部是净利润。</strong></div>
+  </div>
+</div>
+
+<hr class="hr">
+<div class="ch-div">05 · 落地执行与财务预测</div>
+
+<!-- 05 EXECUTION + FINANCE -->
+<div class="s s-tight">
+  <div style="margin-bottom:52px;">
+    <div class="hero-num">¥<span class="g">11,500</span></div>
+    <div class="s-title" style="margin-top:16px;margin-bottom:0;">启动 · <span class="g">12个月 ¥654万</span></div>
+  </div>
+
+  <div class="inline-pull">
+    <strong>7天完成试点上线。</strong><br>
+    每一步都有清单，每一天都有验收标准。
+  </div>
+
+  <div class="label" style="margin-bottom:0;">7天上线 SOP</div>
+  <div class="steps">
+    <div class="step"><div class="step-n">STEP 01</div><div class="step-title">项目立项</div><div class="step-desc">确认启动，选定 JFC 品尚中心，指定负责人</div><div class="step-day">Day 1</div></div>
+    <div class="step"><div class="step-n">STEP 02</div><div class="step-title">原料采购</div><div class="step-desc">采购功能性粉类原料，制作菜单物料 ≤ ¥11,500</div><div class="step-day">Day 1—3</div></div>
+    <div class="step"><div class="step-n">STEP 03</div><div class="step-title">员工培训</div><div class="step-desc">SOP 培训，口味测试，单杯 ≤ 90秒</div><div class="step-day">Day 3—5</div></div>
+    <div class="step"><div class="step-n">STEP 04</div><div class="step-title">菜单上架</div><div class="step-desc">更新物料，配合 KOL 预热，引爆首周流量</div><div class="step-day">Day 5—7</div></div>
+    <div class="step"><div class="step-n">STEP 05</div><div class="step-title">正式开卖</div><div class="step-desc">全系列上线，数据监测，30天评估复制</div><div class="step-day">Day 7 →</div></div>
+  </div>
+
+  <div class="pilot">
+    <div class="pilot-tag">First Pilot Store</div>
+    <div class="pilot-name">JFC 品尚中心店</div>
+    <div class="pilot-sub">观音山国际商务区</div>
+    <div class="pilot-dl">
+      <div class="pilot-dr"><span class="pilot-dk">客群</span><span class="pilot-dv">写字楼白领 + 健身房会员</span></div>
+      <div class="pilot-dr"><span class="pilot-dk">消费力</span><span class="pilot-dv g">客单价 ¥28—45 接受度高</span></div>
+      <div class="pilot-dr"><span class="pilot-dk">启动投入</span><span class="pilot-dv g">¥11,500</span></div>
+      <div class="pilot-dr"><span class="pilot-dk">新增固定成本</span><span class="pilot-dv g">¥0</span></div>
+    </div>
+  </div>
+
+  <div class="label">12个月扩张路线 — 累计新增净利（万元）</div>
+  <svg class="chart" width="100%" viewBox="0 0 1080 200" style="margin-bottom:48px;">
+    <line x1="60" y1="10" x2="1060" y2="10" stroke="var(--line)" stroke-width="1"/>
+    <line x1="60" y1="55" x2="1060" y2="55" stroke="var(--line)" stroke-width="1"/>
+    <line x1="60" y1="100" x2="1060" y2="100" stroke="var(--line)" stroke-width="1"/>
+    <line x1="60" y1="145" x2="1060" y2="145" stroke="var(--line)" stroke-width="1"/>
+    <line x1="60" y1="175" x2="1060" y2="175" stroke="var(--line)" stroke-width="1"/>
+    <text x="48" y="14" text-anchor="end" style="font-size:10px;fill:var(--faint);font-family:Inter;font-weight:300;">654</text>
+    <text x="48" y="59" text-anchor="end" style="font-size:10px;fill:var(--faint);font-family:Inter;font-weight:300;">400</text>
+    <text x="48" y="104" text-anchor="end" style="font-size:10px;fill:var(--faint);font-family:Inter;font-weight:300;">200</text>
+    <text x="48" y="149" text-anchor="end" style="font-size:10px;fill:var(--faint);font-family:Inter;font-weight:300;">50</text>
+    <text x="48" y="179" text-anchor="end" style="font-size:10px;fill:var(--faint);font-family:Inter;font-weight:300;">0</text>
+    <polygon points="90,173 175,171 260,167 345,162 430,155 515,137 600,123 685,108 770,94 855,78 940,58 1025,12 1025,175 90,175" fill="rgba(141,198,63,0.07)"/>
+    <polyline points="90,173 175,171 260,167 345,162 430,155 515,137 600,123 685,108 770,94 855,78 940,58 1025,12" fill="none" stroke="var(--g)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="260" cy="167" r="4" fill="var(--g)"/>
+    <circle cx="515" cy="137" r="4" fill="var(--g)"/>
+    <circle cx="1025" cy="12" r="6" fill="var(--g)"/>
+    <text x="260" y="158" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--dg);font-family:Inter;">¥31万</text>
+    <text x="515" y="128" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--dg);font-family:Inter;">¥165万</text>
+    <text x="1025" y="5" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--dg);font-family:Inter;">¥654万</text>
+    <text x="90" y="192" text-anchor="middle" style="font-size:11px;fill:var(--faint);font-family:Inter;font-weight:300;">M1</text>
+    <text x="260" y="192" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--g);font-family:Inter;">M3</text>
+    <text x="515" y="192" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--g);font-family:Inter;">M6</text>
+    <text x="770" y="192" text-anchor="middle" style="font-size:11px;fill:var(--faint);font-family:Inter;font-weight:300;">M9</text>
+    <text x="1025" y="192" text-anchor="middle" style="font-size:11px;font-weight:700;fill:var(--g);font-family:Inter;">M12</text>
+  </svg>
+
+  <table class="t">
+    <thead><tr><th>时间节点</th><th class="r">门店数</th><th class="r">月新增净利</th><th class="r">累计净利</th><th>里程碑</th></tr></thead>
+    <tbody>
+      <tr><td>第 1 个月</td><td class="r">1 家</td><td class="r">¥4.46 万</td><td class="r">¥4.4 万</td><td class="sub">JFC 品尚中心试点验证</td></tr>
+      <tr><td>第 3 个月</td><td class="r">3 家</td><td class="r">¥13.4 万</td><td class="r g">¥31 万</td><td class="sub">第二增长曲线正式成立</td></tr>
+      <tr><td>第 6 个月</td><td class="r">10 家</td><td class="r">¥44.6 万</td><td class="r g">¥165 万</td><td class="sub">「通喜能量」系列全网络铺开</td></tr>
+      <tr class="hl"><td>第 12 个月</td><td class="r big">30 家</td><td class="r big">¥133.9 万</td><td class="r big">¥654 万</td><td class="g">全面收割 · 评估下一阶段战略</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="hr">
+<div class="ch-div">06 · 下一步行动</div>
+
+<!-- 06 ACTION -->
+<div class="s s-tight">
+  <div style="margin-bottom:52px;">
+    <div class="hero-num">7<span class="g">天</span></div>
+  </div>
+
+  <div class="mag-pull">
+    无需新增固定成本。无需改造门店。无需招聘员工。<br>
+    <strong>所有条件已经具备——唯一需要的，是一个开始的决定。</strong>"
+  </div>
+
+  <div>
+    <div class="act-row">
+      <div class="act-idx">01</div>
+      <div>
+        <div class="act-title">项目立项 <span class="g">&amp;</span> 团队确认</div>
+        <div class="act-desc">今日确认项目启动，选定 JFC 品尚中心店为首家试点，指定项目负责人，明确考核指标与数据追踪机制。</div>
+      </div>
+      <div><span class="act-day">Day 1</span><div class="act-note">今日可执行 · 零成本启动</div></div>
+    </div>
+    <div class="act-row">
+      <div class="act-idx">02</div>
+      <div>
+        <div class="act-title">原料 <span class="g">&amp;</span> 物料采购</div>
+        <div class="act-desc">采购乳清蛋白、BCAA、肌酸、螺旋藻等功能性原料，制作菜单物料。总预算 ≤ ¥11,500，无固定成本新增。</div>
+      </div>
+      <div><span class="act-day">Day 1—3</span><div class="act-note">预算 ¥11,500 · 保质期 12月+</div></div>
+    </div>
+    <div class="act-row">
+      <div class="act-idx">03</div>
+      <div>
+        <div class="act-title">全员培训 <span class="g">&amp;</span> 内测</div>
+        <div class="act-desc">完成全员 SOP 培训，口味测试与优化，确保单杯制作 ≤ 90 秒，统一宣传话术，严禁保健/医疗功效宣传。</div>
+      </div>
+      <div><span class="act-day">Day 3—5</span><div class="act-note">内部口味验证 · SOP 标准化</div></div>
+    </div>
+    <div class="act-row">
+      <div class="act-idx">04</div>
+      <div>
+        <div class="act-title"><span class="g">正式上线</span> · 数据驱动扩张</div>
+        <div class="act-desc">全系列产品正式上架，配合 KOL 推广，开始数据监测（日销量/品类结构/客单价）。30天后评估复制至下一家门店。</div>
+      </div>
+      <div><span class="act-day">Day 7 →</span><div class="act-note">数据监测启动 · 30天评估复制</div></div>
+    </div>
+  </div>
+
+  <div class="stat-row" style="margin-top:72px;margin-bottom:0;">
+    <div class="stat-col"><span class="stat-n">¥11,500</span><div class="stat-l">总启动成本</div><div class="stat-s">新增固定成本 +¥0</div></div>
+    <div class="stat-col"><span class="stat-n">13天</span><div class="stat-l">回本周期</div><div class="stat-s">月净利 ¥5,520 → ¥50,160</div></div>
+    <div class="stat-col"><span class="stat-n dk">≈¥0</span><div class="stat-l">失败成本</div><div class="stat-s">粉类原料可转售</div></div>
+    <div class="stat-col"><span class="stat-n">7天</span><div class="stat-l">上线所需时间</div><div class="stat-s">从决策到开卖</div></div>
+  </div>
+</div>
+
+<!-- CLOSING BAND -->
+<div class="band">
+  <div class="band-inner">
+    <div class="band-eyebrow">结语</div>
+    <div class="band-text">
+      通喜已经拥有一切：<strong>品牌口碑、60+ 门店、成熟供应链、存量客群。</strong><br>
+      ¥11,500 的试错成本，验证一条<strong>净利率提升 5 倍的第二增长曲线。</strong><br>
+      <span class="g">这是通喜迄今最低风险、最高回报、最快落地的增长机会。</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-l">通喜果汁 · Tongxi · 2026</div>
+  <div class="ft-r">保密文件 · Confidential</div>
+</footer>
+</div><!-- /page-bp -->
+
+<div id="page-insights" style="padding-top:56px; background:#fff; font-family:'Inter',sans-serif;">
+
+<!-- HERO -->
+<section class="wi-hero">
+  <div class="wi-hero-bg"></div>
+  <div class="wi-hero-inner">
+    <div class="wi-hero-eyebrow">GLOBAL FRESH JUICE &amp; ENERGY DRINKS · MARKET INTELLIGENCE 2026</div>
+    <h1 class="wi-hero-title">全球鲜果汁 · <span>能量饮品</span>全景洞察</h1>
+    <p class="wi-hero-en">A Deep Dive into 8 World-Class Brands Reshaping the Health Beverage Industry</p>
+    <p class="wi-hero-desc">8 个全球标杆品牌深度解析——从高端功能昔天花板到小门店破圈模型，读懂新一代健康饮品消费者正在寻找什么。</p>
+  </div>
+</section>
+
+<!-- CHAPTER 01 -->
+<div class="wi-ch">
+  <div class="wi-ch-label">01 · 高端功能昔标杆 — 品牌天花板</div>
+  <div class="wi-ch-title">The Premium Tier</div>
+  <div class="wi-ch-desc">定义行业高度，通喜能量对标的方向</div>
+</div>
+
+<!-- BRAND 01: Erewhon -->
+<div class="wi-brand wi-brand-ltr">
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1662130187270-a4d52c700eb6?w=900&q=85" alt="Erewhon">
+  </div>
+  <div class="wi-brand-info">
+    <div>
+      <div class="wi-brand-num">01</div>
+      <div class="wi-brand-category">高端功能昔 · 好莱坞明星御用</div>
+      <div class="wi-brand-name">Erewhon</div>
+      <div class="wi-brand-flag">🇺🇸 美国洛杉矶 · 全球功能昔定价天花板</div>
+      <div class="wi-brand-like">"一杯昔卖到 $21，排队2小时也值得"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Premium</span>
+        <span class="wi-brand-tag">Celebrity</span>
+        <span class="wi-brand-tag">Functional</span>
+        <span class="wi-brand-tag">Hype</span>
+      </div>
+      <div class="wi-analysis">好莱坞明星联名特调昔，每款都有名字和故事。Hailey Bieber 的草莓皮肤昔、Kendall Jenner 的紫色蓝莓昔，每次联名都引爆 Instagram。证明功能性果昔可以成为「文化事件」而不只是饮料。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>联名策略：与厦门本地 KOL/健身达人联名出品特调款，制造话题</li>
+        <li><span class="wi-ref-arrow">→</span>每杯有名字有故事，让产品成为社交货币而非功能品</li>
+        <li><span class="wi-ref-arrow">→</span>高定价=高品质感知，TORCE ENERGY 溢价空间参考</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.erewhonmarket.com" target="_blank" rel="noopener">Visit erewhonmarket.com ↗</a>
+  </div>
+</div>
+
+<!-- BRAND 02: Joe & The Juice -->
+<div class="wi-brand wi-brand-rtl">
+  <div class="wi-brand-info" style="border-right:1px solid #f5f5f5;">
+    <div>
+      <div class="wi-brand-num">02</div>
+      <div class="wi-brand-category">都市鲜果昔 · 品牌美学标杆</div>
+      <div class="wi-brand-name">Joe &amp; The Juice</div>
+      <div class="wi-brand-flag">🇩🇰 丹麦 · 全球 350+ 门店 · 40 国</div>
+      <div class="wi-brand-like">"Supreme × 鲜果汁店"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Urban Cool</span>
+        <span class="wi-brand-tag">Fresh Juice</span>
+        <span class="wi-brand-tag">Protein</span>
+        <span class="wi-brand-tag">Music</span>
+      </div>
+      <div class="wi-analysis">把果汁店变成潮流文化空间。门店内播放电子音乐，员工着装潮流，菜单以鲜榨果汁+蛋白昔为核心。在全球精英商圈（纽约第五大道、伦敦金融城）遍地开花，是目前最接近 TORCE ENERGY 品牌美学的对标案例。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>门店即品牌：音乐+视觉+员工形象三位一体，TORCE 门店改造参考</li>
+        <li><span class="wi-ref-arrow">→</span>鲜榨果汁+蛋白昔双线产品结构，与通喜现有+TORCE 新品完全吻合</li>
+        <li><span class="wi-ref-arrow">→</span>精英商圈选址策略：观音山/SM等高端场景优先渗透</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.joejuice.com" target="_blank" rel="noopener">Visit joejuice.com ↗</a>
+  </div>
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=900&q=85" alt="Joe & The Juice">
+  </div>
+</div>
+
+<div class="wi-pull">
+  前两个品牌共同证明：<strong>功能性果昔的竞争已经不在「味道」，而在「文化认同」</strong>——消费者买的是一种对自己生活方式的声明。这正是 TORCE ENERGY 需要建立的核心资产。
+</div>
+
+<!-- CHAPTER 02 -->
+<div class="wi-ch">
+  <div class="wi-ch-label">02 · 鲜果汁连锁扩张 — 规模化路径</div>
+  <div class="wi-ch-title">The Scale Players</div>
+  <div class="wi-ch-desc">从一家店到全球连锁，通喜扩张的参考路径</div>
+</div>
+
+<!-- BRAND 03: Smoothie King -->
+<div class="wi-brand wi-brand-ltr">
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=900&q=85" alt="Smoothie King">
+  </div>
+  <div class="wi-brand-info">
+    <div>
+      <div class="wi-brand-num">03</div>
+      <div class="wi-brand-category">健身果昔连锁 · 规模化标杆</div>
+      <div class="wi-brand-name">Smoothie King</div>
+      <div class="wi-brand-flag">🇺🇸 美国 · 全球 1,400+ 门店 · 健身场景锁定</div>
+      <div class="wi-brand-like">"健身房旁边必有一家"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Fitness</span>
+        <span class="wi-brand-tag">Smoothie</span>
+        <span class="wi-brand-tag">Supplement</span>
+        <span class="wi-brand-tag">Franchise</span>
+      </div>
+      <div class="wi-analysis">全球最大健身果昔连锁，核心策略是「与健身房捆绑选址」。产品按健身目标分类（增肌/减脂/恢复/能量），让消费者秒懂该选哪杯。旗舰产品「The Activator」含肌酸+乳清，与通喜能量产品线高度重叠。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>按「健身目标」而非「口味」分类产品，降低选择难度提高转化</li>
+        <li><span class="wi-ref-arrow">→</span>门店选址与健身房/运动场景强捆绑，观音山健身圈是天然试验场</li>
+        <li><span class="wi-ref-arrow">→</span>特许经营规模化路径：标准化程度越高，扩张成本越低</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.smoothieking.com" target="_blank" rel="noopener">Visit smoothieking.com ↗</a>
+  </div>
+</div>
+
+<!-- BRAND 04: Oakberry -->
+<div class="wi-brand wi-brand-rtl">
+  <div class="wi-brand-info" style="border-right:1px solid #f5f5f5;">
+    <div>
+      <div class="wi-brand-num">04</div>
+      <div class="wi-brand-category">巴西超级食物 · 全球最快扩张</div>
+      <div class="wi-brand-name">Oakberry</div>
+      <div class="wi-brand-flag">🇧🇷 巴西 · 全球 700+ 门店 · 40 国 · 创立仅 8 年</div>
+      <div class="wi-brand-like">"巴西走出来的全球健康品牌"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Açaí</span>
+        <span class="wi-brand-tag">Brazilian</span>
+        <span class="wi-brand-tag">Superfood</span>
+        <span class="wi-brand-tag">Global</span>
+      </div>
+      <div class="wi-analysis">从巴西圣保罗一家小店，8年扩张到40国700+门店，是近10年全球健康餐饮扩张速度最快的品牌之一。核心是把巴西莓（Açaí）这个超级食材做成全球化 IP。和通喜的「巴西能量」基因高度呼应——同样来自热带，同样主打自然健康。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>「产地故事」是最强品牌护城河：巴西热带=天然能量，通喜可借力</li>
+        <li><span class="wi-ref-arrow">→</span>8年700店的扩张节奏参考：前3年精品化，后5年特许快速复制</li>
+        <li><span class="wi-ref-arrow">→</span>把单一食材做成全球 IP 的路径，通喜「鲜果」同样可以 IP 化</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.oakberry.com" target="_blank" rel="noopener">Visit oakberry.com ↗</a>
+  </div>
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1533324050617-905a80c167eb?w=900&q=85" alt="Oakberry">
+  </div>
+</div>
+
+<!-- BRAND 05: Pressed Juicery -->
+<div class="wi-brand wi-brand-ltr">
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=900&q=85" alt="Pressed Juicery">
+  </div>
+  <div class="wi-brand-info">
+    <div>
+      <div class="wi-brand-num">05</div>
+      <div class="wi-brand-category">冷压鲜果汁 · 高端升级路径</div>
+      <div class="wi-brand-name">Pressed Juicery</div>
+      <div class="wi-brand-flag">🇺🇸 美国 · 100+ 门店 · 冷压技术壁垒</div>
+      <div class="wi-brand-like">"把一杯果汁卖出精品护肤品的感觉"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Cold Press</span>
+        <span class="wi-brand-tag">Cleanse</span>
+        <span class="wi-brand-tag">Premium</span>
+        <span class="wi-brand-tag">Wellness</span>
+      </div>
+      <div class="wi-analysis">用冷压技术（HPP）保留更多营养素，将普通果汁升级为「功能性健康产品」。产品按「净化方案」销售（如3日断食果汁套餐），大幅提升客单价和复购黏性。证明「技术壁垒」可以成为鲜果汁品牌的定价权来源。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>套餐化销售：「7天TORCE能量计划」比单杯销售客单价高3-5倍</li>
+        <li><span class="wi-ref-arrow">→</span>技术可视化：「冷压」「现榨」「零添加」等工艺标签是溢价依据</li>
+        <li><span class="wi-ref-arrow">→</span>健康方案销售思维：卖结果（变美/减脂/增肌）而非卖产品</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.pressedjuicery.com" target="_blank" rel="noopener">Visit pressedjuicery.com ↗</a>
+  </div>
+</div>
+
+<div class="wi-pull">
+  这三个扩张型品牌的共同密码：<strong>把「健康」从模糊概念变成具体的可购买体验</strong>——增肌的、减脂的、净化的、恢复的。用户需要的不是一杯好喝的果汁，而是一个对自己身体的承诺。
+</div>
+
+<!-- CHAPTER 03 -->
+<div class="wi-ch">
+  <div class="wi-ch-label">03 · 门店效率与破圈 — 运营模型</div>
+  <div class="wi-ch-title">The Disruptors</div>
+  <div class="wi-ch-desc">小门店大营收，用效率和跨界重新定义健康饮品</div>
+</div>
+
+<!-- BRAND 06: Blank Street Coffee -->
+<div class="wi-brand wi-brand-rtl">
+  <div class="wi-brand-info" style="border-right:1px solid #f5f5f5;">
+    <div>
+      <div class="wi-brand-num">06</div>
+      <div class="wi-brand-category">小门店高效率 · 咖啡×健康破圈</div>
+      <div class="wi-brand-name">Blank Street Coffee</div>
+      <div class="wi-brand-flag">🇺🇸 美国纽约 · 极小门店模型 · 快速扩张</div>
+      <div class="wi-brand-like">"10㎡的店，做出精品咖啡馆的体验"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Micro Store</span>
+        <span class="wi-brand-tag">Coffee</span>
+        <span class="wi-brand-tag">Matcha</span>
+        <span class="wi-brand-tag">Efficiency</span>
+      </div>
+      <div class="wi-analysis">纽约最火的精品咖啡新势力，门店仅10-15㎡，用极简菜单+极高坪效颠覆传统咖啡馆。核心产品除咖啡外，大力推抹茶昔、草莓昔等功能性饮品。「晨间唤醒杯」（咖啡+果昔）的跨品类创新与通喜能量高度一致，证明健康果昔可以切入咖啡消费场景。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>极简菜单策略：3-5款核心产品做到极致，比大而全更有效</li>
+        <li><span class="wi-ref-arrow">→</span>早市咖啡场景切入：「晨间唤醒杯」是从咖啡客群抢流量的最佳入口</li>
+        <li><span class="wi-ref-arrow">→</span>小门面高坪效：通喜现有门店模型天然具备这个优势</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.blankstreet.com" target="_blank" rel="noopener">Visit blankstreet.com ↗</a>
+  </div>
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=85" alt="Blank Street Coffee">
+  </div>
+</div>
+
+<!-- BRAND 07: Boost Juice -->
+<div class="wi-brand wi-brand-ltr">
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1502741224143-90386d7f8c82?w=900&q=85" alt="Boost Juice">
+  </div>
+  <div class="wi-brand-info">
+    <div>
+      <div class="wi-brand-num">07</div>
+      <div class="wi-brand-category">鲜果汁连锁 · 最像通喜的门店模型</div>
+      <div class="wi-brand-name">Boost Juice</div>
+      <div class="wi-brand-flag">🇦🇺 澳洲 · 全球 600+ 门店 · 14 国特许经营</div>
+      <div class="wi-brand-like">"澳洲版通喜果汁"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Fresh Juice</span>
+        <span class="wi-brand-tag">Smoothie</span>
+        <span class="wi-brand-tag">Franchise</span>
+        <span class="wi-brand-tag">Healthy</span>
+      </div>
+      <div class="wi-analysis">澳洲最大鲜果汁连锁，从一家店成长到全球600+门店，靠的是高度标准化的鲜榨模型。门店小、翻台快、菜单精简——是目前全球在门店形态上最接近通喜的品牌。创始人 Janine Allis 一人白手起家的故事也是绝佳的品牌叙事素材。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>标准化是规模化的前提：每一杯都一模一样，才能放心开加盟</li>
+        <li><span class="wi-ref-arrow">→</span>菜单精简降低训练成本：员工3天上手，是通喜能量推广的关键</li>
+        <li><span class="wi-ref-arrow">→</span>创始人故事即品牌故事：通喜的「无水无糖」初心是最好的 IP 素材</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.boostjuice.com.au" target="_blank" rel="noopener">Visit boostjuice.com.au ↗</a>
+  </div>
+</div>
+
+<!-- BRAND 08: Celsius -->
+<div class="wi-brand wi-brand-rtl">
+  <div class="wi-brand-info" style="border-right:1px solid #f5f5f5;">
+    <div>
+      <div class="wi-brand-num">08</div>
+      <div class="wi-brand-category">功能能量饮 · 0糖女性市场</div>
+      <div class="wi-brand-name">Celsius</div>
+      <div class="wi-brand-flag">🇺🇸 美国 · 纳斯达克上市 · 年营收 $10 亿+</div>
+      <div class="wi-brand-like">"0糖健身能量饮第一品牌"</div>
+      <div class="wi-brand-tags">
+        <span class="wi-brand-tag">Zero Sugar</span>
+        <span class="wi-brand-tag">Thermogenic</span>
+        <span class="wi-brand-tag">Fitness</span>
+        <span class="wi-brand-tag">Female</span>
+      </div>
+      <div class="wi-analysis">从小众功能饮料逆袭成美国便利店货架霸主。核心武器：0糖+燃脂成分（Thermogenic）+女性健身社群。2023年营收超 $10 亿，上市市值一度超 $50 亿，证明功能能量饮的女性市场远比想象大。</div>
+      <div class="wi-refs-title">对通喜的启示</div>
+      <ul class="wi-refs">
+        <li><span class="wi-ref-arrow">→</span>0糖定位：消除女性健身人群最大的消费顾虑</li>
+        <li><span class="wi-ref-arrow">→</span>Thermogenic（燃脂加速）概念为产品注入科学背书</li>
+        <li><span class="wi-ref-arrow">→</span>健身房渠道深度渗透，从圈内口碑向外破圈的路径</li>
+      </ul>
+    </div>
+    <a class="wi-brand-link" href="https://www.celsius.com" target="_blank" rel="noopener">Visit celsius.com ↗</a>
+  </div>
+  <div class="wi-brand-img">
+    <img src="https://images.unsplash.com/photo-1527661591475-527312dd65f5?w=900&q=85" alt="Celsius">
+  </div>
+</div>
+
+<div class="wi-pull">
+  这8个品牌共同描绘了一幅清晰的图景：<strong>健康饮品的下一个十年，属于那些能同时做到「功能可信」「品牌可感」「运营可复制」的品牌</strong>。通喜果汁已有60+门店和真实的产品力——TORCE ENERGY 就是那把打开这扇门的钥匙。
+</div>
+
+<!-- PRIORITY RANKING -->
+<section class="wi-priority">
+  <div class="wi-priority-title">研究优先级</div>
+  <div class="wi-priority-sub">按对通喜能量的直接参考价值排序</div>
+  <div class="wi-rank-grid">
+    <div class="wi-rank-col">
+      <div class="wi-rank-tier">必须深度研究</div>
+      <div class="wi-rank-item"><div class="wi-rank-num">1</div><div><div class="wi-rank-name">Erewhon</div><div class="wi-rank-desc">品牌天花板 · 联名策略</div></div></div>
+      <div class="wi-rank-item"><div class="wi-rank-num">2</div><div><div class="wi-rank-name">Joe & The Juice</div><div class="wi-rank-desc">门店美学 · 产品结构</div></div></div>
+      <div class="wi-rank-item"><div class="wi-rank-num">3</div><div><div class="wi-rank-name">Oakberry</div><div class="wi-rank-desc">巴西基因 · 扩张路径</div></div></div>
+    </div>
+    <div class="wi-rank-col">
+      <div class="wi-rank-tier">重点参考</div>
+      <div class="wi-rank-item"><div class="wi-rank-num">4</div><div><div class="wi-rank-name">Smoothie King</div><div class="wi-rank-desc">健身场景 · 选址策略</div></div></div>
+      <div class="wi-rank-item"><div class="wi-rank-num">5</div><div><div class="wi-rank-name">Blank Street</div><div class="wi-rank-desc">小门店效率 · 早市破圈</div></div></div>
+      <div class="wi-rank-item"><div class="wi-rank-num">6</div><div><div class="wi-rank-name">Celsius</div><div class="wi-rank-desc">0糖定位 · 女性市场</div></div></div>
+    </div>
+    <div class="wi-rank-col">
+      <div class="wi-rank-tier">选择性参考</div>
+      <div class="wi-rank-item"><div class="wi-rank-num">7</div><div><div class="wi-rank-name">Pressed Juicery</div><div class="wi-rank-desc">套餐化 · 技术背书</div></div></div>
+      <div class="wi-rank-item"><div class="wi-rank-num">8</div><div><div class="wi-rank-name">Boost Juice</div><div class="wi-rank-desc">门店标准化 · 特许模型</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TREND TABLE -->
+<section class="wi-trend">
+  <div class="wi-trend-title">行业趋势对比</div>
+  <div class="wi-trend-sub">旧逻辑 vs. 8个品牌共同印证的新逻辑</div>
+  <table class="wi-trend-table">
+    <thead>
+      <tr><th>维度</th><th>旧逻辑</th><th>新趋势</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>卖点</td><td class="wi-trend-old">好喝、新鲜、便宜</td><td class="wi-trend-new">功能性 · 目标导向 · 身体投资</td></tr>
+      <tr><td>定价</td><td class="wi-trend-old">¥15-20 大众价位</td><td class="wi-trend-new">¥28-50 高溢价功能昔</td></tr>
+      <tr><td>用户</td><td class="wi-trend-old">口渴的路人</td><td class="wi-trend-new">有健康意识的主动消费者</td></tr>
+      <tr><td>传播</td><td class="wi-trend-old">促销海报、折扣券</td><td class="wi-trend-new">KOL联名 · 社媒打卡 · 文化事件</td></tr>
+      <tr><td>门店</td><td class="wi-trend-old">越大越好</td><td class="wi-trend-new">小而精 · 高坪效 · 场景感</td></tr>
+      <tr><td>产品</td><td class="wi-trend-old">口味分类</td><td class="wi-trend-new">功能分类（增肌/燃脂/修复/唤醒）</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CONCLUSION -->
+<section class="wi-conclusion">
+  <div class="wi-conclusion-title">对通喜的三点结论</div>
+  <div class="wi-conclusion-sub">基于8个全球品牌的综合研究</div>
+  <div class="wi-conclusion-grid">
+    <div class="wi-conclusion-card">
+      <div class="wi-conclusion-num">01</div>
+      <div class="wi-conclusion-label">品牌升维先于产品升维</div>
+      <div class="wi-conclusion-desc">Erewhon 和 Joe & The Juice 证明：先建立品牌文化认同，定价权自然随之而来。TORCE ENERGY 的品牌感投入是最高ROI的前期投资。</div>
+    </div>
+    <div class="wi-conclusion-card">
+      <div class="wi-conclusion-num">02</div>
+      <div class="wi-conclusion-label">功能性是护城河</div>
+      <div class="wi-conclusion-desc">Celsius、Smoothie King、Pressed Juicery 都用「功能标签」把自己和普通饮料彻底区隔。通喜能量的蛋白/肌酸/胶原蛋白线就是这道护城河。</div>
+    </div>
+    <div class="wi-conclusion-card">
+      <div class="wi-conclusion-num">03</div>
+      <div class="wi-conclusion-label">标准化决定扩张速度</div>
+      <div class="wi-conclusion-desc">Oakberry 8年700店、Boost Juice 14国扩张，背后都是极高的操作标准化程度。TORCE ENERGY ≤90秒操作规范，是日后快速复制的底层基础。</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wi-footer">
+  <div style="font-family:'Playfair Display',serif;font-size:20px;color:#fff;font-style:italic;margin-bottom:6px;">全球鲜果汁 · 能量饮品全景洞察</div>
+  <div style="font-size:11px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Global Fresh Juice & Energy Drinks · Market Intelligence · 通喜果汁出品 · 2026</div>
+</footer>
+
+</div><!-- /page-insights -->
+
+<!-- ══════════════════════════════════════════
+     PAGE 3: 通喜能量饮品计划 · TORCE ENERGY
+══════════════════════════════════════════ -->
+<div id="page-products" style="display:none; padding-top:56px; background:#fff; font-family:'Inter',sans-serif;">
+
+<!-- HERO -->
+<section class="tc-hero">
+  <div class="tc-hero-bg"></div>
+  <div class="tc-hero-inner">
+    <div class="tc-hero-eyebrow">TORCE ENERGY · Natural Clean Energy From Fruits · Product Plan 2026</div>
+    <h1 class="tc-hero-title">通喜<span>能量</span><br>饮品计划</h1>
+    <p class="tc-hero-subtitle">TORCE ENERGY — Powered by Fruits</p>
+    <p class="tc-hero-desc">基于通喜果汁门店体系，推出高端功能性鲜果昔产品线 TORCE ENERGY。6款产品覆盖运动恢复、爆发表现、高蛋白代餐、净化轻体、天然提神、燃脂辅助全场景，操作≤90秒，无需新设备，毛利率65%+。</p>
+    <div class="tc-hero-stats">
+      <div>
+        <div class="tc-hero-stat-num">¥380亿</div>
+        <div class="tc-hero-stat-label">中国健康饮品市场规模</div>
+      </div>
+      <div>
+        <div class="tc-hero-stat-num">23%</div>
+        <div class="tc-hero-stat-label">功能饮品年增速</div>
+      </div>
+      <div>
+        <div class="tc-hero-stat-num">6款</div>
+        <div class="tc-hero-stat-label">TORCE ENERGY 首发产品</div>
+      </div>
+      <div>
+        <div class="tc-hero-stat-num">¥0</div>
+        <div class="tc-hero-stat-label">新设备投入</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT LINEUP HERO IMAGE -->
+<div style="width:100%;background:#fff;overflow:hidden;">
+  <img src="assets/torce_lineup.png"
+       style="width:100%;display:block;max-height:600px;object-fit:cover;object-position:center 30%;"
+       alt="TORCE ENERGY 6 Products Lineup">
+</div>
+
+<!-- DESIGN PRINCIPLES -->
+<section class="tc-principles">
+  <div class="tc-section" style="padding-top:0;padding-bottom:0;">
+    <div class="tc-section-eyebrow">Product Design Principles</div>
+    <div class="tc-section-title">选品四原则<br><span style="font-size:0.5em;color:rgba(255,255,255,0.4);font-family:'Inter',sans-serif;font-weight:400;letter-spacing:0.02em;">每一款都必须同时满足</span></div>
+    <div class="tc-princ-grid">
+      <div class="tc-princ-card">
+        
+        <div class="tc-princ-title">鲜果基因不离</div>
+        <div class="tc-princ-desc">所有产品以真实水果为基底，不使用人工香精，延续通喜「无水无糖自然甜」核心 DNA</div>
+      </div>
+      <div class="tc-princ-card">
+        
+        <div class="tc-princ-title">操作 ≤ 90 秒</div>
+        <div class="tc-princ-desc">所有产品在高峰期出杯不超过90秒，使用现有榨汁+搅拌设备，不增加任何新采购</div>
+      </div>
+      <div class="tc-princ-card">
+        
+        <div class="tc-princ-title">客单价 ¥18–36</div>
+        <div class="tc-princ-desc">覆盖引流低价款（¥18）到高端专业款（¥36），单杯毛利率不低于65%</div>
+      </div>
+      <div class="tc-princ-card">
+        
+        <div class="tc-princ-title">场景不重叠</div>
+        <div class="tc-princ-desc">7款产品各覆盖独立场景与人群，内部不互相竞争，形成完整的产品矩阵护城河</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND OVERVIEW -->
+<section style="background:#f8f8f6;padding:80px 0;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 80px;">
+    <div class="tc-section-eyebrow">TORCE ENERGY · Brand Overview</div>
+    <div class="tc-section-title" style="margin-bottom:40px;">品牌全景手册</div>
+    <p style="font-size:14px;color:#888;font-weight:300;margin-bottom:40px;line-height:1.8;">产品线、功能成分、色彩识别体系、场景应用与品牌理念完整呈现</p>
+  </div>
+  <div style="max-width:1400px;margin:0 auto;padding:0 40px;">
+    <img src="assets/torce_brand_overview.png"
+         style="width:100%;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,0.12);display:block;"
+         alt="TORCE ENERGY Brand Overview">
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding:0 80px;">
+    <p style="font-size:11px;color:#bbb;letter-spacing:0.12em;text-transform:uppercase;text-align:center;">
+      FUNCTIONAL INGREDIENTS. REAL RESULTS. · 功能成分，真实有效。
+    </p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="tc-products-section">
+  <div style="max-width:1200px;margin:0 auto;padding:80px 80px 0;">
+    <div class="tc-section-eyebrow">TORCE ENERGY · Product Line</div>
+    <div class="tc-section-title" style="margin-bottom:0;">6款核心产品</div>
+  </div>
+
+  <div style="margin-top:40px;">
+
+  <!-- P1: RECOVERY -->
+  <div style="display:grid;grid-template-columns:480px 1fr;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-img-wrap" style="background:#1a0a2e;min-height:500px;">
+      <img src="assets/torce_p1.png" alt="RECOVERY">
+      <div class="tc-product-badge" style="background:#7B2FBE;">运动恢复</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#7B2FBE;">⚡</span>
+        <div class="tc-rl-name" style="color:#7B2FBE;">RECOVERY</div>
+        <div class="tc-rl-sub">Acai Blueberry</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#f3eaff;color:#7B2FBE;">BCAA 3g</span>
+          <span class="tc-rl-pill" style="background:#f3eaff;color:#7B2FBE;">Protein 20g</span>
+          <span class="tc-rl-pill" style="background:#f3eaff;color:#7B2FBE;">Antioxidants 100mg+</span>
+          <span class="tc-rl-pill" style="background:#f3eaff;color:#7B2FBE;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-product-info">
+      <div>
+        <div class="tc-product-num" style="color:#7B2FBE;">01</div>
+        <div class="tc-product-category">Antioxidant · BCAA · Post-Workout Recovery</div>
+        <div class="tc-product-name">RECOVERY</div>
+        <div class="tc-product-english">TORCE Recovery · Acai Blueberry Restore</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">抗氧化</span>
+          <span class="tc-product-tag">运动恢复</span>
+          <span class="tc-product-tag">BCAA</span>
+          <span class="tc-product-tag">缓解疲劳</span>
+        </div>
+        <div class="tc-product-desc">巴西莓 + 蓝莓 + 香蕉 + 椰子水 + 分离乳清蛋白 + BCAA。高抗氧化恢复型能量饮，适合运动后、熬夜后、疲劳恢复场景。莓果酸甜感强，口感顺滑。深紫色 · glossy 高透杯 · 紫色闪电 icon。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>巴西莓浆<span>60g</span></li>
+          <li>蓝莓<span>50g</span></li>
+          <li>香蕉<span>100g</span></li>
+          <li>椰子水<span>120ml</span></li>
+          <li>分离乳清蛋白<span>20g</span></li>
+          <li>BCAA<span>3g</span></li>
+          <li>冰块<span>少量</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>抗氧化，清除自由基</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>运动后黄金30分钟恢复窗口</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>补充氨基酸，促进肌肉修复</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>缓解疲劳，椰子水天然补水</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#7B2FBE;">运动恢复</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">运动后 / 熬夜后</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#7B2FBE;">深紫莓果色</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">Glossy高透杯</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P2: PERFORMANCE -->
+  <div style="display:grid;grid-template-columns:1fr 480px;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-product-info" style="border-right:1px solid #f0f0f0;">
+      <div>
+        <div class="tc-product-num" style="color:#F59E0B;">02</div>
+        <div class="tc-product-category">Creatine · Electrolytes · Pre-Workout Performance</div>
+        <div class="tc-product-name">PERFORMANCE</div>
+        <div class="tc-product-english">TORCE Performance · Mango Banana Power</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">运动表现</span>
+          <span class="tc-product-tag">爆发力</span>
+          <span class="tc-product-tag">肌酸</span>
+          <span class="tc-product-tag">电解质</span>
+        </div>
+        <div class="tc-product-desc">芒果 + 香蕉 + 橙汁 + 分离乳清蛋白 + 肌酸 + 电解质粉。高运动表现型能量饮，适合健身前、网球、跑步等运动场景。热带水果感强，清爽浓郁。热带橙黄色 · 半透明质感 · 金橙色闪电 icon。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>芒果<span>120g</span></li>
+          <li>香蕉<span>100g</span></li>
+          <li>橙汁<span>100ml</span></li>
+          <li>分离乳清蛋白<span>20g</span></li>
+          <li>肌酸<span>3g</span></li>
+          <li>电解质粉<span>2g</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>提升运动表现与爆发力</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>补充运动糖原，快速供能</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>肌酸增强力量输出</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>电解质精准补充</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#F59E0B;">运动表现</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">健身前 / 运动中</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#F59E0B;">热带橙黄色</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">半透明质感杯</div></div>
+      </div>
+    </div>
+    <div class="tc-img-wrap" style="background:#fff8e7;min-height:500px;">
+      <img src="assets/torce_p2.png" alt="PERFORMANCE">
+      <div class="tc-product-badge" style="background:#F59E0B;">运动表现</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#F59E0B;">⚡</span>
+        <div class="tc-rl-name" style="color:#F59E0B;">PERFORMANCE</div>
+        <div class="tc-rl-sub">Mango Banana</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#fff8e0;color:#F59E0B;">Creatine 3g</span>
+          <span class="tc-rl-pill" style="background:#fff8e0;color:#F59E0B;">Protein 20g</span>
+          <span class="tc-rl-pill" style="background:#fff8e0;color:#F59E0B;">Electrolytes 500mg+</span>
+          <span class="tc-rl-pill" style="background:#fff8e0;color:#F59E0B;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P3: PROTEIN -->
+  <div style="display:grid;grid-template-columns:480px 1fr;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-img-wrap" style="background:#f5f5f0;min-height:500px;">
+      <img src="assets/torce_p3.png" alt="PROTEIN">
+      <div class="tc-product-badge" style="background:#6B4226;">高蛋白代餐</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#6B4226;">⚡</span>
+        <div class="tc-rl-name" style="color:#6B4226;">PROTEIN</div>
+        <div class="tc-rl-sub">Vanilla Coconut</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#f5ece5;color:#6B4226;">Whey Protein 25g</span>
+          <span class="tc-rl-pill" style="background:#f5ece5;color:#6B4226;">Chia Seeds 5g</span>
+          <span class="tc-rl-pill" style="background:#f5ece5;color:#6B4226;">Coconut MCT 1000mg</span>
+          <span class="tc-rl-pill" style="background:#f5ece5;color:#6B4226;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-product-info">
+      <div>
+        <div class="tc-product-num" style="color:#6B4226;">03</div>
+        <div class="tc-product-category">Whey Protein · Meal Replacement · Daily Nutrition</div>
+        <div class="tc-product-name">PROTEIN</div>
+        <div class="tc-product-english">TORCE Protein · Vanilla Coconut Shake</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">高蛋白</span>
+          <span class="tc-product-tag">饱腹代餐</span>
+          <span class="tc-product-tag">肌肉恢复</span>
+          <span class="tc-product-tag">稳定能量</span>
+        </div>
+        <div class="tc-product-desc">椰奶 + 香蕉 + 香草乳清蛋白 + 燕麦奶 + 奇亚籽。高蛋白日常代餐型产品，适合早餐、办公室、健身后饮用。口感顺滑高级，类似 premium milk shake。纯白奶昔质感 · 半磨砂一体化杯 · 极简设计。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>椰奶<span>180ml</span></li>
+          <li>香蕉<span>80g</span></li>
+          <li>香草乳清蛋白<span>25g</span></li>
+          <li>燕麦奶<span>80ml</span></li>
+          <li>奇亚籽<span>5g</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>高蛋白补充，支持肌肉合成</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>饱腹代餐，控制热量摄入</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>奇亚籽缓释能量，持久稳定</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>奢侈品级克制设计，口感极佳</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#6B4226;">高蛋白代餐</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">早餐 / 办公室 / 健身后</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#6B4226;">纯白奶昔</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">半磨砂极简杯</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P4: DETOX -->
+  <div style="display:grid;grid-template-columns:1fr 480px;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-product-info" style="border-right:1px solid #f0f0f0;">
+      <div>
+        <div class="tc-product-num" style="color:#00C853;">04</div>
+        <div class="tc-product-category">Spirulina · Detox · Natural Antioxidant</div>
+        <div class="tc-product-name">DETOX</div>
+        <div class="tc-product-english">TORCE Detox · Spirulina Green Apple Cleanse</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">净化排毒</span>
+          <span class="tc-product-tag">轻体低负担</span>
+          <span class="tc-product-tag">螺旋藻</span>
+          <span class="tc-product-tag">天然抗氧化</span>
+        </div>
+        <div class="tc-product-desc">青苹果 + 黄瓜 + 菠菜 + 螺旋藻 + 椰子水 + 柠檬汁。净化轻体型能量饮，适合下午茶替代、轻断食、健康生活场景。清爽感极强。深绿色 · 高透 glossy 杯 · 荧光绿 neon 闪电 · TORCE 标志性产品。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>青苹果<span>120g</span></li>
+          <li>黄瓜<span>80g</span></li>
+          <li>菠菜<span>30g</span></li>
+          <li>螺旋藻<span>1g</span></li>
+          <li>椰子水<span>120ml</span></li>
+          <li>柠檬汁<span>10ml</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>Detox 净化，清除毒素</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>轻体低负担，适合轻断食</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>螺旋藻天然抗氧化</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>清爽补水，恢复活力</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#00C853;">净化轻体</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">下午茶 / 轻断食</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#00C853;">深绿荧光色</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">Neon Glossy杯</div></div>
+      </div>
+    </div>
+    <div class="tc-img-wrap" style="background:#0a1f0a;min-height:500px;">
+      <img src="assets/torce_p4.png" alt="DETOX">
+      <div class="tc-product-badge" style="background:#00C853;color:#000;">⭐ 标志产品</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#00C853;">⚡</span>
+        <div class="tc-rl-name" style="color:#00C853;">DETOX</div>
+        <div class="tc-rl-sub">Green Apple Spirulina</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#e6fff0;color:#00a040;">Spirulina 1g</span>
+          <span class="tc-rl-pill" style="background:#e6fff0;color:#00a040;">Chlorophyll 120mg+</span>
+          <span class="tc-rl-pill" style="background:#e6fff0;color:#00a040;">Cleanse Blend 1000mg</span>
+          <span class="tc-rl-pill" style="background:#e6fff0;color:#00a040;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P5: ENERGY -->
+  <div style="display:grid;grid-template-columns:480px 1fr;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-img-wrap" style="background:#fff0f0;min-height:500px;">
+      <img src="assets/torce_p5.png" alt="ENERGY">
+      <div class="tc-product-badge" style="background:#EF4444;">天然提神</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#EF4444;">⚡</span>
+        <div class="tc-rl-name" style="color:#EF4444;">ENERGY</div>
+        <div class="tc-rl-sub">Mango Pineapple</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#fff0f0;color:#EF4444;">Caffeine 150mg</span>
+          <span class="tc-rl-pill" style="background:#fff0f0;color:#EF4444;">Vitamin C 100%DV</span>
+          <span class="tc-rl-pill" style="background:#fff0f0;color:#EF4444;">Electrolytes 500mg+</span>
+          <span class="tc-rl-pill" style="background:#fff0f0;color:#EF4444;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+    <div class="tc-product-info">
+      <div>
+        <div class="tc-product-num" style="color:#EF4444;">05</div>
+        <div class="tc-product-category">Natural Caffeine · Electrolytes · Focus Energy</div>
+        <div class="tc-product-name">ENERGY</div>
+        <div class="tc-product-english">TORCE Energy · Mango Pineapple Natural Boost</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">天然提神</span>
+          <span class="tc-product-tag">增强专注</span>
+          <span class="tc-product-tag">快速补能</span>
+          <span class="tc-product-tag">提升状态</span>
+        </div>
+        <div class="tc-product-desc">菠萝 + 芒果 + 草莓 + 天然咖啡因 + 电解质粉。天然提神型能量饮，适合工作、学习、下午疲劳场景。热带水果感强，明亮有活力。红粉色 · 通透高亮质感 · 红色闪电 icon。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>菠萝<span>100g</span></li>
+          <li>芒果<span>100g</span></li>
+          <li>草莓<span>50g</span></li>
+          <li>天然咖啡因<span>80mg</span></li>
+          <li>电解质粉<span>2g</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>天然咖啡因温和提神</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>增强专注力与工作状态</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>快速补充能量，下午无崩感</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>热带风味，口感清爽愉悦</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#EF4444;">天然提神</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">工作 / 学习 / 下午</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#EF4444;">红粉活力色</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">通透高亮杯</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- P6: L-CARNITINE -->
+  <div style="display:grid;grid-template-columns:1fr 480px;min-height:500px;border-bottom:1px solid #f0f0f0;">
+    <div class="tc-product-info" style="border-right:1px solid #f0f0f0;">
+      <div>
+        <div class="tc-product-num" style="color:#5D7A5D;">06</div>
+        <div class="tc-product-category">L-Carnitine · Matcha · Fat Oxidation Support</div>
+        <div class="tc-product-name">L-CARNITINE</div>
+        <div class="tc-product-english">TORCE L-Carnitine · Matcha Oat Burn</div>
+        <div class="tc-product-tags">
+          <span class="tc-product-tag">燃脂辅助</span>
+          <span class="tc-product-tag">有氧支持</span>
+          <span class="tc-product-tag">低负担</span>
+          <span class="tc-product-tag">清爽代谢</span>
+        </div>
+        <div class="tc-product-desc">抹茶粉 + 左旋肉碱 1500mg + 香蕉 + 燕麦奶 + 椰奶。轻燃脂型能量饮，适合有氧运动、健身、跑步场景。低调高级，轻奶感。米灰绿色 · matte 雾面质感 · 极简绿色闪电 · 高级感路线。</div>
+        <div class="tc-recipe-title">配方 · Formula（500ml）</div>
+        <ul class="tc-recipe-list">
+          <li>抹茶粉<span>3g</span></li>
+          <li>左旋肉碱<span>1500mg</span></li>
+          <li>香蕉<span>80g</span></li>
+          <li>燕麦奶<span>150ml</span></li>
+          <li>椰奶<span>80ml</span></li>
+        </ul>
+        <div class="tc-recipe-title">核心功能 · Benefits</div>
+        <div class="tc-steps">
+          <div class="tc-step"><div class="tc-step-num">✓</div>左旋肉碱辅助脂肪氧化</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>有氧运动表现支持</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>低负担能量，不增加热量焦虑</div>
+          <div class="tc-step"><div class="tc-step-num">✓</div>清爽代谢感，抹茶优雅风味</div>
+        </div>
+      </div>
+      <div class="tc-product-footer">
+        <div class="tc-price-box"><div class="tc-price-label">产品系列</div><div class="tc-price-val" style="font-size:16px;color:#5D7A5D;">燃脂辅助</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">主要场景</div><div class="tc-price-val" style="font-size:14px;color:#666;">有氧运动 / 跑步</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">视觉色调</div><div class="tc-price-val" style="font-size:14px;color:#5D7A5D;">米灰绿哑光</div></div>
+        <div class="tc-price-box"><div class="tc-price-label">杯型设计</div><div class="tc-price-val" style="font-size:13px;color:#666;">Matte雾面杯</div></div>
+      </div>
+    </div>
+    <div class="tc-img-wrap" style="background:#e8ede8;min-height:500px;">
+      <img src="assets/torce_p6.png" alt="L-CARNITINE">
+      <div class="tc-product-badge" style="background:#5D7A5D;">燃脂辅助</div>
+      <div class="tc-recipe-label">
+        <span class="tc-rl-icon" style="color:#5D7A5D;">⚡</span>
+        <div class="tc-rl-name" style="color:#5D7A5D;">L-CARNITINE</div>
+        <div class="tc-rl-sub">Matcha Oat</div>
+        <div class="tc-rl-pills">
+          <span class="tc-rl-pill" style="background:#eef3ee;color:#5D7A5D;">L-Carnitine 1500mg</span>
+          <span class="tc-rl-pill" style="background:#eef3ee;color:#5D7A5D;">Green Tea 100mg+</span>
+          <span class="tc-rl-pill" style="background:#eef3ee;color:#5D7A5D;">Electrolytes 500mg+</span>
+          <span class="tc-rl-pill" style="background:#eef3ee;color:#5D7A5D;">0 Added Sugar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /products list -->
+</section>
+
+<!-- STRATEGY MATRIX -->
+<section class="tc-matrix">
+  <div class="tc-section" style="padding-top:0;padding-bottom:0;">
+    <div class="tc-section-eyebrow">Product Portfolio Strategy</div>
+    <div class="tc-section-title">产品组合战略</div>
+    <div class="tc-matrix-grid">
+      <div class="tc-matrix-cell">
+        <div class="tc-matrix-role">恢复系 — 运动后场景</div>
+        <div class="tc-matrix-products">
+          <div class="tc-matrix-product-name" style="color:#7B2FBE;">RECOVERY</div>
+          <div class="tc-matrix-product-desc">巴西莓蓝莓 · 高抗氧化恢复</div>
+          <div class="tc-matrix-product-name" style="margin-top:8px;color:#F59E0B;">PERFORMANCE</div>
+          <div class="tc-matrix-product-desc">芒果香蕉 · 肌酸爆发力</div>
+        </div>
+        <div class="tc-matrix-value">运动人群</div>
+        <div class="tc-matrix-value-label">健身房 / 运动场景</div>
+      </div>
+      <div class="tc-matrix-cell">
+        <div class="tc-matrix-role">代餐系 — 日常营养</div>
+        <div class="tc-matrix-products">
+          <div class="tc-matrix-product-name" style="color:#6B4226;">PROTEIN</div>
+          <div class="tc-matrix-product-desc">香草椰子 · 高蛋白代餐</div>
+          <div class="tc-matrix-product-name" style="margin-top:8px;color:#5D7A5D;">L-CARNITINE</div>
+          <div class="tc-matrix-product-desc">抹茶燕麦 · 燃脂辅助</div>
+        </div>
+        <div class="tc-matrix-value">健康生活</div>
+        <div class="tc-matrix-value-label">早餐 / 办公室 / 有氧</div>
+      </div>
+      <div class="tc-matrix-cell">
+        <div class="tc-matrix-role">净化系 — 轻体场景</div>
+        <div class="tc-matrix-products">
+          <div class="tc-matrix-product-name" style="color:#00C853;">DETOX ⭐</div>
+          <div class="tc-matrix-product-desc">螺旋藻绿 · 标志性产品</div>
+          <div class="tc-matrix-product-name" style="margin-top:8px;color:#EF4444;">ENERGY</div>
+          <div class="tc-matrix-product-desc">热带红 · 天然咖啡因提神</div>
+        </div>
+        <div class="tc-matrix-value">轻健康</div>
+        <div class="tc-matrix-value-label">下午茶 / 工作 / 学习</div>
+      </div>
+      <div class="tc-matrix-cell" style="grid-column:1/-1;background:#f0f7e6;border-top:3px solid #8DC63F;margin-top:2px;">
+        <div class="tc-matrix-role">TORCE ENERGY 产品矩阵优势</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:16px;">
+          <div><div class="tc-matrix-value" style="font-size:20px;">6款</div><div class="tc-matrix-value-label">覆盖全场景</div></div>
+          <div><div class="tc-matrix-value" style="font-size:20px;">≤90s</div><div class="tc-matrix-value-label">操作时间</div></div>
+          <div><div class="tc-matrix-value" style="font-size:20px;">¥0</div><div class="tc-matrix-value-label">新设备投入</div></div>
+          <div><div class="tc-matrix-value" style="font-size:20px;">65%+</div><div class="tc-matrix-value-label">综合毛利率</div></div>
+          <div><div class="tc-matrix-value" style="font-size:20px;">6色</div><div class="tc-matrix-value-label">独特视觉体系</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAUNCH TIMELINE -->
+<section class="tc-timeline">
+  <div class="tc-section" style="padding-top:0;padding-bottom:0;">
+    <div class="tc-section-eyebrow">Launch Roadmap</div>
+    <div class="tc-section-title">上市节奏</div>
+    <div class="tc-timeline-track">
+      <div class="tc-tl-item">
+        <div class="tc-tl-dot">M1</div>
+        <div class="tc-tl-month">第1个月 · 试水</div>
+        <div class="tc-tl-products" style="color:#7B2FBE;">RECOVERY<br><span style="color:#6B4226;">PROTEIN</span></div>
+        <div class="tc-tl-desc">最易接受的两款先行——莓果恢复款吸引运动人群，高蛋白代餐款吸引日常健康用户，建立口碑基础</div>
+      </div>
+      <div class="tc-tl-item">
+        <div class="tc-tl-dot">M2</div>
+        <div class="tc-tl-month">第2个月 · 爆破</div>
+        <div class="tc-tl-products" style="color:#00C853;">DETOX<br><span style="color:#EF4444;">ENERGY</span></div>
+        <div class="tc-tl-desc">标志性绿色 DETOX 上线，视觉冲击力极强，同步小红书推广；红色 ENERGY 覆盖工作提神场景</div>
+      </div>
+      <div class="tc-tl-item">
+        <div class="tc-tl-dot">M3</div>
+        <div class="tc-tl-month">第3个月 · 深化</div>
+        <div class="tc-tl-products" style="color:#F59E0B;">PERFORMANCE<br><span style="color:#5D7A5D;">L-CARNITINE</span></div>
+        <div class="tc-tl-desc">运动爆发力款 PERFORMANCE 绑定健身场景；高级感抹茶 L-CARNITINE 完成产品矩阵，覆盖全场景用户</div>
+      </div>
+      <div class="tc-tl-item">
+        <div class="tc-tl-dot">M4+</div>
+        <div class="tc-tl-month">第4个月+ · 扩张</div>
+        <div class="tc-tl-products">全线铺开<br>多店复制</div>
+        <div class="tc-tl-desc">6款全线覆盖，基于前3个月数据优化配方和定价，向其他门店复制成熟运营模型</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0a0a0a;padding:48px 80px;text-align:center;">
+  <div style="font-family:'Playfair Display',serif;font-size:22px;color:#fff;font-style:italic;margin-bottom:8px;">TORCE ENERGY</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.1em;">Natural Clean Energy From Fruits · 通喜果汁出品 · 2026</div>
+</footer>
+
+</div><!-- /page-products -->
+
+</body>

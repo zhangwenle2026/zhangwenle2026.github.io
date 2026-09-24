@@ -1,0 +1,3274 @@
+[
+ {
+  "nome": "TEKAO BURGUER",
+  "merchant_id": "159553709",
+  "plataforma": "Yellow",
+  "etapa": "Relatório BDM e CM aprovado",
+  "kp": "—",
+  "aov_keeta": "R$ 48.96 · 82.33/d",
+  "upfront": "Yellow: R$ 2.000.000",
+  "comp_orders": "YELLOW: 500",
+  "comp_aov": "YELLOW: R$ 35",
+  "bd": "tatianarodrigues",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 18:00",
+  "risk": "HIGH",
+  "risk_reason": "竞对预付高达 R$ 2.000.000，谈判空间受限; 竞对日均单量 500 单，商户依赖度高",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 2.000.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 2.000.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Quando será submetida a proposta ao KP? Qual o valor da contra-oferta?",
+    "cn": "何时提交KP审批？反报价金额多少？"
+   },
+   {
+    "pt": "Com 500 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均500单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Mr. Smash - Hamburguer, Fritas e Combos",
+  "merchant_id": "159404708",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "Recusada (R1)",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 0",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "pedrosaccone",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "17/09/2026, 15:26",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Don Sapori Pizzas",
+  "merchant_id": "159406064",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "Recusada (R1)",
+  "aov_keeta": "R$ 68.17 · 36.67/d",
+  "upfront": "Yellow: R$ 800.000",
+  "comp_orders": "YELLOW: 30",
+  "comp_aov": "YELLOW: R$ 70",
+  "bd": "thaisvasconcelos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "17/09/2026, 14:53",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 800.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 800.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O upfront de R$ 800.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Quem Ta Com Fome, Ta Aqui.",
+  "merchant_id": "159468821",
+  "plataforma": "Yellow",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 40.04 · 166/d",
+  "upfront": "Yellow: R$ 240.000",
+  "comp_orders": "YELLOW: 170",
+  "comp_aov": "YELLOW: R$ 30",
+  "bd": "thaisvasconcelos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "17/09/2026, 14:50",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 240.000; 竞对日均单量 170 单，商户依赖度高",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 240.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 240.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "Com 170 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均170单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria do Bahia",
+  "merchant_id": "159410952",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 52.97 · 63.67/d",
+  "upfront": "Yellow: R$ 245.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 14:25",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O upfront de R$ 245.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Marmitaria Dia a Dia marmitex",
+  "merchant_id": "159393702",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 29.85 · 76.5/d",
+  "upfront": "Yellow: R$ 50.000",
+  "comp_orders": "YELLOW: 30",
+  "comp_aov": "YELLOW: R$ 35",
+  "bd": "rodrigocorreia",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "17/09/2026, 14:17",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 50.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 50.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Marmitex Tempero da Núbia - Almoço",
+  "merchant_id": "159401485",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 30.000",
+  "comp_orders": "YELLOW: 76",
+  "comp_aov": "YELLOW: R$ 30",
+  "bd": "wainnergonzales",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "17/09/2026, 14:12",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 30.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 30.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Cantina da Vila Burger e Pastéis - 21% OFF Vem conferir!!",
+  "merchant_id": "159412369",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 300.000",
+  "comp_orders": "YELLOW: 40",
+  "comp_aov": "YELLOW: R$ 39",
+  "bd": "felipesanches",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "17/09/2026, 14:07",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 300.000; Keeta 日订单为 0，尚未起量",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 300.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 300.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 300.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Gaúcho Figueiras Grill",
+  "merchant_id": "159393719/159563640",
+  "plataforma": "Yellow",
+  "etapa": "Contrato assinado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 1.100.000",
+  "comp_orders": "YELLOW: 150",
+  "comp_aov": "YELLOW: R$ 49",
+  "bd": "rodrigoalmeida",
+  "bdm": "adriananaves",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "17/09/2026, 13:47",
+  "risk": "CLOSED",
+  "risk_reason": "合同已签署，完成",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 1.100.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 1.100.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Com 150 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均150单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Lu e Max comidas caseira",
+  "merchant_id": "159411335",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 41.25 · 119.67/d",
+  "upfront": "Yellow: R$ 150.000",
+  "comp_orders": "YELLOW: 120",
+  "comp_aov": "YELLOW: R$ 30",
+  "bd": "allanmaalouli",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "17/09/2026, 12:02",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 120 单，商户依赖度高",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 150.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 150.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Com 120 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均120单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Petrucci Pizza Napoletana",
+  "merchant_id": "159397592",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Red: R$ 300.000",
+  "comp_orders": "RED: 66",
+  "comp_aov": "—",
+  "bd": "it_shopowner_robot",
+  "bdm": "leonardomello",
+  "cm": "victorpinheiro",
+  "city": "Santos City",
+  "updated": "17/09/2026, 11:46",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 300.000; Keeta 日订单为 0，尚未起量",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 300.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 300.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 300.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Divinuz Restaurante",
+  "merchant_id": "159428719",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 37.86 · 41.33/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 08:11",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Feijoada & Espetinhos West",
+  "merchant_id": "159409596",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 41.85 · 31.33/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 08:08",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Restaurante e boteco do Roque",
+  "merchant_id": "159570832",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 38.91 · 62.33/d",
+  "upfront": "Yellow: R$ 30.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "nilmaxfranca",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 08:04",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Hamburgueria ITALIA 7",
+  "merchant_id": "159384723",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 47.75 · 41.5/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 08:01",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Restaurante Andorinhas",
+  "merchant_id": "159386704",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 36.72 · 28/d",
+  "upfront": "Yellow: R$ 440.000",
+  "comp_orders": "—",
+  "comp_aov": "YELLOW: R$ 25\nYELLOW: R$ 25",
+  "bd": "tamirislopes",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 08:00",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 440.000; 信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "O upfront de R$ 440.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pastel da Lê",
+  "merchant_id": "159405552",
+  "plataforma": "RedYellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 45.81 · 78/d",
+  "upfront": "Yellow: R$ 80.000",
+  "comp_orders": "YELLOW: 150",
+  "comp_aov": "—",
+  "bd": "tamirislopes",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "17/09/2026, 07:55",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 150 单，商户依赖度高",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 80.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 80.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Com 150 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均150单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Universitaria Grill Restaurante",
+  "merchant_id": "159469952",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 59.15 · 3.33/d",
+  "upfront": "Yellow: R$ 80.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "valeriachacon",
+  "bdm": "lucasferreira",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 18:50",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Torun Burger",
+  "merchant_id": "159399038",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 60.06 · 27.33/d",
+  "upfront": "Yellow: R$ 500.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "igorsouza",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 17:10",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付高达 R$ 500.000，谈判空间受限; 信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "O upfront de R$ 500.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Bella Fatia",
+  "merchant_id": "159395283",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 150.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "paulosilva",
+  "bdm": "tadeumoraes",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "16/09/2026, 12:17",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Pastelaria do Carlão",
+  "merchant_id": "159589649",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 300.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "paulosantos",
+  "bdm": "tadeumoraes",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "16/09/2026, 12:13",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 300.000; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 300.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Hamburgueria Mãe Joana",
+  "merchant_id": "159406883",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 74.03 · 6/d",
+  "upfront": "Yellow: R$ 100.000",
+  "comp_orders": "YELLOW: 60",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 12:01",
+  "risk": "LOW",
+  "risk_reason": "信息完整，按流程推进",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 100.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 100.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Elias Burguer",
+  "merchant_id": "159411319",
+  "plataforma": "—",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 42.87 · 40/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "16/09/2026, 12:00",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Alpes",
+  "merchant_id": "159385655",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 55.26 · 48.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "nilmaxfranca",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 10:49",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Marmitas - Paladar de Príncipe",
+  "merchant_id": "159411758",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 200.000",
+  "comp_orders": "YELLOW: 100",
+  "comp_aov": "YELLOW: R$ 29",
+  "bd": "sheilabrasiliano",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 10:32",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 200.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 200.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Com 100 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均100单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria La-Zamba II",
+  "merchant_id": "159590225",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 61.72 · 20.67/d",
+  "upfront": "Yellow: R$ 100.000",
+  "comp_orders": "YELLOW: 15",
+  "comp_aov": "YELLOW: R$ 50",
+  "bd": "caiolorencato",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 10:25",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 100.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 100.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "JM Lanches",
+  "merchant_id": "159399120/159424864",
+  "plataforma": "Yellow",
+  "etapa": "Proposta concluída",
+  "kp": "Recusada (R1)",
+  "aov_keeta": "R$ 43.59 · 41/d",
+  "upfront": "Yellow: R$ 180.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "rodrigocorreia",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "16/09/2026, 08:59",
+  "risk": "MEDIUM",
+  "risk_reason": "KP 首轮审批被拒（Recusada R1）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "A proposta foi entregue ao merchant? Qual a reação?",
+    "cn": "报价已交付商家了吗？反馈如何？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Rei do Dogão",
+  "merchant_id": "159488972",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "YELLOW: 190",
+  "comp_aov": "YELLOW: R$ 35",
+  "bd": "marcelofeitosa",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "16/09/2026, 08:01",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 190 单，商户依赖度高; Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Com 190 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均190单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Murph’s - Hamburgueria Artesanal",
+  "merchant_id": "159426645",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 990.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "wellingtonsantos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "15/09/2026, 22:22",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付高达 R$ 990.000，谈判空间受限; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 990.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Feijoca’s",
+  "merchant_id": "159405590",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 53.99 · 3.67/d",
+  "upfront": "Yellow: R$ 193.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "carlosmotta",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "15/09/2026, 18:53",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Monster Burguer",
+  "merchant_id": "159401744",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 43.66 · 38.5/d",
+  "upfront": "Yellow: R$ 50.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "ricardoaraujo",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "15/09/2026, 18:31",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizza Lopez",
+  "merchant_id": "159403096",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 53.76 · 13/d",
+  "upfront": "Yellow: R$ 120.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "tatianarodrigues",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "14/09/2026, 20:29",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 14/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "X - Grill",
+  "merchant_id": "159404625",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "thaisvasconcelos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "14/09/2026, 20:04",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 14/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Garoupa",
+  "merchant_id": "159475646",
+  "plataforma": "Red",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 118.92 · 16.67/d",
+  "upfront": "Red: R$ 250.000",
+  "comp_orders": "RED: 1400",
+  "comp_aov": "—",
+  "bd": "tiagodangelo",
+  "bdm": "adriananaves",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "14/09/2026, 16:44",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 250.000; 竞对日均单量 1400 单，商户依赖度高; 数据停滞（最后更新 14/09/2026）",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 250.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 250.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "Com 1400 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均1400单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Grill Nordestino Eldorado",
+  "merchant_id": "159402691/159410594, 159541106",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "wellingtonsantos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "14/09/2026, 16:09",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 14/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "BAETA GRILL",
+  "merchant_id": "159424602",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "Recusada (R1)",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 450.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "pedrosaccone",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "14/09/2026, 14:57",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O upfront de R$ 450.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria do Reid",
+  "merchant_id": "159428638",
+  "plataforma": "Yellow",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 550.000",
+  "comp_orders": "YELLOW: 6000",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "14/09/2026, 14:46",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 550.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 550.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Com 6000 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均6000单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Rei da Feijoada - Marmita & Marmitex",
+  "merchant_id": "159474076",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 90.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "eduardosantos",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "14/09/2026, 13:52",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 14/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Doce Dom Confeitaria",
+  "merchant_id": "159595977",
+  "plataforma": "Red",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 67.66 · 3/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicarossi",
+  "bdm": "renataleite",
+  "cm": "jaylin",
+  "city": "Santos City",
+  "updated": "11/09/2026, 14:22",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Restaurante Caravitta - Comida Caseira",
+  "merchant_id": "159554526",
+  "plataforma": "Red",
+  "etapa": "🔒 Encerrado",
+  "kp": "—",
+  "aov_keeta": "R$ 24.95 · 4.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "erikboilesen",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "11/09/2026, 13:39",
+  "risk": "CLOSED",
+  "risk_reason": "案件已关闭",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "O Protagonista Burger",
+  "merchant_id": "159409894",
+  "plataforma": "Yellow",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 53.58 · 103.33/d",
+  "upfront": "Yellow: R$ 800.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "lucasnada",
+  "bdm": "lucasferreira",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "10/09/2026, 12:10",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付高达 R$ 800.000，谈判空间受限; 数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "O upfront de R$ 800.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Poke e Co.",
+  "merchant_id": "159593821",
+  "plataforma": "Yellow",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 40.97 · 64.5/d",
+  "upfront": "Yellow: R$ 75.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "nathaliabernardino",
+  "bdm": "renataleite",
+  "cm": "jaylin",
+  "city": "Santos City",
+  "updated": "10/09/2026, 11:47",
+  "risk": "LOW",
+  "risk_reason": "数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "La casa de hambúrguer",
+  "merchant_id": "159426425",
+  "plataforma": "Yellow",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 67.73 · 27/d",
+  "upfront": "Yellow: R$ 250.000",
+  "comp_orders": "YELLOW: 4000",
+  "comp_aov": "YELLOW: R$ 66",
+  "bd": "allanmaalouli",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "10/09/2026, 11:45",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 250.000; 竞对日均单量 4000 单，商户依赖度高; 数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 250.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 250.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "Com 4000 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均4000单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Duplo Burguer Jaraguá",
+  "merchant_id": "159425848",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 2.000.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "caiolorencato",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "10/09/2026, 11:42",
+  "risk": "HIGH",
+  "risk_reason": "竞对预付高达 R$ 2.000.000，谈判空间受限; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 2.000.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "A Candeia Churrascaria",
+  "merchant_id": "159479579",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 46.32 · 65.67/d",
+  "upfront": "Yellow: R$ 100.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "10/09/2026, 11:41",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Nova Sião",
+  "merchant_id": "159385368/159392276, 159401323",
+  "plataforma": "Yellow",
+  "etapa": "KP aceitou",
+  "kp": "Aceita (R1)",
+  "aov_keeta": "R$ 27.32 · 91.33/d",
+  "upfront": "Yellow: R$ 600.000",
+  "comp_orders": "—",
+  "comp_aov": "YELLOW: R$ 30",
+  "bd": "renansilva",
+  "bdm": "cesararraes",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "10/09/2026, 11:36",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付高达 R$ 600.000，谈判空间受限; 数据停滞（最后更新 10/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "Quais são os próximos passos e prazo para assinatura do contrato?",
+    "cn": "下一步动作和签约时限是什么？"
+   },
+   {
+    "pt": "O upfront de R$ 600.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizza Via Carlo Premium",
+  "merchant_id": "159394897",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 59.1 · 46/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "eduardosantos",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:25",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Hot Dog's Lorenzzo - Alphaville",
+  "merchant_id": "159403342",
+  "plataforma": "—",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 27.63 · 1.5/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "heloisamagnani",
+  "bdm": "thiagoscavazini",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Cantinho da Edina",
+  "merchant_id": "159403113",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 7.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "felipecruz",
+  "bdm": "thiagoscavazini",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Nory Sushi - Santos",
+  "merchant_id": "159580688",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 51.42 · 176.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "nathaliabernardino",
+  "bdm": "renataleite",
+  "cm": "jaylin",
+  "city": "Santos City",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Marcelinho Lanches",
+  "merchant_id": "159425725",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 35.9 · 1.67/d",
+  "upfront": "—",
+  "comp_orders": "YELLOW: 150",
+  "comp_aov": "—",
+  "bd": "alexlima",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 150 单，商户依赖度高; 信息缺失：竞对预付金额、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Com 150 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均150单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Boff Burguers INAMAR",
+  "merchant_id": "159556157",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 53.81 · 3.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "otaviomazzega",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "| Pizzaria Martinelli |",
+  "merchant_id": "159394590",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 52.07 · 25/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "claudiareis",
+  "bdm": "thiagoscavazini",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "TJ PIZZAS E ESFIHAS",
+  "merchant_id": "159399292",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 52.35 · 21.33/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "CAIXA DE FOGO 2",
+  "merchant_id": "159397747",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 36.1 · 15.5/d",
+  "upfront": "Yellow: R$ 300.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "alexlima",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 300.000; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "O upfront de R$ 300.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Toka da Pizza - São Caetano do Sul",
+  "merchant_id": "159612939",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 44.17 · 14.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "otaviomazzega",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Restaurante Ms",
+  "merchant_id": "159428475",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "YELLOW: 120",
+  "comp_aov": "—",
+  "bd": "alexlima",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 120 单，商户依赖度高; Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Com 120 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均120单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Eyô",
+  "merchant_id": "159587239",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 122.94 · 0.33/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "murilosilva",
+  "bdm": "adriananaves",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Açaí do Buriti",
+  "merchant_id": "159396531",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "YELLOW: 60",
+  "comp_aov": "—",
+  "bd": "alexlima",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Restaurante e Espetaria JR",
+  "merchant_id": "159406774",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Caixa de Fogo Burger",
+  "merchant_id": "159397748",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 17.12 · 0.33/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "alexlima",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "PIZZARIA e ESFIHARIA AGEU",
+  "merchant_id": "159425248",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "nilmaxfranca",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Nakamoto Sushi",
+  "merchant_id": "159428933",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "tatianeribeiro",
+  "bdm": "—",
+  "cm": "—",
+  "city": "—",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Edu Sushi",
+  "merchant_id": "159398755",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 66.04 · 7.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "jessicapavanelli",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Doce Pimenta Confeitaria",
+  "merchant_id": "159619582",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 46.16 · 2/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Panelinha Restaurante",
+  "merchant_id": "159550502",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "YELLOW: 60",
+  "comp_aov": "—",
+  "bd": "sheilabrasiliano",
+  "bdm": "thiagoscavazini",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Master Burguer's FuLL",
+  "merchant_id": "159539060",
+  "plataforma": "Red",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Bê Burguer! - Combos de Burguer na Caixa",
+  "merchant_id": "159556833",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 65.56 · 53.67/d",
+  "upfront": "Yellow: R$ 55.000",
+  "comp_orders": "YELLOW: 8000",
+  "comp_aov": "—",
+  "bd": "tamirislopes",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对日均单量 8000 单，商户依赖度高; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "O upfront de R$ 55.000 é um pagamento único ou parcelado? Existe evidência documental?",
+    "cn": "预付 R$ 55.000 是一次性还是分期？有书面凭证吗？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Com 8000 pedidos/dia no concorrente, qual é a dependência financeira do merchant? O que o faria trocar?",
+    "cn": "竞对日均8000单，商家的财务依赖度如何？什么条件能让他转换？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Mukai - Entrega Rápida",
+  "merchant_id": "159387201",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 350.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "renansilva",
+  "bdm": "cesararraes",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 350.000; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 350.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Açaí Soberano",
+  "merchant_id": "159411012/159408617",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 60.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "eduardosantos",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Comida Caseira da Paula",
+  "merchant_id": "159560076",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "felipesilva",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Chef Pimenta - Marmitex & Delivery",
+  "merchant_id": "159408795/159396775, 159396778, 159400823",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 41.76 · 165.33/d",
+  "upfront": "Yellow: R$ 500.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "renansilva",
+  "bdm": "cesararraes",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "HIGH",
+  "risk_reason": "竞对预付高达 R$ 500.000，谈判空间受限; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "O upfront de R$ 500.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Cantinho da Gula",
+  "merchant_id": "159427816",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 70.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "tamirislopes",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Reis Burguer",
+  "merchant_id": "159396938",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 37.11 · 60.67/d",
+  "upfront": "Yellow: R$ 45.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "marcelofeitosa",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Nil Bar Restaurante",
+  "merchant_id": "159400545",
+  "plataforma": "RedYellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 50.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "tatianarodrigues",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Ello Burguer",
+  "merchant_id": "159408221",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 40.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "wellingtonsantos",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Gema",
+  "merchant_id": "159396868",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 200.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 200.000; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 200.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "O Bom do Baião",
+  "merchant_id": "159393966",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "tatianarodrigues",
+  "bdm": "igorfeitosa",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Lanches e Refeições Express",
+  "merchant_id": "159427770",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "luizmoreira",
+  "bdm": "biancaceotto",
+  "cm": "marciojaroslavsky",
+  "city": "Western São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Porto Lanches",
+  "merchant_id": "159548625",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "R$ 60.22 · 40.67/d",
+  "upfront": "—",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "ricardoalmeida",
+  "bdm": "tadeumoraes",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "09/09/2026, 17:20",
+  "risk": "MEDIUM",
+  "risk_reason": "信息缺失：竞对预付金额、竞对日单量、KP 审批结果; 数据停滞（最后更新 09/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: valor de upfront do concorrente e pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对预付金额、竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   },
+   {
+    "pt": "O merchant tem potencial de crescimento no Keeta (ticket/AOV/categoria)? Vale investimento exclusivo?",
+    "cn": "该商家在Keeta的成长潜力（客单价/品类）如何？值得投入独家资源吗？"
+   }
+  ]
+ },
+ {
+  "nome": "Hamburgueria Ovni",
+  "merchant_id": "159392614",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 300.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "rodrigocorreia",
+  "bdm": "alisaeed",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "04/09/2026, 16:03",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 300.000; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 04/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 300.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Lounge Vila Ferreira-Hambúrguer Artesanal - 20% Off Vem Conferir!!",
+  "merchant_id": "159401057",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 280.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "felipesanches",
+  "bdm": "fernandooliveira",
+  "cm": "danielalbuquerque",
+  "city": "Southern São Paulo Metropolitan",
+  "updated": "04/09/2026, 11:49",
+  "risk": "MEDIUM",
+  "risk_reason": "竞对预付 R$ 280.000; Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 04/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "O upfront de R$ 280.000 é recorrente anual? Nosso contra-fluxo (tráfego + comissão) consegue competir?",
+    "cn": "大额预付是否每年续？我方对流（流量+佣金）能否抗衡？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ },
+ {
+  "nome": "Pizzaria Mais Você",
+  "merchant_id": "159406995",
+  "plataforma": "Yellow",
+  "etapa": "Reportado",
+  "kp": "—",
+  "aov_keeta": "— · 0/d",
+  "upfront": "Yellow: R$ 15.000",
+  "comp_orders": "—",
+  "comp_aov": "—",
+  "bd": "fernandoquintiliano",
+  "bdm": "danielalbuquerque",
+  "cm": "zhangwenle",
+  "city": "Southern São Paulo Metropolitan (RM直管)",
+  "updated": "04/09/2026, 11:49",
+  "risk": "MEDIUM",
+  "risk_reason": "Keeta 日订单为 0，尚未起量; 信息缺失：竞对日单量、KP 审批结果; 数据停滞（最后更新 04/09/2026）",
+  "questions": [
+   {
+    "pt": "Faltam dados: pedidos diários do concorrente. Qual o valor real?",
+    "cn": "竞对日单量缺失，实际值是多少？"
+   },
+   {
+    "pt": "O BD já avançou o caso além do registro? Há quanto tempo sem atualização?",
+    "cn": "BD 是否已推进到下一阶段？多久没更新了？"
+   },
+   {
+    "pt": "Por que o merchant ainda não tem pedidos no Keeta? Já está online?",
+    "cn": "商家在 Keeta 还没有订单，已上线了吗？"
+   },
+   {
+    "pt": "Qual é o principal argumento do concorrente para prender este merchant?",
+    "cn": "竞对绑定这家商家的核心筹码是什么？"
+   },
+   {
+    "pt": "Existe histórico de visita recente? Qual foi a última interação registrada?",
+    "cn": "最近是否有拜访记录？最后一次互动是什么时候？"
+   }
+  ]
+ }
+]

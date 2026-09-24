@@ -1,0 +1,182 @@
+{
+  "bml_total": {
+    "merchants": "1075/2197 (48.9%)",
+    "spu": "4789/8858 (54.1%)"
+  },
+  "bml_spu_rate": 54.1,
+  "bml_spu_done": 4789,
+  "bml_spu_total": 8858,
+  "bml_mer_rate": 48.9,
+  "bml_m_done": 1075,
+  "bml_m_total": 2197,
+  "bdm_rank": [
+    [
+      "tadeumoraes",
+      "605/798",
+      75.8
+    ],
+    [
+      "danielalbuquerque",
+      "931/1233",
+      75.5
+    ],
+    [
+      "thiagoscavazini",
+      "299/417",
+      71.7
+    ],
+    [
+      "adriananaves",
+      "464/651",
+      71.3
+    ],
+    [
+      "biancaceotto",
+      "422/597",
+      70.7
+    ],
+    [
+      "igorfeitosa",
+      "188/330",
+      57.0
+    ],
+    [
+      "fernandooliveira",
+      "333/688",
+      48.4
+    ],
+    [
+      "cesararraes",
+      "514/1257",
+      40.9
+    ],
+    [
+      "renataleite",
+      "223/566",
+      39.4
+    ],
+    [
+      "alisaeed",
+      "308/866",
+      35.6
+    ],
+    [
+      "lucasferreira",
+      "264/754",
+      35.0
+    ],
+    [
+      "sabrinafernandes",
+      "237/694",
+      34.1
+    ],
+    [
+      "null",
+      "1/7",
+      14.3
+    ]
+  ],
+  "city": {
+    "jaylin": {
+      "m": "85/285",
+      "m_pct": 29.8,
+      "spu": "460/1260",
+      "spu_pct": 36.5
+    },
+    "danielalbuquerque": {
+      "m": "578/1073",
+      "m_pct": 53.9,
+      "spu": "2642/4243",
+      "spu_pct": 62.3
+    },
+    "marciojaroslavsky": {
+      "m": "412/839",
+      "m_pct": 49.1,
+      "spu": "1687/3355",
+      "spu_pct": 50.3
+    }
+  },
+  "bd_bands": {
+    ">=60": 41,
+    "40-50": 9,
+    "<40": 21,
+    "50-60": 15
+  },
+  "bd_total_with_task": 86,
+  "bd_top": [
+    [
+      "barbaraoliveira",
+      100.0,
+      "29/29"
+    ],
+    [
+      "wainnergonzales",
+      94.9,
+      "37/39"
+    ],
+    [
+      "cristianedasilva",
+      94.6,
+      "53/56"
+    ],
+    [
+      "carloscasado",
+      94.3,
+      "115/122"
+    ],
+    [
+      "josenascimento",
+      92.7,
+      "38/41"
+    ],
+    [
+      "rodrigopoli",
+      92.7,
+      "38/41"
+    ],
+    [
+      "marialisboa",
+      91.9,
+      "79/86"
+    ],
+    [
+      "leandroresende",
+      91.2,
+      "93/102"
+    ]
+  ],
+  "bd_zero": [
+    "thiagorimoli",
+    "leonardosantos"
+  ],
+  "visits": {
+    "total": 10948,
+    "daily": {
+      "14 Sep 2026": 1409,
+      "15 Sep 2026": 2332,
+      "16 Sep 2026": 2486,
+      "17 Sep 2026": 2452,
+      "18 Sep 2026": 2249,
+      "19 Sep 2026": 20
+    },
+    "offline_rate": 93.1,
+    "active_bds": 523,
+    "types": {
+      "On-site visit": 10191,
+      "Online visit": 757
+    },
+    "items": {
+      "Merchant operation": 6922,
+      "Newly signed merchant": 4026
+    },
+    "workday_total": 10928,
+    "workday_avg": 2185.6,
+    "per_bd_day_81": 27.0
+  },
+  "comp_mentions": {
+    "Red": 290,
+    "99": 226,
+    "iFood": 187,
+    "Yellow": 184
+  }
+}

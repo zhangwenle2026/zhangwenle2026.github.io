@@ -1,0 +1,15 @@
+skill-manifest-version: 1
+skill-id: b54c5044c3890f1b64f0ff79ea83981e2fa0e0b458ddf525a548f860454fcf9c
+
+files:
+  0c7b9e272c86a80261f0095e184127d8ff63a6c63205dd48dca04c05a65d77f3  .gitignore
+  937e61615fe88fc1ae9945aeeaf17c69fffe79e32bc68baf034213a53139d5dd  .skill-dev/progress.md
+  7734ccdca10c14040a02bbcd7d700e2b40b1449c55e60ef7d214efa0c6b94056  .skill-dev/tracking-plan.json
+  c3a05c111030e0507d725727b68b15ea70b91445715515f6861852a35e0bf196  README.md
+  fdab260c19fc11c2c2402e8a337a6f9ccf4292d3ba2b156338159205f50729ae  SKILL.md
+  9f93c0c3325df79453be378bd94dbe4d97d21a767a5c604fbe312aeb62052c3a  references/scenarios/dbr_lifecycle_monitoring.md
+  89b9fcbb887ea7d0aec145c9b11dec096c6e5185cfa14a2147f86bd7405f9d7f  requirements.txt
+  387c45760ca16246f171ede330744d35e680027cf4b6dbcfbfe0e13aa06997e5  scripts/ae_dbr_chart.py
+  baf9cd04b22ff9f1c3536becacb18edf93f61dfc7a145355979755f47ddae58e  scripts/ae_dbr_query.py
+  27943f254de1e0af19f0e81d339dbea7f0b05f9675479d814360951a6d9b4495  scripts/bi_client.py
+  5e9d8504695de9af86d65adbeba2f34028b57c713dda827346ab59b7d4ccf75e  scripts/skill_tracker.py

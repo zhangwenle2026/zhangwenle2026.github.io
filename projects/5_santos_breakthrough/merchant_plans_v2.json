@@ -1,0 +1,5107 @@
+[
+  {
+    "shop_id": "159399427",
+    "shop_name": "Gendai - Praiamar Shopping · Intermediada",
+    "bdm": "Isabela Mendes",
+    "total_skus": 45,
+    "popular_count": 9,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Temaki Shimeji",
+        "name_cn": "单人餐：Temaki Shimeji",
+        "items": [
+          {
+            "name": "Temaki Shimeji",
+            "price": 29.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Hot Roll Kani",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Mini Hot Roll",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 73.7,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Temaki Shimeji为引流锚点，搭配Hot Roll Kani+Mini Hot Roll，单品总价约R$73.7，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Combinado Especial + 3 itens",
+        "name_cn": "双人餐A：Combinado Espec等4道",
+        "items": [
+          {
+            "name": "Combinado Especial",
+            "price": 53.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Hot Roll Kani",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Mini Hot Roll",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Mini Hot Roll",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 121.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Combinado Especial为主力锚点，组合4道菜品，单品总价约R$121.6，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Yakissoba De Camarão + 3 itens",
+        "name_cn": "双人餐B：Yakissoba De Ca等4道",
+        "items": [
+          {
+            "name": "Yakissoba De Camarão",
+            "price": 45.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Hot Roll Philadelphia",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Yakissoba De Vegetais",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Shimeji",
+            "price": 27.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 123.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Yakissoba De Camarão为核心，搭配Hot Roll Philad+Yakissoba De Ve，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$80.0",
+        "name_pt": "Combo Família — Barca Nakano + 6 itens",
+        "name_cn": "家庭聚会：Barca Nakano等7道",
+        "items": [
+          {
+            "name": "Barca Nakano",
+            "price": 109.9,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Hot Roll Kani",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Mini Hot Roll",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Mini Hot Roll",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Philadelphia",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Yakissoba De Vegetais",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Shimeji",
+            "price": 27.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 200,
+        "items_sum": 255.3,
+        "final": 80.0,
+        "merchant_cost": 80.0,
+        "platform_subsidy": 40.0,
+        "saving_display": "Economize R$120.0",
+        "logic": "以Barca Nakano为核心，组合7道高价值菜品组成家庭分享装，单品总价约R$255.3，套餐标价R$200，商补40%(R$80.0)+平台补贴约R$40.0→到手R$80.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Mini Hot Roll",
+        "price": 23.9,
+        "popular": true
+      },
+      {
+        "name": "Domburi Veggie",
+        "price": 33.9,
+        "popular": true
+      },
+      {
+        "name": "Yakissoba Executivo",
+        "price": 37.9,
+        "popular": true
+      },
+      {
+        "name": "Poke Veggie",
+        "price": 38.9,
+        "popular": true
+      },
+      {
+        "name": "Poke Salmão Grelhado",
+        "price": 40.9,
+        "popular": true
+      },
+      {
+        "name": "Poke Salmão Fresh",
+        "price": 40.9,
+        "popular": true
+      },
+      {
+        "name": "Poke Salmão Ao Molho Oriental",
+        "price": 40.9,
+        "popular": true
+      },
+      {
+        "name": "Poke Camarão Crispy",
+        "price": 40.9,
+        "popular": true
+      },
+      {
+        "name": "Yakissoba Especial",
+        "price": 41.9,
+        "popular": true
+      },
+      {
+        "name": "Karaage",
+        "price": 11.9,
+        "popular": false
+      },
+      {
+        "name": "Rolinho Banana Com Chocolate 2 uni",
+        "price": 15.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Kani",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Yakissoba De Vegetais",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Philadelphia",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Shimeji",
+        "price": 27.9,
+        "popular": false
+      },
+      {
+        "name": "Yakissoba De Frango",
+        "price": 28.9,
+        "popular": false
+      },
+      {
+        "name": "Guioza",
+        "price": 28.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Shimeji",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado Fry",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Ceviche Salmão",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Couve Crispy",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Com Shimeji",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Especial",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Camarão Crispy",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Sushi Roll + Bebida Grátis (Express)",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "1/2 Yakissoba Executivo + Berinjela Furai + Bebida",
+        "price": 33.9,
+        "popular": false
+      },
+      {
+        "name": "Chicken Domburi",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Yakissoba De Carne",
+        "price": 35.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 1/2 Poke Salmão Grelhado + Hot Roll Kani + Bebida",
+        "price": 35.9,
+        "popular": false
+      },
+      {
+        "name": "Sushi Express",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Poke Ceviche Mix",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Poke Ceviche Salmão",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão + Hot Roll Philadelphia + Bebida",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Beef Domburi",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Missô Lamen",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Domburi Camarão Crispy",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Shoyu Lamen",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Katsu Karê",
+        "price": 42.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Sushi + Bebida Gratis",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Yakissoba De Camarão",
+        "price": 45.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Especial",
+        "price": 53.9,
+        "popular": false
+      },
+      {
+        "name": "Barca Maki",
+        "price": 93.9,
+        "popular": false
+      },
+      {
+        "name": "Barca Nakano",
+        "price": 109.9,
+        "popular": false
+      },
+      {
+        "name": "Barca Jyo",
+        "price": 143.9,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159401806",
+    "shop_name": "Hunoo Sushi",
+    "bdm": "Nathalia Queiroz",
+    "total_skus": 55,
+    "popular_count": 10,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Hossomaki De Pepino Japon",
+        "name_cn": "单人餐：Hossomaki De Pepino ",
+        "items": [
+          {
+            "name": "Hossomaki De Pepino Japonês",
+            "price": 23.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Mineral S/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki De Shimeii",
+            "price": 43.1,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 77.7,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Hossomaki De Pepino 为引流锚点，搭配Água Mineral S/+Temaki De Shime，单品总价约R$77.7，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Yakissoba De Carne + 3 itens",
+        "name_cn": "双人餐A：Yakissoba De Ca等4道",
+        "items": [
+          {
+            "name": "Yakissoba De Carne",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Mineral S/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sushi Barriga De Salmão Trufado",
+            "price": 15.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hossomaki De Pepino Japonês",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 110.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Yakissoba De Carne为主力锚点，组合4道菜品，单品总价约R$110.0，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Sashimi Barriga De S + 5 itens",
+        "name_cn": "双人餐B：Sashimi Barriga等6道",
+        "items": [
+          {
+            "name": "Sashimi Barriga De Salmão",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Mineral S/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Mineral C/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Tônica",
+            "price": 14.3,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante",
+            "price": 14.3,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hossomaki De Pepino Japonês",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 133.8,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Sashimi Barriga De S为核心，搭配Água Mineral S/+Água Mineral C/，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$80.0",
+        "name_pt": "Combo Família — Teppan De Camarão + 7 itens",
+        "name_cn": "家庭聚会：Teppan De Camar等8道",
+        "items": [
+          {
+            "name": "Teppan De Camarão",
+            "price": 115.1,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Água Mineral S/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Mineral C/Gás",
+            "price": 10.7,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Tônica",
+            "price": 14.3,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante",
+            "price": 14.3,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sushi Barriga De Salmão Trufado",
+            "price": 15.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hossomaki De Pepino Japonês",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki De Shimeii",
+            "price": 43.1,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 200,
+        "items_sum": 247.6,
+        "final": 80.0,
+        "merchant_cost": 80.0,
+        "platform_subsidy": 40.0,
+        "saving_display": "Economize R$120.0",
+        "logic": "以Teppan De Camarão为核心，组合8道高价值菜品组成家庭分享装，单品总价约R$247.6，套餐标价R$200，商补40%(R$80.0)+平台补贴约R$40.0→到手R$80.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Sushi Barriga De Salmão Trufado",
+        "price": 15.5,
+        "popular": true
+      },
+      {
+        "name": "Uramaki De Salmão",
+        "price": 44.3,
+        "popular": true
+      },
+      {
+        "name": "Uramaki De Toro Atum",
+        "price": 47.9,
+        "popular": true
+      },
+      {
+        "name": "Temaki Salmão",
+        "price": 47.9,
+        "popular": true
+      },
+      {
+        "name": "Temaki Ebiten Camarão",
+        "price": 50.3,
+        "popular": true
+      },
+      {
+        "name": "Yakissoba De Carne",
+        "price": 59.9,
+        "popular": true
+      },
+      {
+        "name": "Poke salmão",
+        "price": 65.9,
+        "popular": true
+      },
+      {
+        "name": "Combo Simples Hunoo",
+        "price": 107.9,
+        "popular": true
+      },
+      {
+        "name": "Combo Hunoo Premium",
+        "price": 159.5,
+        "popular": true
+      },
+      {
+        "name": "Combo Hunoo Especial",
+        "price": 238.7,
+        "popular": true
+      },
+      {
+        "name": "Água Mineral S/Gás",
+        "price": 10.7,
+        "popular": false
+      },
+      {
+        "name": "Água Mineral C/Gás",
+        "price": 10.7,
+        "popular": false
+      },
+      {
+        "name": "Schweppes Citrus",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "H2Oh!",
+        "price": 13.1,
+        "popular": false
+      },
+      {
+        "name": "Água Tônica",
+        "price": 14.3,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante",
+        "price": 14.3,
+        "popular": false
+      },
+      {
+        "name": "Sushi Toro Atum Trufado",
+        "price": 15.5,
+        "popular": false
+      },
+      {
+        "name": "Jhou De Barriga De Salmão",
+        "price": 15.5,
+        "popular": false
+      },
+      {
+        "name": "Jhou De Ovo De Codorna",
+        "price": 15.5,
+        "popular": false
+      },
+      {
+        "name": "Sushi Peixe Branco Trufado",
+        "price": 15.5,
+        "popular": false
+      },
+      {
+        "name": "Heineken Long Neck",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Jhou De Ebi Nikkei",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Budweiser Long Neck",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Stella Long Neck",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Jhou De Ovas Massagô",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Corona Long Neck",
+        "price": 19.1,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki De Pepino Japonês",
+        "price": 23.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki De Salmão",
+        "price": 23.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki De Atum",
+        "price": 23.9,
+        "popular": false
+      },
+      {
+        "name": "Batera Especial De Salmão",
+        "price": 41.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki De Shimeii",
+        "price": 43.1,
+        "popular": false
+      },
+      {
+        "name": "Temaki Filadélfia Grelhado",
+        "price": 43.1,
+        "popular": false
+      },
+      {
+        "name": "Temaki Peixe Branco",
+        "price": 43.1,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Filadélfia Grelhado",
+        "price": 44.3,
+        "popular": false
+      },
+      {
+        "name": "Temaki Toro Atum",
+        "price": 47.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki De Salmão Especial C/ Caviar",
+        "price": 47.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Hot Roll Empanado",
+        "price": 50.3,
+        "popular": false
+      },
+      {
+        "name": "Temaki De Salmão C/ Shimeji",
+        "price": 50.3,
+        "popular": false
+      },
+      {
+        "name": "Temaki Criativo",
+        "price": 50.3,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Hunoo",
+        "price": 51.5,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Ebiten Nikkei",
+        "price": 51.5,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Peixe Branco",
+        "price": 52.7,
+        "popular": false
+      },
+      {
+        "name": "Yakimeshi",
+        "price": 55.1,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Barriga De Salmão",
+        "price": 59.9,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Toro De Atum",
+        "price": 63.5,
+        "popular": false
+      },
+      {
+        "name": "Espaguete",
+        "price": 65.9,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Frango",
+        "price": 68.3,
+        "popular": false
+      },
+      {
+        "name": "Yakissoba De Frango",
+        "price": 71.9,
+        "popular": false
+      },
+      {
+        "name": "Usszukuri De Peixe Branco",
+        "price": 76.7,
+        "popular": false
+      },
+      {
+        "name": "Usszukuri De Barriga De Salmão",
+        "price": 79.1,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Tilápia",
+        "price": 79.1,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Lula",
+        "price": 91.1,
+        "popular": false
+      },
+      {
+        "name": "Usszukuri De Barriga De Atum",
+        "price": 91.1,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Salmão",
+        "price": 103.1,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Camarão",
+        "price": 115.1,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159412112",
+    "shop_name": "Lega Lega Lamen",
+    "bdm": "Mariana Carvalho",
+    "total_skus": 32,
+    "popular_count": 10,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Coca Cola Zero Lata 350ml",
+        "name_cn": "单人餐：Coca Cola Zero Lata ",
+        "items": [
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Missô Lamen com Filé de Frango Crocante",
+            "price": 64.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 72.0,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Coca Cola Zero Lata 为引流锚点，搭配Missô Lamen com，单品总价约R$72.0，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Gyūdon Tradicional + 4 itens",
+        "name_cn": "双人餐A：Gyūdon Tradicio等5道",
+        "items": [
+          {
+            "name": "Gyūdon Tradicional",
+            "price": 62.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Ovo Marinado",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Macarrão Lamen",
+            "price": 16.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Macarrão Lamen + Moyashi + Cenoura",
+            "price": 22.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 116.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Gyūdon Tradicional为主力锚点，组合5道菜品，单品总价约R$116.0，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Gyūdon Tradicional s + 3 itens",
+        "name_cn": "双人餐B：Gyūdon Tradicio等4道",
+        "items": [
+          {
+            "name": "Gyūdon Tradicional s/ Ovo",
+            "price": 58.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Original 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Vegano",
+            "price": 29.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 103.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Gyūdon Tradicional s为核心，搭配Coca Cola Zero +Coca-Cola Origi，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$80.0",
+        "name_pt": "Combo Família — Shoyu Lamen Vegano c + 7 itens",
+        "name_cn": "家庭聚会：Shoyu Lamen Veg等8道",
+        "items": [
+          {
+            "name": "Shoyu Lamen Vegano c/ Tofu Grelhado e Duo de Gergelim",
+            "price": 72.0,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Ovo Marinado",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Original 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Macarrão Lamen",
+            "price": 16.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Macarrão Lamen + Moyashi + Cenoura",
+            "price": 22.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Vegano",
+            "price": 29.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Gyūdon Tradicional s/ Ovo",
+            "price": 58.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 200,
+        "items_sum": 221.0,
+        "final": 80.0,
+        "merchant_cost": 80.0,
+        "platform_subsidy": 40.0,
+        "saving_display": "Economize R$120.0",
+        "logic": "以Shoyu Lamen Vegano c为核心，组合8道高价值菜品组成家庭分享装，单品总价约R$221.0，套餐标价R$200，商补40%(R$80.0)+平台补贴约R$40.0→到手R$80.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Ovo Marinado",
+        "price": 8.0,
+        "popular": true
+      },
+      {
+        "name": "Missô Lamen com Filé de Frango Crocante",
+        "price": 64.0,
+        "popular": true
+      },
+      {
+        "name": "Shoyu Lamen com Frango Crocante",
+        "price": 64.0,
+        "popular": true
+      },
+      {
+        "name": "Shoyu Lamen com Copa Lombo Suíno",
+        "price": 66.0,
+        "popular": true
+      },
+      {
+        "name": "Missô Lamen  Copa Lombo Macia",
+        "price": 66.0,
+        "popular": true
+      },
+      {
+        "name": "Missô Lamen Barriga Suína Suculenta",
+        "price": 68.0,
+        "popular": true
+      },
+      {
+        "name": "Shoyu Lamen com Barriga Suína Suculenta",
+        "price": 68.0,
+        "popular": true
+      },
+      {
+        "name": "Missô Lamen Vegetariano c/ Shitake Grelhado",
+        "price": 70.0,
+        "popular": true
+      },
+      {
+        "name": "Missô Lamen Vegano c/ Tofu Grelhado e Duo de Gergelim",
+        "price": 72.0,
+        "popular": true
+      },
+      {
+        "name": "Shoyu Lamen Vegano c/ Tofu Grelhado e Duo de Gergelim",
+        "price": 72.0,
+        "popular": true
+      },
+      {
+        "name": "Nori (Alga)",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Fios de Cenoura",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Chá Verde Jabuticaba 290 ml Zero",
+        "price": 6.9,
+        "popular": false
+      },
+      {
+        "name": "Milho Verde",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Moyashi orgânico",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Coca Cola Zero Lata 350ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Coca-Cola Original 350ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Kombucha Maca Hello Kitty Pedy+ 260ml",
+        "price": 14.9,
+        "popular": false
+      },
+      {
+        "name": "Cha Mate+Kuromi Cola Pedy+ 260ml",
+        "price": 14.9,
+        "popular": false
+      },
+      {
+        "name": "Macarrão Lamen",
+        "price": 16.0,
+        "popular": false
+      },
+      {
+        "name": "Macarrão Lamen + Moyashi + Cenoura",
+        "price": 22.0,
+        "popular": false
+      },
+      {
+        "name": "Copa Lombo 120gr",
+        "price": 22.0,
+        "popular": false
+      },
+      {
+        "name": "Barriga Suína Suculenta 120gr",
+        "price": 24.0,
+        "popular": false
+      },
+      {
+        "name": "Frango Crocante 150gr",
+        "price": 26.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Vegano",
+        "price": 29.0,
+        "popular": false
+      },
+      {
+        "name": "Caldo Missô",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Caldo Shoyu",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Caldo Missô Vegano \\ Vegetáriano",
+        "price": 40.0,
+        "popular": false
+      },
+      {
+        "name": "Kârre /  Curry Japonês com Frango Crocante",
+        "price": 56.0,
+        "popular": false
+      },
+      {
+        "name": "Gyūdon Tradicional s/ Ovo",
+        "price": 58.0,
+        "popular": false
+      },
+      {
+        "name": "Gyūdon Tradicional",
+        "price": 62.0,
+        "popular": false
+      },
+      {
+        "name": "Shoyu Lamen Vegetariano c/ Shitake Grelhado",
+        "price": 70.0,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159426181",
+    "shop_name": "Koji Gourmet",
+    "bdm": "Fernanda Oliveira",
+    "total_skus": 75,
+    "popular_count": 9,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Harumaki De Queijo",
+        "name_cn": "单人餐：Harumaki De Queijo",
+        "items": [
+          {
+            "name": "Harumaki De Queijo",
+            "price": 32.3,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Niguirizushi Shiromi",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Kani",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy geléia de pimenta",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 78.0,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Harumaki De Queijo为引流锚点，搭配Niguirizushi Sh+Niguirizushi Ka+Joy geléia de p，单品总价约R$78.0，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Yakisoba de carne + 5 itens",
+        "name_cn": "双人餐A：Yakisoba de car等6道",
+        "items": [
+          {
+            "name": "Yakisoba de carne",
+            "price": 54.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Niguirizushi Shiromi",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Kani",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy geléia de pimenta",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy De Salmão",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy Geléia",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 136.4,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Yakisoba de carne为主力锚点，组合6道菜品，单品总价约R$136.4，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Yakisoba de salmão + 4 itens",
+        "name_cn": "双人餐B：Yakisoba de sal等5道",
+        "items": [
+          {
+            "name": "Yakisoba de salmão",
+            "price": 51.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Niguirizushi Maguro",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Ebi",
+            "price": 19.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Salmão",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 126.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Yakisoba de salmão为核心，搭配Niguirizushi Ma+Sunomono，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$84.0",
+        "name_pt": "Combo Família — Combinado Individual + 9 itens",
+        "name_cn": "家庭聚会：Combinado Indiv等10道",
+        "items": [
+          {
+            "name": "Combinado Individual",
+            "price": 102.9,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Niguirizushi Shiromi",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Kani",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy geléia de pimenta",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy De Salmão",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Joy Geléia",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Maguro",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Ebi",
+            "price": 19.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirizushi Salmão",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 210,
+        "items_sum": 259.1,
+        "final": 84.0,
+        "merchant_cost": 84.0,
+        "platform_subsidy": 42.0,
+        "saving_display": "Economize R$126.0",
+        "logic": "以Combinado Individual为核心，组合10道高价值菜品组成家庭分享装，单品总价约R$259.1，套餐标价R$210，商补40%(R$84.0)+平台补贴约R$42.0→到手R$84.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Guioza Tradicional ( 8 Unidades)",
+        "price": 37.1,
+        "popular": true
+      },
+      {
+        "name": "Temaki Salmão Completo",
+        "price": 40.9,
+        "popular": true
+      },
+      {
+        "name": "Tempurá Kakiagué ( 5 Unidades)",
+        "price": 44.3,
+        "popular": true
+      },
+      {
+        "name": "Bentô 3  (sem troca de itens)",
+        "price": 65.9,
+        "popular": true
+      },
+      {
+        "name": "Bentô 2  (sem troca de itens)",
+        "price": 65.9,
+        "popular": true
+      },
+      {
+        "name": "Combo Koji 2",
+        "price": 68.9,
+        "popular": true
+      },
+      {
+        "name": "Poke ( escolha 1 proteína e 4 acompanhamentos)",
+        "price": 72.9,
+        "popular": true
+      },
+      {
+        "name": "Combo Koji 3",
+        "price": 79.9,
+        "popular": true
+      },
+      {
+        "name": "Teppan De Salmão",
+        "price": 91.2,
+        "popular": true
+      },
+      {
+        "name": "Gohan Porção De Arroz",
+        "price": 13.1,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Shiromi",
+        "price": 13.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Kani",
+        "price": 13.9,
+        "popular": false
+      },
+      {
+        "name": "Joy geléia de pimenta",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Joy De Salmão",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Joy Geléia",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Maguro",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Sunomono",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Ebi",
+        "price": 19.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Salmão",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirizushi Tako",
+        "price": 20.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Banana Com Sorvete De Creme, Chocolate Ou Coco Branco (2 Unidades)",
+        "price": 22.8,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Legumes Com Frango",
+        "price": 26.3,
+        "popular": false
+      },
+      {
+        "name": "Petit Gateau de Chocolate",
+        "price": 27.6,
+        "popular": false
+      },
+      {
+        "name": "Envolto de shimeji",
+        "price": 29.5,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Queijo",
+        "price": 32.3,
+        "popular": false
+      },
+      {
+        "name": "Envolto de camarão",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Shimeji Na Manteiga",
+        "price": 34.5,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Salmão 2 Unidades",
+        "price": 34.5,
+        "popular": false
+      },
+      {
+        "name": "Mochiaki",
+        "price": 36.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki de Atum",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Hot",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Bolinho de Salmão",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki de salmão",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki salmão com cream cheese",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki salmão e cebolinha",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Bolinho de Costela",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Bolinho de Salmão com Catupiry",
+        "price": 40.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Camarão Cheese",
+        "price": 40.5,
+        "popular": false
+      },
+      {
+        "name": "Yakimeshi",
+        "price": 41.9,
+        "popular": false
+      },
+      {
+        "name": "Cocada De Coco",
+        "price": 42.0,
+        "popular": false
+      },
+      {
+        "name": "Camarão Empanado",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Holl de Banana",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Salmão",
+        "price": 44.9,
+        "popular": false
+      },
+      {
+        "name": "Robata De Salmão",
+        "price": 46.8,
+        "popular": false
+      },
+      {
+        "name": "Makicouve",
+        "price": 46.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba de frango",
+        "price": 47.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Koji",
+        "price": 48.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado Kids",
+        "price": 49.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba misto",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba de camarão",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba de salmão",
+        "price": 51.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Koji Polvo E Peixe Branco",
+        "price": 52.3,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba de carne",
+        "price": 54.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Classico",
+        "price": 55.0,
+        "popular": false
+      },
+      {
+        "name": "Big Hot",
+        "price": 57.0,
+        "popular": false
+      },
+      {
+        "name": "Robata De Carne Com Queijo (choriso)",
+        "price": 58.8,
+        "popular": false
+      },
+      {
+        "name": "Sushi Salmão (Porção Individual)",
+        "price": 58.9,
+        "popular": false
+      },
+      {
+        "name": "Bentô 1 (sem troca de itens)",
+        "price": 61.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Mix",
+        "price": 64.8,
+        "popular": false
+      },
+      {
+        "name": "Bentô 4  (sem troca de itens)",
+        "price": 65.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba frutos do mar",
+        "price": 66.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Coco",
+        "price": 72.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Polvo",
+        "price": 74.4,
+        "popular": false
+      },
+      {
+        "name": "Teishoku",
+        "price": 79.2,
+        "popular": false
+      },
+      {
+        "name": "Combinado Norimaki Individual",
+        "price": 85.9,
+        "popular": false
+      },
+      {
+        "name": "Sushi Koji ( Porção p/ 2 Pessoas)",
+        "price": 89.9,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Choriso",
+        "price": 94.8,
+        "popular": false
+      },
+      {
+        "name": "Salmão grelhado com purê",
+        "price": 97.9,
+        "popular": false
+      },
+      {
+        "name": "Teppan De Frutos Do Mar",
+        "price": 98.4,
+        "popular": false
+      },
+      {
+        "name": "Combinado Individual",
+        "price": 102.9,
+        "popular": false
+      },
+      {
+        "name": "Risoto frutos do mar",
+        "price": 107.9,
+        "popular": false
+      },
+      {
+        "name": "Peixe sobre creme de coco",
+        "price": 146.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Salmão 2 Pessoas",
+        "price": 159.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Koji Mix Para 3 Pessoas",
+        "price": 267.9,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159427500",
+    "shop_name": "Temaki da Lagoa",
+    "bdm": "Gabriela Silva",
+    "total_skus": 57,
+    "popular_count": 8,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Hot Roll Salmão 12 Unidad",
+        "name_cn": "单人餐：Hot Roll Salmão 12 U",
+        "items": [
+          {
+            "name": "Hot Roll Salmão 12 Unidade",
+            "price": 24.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Sem Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Banana + Chocolate 2un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo 2 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 69.7,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Hot Roll Salmão 12 U为引流锚点，搭配Água Sem Gás+Hot Roll Banana+Harumaki Queijo，单品总价约R$69.7，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Sushi Burguer + 4 itens",
+        "name_cn": "双人餐A：Sushi Burguer等5道",
+        "items": [
+          {
+            "name": "Sushi Burguer",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Sem Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Banana + Chocolate 2un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo 2 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza Bovina 4 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 124.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Sushi Burguer为主力锚点，组合5道菜品，单品总价约R$124.6，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Poke Da Lagoa Salmão + 6 itens",
+        "name_cn": "双人餐B：Poke Da Lagoa S等7道",
+        "items": [
+          {
+            "name": "Poke Da Lagoa Salmão Completo",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Sem Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Com Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Lata",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola 2 Litros",
+            "price": 17.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo 2 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza Bovina 4 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 133.7,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Poke Da Lagoa Salmão为核心，搭配Água Sem Gás+Água Com Gás，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$88.0",
+        "name_pt": "Combo Família — 24 Unidades Hot Roll + 11 itens",
+        "name_cn": "家庭聚会：24 Unidades Hot等12道",
+        "items": [
+          {
+            "name": "24 Unidades Hot Rolls",
+            "price": 85.6,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Água Sem Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Com Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Lata",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola 2 Litros",
+            "price": 17.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Banana + Chocolate 2un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo 2 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza Bovina 4 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Chocolate 2 Un.",
+            "price": 19.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Salmão 12 Un.",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hot Roll Salmão 12 Unidade",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 220,
+        "items_sum": 268.9,
+        "final": 88.0,
+        "merchant_cost": 88.0,
+        "platform_subsidy": 44.0,
+        "saving_display": "Economize R$132.0",
+        "logic": "以24 Unidades Hot Roll为核心，组合12道高价值菜品组成家庭分享装，单品总价约R$268.9，套餐标价R$220，商补40%(R$88.0)+平台补贴约R$44.0→到手R$88.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Hot Roll Salmão 12 Un.",
+        "price": 24.9,
+        "popular": true
+      },
+      {
+        "name": "Uramaki 8 Un.",
+        "price": 26.9,
+        "popular": true
+      },
+      {
+        "name": "Tmk Salmão Completo",
+        "price": 27.9,
+        "popular": true
+      },
+      {
+        "name": "Tmk Salmão Grelhado Hot",
+        "price": 29.9,
+        "popular": true
+      },
+      {
+        "name": "Sushi Burguer",
+        "price": 59.9,
+        "popular": true
+      },
+      {
+        "name": "1 Temaki + Hot Roll 12 Un.",
+        "price": 85.6,
+        "popular": true
+      },
+      {
+        "name": "24 Unidades Hot Rolls",
+        "price": 85.6,
+        "popular": true
+      },
+      {
+        "name": "2 Temakis + Hot Roll 12 Un.",
+        "price": 128.6,
+        "popular": true
+      },
+      {
+        "name": "Água Sem Gás",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Água Com Gás",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Amstel Lata 350ml",
+        "price": 6.5,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Lata",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Del Valle Uva",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "H2oh Limão 500ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Guaraviton Açai 500ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "H2oh Limoneto 500ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Heineken Long",
+        "price": 12.5,
+        "popular": false
+      },
+      {
+        "name": "Guaraná Antártica 2 Litros",
+        "price": 17.0,
+        "popular": false
+      },
+      {
+        "name": "Coca Cola 2 Litros",
+        "price": 17.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Queijo 2 Un.",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki 8 Un.",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Banana + Chocolate 2un.",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Guioza Bovina 4 Un.",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Sunomono",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki 8 Unidade ",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Chocolate 2 Un.",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Skin",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Tortinha De Limão",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk California",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Banana Nevada 12 Unidade",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Salmão 12 Unidade",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki 8 Unidade",
+        "price": 26.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Grelhado",
+        "price": 27.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Simples",
+        "price": 27.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Com Camarão",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Com Kani",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Tmk Salmão Doritos",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Ruffles 8 Unidade",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Joy 8 Un.",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Sushi Burguer ",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Croc",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Joy Com Mussarela 8 Unidade",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Salmão Camarão",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisobas",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba Camarão",
+        "price": 42.9,
+        "popular": false
+      },
+      {
+        "name": "Macarrão Com Salmão",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Tepan",
+        "price": 46.9,
+        "popular": false
+      },
+      {
+        "name": "Poke Da Lagoa Salmão Empanado",
+        "price": 46.9,
+        "popular": false
+      },
+      {
+        "name": "Poke Da Lagoa Salmão Cru",
+        "price": 46.9,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Salmão 12 Un.",
+        "price": 54.0,
+        "popular": false
+      },
+      {
+        "name": "Niguiri 8 Un.",
+        "price": 54.0,
+        "popular": false
+      },
+      {
+        "name": "Carpaccio Salmão",
+        "price": 54.0,
+        "popular": false
+      },
+      {
+        "name": "Sushi Ball 6 Un.",
+        "price": 54.9,
+        "popular": false
+      },
+      {
+        "name": "36 Unidades Hot Rolls",
+        "price": 59.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Salmão",
+        "price": 59.9,
+        "popular": false
+      },
+      {
+        "name": "Poke Da Lagoa Salmão Completo",
+        "price": 59.9,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159480919",
+    "shop_name": "Taira Sushi",
+    "bdm": "Monique Barbosa",
+    "total_skus": 105,
+    "popular_count": 10,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Joy Salmão Shimeji",
+        "name_cn": "单人餐：Joy Salmão Shimeji",
+        "items": [
+          {
+            "name": "Joy Salmão Shimeji",
+            "price": 37.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo",
+            "price": 21.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 67.8,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Joy Salmão Shimeji为引流锚点，搭配Coca Cola Zero +Harumaki Queijo，单品总价约R$67.8，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Combinado Gunma (11  + 3 itens",
+        "name_cn": "双人餐A：Combinado Gunma等4道",
+        "items": [
+          {
+            "name": "Combinado Gunma (11 peças)",
+            "price": 62.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo",
+            "price": 21.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Shimeji",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 117.7,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Combinado Gunma (11 为主力锚点，组合4道菜品，单品总价约R$117.7，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Sashimi Salmão Pesto + 9 itens",
+        "name_cn": "双人餐B：Sashimi Salmão 等10道",
+        "items": [
+          {
+            "name": "Sashimi Salmão Pesto (10 peças)",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Mineral Crystal Sem Gás 500ml",
+            "price": 6.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Mineral com Gás Mineral 500ml",
+            "price": 6.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Zero Antarctica 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Original 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Maracujá 290ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Mais Sabor Uva Em Lata",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante de Limão H2oh 500ml",
+            "price": 9.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 137.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Sashimi Salmão Pesto为核心，搭配Água Mineral Cr+Água Mineral co，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$80.0",
+        "name_pt": "Combo Família — Combinado 1 - 17 peç + 14 itens",
+        "name_cn": "家庭聚会：Combinado 1 - 1等15道",
+        "items": [
+          {
+            "name": "Combinado 1 - 17 peças",
+            "price": 82.0,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Água Mineral Crystal Sem Gás 500ml",
+            "price": 6.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Mineral com Gás Mineral 500ml",
+            "price": 6.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca Cola Zero Lata 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Zero Antarctica 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Original 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica 350ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Maracujá 290ml",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Mais Sabor Uva Em Lata",
+            "price": 8.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante de Limão H2oh 500ml",
+            "price": 9.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Limoneto H2oh 500ml",
+            "price": 9.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 15.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hossomaki Pepino",
+            "price": 20.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Queijo",
+            "price": 21.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Shimeji",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 200,
+        "items_sum": 252.6,
+        "final": 80.0,
+        "merchant_cost": 80.0,
+        "platform_subsidy": 40.0,
+        "saving_display": "Economize R$120.0",
+        "logic": "以Combinado 1 - 17 peç为核心，组合15道高价值菜品组成家庭分享装，单品总价约R$252.6，套餐标价R$200，商补40%(R$80.0)+平台补贴约R$40.0→到手R$80.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Shimeji",
+        "price": 24.9,
+        "popular": true
+      },
+      {
+        "name": "Hossomaki Salmão",
+        "price": 25.9,
+        "popular": true
+      },
+      {
+        "name": "Uramaki Philadelphia",
+        "price": 36.0,
+        "popular": true
+      },
+      {
+        "name": "Hot Roll Tradicional",
+        "price": 37.5,
+        "popular": true
+      },
+      {
+        "name": "Niguirí Salmão",
+        "price": 38.0,
+        "popular": true
+      },
+      {
+        "name": "Temaki Salmão",
+        "price": 38.0,
+        "popular": true
+      },
+      {
+        "name": "Joy Salmão Cream Cheese",
+        "price": 38.5,
+        "popular": true
+      },
+      {
+        "name": "Uramaki Philadelphia Especial",
+        "price": 39.0,
+        "popular": true
+      },
+      {
+        "name": "Sashimi Salmão (10 Peças)",
+        "price": 56.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado 1 - 17 peças",
+        "price": 82.0,
+        "popular": true
+      },
+      {
+        "name": "Crispy de Couve",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Gengibre",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Cream Cheese",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Crispy de Cebola",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Crispy de Batata Doce",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Wasabi Extra",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Molho Tarê Caseiro",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Água Mineral Crystal Sem Gás 500ml",
+        "price": 6.9,
+        "popular": false
+      },
+      {
+        "name": "Água Mineral com Gás Mineral 500ml",
+        "price": 6.9,
+        "popular": false
+      },
+      {
+        "name": "Coca Cola Zero Lata 350ml",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Zero Antarctica 350ml",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Coca-Cola Original 350ml",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Antarctica 350ml",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Maracujá 290ml",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Mais Sabor Uva Em Lata",
+        "price": 8.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante de Limão H2oh 500ml",
+        "price": 9.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Limoneto H2oh 500ml",
+        "price": 9.9,
+        "popular": false
+      },
+      {
+        "name": "Sunomono",
+        "price": 15.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Heineken Lager Sem Álcool 330ml",
+        "price": 16.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Corona 330ml",
+        "price": 16.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Cero Sunbrew Zero Álcool Corona 330ml",
+        "price": 16.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Heineken Unidade 330ml",
+        "price": 16.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Prius Jaspion 355ml",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Pepino",
+        "price": 20.9,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Queijo",
+        "price": 21.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Kani",
+        "price": 22.9,
+        "popular": false
+      },
+      {
+        "name": "Croquete de Salmão",
+        "price": 23.9,
+        "popular": false
+      },
+      {
+        "name": "Gyoza Suíno com Legumes",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Takoyaki",
+        "price": 25.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Skin",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Tempurá c/ Camarão (2un)",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Califórnia",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Carpaccio Salmão",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Salmão (5 Peças)",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Skin",
+        "price": 31.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Califórnia",
+        "price": 31.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Kani",
+        "price": 32.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Salmão Pesto (5 peças)",
+        "price": 33.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Polvo  (5 peças)",
+        "price": 33.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Skin",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Kani",
+        "price": 35.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Grelhado",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 36.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Shimeji",
+        "price": 36.9,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão Shimeji",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Cream Cheese sem Arroz",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Misto",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Salmão",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Peixe Branco",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Philadelphia Grelhado",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Shimeji",
+        "price": 37.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Spicy Trufado",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão Sweet Chilli",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Especial",
+        "price": 38.5,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Shimeji",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Batata Doce Crispy",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Couve Crispy",
+        "price": 38.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Cream Cheese",
+        "price": 39.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Salmão Maçaricado",
+        "price": 39.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Okinawa",
+        "price": 39.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Sweet Chilli",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Salmão com Shimeji",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Banana com Doce de Leite",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Ebi Salmão",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Banana com Nutella",
+        "price": 40.9,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão Alho Poró",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão Maracujá",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Boston",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Camarão Especial",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Salmão Frutas Vermelhas",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmarão",
+        "price": 41.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Hot",
+        "price": 41.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Boston",
+        "price": 42.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Camarão Empanado",
+        "price": 42.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Spicymayo",
+        "price": 42.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Salmarão",
+        "price": 42.9,
+        "popular": false
+      },
+      {
+        "name": "Carpaccio de Polvo",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Polvo",
+        "price": 43.9,
+        "popular": false
+      },
+      {
+        "name": "Niguirí do Chef",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Salmão Fresh",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Camarão",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Tio Zoio",
+        "price": 46.0,
+        "popular": false
+      },
+      {
+        "name": "TRIPLO HOT",
+        "price": 51.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Ebi Poró (9 peças)",
+        "price": 52.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Polvo (10 peças)",
+        "price": 58.9,
+        "popular": false
+      },
+      {
+        "name": "1 Hot Tradicional + 1 Temaki Hot",
+        "price": 58.9,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Salmão Pesto (10 peças)",
+        "price": 59.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Gunma (11 peças)",
+        "price": 62.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado Tairinha (10 peças)",
+        "price": 69.0,
+        "popular": false
+      },
+      {
+        "name": "Poke",
+        "price": 69.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado 3 Maçaricado - 17 peças",
+        "price": 82.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado Especial - 28 Peças",
+        "price": 135.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado 2 - 29 peças",
+        "price": 135.0,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159529587",
+    "shop_name": "Sushi na Praça",
+    "bdm": "Larissa Almeida",
+    "total_skus": 65,
+    "popular_count": 10,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Joy Pimenta",
+        "name_cn": "单人餐：Joy Pimenta",
+        "items": [
+          {
+            "name": "Joy Pimenta",
+            "price": 25.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Refrigerante Limão H2oh 500ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 15.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki de Queijo",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirí Kani",
+            "price": 20.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 85.5,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Joy Pimenta为引流锚点，搭配Refrigerante Li+Sunomono+Harumaki de Que+Niguirí Kani，单品总价约R$85.5，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Sashimi de Salmão (2 + 5 itens",
+        "name_cn": "双人餐A：Sashimi de Salm等6道",
+        "items": [
+          {
+            "name": "Sashimi de Salmão (2)",
+            "price": 50.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Refrigerante Limão H2oh 500ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 15.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salmão Ball",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki de Queijo",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Niguirí Kani",
+            "price": 20.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 128.5,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Sashimi de Salmão (2为主力锚点，组合6道菜品，单品总价约R$128.5，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Poke Salmão + 12 itens",
+        "name_cn": "双人餐B：Poke Salmão等13道",
+        "items": [
+          {
+            "name": "Poke Salmão",
+            "price": 47.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água com Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Uva Lata 350ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Limão H2oh 500ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Pessego Lata 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Néctar Goiaba 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco de Maracujá Del Vale 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Manga 200ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 134.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Poke Salmão为核心，搭配Água com Gás+Água，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$84.0",
+        "name_pt": "Combo Família — Combo Trio de Ferro + 18 itens",
+        "name_cn": "家庭聚会：Combo Trio de F等19道",
+        "items": [
+          {
+            "name": "Combo Trio de Ferro",
+            "price": 87.5,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Água com Gás",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água",
+            "price": 5.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Uva Lata 350ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Limão H2oh 500ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+            "price": 7.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Zero Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Pessego Lata 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Néctar Goiaba 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco de Maracujá Del Vale 290ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-Cola Lata 350ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Manga 200ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Mais Sabor Uva em Lata",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono",
+            "price": 15.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Legumes",
+            "price": 16.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Hossomaki Pepino",
+            "price": 17.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salmão Ball",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki de Queijo",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 210,
+        "items_sum": 266.5,
+        "final": 84.0,
+        "merchant_cost": 84.0,
+        "platform_subsidy": 42.0,
+        "saving_display": "Economize R$126.0",
+        "logic": "以Combo Trio de Ferro为核心，组合19道高价值菜品组成家庭分享装，单品总价约R$266.5，套餐标价R$210，商补40%(R$84.0)+平台补贴约R$42.0→到手R$84.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Salmão Ball",
+        "price": 18.0,
+        "popular": true
+      },
+      {
+        "name": "Carpaccio de Salmão",
+        "price": 25.0,
+        "popular": true
+      },
+      {
+        "name": "Joy Maçaricado",
+        "price": 26.0,
+        "popular": true
+      },
+      {
+        "name": "Temaki Hot",
+        "price": 29.0,
+        "popular": true
+      },
+      {
+        "name": "Dog Holl",
+        "price": 31.0,
+        "popular": true
+      },
+      {
+        "name": "Temaki Philadelfia",
+        "price": 31.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado com 12 Peças",
+        "price": 38.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado com 18 Peças",
+        "price": 46.0,
+        "popular": true
+      },
+      {
+        "name": "Poke Salmão",
+        "price": 47.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado com 28 Peças",
+        "price": 64.0,
+        "popular": true
+      },
+      {
+        "name": "Água com Gás",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Água",
+        "price": 5.0,
+        "popular": false
+      },
+      {
+        "name": "Sprite Lata Deli 350ml",
+        "price": 6.0,
+        "popular": false
+      },
+      {
+        "name": "Fanta Laranja Lata 350ml",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Limão H2oh 500ml",
+        "price": 7.5,
+        "popular": false
+      },
+      {
+        "name": "Energético Guaraviton Açaí 500ml",
+        "price": 7.5,
+        "popular": false
+      },
+      {
+        "name": "H2oh Limoneto 500ml",
+        "price": 7.5,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+        "price": 7.5,
+        "popular": false
+      },
+      {
+        "name": "Coca-Cola Zero Lata 350ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Pessego Lata 290ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Néctar Goiaba 290ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Suco de Maracujá Del Vale 290ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Coca-Cola Lata 350ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Manga 200ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Mais Sabor Uva em Lata",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Sunomono",
+        "price": 15.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Legumes",
+        "price": 16.0,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Pepino",
+        "price": 17.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki de Queijo",
+        "price": 18.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Holl Kani",
+        "price": 18.0,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Kani",
+        "price": 20.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Kani",
+        "price": 20.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Holl Banana com Nutella",
+        "price": 22.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Banana com Doce de Leite",
+        "price": 22.0,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Salmão",
+        "price": 22.0,
+        "popular": false
+      },
+      {
+        "name": "Joy",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Pimenta",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Guioza Suína",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Kani",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Salmão",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Kani",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Holl Tradicional",
+        "price": 27.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Philadelfia",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Holl Camarão",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Simples",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki da Praça",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Copo da Felicidade",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Camarão",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmarão",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Camarão",
+        "price": 31.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Empanado",
+        "price": 32.0,
+        "popular": false
+      },
+      {
+        "name": "Niguirí Salmão Maçaricado",
+        "price": 33.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Mexicano",
+        "price": 33.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Camarão Empanado",
+        "price": 34.0,
+        "popular": false
+      },
+      {
+        "name": "Sushi Burger Salmão Grelhado",
+        "price": 35.0,
+        "popular": false
+      },
+      {
+        "name": "Sushi Burger Salmão Phila",
+        "price": 35.0,
+        "popular": false
+      },
+      {
+        "name": "Tokai",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi de Salmão",
+        "price": 37.0,
+        "popular": false
+      },
+      {
+        "name": "Sushi Burger Salmarão",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Poke Grelhado",
+        "price": 47.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi de Salmão (2)",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Combo Trio de Ferro",
+        "price": 87.5,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159546958",
+    "shop_name": "Fujita San",
+    "bdm": "Thaís Ribeiro",
+    "total_skus": 67,
+    "popular_count": 7,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Uramaki Salmão Com Shimej",
+        "name_cn": "单人餐：Uramaki Salmão Com S",
+        "items": [
+          {
+            "name": "Uramaki Salmão Com Shimeji",
+            "price": 35.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Refrigerante Coca-Cola Original 310ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza De Legumes",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 67.0,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Uramaki Salmão Com S为引流锚点，搭配Refrigerante Co+Guioza De Legum，单品总价约R$67.0，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Combinado Fujita 01  + 4 itens",
+        "name_cn": "双人餐A：Combinado Fujit等5道",
+        "items": [
+          {
+            "name": "Combinado Fujita 01 (15 Unidades)",
+            "price": 50.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Refrigerante Coca-Cola Original 310ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza De Legumes",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki Skim",
+            "price": 25.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki Califórnia",
+            "price": 25.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 132.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Combinado Fujita 01 为主力锚点，组合5道菜品，单品总价约R$132.0，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Sashimi Vip Trufado( + 6 itens",
+        "name_cn": "双人餐B：Sashimi Vip Tru等7道",
+        "items": [
+          {
+            "name": "Sashimi Vip Trufado(maçaricado)",
+            "price": 45.0,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Suco Del Valle Fresh Laranja 250ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Fresh Uva 250ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Coca-Cola Original 310ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono Com Kani",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza De Legumes",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Romeu E Julieta",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 133.0,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Sashimi Vip Trufado(为核心，搭配Suco Del Valle +Suco Del Valle ，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$84.0",
+        "name_pt": "Combo Família — Combinado Fujita Var + 8 itens",
+        "name_cn": "家庭聚会：Combinado Fujit等9道",
+        "items": [
+          {
+            "name": "Combinado Fujita Variado 05 (32 Unidades)",
+            "price": 120.0,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Suco Del Valle Fresh Laranja 250ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Suco Del Valle Fresh Uva 250ml",
+            "price": 7.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Coca-Cola Original 310ml",
+            "price": 8.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Sunomono Com Kani",
+            "price": 18.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Guioza De Legumes",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Romeu E Julieta",
+            "price": 24.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki Skim",
+            "price": 25.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Temaki Califórnia",
+            "price": 25.0,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 210,
+        "items_sum": 258.0,
+        "final": 84.0,
+        "merchant_cost": 84.0,
+        "platform_subsidy": 42.0,
+        "saving_display": "Economize R$126.0",
+        "logic": "以Combinado Fujita Var为核心，组合9道高价值菜品组成家庭分享装，单品总价约R$258.0，套餐标价R$210，商补40%(R$84.0)+平台补贴约R$42.0→到手R$84.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Temaki Salmão Filadélfia",
+        "price": 32.0,
+        "popular": true
+      },
+      {
+        "name": "Hot Salmão Completo",
+        "price": 32.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado Fujita 02 (17 Unidades)",
+        "price": 68.0,
+        "popular": true
+      },
+      {
+        "name": "Mega Combo",
+        "price": 85.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado Fujita 03 ( 26 Unidades)",
+        "price": 95.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado Fujita 04 (32 Unidades)",
+        "price": 115.0,
+        "popular": true
+      },
+      {
+        "name": "Combinado Fujita San 06 (32 Unidades)",
+        "price": 115.0,
+        "popular": true
+      },
+      {
+        "name": "Shoyu Light",
+        "price": 0.4,
+        "popular": false
+      },
+      {
+        "name": "Shoyu Tradicional",
+        "price": 0.4,
+        "popular": false
+      },
+      {
+        "name": "Adaptador Para Hashi",
+        "price": 0.5,
+        "popular": false
+      },
+      {
+        "name": "Gengibre Em Conserva",
+        "price": 3.0,
+        "popular": false
+      },
+      {
+        "name": "Molho Tare",
+        "price": 4.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Fresh Laranja 250ml",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Suco Del Valle Fresh Uva 250ml",
+        "price": 7.0,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Coca-Cola Original 310ml",
+        "price": 8.0,
+        "popular": false
+      },
+      {
+        "name": "Sunomono Com Kani",
+        "price": 18.0,
+        "popular": false
+      },
+      {
+        "name": "Hosomaki De Kani",
+        "price": 19.0,
+        "popular": false
+      },
+      {
+        "name": "Kappamaki",
+        "price": 19.0,
+        "popular": false
+      },
+      {
+        "name": "Shakemaki",
+        "price": 21.0,
+        "popular": false
+      },
+      {
+        "name": "Guioza De Legumes",
+        "price": 24.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Romeu E Julieta",
+        "price": 24.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Skim",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Robata De Salmão",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Califórnia",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Salmão Com Kani",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki De Queijo",
+        "price": 25.0,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Banana Com Nutella",
+        "price": 26.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll Kani",
+        "price": 26.0,
+        "popular": false
+      },
+      {
+        "name": "Guioza De Carne",
+        "price": 26.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Skim",
+        "price": 27.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Kani",
+        "price": 27.0,
+        "popular": false
+      },
+      {
+        "name": "Robata De Filé Com Queijo",
+        "price": 28.0,
+        "popular": false
+      },
+      {
+        "name": "Niguiri De Kani",
+        "price": 28.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 29.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Com Kani",
+        "price": 30.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Cru",
+        "price": 30.0,
+        "popular": false
+      },
+      {
+        "name": "Niguiri Skim",
+        "price": 30.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão",
+        "price": 30.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão E Kani",
+        "price": 32.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Filadélfia",
+        "price": 32.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Fry",
+        "price": 33.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Fry",
+        "price": 33.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Salmão Com Crispy",
+        "price": 34.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão Com Shimeji",
+        "price": 35.0,
+        "popular": false
+      },
+      {
+        "name": "Bolinho De Salmão",
+        "price": 35.0,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Hot",
+        "price": 35.0,
+        "popular": false
+      },
+      {
+        "name": "Haru Hot Nutella",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Supremo",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Tradicional",
+        "price": 36.0,
+        "popular": false
+      },
+      {
+        "name": "Joy Brie",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Joy De Geleia",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Niguiri De Salmão",
+        "price": 38.0,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão E Camarão",
+        "price": 40.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Shake Mini",
+        "price": 40.0,
+        "popular": false
+      },
+      {
+        "name": "Niguiri Trufado",
+        "price": 41.0,
+        "popular": false
+      },
+      {
+        "name": "Haru Salmão E Kani (sem Arroz)",
+        "price": 42.0,
+        "popular": false
+      },
+      {
+        "name": "Hot Salmão Com Camarão",
+        "price": 42.0,
+        "popular": false
+      },
+      {
+        "name": "Ussuzukuri (Carpaccio)",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Vip Trufado(maçaricado)",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "King Roll Ebi",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Haru Hot De Salmão (sem Arroz)",
+        "price": 45.0,
+        "popular": false
+      },
+      {
+        "name": "Ussuzukuri Trufado (Carpaccio)",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado Fujita 01 (15 Unidades)",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche De Salmão",
+        "price": 50.0,
+        "popular": false
+      },
+      {
+        "name": "Ceviche Frutos Do Mar",
+        "price": 60.0,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Shake Super",
+        "price": 75.0,
+        "popular": false
+      },
+      {
+        "name": "Combinado Fujita Variado 05 (32 Unidades)",
+        "price": 120.0,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159551458",
+    "shop_name": "Temakeria Tropical",
+    "bdm": "Sabrina Fernandes",
+    "total_skus": 68,
+    "popular_count": 10,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Escolha Seu Hot Roll",
+        "name_cn": "单人餐：Escolha Seu Hot Roll",
+        "items": [
+          {
+            "name": "Escolha Seu Hot Roll",
+            "price": 24.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Monte Seu Próprio Combinado De Sushi",
+            "price": 1.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salada Sunomono",
+            "price": 14.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Escolha Seu Uramaki",
+            "price": 22.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 63.7,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Escolha Seu Hot Roll为引流锚点，搭配Monte Seu Própr+Salada Sunomono+Escolha Seu Ura，单品总价约R$63.7，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Yakisoba Da Tropical + 4 itens",
+        "name_cn": "双人餐A：Yakisoba Da Tro等5道",
+        "items": [
+          {
+            "name": "Yakisoba Da Tropical",
+            "price": 59.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Monte Seu Próprio Combinado De Sushi",
+            "price": 1.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salada Sunomono",
+            "price": 14.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Escolha Seu Uramaki",
+            "price": 22.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Escolha Seu Hot Roll",
+            "price": 24.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 123.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Yakisoba Da Tropical为主力锚点，组合5道菜品，单品总价约R$123.6，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Tilápia Com Salada T + 9 itens",
+        "name_cn": "双人餐B：Tilápia Com Sal等10道",
+        "items": [
+          {
+            "name": "Tilápia Com Salada Tropical",
+            "price": 54.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Água Mineral Com Gás Minalba 510ml",
+            "price": 5.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Coca Cola Zero Lata",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Original 350ml",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Zero",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Limoneto H2oh 500ml",
+            "price": 8.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante De Limão H20h 500ml",
+            "price": 8.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salada De Frutas",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Rolinho Primavera/harumaki",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 135.2,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Tilápia Com Salada T为核心，搭配Água Mineral Co+Refrigerante Gu，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$80.0",
+        "name_pt": "Combo Família — Combo 2 Temakis Com  + 14 itens",
+        "name_cn": "家庭聚会：Combo 2 Temakis等15道",
+        "items": [
+          {
+            "name": "Combo 2 Temakis Com 12 Hot Roll",
+            "price": 110.7,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Monte Seu Próprio Combinado De Sushi",
+            "price": 1.0,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Água Mineral Com Gás Minalba 510ml",
+            "price": 5.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Coca Cola Zero Lata",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Original 350ml",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica Zero",
+            "price": 7.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Limoneto H2oh 500ml",
+            "price": 8.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante De Limão H20h 500ml",
+            "price": 8.5,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salada De Frutas",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Rolinho Primavera/harumaki",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Banana Com Nutella",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Harumaki Romeu E Julieta",
+            "price": 13.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Salada Sunomono",
+            "price": 14.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Escolha Seu Suco Natural",
+            "price": 17.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 200,
+        "items_sum": 252.6,
+        "final": 80.0,
+        "merchant_cost": 80.0,
+        "platform_subsidy": 40.0,
+        "saving_display": "Economize R$120.0",
+        "logic": "以Combo 2 Temakis Com 为核心，组合15道高价值菜品组成家庭分享装，单品总价约R$252.6，套餐标价R$200，商补40%(R$80.0)+平台补贴约R$40.0→到手R$80.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Escolha Seu Hot Roll",
+        "price": 24.9,
+        "popular": true
+      },
+      {
+        "name": "Escolha Seu Temaki",
+        "price": 34.9,
+        "popular": true
+      },
+      {
+        "name": "Chicken Katsu (Frango Empanado)",
+        "price": 44.9,
+        "popular": true
+      },
+      {
+        "name": "Sanduíche Nori Salmão",
+        "price": 49.9,
+        "popular": true
+      },
+      {
+        "name": "Monte Seu Poke",
+        "price": 64.9,
+        "popular": true
+      },
+      {
+        "name": "Combinado Especial Do Chef - Salmão E Camarão",
+        "price": 72.9,
+        "popular": true
+      },
+      {
+        "name": "Combinados De Sushi Salmão",
+        "price": 74.9,
+        "popular": true
+      },
+      {
+        "name": "Combinado Especial Do Chef Com Ovas E Azeite Trufado",
+        "price": 109.9,
+        "popular": true
+      },
+      {
+        "name": "Combo 2 Temakis Com 12 Hot Roll",
+        "price": 110.7,
+        "popular": true
+      },
+      {
+        "name": "Combo 2 Pokes + Hot Roll",
+        "price": 159.9,
+        "popular": true
+      },
+      {
+        "name": "Monte Seu Próprio Combinado De Sushi",
+        "price": 1.0,
+        "popular": false
+      },
+      {
+        "name": "Agua Mineral Sem Gás Minalba 510ml",
+        "price": 5.9,
+        "popular": false
+      },
+      {
+        "name": "Água Mineral Com Gás Minalba 510ml",
+        "price": 5.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Antarctica Lata 350ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Coca Cola Zero Lata",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Agua Tônica Antarctica 350ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Coca-cola Original 350ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Antarctica Zero",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Antárctica Tônica Zero 350ml",
+        "price": 7.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Limoneto H2oh 500ml",
+        "price": 8.5,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante De Limão H20h 500ml",
+        "price": 8.5,
+        "popular": false
+      },
+      {
+        "name": "Pastéizinhos De Feira",
+        "price": 9.9,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Zero Álcool Long Neck Corona 330ml",
+        "price": 11.0,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Puro Malte Stella Artois 330ml",
+        "price": 11.0,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Extra Long Neck Corona 330ml",
+        "price": 11.0,
+        "popular": false
+      },
+      {
+        "name": "Cerveja Sem Glúten Puro Malte Long Neck Stella Artois 330ml",
+        "price": 11.0,
+        "popular": false
+      },
+      {
+        "name": "Salada De Frutas",
+        "price": 12.9,
+        "popular": false
+      },
+      {
+        "name": "Rolinho Primavera/harumaki",
+        "price": 12.9,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Banana Com Nutella",
+        "price": 13.9,
+        "popular": false
+      },
+      {
+        "name": "Harumaki Romeu E Julieta",
+        "price": 13.9,
+        "popular": false
+      },
+      {
+        "name": "Salada Sunomono",
+        "price": 14.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Sua Vitamina",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Suco Natural",
+        "price": 17.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Hossomaki",
+        "price": 19.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Uramaki",
+        "price": 22.9,
+        "popular": false
+      },
+      {
+        "name": "Guiozas",
+        "price": 22.9,
+        "popular": false
+      },
+      {
+        "name": "Hossomaki Pepino (8 Unidades)",
+        "price": 24.9,
+        "popular": false
+      },
+      {
+        "name": "Joy De Frutas Com Nutella",
+        "price": 25.9,
+        "popular": false
+      },
+      {
+        "name": "Croquetes",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Menu Kids",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Niguiri De Palmito (6 Unidades)",
+        "price": 29.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Fruit (8 Unidades)",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Joy",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Niguiri",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Iti Malia (Shimeji)",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Escolha Seu Sashimi",
+        "price": 32.9,
+        "popular": false
+      },
+      {
+        "name": "Hot Roll De Banana Com Nutella",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Veggie (8 Unidades)",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Maçaricado Com Molho Pesto",
+        "price": 35.9,
+        "popular": false
+      },
+      {
+        "name": "Shimeji Do Chef",
+        "price": 37.9,
+        "popular": false
+      },
+      {
+        "name": "Sashimi Com Azeite Trufado E Limão Siciliano",
+        "price": 37.9,
+        "popular": false
+      },
+      {
+        "name": "Haruhot De Salmão",
+        "price": 44.9,
+        "popular": false
+      },
+      {
+        "name": "Rocambole Vegetariano",
+        "price": 44.9,
+        "popular": false
+      },
+      {
+        "name": "Monte Seu Poke - Frango",
+        "price": 44.9,
+        "popular": false
+      },
+      {
+        "name": "Ceviche",
+        "price": 47.9,
+        "popular": false
+      },
+      {
+        "name": "Tartar Tropical",
+        "price": 49.9,
+        "popular": false
+      },
+      {
+        "name": "Mini Temakis Variados",
+        "price": 49.9,
+        "popular": false
+      },
+      {
+        "name": "Tilápia Com Salada Tropical",
+        "price": 54.9,
+        "popular": false
+      },
+      {
+        "name": "Monte Seu Poke Vegetariano",
+        "price": 54.9,
+        "popular": false
+      },
+      {
+        "name": "Carpaccio (20 unidades)",
+        "price": 57.9,
+        "popular": false
+      },
+      {
+        "name": "Yakisoba Da Tropical",
+        "price": 59.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Veggie (16 Peças)",
+        "price": 70.9,
+        "popular": false
+      },
+      {
+        "name": "Combo Temaki, Hot Roll E Bebida",
+        "price": 71.7,
+        "popular": false
+      },
+      {
+        "name": "Combinado Especial Do Chef - Salmão E Shimeji",
+        "price": 72.9,
+        "popular": false
+      },
+      {
+        "name": "Teppan Salmão Com Camarão",
+        "price": 79.9,
+        "popular": false
+      },
+      {
+        "name": "Combo Poke, Hot Roll E Bebida",
+        "price": 93.8,
+        "popular": false
+      },
+      {
+        "name": "Combinado Especial Do Chef Flambado",
+        "price": 94.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Especial (frutos Do Mar)",
+        "price": 104.9,
+        "popular": false
+      }
+    ]
+  },
+  {
+    "shop_id": "159578880",
+    "shop_name": "Nakazumy Sushi",
+    "bdm": "Renata Leite",
+    "total_skus": 49,
+    "popular_count": 7,
+    "combos": [
+      {
+        "tier": "R$29,9",
+        "name_pt": "Combo Individual — Harumaki 8 Unidades",
+        "name_cn": "单人餐：Harumaki 8 Unidades",
+        "items": [
+          {
+            "name": "Harumaki 8 Unidades",
+            "price": 34.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Uramaki Skin Com Couve 8 Unidades",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 75,
+        "items_sum": 69.7,
+        "final": 29.9,
+        "merchant_cost": 30.0,
+        "platform_subsidy": 15.1,
+        "saving_display": "Economize R$45.0",
+        "logic": "以人气Harumaki 8 Unidades为引流锚点，搭配Fanta Laranja L+Uramaki Skin Co，单品总价约R$69.7，套餐标价R$75，商补40%(R$30)+平台补贴约R$15→到手R$29.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal A — Combo 3 (19 Unidades + 3 itens",
+        "name_cn": "双人餐A：Combo 3 (19 Uni等4道",
+        "items": [
+          {
+            "name": "Combo 3 (19 Unidades)",
+            "price": 60.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Uramaki Skin Com Couve 8 Unidades",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Uramaki Salmão 8 Unidades",
+            "price": 30.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 126.6,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Combo 3 (19 Unidades为主力锚点，组合4道菜品，单品总价约R$126.6，套餐标价R$125，商补40%(R$50)+平台补贴约R$25→到手R$49.9。"
+      },
+      {
+        "tier": "R$49,9",
+        "name_pt": "Combo Casal B — Temaki Empanado + 7 itens",
+        "name_cn": "双人餐B：Temaki Empanado等8道",
+        "items": [
+          {
+            "name": "Temaki Empanado",
+            "price": 53.9,
+            "role": "Âncora 引流招牌"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Zero Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Uva 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica 350ml Zero",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante H2oh Limoneto Pet 500ml",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante H2oh Limão 500ml",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 125,
+        "items_sum": 134.2,
+        "final": 49.9,
+        "merchant_cost": 50.0,
+        "platform_subsidy": 25.1,
+        "saving_display": "Economize R$75.0",
+        "logic": "以Temaki Empanado为核心，搭配Fanta Laranja L+Coca-cola Zero ，标价R$125→到手R$49.9。"
+      },
+      {
+        "tier": "R$84.0",
+        "name_pt": "Combo Família — Combo 4 (25 Unidades + 9 itens",
+        "name_cn": "家庭聚会：Combo 4 (25 Uni等10道",
+        "items": [
+          {
+            "name": "Combo 4 (25 Unidades)",
+            "price": 124.9,
+            "role": "Âncora Premium"
+          },
+          {
+            "name": "Fanta Laranja Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Zero Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Coca-cola Lata 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Fanta Uva 350ml",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante Guaraná Antarctica 350ml Zero",
+            "price": 10.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante H2oh Limoneto Pet 500ml",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Refrigerante H2oh Limão 500ml",
+            "price": 12.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Uramaki Skin Com Couve 8 Unidades",
+            "price": 23.9,
+            "role": "Complemento 搭配"
+          },
+          {
+            "name": "Uramaki Salmão 8 Unidades",
+            "price": 30.9,
+            "role": "Complemento 搭配"
+          }
+        ],
+        "bundle_price": 210,
+        "items_sum": 260.0,
+        "final": 84.0,
+        "merchant_cost": 84.0,
+        "platform_subsidy": 42.0,
+        "saving_display": "Economize R$126.0",
+        "logic": "以Combo 4 (25 Unidades为核心，组合10道高价值菜品组成家庭分享装，单品总价约R$260.0，套餐标价R$210，商补40%(R$84.0)+平台补贴约R$42.0→到手R$84.0，拉高AOV。"
+      }
+    ],
+    "menu": [
+      {
+        "name": "Croquete salmao ( 8 unid",
+        "price": 39.9,
+        "popular": true
+      },
+      {
+        "name": "Hot Holl 20 Unidades",
+        "price": 39.9,
+        "popular": true
+      },
+      {
+        "name": "Jou Salmão 8 Unidades",
+        "price": 49.9,
+        "popular": true
+      },
+      {
+        "name": "Temaki De Salmão",
+        "price": 49.9,
+        "popular": true
+      },
+      {
+        "name": "02 Temaki A Sua Escolha + 20 Hot-rolls",
+        "price": 72.9,
+        "popular": true
+      },
+      {
+        "name": "RODIZIO NAKAZUMY ( 2 PESSOAS )",
+        "price": 149.9,
+        "popular": true
+      },
+      {
+        "name": "Combo 15 30 Peças + 2 Temakis",
+        "price": 149.9,
+        "popular": true
+      },
+      {
+        "name": "Fanta Laranja Lata 350ml",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Coca-cola Zero Lata 350ml",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Coca-cola Lata 350ml",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Fanta Uva 350ml",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante Guaraná Antarctica 350ml Zero",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Schweppes Citrus Lata 350ml",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Guaraná Antarctica Lata",
+        "price": 10.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante H2oh Limoneto Pet 500ml",
+        "price": 12.9,
+        "popular": false
+      },
+      {
+        "name": "Refrigerante H2oh Limão 500ml",
+        "price": 12.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Skin Com Couve 8 Unidades",
+        "price": 23.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Salmão 8 Unidades",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Uramaki Filadélfia 8 Unidades",
+        "price": 30.9,
+        "popular": false
+      },
+      {
+        "name": "Harumaki 8 Unidades",
+        "price": 34.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Kani",
+        "price": 36.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Califórnia",
+        "price": 37.9,
+        "popular": false
+      },
+      {
+        "name": "Guioza De Carne 8 Unidades",
+        "price": 39.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki De Peixe Prego",
+        "price": 41.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Atum",
+        "price": 45.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Salmão Grelhado",
+        "price": 49.9,
+        "popular": false
+      },
+      {
+        "name": "Temaki Empanado",
+        "price": 53.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 3 (19 Unidades)",
+        "price": 60.9,
+        "popular": false
+      },
+      {
+        "name": "YAKISSOBA CARNE 300G",
+        "price": 64.9,
+        "popular": false
+      },
+      {
+        "name": "Porção De Shimeji 300g",
+        "price": 64.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 5 ( 25 Unidades)",
+        "price": 68.9,
+        "popular": false
+      },
+      {
+        "name": "Mix Dourado (25 Unidades)",
+        "price": 84.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 7 (32 Unidades)",
+        "price": 92.0,
+        "popular": false
+      },
+      {
+        "name": "Combo Hot Holls Variados (20 Unidades)",
+        "price": 99.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 6 (20 Unidades)",
+        "price": 99.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 4 (25 Unidades)",
+        "price": 124.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 1 (27 Unidades)",
+        "price": 125.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 8 (26 Unidades)",
+        "price": 129.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 11 (29 Unidades)",
+        "price": 145.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 15 (30 Unidades)",
+        "price": 149.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 14 (30 Unidades)",
+        "price": 149.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 12 (30 Unidades)",
+        "price": 149.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 10 (30 Unidades)",
+        "price": 149.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 13 (32 Unidades)",
+        "price": 159.9,
+        "popular": false
+      },
+      {
+        "name": "Combo 9 (33 Unidades)",
+        "price": 164.9,
+        "popular": false
+      },
+      {
+        "name": "Combo Salmão 2 (40 Unidades)",
+        "price": 199.9,
+        "popular": false
+      },
+      {
+        "name": "Combo Salmão 2 ( 40 Unidades) + 02 Temaki mine",
+        "price": 199.9,
+        "popular": false
+      },
+      {
+        "name": "Combinado Salmão 03 - (54 Unidades)",
+        "price": 269.9,
+        "popular": false
+      },
+      {
+        "name": "Combo Familia 70 Peças + 2 Temaki A Sua Escolha (combo Completo)",
+        "price": 345.9,
+        "popular": false
+      }
+    ]
+  }
+]

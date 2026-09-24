@@ -1,0 +1,806 @@
+{
+  "code": 0,
+  "message": "",
+  "data": [
+    {
+      "componentId": "chart-6kwer-1357d",
+      "componentName": "CM - Business Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-0y5pp-63aba",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "chart-stq7y-e6570",
+      "componentName": "BDM - Business Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-0y5pp-63aba",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-fgaiv-e51fa",
+      "componentName": "BD - Business Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-0y5pp-63aba",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-si86e-77178",
+      "componentName": "Merchant List - Business Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "chart-budz2-630e8",
+      "componentName": "SMB - MTD Merchant Ranking",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-0y5pp-63aba",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-7p18g-b0ef9",
+      "componentName": "Last 10 Days - Order Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-kanmk-bd076",
+        "dashboard-filter-ptd98-9eee5"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-kanmk-bd076",
+      "componentName": "Merchant Type",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-6kwer-1357d",
+        "chart-stq7y-e6570",
+        "dashboard-chart-container-fgaiv-e51fa",
+        "dashboard-chart-container-si86e-77178",
+        "chart-budz2-630e8",
+        "dashboard-chart-container-7p18g-b0ef9"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-0y5pp-63aba",
+      "componentName": "Date",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-6kwer-1357d",
+        "chart-stq7y-e6570",
+        "dashboard-chart-container-fgaiv-e51fa",
+        "chart-budz2-630e8"
+      ],
+      "extends": {
+        "filterType": "time"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-ptd98-9eee5",
+      "componentName": "Priority",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-6kwer-1357d",
+        "chart-stq7y-e6570",
+        "dashboard-chart-container-fgaiv-e51fa",
+        "dashboard-chart-container-si86e-77178",
+        "chart-budz2-630e8",
+        "dashboard-chart-container-7p18g-b0ef9"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "childTab-evgve-affa0",
+      "componentName": "Business Performance",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-6kwer-1357d",
+        "chart-stq7y-e6570",
+        "dashboard-chart-container-fgaiv-e51fa",
+        "dashboard-chart-container-si86e-77178",
+        "chart-budz2-630e8",
+        "dashboard-chart-container-7p18g-b0ef9",
+        "dashboard-filter-group-u28fu-a12d2"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-e8ns5-c9347",
+      "componentName": "Last 10 days - New Signs",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-2q7u5-9726a",
+      "componentName": "New Sign Merchant List",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-ahb9d-20711",
+      "componentName": "RM/CM Funnel",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-0qdqc-151f9",
+      "componentName": "Shop List Funnel",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-137d3-8aef7",
+      "componentName": "BDM Funnel",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "tab-pane-wd6sn-06e64",
+      "componentName": "Sign",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-e8ns5-c9347",
+        "dashboard-chart-container-2q7u5-9726a",
+        "dashboard-chart-container-ahb9d-20711",
+        "dashboard-chart-container-0qdqc-151f9",
+        "dashboard-chart-container-137d3-8aef7"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-micky-47f32",
+      "componentName": "Yesterday Offline Merchant List",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-z29va-971b7",
+        "dashboard-filter-cjh4y-64d80"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-lv7bq-4b3a3",
+      "componentName": "Last 10 Days Offline Evolution",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-z29va-971b7",
+        "dashboard-filter-cjh4y-64d80"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-z29va-971b7",
+      "componentName": "Merchant Type",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-micky-47f32",
+        "dashboard-chart-container-lv7bq-4b3a3"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-cjh4y-64d80",
+      "componentName": "Priority",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-micky-47f32",
+        "dashboard-chart-container-lv7bq-4b3a3"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "tab-pane-29936-fbc5d",
+      "componentName": "Offline",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-micky-47f32",
+        "dashboard-chart-container-lv7bq-4b3a3",
+        "dashboard-filter-group-yv2fn-b33ca"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "childTab-9zvrq-b5f2b",
+      "componentName": "New Sign",
+      "componentType": "tab",
+      "childrenComponents": [
+        "tabs-gfdof-90df8"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-sqalg-1f515",
+      "componentName": "Last 10 days - Operation Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-1xegx-98e08",
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "chart-xu3l7-21399",
+      "componentName": "CM - Operating Merchants",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-1xegx-98e08",
+        "dashboard-filter-o46f8-2b3df",
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "chart-wpm8v-29fb6",
+      "componentName": "BDM - Operating Merchants",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-1xegx-98e08",
+        "dashboard-filter-o46f8-2b3df",
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-54w9n-569d5",
+      "componentName": "BD - Operating Merchants",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-1xegx-98e08",
+        "dashboard-filter-o46f8-2b3df",
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-pi1dt-b8d07",
+      "componentName": "Merchant List - Operating Merchants",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-1xegx-98e08",
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-1xegx-98e08",
+      "componentName": "Merchant Type",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-sqalg-1f515",
+        "chart-xu3l7-21399",
+        "chart-wpm8v-29fb6",
+        "dashboard-chart-container-54w9n-569d5",
+        "dashboard-chart-container-pi1dt-b8d07"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-o46f8-2b3df",
+      "componentName": "Date",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-xu3l7-21399",
+        "chart-wpm8v-29fb6",
+        "dashboard-chart-container-54w9n-569d5"
+      ],
+      "extends": {
+        "filterType": "time"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-70fab-cdb79",
+      "componentName": "Priority",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-sqalg-1f515",
+        "chart-xu3l7-21399",
+        "chart-wpm8v-29fb6",
+        "dashboard-chart-container-54w9n-569d5",
+        "dashboard-chart-container-pi1dt-b8d07",
+        "dashboard-chart-container-21lb3-0b08d"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-chart-container-21lb3-0b08d",
+      "componentName": "Funnel Total View",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-70fab-cdb79"
+      ]
+    },
+    {
+      "componentId": "childTab-s99jd-be3dd",
+      "componentName": "Operating Performance",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-sqalg-1f515",
+        "chart-xu3l7-21399",
+        "chart-wpm8v-29fb6",
+        "dashboard-chart-container-54w9n-569d5",
+        "dashboard-chart-container-pi1dt-b8d07",
+        "dashboard-filter-group-0iza3-ac590",
+        "dashboard-chart-container-21lb3-0b08d"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-nrjs1-cd5a3",
+      "componentName": "Performance (BD Level)",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-ga9na-72528",
+      "componentName": "Main Metrics",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-ezgqg-ffe3f",
+      "componentName": "Merchant List",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-2tp1v-b5371",
+      "componentName": "Date",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-chart-container-nrjs1-cd5a3",
+        "dashboard-chart-container-ga9na-72528",
+        "dashboard-chart-container-ezgqg-ffe3f",
+        "dashboard-chart-container-l629e-ac848",
+        "dashboard-chart-container-8wn9t-b35f3",
+        "dashboard-chart-container-hvtrz-1d608"
+      ],
+      "extends": {
+        "filterType": "time"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-s7des-c49e7",
+      "componentName": "Priority",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-chart-container-nrjs1-cd5a3",
+        "dashboard-chart-container-ga9na-72528",
+        "dashboard-chart-container-ezgqg-ffe3f",
+        "dashboard-chart-container-l629e-ac848",
+        "dashboard-chart-container-8wn9t-b35f3",
+        "dashboard-chart-container-hvtrz-1d608"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-chart-container-l629e-ac848",
+      "componentName": "Performance (BDM Level)",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-8wn9t-b35f3",
+      "componentName": "Performance (RM - CM Level)",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-hvtrz-1d608",
+      "componentName": "SPU Level Information List",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-2tp1v-b5371",
+        "dashboard-filter-s7des-c49e7"
+      ]
+    },
+    {
+      "componentId": "tab-pane-rbroa-e278e",
+      "componentName": "Deep Discount",
+      "componentType": "tab",
+      "childrenComponents": [
+        "dashboard-chart-container-nrjs1-cd5a3",
+        "dashboard-chart-container-ga9na-72528",
+        "dashboard-chart-container-ezgqg-ffe3f",
+        "dashboard-filter-group-94nu8-1c83e",
+        "dashboard-chart-container-l629e-ac848",
+        "dashboard-chart-container-8wn9t-b35f3",
+        "dashboard-chart-container-hvtrz-1d608"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-0xw88-29243",
+      "componentName": "CM - Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-m1u9k-164a2",
+        "dashboard-filter-42msd-07d2a",
+        "dashboard-filter-putjw-ca310"
+      ]
+    },
+    {
+      "componentId": "chart-uvp46-418c2",
+      "componentName": "BDM - Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-m1u9k-164a2",
+        "dashboard-filter-42msd-07d2a",
+        "dashboard-filter-putjw-ca310"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-x4687-6ec9f",
+      "componentName": "BD - Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-m1u9k-164a2",
+        "dashboard-filter-42msd-07d2a",
+        "dashboard-filter-putjw-ca310"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-rs9sc-52884",
+      "componentName": "Merchant List - Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-m1u9k-164a2",
+        "dashboard-filter-42msd-07d2a",
+        "dashboard-filter-putjw-ca310"
+      ]
+    },
+    {
+      "componentId": "chart-iyhbp-a03a1",
+      "componentName": "Last 10 days - Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-m1u9k-164a2",
+        "dashboard-filter-putjw-ca310"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-m1u9k-164a2",
+      "componentName": "Merchant Type",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-0xw88-29243",
+        "chart-uvp46-418c2",
+        "dashboard-chart-container-x4687-6ec9f",
+        "dashboard-chart-container-rs9sc-52884",
+        "chart-iyhbp-a03a1"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-42msd-07d2a",
+      "componentName": "Date",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-0xw88-29243",
+        "chart-uvp46-418c2",
+        "dashboard-chart-container-x4687-6ec9f",
+        "dashboard-chart-container-rs9sc-52884"
+      ],
+      "extends": {
+        "filterType": "time"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-putjw-ca310",
+      "componentName": "Leadtag",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-0xw88-29243",
+        "chart-uvp46-418c2",
+        "dashboard-chart-container-x4687-6ec9f",
+        "dashboard-chart-container-rs9sc-52884",
+        "chart-iyhbp-a03a1"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "tab-pane-vrlaw-cd1f4",
+      "componentName": "Total Coverage",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-0xw88-29243",
+        "chart-uvp46-418c2",
+        "dashboard-chart-container-x4687-6ec9f",
+        "dashboard-chart-container-rs9sc-52884",
+        "chart-iyhbp-a03a1",
+        "dashboard-filter-group-4ao2k-30608"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "childTab-snrjg-49507",
+      "componentName": "Promotion",
+      "componentType": "tab",
+      "childrenComponents": [
+        "tabs-cdjdw-0f1c3"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-ltuz6-6cbdc",
+      "componentName": "Last 10 days - User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-8ka8u-9429f",
+        "dashboard-filter-jp2xy-f1b17",
+        "dashboard-filter-eatf7-ae24b"
+      ]
+    },
+    {
+      "componentId": "chart-cs6nh-71c17",
+      "componentName": "Merchant List - User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-8ka8u-9429f",
+        "dashboard-filter-jp2xy-f1b17",
+        "dashboard-filter-eatf7-ae24b"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-gbzty-bae41",
+      "componentName": "BDM- User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-8ka8u-9429f",
+        "dashboard-filter-jp2xy-f1b17",
+        "dashboard-filter-lx4is-141da",
+        "dashboard-filter-eatf7-ae24b"
+      ]
+    },
+    {
+      "componentId": "dashboard-chart-container-znpym-ba810",
+      "componentName": "BD - User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-8ka8u-9429f",
+        "dashboard-filter-jp2xy-f1b17",
+        "dashboard-filter-lx4is-141da",
+        "dashboard-filter-eatf7-ae24b"
+      ]
+    },
+    {
+      "componentId": "dashboard-filter-8ka8u-9429f",
+      "componentName": "Top 1000 Offenders",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-ltuz6-6cbdc",
+        "chart-cs6nh-71c17",
+        "dashboard-chart-container-gbzty-bae41",
+        "dashboard-chart-container-znpym-ba810",
+        "chart-j9b7t-e9ace"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-jp2xy-f1b17",
+      "componentName": "Merchant Type",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-ltuz6-6cbdc",
+        "chart-j9b7t-e9ace",
+        "chart-cs6nh-71c17",
+        "dashboard-chart-container-gbzty-bae41",
+        "dashboard-chart-container-znpym-ba810"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-lx4is-141da",
+      "componentName": "Date",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-chart-container-gbzty-bae41",
+        "dashboard-chart-container-znpym-ba810",
+        "chart-j9b7t-e9ace"
+      ],
+      "extends": {
+        "filterType": "time"
+      }
+    },
+    {
+      "componentId": "dashboard-filter-eatf7-ae24b",
+      "componentName": "Priority",
+      "componentType": "filter",
+      "childrenComponents": [],
+      "relationComponents": [
+        "chart-ltuz6-6cbdc",
+        "chart-cs6nh-71c17",
+        "dashboard-chart-container-gbzty-bae41",
+        "dashboard-chart-container-znpym-ba810",
+        "chart-j9b7t-e9ace"
+      ],
+      "extends": {
+        "filterType": "ordinary"
+      }
+    },
+    {
+      "componentId": "chart-j9b7t-e9ace",
+      "componentName": "CM - User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": [
+        "dashboard-filter-8ka8u-9429f",
+        "dashboard-filter-jp2xy-f1b17",
+        "dashboard-filter-lx4is-141da",
+        "dashboard-filter-eatf7-ae24b"
+      ]
+    },
+    {
+      "componentId": "childTab-3cpk9-01e57",
+      "componentName": "User Experience",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-ltuz6-6cbdc",
+        "chart-cs6nh-71c17",
+        "dashboard-chart-container-gbzty-bae41",
+        "dashboard-chart-container-znpym-ba810",
+        "dashboard-filter-group-r0dsl-4b7f9",
+        "chart-j9b7t-e9ace"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "tab-mzgki-37775",
+      "componentName": "DBR Information",
+      "componentType": "tab",
+      "childrenComponents": [
+        "childZone-xsk1h-71359",
+        "dashboard-chart-container-mnkyh-ec8c0"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "tab-125t6-72f67",
+      "componentName": "指标说明",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-h1rsq-10044"
+      ],
+      "relationComponents": []
+    },
+    {
+      "componentId": "chart-hfx3f-a53c6",
+      "componentName": "Yesterday - SMB - Business Performance",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-73axx-9c4b6",
+      "componentName": "Sales Funnel",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-w5qb8-90c83",
+      "componentName": "New Merchants Funnel",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-qry2a-96024",
+      "componentName": "Promotion",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "dashboard-chart-container-1brvj-5b019",
+      "componentName": "User Experience",
+      "componentType": "chart",
+      "childrenComponents": [],
+      "relationComponents": []
+    },
+    {
+      "componentId": "tab-pane-75spt-8dadf",
+      "componentName": "Overall Business Metrics",
+      "componentType": "tab",
+      "childrenComponents": [
+        "chart-hfx3f-a53c6",
+        "dashboard-chart-container-73axx-9c4b6",
+        "dashboard-chart-container-w5qb8-90c83",
+        "dashboard-chart-container-qry2a-96024",
+        "dashboard-chart-container-1brvj-5b019"
+      ],
+      "relationComponents": []
+    }
+  ]
+}

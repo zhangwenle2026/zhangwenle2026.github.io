@@ -1,0 +1,20 @@
+{
+  "Order Performance": {
+    "error": "timeout"
+  },
+  "New Signs": {
+    "code": 0,
+    "rows": 0,
+    "msg": ""
+  },
+  "Promotion": {
+    "code": 0,
+    "rows": 0,
+    "msg": ""
+  },
+  "CM Business Performance": {
+    "code": 0,
+    "rows": 0,
+    "msg": ""
+  }
+}

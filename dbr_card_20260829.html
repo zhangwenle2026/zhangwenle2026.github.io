@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f0f2f5; padding: 20px; }
+.card { width: 780px; background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); overflow: hidden; margin: 0 auto; }
+.header { background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%); color: white; padding: 24px 28px; }
+.header h1 { font-size: 22px; font-weight: 600; margin-bottom: 4px; }
+.header .subtitle { font-size: 13px; opacity: 0.85; }
+.section { padding: 18px 28px; border-bottom: 1px solid #f0f0f0; }
+.section:last-child { border-bottom: none; }
+.section-title { font-size: 13px; font-weight: 600; color: #1565c0; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.metric { text-align: center; padding: 10px; background: #f8f9fa; border-radius: 8px; }
+.metric-value { font-size: 22px; font-weight: 700; color: #1565c0; margin-bottom: 3px; }
+.metric-label { font-size: 11px; color: #666; }
+.metric-sub { font-size: 10px; color: #999; margin-top: 2px; }
+.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.table th { background: #f5f7fa; color: #666; font-weight: 500; padding: 7px 10px; text-align: left; }
+.table td { padding: 7px 10px; border-bottom: 1px solid #f0f0f0; }
+.table tr:last-child td { border-bottom: none; }
+.table .total { font-weight: 600; background: #f5f7fa; }
+.insights { background: #e3f2fd; padding: 12px 16px; border-radius: 8px; margin-top: 6px; }
+.insights-title { font-size: 12px; font-weight: 600; color: #1565c0; margin-bottom: 5px; }
+.insights-text { font-size: 11px; color: #333; line-height: 1.5; }
+.footer { padding: 12px 28px; background: #f5f7fa; font-size: 10px; color: #999; text-align: center; }
+.wow-up { color: #2e7d32; }
+.wow-down { color: #c62828; }
+.alert { background: #fff3e0; border-left: 3px solid #f57c00; padding: 8px 12px; margin-top: 8px; font-size: 11px; color: #e65100; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>📊 SP Metropolitan Region Daily Report</h1>
+    <div class="subtitle">DBR Daily Business Report · BRT Aug 29 (Sat) · Data Date: 08/28, 2026</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Orders Overview</div>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-value">34,030</div>
+        <div class="metric-label">Orders Yesterday</div>
+        <div class="metric-sub wow-up">WoW: ↑ 3.2%</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">R$ 1,618,896</div>
+        <div class="metric-label">GMV (R$)</div>
+        <div class="metric-sub">AOV: R$ 47.57</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0.8%</div>
+        <div class="metric-label">Cancel Rate</div>
+        <div class="metric-sub">Total</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">City Breakdown (08/28)</div>
+    <table class="table">
+      <tr><th>City</th><th>Orders</th><th>GMV (R$)</th><th>AOV</th></tr>
+      <tr><td>Northeast São Paulo Metropolitan</td><td>45,186</td><td>2,153,706</td><td>R$ 47.66</td></tr>
+      <tr><td>Santos City</td><td>8,169</td><td>398,592</td><td>R$ 48.79</td></tr>
+      <tr><td>São Paulo City B</td><td>158</td><td>6,852</td><td>R$ 43.36</td></tr>
+      <tr><td>São Paulo City E</td><td>51</td><td>2,471</td><td>R$ 48.46</td></tr>
+      <tr><td>São Paulo City C</td><td>16</td><td>568</td><td>R$ 35.49</td></tr>
+      <tr><td>São Paulo City F</td><td>15</td><td>616</td><td>R$ 41.03</td></tr>
+      <tr><td>São Paulo City A</td><td>9</td><td>400</td><td>R$ 44.47</td></tr>
+      <tr><td>São Paulo City D</td><td>5</td><td>304</td><td>R$ 60.81</td></tr>
+      <tr class="total"><td>Metro Total</td><td>34,030</td><td>1,618,896</td><td>R$ 47.57</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <div class="section-title">New Signings (08/28)</div>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-value">3</div>
+        <div class="metric-label">Top-Tier</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">1</div>
+        <div class="metric-label">Mid-Tier</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0</div>
+        <div class="metric-label">Must-have</div>
+      </div>
+    </div>
+    <div class="metric-sub" style="text-align:center;margin-top:8px;">Total: <strong>4</strong> | MTD Aug: <strong>79</strong></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Operating Performance (08/28)</div>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-value">66.5%</div>
+        <div class="metric-label">Top-Tier</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">45.4%</div>
+        <div class="metric-label">Mid-Tier</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">80.1%</div>
+        <div class="metric-label">Must-have</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Promotion Coverage (08/28)</div>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-value">76.5%</div>
+        <div class="metric-label">Discount Rate</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">30.0%</div>
+        <div class="metric-label">Full Discount</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">93.9%</div>
+        <div class="metric-label">Subsidy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">User Experience (08/28)</div>
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-value">0.8%</div>
+        <div class="metric-label">Total Cancel</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0.5%</div>
+        <div class="metric-label">Spill/Damage</div>
+      </div>
+      <div class="metric">
+        <div class="metric-value">0.7%</div>
+        <div class="metric-label">Missing/Wrong</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="insights">
+      <div class="insights-title">Key Insights</div>
+      <div class="insights-text">
+        Metro Region processed <strong>34,030</strong> orders on 08/28
+        (↑ 3.2% vs prior day).
+        GMV: <strong>R$ 1,618,896</strong> (AOV: R$ 47.57).
+        New signings: <strong>4</strong> merchants (08/28).
+        Operating rates: Top-Tier 66.5%, Mid-Tier 45.4%, Must-have 80.1%.
+        Cancel rate: <strong>0.8%</strong> (Spill 0.5%, Missing 0.7%).
+        Promotion coverage: Discount 76.5%, Subsidy 93.9%.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Data source: BI Dashboard · Generated 2026-08-30 19:17 · SP Metropolitan CM
+  </div>
+</div>
+</body>
+</html>

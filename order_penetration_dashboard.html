@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Penetration Incentive Race Dashboard</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#1a1a2e;--card:#16213e;--card2:#0f3460;--accent:#e94560;--accent2:#533483;--gold:#ffd700;--silver:#c0c0c0;--bronze:#cd7f32;--green:#00c853;--text:#e0e0e0;--text2:#a0a0b0;--border:#2a2a4e;--success:#4caf50;--warning:#ff9800;--danger:#f44336}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6;padding:16px;max-width:1400px;margin:0 auto}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.subtitle{text-align:center;color:var(--text2);font-size:.85rem;margin-bottom:20px}
+.data-note{text-align:center;color:var(--warning);font-size:.8rem;margin-bottom:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:20px}
+.card{background:var(--card);border-radius:12px;padding:16px;text-align:center;border:1px solid var(--border);transition:transform .2s}
+.card:hover{transform:translateY(-2px)}
+.card .icon{font-size:1.8rem;margin-bottom:4px}
+.card .value{font-size:2rem;font-weight:700;color:#fff}
+.card .label{font-size:.75rem;color:var(--text2);text-transform:uppercase;letter-spacing:.5px}
+.card .sub{font-size:.7rem;color:var(--text2);margin-top:4px}
+.section{background:var(--card);border-radius:12px;padding:20px;margin-bottom:20px;border:1px solid var(--border)}
+.section-title{font-size:1.15rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.progress-bar-wrap{background:#2a2a4e;border-radius:8px;height:24px;position:relative;overflow:hidden;margin:8px 0}
+.progress-bar-fill{height:100%;border-radius:8px;transition:width .5s;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:#fff;min-width:40px}
+.city-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
+.city-card{background:var(--bg);border-radius:10px;padding:14px;border:1px solid var(--border)}
+.city-card h4{font-size:.9rem;margin-bottom:8px;color:var(--accent)}
+.city-stat{display:flex;justify-content:space-between;font-size:.8rem;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.tab{padding:8px 18px;border-radius:8px 8px 0 0;cursor:pointer;background:var(--bg);color:var(--text2);font-size:.85rem;border:1px solid var(--border);border-bottom:none;transition:all .2s}
+.tab.active{background:var(--card2);color:#fff;border-color:var(--accent)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+table{width:100%;border-collapse:collapse;font-size:.8rem}
+th{background:var(--card2);padding:10px 8px;text-align:left;font-weight:600;color:var(--text2);text-transform:uppercase;font-size:.7rem;letter-spacing:.5px;position:sticky;top:0}
+td{padding:8px;border-bottom:1px solid rgba(255,255,255,.05)}
+tr:hover{background:rgba(255,255,255,.03)}
+tr.gold{background:rgba(255,215,0,.08)}
+tr.gold td:first-child{color:var(--gold);font-weight:700}
+tr.silver{background:rgba(192,192,192,.06)}
+tr.silver td:first-child{color:var(--silver);font-weight:700}
+tr.bronze{background:rgba(205,127,50,.06)}
+tr.bronze td:first-child{color:var(--bronze);font-weight:700}
+tr.zero{opacity:.45}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:600}
+.badge-green{background:rgba(76,175,80,.2);color:var(--green)}
+.badge-red{background:rgba(244,67,54,.15);color:var(--danger)}
+.badge-yellow{background:rgba(255,152,0,.15);color:var(--warning)}
+.badge-gray{background:rgba(160,160,176,.15);color:var(--text2)}
+.prize{color:var(--gold);font-weight:600}
+.no-prize{color:var(--text2)}
+.funnel-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:16px}
+.funnel-card{background:var(--bg);border-radius:10px;padding:16px;border:1px solid var(--border)}
+.funnel-card h4{font-size:.85rem;margin-bottom:10px;color:var(--accent)}
+.funnel-step{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:.8rem}
+.funnel-bar{flex:1;background:#2a2a4e;border-radius:6px;height:22px;position:relative;overflow:hidden}
+.funnel-bar-fill{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;font-size:.7rem;font-weight:600;color:#fff}
+.status-chart{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.status-item{display:flex;align-items:center;gap:6px;background:var(--bg);padding:8px 14px;border-radius:8px;border:1px solid var(--border);font-size:.8rem}
+.status-dot{width:10px;height:10px;border-radius:50%}
+.alert-card{background:rgba(255,152,0,.08);border:1px solid rgba(255,152,0,.3);border-radius:10px;padding:14px;margin-top:14px;display:flex;align-items:center;gap:10px}
+.alert-card .alert-icon{font-size:1.4rem}
+.alert-card .alert-text{font-size:.82rem}
+.footer{text-align:center;padding:20px 0;color:var(--text2);font-size:.75rem;border-top:1px solid var(--border);margin-top:20px}
+.footer p{margin:3px 0}
+.inline-bar{display:inline-block;width:80px;height:8px;background:#2a2a4e;border-radius:4px;vertical-align:middle;overflow:hidden;margin-left:4px}
+.inline-bar-fill{height:100%;border-radius:4px}
+.scroll-table{max-height:500px;overflow-y:auto;border-radius:8px}
+@media(max-width:768px){
+body{padding:8px}
+.cards{grid-template-columns:repeat(2,1fr);gap:8px}
+.card .value{font-size:1.5rem}
+table{font-size:.72rem}
+th,td{padding:6px 4px}
+.funnel-group{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+.cards{grid-template-columns:1fr}
+h1{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<h1>🏆 Order Penetration Rate — SP Metropolitan Incentive Race Dashboard</h1>
+<p class="subtitle">订单渗透率激励赛 — 圣保罗大都市区看板</p>
+<p class="data-note">📅 Data as of 2026-08-03 (BRT) &nbsp;|&nbsp; Race Period: Aug 1 – Aug 31, 2026</p>
+
+<!-- MODULE 1 -->
+<div class="cards">
+  <div class="card"><div class="icon">🎯</div><div class="value">818</div><div class="label">Target Merchants 目标商家</div></div>
+  <div class="card"><div class="icon">✍️</div><div class="value">13</div><div class="label">New Sign-ups 新增签约</div><div class="sub">From "not sign" → signed</div></div>
+  <div class="card"><div class="icon">✅</div><div class="value">42</div><div class="label">Operating 有效营业</div><div class="sub">5.1% conversion rate</div></div>
+  <div class="card"><div class="icon">🏅</div><div class="value">240</div><div class="label">Total Score 总积分</div><div class="sub">All zones combined</div></div>
+</div>
+
+<div class="section">
+  <div class="section-title">⏰ Race Progress 赛程进度</div>
+  <div style="display:flex;justify-content:space-between;font-size:.8rem;color:var(--text2);margin-bottom:4px">
+    <span>Aug 1 →</span><span>Day 3 / 31</span><span>→ Aug 31</span>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" style="width:9.7%;background:linear-gradient(90deg,var(--accent),var(--accent2))">9.7%</div>
+  </div>
+  <div class="city-grid">
+    <div class="city-card">
+      <h4>🇧🇷 Southern SP Metro 南部</h4>
+      <div class="city-stat"><span>Target</span><strong>413</strong></div>
+      <div class="city-stat"><span>Operating</span><strong>16</strong></div>
+      <div class="city-stat"><span>Rate</span><strong>3.9%</strong></div>
+      <div class="city-stat"><span>Score</span><strong>84 pts</strong></div>
+    </div>
+    <div class="city-card">
+      <h4>🇧🇷 Western SP Metro 西部</h4>
+      <div class="city-stat"><span>Target</span><strong>331</strong></div>
+      <div class="city-stat"><span>Operating</span><strong>24</strong></div>
+      <div class="city-stat"><span>Rate</span><strong>7.3%</strong></div>
+      <div class="city-stat"><span>Score</span><strong>145 pts</strong></div>
+    </div>
+    <div class="city-card">
+      <h4>🇧🇷 Santos City 桑托斯</h4>
+      <div class="city-stat"><span>Target</span><strong>74</strong></div>
+      <div class="city-stat"><span>Operating</span><strong>2</strong></div>
+      <div class="city-stat"><span>Rate</span><strong>2.7%</strong></div>
+      <div class="city-stat"><span>Score</span><strong>11 pts</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE 2 -->
+<div class="section">
+  <div class="section-title">👤 BD Personal Ranking BD个人排名榜</div>
+  <p style="font-size:.78rem;color:var(--text2);margin-bottom:12px">🏆 Prizes per zone: 🥇R$2,000 / 🥈R$1,500 / 🥉R$1,000 / Top 4–15: R$500 &nbsp;|&nbsp; Qualification: ≥15 pts</p>
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('bd',this,'zone-a')">🅰 Southern (43 BDs)</div>
+    <div class="tab" onclick="switchTab('bd',this,'zone-b')">🅱 Western (34 BDs)</div>
+    <div class="tab" onclick="switchTab('bd',this,'zone-c')">🅲 Santos (9 BDs)</div>
+  </div>
+
+  <div class="tab-content active" id="zone-a">
+    <div class="scroll-table"><table>
+      <thead><tr><th>Rank</th><th>BD</th><th>BDM</th><th>Conv.</th><th>Base</th><th>HV+2</th><th>Early Bird</th><th>Total</th><th>Prize</th></tr></thead>
+      <tbody><tr class="gold"><td>🥇 1</td><td>brunapadilha</td><td>fernandooliveira</td><td>2</td><td>6</td><td>4</td><td>—</td><td><strong>10</strong></td><td class="no-prize">—</td></tr>
+<tr class="silver"><td>🥈 2</td><td>marciajesuino</td><td>alisaeed</td><td>2</td><td>6</td><td>4</td><td>—</td><td><strong>10</strong></td><td class="no-prize">—</td></tr>
+<tr class="bronze"><td>🥉 3</td><td>paulosantos</td><td>tadeumoraes</td><td>2</td><td>6</td><td>4</td><td>—</td><td><strong>10</strong></td><td class="no-prize">—</td></tr>
+<tr><td>4</td><td>lucasreis</td><td>tadeumoraes</td><td>1</td><td>4</td><td>2</td><td>—</td><td><strong>6</strong></td><td class="no-prize">—</td></tr>
+<tr><td>5</td><td>brunacrelien</td><td>adriananaves</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>6</td><td>felipesanches</td><td>fernandooliveira</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>7</td><td>matheuscoelho</td><td>tadeumoraes</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>8</td><td>pedrosaccone</td><td>fernandooliveira</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>9</td><td>ricardoaraujo</td><td>alisaeed</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>10</td><td>rodrigoalmeida</td><td>adriananaves</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>11</td><td>sergioviggiano</td><td>guilhermehaddad</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>12</td><td>thaisvasconcelos</td><td>eduardoalbuquerque</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>13</td><td>alisaeed</td><td>danielalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>14</td><td>allanmaalouli</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>15</td><td>ashrafnouh</td><td>danielalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>16</td><td>camilabatista</td><td>alisaeed</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>17</td><td>carlosmotta</td><td>fernandooliveira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>18</td><td>cristianedasilva</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>19</td><td>danielalbuquerque</td><td>zhangwenle</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>20</td><td>davidcaramaschi</td><td>alisaeed</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>21</td><td>eduardoalbuquerque</td><td>danielalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>22</td><td>eduardosantos</td><td>alisaeed</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>23</td><td>elisangelasouza</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>24</td><td>erikboilesen</td><td>fernandooliveira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>25</td><td>evaldosilva</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>26</td><td>felipesilva</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>27</td><td>fernandoquintiliano</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>28</td><td>ivanfelizardo</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>29</td><td>josenascimento</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>30</td><td>joycepurificacao</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>31</td><td>leandroresende</td><td>tadeumoraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>32</td><td>murilosilva</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>33</td><td>otaviomazzega</td><td>eduardoalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>34</td><td>paulosilva</td><td>tadeumoraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>35</td><td>ricardoalmeida</td><td>tadeumoraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>36</td><td>rodrigocorreia</td><td>alisaeed</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>37</td><td>tiagodangelo</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>38</td><td>wainnergonzales</td><td>fernandooliveira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>39</td><td>wanessasilva</td><td>adriananaves</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>40</td><td>wellingtonsantos</td><td>fernandooliveira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr></tbody>
+    </table></div>
+    <p style="font-size:.72rem;color:var(--warning);margin-top:8px">⚠️ Early Bird Bonus: TBD (待更新) | No BD has reached 15-pt qualification yet</p>
+  </div>
+
+  <div class="tab-content" id="zone-b">
+    <div class="scroll-table"><table>
+      <thead><tr><th>Rank</th><th>BD</th><th>BDM</th><th>Conv.</th><th>Base</th><th>HV+2</th><th>Early Bird</th><th>Total</th><th>Prize</th></tr></thead>
+      <tbody><tr class="gold"><td>🥇 1</td><td>kevinberti</td><td>cesararraes</td><td>2</td><td>7</td><td>4</td><td>—</td><td><strong>11</strong></td><td class="no-prize">—</td></tr>
+<tr class="silver"><td>🥈 2</td><td>valeriachacon</td><td>lucasferreira</td><td>2</td><td>7</td><td>4</td><td>—</td><td><strong>11</strong></td><td class="no-prize">—</td></tr>
+<tr class="bronze"><td>🥉 3</td><td>marialisboa</td><td>thiagoscavazini</td><td>2</td><td>6</td><td>4</td><td>—</td><td><strong>10</strong></td><td class="no-prize">—</td></tr>
+<tr><td>4</td><td>luizmoreira</td><td>biancaceotto</td><td>1</td><td>6</td><td>2</td><td>—</td><td><strong>8</strong></td><td class="no-prize">—</td></tr>
+<tr><td>5</td><td>milenasantana</td><td>thiagoscavazini</td><td>1</td><td>6</td><td>2</td><td>—</td><td><strong>8</strong></td><td class="no-prize">—</td></tr>
+<tr><td>6</td><td>williamhenrique</td><td>cesararraes</td><td>1</td><td>6</td><td>2</td><td>—</td><td><strong>8</strong></td><td class="no-prize">—</td></tr>
+<tr><td>7</td><td>caiquesilva</td><td>maysaazevedo</td><td>1</td><td>4</td><td>2</td><td>—</td><td><strong>6</strong></td><td class="no-prize">—</td></tr>
+<tr><td>8</td><td>felipecruz</td><td>thiagoscavazini</td><td>1</td><td>4</td><td>2</td><td>—</td><td><strong>6</strong></td><td class="no-prize">—</td></tr>
+<tr><td>9</td><td>alexlima</td><td>igorfeitosa</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>10</td><td>biancaceotto</td><td>marciojaroslavsky</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>11</td><td>caiolorencato</td><td>biancaceotto</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>12</td><td>fengmenglong</td><td>zhangwenle</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>13</td><td>igorsouza</td><td>igorfeitosa</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>14</td><td>jadycarvalho</td><td>cesararraes</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>15</td><td>marcelofeitosa</td><td>igorfeitosa</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>16</td><td>tamirislopes</td><td>igorfeitosa</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr><td>17</td><td>tatianarodrigues</td><td>igorfeitosa</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>18</td><td>barbaraoliveira</td><td>thiagoscavazini</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>19</td><td>cesararraes</td><td>marciojaroslavsky</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>20</td><td>claudiareis</td><td>thiagoscavazini</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>21</td><td>clebersoares</td><td>lucasferreira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>22</td><td>fernandooliveira</td><td>danielalbuquerque</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>23</td><td>giovannavilla</td><td>matheusribeiro</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>24</td><td>guilhermesantos</td><td>cesararraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>25</td><td>heloisamagnani</td><td>thiagoscavazini</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>26</td><td>johnataguimaraes</td><td>cesararraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>27</td><td>karinacolomina</td><td>biancaceotto</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>28</td><td>lucasnada</td><td>lucasferreira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>29</td><td>nayannedias</td><td>biancaceotto</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>30</td><td>nicolemenezes</td><td>biancaceotto</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>31</td><td>nilmaxfranca</td><td>biancaceotto</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>32</td><td>renansilva</td><td>cesararraes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>33</td><td>rodrigopoli</td><td>biancaceotto</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>34</td><td>tatianeribeiro</td><td>lucasferreira</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+</tbody>
+    </table></div>
+    <p style="font-size:.72rem;color:var(--warning);margin-top:8px">⚠️ Early Bird Bonus: TBD (待更新) | No BD has reached 15-pt qualification yet</p>
+  </div>
+
+  <div class="tab-content" id="zone-c">
+    <div class="scroll-table"><table>
+      <thead><tr><th>Rank</th><th>BD</th><th>BDM</th><th>Conv.</th><th>Base</th><th>HV+2</th><th>Early Bird</th><th>Total</th><th>Prize</th></tr></thead>
+      <tbody><tr class="gold"><td>🥇 1</td><td>maysaazevedo</td><td>jackwu</td><td>1</td><td>4</td><td>2</td><td>—</td><td><strong>6</strong></td><td class="no-prize">—</td></tr>
+<tr class="silver"><td>🥈 2</td><td>ericabarbosa</td><td>sabrinafernandes</td><td>1</td><td>3</td><td>2</td><td>—</td><td><strong>5</strong></td><td class="no-prize">—</td></tr>
+<tr class="bronze"><td>🥉 3</td><td>brunosalmaso</td><td>sabrinafernandes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>4</td><td>felipebarbosa</td><td>sabrinafernandes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>5</td><td>giovanabareno</td><td>sabrinafernandes</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>6</td><td>jessicarossi</td><td>renataleite</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>7</td><td>joaocastro</td><td>renataleite</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>8</td><td>luizmarques</td><td>renataleite</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>9</td><td>nathaliabernardino</td><td>renataleite</td><td>0</td><td>0</td><td>0</td><td>—</td><td><strong>0</strong></td><td class="no-prize">—</td></tr>
+</tbody>
+    </table></div>
+    <p style="font-size:.72rem;color:var(--warning);margin-top:8px">⚠️ Early Bird Bonus: TBD (待更新) | No BD has reached 15-pt qualification yet</p>
+  </div>
+</div>
+
+<!-- MODULE 3 -->
+<div class="section">
+  <div class="section-title">👥 BDM Team Ranking BDM团队排名榜 (不分赛区)</div>
+  <p style="font-size:.78rem;color:var(--text2);margin-bottom:12px">🏆 Prizes: 🥇R$2,500 / 🥈R$2,000 / 🥉R$1,500 &nbsp;|&nbsp; Threshold: BD count × 15 pts &nbsp;|&nbsp; Ranked by per-capita score 人均积分</p>
+  <div class="scroll-table"><table>
+    <thead><tr><th>Rank</th><th>BDM</th><th>City</th><th>BDs</th><th>Conv.</th><th>Total Pts</th><th>Per Capita</th><th>Progress 达标进度</th><th>Prize</th></tr></thead>
+    <tbody><tr class="gold"><td>🥇 1</td><td>jackwu</td><td style="font-size:.72rem">Santos City, W.SP Metro</td><td>1</td><td>1</td><td><strong>6</strong></td><td>6.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:40%;background:#e94560"></div></div> 40%</td><td class="no-prize">—</td></tr>
+<tr class="silver"><td>🥈 2</td><td>maysaazevedo</td><td style="font-size:.72rem">W.SP Metro</td><td>1</td><td>1</td><td><strong>6</strong></td><td>6.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:40%;background:#e94560"></div></div> 40%</td><td class="no-prize">—</td></tr>
+<tr class="bronze"><td>🥉 3</td><td>igorfeitosa</td><td style="font-size:.72rem">W.SP Metro</td><td>5</td><td>5</td><td><strong>25</strong></td><td>5.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:33%;background:#e94560"></div></div> 33%</td><td class="no-prize">—</td></tr>
+<tr><td>4</td><td>guilhermehaddad</td><td style="font-size:.72rem">S.SP Metro</td><td>1</td><td>1</td><td><strong>5</strong></td><td>5.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:33%;background:#e94560"></div></div> 33%</td><td class="no-prize">—</td></tr>
+<tr><td>5</td><td>cesararraes</td><td style="font-size:.72rem">W.SP Metro</td><td>6</td><td>4</td><td><strong>24</strong></td><td>4.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:27%;background:#e94560"></div></div> 27%</td><td class="no-prize">—</td></tr>
+<tr><td>6</td><td>thiagoscavazini</td><td style="font-size:.72rem">W.SP Metro</td><td>6</td><td>4</td><td><strong>24</strong></td><td>4.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:27%;background:#e94560"></div></div> 27%</td><td class="no-prize">—</td></tr>
+<tr><td>7</td><td>tadeumoraes</td><td style="font-size:.72rem">S.SP Metro</td><td>6</td><td>4</td><td><strong>21</strong></td><td>3.5</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:23%;background:#e94560"></div></div> 23%</td><td class="no-prize">—</td></tr>
+<tr><td>8</td><td>fernandooliveira</td><td style="font-size:.72rem">S.SP Metro</td><td>7</td><td>4</td><td><strong>20</strong></td><td>2.86</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:19%;background:#e94560"></div></div> 19%</td><td class="no-prize">—</td></tr>
+<tr><td>9</td><td>lucasferreira</td><td style="font-size:.72rem">W.SP Metro</td><td>4</td><td>2</td><td><strong>11</strong></td><td>2.75</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:18%;background:#e94560"></div></div> 18%</td><td class="no-prize">—</td></tr>
+<tr><td>10</td><td>alisaeed</td><td style="font-size:.72rem">S.SP Metro</td><td>6</td><td>3</td><td><strong>15</strong></td><td>2.5</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:17%;background:#e94560"></div></div> 17%</td><td class="no-prize">—</td></tr>
+<tr><td>11</td><td>marciojaroslavsky</td><td style="font-size:.72rem">W.SP Metro</td><td>2</td><td>1</td><td><strong>5</strong></td><td>2.5</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:17%;background:#e94560"></div></div> 17%</td><td class="no-prize">—</td></tr>
+<tr><td>12</td><td>zhangwenle</td><td style="font-size:.72rem">S.SP Metro, W.SP Metro</td><td>2</td><td>1</td><td><strong>5</strong></td><td>2.5</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:17%;background:#e94560"></div></div> 17%</td><td class="no-prize">—</td></tr>
+<tr><td>13</td><td>biancaceotto</td><td style="font-size:.72rem">W.SP Metro</td><td>7</td><td>2</td><td><strong>13</strong></td><td>1.86</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:12%;background:#e94560"></div></div> 12%</td><td class="no-prize">—</td></tr>
+<tr><td>14</td><td>sabrinafernandes</td><td style="font-size:.72rem">Santos City</td><td>4</td><td>1</td><td><strong>5</strong></td><td>1.25</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:8%;background:#e94560"></div></div> 8%</td><td class="no-prize">—</td></tr>
+<tr><td>15</td><td>adriananaves</td><td style="font-size:.72rem">S.SP Metro</td><td>9</td><td>2</td><td><strong>10</strong></td><td>1.11</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:7%;background:#e94560"></div></div> 7%</td><td class="no-prize">—</td></tr>
+<tr><td>16</td><td>eduardoalbuquerque</td><td style="font-size:.72rem">S.SP Metro</td><td>7</td><td>1</td><td><strong>5</strong></td><td>0.71</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:5%;background:#e94560"></div></div> 5%</td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>17</td><td>danielalbuquerque</td><td style="font-size:.72rem">S.SP Metro, W.SP Metro</td><td>4</td><td>0</td><td><strong>0</strong></td><td>0.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:0%;background:#e94560"></div></div> 0%</td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>18</td><td>matheusribeiro</td><td style="font-size:.72rem">W.SP Metro</td><td>1</td><td>0</td><td><strong>0</strong></td><td>0.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:0%;background:#e94560"></div></div> 0%</td><td class="no-prize">—</td></tr>
+<tr class="zero"><td>19</td><td>renataleite</td><td style="font-size:.72rem">Santos City</td><td>4</td><td>0</td><td><strong>0</strong></td><td>0.0</td><td><div class="inline-bar"><div class="inline-bar-fill" style="width:0%;background:#e94560"></div></div> 0%</td><td class="no-prize">—</td></tr></tbody>
+  </table></div>
+  <p style="font-size:.72rem;color:var(--warning);margin-top:8px">⚠️ No BDM has reached qualification threshold yet. Progress bar = Total Pts / (BD count × 15)</p>
+</div>
+
+<!-- MODULE 4 -->
+<div class="section">
+  <div class="section-title">📊 Conversion Funnel & Progress 转化漏斗</div>
+  <div class="funnel-group">
+    <div class="funnel-card">
+      <h4>🔴 Not Sign → Operating (6+2 pts)</h4>
+      <div class="funnel-step"><span style="width:90px">未签约</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:100%;background:var(--danger)">553</div></div></div>
+      <div class="funnel-step"><span style="width:90px">→ Signed</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:2.4%;background:var(--warning)">13 (2.4%)</div></div></div>
+      <div class="funnel-step"><span style="width:90px">→ Operating</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:1.4%;background:var(--success)">8 (1.4%)</div></div></div>
+    </div>
+    <div class="funnel-card">
+      <h4>🟡 Not Online → Operating (4+2 pts)</h4>
+      <div class="funnel-step"><span style="width:90px">未上线</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:100%;background:var(--warning)">46</div></div></div>
+      <div class="funnel-step"><span style="width:90px">→ Online</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:93.5%;background:#2196f3">43 (93.5%)</div></div></div>
+      <div class="funnel-step"><span style="width:90px">→ Operating</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:13.0%;background:var(--success)">6 (13.0%)</div></div></div>
+    </div>
+    <div class="funnel-card">
+      <h4>🟢 Not Operating → Recovered (3+2 pts)</h4>
+      <div class="funnel-step"><span style="width:90px">不营业</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:100%;background:#9e9e9e">219</div></div></div>
+      <div class="funnel-step"><span style="width:90px">→ Operating</span><div class="funnel-bar"><div class="funnel-bar-fill" style="width:12.8%;background:var(--success)">28 (12.8%)</div></div></div>
+    </div>
+  </div>
+
+  <h4 style="font-size:.9rem;margin:16px 0 8px">📋 Merchant Status Distribution 商家状态分布 (as of 08-04)</h4>
+  <div class="status-chart">
+    <div class="status-item"><div class="status-dot" style="background:#9e9e9e"></div>N/A (Unassigned): <strong>543</strong> (66.4%)</div>
+    <div class="status-item"><div class="status-dot" style="background:var(--danger)"></div>Closed: <strong>174</strong> (21.3%)</div>
+    <div class="status-item"><div class="status-dot" style="background:var(--success)"></div>Cooperating: <strong>50</strong> (6.1%)</div>
+    <div class="status-item"><div class="status-dot" style="background:#2196f3"></div>Entering: <strong>29</strong> (3.5%)</div>
+    <div class="status-item"><div class="status-dot" style="background:var(--warning)"></div>Pre-opening: <strong>13</strong> (1.6%)</div>
+    <div class="status-item"><div class="status-dot" style="background:#9c27b0"></div>Offline: <strong>9</strong> (1.1%)</div>
+  </div>
+
+  <div class="alert-card">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-text">
+      <strong>Risk Alert 风险提示:</strong> 448 merchants (54.8%) have no BD assigned. These unassigned merchants cannot be converted without BD allocation. Immediate action needed to assign BDs to maximize race outcomes.
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <p><strong>📐 Scoring Rules 计分规则:</strong></p>
+  <p>not sign → operating = 6 pts &nbsp;|&nbsp; not online → operating = 4 pts &nbsp;|&nbsp; not operating → recovered = 3 pts</p>
+  <p>High-Value Bonus (RED comments ≥50): +2 pts &nbsp;|&nbsp; Early Bird Bonus (before 8/15): +1 pt (TBD)</p>
+  <p>BD Qualification: ≥15 pts &nbsp;|&nbsp; BDM Qualification: Team total ≥ BD count × 15</p>
+  <p style="margin-top:8px">📁 Data source: order_penetration_0803.xlsx (Metropolitan Region) &nbsp;|&nbsp; Updated: 2026-08-05</p>
+  <p>Built with ❤️ for SP Metropolitan Incentive Race</p>
+</div>
+
+<script>
+function switchTab(group, el, id) {
+  const section = el.closest('.section');
+  section.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  section.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>

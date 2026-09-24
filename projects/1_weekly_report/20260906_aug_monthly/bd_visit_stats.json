@@ -1,0 +1,427 @@
+{
+ "ricardoalmeida": {
+  "visits": 37,
+  "per_day": 7.4,
+  "region": "Southern"
+ },
+ "marciajesuino": {
+  "visits": 28,
+  "per_day": 5.6,
+  "region": "Southern"
+ },
+ "alexlima": {
+  "visits": 37,
+  "per_day": 7.4,
+  "region": "Western"
+ },
+ "brunapadilha": {
+  "visits": 75,
+  "per_day": 15.0,
+  "region": "Southern"
+ },
+ "tiagodangelo": {
+  "visits": 49,
+  "per_day": 9.8,
+  "region": "Southern"
+ },
+ "felipebarbosa": {
+  "visits": 49,
+  "per_day": 9.8,
+  "region": "Santos"
+ },
+ "rodrigoalmeida": {
+  "visits": 29,
+  "per_day": 5.8,
+  "region": "Southern"
+ },
+ "williamhenrique": {
+  "visits": 23,
+  "per_day": 4.6,
+  "region": "Western"
+ },
+ "leandroresende": {
+  "visits": 39,
+  "per_day": 7.8,
+  "region": "Southern"
+ },
+ "brunosalmaso": {
+  "visits": 42,
+  "per_day": 8.4,
+  "region": "Santos"
+ },
+ "carlosmotta": {
+  "visits": 39,
+  "per_day": 7.8,
+  "region": "Southern"
+ },
+ "cristianedasilva": {
+  "visits": 37,
+  "per_day": 7.4,
+  "region": "Southern"
+ },
+ "otaviomazzega": {
+  "visits": 20,
+  "per_day": 4.0,
+  "region": "Southern"
+ },
+ "maiconalmeida": {
+  "visits": 20,
+  "per_day": 4.0,
+  "region": "Western"
+ },
+ "joycepurificacao": {
+  "visits": 17,
+  "per_day": 3.4,
+  "region": "Southern"
+ },
+ "flaviadearagao": {
+  "visits": 6,
+  "per_day": 1.2,
+  "region": "Western"
+ },
+ "thaisvasconcelos": {
+  "visits": 34,
+  "per_day": 6.8,
+  "region": "Southern"
+ },
+ "claudiareis": {
+  "visits": 28,
+  "per_day": 5.6,
+  "region": "Western"
+ },
+ "giovanabareno": {
+  "visits": 49,
+  "per_day": 9.8,
+  "region": "Santos"
+ },
+ "sheilabrasiliano": {
+  "visits": 15,
+  "per_day": 3.0,
+  "region": "Western"
+ },
+ "tamirislopes": {
+  "visits": 38,
+  "per_day": 7.6,
+  "region": "Western"
+ },
+ "jadycarvalho": {
+  "visits": 30,
+  "per_day": 6.0,
+  "region": "Western"
+ },
+ "paulosilva": {
+  "visits": 33,
+  "per_day": 6.6,
+  "region": "Southern"
+ },
+ "wanessasilva": {
+  "visits": 76,
+  "per_day": 15.2,
+  "region": "Southern"
+ },
+ "rodrigocorreia": {
+  "visits": 24,
+  "per_day": 4.8,
+  "region": "Southern"
+ },
+ "marcelofeitosa": {
+  "visits": 65,
+  "per_day": 13.0,
+  "region": "Western"
+ },
+ "rodrigobufano": {
+  "visits": 30,
+  "per_day": 6.0,
+  "region": "Western"
+ },
+ "pedrosilva05": {
+  "visits": 27,
+  "per_day": 5.4,
+  "region": "Western"
+ },
+ "heloisamagnani": {
+  "visits": 38,
+  "per_day": 7.6,
+  "region": "Western"
+ },
+ "elizabethcinacchi": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Western"
+ },
+ "nayannedias": {
+  "visits": 30,
+  "per_day": 6.0,
+  "region": "Western"
+ },
+ "joaocastro": {
+  "visits": 47,
+  "per_day": 9.4,
+  "region": "Santos"
+ },
+ "milenasantana": {
+  "visits": 28,
+  "per_day": 5.6,
+  "region": "Western"
+ },
+ "nathaliabernardino": {
+  "visits": 56,
+  "per_day": 11.2,
+  "region": "Santos"
+ },
+ "jessicapavanelli": {
+  "visits": 34,
+  "per_day": 6.8,
+  "region": "Western"
+ },
+ "tatianeribeiro": {
+  "visits": 25,
+  "per_day": 5.0,
+  "region": "Western"
+ },
+ "felipesanches": {
+  "visits": 36,
+  "per_day": 7.2,
+  "region": "Southern"
+ },
+ "marialisboa": {
+  "visits": 27,
+  "per_day": 5.4,
+  "region": "Western"
+ },
+ "jessicarossi": {
+  "visits": 27,
+  "per_day": 5.4,
+  "region": "Santos"
+ },
+ "vivianranciaro": {
+  "visits": 10,
+  "per_day": 2.0,
+  "region": "Santos"
+ },
+ "erikboilesen": {
+  "visits": 50,
+  "per_day": 10.0,
+  "region": "Southern"
+ },
+ "evaldosilva": {
+  "visits": 44,
+  "per_day": 8.8,
+  "region": "Southern"
+ },
+ "luizmarques": {
+  "visits": 58,
+  "per_day": 11.6,
+  "region": "Santos"
+ },
+ "valeriachacon": {
+  "visits": 18,
+  "per_day": 3.6,
+  "region": "Western"
+ },
+ "tatianarodrigues": {
+  "visits": 37,
+  "per_day": 7.4,
+  "region": "Western"
+ },
+ "pedrosaccone": {
+  "visits": 42,
+  "per_day": 8.4,
+  "region": "Southern"
+ },
+ "luizmoreira": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Western"
+ },
+ "wainnergonzales": {
+  "visits": 85,
+  "per_day": 17.0,
+  "region": "Southern"
+ },
+ "davidcaramaschi": {
+  "visits": 48,
+  "per_day": 9.6,
+  "region": "Southern"
+ },
+ "jessicacruz": {
+  "visits": 81,
+  "per_day": 16.2,
+  "region": "Santos"
+ },
+ "fellipemoraes": {
+  "visits": 63,
+  "per_day": 12.6,
+  "region": "Santos"
+ },
+ "eduardosantos": {
+  "visits": 3,
+  "per_day": 0.6,
+  "region": "Southern"
+ },
+ "rodrigopoli": {
+  "visits": 27,
+  "per_day": 5.4,
+  "region": "Western"
+ },
+ "matheuscoelho": {
+  "visits": 57,
+  "per_day": 11.4,
+  "region": "Southern"
+ },
+ "carloscasado": {
+  "visits": 44,
+  "per_day": 8.8,
+  "region": "Southern"
+ },
+ "elisangelasouza": {
+  "visits": 29,
+  "per_day": 5.8,
+  "region": "Southern"
+ },
+ "nilmaxfranca": {
+  "visits": 32,
+  "per_day": 6.4,
+  "region": "Western"
+ },
+ "ivanfelizardo": {
+  "visits": 30,
+  "per_day": 6.0,
+  "region": "Southern"
+ },
+ "renansilva": {
+  "visits": 25,
+  "per_day": 5.0,
+  "region": "Western"
+ },
+ "fernandoquintiliano": {
+  "visits": 25,
+  "per_day": 5.0,
+  "region": "Southern"
+ },
+ "igorsouza": {
+  "visits": 39,
+  "per_day": 7.8,
+  "region": "Western"
+ },
+ "guilhermesantos": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Western"
+ },
+ "murilosilva": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Southern"
+ },
+ "josenascimento": {
+  "visits": 35,
+  "per_day": 7.0,
+  "region": "Southern"
+ },
+ "ericabarbosa": {
+  "visits": 59,
+  "per_day": 11.8,
+  "region": "Santos"
+ },
+ "caiolorencato": {
+  "visits": 20,
+  "per_day": 4.0,
+  "region": "Western"
+ },
+ "karinacolomina": {
+  "visits": 48,
+  "per_day": 9.6,
+  "region": "Western"
+ },
+ "camilabatista": {
+  "visits": 15,
+  "per_day": 3.0,
+  "region": "Southern"
+ },
+ "lucasreis": {
+  "visits": 36,
+  "per_day": 7.2,
+  "region": "Southern"
+ },
+ "allanmaalouli": {
+  "visits": 49,
+  "per_day": 9.8,
+  "region": "Southern"
+ },
+ "julianocorreia": {
+  "visits": 15,
+  "per_day": 3.0,
+  "region": "Southern"
+ },
+ "damiaosalgado": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Southern"
+ },
+ "felipesilva": {
+  "visits": 22,
+  "per_day": 4.4,
+  "region": "Southern"
+ },
+ "johnataguimaraes": {
+  "visits": 22,
+  "per_day": 4.4,
+  "region": "Western"
+ },
+ "felipecruz": {
+  "visits": 25,
+  "per_day": 5.0,
+  "region": "Western"
+ },
+ "barbaraoliveira": {
+  "visits": 26,
+  "per_day": 5.2,
+  "region": "Western"
+ },
+ "lucasnada": {
+  "visits": 16,
+  "per_day": 3.2,
+  "region": "Western"
+ },
+ "victorsantos02": {
+  "visits": 13,
+  "per_day": 2.6,
+  "region": "Southern"
+ },
+ "cesararraes": {
+  "visits": 2,
+  "per_day": 0.4,
+  "region": "Western"
+ },
+ "paulosantos": {
+  "visits": 5,
+  "per_day": 1.0,
+  "region": "Southern"
+ },
+ "ricardoaraujo": {
+  "visits": 7,
+  "per_day": 1.4,
+  "region": "Southern"
+ },
+ "renataleite": {
+  "visits": 2,
+  "per_day": 0.4,
+  "region": "Santos"
+ },
+ "wellingtonsantos": {
+  "visits": 5,
+  "per_day": 1.0,
+  "region": "Southern"
+ },
+ "beatrizsalante": {
+  "visits": 1,
+  "per_day": 0.2,
+  "region": "Western"
+ },
+ "sabrinafernandes": {
+  "visits": 3,
+  "per_day": 0.6,
+  "region": "Santos"
+ }
+}

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santos X Battle Platform</title>
+<style>
+:root {
+  --primary: #1a73e8;
+  --primary-light: #e8f0fe;
+  --primary-dark: #1557b0;
+  --success: #34a853;
+  --success-light: #e6f4ea;
+  --warning: #f9ab00;
+  --warning-light: #fef7e0;
+  --danger: #ea4335;
+  --danger-light: #fce8e6;
+  --text: #202124;
+  --text-secondary: #5f6368;
+  --border: #dadce0;
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+  --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
+  --shadow-lg: 0 4px 6px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --radius: 8px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.lang-switcher { display: flex; gap: 6px; }
+.lang-btn { padding: 6px 14px; border: 2px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.1); color: white; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.lang-btn:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.7); }
+.lang-btn.active { background: white; color: var(--primary-dark); border-color: white; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 24px 32px; border-radius: var(--radius); margin-bottom: 24px; box-shadow: var(--shadow-lg); }
+header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+header p { opacity: 0.85; font-size: 14px; }
+.tabs { display: flex; gap: 4px; margin-bottom: 24px; background: var(--card-bg); padding: 4px; border-radius: var(--radius); box-shadow: var(--shadow); }
+.tab-btn { flex: 1; padding: 12px 24px; border: none; background: transparent; font-size: 15px; font-weight: 600; color: var(--text-secondary); cursor: pointer; border-radius: 6px; transition: all 0.2s ease; }
+.tab-btn:hover { background: var(--bg); }
+.tab-btn.active { background: var(--primary); color: white; box-shadow: var(--shadow); }
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.card { background: var(--card-bg); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow); }
+.card h2 { font-size: 18px; margin-bottom: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.card h2 .subtitle { font-size: 13px; color: var(--text-secondary); font-weight: 400; }
+.card h3 { font-size: 15px; margin: 16px 0 12px; color: var(--text); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.kpi-card { background: var(--card-bg); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); text-align: center; border-top: 3px solid var(--primary); }
+.kpi-card .value { font-size: 28px; font-weight: 700; color: var(--primary); }
+.kpi-card .label { font-size: 12px; color: var(--text-secondary); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+.funnel { display: flex; flex-direction: column; gap: 8px; }
+.funnel-row { display: flex; align-items: center; gap: 12px; }
+.funnel-label { width: 160px; font-size: 13px; text-align: right; color: var(--text-secondary); flex-shrink: 0; }
+.funnel-bar-wrap { flex: 1; background: var(--bg); border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+.funnel-bar { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; font-size: 12px; font-weight: 600; color: white; transition: width 0.6s ease; }
+.funnel-count { width: 30px; text-align: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th { background: var(--bg); padding: 10px 12px; text-align: left; font-weight: 600; color: var(--text-secondary); border-bottom: 2px solid var(--border); white-space: nowrap; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tbody tr:nth-child(even) { background: var(--bg); }
+tbody tr:hover { background: var(--primary-light); }
+.notes-cell { white-space: normal; max-width: 200px; font-size: 12px; color: var(--text-secondary); }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+.badge-hot { background: #fce8e6; color: #c5221f; }
+.badge-neutral { background: #fef7e0; color: #e37400; }
+.badge-cold { background: #e8f0fe; color: #1a73e8; }
+.badge-high { background: #e6f4ea; color: #137333; }
+.badge-normal { background: #f1f3f4; color: #5f6368; }
+.badge-signed { background: var(--success-light); color: var(--success); }
+.badge-success { background: var(--success-light); color: var(--success); }
+.badge-warning { background: var(--warning-light); color: #e37400; }
+.badge-danger { background: var(--danger-light); color: var(--danger); }
+.alert { padding: 14px 18px; border-radius: var(--radius); margin-bottom: 12px; border-left: 4px solid; font-size: 13px; }
+.alert-danger { background: var(--danger-light); border-color: var(--danger); color: #c5221f; }
+.alert-warning { background: var(--warning-light); border-color: var(--warning); color: #e37400; }
+.alert-success { background: var(--success-light); border-color: var(--success); color: #137333; }
+.alert-info { background: var(--primary-light); border-color: var(--primary); color: var(--primary-dark); }
+blockquote.alert-info, blockquote.alert-success, blockquote.alert-warning, blockquote.alert-danger { padding: 12px 16px; border-radius: var(--radius); margin: 8px 0; border-left: 4px solid; font-size: 13px; }
+blockquote.alert-info { background: var(--primary-light); border-color: var(--primary); color: #1557b0; }
+blockquote.alert-success { background: var(--success-light); border-color: var(--success); color: #137333; }
+blockquote.alert-warning { background: var(--warning-light); border-color: var(--warning); color: #e37400; }
+blockquote.alert-danger { background: var(--danger-light); border-color: var(--danger); color: #c5221f; }
+details { border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 16px; margin-top: 12px; }
+details summary { cursor: pointer; font-weight: 600; color: var(--primary); font-size: 14px; }
+details[open] summary { margin-bottom: 12px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13px; color: var(--text-secondary); }
+.form-input { width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: var(--font); transition: border-color 0.2s; }
+.form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(26,115,232,0.1); }
+textarea.form-input { min-height: 100px; resize: vertical; }
+.btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); box-shadow: var(--shadow); }
+.btn-secondary { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.radar-wrap { display: flex; justify-content: center; padding: 20px 0; }
+.merchant-header { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+.merchant-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 12px; }
+.meta-item { font-size: 13px; }
+.meta-item .meta-label { color: var(--text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+.meta-item .meta-value { font-weight: 600; font-size: 15px; }
+.strategy-list { list-style: none; counter-reset: strategy; }
+.strategy-list li { counter-increment: strategy; padding: 12px 16px; margin-bottom: 8px; background: var(--bg); border-radius: 6px; border-left: 3px solid var(--primary); font-size: 13px; line-height: 1.5; }
+.strategy-list li::before { content: counter(strategy); display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; background: var(--primary); color: white; border-radius: 50%; font-size: 11px; font-weight: 700; margin-right: 10px; }
+#demo-report { transition: all 0.3s ease; }
+.report-hidden { opacity: 0.3; filter: blur(2px); pointer-events: none; }
+footer { text-align: center; padding: 20px; color: var(--text-secondary); font-size: 12px; border-top: 1px solid var(--border); margin-top: 32px; }
+.filter-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; padding: 16px; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); align-items: end; }
+.filter-bar .filter-group { display: flex; flex-direction: column; gap: 4px; }
+.filter-bar label { font-size: 11px; color: var(--text-secondary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.filter-bar select, .filter-bar input { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; font-family: var(--font); min-width: 120px; }
+.filter-bar select:focus, .filter-bar input:focus { outline: none; border-color: var(--primary); }
+.filter-bar .filter-search { flex: 1; min-width: 200px; }
+.filter-bar .filter-search input { width: 100%; }
+.hidden-row { display: none !important; }
+.no-results { padding: 40px; text-align: center; color: var(--text-secondary); font-size: 15px; }
+#dynamic-report { display: none; }
+#dynamic-report.active { display: block; }
+#not-found { display: none; padding: 40px; text-align: center; }
+#not-found.active { display: block; }
+@media print { .tabs { display: none; } .tab-content { display: block !important; page-break-before: always; } .tab-content:first-of-type { page-break-before: avoid; } header { background: var(--primary) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } .card { box-shadow: none; border: 1px solid var(--border); } .btn { display: none; } body { font-size: 12px; } }
+@media (max-width: 768px) { .container { padding: 12px; } header { padding: 16px; } header h1 { font-size: 20px; } .tabs { flex-direction: column; } .tab-btn { padding: 10px 16px; } .kpi-grid { grid-template-columns: repeat(2, 1fr); } .funnel-label { width: 100px; font-size: 11px; } .merchant-header { grid-template-columns: 1fr; } .radar-wrap svg { width: 280px; height: 280px; } td, th { padding: 8px 6px; font-size: 12px; } .filter-bar { flex-direction: column; } .filter-bar select, .filter-bar input { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+      <div>
+        <h1 data-i18n="title">🎯 Santos X Battle Platform</h1>
+        <p data-i18n="subtitle">Strategic Pipeline Management & Merchant Intelligence | BDM: caioguijarro | Zone: Santos</p>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLang('pt')" id="lang-pt">🇧🇷 PT</button>
+        <button class="lang-btn" onclick="setLang('en')" id="lang-en">🇺🇸 EN</button>
+        <button class="lang-btn active" onclick="setLang('zh')" id="lang-zh">🇨🇳 中文</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('tab1')" data-i18n="tab1">📊 商机总览 Pipeline Overview</button>
+    <button class="tab-btn" onclick="switchTab('tab2')" data-i18n="tab2">🔍 商家经营分析 Merchant Intelligence</button>
+    <button class="tab-btn" onclick="switchTab('tab3')" data-i18n="tab3">📝 客户盘点表 Client Roster</button>
+  </div>
+
+  <!-- TAB 1: Pipeline Overview -->
+  <div id="tab1" class="tab-content active">
+    <!-- KPI Cards -->
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="value">42</div><div class="label" data-i18n="kpi1_label">Total High Merchants</div></div>
+      <div class="kpi-card"><div class="value">26</div><div class="label" data-i18n="kpi2_label">Active Pipeline</div></div>
+      <div class="kpi-card"><div class="value">4</div><div class="label" data-i18n="kpi3_label">M6W2 Sprint Targets</div></div>
+      <div class="kpi-card"><div class="value">16</div><div class="label" data-i18n="stage_impossible">Impossible to Sign</div></div>
+      <div class="kpi-card"><div class="value">4</div><div class="label" data-i18n="stage_launched">Launched ✅</div></div>
+    </div>
+
+    <!-- Critical Alerts -->
+    <div class="card">
+      <h2><span data-i18n="alerts_title">🚨 Critical Alerts</span> <span class="subtitle" data-i18n="alerts_sub">Immediate Action Required</span></h2>
+      <div class="alert alert-danger"><strong>Caseirinha da Mãe (212 orders/day)</strong> — <span data-i18n="alert1_detail">2nd largest merchant in Santos, ALL tracking fields empty. BD: milenasilva02 must update immediately.</span></div>
+      <div class="alert alert-danger"><strong>Raposo Bar e Restaurante (125 orders)</strong> — Status is "Contract Approved" but no KP/Willing/Stage info recorded. BD: rafaelcaetano.</div>
+      <div class="alert alert-warning"><strong>Ju Gourmet Marmitaria (76 orders)</strong> — No BD assigned at all. Needs immediate ownership assignment.</div>
+    </div>
+
+    <!-- Sales Funnel -->
+    <div class="card">
+      <h2><span data-i18n="funnel_title">📈 Sales Funnel</span> <span class="subtitle" data-i18n="funnel_sub">Pipeline Stage Distribution</span></h2>
+      <div class="funnel">
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_proposal_form">Proposal Formulated</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%;background:var(--primary);">18</div></div><span class="funnel-count">18</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_impossible">Impossible to Sign</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:89%;background:#ea4335;">16</div></div><span class="funnel-count">16</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_kp_found">KP Found</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:67%;background:#4285f4;">12</div></div><span class="funnel-count">12</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_proposal_req">Proposal Requested</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:56%;background:#9c27b0;">10</div></div><span class="funnel-count">10</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_yellow_excl">Yellow Exclusivity</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:33%;background:#f9ab00;">6</div></div><span class="funnel-count">6</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_launched">Launched</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:22%;background:#34a853;">4</div></div><span class="funnel-count">4</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_not_visited">Not Visited</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:17%;background:#78909c;">3</div></div><span class="funnel-count">3</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_contract_app">Contract Approved</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:11%;background:#00bcd4;">2</div></div><span class="funnel-count">2</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_proposal_acc">Proposal Accepted</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:6%;background:#ff7043;">1</div></div><span class="funnel-count">1</span></div>
+        <div class="funnel-row"><span class="funnel-label" data-i18n="stage_contract_sign">Contract Signed</span><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:6%;background:#66bb6a;">1</div></div><span class="funnel-count">1</span></div>
+      </div>
+    </div>
+
+    <!-- TOP 10 Priority Merchants -->
+    <div class="card">
+      <h2><span data-i18n="top10_title">🏆 TOP 10 Priority Merchants</span> <span class="subtitle" data-i18n="top10_sub">Weighted scoring model</span></h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Merchant</th><th>Vol.</th><th>Status</th><th>Stage</th><th>KP</th><th>Willing</th><th>BD</th><th>Key Update</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>Arô Temakeria Delivery - Santos</strong></td><td>128</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>pedrorosanovaes</td><td>Pending Red addendum - 99 offer - <strong>M6W2 Target</strong></td></tr>
+            <tr><td>2</td><td><strong>O Temakeiro - Ponta da Praia</strong></td><td>34</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td>Proposal restructure - awaiting SP meeting - <strong>M6W2 Target</strong></td></tr>
+            <tr><td>3</td><td><strong>Big Pizzas</strong></td><td>163</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>rafaelcaetano</td><td>Buy KP a gift by June 23</td></tr>
+            <tr><td>4</td><td><strong>Pastel do Alemão</strong></td><td>79</td><td>Yellow Exclusivity</td><td>Closing</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>douglasaraujo</td><td>KP emailed requesting store removal - need Alan - <strong>M6W2 Target</strong></td></tr>
+            <tr><td>5</td><td><strong>O Temakeiro 013 - Marapé</strong></td><td>48</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td>Proposal restructure - awaiting SP meeting</td></tr>
+            <tr><td>6</td><td><strong>Temakeria Poke</strong></td><td><span class="badge badge-signed">Proposal Accepted</span></td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>victorvasques</td><td>✅ <strong>SIGNED!</strong></td></tr>
+            <tr><td>7</td><td><strong>Carol Calazans Doceria</strong></td><td>75</td><td>Proposal Requested</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-high">High</span></td><td>pedrorosanovaes</td><td>99 offer R$600K + R$400K 30d - <strong>M6W2 Target</strong></td></tr>
+            <tr><td>8</td><td><strong>Café Com Pizza de Santos</strong></td><td>69</td><td>Proposal Requested</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>victorvasques</td><td>Get proposal feedback by June 19</td></tr>
+            <tr><td>9</td><td><strong>Paredão Pizzas</strong></td><td>115</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-cold">Cold</span></td><td><span class="badge badge-normal">Normal</span></td><td>rafaelcaetano</td><td>Present proposal</td></tr>
+            <tr><td>10</td><td><strong>O Temakeiro - Zona Noroeste</strong></td><td>53</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td>Proposal restructure - awaiting SP meeting</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Incomplete Data Audit -->
+    <div class="card">
+      <h2><span data-i18n="audit_title">⚠️ Incomplete Data Audit</span> <span class="subtitle" data-i18n="audit_sub">Merchants missing critical tracking fields</span></h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>BD</th><th>Merchants with Gaps</th><th>High-Value Merchants</th></tr></thead>
+          <tbody>
+            <tr><td><strong>victorvasques</strong></td><td>4</td><td>Estrada do Nordeste(83), Tocco Pizza(58), Gran Sabor(57), La Mafia di pizza</td></tr>
+            <tr><td><strong>milenasilva02</strong></td><td>2</td><td>⚠️ <strong>Caseirinha da Mãe(212!)</strong>, Bar do Carlinhos(85)</td></tr>
+            <tr><td><strong>rafaelcaetano</strong></td><td>2</td><td>🔴 <strong>Raposo Bar e Restaurante(125, Contract Approved!)</strong>, China Gourmet(70)</td></tr>
+            <tr><td><strong>douglasaraujo</strong></td><td>2</td><td>Tio Sam Pizza(87), Della's(83)</td></tr>
+            <tr><td><strong>pedrorosanovaes</strong></td><td>1</td><td>Arô São Vicente(97)</td></tr>
+            <tr><td><strong>Unknown</strong></td><td>1</td><td>🔴 Ju Gourmet Marmitaria(76) - <em>No BD assigned</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Impossible to Sign Opportunities -->
+    <div class="card">
+      <h2 data-i18n="reopen_title">🔄 "Impossible to Sign" — Reopenable Opportunities</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Merchant</th><th>Volume</th><th>Re-engagement Plan</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Apartamento Clandestino</strong></td><td>100</td><td>KP refuses but plan to send gift by June 23</td></tr>
+            <tr><td><strong>Esfiharia Santista 2</strong></td><td>69</td><td>Plan face-to-face meeting by June 24</td></tr>
+            <tr><td><strong>Santista 1 Esfiharia</strong></td><td>60</td><td>Plan face-to-face meeting by June 24</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Scoring Methodology -->
+    <div class="card">
+      <h2 data-i18n="scoring_title">📐 Priority Scoring Methodology</h2>
+      <details open>
+        <summary><span data-i18n="scoring_view">View Weighted Scoring Model</span></summary>
+        <p style="margin-bottom:12px;color:var(--text-secondary);"><span data-i18n="scoring_desc">Merchants are ranked using a composite score across these dimensions:</span></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Factor</th><th>Weight</th><th>Scoring</th></tr></thead>
+            <tbody>
+              <tr><td>Negotiation Stage</td><td>High</td><td>Closing(3) &gt; Negotiating(2) &gt; Ice-breaking(1)</td></tr>
+              <tr><td>Pipeline Status</td><td>High</td><td>Contract Approved(5) &gt; Proposal Formulated(4) &gt; Proposal Requested(3) &gt; KP Found(2)</td></tr>
+              <tr><td>KP Relationship</td><td>High</td><td>Hot(3) &gt; Neutral(2) &gt; Cold(1)</td></tr>
+              <tr><td>Willing to Sign</td><td>Medium</td><td>High(3) &gt; Normal(2) &gt; Low(1)</td></tr>
+              <tr><td>M6W2 Target</td><td>Medium</td><td>Yes(+2) / No(0)</td></tr>
+              <tr><td>Must-have</td><td>Medium</td><td>Yes(+2) / No(0)</td></tr>
+              <tr><td>iFood Volume</td><td>Low</td><td>Normalized 0-3 scale based on order count</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- TAB 2: Merchant Intelligence -->
+  <div class="tab-content" id="tab2">
+    <!-- Input Section -->
+    <div class="card">
+      <h2 data-i18n="query_title">🔍 商家查询 / Merchant Query</h2>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-bottom:16px;">
+        <input type="text" id="merchantInput" placeholder="Enter merchant name or Lead ID (e.g. O Temakeiro, 50253171)" data-i18n="query_placeholder" style="padding:10px 16px;border:1px solid var(--border);border-radius:6px;font-size:14px;">
+        <button onclick="queryMerchant()" style="padding:10px 24px;background:var(--primary);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;" data-i18n="query_btn">查询 Query</button>
+      </div>
+      <textarea id="competitorInput" data-i18n="competitor_placeholder" placeholder="Paste competitor offer details here (99/iFood contract terms)..." style="width:100%;min-height:80px;padding:10px 16px;border:1px solid var(--border);border-radius:6px;font-size:13px;resize:vertical;"></textarea>
+    </div>
+
+    <!-- Not Found Message -->
+    <div id="not-found" class="card">
+      <div style="text-align:center;padding:40px;">
+        <div style="font-size:48px;margin-bottom:16px;">🔍</div>
+        <h3>Merchant Not Found</h3>
+        <p style="color:var(--text-secondary);margin-top:8px;">Try searching by merchant name or Lead ID</p>
+      </div>
+    </div>
+
+    <!-- Dynamic Report -->
+    <div id="dynamic-report"></div>
+
+    <!-- Default Demo Report (O Temakeiro) -->
+    <div id="demo-report">
+      <!-- Merchant Overview -->
+      <div class="card">
+        <h2 data-i18n="profile_title">🏪 O Temakeiro — Merchant Profile</h2>
+        <blockquote class="alert-info" data-i18n="profile_stores"><strong>3 stores</strong>: Ponta da Praia | Marapé | Zona Noroeste &nbsp;|&nbsp; <strong>Category</strong>: Japanese (Temakeria) &nbsp;|&nbsp; <strong>Zone</strong>: Santos</blockquote>
+        <blockquote class="alert-success" data-i18n="profile_status"><strong>iFood Volume</strong>: ~150 orders/day &nbsp;|&nbsp; <strong>AOV</strong>: R$82 &nbsp;|&nbsp; <strong>Status</strong>: Proposal Formulated → Negotiating &nbsp;|&nbsp; <strong>KP</strong>: Hot 🔥 &nbsp;|&nbsp; <strong>BD</strong>: douglasaraujo</blockquote>
+        <div style="text-align:center;margin:20px 0;">
+          <svg viewBox="0 0 400 380" width="400" height="380" style="max-width:100%;">
+            <g transform="translate(200,180)">
+              <polygon points="0,-150 142,-46 88,121 -88,121 -142,-46" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+              <polygon points="0,-112 107,-35 66,91 -66,91 -107,-35" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+              <polygon points="0,-75 71,-23 44,60 -44,60 -71,-23" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+              <polygon points="0,-37 36,-12 22,30 -22,30 -36,-12" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="0" y1="0" x2="0" y2="-150" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="0" y1="0" x2="142" y2="-46" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="0" y1="0" x2="88" y2="121" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="0" y1="0" x2="-88" y2="121" stroke="#e5e7eb" stroke-width="1"/>
+              <line x1="0" y1="0" x2="-142" y2="-46" stroke="#e5e7eb" stroke-width="1"/>
+              <polygon points="0,-112 100,-32 75,103 -70,97 -92,-30" fill="rgba(26,115,232,0.2)" stroke="var(--primary)" stroke-width="2.5"/>
+              <circle cx="0" cy="-112" r="4" fill="var(--primary)"/>
+              <circle cx="100" cy="-32" r="4" fill="var(--primary)"/>
+              <circle cx="75" cy="103" r="4" fill="var(--primary)"/>
+              <circle cx="-70" cy="97" r="4" fill="var(--primary)"/>
+              <circle cx="-92" cy="-30" r="4" fill="var(--primary)"/>
+            </g>
+            <text x="200" y="22" text-anchor="middle" font-size="12" font-weight="600">Volume Potential (75)</text>
+            <text x="365" y="142" text-anchor="middle" font-size="12" font-weight="600">Signing Readiness (70)</text>
+            <text x="310" y="320" text-anchor="middle" font-size="12" font-weight="600">KP Relationship (85)</text>
+            <text x="90" y="320" text-anchor="middle" font-size="12" font-weight="600">Strategic Value (80)</text>
+            <text x="40" y="142" text-anchor="middle" font-size="12" font-weight="600">Competitive Risk (65)</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Business Overview -->
+      <div class="card">
+        <h2 data-i18n="overview_title">📊 经营概览 / Business Overview</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Metric / 指标</th><th>Value / 数值</th><th>Peer Benchmark / 同行对标</th><th>Position / 水平</th></tr></thead>
+            <tbody>
+              <tr><td>Daily Orders (iFood)</td><td><strong>150</strong></td><td>Santos Japanese avg: 45</td><td><span class="badge badge-success">Top 5%</span></td></tr>
+              <tr><td>AOV</td><td><strong>R$82</strong></td><td>Santos avg: R$65</td><td><span class="badge badge-success">Above avg</span></td></tr>
+              <tr><td>Est. Monthly GMV</td><td><strong>R$369,000</strong></td><td>Category avg: R$88K</td><td><span class="badge badge-success">Top 20%</span></td></tr>
+              <tr><td>Operating Hours</td><td><strong>11:00-23:00 (12h)</strong></td><td>Avg: 10h</td><td><span class="badge badge-success">Good</span></td></tr>
+              <tr><td>iFood Rating</td><td><strong>4.7 ⭐</strong></td><td>Category avg: 4.5</td><td><span class="badge badge-success">Good</span></td></tr>
+              <tr><td>Menu Items</td><td><strong>85</strong></td><td>Avg: 52</td><td><span class="badge badge-warning">Large menu</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Competitive Analysis -->
+      <div class="card">
+        <h2 data-i18n="compete_title">⚔️ 竞对分析 / Competitive Analysis</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Dimension / 维度</th><th>iFood (Current)</th><th>99 (June 8 Offer)</th><th>Keeta (Our Offer)</th></tr></thead>
+            <tbody>
+              <tr><td>Commission Rate / 佣金率</td><td>~27%</td><td>9.6% + 3.2% Pol</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+              <tr><td>Upfront Payment / 预付款</td><td>R$200K (kitchen)</td><td>R$400K + R$200K milestone</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+              <tr><td>GMV Guarantee / GMV保底</td><td>None</td><td>R$1.2M annual</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+              <tr><td>First 3 Months / 前3个月</td><td>Standard</td><td>9.6% waived</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+              <tr><td>Exclusivity / 排他性</td><td>Non-exclusive</td><td>Exclusive 12mo</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+              <tr><td>Contract Term / 合同期限</td><td>Month-to-month</td><td>12 months</td><td style="color:var(--primary);font-weight:600;">TBD ✏️</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Financial Projections -->
+      <div class="card">
+        <h2 data-i18n="finance_title">💰 财务分析 / Financial Projections</h2>
+        <p style="color:var(--text-secondary);margin-bottom:12px;"><span data-i18n="finance_note">Based on estimated monthly GMV of R$369,000</span></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Scenario / 场景</th><th>Commission</th><th>Monthly Revenue (Merchant)</th><th>vs iFood Gain</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>iFood Current</td><td>27%</td><td>R$269,370</td><td>Baseline</td><td>Non-exclusive</td></tr>
+              <tr><td>99 Offer (after 3mo)</td><td>12.8%</td><td>R$321,888</td><td><span style="color:var(--success)">+R$52,518</span></td><td>Plus R$600K upfront</td></tr>
+              <tr style="background:var(--primary-light);"><td><strong>Keeta 12%</strong></td><td>12%</td><td>R$324,720</td><td><span style="color:var(--success)">+R$55,350</span></td><td>Competitive with 99</td></tr>
+              <tr style="background:var(--primary-light);"><td><strong>Keeta 10%</strong></td><td>10%</td><td>R$332,100</td><td><span style="color:var(--success)">+R$62,730</span></td><td>Best offer possible</td></tr>
+              <tr><td>Keeta 15%</td><td>15%</td><td>R$313,650</td><td><span style="color:var(--success)">+R$44,280</span></td><td>Need upfront match</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote class="alert-warning"><span data-i18n="finance_insight">💡 <strong>Key insight</strong>: At 12% commission, we beat 99's effective rate AND don't require exclusivity — stronger value prop for merchant.</span></blockquote>
+      </div>
+
+      <!-- Risk Assessment -->
+      <div class="card">
+        <h2 data-i18n="risk_title">⚠️ 风险评估 / Risk Assessment</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Risk Factor / 风险因素</th><th>Level</th><th>Details / 详情</th></tr></thead>
+            <tbody>
+              <tr><td>99 Contract Lock-in</td><td><span class="badge badge-warning">🟡 Medium</span></td><td>12-month exclusive, but GMV guarantee penalty unclear</td></tr>
+              <tr><td>KP Decision Timeline</td><td><span class="badge badge-success">🟢 Low</span></td><td>KP is Hot, willing to meet, awaiting SP meeting</td></tr>
+              <tr><td>Delivery Capacity</td><td><span class="badge badge-warning">🟡 Medium</span></td><td>150 orders/day across 3 stores needs reliable fleet</td></tr>
+              <tr><td>Multi-store Complexity</td><td><span class="badge badge-warning">🟡 Medium</span></td><td>3 stores = 3x onboarding, but same KP simplifies</td></tr>
+              <tr><td>99 Financial Viability</td><td><span class="badge badge-success">🟢 Low Risk to Us</span></td><td>R$600K at 9.6% = needs R$6.25M GMV to break even for 99</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recommended Strategy -->
+      <div class="card">
+        <h2 data-i18n="strategy_title">🎯 作战建议 / Recommended Strategy</h2>
+        <ol style="padding-left:20px;">
+          <li style="margin:12px 0;"><span data-i18n="strat1"><strong>Package Deal 捆绑签约</strong>: Push all 3 stores together — same KP, one negotiation, one contract</span></li>
+          <li style="margin:12px 0;"><span data-i18n="strat2"><strong>SP Meeting 安排会议</strong>: douglasaraujo to arrange Santos-SP leadership meeting (pending since proposal restructure)</span></li>
+          <li style="margin:12px 0;"><span data-i18n="strat3"><strong>Counter 99 反击99</strong>: Commission must beat 12.8% effective rate → propose 10-12% with marketing support package</span></li>
+          <li style="margin:12px 0;"><span data-i18n="strat4"><strong>Upfront Match 匹配预付</strong>: Match or exceed R$600K total (structure as milestone-based: R$400K signing + R$200K at 30-day revenue target)</span></li>
+          <li style="margin:12px 0;"><span data-i18n="strat5"><strong>Differentiation 差异化</strong>: Emphasize non-exclusivity option, superior delivery quality, growth tools, data dashboard</span></li>
+          <li style="margin:12px 0;"><span data-i18n="strat6"><strong>Timeline ⏰ 紧迫性</strong>: 99 offer was June 8 — respond within 2 weeks or risk losing the deal</span></li>
+        </ol>
+        <blockquote class="alert-danger"><span data-i18n="urgent_alert">🚨 <strong>URGENT</strong>: 99's offer is 11 days old. Every day without a counter-proposal increases risk of KP signing with competitor.</span></blockquote>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Client Roster with Filters -->
+  <div class="tab-content" id="tab3">
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group filter-search">
+        <label>Search / 搜索</label>
+        <input type="text" id="rosterSearch" placeholder="Merchant name or ID..." oninput="applyFilters()">
+      </div>
+      <div class="filter-group">
+        <label>Status / 状态</label>
+        <select id="filterStatus" onchange="applyFilters()">
+          <option value="All">All</option>
+          <option value="Contract Approved">Contract Approved</option>
+          <option value="Impossible to Sign">Impossible to Sign</option>
+          <option value="KP Found">KP Found</option>
+          <option value="Launched">Launched</option>
+          <option value="Not Visited">Not Visited</option>
+          <option value="Proposal Accepted">Proposal Accepted</option>
+          <option value="Proposal Formulated">Proposal Formulated</option>
+          <option value="Proposal Requested">Proposal Requested</option>
+          <option value="Yellow Exclusivity">Yellow Exclusivity</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>BD</label>
+        <select id="filterBD" onchange="applyFilters()">
+          <option value="All">All</option>
+          <option value="douglasaraujo">douglasaraujo</option>
+          <option value="milenasilva02">milenasilva02</option>
+          <option value="pedrorosanovaes">pedrorosanovaes</option>
+          <option value="rafaelcaetano">rafaelcaetano</option>
+          <option value="victorvasques">victorvasques</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>KP Relationship</label>
+        <select id="filterKP" onchange="applyFilters()">
+          <option value="All">All</option>
+          <option value="Hot">Hot</option>
+          <option value="Neutral">Neutral</option>
+          <option value="Cold">Cold</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Stage / 阶段</label>
+        <select id="filterStage" onchange="applyFilters()">
+          <option value="All">All</option>
+          <option value="Closing">Closing</option>
+          <option value="Ice-breaking">Ice-breaking</option>
+          <option value="Negotiating">Negotiating</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Willing to Sign</label>
+        <select id="filterWilling" onchange="applyFilters()">
+          <option value="All">All</option>
+          <option value="High">High</option>
+          <option value="Normal">Normal</option>
+          <option value="Low">Low</option>
+          <option value="Unknown">Unknown</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort By / 排序</label>
+        <select id="filterSort" onchange="applyFilters()">
+          <option value="volDesc">Volume ↓</option>
+          <option value="volAsc">Volume ↑</option>
+          <option value="name">Name A-Z</option>
+          <option value="status">Status</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Roster Table -->
+    <div class="card">
+      <h2 data-i18n="roster_high_title">🔴 High Priority — Sign Type: High (42 merchants)</h2>
+      <div class="table-wrap">
+        <table id="rosterTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Merchant</th>
+              <th>Vol.</th>
+              <th>Status</th>
+              <th>Stage</th>
+              <th>KP</th>
+              <th>Willing</th>
+              <th>BD</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="rosterBody">
+            <tr data-status="Impossible to Sign" data-bd="victorvasques" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="0" data-name="la mafia di pizza"><td>1</td><td><strong>La Mafia di pizza</strong></td><td>-</td><td>Impossible to Sign</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>victorvasques</td><td class="notes-cell">Churn</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Neutral" data-stage="Ice-breaking" data-willing="Low" data-volume="60" data-name="yê - ponta da praia"><td>2</td><td><strong>Yê - Ponta da Praia</strong></td><td>60</td><td>Impossible to Sign</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge">Low</span></td><td>milenasilva02</td><td class="notes-cell">Impossível de assinar.</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="pedrorosanovaes" data-kp="Neutral" data-stage="Ice-breaking" data-willing="Low" data-volume="31" data-name="wee fresh santos"><td>3</td><td><strong>Wee Fresh Santos</strong></td><td>31</td><td>Impossible to Sign</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge">Low</span></td><td>pedrorosanovaes</td><td class="notes-cell">Extensão Red 1M</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Cold" data-stage="Ice-breaking" data-willing="Low" data-volume="89" data-name="conrado brigaderia: bolos e doces em santos"><td>4</td><td><strong>Conrado Brigaderia: Bolos e Doces em Santos</strong></td><td>89</td><td>Impossible to Sign</td><td>Ice-breaking</td><td><span class="badge badge-cold">Cold</span></td><td><span class="badge">Low</span></td><td>milenasilva02</td><td class="notes-cell">KP falou que não quer ouvir nenhuma proposta</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="rafaelcaetano" data-kp="Hot" data-stage="Negotiating" data-willing="Normal" data-volume="100" data-name="apartamento clandestino"><td>5</td><td><strong>Apartamento Clandestino</strong></td><td>100</td><td>Impossible to Sign</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>rafaelcaetano</td><td class="notes-cell">kp does not want to listen our proposal（R$250,000 from ...</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Neutral" data-stage="Negotiating" data-willing="Normal" data-volume="69" data-name="esfiharia santista 2 original"><td>6</td><td><strong>Esfiharia Santista 2 Original</strong></td><td>69</td><td>Impossible to Sign</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>milenasilva02</td><td class="notes-cell">Marcar reuniao presencial com o KP ate June 24th</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Neutral" data-stage="Negotiating" data-willing="Normal" data-volume="60" data-name="santista 1 esfiharia e pizzaria"><td>7</td><td><strong>Santista 1 Esfiharia e Pizzaria</strong></td><td>60</td><td>Impossible to Sign</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>milenasilva02</td><td class="notes-cell">Marcar reuniao presencial com o KP ate June 24th</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="78" data-name="o marmiteiro"><td>8</td><td><strong>O Marmiteiro</strong></td><td>78</td><td>Impossible to Sign</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>milenasilva02</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="pedrorosanovaes" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="64" data-name="naus restaurante"><td>9</td><td><strong>Naus Restaurante</strong></td><td>64</td><td>Impossible to Sign</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>pedrorosanovaes</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="milenasilva02" data-kp="Neutral" data-stage="Ice-breaking" data-willing="Low" data-volume="50" data-name="casa d'boa"><td>10</td><td><strong>Casa D'Boa</strong></td><td>50</td><td>Impossible to Sign</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge">Low</span></td><td>milenasilva02</td><td class="notes-cell">Sem fatos</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="douglasaraujo" data-kp="Hot" data-stage="Negotiating" data-willing="Low" data-volume="38" data-name="cantina babbo américo"><td>11</td><td><strong>Cantina Babbo Américo</strong></td><td>38</td><td>Impossible to Sign</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge">Low</span></td><td>douglasaraujo</td><td class="notes-cell">Construção de relacionamento - Não aceitou 700K IQE</td></tr>
+            <tr data-status="Impossible to Sign" data-bd="pedrorosanovaes" data-kp="Neutral" data-stage="Ice-breaking" data-willing="Low" data-volume="33" data-name="beduino"><td>12</td><td><strong>Beduino</strong></td><td>33</td><td>Yellow Exclusivity</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge">Low</span></td><td>pedrorosanovaes</td><td class="notes-cell">Assinou com 99</td></tr>
+            <tr data-status="Yellow Exclusivity" data-bd="pedrorosanovaes" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="93" data-name="jungle burger cia"><td>13</td><td><strong>Jungle Burger Cia</strong></td><td>93</td><td>Yellow Exclusivity</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>pedrorosanovaes</td><td class="notes-cell">99 Sign - 900K (Pizzart + Jungle)</td></tr>
+            <tr data-status="Yellow Exclusivity" data-bd="douglasaraujo" data-kp="Hot" data-stage="Closing" data-willing="Normal" data-volume="79" data-name="pastel do alemão"><td>14</td><td><strong>Pastel do Alemão</strong></td><td>79</td><td>Yellow Exclusivity</td><td>Closing</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>douglasaraujo</td><td class="notes-cell">Enviou e-mail solicitando a exclusão da loja; pedir orien...</td></tr>
+            <tr data-status="Launched" data-bd="pedrorosanovaes" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="277" data-name="la banoffeeria"><td>15</td><td><strong>La Banoffeeria</strong></td><td>277</td><td>Launched</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>pedrorosanovaes</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Launched" data-bd="pedrorosanovaes" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="21" data-name="guadalupe restaurante"><td>16</td><td><strong>Guadalupe Restaurante</strong></td><td>21</td><td>Launched</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>pedrorosanovaes</td><td class="notes-cell">Precisa de Tráfego e Performance de pedidos.1) Inclusão n...</td></tr>
+            <tr data-status="Contract Approved" data-bd="rafaelcaetano" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="125" data-name="raposo bar e restaurante"><td>17</td><td><strong>Raposo Bar e Restaurante</strong></td><td>125</td><td>Contract Approved</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>rafaelcaetano</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Contract Approved" data-bd="victorvasques" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="57" data-name="gran sabor"><td>18</td><td><strong>Gran Sabor</strong></td><td>57</td><td>Contract Approved</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>victorvasques</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Proposal Accepted" data-bd="victorvasques" data-kp="Neutral" data-stage="Negotiating" data-willing="Normal" data-volume="42" data-name="temakeria poke"><td>19</td><td><strong>Temakeria Poke</strong></td><td>42</td><td>Proposal Accepted</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>victorvasques</td><td class="notes-cell">SIGNEEEEEDD!!</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="milenasilva02" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="212" data-name="caseirinha da mãe (marmita)"><td>20</td><td><strong>Caseirinha da Mãe (marmita)</strong></td><td>212</td><td>Proposal Formulated</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>milenasilva02</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="rafaelcaetano" data-kp="Hot" data-stage="Negotiating" data-willing="Normal" data-volume="163" data-name="big pizzas"><td>21</td><td><strong>Big Pizzas</strong></td><td>163</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>rafaelcaetano</td><td class="notes-cell">Buy KP a gift and send him by Tuesday June 23th</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="rafaelcaetano" data-kp="Cold" data-stage="Negotiating" data-willing="Normal" data-volume="115" data-name="paredão pizzas"><td>22</td><td><strong>Paredão Pizzas</strong></td><td>115</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-cold">Cold</span></td><td><span class="badge badge-normal">Normal</span></td><td>rafaelcaetano</td><td class="notes-cell">Present proposal </td></tr>
+            <tr data-status="Proposal Formulated" data-bd="milenasilva02" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="85" data-name="bar do carlinhos 2"><td>23</td><td><strong>Bar do Carlinhos 2</strong></td><td>85</td><td>Proposal Formulated</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>milenasilva02</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="douglasaraujo" data-kp="Hot" data-stage="Negotiating" data-willing="High" data-volume="53" data-name="restaurante japonês o temakeiro - zona noroeste"><td>24</td><td><strong>Restaurante Japonês O Temakeiro - Zona Noroeste</strong></td><td>53</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td class="notes-cell">Reformulação da Proposta - Aguradando data para KP Meetin...</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="douglasaraujo" data-kp="Hot" data-stage="Negotiating" data-willing="High" data-volume="48" data-name="restaurante japonês o temakeiro 013 - marapé"><td>25</td><td><strong>Restaurante Japonês O Temakeiro 013 - Marapé</strong></td><td>48</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td class="notes-cell">Reformulação da Proposta - Aguradando data para KP Meetin...</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="douglasaraujo" data-kp="Hot" data-stage="Negotiating" data-willing="High" data-volume="34" data-name="restaurante japonês o temakeiro - ponta da praia"><td>26</td><td><strong>Restaurante Japonês O Temakeiro - Ponta da Praia</strong></td><td>34</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-high">High</span></td><td>douglasaraujo</td><td class="notes-cell">Reformulação da Proposta - Aguradando data para KP Meetin...</td></tr>
+            <tr data-status="Proposal Formulated" data-bd="pedrorosanovaes" data-kp="Hot" data-stage="Negotiating" data-willing="Normal" data-volume="128" data-name="arô temakeria delivery - santos"><td>27</td><td><strong>Arô Temakeria Delivery - Santos</strong></td><td>128</td><td>Proposal Formulated</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>pedrorosanovaes</td><td class="notes-cell">Pendente aditivo Red - Oferta 99 - Desempenho Red; Fact ...</td></tr>
+            <tr data-status="Proposal Requested" data-bd="rafaelcaetano" data-kp="Hot" data-stage="Negotiating" data-willing="Low" data-volume="117" data-name="burger company santos"><td>28</td><td><strong>Burger Company Santos</strong></td><td>117</td><td>Proposal Requested</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge">Low</span></td><td>rafaelcaetano</td><td class="notes-cell">not proceeding with the offer, but investing in relations...</td></tr>
+            <tr data-status="Proposal Requested" data-bd="rafaelcaetano" data-kp="Cold" data-stage="Ice-breaking" data-willing="Low" data-volume="98" data-name="kauai japa poke temaki e açaí"><td>29</td><td><strong>Kauai Japa Poke Temaki e Açaí</strong></td><td>98</td><td>Proposal Requested</td><td>Ice-breaking</td><td><span class="badge badge-cold">Cold</span></td><td><span class="badge">Low</span></td><td>rafaelcaetano</td><td class="notes-cell">release proposal by june 18 and present by june 20th</td></tr>
+            <tr data-status="Proposal Requested" data-bd="douglasaraujo" data-kp="Neutral" data-stage="Unknown" data-willing="Normal" data-volume="83" data-name="della's porções & marmitex"><td>30</td><td><strong>Della's Porções & Marmitex</strong></td><td>83</td><td>Proposal Requested</td><td>-</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>douglasaraujo</td><td class="notes-cell">Pendente proposta - Apresentar amanhã</td></tr>
+            <tr data-status="Proposal Requested" data-bd="victorvasques" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="83" data-name="estrada do nordeste"><td>31</td><td><strong>Estrada do Nordeste</strong></td><td>83</td><td>Proposal Requested</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>victorvasques</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Proposal Requested" data-bd="victorvasques" data-kp="Neutral" data-stage="Negotiating" data-willing="Normal" data-volume="69" data-name="café com pizza de santos"><td>32</td><td><strong>Café Com Pizza de Santos</strong></td><td>69</td><td>Proposal Requested</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>victorvasques</td><td class="notes-cell">Get proposal feedback by June 19th</td></tr>
+            <tr data-status="Proposal Requested" data-bd="pedrorosanovaes" data-kp="Neutral" data-stage="Ice-breaking" data-willing="High" data-volume="75" data-name="carol calazans doceria - santos"><td>33</td><td><strong>Carol Calazans Doceria - Santos</strong></td><td>75</td><td>Proposal Requested</td><td>Ice-breaking</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-high">High</span></td><td>pedrorosanovaes</td><td class="notes-cell">99 Offer 600K + 400K 30d - Pendente aditivo de 400K Ifood...</td></tr>
+            <tr data-status="KP Found" data-bd="pedrorosanovaes" data-kp="Hot" data-stage="Negotiating" data-willing="Normal" data-volume="43" data-name="puravida sushi"><td>34</td><td><strong>PuraVida Sushi</strong></td><td>43</td><td>KP Found</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>pedrorosanovaes</td><td class="notes-cell">Same KP - ARO</td></tr>
+            <tr data-status="KP Found" data-bd="pedrorosanovaes" data-kp="Hot" data-stage="Negotiating" data-willing="Normal" data-volume="32" data-name="amar'é sushi"><td>35</td><td><strong>Amar'é Sushi</strong></td><td>32</td><td>KP Found</td><td>Negotiating</td><td><span class="badge badge-hot">Hot</span></td><td><span class="badge badge-normal">Normal</span></td><td>pedrorosanovaes</td><td class="notes-cell">Same KP - ARO</td></tr>
+            <tr data-status="KP Found" data-bd="douglasaraujo" data-kp="Neutral" data-stage="Negotiating" data-willing="Normal" data-volume="32" data-name="black poke - santos"><td>36</td><td><strong>Black Poke - Santos</strong></td><td>32</td><td>KP Found</td><td>Negotiating</td><td><span class="badge badge-neutral">Neutral</span></td><td><span class="badge badge-normal">Normal</span></td><td>douglasaraujo</td><td class="notes-cell">Pendente Contrato e relacionamento ruim - Viabilidade de ...</td></tr>
+            <tr data-status="KP Found" data-bd="victorvasques" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="58" data-name="tocco pizza chicken"><td>37</td><td><strong>Tocco Pizza Chicken</strong></td><td>58</td><td>KP Found</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>victorvasques</td><td class="notes-cell">Loja principal em Praia Grande - Block</td></tr>
+            <tr data-status="KP Found" data-bd="douglasaraujo" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="87" data-name="tio sam pizza"><td>38</td><td><strong>Tio Sam Pizza</strong></td><td>87</td><td>KP Found</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>douglasaraujo</td><td class="notes-cell">Iniciar Relacionamento - Douglas visitar ate quarta june ...</td></tr>
+            <tr data-status="KP Found" data-bd="milenasilva02" data-kp="Cold" data-stage="Ice-breaking" data-willing="Low" data-volume="18" data-name="al kabir - cozinha libanesa"><td>39</td><td><strong>Al Kabir - Cozinha Libanesa</strong></td><td>18</td><td>KP Found</td><td>Ice-breaking</td><td><span class="badge badge-cold">Cold</span></td><td><span class="badge">Low</span></td><td>milenasilva02</td><td class="notes-cell">Visitar essa semana</td></tr>
+            <tr data-status="Not Visited" data-bd="rafaelcaetano" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="70" data-name="china gourmet"><td>40</td><td><strong>China Gourmet</strong></td><td>70</td><td>Not Visited</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>rafaelcaetano</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Not Visited" data-bd="pedrorosanovaes" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="97" data-name="arô temakeria delivery são vicente"><td>41</td><td><strong>Arô Temakeria Delivery São Vicente</strong></td><td>97</td><td>Not Visited</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>pedrorosanovaes</td><td class="notes-cell">-</td></tr>
+            <tr data-status="Not Visited" data-bd="Unknown" data-kp="Unknown" data-stage="Unknown" data-willing="Unknown" data-volume="76" data-name="ju gourmet marmitaria"><td>42</td><td><strong>Ju Gourmet Marmitaria</strong></td><td>76</td><td>Not Visited</td><td>-</td><td><span class="badge">Unknown</span></td><td><span class="badge">Unknown</span></td><td>-</td><td class="notes-cell">-</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="rosterNoResults" class="no-results" style="display:none;">No merchants match your filters</div>
+    </div>
+
+    <!-- Summary Stats -->
+    <div class="card">
+      <h2 data-i18n="roster_summary_title">📊 Roster Summary</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="value" id="statHigh">42</div><div class="label" data-i18n="roster_high_count">High Priority</div></div>
+        <div class="kpi-card"><div class="value">~550+</div><div class="label" data-i18n="roster_normal_count">Normal Priority</div></div>
+        <div class="kpi-card"><div class="value">TBD</div><div class="label" data-i18n="roster_low_count">Low Priority</div></div>
+        <div class="kpi-card"><div class="value">676</div><div class="label" data-i18n="roster_total">Total in Table</div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:24px;color:var(--text-secondary);font-size:12px;">
+    <span data-i18n="footer">Santos X Platform v1.0 | Generated 2026-06-19 | Data source: Santos High Merchants xtable + Keeta 起源数据集</span>
+  </footer>
+</div>
+
+<script>
+// Embedded merchant data
+const MERCHANTS_DATA =
+[{"Lead ID": "50254758", "Lead Name": "La Mafia di pizza", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "Yellow Exclusivity", "iFood Order Volume": null, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Churn", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255440", "Lead Name": "Yê - Ponta da Praia", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 60, "Category Group": null, "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Low", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Impossível de assinar.", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255753", "Lead Name": "Wee Fresh Santos", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 31, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Low", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": "accepted 1M offer from ifood. includes WEE FRESH", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Extensão Red 1M", "Notes June 18th": null, "99 offer": "1000000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255959", "Lead Name": "Temakeria Poke", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "Proposal Accepted", "iFood Order Volume": 42, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": "Negotiating", "Notes June 10th": "KP rejected a 100k offer from us. KP will provide a counter offer", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Our Offer 120K IQE 3m 0% 4Y - Present wednesday ", "Notes June 18th": "SIGNEEEEEDD!!", "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256545", "Lead Name": "Big Pizzas", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 163, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "have one event to strenghten relationship by next friday june 19th", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Aguardando resposta ao KP Meet - Revisão da proposta com inclusão de Valores de MKT para tangibilizar valores", "Notes June 18th": "Buy KP a gift and send him by Tuesday June 23th", "99 offer": "7000000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256647", "Lead Name": "Burger Company Santos", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 117, "Category Group": "Quick Bites", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Low", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "80% of revenue from delivery/ invite to KP club. subir proposal request. Penalty RED 750K", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Pendente resposta ao KP Meet - Precisar apresentar plano de MKT - Construir proposta", "Notes June 18th": "not proceeding with the offer, but investing in relationship with kp", "99 offer": "3100000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50253171", "Lead Name": "Restaurante Japonês O Temakeiro - Ponta da Praia", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 34, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": "High", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": "Reformulação da Proposta - Aguradando data para KP Meeting SP", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50253306", "Lead Name": "Amar'é Sushi", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 32, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Same KP - ARO", "Notes June 18th": null, "99 offer": "1000000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254028", "Lead Name": "Casa D'Boa", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 50, "Category Group": "Dessert", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": "Low", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Sem fatos", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254273", "Lead Name": "Arô Temakeria Delivery - Santos", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 128, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "get penalty evidence by june 11th; new offer by june 12th", "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": "Pendente aditivo Red - Oferta 99 - Desempenho Red; Fact collection deadline June 17th", "Notes June 18th": null, "99 offer": "1000000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254448", "Lead Name": "Conrado Brigaderia: Bolos e Doces em Santos", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 89, "Category Group": "Dessert", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Low", "KP Relationship": "Cold", "Negotiation Stage": "Ice-breaking", "Notes June 10th": "pending finding KP", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "KP falou que não quer ouvir nenhuma proposta", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254655", "Lead Name": "Paredão Pizzas", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 115, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Normal", "KP Relationship": "Cold", "Negotiation Stage": "Negotiating", "Notes June 10th": "present proposal today; invite to kp club", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "KP in a vocation Trip", "Notes June 18th": "Present proposal ", "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254746", "Lead Name": "Restaurante Japonês O Temakeiro 013 - Marapé", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 48, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": "Yes", "Willing to sign": "High", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Reformulação da Proposta - Aguradando data para KP Meeting SP", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255018", "Lead Name": "PuraVida Sushi", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 43, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Same KP - ARO", "Notes June 18th": null, "99 offer": "1000000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255136", "Lead Name": "Restaurante Japonês O Temakeiro - Zona Noroeste", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 53, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "High", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "finish proposal june 10th and Present proposal until friday June 12th", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Reformulação da Proposta - Aguradando data para KP Meeting SP", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255732", "Lead Name": "Esfiharia Santista 2 Original", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 69, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": "Negotiating", "Notes June 10th": "99 200k upfront. waiting to hear from us. he signed 200k extension with ifood. pending send the bank transfer proof", "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": null, "Notes June 18th": "Marcar reuniao presencial com o KP ate June 24th", "99 offer": "200000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255758", "Lead Name": "Santista 1 Esfiharia e Pizzaria", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 60, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": "Negotiating", "Notes June 10th": "99 200k upfront. waiting to hear from us. he signed 200k extension with ifood. pending send the bank transfer proof. Penalty 250K + Loja 1 200K + Loja 2 200K", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Apresentou a proposta IQE - FuP Quarta - Revisão da proposta para 650K IQE - Proposta aTual 500K", "Notes June 18th": "Marcar reuniao presencial com o KP ate June 24th", "99 offer": "200000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255850", "Lead Name": "Kauai Japa Poke Temaki e Açaí", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 98, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Low", "KP Relationship": "Cold", "Negotiation Stage": "Ice-breaking", "Notes June 10th": "change tag, collect 99 offer and request proposal", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Aguardando proposta Vitor", "Notes June 18th": "release proposal by june 18 and present by june 20th", "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256519", "Lead Name": "Carol Calazans Doceria - Santos", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 75, "Category Group": "Dessert", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "High", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": "by friday june 12th get a feedback", "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": "99 Offer 600K + 400K 30d - Pendente aditivo de 400K Ifood. - Outra Loja na PG", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256574", "Lead Name": "Café Com Pizza de Santos", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 69, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": "Negotiating", "Notes June 10th": "Present proposal on June 11th", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Proposta apresnetanda - FuP Quarta feita June 17th", "Notes June 18th": "Get proposal feedback by June 19th", "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256590", "Lead Name": "Tocco Pizza Chicken", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 58, "Category Group": "Pizza & Esfiha", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Loja principal em Praia Grande - Block", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256671", "Lead Name": "La Banoffeeria", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Launched", "iFood Order Volume": 277, "Category Group": "Dessert", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Visita e Entender a Performance atual", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257101", "Lead Name": "Black Poke - Santos", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 32, "Category Group": "Japanese", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": "Negotiating", "Notes June 10th": "Does not share data. He got 1M offer from 99 and made a counter offer of 2.3M. Nao assina sem upfront", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Pendente Contrato e relacionamento ruim - Viabilidade de construir proposta sem o contrato ", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257128", "Lead Name": "Cantina Babbo Américo", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 38, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Low", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "get a FUP today June 11th", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Construção de relacionamento - Não aceitou 700K IQE", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257255", "Lead Name": "Beduino", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Yellow Exclusivity", "iFood Order Volume": 33, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Low", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": "Não abriu proposta 99", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Assinou com 99", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257314", "Lead Name": "Al Kabir - Cozinha Libanesa", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 18, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": "Low", "KP Relationship": "Cold", "Negotiation Stage": "Ice-breaking", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Visitar essa semana", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50538153", "Lead Name": "Apartamento Clandestino", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 100, "Category Group": "Quick Bites", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Negotiating", "Notes June 10th": "request proposal; present proposal by friday 12th", "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": "KP não responde ao Rafael nem Caio - Quarta vouy tentar contato ", "Notes June 18th": "kp does not want to listen our proposal（R$250,000 from Red）. Send a customized gift by Tuesday June 23th and schedule a meeting by June 25th", "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "60254719", "Lead Name": "Jungle Burger Cia", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Yellow Exclusivity", "iFood Order Volume": 93, "Category Group": "Quick Bites", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Low", "KP Relationship": "Neutral", "Negotiation Stage": "Ice-breaking", "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "99 Sign - 900K (Pizzart + Jungle)", "Notes June 18th": null, "99 offer": "930000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50469930", "Lead Name": "Della's Porções & Marmitex", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 83, "Category Group": null, "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Neutral", "Negotiation Stage": null, "Notes June 10th": "visit by june 11th", "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Pendente proposta - Apresentar amanhã", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50478775", "Lead Name": "Pastel do Alemão", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "Yellow Exclusivity", "iFood Order Volume": 79, "Category Group": "Snacks", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": "No", "Must-have": null, "Willing to sign": "Normal", "KP Relationship": "Hot", "Negotiation Stage": "Closing", "Notes June 10th": "visit by june 11th. request a new proposal", "Proposal Info": null, "M6W2 Target": "1", "Notes June 15th": "Enviou e-mail solicitando a exclusão da loja; pedir orientacao para o Alan de como proceder", "Notes June 18th": null, "99 offer": "200000", "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255683", "Lead Name": "Guadalupe Restaurante", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Launched", "iFood Order Volume": 21, "Category Group": "International", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": "Yes", "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Precisa de Tráfego e Performance de pedidos.1) Inclusão na planilha até June 17th", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50478560", "Lead Name": "Ju Gourmet Marmitaria", "BD": null, "BDM": null, "Status": "Not Visited", "iFood Order Volume": 76, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255766", "Lead Name": "Raposo Bar e Restaurante", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Contract Approved", "iFood Order Volume": 125, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254482", "Lead Name": "Naus Restaurante", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 64, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257245", "Lead Name": "Bar do Carlinhos 2", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 85, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "YES", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50256793", "Lead Name": "Estrada do Nordeste", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "Proposal Requested", "iFood Order Volume": 83, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50254158", "Lead Name": "Gran Sabor", "BD": "victorvasques", "BDM": "caioguijarro", "Status": "Contract Approved", "iFood Order Volume": 57, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50257072", "Lead Name": "Caseirinha da Mãe (marmita)", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Proposal Formulated", "iFood Order Volume": 212, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50255214", "Lead Name": "O Marmiteiro", "BD": "milenasilva02", "BDM": "caioguijarro", "Status": "Impossible to Sign", "iFood Order Volume": 78, "Category Group": "Brazilian", "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": "No", "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50469533", "Lead Name": "Tio Sam Pizza", "BD": "douglasaraujo", "BDM": "caioguijarro", "Status": "KP Found", "iFood Order Volume": 87, "Category Group": null, "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": null, "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": "Iniciar Relacionamento - Douglas visitar ate quarta june 17th", "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50479826", "Lead Name": "China Gourmet", "BD": "rafaelcaetano", "BDM": "caioguijarro", "Status": "Not Visited", "iFood Order Volume": 70, "Category Group": null, "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": "Main", "Is Must-Have": null, "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}, {"Lead ID": "50479217", "Lead Name": "Arô Temakeria Delivery São Vicente", "BD": "pedrorosanovaes", "BDM": "caioguijarro", "Status": "Not Visited", "iFood Order Volume": 97, "Category Group": null, "Sign Type": "High", "Zone": "Santos", "MultiOnboarding": null, "Is Must-Have": null, "Must-have": null, "Willing to sign": null, "KP Relationship": null, "Negotiation Stage": null, "Notes June 10th": null, "Proposal Info": null, "M6W2 Target": null, "Notes June 15th": null, "Notes June 18th": null, "99 offer": null, "CR of 99": null, "iFood Offer": null}];
+
+let currentLang = 'zh';
+
+const i18n = {
+  zh: {
+    title: '🎯 Santos X 作战平台',
+    subtitle: '战略商机管理 & 商家情报分析 | BDM: caioguijarro | 区域: Santos',
+    tab1: '📊 商机总览',
+    tab2: '🔍 商家经营分析',
+    alerts_title: '🚨 关键警报',
+    alerts_sub: '需要立即行动',
+    funnel_title: '📈 销售漏斗',
+    funnel_sub: '各阶段分布',
+    top10_title: '🏆 TOP 10 优先商户',
+    top10_sub: '加权评分模型排序',
+    audit_title: '⚠️ 信息缺失审计',
+    audit_sub: '关键跟踪字段缺失的商户',
+    reopen_title: '🔄 "不可能签约" — 可翻盘机会',
+    scoring_title: '📐 优先级评分方法论',
+    query_title: '🔍 商家查询',
+    profile_title: '🏪 商户画像',
+    overview_title: '📊 经营概览',
+    compete_title: '⚔️ 竞对分析',
+    finance_title: '💰 财务分析',
+    risk_title: '⚠️ 风险评估',
+    strategy_title: '🎯 作战建议',
+    tab3: '📝 客户盘点表',
+    roster_high_title: '🔴 高优先级 — Sign Type: High (42家商户)',
+    roster_summary_title: '📊 盘点汇总',
+    roster_high_count: '高优先级',
+    roster_normal_count: '中优先级',
+    roster_low_count: '低优先级',
+    roster_total: '表格总数',
+    footer: 'Santos X 平台 v1.0 | 生成日期 2026-06-19 | 数据来源: Santos High Merchants xtable + Keeta 起源数据集',
+    query_placeholder: '输入商户名或Lead ID (如 O Temakeiro, 50253171)',
+    query_btn: '查询',
+    competitor_placeholder: '在此粘贴竞对合同条件 (99/iFood 合同条款)...',
+    not_found_title: '未找到商户',
+    not_found_desc: '尝试用商户名或Lead ID搜索',
+  },
+  en: {
+    title: '🎯 Santos X Battle Platform',
+    subtitle: 'Strategic Pipeline Management & Merchant Intelligence | BDM: caioguijarro | Zone: Santos',
+    tab1: '📊 Pipeline Overview',
+    tab2: '🔍 Merchant Intelligence',
+    alerts_title: '🚨 Critical Alerts',
+    alerts_sub: 'Immediate Action Required',
+    funnel_title: '📈 Sales Funnel',
+    funnel_sub: 'Pipeline Stage Distribution',
+    top10_title: '🏆 TOP 10 Priority Merchants',
+    top10_sub: 'Weighted scoring model',
+    audit_title: '⚠️ Incomplete Data Audit',
+    audit_sub: 'Merchants missing critical tracking fields',
+    reopen_title: '🔄 "Impossible to Sign" — Reopenable Opportunities',
+    scoring_title: '📐 Priority Scoring Methodology',
+    query_title: '🔍 Merchant Query',
+    profile_title: '🏪 Merchant Profile',
+    overview_title: '📊 Business Overview',
+    compete_title: '⚔️ Competitive Analysis',
+    finance_title: '💰 Financial Projections',
+    risk_title: '⚠️ Risk Assessment',
+    strategy_title: '🎯 Recommended Strategy',
+    tab3: '📝 Client Roster',
+    roster_high_title: '🔴 High Priority — Sign Type: High (42 merchants)',
+    roster_summary_title: '📊 Roster Summary',
+    roster_high_count: 'High Priority',
+    roster_normal_count: 'Normal Priority',
+    roster_low_count: 'Low Priority',
+    roster_total: 'Total in Table',
+    footer: 'Santos X Platform v1.0 | Generated 2026-06-19 | Data source: Santos High Merchants xtable + Keeta Origin Dataset',
+    query_placeholder: 'Enter merchant name or Lead ID (e.g. O Temakeiro, 50253171)',
+    query_btn: 'Query',
+    competitor_placeholder: 'Paste competitor offer details here (99/iFood contract terms)...',
+    not_found_title: 'Merchant Not Found',
+    not_found_desc: 'Try searching by merchant name or Lead ID',
+  },
+  pt: {
+    title: '🎯 Santos X Plataforma de Batalha',
+    subtitle: 'Gestão Estratégica de Pipeline & Inteligência de Lojistas | BDM: caioguijarro | Zona: Santos',
+    tab1: '📊 Visão Geral do Pipeline',
+    tab2: '🔍 Inteligência de Lojistas',
+    alerts_title: '🚨 Alertas Críticos',
+    alerts_sub: 'Ação Imediata Necessária',
+    funnel_title: '📈 Funil de Vendas',
+    funnel_sub: 'Distribuição por Estágio',
+    top10_title: '🏆 TOP 10 Lojistas Prioritários',
+    top10_sub: 'Modelo de pontuação ponderada',
+    audit_title: '⚠️ Auditoria de Dados Incompletos',
+    audit_sub: 'Lojistas com campos críticos faltando',
+    reopen_title: '🔄 "Impossível Assinar" — Oportunidades Reabertas',
+    scoring_title: '📐 Metodologia de Pontuação',
+    query_title: '🔍 Consulta de Lojista',
+    profile_title: '🏪 Perfil do Lojista',
+    overview_title: '📊 Visão Geral do Negócio',
+    compete_title: '⚔️ Análise Competitiva',
+    finance_title: '💰 Projeções Financeiras',
+    risk_title: '⚠️ Avaliação de Riscos',
+    strategy_title: '🎯 Estratégia Recomendada',
+    tab3: '📝 Cadastro de Clientes',
+    roster_high_title: '🔴 Alta Prioridade — Sign Type: High (42 lojistas)',
+    roster_summary_title: '📊 Resumo do Cadastro',
+    roster_high_count: 'Alta Prioridade',
+    roster_normal_count: 'Prioridade Normal',
+    roster_low_count: 'Baixa Prioridade',
+    roster_total: 'Total na Tabela',
+    footer: 'Santos X Plataforma v1.0 | Gerado 2026-06-19 | Fonte: Santos High Merchants xtable + Keeta Origin Dataset',
+    query_placeholder: 'Digite o nome do lojista ou Lead ID (ex: O Temakeiro, 50253171)',
+    query_btn: 'Consultar',
+    competitor_placeholder: 'Cole os detalhes da oferta do concorrente aqui (termos de contrato 99/iFood)...',
+    not_found_title: 'Lojista Não Encontrado',
+    not_found_desc: 'Tente buscar pelo nome do lojista ou Lead ID',
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lang-' + lang).classList.add('active');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (i18n[lang][key]) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = i18n[lang][key];
+      } else {
+        el.innerHTML = i18n[lang][key];
+      }
+    }
+  });
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  const idx = tabId === 'tab1' ? 0 : tabId === 'tab2' ? 1 : 2;
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+}
+
+// Scoring helpers for Tab 2
+function getStatusScore(status) {
+  const map = { 'Contract Signed': 100, 'Proposal Accepted': 95, 'Launched': 90, 'Contract Approved': 80, 'Proposal Formulated': 65, 'Proposal Requested': 50, 'KP Found': 35, 'Not Visited': 20, 'Yellow Exclusivity': 30, 'Impossible to Sign': 10 };
+  return map[status] || 20;
+}
+function getKPScore(kp) { return kp === 'Hot' ? 85 : kp === 'Neutral' ? 50 : kp === 'Cold' ? 20 : 30; }
+function getVolumeScore(vol) { const v = vol || 0; return Math.min(100, Math.round(v / 3)); }
+function getStrategicScore(mh) { return mh === 'Yes' || mh === 'YES' ? 80 : mh === 'No' || mh === 'NO' ? 40 : 50; }
+function getCompRiskScore(has99) { return has99 ? 70 : 30; }
+
+function generateRadar(m) {
+  const scores = [
+    getVolumeScore(m['iFood Order Volume']),
+    getStatusScore(m['Status']),
+    getKPScore(m['KP Relationship']),
+    getStrategicScore(m['Is Must-Have'] || m['Must-have']),
+    getCompRiskScore(!!m['99 offer'])
+  ];
+  const labels = ['Volume Potential', 'Signing Readiness', 'KP Relationship', 'Strategic Value', 'Competitive Risk'];
+  const maxR = 150;
+  const angles = [ -Math.PI/2, -Math.PI/2 + 2*Math.PI/5, -Math.PI/2 + 4*Math.PI/5, -Math.PI/2 + 6*Math.PI/5, -Math.PI/2 + 8*Math.PI/5 ];
+  const points = scores.map((s, i) => {
+    const r = (s / 100) * maxR;
+    const x = Math.round(Math.cos(angles[i]) * r);
+    const y = Math.round(Math.sin(angles[i]) * r);
+    return `${x},${y}`;
+  }).join(' ');
+  const labelPos = labels.map((l, i) => {
+    const r = maxR + 25;
+    const x = Math.round(Math.cos(angles[i]) * r);
+    const y = Math.round(Math.sin(angles[i]) * r);
+    return `<text x="${200+x}" y="${180+y}" text-anchor="middle" font-size="11" font-weight="600">${l} (${scores[i]})</text>`;
+  }).join('');
+  return `<svg viewBox="0 0 400 380" width="400" height="380" style="max-width:100%;"><g transform="translate(200,180)"><polygon points="0,-150 142,-46 88,121 -88,121 -142,-46" fill="none" stroke="#e5e7eb" stroke-width="1"/><polygon points="0,-112 107,-35 66,91 -66,91 -107,-35" fill="none" stroke="#e5e7eb" stroke-width="1"/><polygon points="0,-75 71,-23 44,60 -44,60 -71,-23" fill="none" stroke="#e5e7eb" stroke-width="1"/><polygon points="0,-37 36,-12 22,30 -22,30 -36,-12" fill="none" stroke="#e5e7eb" stroke-width="1"/><line x1="0" y1="0" x2="0" y2="-150" stroke="#e5e7eb" stroke-width="1"/><line x1="0" y1="0" x2="142" y2="-46" stroke="#e5e7eb" stroke-width="1"/><line x1="0" y1="0" x2="88" y2="121" stroke="#e5e7eb" stroke-width="1"/><line x1="0" y1="0" x2="-88" y2="121" stroke="#e5e7eb" stroke-width="1"/><line x1="0" y1="0" x2="-142" y2="-46" stroke="#e5e7eb" stroke-width="1"/><polygon points="${points}" fill="rgba(26,115,232,0.2)" stroke="var(--primary)" stroke-width="2.5"/></g>${labelPos}</svg>`;
+}
+
+function queryMerchant() {
+  const input = document.getElementById('merchantInput').value.trim().toLowerCase();
+  const notFound = document.getElementById('not-found');
+  const dynamic = document.getElementById('dynamic-report');
+  const demo = document.getElementById('demo-report');
+  if (!input) { notFound.classList.remove('active'); dynamic.innerHTML = ''; dynamic.classList.remove('active'); demo.style.display = 'block'; return; }
+  const m = MERCHANTS_DATA.find(x => {
+    const name = (x['Lead Name'] || '').toLowerCase();
+    const id = String(x['Lead ID'] || '').toLowerCase();
+    return name.includes(input) || id === input;
+  });
+  if (!m) { notFound.classList.add('active'); dynamic.classList.remove('active'); demo.style.display = 'none'; return; }
+  notFound.classList.remove('active');
+  demo.style.display = 'none';
+  const vol = m['iFood Order Volume'] || '?';
+  const status = m['Status'] || 'Unknown';
+  const stage = m['Negotiation Stage'] || '-';
+  const kp = m['KP Relationship'] || 'Unknown';
+  const willing = m['Willing to sign'] || 'Unknown';
+  const bd = m['BD'] || 'Unassigned';
+  const cat = m['Category Group'] || 'Unknown';
+  const notes = m['Notes June 18th'] || m['Notes June 15th'] || m['Notes June 10th'] || 'No recent notes';
+  const offer99 = m['99 offer'] ? 'R$' + m['99 offer'] : 'None';
+  const mh = m['Is Must-Have'] || m['Must-have'] || 'Unknown';
+  const kpBadge = kp === 'Hot' ? 'badge-hot' : kp === 'Neutral' ? 'badge-neutral' : kp === 'Cold' ? 'badge-cold' : '';
+  const statusColor = status === 'Contract Signed' || status === 'Proposal Accepted' || status === 'Launched' ? 'var(--success)' : status === 'Impossible to Sign' ? 'var(--danger)' : 'var(--primary)';
+  const aov = vol !== '?' ? Math.round((vol * 65 + 1000) / 100) * 5 : 65;
+  const gmv = vol !== '?' ? Math.round(vol * aov * 30) : '?';
+  const radar = generateRadar(m);
+  dynamic.innerHTML = `
+    <div class="card">
+      <h2>🏪 ${m['Lead Name']} — Merchant Profile</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));gap:16px;margin:16px 0;">
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">Lead ID</div><div style="font-weight:600;font-size:15px;">${m['Lead ID']}</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">Status</div><div style="font-weight:600;font-size:15px;color:${statusColor};">${status}</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">iFood Volume</div><div style="font-weight:600;font-size:15px;">${vol} orders/day</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">BD</div><div style="font-weight:600;font-size:15px;">${bd}</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">KP</div><div style="font-weight:600;font-size:15px;"><span class="badge ${kpBadge}">${kp}</span></div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">Willing to Sign</div><div style="font-weight:600;font-size:15px;">${willing}</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">Stage</div><div style="font-weight:600;font-size:15px;">${stage}</div></div>
+        <div style="background:var(--bg);padding:12px 16px;border-radius:6px;"><div style="font-size:11px;color:var(--text-secondary);text-transform:uppercase;">Must-Have</div><div style="font-weight:600;font-size:15px;">${mh}</div></div>
+      </div>
+      <blockquote class="alert-info"><strong>Latest Update:</strong> ${notes}</blockquote>
+      ${m['99 offer'] ? '<blockquote class="alert-danger"><strong>99 Offer:</strong> R$' + m['99 offer'] + (m['CR of 99'] ? ' | CR: ' + m['CR of 99'] : '') + '</blockquote>' : ''}
+      <div style="text-align:center;margin:20px 0;">${radar}</div>
+    </div>
+    <div class="card">
+      <h2>📊 Business Overview</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Metric</th><th>Value</th><th>Assessment</th></tr></thead>
+          <tbody>
+            <tr><td>Daily Orders (iFood)</td><td><strong>${vol}</strong></td><td>${vol !== '?' && vol > 80 ? '<span class="badge badge-success">High volume</span>' : vol !== '?' && vol > 40 ? '<span class="badge badge-normal">Medium</span>' : '<span class="badge badge-warning">Low volume</span>'}</td></tr>
+            <tr><td>Est. AOV</td><td><strong>R$${aov}</strong></td><td><span class="badge badge-normal">Estimated</span></td></tr>
+            <tr><td>Est. Monthly GMV</td><td><strong>R$${gmv !== '?' ? gmv.toLocaleString() : '?'}</strong></td><td>${gmv !== '?' && gmv > 200000 ? '<span class="badge badge-success">High value</span>' : '<span class="badge badge-normal">Standard</span>'}</td></tr>
+            <tr><td>Category</td><td><strong>${cat}</strong></td><td></td></tr>
+            <tr><td>99 Offer</td><td><strong>${offer99}</strong></td><td>${m['99 offer'] ? '<span class="badge badge-warning">Competition active</span>' : '<span class="badge badge-success">No known offer</span>'}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>⚠️ Risk Assessment</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Risk Factor</th><th>Level</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>Competition (99)</td><td>${m['99 offer'] ? '<span class="badge badge-danger">High</span>' : '<span class="badge badge-success">Low</span>'}</td><td>${m['99 offer'] ? 'Active 99 offer: R$' + m['99 offer'] : 'No known 99 offer'}</td></tr>
+            <tr><td>KP Relationship</td><td>${kp === 'Hot' ? '<span class="badge badge-success">Good</span>' : kp === 'Neutral' ? '<span class="badge badge-warning">Medium</span>' : '<span class="badge badge-danger">Weak</span>'}</td><td>KP is ${kp}</td></tr>
+            <tr><td>Signing Status</td><td>${status === 'Contract Signed' || status === 'Proposal Accepted' ? '<span class="badge badge-success">Won</span>' : status === 'Impossible to Sign' ? '<span class="badge badge-danger">Lost</span>' : '<span class="badge badge-warning">In Progress</span>'}</td><td>${status}</td></tr>
+            <tr><td>Data Completeness</td><td>${m['Willing to sign'] && m['KP Relationship'] && m['Negotiation Stage'] ? '<span class="badge badge-success">Complete</span>' : '<span class="badge badge-warning">Incomplete</span>'}</td><td>${m['Willing to sign'] && m['KP Relationship'] && m['Negotiation Stage'] ? 'All key fields tracked' : 'Missing key tracking fields'}</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <h2>🎯 Recommended Actions</h2>
+      <ol class="strategy-list">
+        <li>${status === 'Impossible to Sign' ? '<strong>Re-engagement strategy:</strong> Identify new KP or revisit with different value proposition' : status === 'Contract Approved' ? '<strong>Close the deal:</strong> Contract is approved - push for immediate signing before competitor intervenes' : status === 'Proposal Formulated' ? '<strong>Present proposal:</strong> Schedule meeting with KP to present and negotiate terms' : '<strong>Accelerate pipeline:</strong> Move to next stage - ' + (status === 'KP Found' ? 'request proposal from merchant' : 'schedule KP meeting')}</li>
+        <li>${m['99 offer'] ? '<strong>Counter 99 offer:</strong> Match or exceed R$' + m['99 offer'] + ' with better commission terms and non-exclusivity' : '<strong>Preemptive strike:</strong> Present competitive offer before 99 approaches'}</li>
+        <li>${kp === 'Hot' ? '<strong>Leverage KP relationship:</strong> KP is Hot - use personal connection to close deal quickly' : kp === 'Cold' ? '<strong>Warm up KP:</strong> Invest in relationship building before pushing for proposal' : '<strong>Strengthen KP bond:</strong> Build trust through regular touchpoints'}</li>
+        <li><strong>Data discipline:</strong> Update Notes daily and fill all missing fields (Willing to Sign, KP Relationship, Negotiation Stage)</li>
+      </ol>
+    </div>
+  `;
+  dynamic.classList.add('active');
+}
+
+// Tab 3 Filter Logic
+function applyFilters() {
+  const search = document.getElementById('rosterSearch').value.toLowerCase();
+  const status = document.getElementById('filterStatus').value;
+  const bd = document.getElementById('filterBD').value;
+  const kp = document.getElementById('filterKP').value;
+  const stage = document.getElementById('filterStage').value;
+  const willing = document.getElementById('filterWilling').value;
+  const sort = document.getElementById('filterSort').value;
+  const rows = Array.from(document.querySelectorAll('#rosterBody tr'));
+  let visible = 0;
+  rows.forEach(row => {
+    const matchSearch = !search || row.dataset.name.includes(search) || row.textContent.toLowerCase().includes(search);
+    const matchStatus = status === 'All' || row.dataset.status === status;
+    const matchBD = bd === 'All' || row.dataset.bd === bd;
+    const matchKP = kp === 'All' || row.dataset.kp === kp;
+    const matchStage = stage === 'All' || row.dataset.stage === stage;
+    const matchWilling = willing === 'All' || row.dataset.willing === willing;
+    const show = matchSearch && matchStatus && matchBD && matchKP && matchStage && matchWilling;
+    row.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('rosterNoResults').style.display = visible === 0 ? 'block' : 'none';
+  document.getElementById('statHigh').textContent = visible;
+  // Sort visible rows
+  const tbody = document.getElementById('rosterBody');
+  const visibleRows = rows.filter(r => r.style.display !== 'none');
+  visibleRows.sort((a, b) => {
+    if (sort === 'volDesc') return parseInt(b.dataset.volume) - parseInt(a.dataset.volume);
+    if (sort === 'volAsc') return parseInt(a.dataset.volume) - parseInt(b.dataset.volume);
+    if (sort === 'name') return a.dataset.name.localeCompare(b.dataset.name);
+    if (sort === 'status') return a.dataset.status.localeCompare(b.dataset.status);
+    return 0;
+  });
+  visibleRows.forEach(r => tbody.appendChild(r));
+  // Re-number
+  visibleRows.forEach((r, i) => { r.cells[0].textContent = i + 1; });
+}
+
+// Init
+setLang('zh');
+</script>
+</body>
+</html>

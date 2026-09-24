@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DBR Daily Report</title>
+<style>
+:root { --bg:#0f172a; --card:#1e293b; --text:#e2e8f0; --muted:#94a3b8; --green:#22c55e; --yellow:#eab308; --red:#ef4444; --blue:#3b82f6; --cyan:#06b6d4; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding: 24px; max-width: 780px; margin: 0 auto; }
+.header { text-align: center; margin-bottom: 20px; }
+.header h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+.header .subtitle { color: var(--muted); font-size: 0.8rem; }
+.kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+.kpi-card { background: var(--card); border-radius: 12px; padding: 16px; text-align: center; }
+.kpi-card .label { color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+.kpi-card .value { font-size: 1.5rem; font-weight: 700; margin-bottom: 2px; }
+.kpi-card .sub { font-size: 0.75rem; color: var(--muted); }
+.section { background: var(--card); border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.section h2 { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.section h2::before { content: ''; display: inline-block; width: 4px; height: 14px; background: var(--blue); border-radius: 2px; }
+.metric-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid #334155; }
+.metric-row:last-child { border-bottom: none; }
+.metric-label { color: var(--muted); font-size: 0.82rem; }
+.metric-value { font-weight: 600; font-size: 0.9rem; }
+.region-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.region-card { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; text-align: center; }
+.region-card .name { font-size: 0.72rem; color: var(--muted); margin-bottom: 3px; }
+.region-card .orders { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+.region-card .gmv { font-size: 0.72rem; color: var(--muted); }
+.footer { text-align: center; color: var(--muted); font-size: 0.68rem; margin-top: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>📊 SP Metropolitan Region DBR</h1>
+  <div class="subtitle">Data Date: 2026-08-15 (Sat) BRT | Report Date: 2026-08-16 (Sun) BRT | Generated: 2026-08-16 Beijing</div>
+</div>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="label">Metro Total Orders</div>
+    <div class="value" style="color:var(--green)">92,893</div>
+    <div class="sub">Top 61,492 | Mid 24,004 | Must 7,397</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs</div>
+    <div class="value" style="color:var(--cyan)">0</div>
+    <div class="sub">Top 0 | Mid 0 | Must 0</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">WoW Orders</div>
+    <div class="value" style="color:var(--red)">-58</div>
+    <div class="sub">-0.1% vs 2026-08-08</div>
+  </div>
+  <div class="kpi-card">
+    <div class="label">New Signs MTD</div>
+    <div class="value" style="color:var(--cyan)">106</div>
+    <div class="sub">Aug 1-15 (Top 69 | Mid 19 | Must 18)</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📈 10-Day Orders Trend</h2>
+  <div class="metric-row"><span class="metric-label">2026-08-06 (Thu)</span><span class="metric-value">60,061</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-07 (Fri)</span><span class="metric-value">93,924</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-08 (Sat)</span><span class="metric-value">92,951</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-09 (Sun)</span><span class="metric-value">73,233</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-10 (Mon)</span><span class="metric-value">46,416</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-11 (Tue)</span><span class="metric-value">47,701</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-12 (Wed)</span><span class="metric-value">48,745</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-13 (Thu)</span><span class="metric-value">52,947</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-14 (Fri)</span><span class="metric-value">90,079</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-15 (Sat)</span><span class="metric-value" style="color:var(--green)"><strong>92,893</strong></span></div>
+</div>
+
+<div class="section">
+  <h2>📝 New Signs Trend</h2>
+  <div class="metric-row"><span class="metric-label">2026-08-10 (Mon)</span><span class="metric-value">11 (Top 3 | Mid 6 | Must 2)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-11 (Tue)</span><span class="metric-value">15 (Top 12 | Mid 1 | Must 2)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-12 (Wed)</span><span class="metric-value">18 (Top 14 | Mid 2 | Must 2)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-13 (Thu)</span><span class="metric-value">19 (Top 12 | Mid 2 | Must 5)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-14 (Fri)</span><span class="metric-value">11 (Top 6 | Mid 2 | Must 3)</span></div>
+  <div class="metric-row"><span class="metric-label">2026-08-15 (Sat)</span><span class="metric-value" style="color:var(--green)"><strong>0 (Top 0 | Mid 0 | Must 0)</strong></span></div>
+</div>
+
+<div class="section">
+  <h2>📊 Region Breakdown (2026-08-15)</h2>
+  <div class="region-grid">
+    <div class="region-card">
+      <div class="name">Northeast São Paulo Metropolitan</div>
+      <div class="orders">49,721</div>
+      <div class="gmv">GMV: R$2,402,234</div>
+    </div>
+    <div class="region-card">
+      <div class="name">Santos City</div>
+      <div class="orders">8,913</div>
+      <div class="gmv">GMV: R$453,339</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📉 User Experience</h2>
+  <div class="metric-row">
+    <span class="metric-label">Cancellation Rate (2026-08-15)</span>
+    <span class="metric-value" style="color:var(--red)">0.90%</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Driver CR</span>
+    <span class="metric-value">0.45%</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">Restaurant CR</span>
+    <span class="metric-value">0.74%</span>
+  </div>
+  <div class="metric-row">
+    <span class="metric-label">WoW CR Change</span>
+    <span class="metric-value" style="color:var(--red)">+0.13%pp vs 2026-08-14</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔑 Key Insights</h2>
+  <div style="color:var(--muted);font-size:0.82rem;line-height:1.55;">
+    <p>• Metro Total orders: <strong style="color:var(--text)">92,893</strong> (-0.1% vs 2026-08-08 Sat, +3.1% vs 2026-08-14 Fri)</p>
+    <p>• Saturday performance remained strong at ~93K, consistent with last Saturday (92,951)</p>
+    <p>• New signs: <strong style="color:var(--text)">0</strong> on Sat (MTD 106) — weekend sign-ups typically lower</p>
+    <p>• Cancellation rate: 0.90% (+0.13%pp vs Friday), still within healthy range</p>
+    <p>• Northeast São Paulo Metropolitan: 49,721 orders (54% of metro total)</p>
+    <p>• Santos City: 8,913 orders (10% of metro total)</p>
+  </div>
+</div>
+
+<div class="footer">
+  SP Metropolitan Region DBR | Data Source: BI 300001446 | Generated via CDP DOM extraction
+</div>
+</body>
+</html>
